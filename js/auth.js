@@ -427,12 +427,9 @@
      * that knows what is actually connected. */
     wallSmallPrint: function () {
       if (isFile()) {
-        return 'You have opened this from a file on your own machine, so nothing can be sent. ' +
-          'Your address stays on this device and the road opens straight away.';
+        return 'Opened from a file, so nothing can be sent. Your address stays on this device.';
       }
-      return 'We will only ever use this to send you a sign-in link and, at most, one message a week. ' +
-        'Open the link on this device and your progress moves onto the account — nothing you have ' +
-        'already solved is lost. The road opens straight away either way.';
+      return 'A sign-in link, and at most one message a week. Nothing already solved is lost.';
     }
   };
 

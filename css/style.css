@@ -73,9 +73,42 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
 @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
 /* --------------------------------------------------------------- path --- */
-.hero { padding: 6px 2px 20px; }
+.hero { padding: 6px 2px 14px; }
 .hero h1 { font-size: 25px; line-height: 1.2; }
-.hero p { margin: 8px 0 0; color: var(--muted); font-size: 14.5px; }
+.hero p { margin: 7px 0 0; color: var(--muted); font-size: 14.5px; }
+
+/* ------------------------------------------------------ the daily strip ---
+ * The goal ring earns its place on the road itself, not only in the header:
+ * how far today has got, and the streak that is riding on it. */
+.today {
+  display: flex; align-items: center; gap: 11px;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 14px; padding: 10px 13px; margin-bottom: 18px;
+}
+.today-ring { flex: 0 0 auto; color: var(--accent); }
+.today.met .today-ring { color: var(--good); }
+.today-text { flex: 1; min-width: 0; line-height: 1.25; }
+.today-text b { display: block; font-size: 13.5px; font-weight: 700; }
+.today-text span { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.today-streak {
+  display: inline-flex; align-items: center; gap: 5px; flex: 0 0 auto;
+  padding: 6px 11px 6px 9px; border-radius: 999px;
+  background: var(--panel-2); border: 1px solid var(--line);
+  font-size: 14px; font-weight: 800; color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.today-streak.live {
+  color: var(--gold); border-color: rgba(210, 153, 34, .45);
+  background: rgba(210, 153, 34, .1);
+}
+/* a streak that is alive flickers like the thing it is */
+.today-streak.live svg { animation: flicker 2.9s ease-in-out infinite; transform-origin: 50% 80%; }
+@keyframes flicker {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  40%      { transform: scale(1.13); opacity: .82; }
+  70%      { transform: scale(.96); opacity: 1; }
+}
+.today-streak.cold { font-size: 11.5px; font-weight: 700; letter-spacing: .02em; }
 
 .unit { margin-bottom: 6px; }
 .unit-head {
@@ -102,6 +135,38 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
 .unit-crowns svg { opacity: .8; }
 .unit-head h2 { font-size: 18.5px; margin-top: 5px; }
 .unit-head p { margin: 4px 0 0; color: var(--muted); font-size: 13.5px; }
+
+/* crowns as a bar, so "how much of this unit is mine" reads without counting */
+.unit-bar {
+  position: relative; height: 6px; margin-top: 11px; border-radius: 999px;
+  background: rgba(0, 0, 0, .3); overflow: hidden;
+}
+.unit-bar i {
+  position: absolute; inset: 0; transform-origin: 0 50%; border-radius: 999px;
+  background: var(--unit);
+  transition: transform .7s cubic-bezier(.2, .8, .2, 1);
+}
+.unit-head.complete .unit-bar i { background: linear-gradient(90deg, var(--unit), #ffd76a); }
+.unit-done {
+  display: inline-flex; align-items: center; gap: 5px; margin-top: 9px;
+  padding: 3px 10px 3px 8px; border-radius: 999px;
+  background: color-mix(in srgb, var(--unit) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--unit) 55%, transparent);
+  color: var(--unit); font-size: 11.5px; font-weight: 800; letter-spacing: .07em;
+}
+/* the milestone: finishing a whole unit is bigger than finishing a lesson, so
+ * the banner itself gets a one-off sweep of light when the last node falls */
+.unit-head.clearing::after {
+  content: ''; position: absolute; inset: 0; border-radius: 16px; pointer-events: none;
+  background: linear-gradient(100deg, transparent 34%,
+              color-mix(in srgb, var(--unit) 45%, transparent) 50%, transparent 66%);
+  animation: unit-sweep .95s cubic-bezier(.3, .7, .3, 1) both;
+}
+@keyframes unit-sweep {
+  from { transform: translateX(-100%); opacity: 0; }
+  22%  { opacity: 1; }
+  to   { transform: translateX(100%); opacity: 0; }
+}
 .unit-locked {
   display: inline-flex; align-items: center; gap: 5px; margin-top: 9px;
   padding: 3px 9px 3px 7px; border-radius: 999px;
@@ -127,6 +192,33 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
   opacity: 0; pointer-events: none;
 }
 
+/* AMBIENT: a bead of the unit's colour drifting along the road, for ever, from
+ * the moment the page loads. It is a clipped strip with one band inside it, so
+ * the only thing that moves is one transform on one element per segment — no
+ * layout, no per-frame DOM, and it is running before anybody has done anything.
+ * Locked units never get one: dormant, not dead. */
+.seg-flow {
+  position: absolute; left: 0; right: 0; top: -8px; height: 8px;
+  overflow: hidden; pointer-events: none;
+}
+/* a locked unit still has a pulse, at a third of the brightness: dormant, not
+ * dead, and never bright enough to advertise a door that is shut */
+.seg-flow.faint { opacity: .3; }
+.seg-flow::after {
+  content: ''; position: absolute; left: 0; top: 0; width: 34%; height: 8px;
+  border-top: 8px dotted var(--unit);
+  /* a NEGATIVE delay, set per segment in js: the bead is already halfway down
+   * the road on the very first frame, so a cold load is never a still picture */
+  animation: seg-flow 4.2s linear infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes seg-flow {
+  0%   { transform: translateX(-110%); opacity: 0; }
+  18%  { opacity: .7; }
+  76%  { opacity: .7; }
+  100% { transform: translateX(320%); opacity: 0; }
+}
+
 .node-holder { position: absolute; width: 156px; transform: translateX(-50%); text-align: center; }
 .node {
   position: relative; width: 74px; height: 74px; border-radius: 50%; margin: 0 auto;
@@ -150,6 +242,10 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
 .node.done .node-face { color: var(--unit); }
 .node.locked .node-face { color: var(--dim); }
 .node.locked .ring-bg { fill: var(--panel); stroke: var(--line); }
+/* NEXT: the one straight after the node you are on. Not open, but plainly the
+ * way onwards — it keeps its number and a hint of the unit's colour. */
+.node.next .node-face { color: color-mix(in srgb, var(--unit) 55%, var(--muted)); }
+.node.next .ring-bg { stroke: color-mix(in srgb, var(--unit) 40%, var(--line)); }
 .node.current {
   animation: bob 2.6s ease-in-out infinite;
   box-shadow: 0 0 0 7px color-mix(in srgb, var(--unit) 10%, transparent),
@@ -157,6 +253,35 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
 }
 .node:active { transform: scale(.94); }
 @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+/* AMBIENT: the halo the current node throws off, continuously. One pseudo
+ * element, transform + opacity, no JS and no timer — this is what a visitor who
+ * does nothing at all sees within a second of the page appearing. */
+.node.current::before {
+  content: ''; position: absolute; inset: -5px; border-radius: 50%;
+  border: 2.5px solid var(--unit); pointer-events: none; opacity: 0;
+  animation: halo 2.6s cubic-bezier(.25, .6, .3, 1) infinite;
+}
+@keyframes halo {
+  0%   { transform: scale(.84); opacity: 0; }
+  16%  { opacity: .6; }
+  100% { transform: scale(1.62); opacity: 0; }
+}
+/* AMBIENT: locked nodes breathe, very slowly and very slightly. Dormant reads
+ * as "not yet"; perfectly still reads as "broken". */
+.node.locked, .node.next {
+  animation: dormant 6.4s ease-in-out infinite;
+  animation-delay: var(--sleep, 0s);
+}
+@keyframes dormant {
+  0%, 100% { opacity: .62; }
+  50%      { opacity: .88; }
+}
+.node.next { animation-name: dormant-next; }
+@keyframes dormant-next {
+  0%, 100% { opacity: .78; }
+  50%      { opacity: 1; }
+}
 
 /* ------------------------------------------------------- the level-up ---
  * Played once on the road, straight after a lesson: the finished node stamps
@@ -234,13 +359,36 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
 .node-title { display: block; font-size: 13px; font-weight: 700; }
 .node-sub { display: block; font-size: 11.5px; color: var(--muted); margin-top: 1px; }
 .node.locked + .node-label .node-title { color: var(--muted); }
+.node.next + .node-label .node-sub { color: color-mix(in srgb, var(--unit) 60%, var(--muted)); font-weight: 700; }
+
+/* the road visibly carries on past the last thing that exists yet, so there is
+ * always somewhere to be going */
+.road-more { text-align: center; padding: 4px 0 30px; }
+.road-more .tail {
+  display: block; width: 0; height: 46px; margin: 0 auto 10px;
+  border-left: 8px dotted #2b333f;
+}
+.road-more .ghost {
+  width: 54px; height: 54px; margin: 0 auto; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--panel); border: 2px dashed #2f3846;
+  color: var(--dim); font-size: 20px; font-weight: 800; letter-spacing: .06em;
+  animation: dormant 6.4s ease-in-out infinite;
+}
+.road-more p { margin: 9px 0 0; color: var(--dim); font-size: 11.5px; letter-spacing: .04em; }
 
 .start-bubble {
   position: absolute; left: 50%; top: -28px; transform: translateX(-50%);
   background: var(--unit); color: #08101c;
   font-size: 10.5px; font-weight: 800; letter-spacing: .09em;
   padding: 4px 9px; border-radius: 6px; white-space: nowrap;
-  animation: bob 2.6s ease-in-out infinite;
+  /* its OWN keyframes, not the node's: `bob` sets transform outright, which
+   * would drop the translateX(-50%) that centres this over the node */
+  animation: bob-x 2.6s ease-in-out infinite;
+}
+@keyframes bob-x {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, -5px); }
 }
 .start-bubble::after {
   content: ''; position: absolute; left: 50%; bottom: -5px; transform: translateX(-50%);
@@ -273,7 +421,9 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
 .lib-badge.big { font-size: 11.5px; padding: 5px 12px; }
 .lib-badge.plain { color: var(--muted); background: var(--panel-2); border-color: var(--line); }
 .lib-blurb { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
-.lib-meta { color: var(--dim); font-size: 11.5px; margin-top: 8px; }
+/* the free-road promise is the one thing on this card a stranger must read, so
+ * it is not grey-on-grey small print */
+.lib-meta { color: var(--muted); font-size: 12px; margin-top: 8px; }
 .lib-open {
   display: block; margin-top: 10px; color: var(--gold);
   font-size: 12px; font-weight: 700; letter-spacing: .01em;

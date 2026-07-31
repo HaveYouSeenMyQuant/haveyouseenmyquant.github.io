@@ -94,6 +94,30 @@
     ring.style.strokeDasharray = circ.toFixed(1);
     ring.style.strokeDashoffset = (circ * (1 - pct)).toFixed(1);
     $('#goalChip').classList.toggle('done', pct >= 1);
+    renderToday(pct, todayXp, goal, streak);
+  }
+
+  /* The same goal, on the road, where the decision to play one more is made.
+   * The header chip is a status line; this is the thing that says how close. */
+  function renderToday(pct, todayXp, goal, streak) {
+    var strip = $('#todayStrip');
+    if (!strip) return;
+    var circ = 2 * Math.PI * 18;
+    var ring = $('#todayRingFill');
+    ring.style.strokeDasharray = circ.toFixed(1);
+    ring.style.strokeDashoffset = (circ * (1 - pct)).toFixed(1);
+    var met = pct >= 1;
+    strip.classList.toggle('met', met);
+    $('#todayHead').textContent = met ? 'Goal met today' : 'Daily goal';
+    $('#todaySub').textContent = met
+      ? 'Come back tomorrow to keep it'
+      : (goal - todayXp) + ' XP to go · one lesson';
+    var flame = $('#todayStreak');
+    flame.className = 'today-streak' + (streak > 0 ? ' live' : ' cold');
+    flame.innerHTML = streak > 0
+      ? svgIcon(ICON_FLAME, 15) + '<span>' + streak + '</span>'
+      : svgIcon(ICON_FLAME, 13) + '<span>no streak</span>';
+    flame.title = streak > 0 ? streak + ' days in a row' : 'play today to start a streak';
   }
 
   /* The footer line is the only place the road says anything about accounts, and
@@ -109,15 +133,14 @@
        * line would claim "saved" while a lesson is sitting in localStorage
        * waiting for the network. */
       var where = (st && (st.dirty || st.state === 'offline' || st.state === 'error'))
-          ? 'saved on this device — syncing when the network is back'
-        : (st && st.lastPush) ? 'progress saved to your account'
-        : 'progress saving to your account…';
-      line.textContent = 'signed in as ' + (user && user.email ? user.email : 'your account') +
-        ' · ' + where + ' · v2';
+          ? 'syncing when the network is back'
+        : (st && st.lastPush) ? 'saved to your account'
+        : 'saving to your account…';
+      line.textContent = (user && user.email ? user.email : 'signed in') + ' · ' + where + ' · v2';
     } else if (user) {
-      line.textContent = 'your progress stays on this device · open the sign-in link in your email to attach it to your account · v2';
+      line.textContent = 'saved on this device · open your sign-in link to attach it · v2';
     } else {
-      line.textContent = 'your progress stays on this device · anonymous usage counts are recorded · v2';
+      line.textContent = 'progress saved on this device · v2';
     }
   }
 
@@ -131,7 +154,7 @@
   /* The road itself: one dotted segment between each pair of nodes, positioned
    * in px against the track's centre line so nothing has to be measured after
    * layout. Solid once both ends are behind you, faint while they are ahead. */
-  function connector(track, x0, y0, x1, y1, lit, fromId) {
+  function connector(track, x0, y0, x1, y1, lit, fromId, alive, order) {
     var dx = x1 - x0, dy = y1 - y0;
     var len = Math.sqrt(dx * dx + dy * dy);
     var ang = Math.atan2(dy, dx) * 180 / Math.PI;
@@ -141,6 +164,14 @@
     seg.style.top = ((y0 + y1) / 2).toFixed(1) + 'px';
     seg.style.transform = 'translate(-50%, -50%) rotate(' + ang.toFixed(2) + 'deg)';
     if (fromId) seg.dataset.from = fromId;
+    /* The ambient drift, built with the road and running from the first frame.
+     * One element per segment, one transform, staggered so the road reads as
+     * flowing in one direction rather than blinking on and off together. */
+    if (alive) {
+      var flow = el('i', 'seg-flow' + (alive === 'faint' ? ' faint' : ''));
+      flow.style.setProperty('--d', (order * -0.62).toFixed(2) + 's');
+      seg.appendChild(flow);
+    }
     /* The ink the level-up draws forward. It is built here, with the road, at
      * scaleX(0) — so the celebration only ever adds a class, and never makes a
      * node while frames are being counted. The local +x axis of the segment
@@ -153,14 +184,21 @@
     var host = $('#pathHost');
     host.innerHTML = '';
     var cur = currentLesson();
+    /* The node right after the one you are on. It is still shut, but it is the
+     * way onwards and must not look like the far end of the road. */
+    var upNext = cur ? nextLessonAfter(cur.lesson.id) : null;
+    var upNextId = (upNext && upNext.lock === 'sequence') ? upNext.lesson.id : null;
+    var sleepN = 0;
 
     D.units.forEach(function (unit) {
       var section = el('section', 'unit');
+      section.dataset.unit = unit.id;
       section.style.setProperty('--unit', unit.colour);
       var locked = !unit.free && !QQAuth.hasAccess();
+      var unitDone = QQStore.unitComplete(unit);
 
       // ---- unit banner
-      var head = el('div', 'unit-head' + (locked ? ' dim' : ''));
+      var head = el('div', 'unit-head' + (locked ? ' dim' : '') + (unitDone ? ' complete' : ''));
       var kick = el('div', 'unit-kicker');
       kick.appendChild(el('span', 'unit-n', 'Unit ' + unit.index));
       var crowns = QQStore.unitCrowns(unit);
@@ -171,10 +209,22 @@
       head.appendChild(kick);
       head.appendChild(el('h2', null, unit.title));
       head.appendChild(el('p', null, unit.subtitle));
+
+      // crowns as a bar: progress towards the next reward, without counting
+      var bar = el('div', 'unit-bar');
+      var fill = el('i');
+      fill.style.transform = 'scaleX(' + (maxCrowns ? crowns / maxCrowns : 0).toFixed(3) + ')';
+      bar.appendChild(fill);
+      head.appendChild(bar);
+
       if (locked) {
         var badge = el('div', 'unit-locked');
-        badge.innerHTML = svgIcon(ICON_LOCK, 13) + ' <span>an email unlocks this</span>';
+        badge.innerHTML = svgIcon(ICON_LOCK, 13) + ' <span>email to unlock</span>';
         head.appendChild(badge);
+      } else if (unitDone) {
+        var doneBadge = el('div', 'unit-done');
+        doneBadge.innerHTML = svgIcon(ICON_TICK, 12) + ' <span>UNIT COMPLETE</span>';
+        head.appendChild(doneBadge);
       }
       section.appendChild(head);
 
@@ -190,14 +240,15 @@
         connector(track,
           Math.sin(s * Math.PI / 2) * 58, s * GAP + NODE / 2,
           Math.sin((s + 1) * Math.PI / 2) * 58, (s + 1) * GAP + NODE / 2,
-          doneBoth, unit.lessons[s].id);
+          doneBoth, unit.lessons[s].id, locked ? 'faint' : true, s);
       }
 
       unit.lessons.forEach(function (lesson, i) {
         var st = QQStore.lessonState(lesson.id);
         var lock = lessonLock(unit, lesson, i);
         var done = st.crowns > 0;
-        var state = done ? 'done' : (lock ? 'locked' : 'open');
+        var isNext = !done && lesson.id === upNextId;
+        var state = done ? 'done' : (isNext ? 'next' : (lock ? 'locked' : 'open'));
         var isCurrent = cur && cur.lesson.id === lesson.id && !done;
 
         var holder = el('div', 'node-holder');
@@ -209,6 +260,10 @@
 
         var btn = el('button', 'node ' + state + (isCurrent ? ' current' : ''));
         btn.type = 'button';
+        // the dormant breath, offset per node so the road does not blink in unison
+        if (state === 'locked' || state === 'next') {
+          btn.style.setProperty('--sleep', (-(sleepN++ % 5) * 1.3).toFixed(1) + 's');
+        }
         btn.setAttribute('aria-label', lesson.title + (lock ? ' (locked)' : ''));
 
         // the ring is a crown counter: one arc per crown earned here
@@ -244,8 +299,9 @@
         var lab = el('div', 'node-label');
         lab.appendChild(el('span', 'node-title', lesson.title));
         var sub = el('span', 'node-sub');
-        if (state === 'locked') sub.textContent = lock === 'email' ? 'email to unlock' : 'finish the one before';
-        else if (done) sub.textContent = st.crowns + ' of ' + QQStore.MAX_CROWNS + ' crowns';
+        if (state === 'next') sub.textContent = 'next up';
+        else if (state === 'locked') sub.textContent = lock === 'email' ? 'email to unlock' : 'locked';
+        else if (done) sub.textContent = st.crowns + '/' + QQStore.MAX_CROWNS + ' crowns';
         else sub.textContent = lesson.questions.length + ' questions';
         lab.appendChild(sub);
         holder.appendChild(lab);
@@ -258,6 +314,15 @@
       host.appendChild(section);
     });
 
+    /* The road does not stop where the writing stopped. A ghost node past the
+     * last unit says there is more coming, which is the difference between a
+     * finished list and a road you are partway along. */
+    var more = el('div', 'road-more');
+    more.appendChild(el('span', 'tail'));
+    more.appendChild(el('span', 'ghost', '···'));
+    more.appendChild(el('p', null, 'MORE BEING WRITTEN'));
+    host.appendChild(more);
+
     renderLibraries();
     renderHeader();
     renderAccountLine();
@@ -268,18 +333,18 @@
     if (pendingLevelUp && $('#screen-path').classList.contains('on')) {
       var p = pendingLevelUp;
       pendingLevelUp = null;
-      setTimeout(function () { playLevelUp(p.lessonId, p.nextLessonId); }, 90);
+      setTimeout(function () { playLevelUp(p.lessonId, p.nextLessonId, p.unitCleared); }, 90);
     }
   }
 
   /* Landing mid-road is the point: you should arrive already looking at the
    * thing you are meant to tap, not at a marketing page. */
-  function scrollToCurrent(smooth) {
-    var node = $('.node.current');
+  function scrollToNode(node, smooth) {
     if (!node) return;
     try { node.scrollIntoView({ block: 'center', behavior: smooth ? 'smooth' : 'auto' }); }
     catch (e) { node.scrollIntoView(); }
   }
+  function scrollToCurrent(smooth) { scrollToNode($('.node.current'), smooth); }
 
   // ======================================================================
   // the level-up — the road's own reward, played once, after a lesson
@@ -322,7 +387,7 @@
     done(skipped);
   }
 
-  function playLevelUp(doneId, nextId) {
+  function playLevelUp(doneId, nextId, clearedUnitId) {
     endLevelUp(false);                                   // never two at once
     var holder = $('.node-holder[data-lesson="' + doneId + '"]');
     if (!holder) return;
@@ -330,6 +395,7 @@
     var nextHolder = nextId ? $('.node-holder[data-lesson="' + nextId + '"]') : null;
     var nextNode = nextHolder ? nextHolder.querySelector('.node') : null;
     var segEl = nextId ? $('.road-seg[data-from="' + doneId + '"] .seg-ink') : null;
+    var unitHead = clearedUnitId ? $('.unit[data-unit="' + clearedUnitId + '"] .unit-head') : null;
     var reduced = reducedMotion();
     var sparks = null, ripple = null;
     levelUpTs = Date.now();
@@ -342,10 +408,14 @@
         nextNode.style.willChange = '';
       }
       if (segEl) segEl.classList.remove('draw');
+      if (unitHead) unitHead.classList.remove('clearing');
       if (sparks && sparks.parentNode) sparks.parentNode.removeChild(sparks);
       if (ripple && ripple.parentNode) ripple.parentNode.removeChild(ripple);
+      /* Wherever the travel got to, land on the node that is now live — the
+       * road has moved on and the screen has to agree with it. */
+      scrollToNode(nextNode || doneNode, false);
       QQA.track('level_up_played', {
-        lessonId: doneId, nextLessonId: nextId || null,
+        lessonId: doneId, nextLessonId: nextId || null, unitCleared: clearedUnitId || null,
         reduced: reduced, skipped: !!skipped, msShown: Date.now() - levelUpTs
       });
     }
@@ -382,11 +452,20 @@
     if (segEl) {
       levelUpTimers.push(setTimeout(function () { segEl.classList.add('draw'); }, 200));
     }
+    /* 4. the VIEW travels with the ink. Without this the whole thing happens in
+     * one static frame and reads as a node twitching; with it, the screen is
+     * plainly walking down the road to the next stop. The scroll is the
+     * browser's own smooth scroll — compositor work, not ours. */
     if (nextNode) {
       nextNode.style.willChange = 'transform';
+      levelUpTimers.push(setTimeout(function () { scrollToNode(nextNode, true); }, 260));
       levelUpTimers.push(setTimeout(function () { nextNode.classList.add('wake'); }, 700));
     }
-    levelUpTimers.push(setTimeout(function () { endLevelUp(false); }, 1150));
+    // 5. the milestone: a whole unit falling is bigger than a lesson falling
+    if (unitHead) {
+      levelUpTimers.push(setTimeout(function () { unitHead.classList.add('clearing'); }, 320));
+    }
+    levelUpTimers.push(setTimeout(function () { endLevelUp(false); }, unitHead ? 1400 : 1150));
   }
 
   // ======================================================================
@@ -416,8 +495,8 @@
       top.appendChild(libBadge(lib, false));
       card.appendChild(top);
       card.appendChild(el('div', 'lib-blurb', lib.blurb));
-      card.appendChild(el('div', 'lib-meta', 'separate library · the road stays free'));
-      card.appendChild(el('span', 'lib-open', 'See what is inside →'));
+      card.appendChild(el('div', 'lib-meta', 'the road stays free'));
+      card.appendChild(el('span', 'lib-open', 'See inside →'));
       card.addEventListener('click', function () { onLibraryTap(lib); });
       host.appendChild(card);
       QQA.track('library_viewed', { libraryId: lib.id, status: lib.status });
@@ -454,7 +533,7 @@
     $('#libFacts').innerHTML =
       
       '<div class="fact"><b>' + topics.length + '</b><span>topics</span></div>' +
-      '<div class="fact"><b>' + D.libraries.length + '</b><span>libraries in all</span></div>';
+      '<div class="fact"><b>' + D.libraries.length + '</b><span>libraries</span></div>';
 
     var tHost = $('#libTopics');
     tHost.innerHTML = '';
@@ -485,9 +564,9 @@
     $('#libPriceRow').hidden = !price;
     $('#libPrice').textContent = price;
     $('#libPriceSub').textContent = membership
-      ? 'one membership · opens every library · cancel any time'
-      : (soon ? 'one payment, when it opens · no subscription'
-              : 'one payment · yours for ever · no subscription');
+      ? 'one membership · every library'
+      : (soon ? 'one payment, when it opens'
+              : 'one payment · yours for ever');
 
     /* js/payments.js owns the checkout. If it brings its own panel, it gets the
      * whole block under the price and this screen stops having opinions about
@@ -508,9 +587,8 @@
       payHost.innerHTML = '';
       $('#libBuyBtn').hidden = false;
       $('#libHonest').hidden = false;
-      $('#libBuyBtn').textContent = soon ? 'Tell me when it opens' : 'Unlock for ' + price;
-      $('#libHonest').textContent = lib.honestly ||
-        'Payments are not connected yet. Nothing is charged and nothing opens.';
+      $('#libBuyBtn').textContent = soon ? 'Notify me' : 'Unlock for ' + price;
+      $('#libHonest').textContent = lib.honestly || 'Payments are not connected. Nothing is charged.';
     }
 
     go('library');
@@ -535,9 +613,9 @@
       QQA.track('library_interest', { libraryId: lib.id, stub: !!res.stub });
       if (res && res.ok) return;              // a real provider has taken the screen
       openSheet(lib.name,
-        '<p class="sheet-note">Payments are not connected yet, so <b>nothing was charged</b> and nothing opened. ' +
-        'Your interest is recorded — it is the signal that decides whether this library gets written next.</p>' +
-        '<p class="sheet-note">The road you are on stays free for ever. Paid sets are always separate libraries.</p>',
+        '<p class="sheet-note">Payments are not connected — <b>nothing was charged</b>. ' +
+        'Your interest is recorded, and it decides what gets written next.</p>' +
+        '<p class="sheet-note">The road stays free.</p>',
         'Got it');
     });
   }
@@ -563,7 +641,7 @@
     }
     if (lock === 'sequence') {
       QQA.track('locked_lesson_tapped', { unitId: unit.id, lessonId: lesson.id, reason: 'sequence' });
-      openSheet(lesson.title, '<p>Finish the lesson before this one first — the road goes in order.</p>', 'OK');
+      openSheet(lesson.title, '<p>The road goes in order. Finish the one before.</p>', 'OK');
       return;
     }
     startLesson(unit, lesson);
@@ -987,8 +1065,7 @@
     });
     if (play.viz && play.viz.destroy) { play.viz.destroy(); play.viz = null; }
     $('#heartsCopy').textContent =
-      'You got ' + play.cleared + ' of ' + play.total + ' before the hearts ran out. ' +
-      'Nothing is lost and nothing is locked — the hearts are only here to make you slow down and use the picture.';
+      play.cleared + ' of ' + play.total + ' before they ran out. Nothing is lost, nothing is locked.';
     go('hearts');
   }
 
@@ -1031,14 +1108,16 @@
     if (play.viz && play.viz.destroy) { play.viz.destroy(); play.viz = null; }
 
     // --- the celebration
-    $('#doneTitle').textContent = perfect ? 'Perfect lesson' : 'Lesson complete';
+    var unitCleared = res.firstEver && QQStore.unitComplete(unit);
+    $('#doneTitle').textContent = unitCleared ? ('Unit ' + unit.index + ' complete')
+      : (perfect ? 'Perfect lesson' : 'Lesson complete');
     var burst = $('#crownBurst');
     burst.innerHTML = svgIcon(ICON_CROWN, 44);
     burst.className = 'crown-burst' + (perfect ? ' perfect' : '');
     $('#xpLine').innerHTML = '<span class="xp-pill">+' + xpEarned + ' XP</span>';
     $('#doneStats').innerHTML =
-      '<div class="stat"><b>' + play.firstTry + '/' + play.total + '</b><span>right first go</span></div>' +
-      '<div class="stat"><b>' + res.crowns + '</b><span>crowns here</span></div>' +
+      '<div class="stat"><b>' + play.firstTry + '/' + play.total + '</b><span>first try</span></div>' +
+      '<div class="stat"><b>' + res.crowns + '</b><span>crowns</span></div>' +
       '<div class="stat"><b>' + QQStore.currentStreak() + '</b><span>day streak</span></div>';
 
     var pct = Math.min(1, xpRes.today / D.dailyGoalXp);
@@ -1047,8 +1126,8 @@
       '<div class="goal-head"><span>Daily goal</span><span>' + Math.min(xpRes.today, D.dailyGoalXp) + ' / ' + D.dailyGoalXp + ' XP</span></div>' +
       '<div class="goal-bar"><div class="goal-fill" style="width:' + (pct * 100).toFixed(0) + '%"></div></div>' +
       '<div class="goal-note">' + (metGoal
-        ? 'Goal met for today. Come back tomorrow and the streak goes to ' + (QQStore.currentStreak() + 1) + '.'
-        : (D.dailyGoalXp - xpRes.today) + ' XP to go — about one more lesson.') + '</div>';
+        ? 'Goal met. Tomorrow makes it ' + (QQStore.currentStreak() + 1) + ' days.'
+        : (D.dailyGoalXp - xpRes.today) + ' XP to go — one more lesson.') + '</div>';
 
     doneNext = nextLessonAfter(lv.id);
 
@@ -1057,17 +1136,18 @@
      * to go somewhere it will not take you yet. */
     pendingLevelUp = {
       lessonId: lv.id,
-      nextLessonId: (doneNext && !doneNext.lock) ? doneNext.lesson.id : null
+      nextLessonId: (doneNext && !doneNext.lock) ? doneNext.lesson.id : null,
+      unitCleared: (res.firstEver && QQStore.unitComplete(unit)) ? unit.id : null
     };
 
     if (!doneNext) {
-      $('#doneNext').textContent = 'That is the end of the road so far. More is being written.';
+      $('#doneNext').textContent = 'End of the road, for now. More is being written.';
       $('#doneNextBtn').textContent = 'Back to the road';
     } else if (doneNext.lock === 'email') {
-      $('#doneNext').textContent = 'Next up: ' + doneNext.unit.title + ' — ' + doneNext.lesson.title;
-      $('#doneNextBtn').textContent = 'Unlock the next unit';
+      $('#doneNext').textContent = 'Next: ' + doneNext.unit.title;
+      $('#doneNextBtn').textContent = 'Unlock unit ' + doneNext.unit.index;
     } else {
-      $('#doneNext').textContent = 'Next up: ' + doneNext.lesson.title;
+      $('#doneNext').textContent = 'Next: ' + doneNext.lesson.title;
       $('#doneNextBtn').textContent = 'Keep going';
     }
 
@@ -1159,25 +1239,21 @@
     $('#wallStreak').hidden = !soft;
 
     if (soft) {
-      $('#wallTitle').textContent = 'Keep the streak you just started';
+      $('#wallTitle').textContent = 'Keep your streak';
       $('#wallStreak').innerHTML =
         '<div class="cell hot"><b>' + streak + '</b><span>day streak</span></div>' +
         '<div class="cell"><b>' + xp + '</b><span>XP</span></div>' +
         '<div class="cell"><b>' + QQStore.solvedCount() + '</b><span>solved</span></div>';
       $('#wallCopy').textContent =
-        'One lesson down, ' + xp + ' XP on the board, and a streak that starts today. All of it lives ' +
-        'in this browser and nowhere else — clear your history, or pick up your other phone, and it is ' +
-        'gone. An email keeps the streak and the progress attached to you instead. Unit one stays free ' +
-        'either way, and you can carry straight on without one.';
+        xp + ' XP, and it lives in this browser only. An email keeps it. Unit 1 stays free either way.';
       $('#wallSubmit').textContent = 'Keep my streak';
-      $('#wallBack').textContent = 'Not now — keep playing';
+      $('#wallBack').textContent = 'Not now';
     } else {
       $('#wallTitle').textContent = 'Unit ' + wallFor.index + ' needs an email';
       $('#wallStreak').innerHTML = '';
       $('#wallCopy').textContent =
-        'Unit one is free for everyone, for ever — you have just played it with no account at all. ' +
-        'From unit two on, an email keeps your streak, your crowns and your XP attached to you rather than to this browser.';
-      $('#wallSubmit').textContent = 'Unlock the rest of the road';
+        'Unit 1 is free for ever, no account. From unit 2, an email keeps your XP and crowns.';
+      $('#wallSubmit').textContent = 'Unlock the road';
       $('#wallBack').textContent = 'Not now';
     }
 
@@ -1185,7 +1261,7 @@
      * is actually connected. The soft ask only prefixes it, so that "the road
      * opens either way" cannot be read as "something here is shut". */
     $('#wallSmall').innerHTML =
-      (soft ? 'Nothing is locked by this — unit one is yours either way. ' : '') +
+      (soft ? 'Nothing is locked — unit 1 is yours either way. ' : '') +
       QQAuth.wallSmallPrint();
     $('#wallForm').hidden = false;
     $('#wallAfter').hidden = true;
@@ -1256,12 +1332,10 @@
       $('#wallAfter').hidden = false;
       $('#wallAfterBack').textContent = (soft && afterSoftWall) ? 'Carry on' : 'Back to the road';
       $('#wallAfterCopy').innerHTML = res.mode === 'magic-link'
-        ? (soft
-            ? 'A one-time sign-in link is on its way to that address. Open it on this device and your streak, your XP and everything you solve moves onto the account — nothing here is lost, and it will be waiting on your other devices too. The rest of the road is open now as well.'
-            : 'A one-time sign-in link is on its way to that address. Open it on this device and everything you have already solved moves onto the account — nothing is lost, and it will be waiting on your other devices too. The rest of the road is already open.')
-        : (soft
-            ? 'Saved on this device. We could not reach the sign-in service just now, so no link was sent — ask again from here when you are back online and this progress will attach itself to the account. Your streak and XP are safe here in the meantime.'
-            : 'Saved on this device, and the rest of the road is open. We could not reach the sign-in service just now, so no link was sent — ask again from here when you are back online and this progress will attach itself to the account.');
+        ? 'A sign-in link is on its way. Open it on this device and everything here moves onto the account.' +
+          (soft ? '' : ' The road is open already.')
+        : 'Saved on this device. We could not reach the sign-in service, so no link was sent — ask again when you are back online.' +
+          (soft ? '' : ' The road is open either way.');
       renderPath();
     });
   }
@@ -1288,6 +1362,10 @@
     global.scrollTo(0, 0);
     QQA.track('screen_viewed', { screen: screen });
     if (screen === 'path') {
+      /* If a level-up is waiting, arrive looking at the node you just BEAT, not
+       * at the one you are about to unlock — the whole point of the animation is
+       * that the view then travels forward to it. */
+      var focusId = pendingLevelUp ? pendingLevelUp.lessonId : null;
       renderPath();
       QQA.track('path_viewed', {
         units: D.units.length,
@@ -1296,7 +1374,10 @@
         xp: QQStore.totalXp(), streak: QQStore.currentStreak(), hasEmail: QQStore.hasEmail(),
         signedIn: QQAuth.isSignedIn()
       });
-      setTimeout(function () { scrollToCurrent(false); }, 40);
+      setTimeout(function () {
+        var beaten = focusId && $('.node-holder[data-lesson="' + focusId + '"] .node');
+        if (beaten) scrollToNode(beaten, false); else scrollToCurrent(false);
+      }, 40);
     }
   }
 
@@ -1368,9 +1449,8 @@
         if (arrived) {
           var who = QQAuth.currentUser();
           openSheet('Signed in',
-            '<p>You are signed in as <b>' + (who && who.email ? who.email : 'your account') + '</b>.</p>' +
-            '<p class="sheet-note">Everything you had already solved on this device has been kept and ' +
-            'attached to the account, and it will be waiting on any other device you sign in on.</p>',
+            '<p>Signed in as <b>' + (who && who.email ? who.email : 'your account') + '</b>.</p>' +
+            '<p class="sheet-note">Everything you had solved is kept, and waiting on your other devices.</p>',
             'Back to the road');
           QQA.track('signin_link_opened', { via: arrived, solvedTotal: QQStore.solvedCount() });
         }
@@ -1380,10 +1460,9 @@
         /* They clicked a link and it did not work. Say so, rather than showing a
          * signed-out road with no explanation. */
         var e = QQAuth.lastError();
-        openSheet('That link did not sign you in',
-          '<p>The sign-in link was expired or had already been used — they are one-time and short-lived.</p>' +
-          '<p class="sheet-note">Nothing is lost: your progress is still here on this device. Ask for a ' +
-          'fresh link from the wall when you want to attach it to an account.</p>',
+        openSheet('That link did not work',
+          '<p>It had expired or been used already — they are one-time.</p>' +
+          '<p class="sheet-note">Nothing is lost. Your progress is still here; ask for a fresh link when you want it.</p>',
           'OK');
         QQA.track('signin_link_failed', { via: arrived, error: e ? e.error : 'unknown' });
       }

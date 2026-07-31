@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
 <title>have you seen my quant — the road</title>
-<meta name="description" content="A road of short lessons in probability, maths and the interview classics. Every question is drawn, not written. The first unit is free, no account needed.">
+<meta name="description" content="Short lessons in probability and maths, every question drawn rather than written. Unit 1 is free, no account.">
 <meta name="theme-color" content="#0d1117">
-<link rel="stylesheet" href="css/style.css?v=e5336d6">
+<link rel="stylesheet" href="css/style.css?v=bed85d1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d1117'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%2358a6ff' stroke-width='3'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -39,18 +39,33 @@
   <section class="screen on" id="screen-path">
     <div class="hero" id="hero">
       <h1>One question at a time.</h1>
-      <p>Probability, maths and the interview classics — every one of them drawn, not written. The first unit is open: no account, no email.</p>
+      <p>Drawn, not written. Unit 1 free — no account.</p>
+    </div>
+
+    <!-- The daily goal, doing real work on the road rather than only in the
+         header: how far today has got, and the streak it is protecting. -->
+    <div class="today" id="todayStrip">
+      <svg class="today-ring" viewBox="0 0 44 44" width="40" height="40" aria-hidden="true">
+        <circle cx="22" cy="22" r="18" class="ring-bg-2"/>
+        <circle cx="22" cy="22" r="18" id="todayRingFill" class="ring-fg-2"
+                transform="rotate(-90 22 22)"/>
+      </svg>
+      <div class="today-text">
+        <b id="todayHead">Daily goal</b>
+        <span id="todaySub">30 XP to go</span>
+      </div>
+      <div class="today-streak" id="todayStreak"></div>
     </div>
 
     <div id="pathHost" class="path"></div>
 
     <section class="libraries">
       <h2>Question libraries</h2>
-      <p class="lib-intro">Separate paid sets, off to the side. The road above is free and always will be.</p>
+      <p class="lib-intro">Paid sets, off to the side. The road stays free.</p>
       <div id="libraryList"></div>
     </section>
 
-    <p class="footer" id="footerLine">your progress stays on this device · anonymous usage counts are recorded · v2</p>
+    <p class="footer" id="footerLine">progress saved on this device · v2</p>
   </section>
 
   <!-- ============================= LESSON ============================= -->
@@ -86,7 +101,7 @@
       </div>
       <h2>Out of hearts</h2>
       <p class="mid-copy" id="heartsCopy"></p>
-      <button class="primary-btn" id="heartsRetry" type="button">Try this lesson again</button>
+      <button class="primary-btn" id="heartsRetry" type="button">Try again</button>
       <button class="ghost-btn" id="heartsBack" type="button">Back to the road</button>
     </div>
   </section>
@@ -123,7 +138,7 @@
         <input id="emailInput" type="email" inputmode="email" autocomplete="email"
                placeholder="you@example.com" aria-label="your email">
         <div class="wall-error" id="wallError"></div>
-        <button class="primary-btn" type="submit" id="wallSubmit">Unlock the rest of the road</button>
+        <button class="primary-btn" type="submit" id="wallSubmit">Unlock the road</button>
         <p class="wall-small" id="wallSmall"></p>
         <button class="ghost-btn" id="wallBack" type="button">Not now</button>
       </form>
@@ -143,7 +158,7 @@
     <div class="lib-detail">
       <button class="back-btn" id="libBack" type="button">
         <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>Back to the road</span>
+        <span>Back</span>
       </button>
 
       <div class="lib-hero">
@@ -154,10 +169,10 @@
 
       <div class="lib-facts" id="libFacts"></div>
 
-      <h3 class="lib-h3">What is inside</h3>
+      <h3 class="lib-h3">Inside</h3>
       <div class="lib-topics" id="libTopics"></div>
 
-      <h3 class="lib-h3">A taste of it</h3>
+      <h3 class="lib-h3">Samples</h3>
       <div class="lib-samples" id="libSamples"></div>
 
       <!-- The money block. js/payments.js is the ONLY module allowed to put a
@@ -208,17 +223,17 @@
   </div>
 </div>
 
-<script src="js/supabase-config.js?v=e5336d6"></script>
-<script src="js/analytics.js?v=e5336d6"></script>
-<script src="js/store.js?v=e5336d6"></script>
-<script src="js/auth.js?v=e5336d6"></script>
-<script src="js/sync.js?v=e5336d6"></script>
-<script src="js/payments.js?v=e5336d6"></script>
-<script src="js/questions.js?v=e5336d6"></script>
-<script src="js/viz.js?v=e5336d6"></script>
-<script src="js/viz_chance.js?v=e5336d6"></script>
-<script src="js/viz_stats.js?v=e5336d6"></script>
-<script src="js/viz_growth.js?v=e5336d6"></script>
-<script src="js/app.js?v=e5336d6"></script>
+<script src="js/supabase-config.js?v=bed85d1"></script>
+<script src="js/analytics.js?v=bed85d1"></script>
+<script src="js/store.js?v=bed85d1"></script>
+<script src="js/auth.js?v=bed85d1"></script>
+<script src="js/sync.js?v=bed85d1"></script>
+<script src="js/payments.js?v=bed85d1"></script>
+<script src="js/questions.js?v=bed85d1"></script>
+<script src="js/viz.js?v=bed85d1"></script>
+<script src="js/viz_chance.js?v=bed85d1"></script>
+<script src="js/viz_stats.js?v=bed85d1"></script>
+<script src="js/viz_growth.js?v=bed85d1"></script>
+<script src="js/app.js?v=bed85d1"></script>
 </body>
 </html>

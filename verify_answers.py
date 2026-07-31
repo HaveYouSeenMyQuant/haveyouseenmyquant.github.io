@@ -22,6 +22,7 @@ plus "value" (the canonical string) and "notes" (the working, shown under -v).
 main() decides which of those it needs by looking at q["type"].
 """
 
+import importlib
 import itertools
 import json
 import math
@@ -29,13 +30,29 @@ import os
 import random
 import re
 import sys
+import time
 from fractions import Fraction
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-QUESTIONS_JS = os.path.join(HERE, "js", "questions.js")
+"""The bank the site plays from. QQ_BANK points the harness at a candidate bank
+instead — how a new slice of questions gets checked before it is merged in."""
+QUESTIONS_JS = os.environ.get("QQ_BANK") or os.path.join(HERE, "js", "questions.js")
+CHECKS_DIR = os.path.join(HERE, "checks")
+if HERE not in sys.path:
+    sys.path.insert(0, HERE)
 
 VERBOSE = "-v" in sys.argv or "--verbose" in sys.argv
-random.seed(20260731)
+SERIAL = "-j1" in sys.argv or "--serial" in sys.argv
+ONLY = None
+for _a in sys.argv[1:]:
+    if _a.startswith("--only="):
+        ONLY = set(_a.split("=", 1)[1].split(","))
+
+"""Every question is seeded from its own id, so a Monte Carlo cross-check is
+reproducible on its own and does not depend on what ran before it. Override the
+run with QQ_SEED=<n> to prove no answer here is an accident of one seed."""
+SEED = os.environ.get("QQ_SEED", "20260731")
+random.seed(SEED)
 
 TYPES = ("choice", "truefalse", "number", "order", "tap")
 
@@ -51,13 +68,38 @@ def load_bank():
 
 
 def all_questions(bank):
-    """Every question in play order: units -> lessons -> questions."""
+    """Every question the site can put in front of anyone, in play order:
+    units -> lessons -> questions, and then every premium library set.
+
+    A paid question is checked exactly as hard as a free one. Someone who has
+    paid is the last person who should be shown a wrong answer."""
     out = []
     for unit in bank.get("units", []):
         for lesson in unit.get("lessons", []):
             for q in lesson.get("questions", []):
                 out.append((unit["id"], lesson["id"], q))
+    for lib in bank.get("libraries", []):
+        for q in lib.get("questions", []):
+            out.append((lib["id"], lib["id"], q))
     return out
+
+
+def load_extra_checkers(into):
+    """Pick up every checks/*.py module beside this file. Each one exports a
+    CHECKERS dict; a question id claimed twice is a failure, not a merge."""
+    if not os.path.isdir(CHECKS_DIR):
+        return
+    for name in sorted(os.listdir(CHECKS_DIR)):
+        if not name.endswith(".py") or name.startswith("_"):
+            continue
+        mod = importlib.import_module("checks." + name[:-3])
+        table = getattr(mod, "CHECKERS", None)
+        if not isinstance(table, dict):
+            raise SystemExit("checks/%s has no CHECKERS dict" % name)
+        for qid, fn in table.items():
+            if qid in into:
+                raise SystemExit("two checkers for %r (checks/%s)" % (qid, name))
+            into[qid] = fn
 
 
 # ---------------------------------------------------------------------------
@@ -1005,6 +1047,12 @@ CHECKERS = {
     "gradient_valley": check_gradient_valley,
 }
 
+"""Everything past unit 4 — and every premium set — lives in checks/*.py, one
+module per slice of the bank, merged in here at import time so the workers see
+the same table. Splitting the file changes nothing about the rule: a question
+with no checker fails the run."""
+load_extra_checkers(CHECKERS)
+
 
 # ---------------------------------------------------------------------------
 # assertions the harness makes, per type
@@ -1090,7 +1138,29 @@ def assert_derived(q, got):
     return shown
 
 
+def run_one(job):
+    """Check one question, in this process or a worker. Never raises: it
+    reports. Seeded from the question id so the result cannot depend on which
+    other questions ran first, or on how many cores this machine has."""
+    qid, q, data = job
+    random.seed("%s|%s" % (qid, SEED))
+    checker = CHECKERS.get(qid)
+    if checker is None:
+        return (qid, False, None, None,
+                "NO CHECKER — every question must be verified here")
+    try:
+        assert_shape(q)
+        got = checker(q, data)
+        shown = assert_derived(q, got)
+        return (qid, True, shown, got.get("notes", ""), None)
+    except AssertionError as e:
+        return (qid, False, None, None, str(e) or e.__class__.__name__)
+    except Exception as e:                      # a broken checker is a failure
+        return (qid, False, None, None, "%s: %s" % (e.__class__.__name__, e))
+
+
 def main():
+    started = time.time()
     bank = load_bank()
     rows = all_questions(bank)
     if not rows:
@@ -1100,29 +1170,51 @@ def main():
     failures = []
     seen_ids = {}
     by_type = {}
+    jobs, order = [], []
     for unit_id, lesson_id, q in rows:
         qid = q.get("id", "<no id>")
         by_type[q.get("type", "?")] = by_type.get(q.get("type", "?"), 0) + 1
         if qid in seen_ids:
             failures.append("%s: duplicate id (also in %s)" % (qid, seen_ids[qid]))
-            print("FAIL  %-18s duplicate id" % qid)
+            print("FAIL  %-22s duplicate id" % qid)
             continue
         seen_ids[qid] = lesson_id
-        checker = CHECKERS.get(qid)
-        if checker is None:
-            failures.append("%s: NO CHECKER — every question must be verified here" % qid)
-            print("FAIL  %-18s no checker" % qid)
+        if ONLY and qid not in ONLY:
             continue
+        jobs.append((qid, q, data))
+        order.append((qid, q))
+
+    """Checkers are independent by construction — each one derives one answer
+    and reseeds its own randomness — so they fan out across cores. One core is
+    a flag away when a traceback matters more than the wall clock."""
+    results = {}
+    if SERIAL or len(jobs) < 8:
+        for job in jobs:
+            r = run_one(job)
+            results[r[0]] = r
+    else:
         try:
-            assert_shape(q)
-            got = checker(q, data)
-            shown = assert_derived(q, got)
-            print("PASS  %-18s %-10s %s" % (qid, q["type"], shown))
+            from concurrent.futures import ProcessPoolExecutor
+            workers = min(os.cpu_count() or 4, 12)
+            with ProcessPoolExecutor(max_workers=workers) as pool:
+                for r in pool.map(run_one, jobs, chunksize=2):
+                    results[r[0]] = r
+        except Exception as e:                  # any pool trouble: just do it here
+            print("(parallel run unavailable: %s — falling back to one core)" % e)
+            results = {}
+            for job in jobs:
+                r = run_one(job)
+                results[r[0]] = r
+
+    for qid, q in order:
+        _, ok, shown, notes, err = results[qid]
+        if ok:
+            print("PASS  %-22s %-10s %s" % (qid, q["type"], shown))
             if VERBOSE:
-                print("        %s" % got["notes"])
-        except AssertionError as e:
-            failures.append("%s: %s" % (qid, e))
-            print("FAIL  %-18s %s" % (qid, e))
+                print("        %s" % notes)
+        else:
+            failures.append("%s: %s" % (qid, err))
+            print("FAIL  %-22s %s" % (qid, err))
 
     # every checker must correspond to a live question
     for qid in CHECKERS:
@@ -1134,13 +1226,19 @@ def main():
     unknown = sorted(t for t in by_type if t not in TYPES)
     if unknown:
         breakdown += ", " + ", ".join("%s %d (UNKNOWN)" % (t, by_type[t]) for t in unknown)
+    took = time.time() - started
     if failures:
         print("%d FAILURE(S) out of %d questions" % (len(failures), len(rows)))
         for f in failures:
             print("  - %s" % f)
         print("by type: %s" % breakdown)
         return 1
-    print("all %d questions verified — by type: %s" % (len(rows), breakdown))
+    free = sum(len(l.get("questions", []))
+               for u in bank.get("units", []) for l in u.get("lessons", []))
+    premium = sum(len(lib.get("questions", [])) for lib in bank.get("libraries", []))
+    print("all %d questions verified in %.1fs — %d on the road, %d in the "
+          "premium sets" % (len(rows), took, free, premium))
+    print("by type: %s" % breakdown)
     return 0
 
 
