@@ -416,7 +416,7 @@
       top.appendChild(libBadge(lib, false));
       card.appendChild(top);
       card.appendChild(el('div', 'lib-blurb', lib.blurb));
-      card.appendChild(el('div', 'lib-meta', lib.questionCount + ' questions · separate library · the road stays free'));
+      card.appendChild(el('div', 'lib-meta', 'separate library · the road stays free'));
       card.appendChild(el('span', 'lib-open', 'See what is inside →'));
       card.addEventListener('click', function () { onLibraryTap(lib); });
       host.appendChild(card);
@@ -452,7 +452,7 @@
     var samples = lib.samples || [];
 
     $('#libFacts').innerHTML =
-      '<div class="fact"><b>' + lib.questionCount + '</b><span>questions</span></div>' +
+      
       '<div class="fact"><b>' + topics.length + '</b><span>topics</span></div>' +
       '<div class="fact"><b>' + D.libraries.length + '</b><span>libraries in all</span></div>';
 
@@ -471,7 +471,7 @@
 
     var status = $('#libStatusBadge');
     status.className = 'lib-badge plain';
-    status.textContent = lib.questionCount + ' questions';
+    status.textContent = 'Premium';
 
     /* The price, and ONLY here. Whatever js/payments.js says it is: a per-set
      * price and a membership price are different sentences underneath, so the

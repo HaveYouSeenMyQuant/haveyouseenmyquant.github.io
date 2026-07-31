@@ -481,7 +481,7 @@ window.QQ_DATA = {
     {
       "id": "jane_street",
       "name": "Jane Street set",
-      "blurb": "40 questions in the style of the Jane Street interview: expectation, market making, mental maths under time.",
+      "blurb": "Questions in the style of the Jane Street interview: expectation, market making, mental maths under time.",
       "questionCount": 40,
       "priceUsd": null,
       "status": "locked",
