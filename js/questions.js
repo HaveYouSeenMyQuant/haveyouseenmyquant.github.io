@@ -22,7 +22,7 @@ window.QQ_DATA = {
       "id": "u1",
       "index": 1,
       "title": "Chance, first look",
-      "subtitle": "Counting what can happen — and what usually does.",
+      "subtitle": "What can happen, and how often.",
       "colour": "#58a6ff",
       "free": true,
       "lessons": [
@@ -154,7 +154,7 @@ window.QQ_DATA = {
       "id": "u2",
       "index": 2,
       "title": "Numbers that lie",
-      "subtitle": "Spread, samples, and the traps hiding inside honest data.",
+      "subtitle": "Traps hiding inside honest data.",
       "colour": "#d29922",
       "free": false,
       "lessons": [
@@ -278,7 +278,7 @@ window.QQ_DATA = {
       "id": "u3",
       "index": 3,
       "title": "Size, shape and growth",
-      "subtitle": "Everyday maths where the intuition is usually wrong.",
+      "subtitle": "Everyday maths, wrong intuitions.",
       "colour": "#a371f7",
       "free": false,
       "lessons": [
@@ -398,7 +398,7 @@ window.QQ_DATA = {
       "id": "u4",
       "index": 4,
       "title": "Bets and machines",
-      "subtitle": "Sizing a bet, reading a model, knowing when to stop.",
+      "subtitle": "Size the bet. Know when to stop.",
       "colour": "#f78166",
       "free": false,
       "lessons": [
@@ -481,7 +481,7 @@ window.QQ_DATA = {
     {
       "id": "jane_street",
       "name": "Jane Street set",
-      "blurb": "Questions in the style of the Jane Street interview: expectation, market making, mental maths under time.",
+      "blurb": "Expectation, market making, maths against the clock.",
       "questionCount": 40,
       "priceUsd": null,
       "status": "locked",
@@ -496,12 +496,12 @@ window.QQ_DATA = {
           "note": "Where raw expectation stops being the right question."
         }
       ],
-      "honestly": "Nothing is written yet and payments are not connected. Tapping the button charges nothing — it records that you want this one, and that is what decides which library gets written first."
+      "honestly": "Not written yet. Nothing is charged — this is a vote for it."
     },
     {
       "id": "optiver_speed",
       "name": "Optiver speed round",
-      "blurb": "The 80-in-8 arithmetic drill, plus the follow-up questions traders actually ask.",
+      "blurb": "The 80-in-8 drill, and the follow-ups.",
       "questionCount": 30,
       "priceUsd": null,
       "status": "soon",
@@ -516,7 +516,7 @@ window.QQ_DATA = {
           "note": "The question that comes straight after the arithmetic."
         }
       ],
-      "honestly": "Not written yet, and payments are not connected. Tapping the button charges nothing — it puts you on the list for this one."
+      "honestly": "Not written yet. Nothing is charged — this puts you on the list."
     }
   ],
   "vizData": {

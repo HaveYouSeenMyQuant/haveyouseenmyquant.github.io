@@ -857,9 +857,7 @@
         lib ? ('One membership opens ' + lib.name + ' and every other library.')
             : 'One membership opens every library.'));
       host.appendChild(line('pay-sub',
-        'The road stays free for ever, with or without this. The membership is for ' +
-        'the separate question sets off to the side, and it covers every one of ' +
-        'them — including the ones not built yet. Cancel any time on Gumroad.'));
+        'The road stays free either way. This is for the separate sets, including the ones not built yet. Cancel any time.'));
 
       // ---- not open yet ----------------------------------------------------
       /* Two shades of "not yet", and they need different words.
@@ -889,7 +887,7 @@
         }
 
         host.appendChild(msgBox('info',
-          'Not open yet. Your interest is recorded — it is the signal that decides which set gets made next.'));
+          'Not open yet. Your interest is recorded, and it decides what gets made next.'));
         return;
       }
 
@@ -926,7 +924,7 @@
       restore.className = 'pay-restore';
       restore.appendChild(line('pay-restore-title', 'Already a member?'));
       restore.appendChild(line('pay-restore-copy',
-        'Paste the licence key from your Gumroad receipt. This is also how you get it back on a new phone.'));
+        'Paste the licence key from your Gumroad receipt — also how you get it back on a new phone.'));
 
       var row = document.createElement('div');
       row.className = 'pay-row';
