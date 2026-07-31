@@ -22,10 +22,13 @@ window.sb = {
   // Fire-and-forget analytics. Never awaited by the UI and never allowed to
   // throw -- a learner mid-lesson must not notice that a beacon failed, and
   // unit 1 has to work with the network off.
-  event(name, props, sessionId) {
+  // `userId` is the auth user when there is a session (js/auth.js), so a signed-in
+  // player's events join to their row; null for the anonymous majority, which is
+  // most of the traffic and the whole point of unit 1.
+  event(name, props, sessionId, userId) {
     try {
       const body = JSON.stringify({
-        session_id: sessionId, name: name, props: props || {},
+        session_id: sessionId, user_id: userId || null, name: name, props: props || {},
       });
       const url = window.SUPABASE_CONFIG.url + "/rest/v1/events";
       fetch(url, {

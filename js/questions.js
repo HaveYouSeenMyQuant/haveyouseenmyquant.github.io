@@ -483,16 +483,40 @@ window.QQ_DATA = {
       "name": "Jane Street set",
       "blurb": "40 questions in the style of the Jane Street interview: expectation, market making, mental maths under time.",
       "questionCount": 40,
-      "priceUsd": 19,
-      "status": "locked"
+      "priceUsd": null,
+      "status": "locked",
+      "topics": ["Expectation", "Conditional probability", "Market making", "Fair value and edge", "Optimal stopping", "Mental arithmetic"],
+      "samples": [
+        {
+          "prompt": "Roll a fair die. You may keep the number, or reroll — up to three rolls in all. Play it well: what is the game worth?",
+          "note": "Optimal stopping, worked backwards from the last roll."
+        },
+        {
+          "prompt": "I flip a fair coin until it lands heads and pay you 2 to the power of the number of flips. What do you pay to play — and why is the answer not infinity?",
+          "note": "Where raw expectation stops being the right question."
+        }
+      ],
+      "honestly": "Nothing is written yet and payments are not connected. Tapping the button charges nothing — it records that you want this one, and that is what decides which library gets written first."
     },
     {
       "id": "optiver_speed",
       "name": "Optiver speed round",
       "blurb": "The 80-in-8 arithmetic drill, plus the follow-up questions traders actually ask.",
       "questionCount": 30,
-      "priceUsd": 19,
-      "status": "soon"
+      "priceUsd": null,
+      "status": "soon",
+      "topics": ["Mental arithmetic against a clock", "Percentages and fractions", "Estimation", "Reading a spread", "Trading the follow-up question"],
+      "samples": [
+        {
+          "prompt": "8 seconds each: 17 x 24. 6.5% of 820. 1/16 as a decimal.",
+          "note": "The drill itself, timed, one at a time."
+        },
+        {
+          "prompt": "A market is 41 bid at 46. You think fair value is 44. Do you buy, sell, or do nothing — and what is your edge if you are right?",
+          "note": "The question that comes straight after the arithmetic."
+        }
+      ],
+      "honestly": "Not written yet, and payments are not connected. Tapping the button charges nothing — it puts you on the list for this one."
     }
   ],
   "vizData": {

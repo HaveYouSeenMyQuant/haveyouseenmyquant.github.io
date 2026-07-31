@@ -16,7 +16,9 @@ site/
   js/app.js             path, lesson loop, hearts, XP, wall, libraries
   js/store.js           persistent player state (localStorage)
   js/analytics.js       every event, and the one sink seam
-  js/auth.js            the email seam
+  js/auth.js            the email seam + the Supabase session (magic-link return,
+                        storage, refresh, sign-out)
+  js/sync.js            the cloud mirror: pull, merge, push progress + profile
   js/payments.js        the money seam
   js/supabase-config.js project URL + publishable key + a tiny REST helper
   js/viz.js             canvas kit + 7 visuals
@@ -72,7 +74,19 @@ cannot write a genuine checker for it, cut the question.
 - Five question types: pick-the-answer, true/false, type-a-number, put-in-order,
   and tap-the-right-part-of-the-picture.
 - Unit 1 (9 questions) fully playable with **no login, no email, no network**.
-- The email wall after unit 1, which unlocks the rest of the road.
+- A level-up on the road after every lesson: the node you just beat stamps shut
+  with a tick, throws a few sparks in the unit's colour, inks the path forward
+  and wakes the next node. Under 1.2s, skippable with a tap, and a plain fade
+  under `prefers-reduced-motion`.
+- **Two email asks, and only one of them is a wall.** A *soft* prompt after the
+  **first lesson** — about keeping the streak and XP you have just started,
+  dismissible with "Not now", asked once per device ever, and it hands you back
+  to exactly what you were doing. The *hard* wall stays where it was, at unit 2.
+  Every event from that screen carries `wallKind` so the two never get pooled.
+- **Sign-in that survives.** Open the emailed link and the session is captured,
+  the tokens are scrubbed out of the URL, and it is restored (and refreshed) on
+  every later visit. Progress made before signing in is merged up, not thrown
+  away, and progress made on another device comes down.
 - Analytics: every funnel event goes to the live Supabase `events` table, and to a
   local ring buffer you can read in the browser with `?debug=1`.
 
@@ -80,10 +94,10 @@ cannot write a genuine checker for it, cut the question.
 
 | thing | state | what has to happen |
 |---|---|---|
-| **Email sign-in** | half real. `js/auth.js` calls Supabase `/auth/v1/otp`. If the provider accepts, the player is told a link is coming (`mode: magic-link`); if it refuses, the address is kept on the device and the player is told exactly that (`mode: local`). The road unlocks either way. | In the Supabase dashboard: **Authentication → Providers → Email** on; **Authentication → URL Configuration** → add `https://gaspardol.github.io/quant-road/` to the redirect allow-list; ideally set real SMTP, since the built-in sender is rate-limited to a handful an hour. |
-| **Accounts / cross-device progress** | not built. Progress lives in `localStorage` under `qq.state.v2`. `schema.sql` already has `profiles` and `progress` tables with RLS, but nothing writes to them yet. | Needs the above first. Then `QQAuth.currentUser()` returns a real session and `js/store.js` mirrors itself to `progress`, keyed by `auth.uid()`. |
+| **Email sign-in** | real, both directions. `js/auth.js` calls `/auth/v1/otp` to send the link, and handles the **return**: it reads the session out of the URL (fragment tokens, `?token_hash=`, or `?code=`), strips the credentials out of the address bar with `replaceState` before anything else runs, stores the session, restores it on later loads, and refreshes it with `grant_type=refresh_token`. A refresh the provider rejects degrades to signed-out rather than erroring. | Ideally real SMTP: the built-in sender is rate-limited to a handful an hour. Keep the redirect allow-list (**Authentication → URL Configuration**) in step with wherever the site is served from — a link that comes back to an address not on that list lands on the site URL instead. |
+| **Accounts / cross-device progress** | real. `js/sync.js` pulls `progress` + `profiles`, merges them into the local store, and pushes the result back. The merge takes the better of local and remote per question — solved beats unsolved, fewer attempts wins, XP earned since the last confirmed push is added rather than dropped — so a phone that played unit 1 anonymously and then signed in keeps everything, and so does an account opened on a new laptop. `localStorage` is still written first and the sync runs in the background; offline just means the push retries later. | Nothing. Hearts are the one thing not synced: they are per-lesson and refill every start, so `profiles.hearts` stays at its default until hearts become a real cross-session currency. |
 | **Payments** | stub. `QQPay.checkout()` records local interest and opens an honest sheet saying nothing was charged. | Create the payment processor account, do the identity/bank verification, create one product per library, paste the resulting public Payment Link into `js/payments.js`. Entitlement must then be decided server-side, not in that file — a browser can lie. |
-| **The paid libraries themselves** | named and priced, not written. | Decide from `library_clicked` which one to write first. |
+| **The paid libraries themselves** | named, not written. Each one has a detail screen — topics, question count, two sample questions — reached by tapping its card; that screen is the only place a price ever appears. | Decide from `library_buy_tapped / library_detail_viewed` which one to write first: that ratio is measured *after* the player has seen the price, which `library_clicked` no longer is. |
 | **Units 2–4 unlocking in order** | works, but note that the sequence rule means unit 3 needs unit 2 finished. | Nothing — this is deliberate. |
 
 **Three files, three seams.** `js/auth.js`, `js/payments.js` and
@@ -118,10 +132,16 @@ Pages serves every byte of this repo to the public. They belong in
 
 ## Design rules that are not negotiable
 
-- **Unit 1 free, for ever, with no account and no network.** The wall goes after
-  it, never before.
+- **Unit 1 free, for ever, with no account and no network.** The *wall* goes
+  after it, never before. An email may be **asked for** earlier — once, softly,
+  after the first lesson — but asking is not walling: if the player says "not
+  now" they carry on through the whole of unit 1 exactly as before. If a change
+  ever makes that "not now" cost them anything, the change is wrong.
 - **Money only ever buys a separate named library.** Nothing in `payments.js` can
   lock a road lesson; it does not even know lessons exist.
+- **No price on the road.** Wherever a library is merely listed it says PREMIUM
+  and nothing else. The number, what you get and the buy button live on that
+  library's own screen, which the player has to choose to open.
 - **Every question is drawn, not written.** Same instinct as the videos: animate
   the thing, don't write the formula.
 - **Mobile first, designed and tested at 390×844.** Everything reachable
