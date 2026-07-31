@@ -92,7 +92,12 @@
     props.anonId = e.anonId;
     props.visitNumber = e.visitNumber;
     props.msSinceLoad = e.msSinceLoad;
-    global.sb.event(e.name, props, e.sessionId);
+    /* The auth user id when there is a session, so a signed-in player's funnel
+     * joins to their profile. Guarded: analytics loads before auth and must keep
+     * working if that module is ever removed. */
+    var uid = null;
+    try { uid = (global.QQAuth && QQAuth.userId) ? QQAuth.userId() : null; } catch (err) { uid = null; }
+    global.sb.event(e.name, props, e.sessionId, uid);
     return true;
   }
 

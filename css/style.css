@@ -117,6 +117,15 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
   border-top: 8px dotted #3b4553;
 }
 .road-seg.lit { border-top-color: var(--unit); opacity: .6; }
+/* the ink is the level-up's travelling line. It exists on every segment from
+ * the moment the path is drawn, at scaleX(0) — so the celebration adds a class
+ * and never creates a node mid-flight. */
+.seg-ink {
+  position: absolute; left: 0; right: 0; top: -8px; height: 8px;
+  border-top: 8px dotted var(--unit);
+  transform: scaleX(0); transform-origin: 0 50%;
+  opacity: 0; pointer-events: none;
+}
 
 .node-holder { position: absolute; width: 156px; transform: translateX(-50%); text-align: center; }
 .node {
@@ -148,6 +157,75 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
 }
 .node:active { transform: scale(.94); }
 @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+/* ------------------------------------------------------- the level-up ---
+ * Played once on the road, straight after a lesson: the finished node stamps
+ * shut, a few sparks leave it, the road inks itself forward, and the next node
+ * wakes up. Under 1.2s end to end, and a tap anywhere cuts it short.
+ *
+ * Everything here moves transform and opacity only, on elements that already
+ * exist — the sparks are the sole exception and they are built once, before the
+ * first frame, then dropped. Nothing measures layout while it runs.
+ */
+.node.stamp { animation: stamp .44s cubic-bezier(.2, 1.5, .35, 1) both; }
+@keyframes stamp {
+  0%   { transform: scale(.62); }
+  52%  { transform: scale(1.17); }
+  76%  { transform: scale(.97); }
+  100% { transform: scale(1); }
+}
+.node.stamp .node-face { animation: stamp-face .34s .07s cubic-bezier(.2, 1.6, .35, 1) both; }
+@keyframes stamp-face {
+  from { transform: scale(.15) rotate(-26deg); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+.node-ripple {
+  position: absolute; inset: -4px; border-radius: 50%; pointer-events: none;
+  border: 3px solid var(--unit);
+  animation: ripple .66s cubic-bezier(.2, .7, .3, 1) both;
+}
+@keyframes ripple {
+  from { transform: scale(.72); opacity: .8; }
+  to   { transform: scale(2.2); opacity: 0; }
+}
+
+.sparks { position: absolute; left: 50%; top: 37px; width: 0; height: 0; pointer-events: none; z-index: 4; }
+.sparks i {
+  position: absolute; left: -4px; top: -4px; width: 8px; height: 8px;
+  border-radius: 2px; background: var(--unit); display: block;
+  animation: spark .6s cubic-bezier(.15, .75, .3, 1) both;
+}
+/* The fade carries the disappearance, not the scale: sparks that shrink to
+ * nothing on the easing curve are gone in 200ms and read as a flicker. They
+ * open up to full size just after leaving the node, which is what makes the
+ * burst legible at 8px on a phone. */
+@keyframes spark {
+  0%   { transform: translate(0, 0) scale(.35); opacity: 1; }
+  25%  { transform: translate(calc(var(--tx) * .34), calc(var(--ty) * .34)) scale(1); opacity: 1; }
+  55%  { opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(.55); opacity: 0; }
+}
+
+/* the road inking forward, then handing its light to the node it reaches */
+.seg-ink.draw { animation: draw .58s ease-out both; }
+@keyframes draw {
+  0%   { transform: scaleX(0); opacity: 0; }
+  14%  { opacity: .85; }
+  68%  { transform: scaleX(1); opacity: .85; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+
+.node.wake { animation: wake .42s cubic-bezier(.2, 1.5, .35, 1) both; }
+/* the bob only takes over once the pop has landed, or the two fight */
+.node.current.wake {
+  animation: wake .42s cubic-bezier(.2, 1.5, .35, 1) both,
+             bob 2.6s ease-in-out .42s infinite;
+}
+@keyframes wake {
+  0%   { transform: scale(.84); }
+  48%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
 
 .node-label {
   display: inline-block; max-width: 100%; margin: 5px 0 0; padding: 2px 8px;
@@ -183,12 +261,91 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
 .lib-card:hover { border-color: var(--gold); }
 .lib-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .lib-name { font-weight: 700; font-size: 15.5px; }
+/* PREMIUM, never a number. A price on a card nobody asked about reads as a
+ * paywall on the road; the number lives one tap deeper, on the detail screen. */
 .lib-badge {
-  font-size: 11.5px; font-weight: 800; color: var(--gold);
-  border: 1px solid rgba(210, 153, 34, .45); border-radius: 999px; padding: 2px 9px;
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
+  font-size: 10.5px; font-weight: 800; letter-spacing: .1em; color: var(--gold);
+  background: rgba(210, 153, 34, .12);
+  border: 1px solid rgba(210, 153, 34, .45); border-radius: 999px; padding: 3px 10px;
 }
+.lib-badge svg { opacity: .9; }
+.lib-badge.big { font-size: 11.5px; padding: 5px 12px; }
+.lib-badge.plain { color: var(--muted); background: var(--panel-2); border-color: var(--line); }
 .lib-blurb { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
 .lib-meta { color: var(--dim); font-size: 11.5px; margin-top: 8px; }
+.lib-open {
+  display: block; margin-top: 10px; color: var(--gold);
+  font-size: 12px; font-weight: 700; letter-spacing: .01em;
+}
+
+/* ------------------------------------------------ library detail view --- */
+.lib-detail { padding: 8px 0 30px; }
+.back-btn {
+  display: inline-flex; align-items: center; gap: 4px; margin: 0 0 16px -6px;
+  background: transparent; border: 0; color: var(--muted);
+  font-size: 13.5px; font-weight: 600; padding: 8px 6px;
+}
+.lib-hero h2 { font-size: 24px; line-height: 1.18; margin-top: 10px; }
+.lib-detail-blurb { color: var(--muted); font-size: 14.5px; margin: 10px 0 0; }
+.lib-facts { display: flex; gap: 8px; margin: 18px 0 22px; }
+.lib-facts .fact {
+  flex: 1; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 13px; padding: 11px 6px; text-align: center;
+}
+.lib-facts b { display: block; font-size: 19px; font-variant-numeric: tabular-nums; }
+.lib-facts span { display: block; font-size: 10.5px; color: var(--muted); margin-top: 2px; }
+.lib-h3 { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.lib-topics { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
+.lib-topic {
+  background: var(--panel-2); border: 1px solid var(--line); color: var(--fg);
+  border-radius: 999px; padding: 7px 12px; font-size: 12.5px; font-weight: 600;
+}
+.lib-samples { display: grid; gap: 10px; margin-bottom: 24px; }
+.lib-sample {
+  background: var(--panel); border: 1px solid var(--line);
+  border-left: 3px solid var(--gold); border-radius: 12px; padding: 13px 15px;
+}
+.lib-sample p { margin: 0; font-size: 14.5px; line-height: 1.45; font-weight: 600; }
+.lib-sample span { display: block; margin-top: 7px; font-size: 12px; color: var(--muted); font-weight: 500; }
+.lib-buy {
+  background: linear-gradient(180deg, rgba(210, 153, 34, .1), var(--panel));
+  border: 1px solid rgba(210, 153, 34, .35); border-radius: 16px; padding: 16px;
+}
+.lib-price-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.lib-price { font-size: 27px; font-weight: 800; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.lib-price-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.lib-buy .primary-btn { background: var(--gold); color: #1a1204; }
+.lib-honest { margin: 12px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+/* The panel js/payments.js mounts into #libPayHost. That module builds the
+ * markup, so these are its class names, not ours — keep them in step with it. */
+.pay-host { margin-top: 14px; }
+.pay-state-title { margin: 0 0 8px; font-size: 15px; font-weight: 800; }
+.pay-pitch { margin: 0 0 6px; font-size: 14.5px; font-weight: 600; }
+.pay-sub { margin: 0 0 14px; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.pay-msg { border-radius: 11px; padding: 11px 13px; margin: 10px 0 0; border: 1px solid var(--line); background: var(--panel-2); }
+.pay-msg p { margin: 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.pay-msg.ok { border-color: rgba(63, 185, 80, .45); }
+.pay-msg.warn { border-color: rgba(210, 153, 34, .45); }
+.pay-msg.err { border-color: rgba(248, 81, 73, .45); }
+.pay-link { display: inline-block; margin-top: 8px; color: var(--accent); font-size: 12.5px; font-weight: 700; }
+.pay-out:empty { display: none; }
+.pay-restore { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+.pay-restore-title { margin: 0 0 4px; font-size: 13px; font-weight: 800; }
+.pay-restore-copy { margin: 0 0 10px; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.pay-row { display: flex; gap: 8px; }
+.pay-input {
+  flex: 1; min-width: 0; padding: 12px; border-radius: 11px; color: var(--fg);
+  background: var(--panel); border: 1.5px solid var(--line);
+  font-family: ui-monospace, Menlo, monospace; font-size: 12.5px;
+}
+.pay-input:focus { outline: none; border-color: var(--accent); }
+.pay-go {
+  flex: 0 0 auto; min-height: 44px; padding: 0 16px; border-radius: 11px;
+  background: var(--panel-2); border: 1px solid var(--line); color: var(--fg);
+  font-size: 14px; font-weight: 700;
+}
 
 .footer {
   margin: 26px 0 0; text-align: center; color: var(--dim);
@@ -459,6 +616,25 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
 .wall-small { color: var(--muted); font-size: 12px; opacity: .85; margin: 12px 0 0; text-align: left; line-height: 1.5; }
 .wall-small code, .wall-copy code { color: var(--muted); }
 
+/* the soft ask, after the first lesson. Nothing is locked here, so nothing on
+ * it may look like a lock: no padlock, no "unlock", and a way out that is a
+ * real button rather than small grey print. */
+.wall-wrap.soft .wall-lock {
+  color: var(--accent);
+  background: rgba(88, 166, 255, .12); border-color: rgba(88, 166, 255, .5);
+}
+.wall-wrap.soft .ghost-btn { color: var(--fg); border: 1px solid var(--line); border-radius: 13px; }
+.streak-strip {
+  display: flex; gap: 8px; margin: 18px 0 4px;
+}
+.streak-strip .cell {
+  flex: 1; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 13px; padding: 11px 4px;
+}
+.streak-strip b { display: block; font-size: 20px; font-variant-numeric: tabular-nums; }
+.streak-strip .cell.hot b { color: var(--gold); }
+.streak-strip span { display: block; font-size: 10.5px; color: var(--muted); margin-top: 2px; }
+
 /* -------------------------------------------------------------- sheet --- */
 .sheet {
   position: fixed; inset: 0; z-index: 40; display: none;
@@ -501,6 +677,54 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
 .dbg-ts { color: var(--dim); }
 .dbg-actions { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 8px; }
 
+@keyframes lvl-fade { from { opacity: .2; } to { opacity: 1; } }
+
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  /* One exception, and it is the whole reduced-motion story for the level-up:
+   * the two nodes that changed fade, and nothing moves, bounces or flies. The
+   * JS never adds the stamp/spark/draw/wake classes in this mode at all. */
+  .node.lvl-fade { animation: lvl-fade .5s ease both !important; }
 }
+
+/* ---------------------------------------------------- payments (QQPay) ---
+ * Everything the membership panel needs, namespaced .pay-* so it can be
+ * dropped into the sheet today and into the library detail view tomorrow
+ * without either owning the styles. Nothing here targets .lib-*.           */
+.pay-host { display: block; }
+.pay-pitch { font-size: 15px; font-weight: 700; color: var(--fg); margin: 0 0 6px; }
+.pay-sub { font-size: 13px; color: var(--muted); margin: 0 0 14px; line-height: 1.5; }
+.pay-state-title { font-size: 15px; font-weight: 800; color: var(--good); margin: 0 0 8px; }
+
+.pay-buy { width: 100%; margin: 0; }
+.pay-out:empty { display: none; }
+
+.pay-msg { margin-top: 10px; border-radius: 10px; padding: 10px 12px; font-size: 13px; line-height: 1.5; }
+.pay-msg p { margin: 0 !important; font-size: 13px !important; }
+.pay-msg.ok   { background: rgba(63, 185, 80, .10);  border: 1px solid rgba(63, 185, 80, .35);  color: var(--fg); }
+.pay-msg.warn { background: rgba(210, 153, 34, .10); border: 1px solid rgba(210, 153, 34, .40); color: var(--fg); }
+.pay-msg.err  { background: rgba(248, 81, 73, .10);  border: 1px solid rgba(248, 81, 73, .38);  color: var(--fg); }
+.pay-msg.info { background: var(--panel-2); border: 1px solid var(--line); color: var(--muted); }
+.pay-link { display: inline-block; margin-top: 8px; color: var(--accent); font-weight: 700; font-size: 13px; }
+
+/* The restore box is always visible, never behind a "having trouble?" link:
+ * somebody who has already paid and cannot get back in is a refund. */
+.pay-restore { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+.pay-restore-title { font-size: 13.5px; font-weight: 700; color: var(--fg); margin: 0 0 4px; }
+.pay-restore-copy { font-size: 12.5px; color: var(--muted); margin: 0 0 10px; line-height: 1.45; }
+
+.pay-row { display: flex; gap: 8px; }
+.pay-input {
+  flex: 1 1 auto; min-width: 0;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
+  color: var(--fg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12.5px; padding: 11px 10px; letter-spacing: .01em;
+}
+.pay-input:focus { outline: none; border-color: var(--accent); }
+.pay-input::placeholder { color: var(--dim); }
+.pay-go {
+  flex: 0 0 auto; border: 1px solid var(--accent); border-radius: 10px;
+  background: transparent; color: var(--accent);
+  font-weight: 800; font-size: 13.5px; padding: 0 16px;
+}
+.pay-go:disabled { opacity: .5; }

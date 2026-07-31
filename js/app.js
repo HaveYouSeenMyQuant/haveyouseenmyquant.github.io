@@ -33,6 +33,7 @@
   var ICON_LOCK = '<path d="M7 10V8a5 5 0 0110 0v2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><rect x="4.5" y="10" width="15" height="10" rx="2.5" fill="currentColor"/>';
   var ICON_CROWN = '<path d="M3 8l4 3.2L12 4l5 7.2L21 8l-1.7 10H4.7L3 8z" fill="currentColor"/>';
   var ICON_HEART = '<path d="M12 21s-8-4.9-8-10.4A4.6 4.6 0 0112 7a4.6 4.6 0 018 3.6C20 16.1 12 21 12 21z" fill="currentColor"/>';
+  var ICON_FLAME = '<path d="M12 2c1.5 4-3 5.5-3 9a3 3 0 006 0c0-1 .4-1.8 1-2.4.8 1.2 2 3 2 5.4a6 6 0 11-12 0C6 9 12 8 12 2z" fill="currentColor"/>';
 
   // ======================================================================
   // the shape of the road
@@ -95,6 +96,31 @@
     $('#goalChip').classList.toggle('done', pct >= 1);
   }
 
+  /* The footer line is the only place the road says anything about accounts, and
+   * it must never overstate what is true: "synced" appears when a push has
+   * actually been confirmed, not when we merely have a session. */
+  function renderAccountLine() {
+    var line = $('#footerLine');
+    if (!line) return;
+    var user = QQAuth.currentUser();
+    if (QQAuth.isSignedIn()) {
+      var st = global.QQSync ? QQSync.status() : null;
+      /* Order matters: anything unsent outranks an old successful push, or the
+       * line would claim "saved" while a lesson is sitting in localStorage
+       * waiting for the network. */
+      var where = (st && (st.dirty || st.state === 'offline' || st.state === 'error'))
+          ? 'saved on this device — syncing when the network is back'
+        : (st && st.lastPush) ? 'progress saved to your account'
+        : 'progress saving to your account…';
+      line.textContent = 'signed in as ' + (user && user.email ? user.email : 'your account') +
+        ' · ' + where + ' · v2';
+    } else if (user) {
+      line.textContent = 'your progress stays on this device · open the sign-in link in your email to attach it to your account · v2';
+    } else {
+      line.textContent = 'your progress stays on this device · anonymous usage counts are recorded · v2';
+    }
+  }
+
   // ======================================================================
   // the path
   // ======================================================================
@@ -105,7 +131,7 @@
   /* The road itself: one dotted segment between each pair of nodes, positioned
    * in px against the track's centre line so nothing has to be measured after
    * layout. Solid once both ends are behind you, faint while they are ahead. */
-  function connector(track, x0, y0, x1, y1, lit) {
+  function connector(track, x0, y0, x1, y1, lit, fromId) {
     var dx = x1 - x0, dy = y1 - y0;
     var len = Math.sqrt(dx * dx + dy * dy);
     var ang = Math.atan2(dy, dx) * 180 / Math.PI;
@@ -114,6 +140,12 @@
     seg.style.left = 'calc(50% + ' + ((x0 + x1) / 2).toFixed(1) + 'px)';
     seg.style.top = ((y0 + y1) / 2).toFixed(1) + 'px';
     seg.style.transform = 'translate(-50%, -50%) rotate(' + ang.toFixed(2) + 'deg)';
+    if (fromId) seg.dataset.from = fromId;
+    /* The ink the level-up draws forward. It is built here, with the road, at
+     * scaleX(0) — so the celebration only ever adds a class, and never makes a
+     * node while frames are being counted. The local +x axis of the segment
+     * points at the NEXT node, which is why the ink grows from its left edge. */
+    seg.appendChild(el('i', 'seg-ink'));
     track.appendChild(seg);
   }
 
@@ -158,7 +190,7 @@
         connector(track,
           Math.sin(s * Math.PI / 2) * 58, s * GAP + NODE / 2,
           Math.sin((s + 1) * Math.PI / 2) * 58, (s + 1) * GAP + NODE / 2,
-          doneBoth);
+          doneBoth, unit.lessons[s].id);
       }
 
       unit.lessons.forEach(function (lesson, i) {
@@ -169,6 +201,7 @@
         var isCurrent = cur && cur.lesson.id === lesson.id && !done;
 
         var holder = el('div', 'node-holder');
+        holder.dataset.lesson = lesson.id;      // how the level-up finds its two nodes
         // a gentle snake: centre, right, centre, left, repeating
         var offset = Math.sin(i * Math.PI / 2) * 58;
         holder.style.left = 'calc(50% + ' + offset.toFixed(1) + 'px)';
@@ -227,6 +260,16 @@
 
     renderLibraries();
     renderHeader();
+    renderAccountLine();
+
+    /* Only ever on the road, and only when the road is the screen you are
+     * looking at — a re-render from a background sync must not spend the
+     * celebration on a wall the player is currently reading. */
+    if (pendingLevelUp && $('#screen-path').classList.contains('on')) {
+      var p = pendingLevelUp;
+      pendingLevelUp = null;
+      setTimeout(function () { playLevelUp(p.lessonId, p.nextLessonId); }, 90);
+    }
   }
 
   /* Landing mid-road is the point: you should arrive already looking at the
@@ -239,8 +282,128 @@
   }
 
   // ======================================================================
+  // the level-up — the road's own reward, played once, after a lesson
+  // ======================================================================
+  /* Duolingo's trick is that the road itself reacts: you come back from a lesson
+   * and watch the node you just beat slam shut, throw off a few sparks, push the
+   * road forward and wake the next one up. It is a reward, so it is quick,
+   * generous and over: 1.15s at the outside, and a tap anywhere cuts it to the
+   * end state immediately.
+   *
+   * The 60fps rules, kept honestly:
+   *   - transform and opacity only, never width/top/left, so nothing relayouts;
+   *   - the sparks are the only nodes created, and they are all built before the
+   *     first frame and dropped at the end — nothing is made per frame;
+   *   - no getBoundingClientRect, no offsetTop, nothing read back mid-flight;
+   *   - the two moving nodes get will-change while they move and lose it after.
+   *
+   * prefers-reduced-motion gets the same information with none of the movement:
+   * the two nodes fade up, and none of the classes above are ever applied. */
+  var pendingLevelUp = null;      // { lessonId, nextLessonId }, set on finishing
+  var levelUpTimers = [];
+  var levelUpEnd = null;          // the cleanup for the run in flight, or null
+  var levelUpTs = 0;
+
+  function reducedMotion() {
+    try {
+      return !!(global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    } catch (e) { return false; }
+  }
+
+  function onLevelUpTap() { endLevelUp(true); }
+
+  function endLevelUp(skipped) {
+    if (!levelUpEnd) return;
+    var done = levelUpEnd;
+    levelUpEnd = null;
+    for (var i = 0; i < levelUpTimers.length; i++) clearTimeout(levelUpTimers[i]);
+    levelUpTimers = [];
+    document.removeEventListener('pointerdown', onLevelUpTap, true);
+    done(skipped);
+  }
+
+  function playLevelUp(doneId, nextId) {
+    endLevelUp(false);                                   // never two at once
+    var holder = $('.node-holder[data-lesson="' + doneId + '"]');
+    if (!holder) return;
+    var doneNode = holder.querySelector('.node');
+    var nextHolder = nextId ? $('.node-holder[data-lesson="' + nextId + '"]') : null;
+    var nextNode = nextHolder ? nextHolder.querySelector('.node') : null;
+    var segEl = nextId ? $('.road-seg[data-from="' + doneId + '"] .seg-ink') : null;
+    var reduced = reducedMotion();
+    var sparks = null, ripple = null;
+    levelUpTs = Date.now();
+
+    function finish(skipped) {
+      doneNode.classList.remove('stamp', 'lvl-fade');
+      doneNode.style.willChange = '';
+      if (nextNode) {
+        nextNode.classList.remove('wake', 'lvl-fade');
+        nextNode.style.willChange = '';
+      }
+      if (segEl) segEl.classList.remove('draw');
+      if (sparks && sparks.parentNode) sparks.parentNode.removeChild(sparks);
+      if (ripple && ripple.parentNode) ripple.parentNode.removeChild(ripple);
+      QQA.track('level_up_played', {
+        lessonId: doneId, nextLessonId: nextId || null,
+        reduced: reduced, skipped: !!skipped, msShown: Date.now() - levelUpTs
+      });
+    }
+    levelUpEnd = finish;
+    document.addEventListener('pointerdown', onLevelUpTap, true);
+
+    if (reduced) {
+      doneNode.classList.add('lvl-fade');
+      if (nextNode) nextNode.classList.add('lvl-fade');
+      levelUpTimers.push(setTimeout(function () { endLevelUp(false); }, 560));
+      return;
+    }
+
+    // 1. the node you just beat stamps shut, with the overshoot
+    doneNode.style.willChange = 'transform';
+    ripple = el('div', 'node-ripple');
+    doneNode.appendChild(ripple);
+    doneNode.classList.add('stamp');
+
+    // 2. eight sparks in the unit's colour, all eight built right here
+    sparks = el('div', 'sparks');
+    for (var s = 0; s < 8; s++) {
+      var bit = el('i');
+      var ang = (s / 8) * Math.PI * 2 + 0.39;
+      var reach = 40 + (s % 3) * 10;
+      bit.style.setProperty('--tx', (Math.cos(ang) * reach).toFixed(1) + 'px');
+      bit.style.setProperty('--ty', (Math.sin(ang) * reach).toFixed(1) + 'px');
+      bit.style.animationDelay = (s * 12) + 'ms';
+      sparks.appendChild(bit);
+    }
+    holder.appendChild(sparks);
+
+    // 3. the road inks itself forward, and hands its light to the next node
+    if (segEl) {
+      levelUpTimers.push(setTimeout(function () { segEl.classList.add('draw'); }, 200));
+    }
+    if (nextNode) {
+      nextNode.style.willChange = 'transform';
+      levelUpTimers.push(setTimeout(function () { nextNode.classList.add('wake'); }, 700));
+    }
+    levelUpTimers.push(setTimeout(function () { endLevelUp(false); }, 1150));
+  }
+
+  // ======================================================================
   // libraries — money never touches the road
   // ======================================================================
+  /* PREMIUM, never a price. Wherever a library is merely LISTED it says what
+   * kind of thing it is and nothing about money: a number on a card nobody asked
+   * about reads as a paywall on the road, and the road has no paywall. The price
+   * lives one tap deeper, on the detail screen, where the player has asked. */
+  function fillBadge(node, lib, big) {
+    var soon = lib.status === 'soon';
+    node.className = 'lib-badge' + (big ? ' big' : '') + (soon ? ' plain' : '');
+    node.innerHTML = svgIcon(ICON_LOCK, 11) + '<span>' + (soon ? 'SOON' : 'PREMIUM') + '</span>';
+    return node;
+  }
+  function libBadge(lib, big) { return fillBadge(el('span'), lib, big); }
+
   function renderLibraries() {
     var host = $('#libraryList');
     if (host.dataset.built) return;
@@ -250,34 +413,152 @@
       card.type = 'button';
       var top = el('div', 'lib-top');
       top.appendChild(el('div', 'lib-name', lib.name));
-      top.appendChild(el('span', 'lib-badge', lib.status === 'soon' ? 'soon' : QQPay.priceLabel(lib)));
+      top.appendChild(libBadge(lib, false));
       card.appendChild(top);
       card.appendChild(el('div', 'lib-blurb', lib.blurb));
       card.appendChild(el('div', 'lib-meta', lib.questionCount + ' questions · separate library · the road stays free'));
+      card.appendChild(el('span', 'lib-open', 'See what is inside →'));
       card.addEventListener('click', function () { onLibraryTap(lib); });
       host.appendChild(card);
       QQA.track('library_viewed', { libraryId: lib.id, status: lib.status });
     });
   }
 
+  // ---------------------------------------------------------- the detail
+  /* The one screen in the app that shows a price. It has to earn the price: how
+   * many questions, which topics, and two real examples of what they are like —
+   * a locked door you can see through is worth opening, a blank one is not. */
+  var libFor = null, libOpenedTs = 0, libBuyTapped = false;
+
   function onLibraryTap(lib) {
-    QQA.track('library_clicked', { libraryId: lib.id, priceUsd: lib.priceUsd || null, status: lib.status });
+    QQA.track('library_clicked', {
+      libraryId: lib.id, priceUsd: lib.priceUsd || null, status: lib.status, from: 'road'
+    });
+    openLibrary(lib);
+  }
+
+  function openLibrary(lib) {
+    libFor = lib;
+    libOpenedTs = Date.now();
+    libBuyTapped = false;
+    var soon = lib.status === 'soon';
+    var price = QQPay.priceLabel(lib);
+
+    fillBadge($('#libDetailBadge'), lib, true);
+    $('#libDetailName').textContent = lib.name;
+    $('#libDetailBlurb').textContent = lib.blurb;
+
+    var topics = lib.topics || [];
+    var samples = lib.samples || [];
+
+    $('#libFacts').innerHTML =
+      '<div class="fact"><b>' + lib.questionCount + '</b><span>questions</span></div>' +
+      '<div class="fact"><b>' + topics.length + '</b><span>topics</span></div>' +
+      '<div class="fact"><b>' + D.libraries.length + '</b><span>libraries in all</span></div>';
+
+    var tHost = $('#libTopics');
+    tHost.innerHTML = '';
+    topics.forEach(function (t) { tHost.appendChild(el('span', 'lib-topic', t)); });
+
+    var sHost = $('#libSamples');
+    sHost.innerHTML = '';
+    samples.forEach(function (s) {
+      var card = el('div', 'lib-sample');
+      card.appendChild(el('p', null, s.prompt));
+      if (s.note) card.appendChild(el('span', null, s.note));
+      sHost.appendChild(card);
+    });
+
+    var status = $('#libStatusBadge');
+    status.className = 'lib-badge plain';
+    status.textContent = lib.questionCount + ' questions';
+
+    /* The price, and ONLY here. Whatever js/payments.js says it is: a per-set
+     * price and a membership price are different sentences underneath, so the
+     * sub-line follows the module rather than assuming one shape of money.
+     *
+     * An EMPTY price string is not a bug and must not be papered over with a
+     * placeholder — payments.js returns nothing while there is nothing to charge
+     * yet, and a number on screen that nobody can pay is a lie. The row goes
+     * away instead, and the panel below says what the real state is. */
+    var membership = typeof QQPay.membershipPrice === 'function';
+    $('#libPriceRow').hidden = !price;
+    $('#libPrice').textContent = price;
+    $('#libPriceSub').textContent = membership
+      ? 'one membership · opens every library · cancel any time'
+      : (soon ? 'one payment, when it opens · no subscription'
+              : 'one payment · yours for ever · no subscription');
+
+    /* js/payments.js owns the checkout. If it brings its own panel, it gets the
+     * whole block under the price and this screen stops having opinions about
+     * money; if it does not, the one button below calls the one seam function. */
+    var payHost = $('#libPayHost');
+    if (typeof QQPay.mountMembershipPanel === 'function') {
+      payHost.hidden = false;
+      $('#libBuyBtn').hidden = true;
+      $('#libHonest').hidden = true;
+      try { QQPay.mountMembershipPanel(payHost, lib); }
+      catch (e) {                                  // money must never break a screen
+        payHost.hidden = true;
+        $('#libBuyBtn').hidden = false;
+        $('#libHonest').hidden = false;
+      }
+    } else {
+      payHost.hidden = true;
+      payHost.innerHTML = '';
+      $('#libBuyBtn').hidden = false;
+      $('#libHonest').hidden = false;
+      $('#libBuyBtn').textContent = soon ? 'Tell me when it opens' : 'Unlock for ' + price;
+      $('#libHonest').textContent = lib.honestly ||
+        'Payments are not connected yet. Nothing is charged and nothing opens.';
+    }
+
+    go('library');
+    QQA.track('library_detail_viewed', {
+      libraryId: lib.id, priceUsd: lib.priceUsd || null, status: lib.status,
+      topics: topics.length, samples: samples.length
+    });
+  }
+
+  function onLibraryBuy() {
+    var lib = libFor;
+    if (!lib) return;
+    libBuyTapped = true;
+    QQA.track('library_buy_tapped', {
+      libraryId: lib.id, priceUsd: lib.priceUsd || null, status: lib.status,
+      msOnDetail: Date.now() - libOpenedTs, paymentsLive: !QQPay.isStub
+    });
+    /* QQPay.checkout is the only door to money in the whole app, and it is not
+     * wired to a provider yet — see js/payments.js. When it is, this call is
+     * unchanged and a real checkout takes over from here. */
     QQPay.checkout(lib.id).then(function (res) {
       QQA.track('library_interest', { libraryId: lib.id, stub: !!res.stub });
+      if (res && res.ok) return;              // a real provider has taken the screen
       openSheet(lib.name,
-        '<p>' + lib.blurb + '</p>' +
-        '<p class="sheet-note">Payments are not connected yet, so nothing was charged and nothing opened. ' +
-        'Your interest is recorded — it is the signal that decides whether this library gets built next.</p>' +
+        '<p class="sheet-note">Payments are not connected yet, so <b>nothing was charged</b> and nothing opened. ' +
+        'Your interest is recorded — it is the signal that decides whether this library gets written next.</p>' +
         '<p class="sheet-note">The road you are on stays free for ever. Paid sets are always separate libraries.</p>',
         'Got it');
     });
+  }
+
+  function closeLibrary() {
+    var lib = libFor;
+    if (lib) {
+      QQA.track('library_detail_dismissed', {
+        libraryId: lib.id, priceUsd: lib.priceUsd || null,
+        msOnDetail: Date.now() - libOpenedTs, buyTapped: libBuyTapped
+      });
+    }
+    libFor = null;
+    go('path');
   }
 
   function onLessonTap(unit, lesson, i) {
     var lock = lessonLock(unit, lesson, i);
     if (lock === 'email') {
       QQA.track('locked_lesson_tapped', { unitId: unit.id, lessonId: lesson.id, reason: 'email' });
-      showWall(unit);
+      showWall(unit, 'hard');
       return;
     }
     if (lock === 'sequence') {
@@ -294,6 +575,9 @@
   var play = null;
 
   function startLesson(unit, lesson) {
+    /* Straight into another lesson means the road never gets looked at, so the
+     * level-up it was holding is spent rather than saved up for later. */
+    pendingLevelUp = null;
     play = {
       unit: unit, lesson: lesson,
       queue: lesson.questions.slice(),
@@ -657,7 +941,7 @@
       fb.innerHTML = '<b>' + (play.attempts[q.id] === 1 ? 'Right, first go.' : 'Right.') + '</b> ' + q.explain;
       if (play.attempts[q.id] === 1) play.firstTry++;
       play.cleared++;
-      QQStore.recordSolved(q.id, play.attempts[q.id]);
+      QQStore.recordSolved(q.id, play.attempts[q.id], ms);
       play.queue.shift();
       $('#playProgressFill').style.width = (play.cleared / play.total * 100) + '%';
       $('#continueBtn').textContent = play.queue.length ? 'Continue' : 'Finish lesson';
@@ -709,9 +993,11 @@
   }
 
   var doneNext = null;
+  var doneUnit = null;
 
   function finishLesson() {
     var lv = play.lesson, unit = play.unit;
+    doneUnit = unit;
     var ms = Date.now() - play.startedTs;
     var perfect = play.firstTry === play.total;
     var res = QQStore.completeLesson(lv.id, play.firstTry);
@@ -765,6 +1051,15 @@
         : (D.dailyGoalXp - xpRes.today) + ' XP to go — about one more lesson.') + '</div>';
 
     doneNext = nextLessonAfter(lv.id);
+
+    /* Held, not played: the road plays it the moment the road is looked at.
+     * A node that is still locked is not woken up — the road does not pretend
+     * to go somewhere it will not take you yet. */
+    pendingLevelUp = {
+      lessonId: lv.id,
+      nextLessonId: (doneNext && !doneNext.lock) ? doneNext.lesson.id : null
+    };
+
     if (!doneNext) {
       $('#doneNext').textContent = 'That is the end of the road so far. More is being written.';
       $('#doneNextBtn').textContent = 'Back to the road';
@@ -838,32 +1133,109 @@
   // ======================================================================
   // the wall
   // ======================================================================
+  /* ONE screen, TWO asks, and they must never be added together in the funnel —
+   * hence `wallKind` on every event this screen fires.
+   *
+   *   soft  after the FIRST lesson. Nothing is locked, nothing can be locked,
+   *         and "Not now" is a real button that returns the player to exactly
+   *         what they were doing. The pitch is the streak and the XP, because
+   *         that is the thing they have just started building and the thing that
+   *         currently exists only in this browser.
+   *   hard  entering unit 2, unchanged. This one is the gate.
+   */
   var wallFor = null;
-  function showWall(unit) {
+  var wallKind = 'hard';
+  var afterSoftWall = null;       // what the player was doing when we interrupted
+
+  function showWall(unit, kind) {
+    wallKind = (kind === 'soft') ? 'soft' : 'hard';
     wallFor = unit || D.units[1];
-    $('#wallTitle').textContent = 'Unit ' + wallFor.index + ' needs an email';
-    $('#wallCopy').textContent =
-      'Unit one is free for everyone, for ever — you have just played it with no account at all. ' +
-      'From unit two on, an email keeps your streak, your crowns and your XP attached to you rather than to this browser.';
-    $('#wallSmall').innerHTML = QQAuth.wallSmallPrint();
+    var soft = wallKind === 'soft';
+    var streak = QQStore.currentStreak();
+    var xp = QQStore.totalXp();
+
+    $('#wallWrap').classList.toggle('soft', soft);
+    $('#wallMark').innerHTML = svgIcon(soft ? ICON_FLAME : ICON_LOCK, 26);
+    $('#wallStreak').hidden = !soft;
+
+    if (soft) {
+      $('#wallTitle').textContent = 'Keep the streak you just started';
+      $('#wallStreak').innerHTML =
+        '<div class="cell hot"><b>' + streak + '</b><span>day streak</span></div>' +
+        '<div class="cell"><b>' + xp + '</b><span>XP</span></div>' +
+        '<div class="cell"><b>' + QQStore.solvedCount() + '</b><span>solved</span></div>';
+      $('#wallCopy').textContent =
+        'One lesson down, ' + xp + ' XP on the board, and a streak that starts today. All of it lives ' +
+        'in this browser and nowhere else — clear your history, or pick up your other phone, and it is ' +
+        'gone. An email keeps the streak and the progress attached to you instead. Unit one stays free ' +
+        'either way, and you can carry straight on without one.';
+      $('#wallSubmit').textContent = 'Keep my streak';
+      $('#wallBack').textContent = 'Not now — keep playing';
+    } else {
+      $('#wallTitle').textContent = 'Unit ' + wallFor.index + ' needs an email';
+      $('#wallStreak').innerHTML = '';
+      $('#wallCopy').textContent =
+        'Unit one is free for everyone, for ever — you have just played it with no account at all. ' +
+        'From unit two on, an email keeps your streak, your crowns and your XP attached to you rather than to this browser.';
+      $('#wallSubmit').textContent = 'Unlock the rest of the road';
+      $('#wallBack').textContent = 'Not now';
+    }
+
+    /* auth.js owns the small print because it is the only module that knows what
+     * is actually connected. The soft ask only prefixes it, so that "the road
+     * opens either way" cannot be read as "something here is shut". */
+    $('#wallSmall').innerHTML =
+      (soft ? 'Nothing is locked by this — unit one is yours either way. ' : '') +
+      QQAuth.wallSmallPrint();
     $('#wallForm').hidden = false;
     $('#wallAfter').hidden = true;
     $('#wallError').textContent = '';
     go('wall');
     QQA.track('wall_shown', {
+      wallKind: wallKind,
       unitId: wallFor.id,
+      lessonsDone: lessonsDoneCount(),
+      streak: streak,
       solvedTotal: QQStore.solvedCount(),
-      xp: QQStore.totalXp(),
+      xp: xp,
       msSinceArrival: Date.now() - ARRIVED_AT
     });
   }
 
+  function lessonsDoneCount() {
+    return allLessons().filter(function (x) { return QQStore.lessonDone(x.lesson.id); }).length;
+  }
+
+  /* The soft ask is due exactly once: after the first lesson anyone finishes on
+   * this device, and never if they already have an account or an address. */
+  function softPromptDue() {
+    return !QQAuth.hasAccess() && !QQStore.softPromptShown() && lessonsDoneCount() === 1;
+  }
+
+  /* Leaving the celebration is the moment the soft ask gets, because it is the
+   * only moment the streak is the thing on the player's mind. It costs them one
+   * screen and hands them back to whatever they had chosen to do next. */
+  function leaveCelebration(next) {
+    if (!softPromptDue()) { next(); return; }
+    QQStore.markSoftPromptShown();
+    afterSoftWall = next;
+    showWall(doneUnit || D.units[0], 'soft');
+  }
+
+  function resumeAfterSoftWall() {
+    var next = afterSoftWall;
+    afterSoftWall = null;
+    if (next) next(); else go('path');
+  }
+
   function submitEmail(ev) {
     ev.preventDefault();
+    var soft = wallKind === 'soft';
+    var restore = soft ? 'Keep my streak' : 'Unlock the rest of the road';
     var input = $('#emailInput');
     var value = (input.value || '').trim();
     var err = QQAuth.validate(value);
-    QQA.track('email_attempted', { valid: !err });
+    QQA.track('email_attempted', { wallKind: wallKind, valid: !err });
     if (err) { $('#wallError').textContent = err; return; }
 
     var submit = $('#wallSubmit');
@@ -871,18 +1243,25 @@
     submit.textContent = 'One moment…';
     QQAuth.submitEmail(value).then(function (res) {
       submit.disabled = false;
-      submit.textContent = 'Unlock the rest of the road';
+      submit.textContent = restore;
       if (!res.ok) { $('#wallError').textContent = res.error || 'Something went wrong.'; return; }
       QQA.track('email_submitted', {
+        wallKind: wallKind,
         emailDomain: (value.split('@')[1] || ''), emailLength: value.length,
         mode: res.mode, unitId: wallFor ? wallFor.id : null,
+        lessonsDone: lessonsDoneCount(), streak: QQStore.currentStreak(),
         solvedTotal: QQStore.solvedCount(), xp: QQStore.totalXp()
       });
       $('#wallForm').hidden = true;
       $('#wallAfter').hidden = false;
+      $('#wallAfterBack').textContent = (soft && afterSoftWall) ? 'Carry on' : 'Back to the road';
       $('#wallAfterCopy').innerHTML = res.mode === 'magic-link'
-        ? 'A one-time sign-in link is on its way to that address. Open it on this phone and your progress moves onto the account. The rest of the road is already open.'
-        : 'Saved on this device, and the rest of the road is open. Email sign-in is not switched on yet, so no message will arrive — that is one function in <code>js/auth.js</code>.';
+        ? (soft
+            ? 'A one-time sign-in link is on its way to that address. Open it on this device and your streak, your XP and everything you solve moves onto the account — nothing here is lost, and it will be waiting on your other devices too. The rest of the road is open now as well.'
+            : 'A one-time sign-in link is on its way to that address. Open it on this device and everything you have already solved moves onto the account — nothing is lost, and it will be waiting on your other devices too. The rest of the road is already open.')
+        : (soft
+            ? 'Saved on this device. We could not reach the sign-in service just now, so no link was sent — ask again from here when you are back online and this progress will attach itself to the account. Your streak and XP are safe here in the meantime.'
+            : 'Saved on this device, and the rest of the road is open. We could not reach the sign-in service just now, so no link was sent — ask again from here when you are back online and this progress will attach itself to the account.');
       renderPath();
     });
   }
@@ -914,7 +1293,8 @@
         units: D.units.length,
         lessonsVisible: allLessons().length,
         lessonsDone: allLessons().filter(function (x) { return QQStore.lessonDone(x.lesson.id); }).length,
-        xp: QQStore.totalXp(), streak: QQStore.currentStreak(), hasEmail: QQStore.hasEmail()
+        xp: QQStore.totalXp(), streak: QQStore.currentStreak(), hasEmail: QQStore.hasEmail(),
+        signedIn: QQAuth.isSignedIn()
       });
       setTimeout(function () { scrollToCurrent(false); }, 40);
     }
@@ -938,7 +1318,77 @@
     $('#dbgSummary').innerHTML = sum || 'no events yet';
     $('#dbgRows').innerHTML = rows;
     var id = QQA.identity();
-    $('#dbgId').textContent = 'anon ' + id.anonId + ' · visit ' + id.visitNumber + ' · sink: ' + QQA.sinkName();
+    var st = QQSync.status();
+    var user = QQAuth.currentUser();
+    var authBit = QQAuth.isSignedIn()
+      ? ('account ' + (user && user.email ? user.email : QQAuth.userId()) +
+         ' · sync ' + st.state + (st.lastPush ? ' (pushed ' + new Date(st.lastPush).toLocaleTimeString() + ')' : '') +
+         (st.lastError ? ' · ' + st.lastError : ''))
+      : (user ? 'local email only, no session' : 'signed out');
+    $('#dbgId').textContent = 'anon ' + id.anonId + ' · visit ' + id.visitNumber +
+      ' · sink: ' + QQA.sinkName() + ' · ' + authBit;
+  }
+
+  // ======================================================================
+  // accounts: the return trip from the magic link
+  // ======================================================================
+  /* js/auth.js has already taken the tokens out of the URL by the time anything
+   * here runs. This is only about telling the player what happened and getting
+   * the road re-drawn once the merge lands. */
+  function wireAccounts() {
+    QQSync.onMerged = function (res) {
+      renderHeader();
+      renderAccountLine();
+      if ($('#screen-path').classList.contains('on')) renderPath();
+      if (res && res.questionsGained) {
+        QQA.track('sync_merged_in', { questionsGained: res.questionsGained, xp: QQStore.totalXp() });
+      }
+    };
+
+    QQSync.onStatus = function () { renderAccountLine(); };
+
+    QQAuth.onChange(function (kind) {
+      renderAccountLine();
+      if (kind === 'signed-in') {
+        QQA.track('signed_in', {
+          via: QQAuth.arrivedWith() || 'restored',
+          solvedTotal: QQStore.solvedCount(), xp: QQStore.totalXp()
+        });
+        if ($('#screen-path').classList.contains('on')) renderPath();
+      }
+      if (kind === 'refresh-rejected' || kind === 'signed-out') {
+        QQA.track('signed_out', { reason: kind, solvedTotal: QQStore.solvedCount() });
+        if ($('#screen-path').classList.contains('on')) renderPath();
+      }
+    });
+
+    QQAuth.ready.then(function () {
+      var arrived = QQAuth.arrivedWith();
+      if (QQAuth.isSignedIn()) {
+        if (arrived) {
+          var who = QQAuth.currentUser();
+          openSheet('Signed in',
+            '<p>You are signed in as <b>' + (who && who.email ? who.email : 'your account') + '</b>.</p>' +
+            '<p class="sheet-note">Everything you had already solved on this device has been kept and ' +
+            'attached to the account, and it will be waiting on any other device you sign in on.</p>',
+            'Back to the road');
+          QQA.track('signin_link_opened', { via: arrived, solvedTotal: QQStore.solvedCount() });
+        }
+        if ($('#screen-path').classList.contains('on')) renderPath();
+        QQSync.start(arrived ? 'magic-link' : 'boot');
+      } else if (arrived) {
+        /* They clicked a link and it did not work. Say so, rather than showing a
+         * signed-out road with no explanation. */
+        var e = QQAuth.lastError();
+        openSheet('That link did not sign you in',
+          '<p>The sign-in link was expired or had already been used — they are one-time and short-lived.</p>' +
+          '<p class="sheet-note">Nothing is lost: your progress is still here on this device. Ask for a ' +
+          'fresh link from the wall when you want to attach it to an account.</p>',
+          'OK');
+        QQA.track('signin_link_failed', { via: arrived, error: e ? e.error : 'unknown' });
+      }
+      renderAccountLine();
+    });
   }
 
   // ======================================================================
@@ -958,6 +1408,8 @@
       isFirstEverVisit: id.isFirstEverVisit,
       visitNumber: id.visitNumber,
       hasEmail: QQStore.hasEmail(),
+      signedIn: QQAuth.isSignedIn(),
+      returningFromLink: QQAuth.arrivedWith() || null,
       xp: QQStore.totalXp(),
       solvedTotal: QQStore.solvedCount(),
       utm: (location.search.match(/utm_source=([^&]+)/) || [])[1] || null,
@@ -995,21 +1447,34 @@
     $('#heartsBack').addEventListener('click', function () { go('path'); });
     $('#doneNextBtn').addEventListener('click', function () {
       QQA.track('celebration_cta', { action: doneNext ? (doneNext.lock === 'email' ? 'wall' : 'next') : 'road' });
-      if (!doneNext) { go('path'); return; }
-      if (doneNext.lock === 'email') { showWall(doneNext.unit); return; }
-      if (doneNext.lock) { go('path'); return; }
-      startLesson(doneNext.unit, doneNext.lesson);
+      leaveCelebration(function () {
+        if (!doneNext) { go('path'); return; }
+        if (doneNext.lock === 'email') { showWall(doneNext.unit, 'hard'); return; }
+        if (doneNext.lock) { go('path'); return; }
+        startLesson(doneNext.unit, doneNext.lesson);
+      });
     });
     $('#doneToRoad').addEventListener('click', function () {
       QQA.track('celebration_cta', { action: 'road' });
-      go('path');
+      leaveCelebration(function () { go('path'); });
     });
     $('#wallForm').addEventListener('submit', submitEmail);
     $('#wallBack').addEventListener('click', function () {
-      QQA.track('wall_dismissed', { unitId: wallFor ? wallFor.id : null });
+      QQA.track('wall_dismissed', {
+        wallKind: wallKind, unitId: wallFor ? wallFor.id : null,
+        lessonsDone: lessonsDoneCount()
+      });
+      /* Soft means soft: they go back to exactly what they were about to do,
+       * including straight into the next lesson. */
+      if (wallKind === 'soft') { resumeAfterSoftWall(); return; }
       go('path');
     });
-    $('#wallAfterBack').addEventListener('click', function () { go('path'); });
+    $('#wallAfterBack').addEventListener('click', function () {
+      if (wallKind === 'soft') { resumeAfterSoftWall(); return; }
+      go('path');
+    });
+    $('#libBack').addEventListener('click', closeLibrary);
+    $('#libBuyBtn').addEventListener('click', onLibraryBuy);
     $('#sheetClose').addEventListener('click', closeSheet);
     $('#sheet').addEventListener('click', function (e) { if (e.target === $('#sheet')) closeSheet(); });
 
@@ -1033,6 +1498,12 @@
       QQStore.setEmail('debug@local');       // walk past the wall while testing
       renderPath(); renderDebug();
     });
+    $('#dbgSync').addEventListener('click', function () {
+      QQSync.start('debug').then(function () { renderDebug(); renderPath(); });
+    });
+    $('#dbgSignOut').addEventListener('click', function () {
+      QQAuth.signOut(); renderDebug(); renderPath();
+    });
     $('#dbgResetAll').addEventListener('click', function () {
       QQStore.reset(); QQA.clear(); renderDebug(); renderPath();
     });
@@ -1040,6 +1511,7 @@
     if (/[?&]debug=1/.test(location.search)) openDebug();
     QQA.onEvent = function () { if ($('#debug').classList.contains('on')) renderDebug(); };
 
+    wireAccounts();
     go('path');
   }
 
