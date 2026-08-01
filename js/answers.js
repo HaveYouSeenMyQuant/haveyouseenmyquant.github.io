@@ -16,8 +16,48 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 74,
+ "count": 75,
  "entries": [
+  {
+   "slug": "four_shadows",
+   "title": "A ball's skin covers its own shadow exactly 4 times",
+   "ts": "2026-08-01T17:08:37+00:00",
+   "date": "1 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "A ball's skin covers its own shadow exactly four times.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Not two, not three. Peel the whole surface off a ball, lay it out flat, and it covers four copies of the circle the ball blocks out of the light."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Surface area is 4·π·r². The shadow is π·r². The radius cancels — so it is four for a marble, four for a football and four for the Earth."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Archimedes' reason: slide the skin straight outwards onto the tube that just fits round the ball and no area is lost, so the skin is a rectangle 2πr around by 2r tall."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There's a whole road of these in my bio. Free to start."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
   {
    "slug": "fourteen_new_records",
    "title": "A million random numbers, fourteen records",
