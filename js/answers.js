@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 72,
+ "count": 73,
  "entries": [
+  {
+   "slug": "million_steps_798",
+   "title": "A million random steps, 798 steps from home",
+   "ts": "2026-08-01T12:50:52+00:00",
+   "date": "1 Aug 2026",
+   "topic": "random_walk",
+   "q": null,
+   "a": "Walk a million steps, each one left or right on a coin flip. On average you end up 798 steps from home.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Not a million. Not zero. About eight hundred."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason: distance from the start doesn't grow with the number of steps, it grows with the SQUARE ROOT of the number of steps. Every step you take is as likely to undo an earlier one as to add to it, so the walk mostly cancels itself out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which means four times as much walking gets you only twice as far. Ten thousand steps → 80. A million steps → 798. A hundred million steps → still under 8,000."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It's why smoke spreads slowly, why a share price drifts instead of running away, and why a lost drunk is never as lost as you'd think."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Play this instead of reading it → link in bio. No signup."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
   {
    "slug": "no_best_die",
    "title": "Four dice, each beating the next 2 rolls in 3",
