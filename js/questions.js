@@ -1546,6 +1546,693 @@ window.QQ_DATA = {
           ]
         }
       ]
+    },
+    {
+      "id": "u11",
+      "index": 11,
+      "title": "Where it settles",
+      "subtitle": "Chance with a memory, and where it ends up.",
+      "colour": "#7ee787",
+      "free": false,
+      "lessons": [
+        {
+          "id": "u11l1",
+          "title": "Round and round",
+          "questions": [
+            {
+              "id": "ring_return",
+              "type": "number",
+              "topic": "markov",
+              "prompt": "A frog sits on a ring of six lily pads and each second it hops to the pad on its left or its right, at random — on average, how many hops until it is back where it started?",
+              "vizHint": "Hop the frog by hand, or run a few thousand trips and watch the average settle.",
+              "viz": "ringFrog",
+              "answerNumber": 6,
+              "tolerance": 0,
+              "placeholder": "hops",
+              "answerValue": "6",
+              "explain": "Six — and the reason is prettier than the arithmetic. In the long run the frog spends an equal share of its time on each of the six pads, one second in six on the pad you are watching, so it must be coming back once every six seconds on average. That holds for any ring: a hundred pads, a hundred hops. The average hides a mess, though — half of all returns take just two hops, and one in a hundred takes more than thirty."
+            },
+            {
+              "id": "weather_steady",
+              "type": "choice",
+              "topic": "markov",
+              "prompt": "In one town a rainy day is followed by rain half the time, while a dry day is followed by rain a quarter of the time — over a whole year, what share of days are rainy?",
+              "vizHint": "Set what today looks like and step the town forward. The bar settles wherever it settles.",
+              "viz": "chainSettle",
+              "choices": [
+                "25%",
+                "33%",
+                "40%",
+                "50%"
+              ],
+              "answer": 1,
+              "answerValue": "33%",
+              "explain": "A third. In the long run the town has to gain rainy days exactly as fast as it loses them: it loses half of the rainy ones and converts a quarter of the dry ones, so a third rainy and two thirds dry is the only mix that balances. Notice you were never told what the weather is doing today and it did not matter — a chain like this forgets where it started, and the mix it drifts to is a property of the rules alone."
+            },
+            {
+              "id": "chain_forgets",
+              "type": "truefalse",
+              "topic": "markov",
+              "prompt": "The same town, with the same two rules about what follows what.",
+              "statement": "Start it on a rainy day or start it on a dry one — after enough days the chance that it is raining is the same either way.",
+              "vizHint": "Two towns, opposite starts, stepped side by side.",
+              "viz": "twoStarts",
+              "answerBool": true,
+              "answerValue": "true",
+              "explain": "True, and quickly — the gap between the two towns shrinks by a quarter every day, so after a fortnight you could not tell which one woke up in the rain. This forgetting is what makes long-run questions answerable at all, and it is why weather forecasts die at about a week: not because the sums get harder, but because by then the atmosphere has forgotten today."
+            },
+            {
+              "id": "mouse_maze",
+              "type": "number",
+              "topic": "markov",
+              "prompt": "Three rooms in a row: the first has one door, the middle has two, and the last has a door back to the middle and a door to the outside. A mouse starts in the first room and picks a door at random every minute — how many minutes on average until it is out?",
+              "vizHint": "Step the mouse yourself, or run a thousand mice and read the average.",
+              "viz": "mouseMaze",
+              "answerNumber": 9,
+              "tolerance": 0,
+              "placeholder": "minutes",
+              "answerValue": "9",
+              "explain": "Nine. Call the waits from each room A, B and C. The far room is one minute from freedom half the time and one minute from the middle the other half, the middle room is a coin flip between the two others, and the first room has no choice at all. Untangle them and the far room is five minutes out, the middle eight, the first nine. The mouse spends most of its life walking back the way it came, which is why nine minutes buys you a journey of only two rooms."
+            },
+            {
+              "id": "drunk_returns",
+              "type": "truefalse",
+              "topic": "markov",
+              "prompt": "A drunk walks home across an endless grid of streets, one block at a time, each block picking north, south, east or west at random.",
+              "statement": "He is certain to end up back where he started.",
+              "vizHint": "Run walks and watch what share have found their way home by each step.",
+              "viz": "walkReturns",
+              "answerBool": true,
+              "answerValue": "true",
+              "explain": "True, with probability one — though he is in no hurry, and the share who have made it home creeps up like the logarithm rather than climbing. Add a third dimension and it collapses: a drunk bird flying at random through open air has about a one in three chance of never coming back to its perch, for ever. Two dimensions is exactly the boundary case, and streets happen to be flat."
+            }
+          ]
+        },
+        {
+          "id": "u11l2",
+          "title": "The long run",
+          "questions": [
+            {
+              "id": "deuce_odds",
+              "type": "choice",
+              "topic": "markov",
+              "prompt": "A tennis game at deuce goes on until someone is two points clear, and you win any single point 60% of the time — what is your chance of taking the game?",
+              "vizHint": "Slide your chance of winning a point and watch the game odds follow.",
+              "viz": "deuceDial",
+              "choices": [
+                "60%",
+                "69%",
+                "75%",
+                "84%"
+              ],
+              "answer": 1,
+              "answerValue": "69%",
+              "explain": "About 69%. Deuce is a loop: win two and it is over, lose two and it is over, and split them and you are back at deuce with nothing changed. So only the pairs matter, and you take two in a row 36 times in a hundred against their 16 — 36 out of 52, near enough 69%. Small edges get amplified by anything that makes you repeat it: a 60% point becomes a 69% game, a 74% set and a 91% match."
+            },
+            {
+              "id": "surfer_page",
+              "type": "tap",
+              "topic": "markov",
+              "prompt": "Five websites link to each other as drawn — tap the page where a reader clicking random links for ever would spend the most time.",
+              "vizHint": "Tap a page to let a reader loose from it, and watch where the visits pile up.",
+              "viz": "surferGraph",
+              "regions": [
+                {
+                  "id": "home",
+                  "label": "Home"
+                },
+                {
+                  "id": "blog",
+                  "label": "Blog"
+                },
+                {
+                  "id": "shop",
+                  "label": "Shop"
+                },
+                {
+                  "id": "news",
+                  "label": "News"
+                },
+                {
+                  "id": "ads",
+                  "label": "Ads"
+                }
+              ],
+              "answerRegion": "home",
+              "answerValue": "home",
+              "explain": "Home, with two fifths of all the traffic — even though Blog is the page with the most links pointing at it. Counting links is the wrong sum: Blog is pointed at three times but always by pages with better things to do, while Home is pointed at twice by pages that link nowhere else, so every visit they get is handed straight on. A link is worth what the page giving it is worth, divided by how many it gives away. That circular idea, solved, is what put Google ahead of every search engine that just counted links."
+            },
+            {
+              "id": "gas_returns",
+              "type": "number",
+              "topic": "markov",
+              "prompt": "Ten gas molecules bounce between the two halves of a box and every second one of them, chosen at random, swaps sides — starting with all ten on the left, how many seconds on average until all ten are on the left again?",
+              "vizHint": "Let the box run. The counter keeps the record of every time it happens.",
+              "viz": "gasBox",
+              "answerNumber": 1024,
+              "tolerance": 0,
+              "placeholder": "seconds",
+              "answerValue": "1024",
+              "explain": "1,024 seconds — two to the ten, because in the long run the box spends one second in 1,024 with everything on the left, and a state you occupy one second in 1,024 is a state you return to every 1,024 seconds. So the gas does un-mix itself, over and over, and entropy turns out to be a statement about how long you are prepared to wait. The catch is the exponent: twenty molecules take a million seconds, and a real roomful takes longer than the universe has existed."
+            },
+            {
+              "id": "riffle_seven",
+              "type": "choice",
+              "topic": "markov",
+              "prompt": "How many ordinary riffle shuffles does it take before a deck of 52 cards is properly mixed?",
+              "vizHint": "Riffle the deck yourself. The colours are where the cards started out.",
+              "viz": "riffleMix",
+              "choices": [
+                "3",
+                "7",
+                "15",
+                "52"
+              ],
+              "answer": 1,
+              "answerValue": "7",
+              "explain": "Seven, and the striking part is how suddenly it happens. After five shuffles the deck is still clearly the deck you started with; at seven almost all of that structure is gone; and shuffling on past seven buys you very little. Mixing does not fade away, it falls off a cliff. Card rooms that give the deck three shuffles are dealing hands that still remember the last one, which is exactly how a few players have made a living."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u12",
+      "index": 12,
+      "title": "Knowing when to stop",
+      "subtitle": "Rules for quitting, and what they are worth.",
+      "colour": "#ff7b72",
+      "free": false,
+      "lessons": [
+        {
+          "id": "u12l1",
+          "title": "The one that got away",
+          "questions": [
+            {
+              "id": "secretary_skip",
+              "type": "number",
+              "topic": "optimal_stopping",
+              "prompt": "A hundred candidates arrive one at a time in random order and each must be hired on the spot or lost for ever — how many should you see and turn down before hiring the next one who beats them all?",
+              "vizHint": "Set where you stop looking, run a few hundred hiring rounds, and your own hit rate builds the curve.",
+              "viz": "stopCurve",
+              "answerNumber": 37,
+              "tolerance": 0,
+              "placeholder": "candidates",
+              "answerValue": "37",
+              "explain": "Thirty-seven. Turning people down is not waste, it is measurement: you are learning how good a good candidate looks. Stop looking too early and you hire someone decent before you know what decent means; look too long and the best one walks past you while you are still taking notes. The balance sits at a hundred divided by e, and the same number falls out whatever the pile size — 37% of it, every time."
+            },
+            {
+              "id": "secretary_odds",
+              "type": "choice",
+              "topic": "optimal_stopping",
+              "prompt": "Playing that rule on a hundred candidates, how often do you end up with the very best one of all?",
+              "vizHint": "Run rounds and watch the three outcomes pile up: the best, someone else, or nobody at all.",
+              "viz": "stopOutcomes",
+              "choices": [
+                "5%",
+                "15%",
+                "25%",
+                "37%"
+              ],
+              "answer": 3,
+              "answerValue": "37%",
+              "explain": "37% — the same number twice over, and not a coincidence: both are one over e. That is far better than it has any right to be. One candidate in a hundred is the best, you must decide blind, and you still land them more than a third of the time. The other side of the ledger is worth knowing too: 37% of the time the best one was in your first thirty-seven, nobody afterwards ever beats them, and you go home with nobody at all."
+            },
+            {
+              "id": "secretary_four",
+              "type": "choice",
+              "topic": "optimal_stopping",
+              "prompt": "The same rule but only four candidates, seen in a random order — how often does the best possible plan land you the best of the four?",
+              "vizHint": "All twenty-four orders at once. Move the cutoff and see which ones you win.",
+              "viz": "allOrders",
+              "choices": [
+                "25%",
+                "33%",
+                "46%",
+                "60%"
+              ],
+              "answer": 2,
+              "answerValue": "46%",
+              "explain": "Eleven times in twenty-four, near enough 46%. Turn down the first, then take the next one who beats them: you can check it by hand against all twenty-four orders, which is why four is the right size to see the machinery. Fewer candidates is an easier problem, not a harder one — the odds fall as the pile grows and level off at 37%, so a shortlist of four is genuinely the best position you will ever be in."
+            },
+            {
+              "id": "skip_half",
+              "type": "choice",
+              "topic": "optimal_stopping",
+              "prompt": "Back to a hundred candidates, but you turn down the first fifty instead of the first thirty-seven — what does that mistake cost you?",
+              "vizHint": "Two cutoffs marked on the curve you built by running it.",
+              "viz": "flatTop",
+              "choices": [
+                "it collapses to about 5%",
+                "it drops to about 25%",
+                "it drops to about 35%",
+                "it actually does better"
+              ],
+              "answer": 2,
+              "answerValue": "it drops to about 35%",
+              "explain": "Almost nothing: 35% against 37%. The curve has a broad flat top — anything between about a quarter and a half of the way through is within two points of the best you can do. That is the useful half of the result and the half nobody quotes. You do not need to know that the answer is 37; you need to know that looking at a good few and then pouncing beats both of the instincts people actually have, which are to take the first decent one or to keep looking for ever."
+            }
+          ]
+        },
+        {
+          "id": "u12l2",
+          "title": "How you go broke",
+          "questions": [
+            {
+              "id": "break_the_house",
+              "type": "number",
+              "topic": "betting",
+              "prompt": "You have £5 and the house has £95, you flip a fair coin for £1 a time, and you play until one of you has nothing — what is your chance of taking the lot?",
+              "vizHint": "Run the whole evening. The wall you hit is the wall you hit.",
+              "viz": "ruinWalk",
+              "answerNumber": 5,
+              "tolerance": 0,
+              "placeholder": "chance, in %",
+              "answerValue": "5",
+              "explain": "Five percent — exactly your share of the money on the table. A fair game moves money around without creating any, so on average you must end with the £5 you started with, and the only two endings are £0 and £100: the sums only balance if you reach £100 one time in twenty. The house needs no edge whatsoever to take your fiver off you. It only needs to be bigger than you are."
+            },
+            {
+              "id": "ruin_length",
+              "type": "number",
+              "topic": "betting",
+              "prompt": "Same fiver against the house's £95, same fair coin at £1 a flip — how many flips on average before one of you is cleaned out?",
+              "vizHint": "Run evenings and watch how long they last.",
+              "viz": "ruinLength",
+              "answerNumber": 475,
+              "tolerance": 0,
+              "placeholder": "flips",
+              "answerValue": "475",
+              "explain": "475 — your £5 multiplied by their £95, which is the whole formula. A fair walk between two walls lasts the product of its two distances, so the same fiver against a house with £995 would last 4,975 flips. You are nineteen times out of twenty going to lose, and it is going to take all night, which is more or less the business model. Move to £5 a flip and both numbers shrink by twenty-five: same 5% chance, one twenty-fifth of the evening."
+            },
+            {
+              "id": "roulette_ruin",
+              "type": "number",
+              "topic": "betting",
+              "prompt": "Roulette pays even money on red, but 19 of its 37 slots are not red — betting £1 a spin from a bankroll of £100, how many spins on average before you are broke?",
+              "vizHint": "Watch the bankroll drift, and slide what you started with.",
+              "viz": "rouletteDrift",
+              "answerNumber": 3700,
+              "tolerance": 0,
+              "placeholder": "spins",
+              "answerValue": "3700",
+              "explain": "3,700. The wheel takes one thirty-seventh of a pound off you per spin on average — under three pence — so a hundred pounds lasts a hundred times thirty-seven spins. That is the whole sum. At forty spins an hour it is nearly four days of play, which is why a night at the table feels survivable and a life at the table is not. The edge is invisible per spin and inescapable per thousand."
+            },
+            {
+              "id": "martingale_double",
+              "type": "choice",
+              "topic": "betting",
+              "prompt": "A fair coin, £1 on heads, and you double your bet after every loss until you win, which always nets £1 — with £1,023 in your pocket you can survive ten losses in a row, so what does the system make you a night?",
+              "vizHint": "Play nights. The running average is the only line worth watching.",
+              "viz": "martingaleLadder",
+              "choices": [
+                "£1 a night, nearly always",
+                "about 50p a night",
+                "nothing, on average",
+                "it loses £1 a night"
+              ],
+              "answer": 2,
+              "answerValue": "nothing, on average",
+              "explain": "Nothing at all. You win your pound on 1,023 nights out of 1,024, and on the last one you lose 1,023 of them — the two sides balance to the penny, as they must in a fair game. Every betting system ever sold does this same trick: it converts a small chance of a large loss into a large chance of a small win, which feels like alchemy and is arithmetically a rearrangement. On a real wheel, with an edge, the rearrangement is worse than nothing."
+            },
+            {
+              "id": "first_return",
+              "type": "choice",
+              "topic": "betting",
+              "prompt": "A fair coin at £1 a flip, starting level — you are certain to be back at exactly level sooner or later, so how long does that take on average?",
+              "vizHint": "Run returns and watch the running average. Give it time.",
+              "viz": "returnWait",
+              "choices": [
+                "about 4 flips",
+                "about 30 flips",
+                "about a thousand flips",
+                "there is no average — it is infinite"
+              ],
+              "answer": 3,
+              "answerValue": "infinite",
+              "explain": "There is no average. You return to level with certainty, and yet the wait has no mean at all: the average of your first thousand returns will look like a small number, the average of your first million will be much larger, and it keeps climbing for ever, because now and then a walk stays on one side for an astronomically long stretch. It is the cleanest example there is of something guaranteed to happen that is still not worth waiting for — and the reason a losing run can last so much longer than feels possible."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u13",
+      "index": 13,
+      "title": "Twenty questions",
+      "subtitle": "What a yes or a no is worth.",
+      "colour": "#a5d6ff",
+      "free": false,
+      "lessons": [
+        {
+          "id": "u13l1",
+          "title": "Cutting the list in half",
+          "questions": [
+            {
+              "id": "deck_questions",
+              "type": "choice",
+              "topic": "information_theory",
+              "prompt": "A deck of 52 cards has been shuffled into one particular order — how many yes-or-no questions does it take to pin down exactly which order it is in?",
+              "vizHint": "Slide the deck size and watch the two bars — orders, and questions — pull apart.",
+              "viz": "bitsLadder",
+              "choices": [
+                "52",
+                "226",
+                "2,600",
+                "8 followed by 67 zeros"
+              ],
+              "answer": 1,
+              "answerValue": "226",
+              "explain": "226. There are about 8 followed by 67 zeros possible orders, and the best a question can ever do is halve the field, so what you need is the number of halvings that takes that monster down to one. Guessing a number from 1 to 1,000 took ten; the whole deck takes 226. The gap between those two numbers is the difference between a big list and a big pile of arrangements — and it is why any well-shuffled deck is almost certainly in an order no deck has ever been in before."
+            },
+            {
+              "id": "clever_questions",
+              "type": "number",
+              "topic": "information_theory",
+              "prompt": "One of four suspects did it, with chances of a half, a quarter, an eighth and an eighth — asking as cleverly as you can, how many yes-or-no questions do you need on average?",
+              "vizHint": "Build the question tree by tapping. The readout costs it up for you.",
+              "viz": "questionTree",
+              "answerNumber": 1.75,
+              "tolerance": 0.01,
+              "placeholder": "questions, e.g. 2.50",
+              "answerValue": "1.75",
+              "explain": "One and three quarters. Ask about the likely suspect first: half the time you are done in a single question, and the unlucky eighths cost you three. Splitting the list evenly instead — 'is it one of these two?' — costs you two every time, so being clever saves a quarter of a question per case. The rule is to halve the probability, not the list, and no scheme on earth can beat 1.75 here: that number is the information in the answer."
+            },
+            {
+              "id": "best_first_question",
+              "type": "tap",
+              "topic": "information_theory",
+              "prompt": "The same four suspects with the same chances — tap the best question to ask first.",
+              "vizHint": "Tap a question to see how it cuts the bar of probability, and what it costs in the end.",
+              "viz": "splitPicker",
+              "regions": [
+                {
+                  "id": "q_a",
+                  "label": "Is it A?"
+                },
+                {
+                  "id": "q_ab",
+                  "label": "Is it A or B?"
+                },
+                {
+                  "id": "q_c",
+                  "label": "Is it C?"
+                },
+                {
+                  "id": "q_bc",
+                  "label": "Is it B or C?"
+                }
+              ],
+              "answerRegion": "q_a",
+              "answerValue": "q_a",
+              "explain": "'Is it A?' — the only one of the four that splits the chances down the middle, because A alone carries half of them. It looks like the least ambitious question on the list, since a no leaves three suspects standing rather than two, but those three share only half the probability between them. Asking 'is it A or B?' feels more decisive and costs you a quarter of a question every time. A perfect question is one you genuinely cannot guess the answer to."
+            },
+            {
+              "id": "no_free_lunch",
+              "type": "truefalse",
+              "topic": "information_theory",
+              "prompt": "Someone is selling a compression program and will not say how it works.",
+              "statement": "A program that makes every possible file at least one bit smaller cannot exist.",
+              "vizHint": "Slide the file size and watch the shorter shelf run out of room.",
+              "viz": "pigeonBoxes",
+              "answerBool": true,
+              "answerValue": "true",
+              "explain": "True, and it is pure counting. There are 1,024 different ten-bit files but only 1,023 files shorter than ten bits in total, so any scheme that shortens all of them must give two files the same output — and then it cannot put either one back. Every real compressor lives with this: it shrinks the files people actually have, made of repeats and patterns, and pays for it by making random files slightly longer. Zip a zip file and watch it grow."
+            }
+          ]
+        },
+        {
+          "id": "u13l2",
+          "title": "Getting it through",
+          "questions": [
+            {
+              "id": "hamming_find",
+              "type": "tap",
+              "topic": "information_theory",
+              "prompt": "Seven lamps are wired so that each of the three rings always holds an even number of lit ones, and exactly one lamp has been flipped by mistake — tap the culprit.",
+              "vizHint": "Each ring says whether its own count is odd or even. That is all you get, and it is enough.",
+              "viz": "hammingRings",
+              "regions": [
+                {
+                  "id": "lamp1",
+                  "label": "1"
+                },
+                {
+                  "id": "lamp2",
+                  "label": "2"
+                },
+                {
+                  "id": "lamp3",
+                  "label": "3"
+                },
+                {
+                  "id": "lamp4",
+                  "label": "4"
+                },
+                {
+                  "id": "lamp5",
+                  "label": "5"
+                },
+                {
+                  "id": "lamp6",
+                  "label": "6"
+                },
+                {
+                  "id": "lamp7",
+                  "label": "7"
+                }
+              ],
+              "answerRegion": "lamp6",
+              "answerValue": "lamp6",
+              "explain": "Lamp 6. Two of the rings come out odd and one comes out even, and only one lamp sits inside exactly those two rings and outside the third. Every lamp has its own signature of rings, so the pattern of failures names the culprit outright — three yes-or-no checks, eight possible verdicts, seven lamps and 'nothing is wrong'. This is a Hamming code, it is sixty years old, and something very like it is protecting the memory in the device you are reading this on."
+            },
+            {
+              "id": "check_bits",
+              "type": "number",
+              "topic": "information_theory",
+              "prompt": "A sixteen-bit message, and you want to be able to fix any single bit that gets flipped on the way — what is the fewest extra check bits that can do it?",
+              "vizHint": "Slide the message length. The two bars are what the checks can say and what they must say.",
+              "viz": "checkBitCurve",
+              "answerNumber": 5,
+              "tolerance": 0,
+              "placeholder": "check bits",
+              "answerValue": "5",
+              "explain": "Five. The receiver has to be told one of twenty-two things — 'all fine', or which one of the twenty-one bits went wrong — and r check bits can only ever say two-to-the-r things. Four say sixteen, which is not enough; five say thirty-two, which is. The overhead melts away as messages grow: five checks protect sixteen bits, ten checks protect a thousand. Redundancy is cheap in bulk, which is why big files are protected and short ones are repeated."
+            },
+            {
+              "id": "detect_vs_fix",
+              "type": "truefalse",
+              "topic": "information_theory",
+              "prompt": "A message goes down the wire with one extra check bit stuck on the end.",
+              "statement": "That one bit is enough to tell you something got flipped, but never enough to tell you which one.",
+              "vizHint": "Tap any bit to flip it and see what the single check can say.",
+              "viz": "parityBit",
+              "answerBool": true,
+              "answerValue": "true",
+              "explain": "True, and the gap between spotting and mending is the whole of coding theory. One check bit has two states, so it can answer exactly one question: 'has something gone wrong?' To point at the culprit it would need as many states as there are bits, plus one for 'nothing'. That is why simple systems just ask for the message again, and why systems that cannot ask — a hard disk, a spacecraft, a scratched CD — pay for enough checks to repair the damage where it sits."
+            },
+            {
+              "id": "repeat_three",
+              "type": "choice",
+              "topic": "information_theory",
+              "prompt": "A wire flips one bit in ten. You send every bit three times and take the majority — what share of bits still come out wrong?",
+              "vizHint": "Push bits through the noisy wire and count the survivors. Slide how many copies you send.",
+              "viz": "majorityVote",
+              "choices": [
+                "10%",
+                "3%",
+                "1%",
+                "0.1%"
+              ],
+              "answer": 1,
+              "answerValue": "3%",
+              "explain": "About 3%. The majority is only wrong when at least two of the three copies are wrong, which happens 2.8 times in a hundred. So you tripled the cost of everything you send and the errors went down by a factor of three and a half — a poor bargain, and the reason nobody builds it this way. Shannon's discovery was that the bargain does not have to be poor: with a properly designed code you can push the error rate as near zero as you like without ever tripling anything."
+            },
+            {
+              "id": "squash_the_record",
+              "type": "choice",
+              "topic": "information_theory",
+              "prompt": "A bent coin lands heads nine times in ten. You flip it a thousand times and write down the result — what is the fewest bits you can get away with, on average?",
+              "vizHint": "Group the flips into blocks and let the coder do its work. The bar is what it actually used.",
+              "viz": "squashStream",
+              "choices": [
+                "1,000",
+                "900",
+                "470",
+                "100"
+              ],
+              "answer": 2,
+              "answerValue": "470",
+              "explain": "About 470 — under half. Surprise is what costs bits: a head is barely news at nine in ten and should cost far less than a whole bit, while the rare tail is worth about three and a half. You cannot spend a fraction of a bit on one flip, so the trick is to code flips in blocks — blocks of four already get you to 0.49 bits each, and longer blocks close on 0.469. That number is the entropy of the coin, and nothing will ever beat it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u14",
+      "index": 14,
+      "title": "Back of an envelope",
+      "subtitle": "Numbers nobody can look up, guessed well.",
+      "colour": "#e2c08d",
+      "free": false,
+      "lessons": [
+        {
+          "id": "u14l1",
+          "title": "Chains of guesses",
+          "questions": [
+            {
+              "id": "billion_seconds",
+              "type": "choice",
+              "topic": "estimation",
+              "prompt": "A million seconds is about eleven and a half days — so how long is a billion seconds?",
+              "vizHint": "Drag along the ladder of powers of ten and see what each one buys you.",
+              "viz": "secondsLadder",
+              "choices": [
+                "about 3 months",
+                "about 3 years",
+                "about 32 years",
+                "about 300 years"
+              ],
+              "answer": 2,
+              "answerValue": "about 32 years",
+              "explain": "About 32 years — and a trillion seconds is 32,000 years, which lands you before farming, before writing, before anything. The three words sound like siblings and they are nothing of the sort: a million seconds is a holiday, a billion is a working life, a trillion is the whole of human history several times over. Any number in the news is meaningless until you turn it into something you can stand next to."
+            },
+            {
+              "id": "piano_tuners",
+              "type": "choice",
+              "topic": "estimation",
+              "prompt": "London has 9 million people, about one in 200 owns a piano, each piano is tuned once a year, and a tuner does four a day for 250 days — how many piano tuners does London need?",
+              "vizHint": "Drag any of the four assumptions and watch the answer move.",
+              "viz": "fermiChain",
+              "choices": [
+                "about 5",
+                "about 45",
+                "about 450",
+                "about 4,500"
+              ],
+              "answer": 1,
+              "answerValue": "about 45",
+              "explain": "About 45. Nine million over 200 is 45,000 pianos, a tuner gets through a thousand tunings a year, so 45 tuners. Not one of those four numbers is right — but the errors are as likely to be high as low, and a chain of four honest guesses lands far closer than anyone expects. The value of the method is not the answer, it is that you now know which of the four numbers to go and check."
+            },
+            {
+              "id": "century_people",
+              "type": "truefalse",
+              "topic": "estimation",
+              "prompt": "Two big numbers in units that have nothing to do with each other.",
+              "statement": "There are more seconds in a century than there are people alive on Earth.",
+              "vizHint": "Step through the sum one multiplication at a time and watch the bars.",
+              "viz": "twoBars",
+              "answerBool": false,
+              "answerValue": "false",
+              "explain": "False, and not by a little. A century is about 3.2 billion seconds and there are about 8 billion of us, so you would need two and a half centuries to give everyone alive one second of your attention. Almost everybody guesses this the other way round, because a century feels like an age and a population figure feels like a statistic. Turning both into the same units is most of what estimating is."
+            },
+            {
+              "id": "little_law",
+              "type": "number",
+              "topic": "estimation",
+              "prompt": "A pub holds 60 people at any moment through the evening and each of them stays about three quarters of an hour — how many people walk through the door in an hour?",
+              "vizHint": "Slide how full it is and how long people stay. The door counts for itself.",
+              "viz": "pubFlow",
+              "answerNumber": 80,
+              "tolerance": 0,
+              "placeholder": "people an hour",
+              "answerValue": "80",
+              "explain": "Eighty. Sixty people each staying three quarters of an hour uses up 45 person-hours of pub every hour, and if 45 hours of drinking are being consumed per hour then 80 people an hour must be arriving to do it. Crowd equals arrivals times how long they stay — Little's law — and it holds for any queue at all, with no assumption about when anybody turns up: a hospital ward, a factory line, orders in a warehouse, jobs on a server."
+            }
+          ]
+        },
+        {
+          "id": "u14l2",
+          "title": "Counting what you cannot count",
+          "questions": [
+            {
+              "id": "tag_the_fish",
+              "type": "number",
+              "topic": "estimation",
+              "prompt": "You net 100 fish in a lake, tag them and put them back. A week later you net another 100 and four of them are tagged — how many fish are in the lake?",
+              "vizHint": "Cast the net again and again. The tagged count wobbles — that wobble is your error bar.",
+              "viz": "lakeNet",
+              "answerNumber": 2500,
+              "tolerance": 0,
+              "placeholder": "fish",
+              "answerValue": "2500",
+              "explain": "2,500. Four in every hundred fish you caught were tagged, so tagged fish are about 4% of the lake — and you know exactly how many tagged fish there are, because you tagged them: 100. If 100 is 4%, the lake holds 2,500. Notice how little you had to know: nothing about the lake, the net or the fish, only that the second catch was a fair sample. The same trick counts wildlife, homeless populations, and the bugs still hiding in a piece of software."
+            },
+            {
+              "id": "taxi_serials",
+              "type": "number",
+              "topic": "estimation",
+              "prompt": "You are new in a city and the four taxis you have seen were numbered 12, 47, 89 and 104 — how many taxis does the city have?",
+              "vizHint": "Drag your guess at the fleet size and watch four random taxis get sampled from it.",
+              "viz": "serialGuess",
+              "answerNumber": 129,
+              "tolerance": 1,
+              "placeholder": "taxis",
+              "answerValue": "129",
+              "explain": "About 129. Four numbers scattered over the fleet cut it into five stretches of roughly equal length — three between them, one below the smallest, one above the largest — so the biggest number you saw falls short of the total by about one stretch, and a stretch is 104 divided by 4. The estimate is 104 plus 26, less one. Britain ran exactly this sum on the gearbox numbers of captured German tanks: it said 246 a month, the spy reports said 1,400, and the German records found after the war said 245."
+            },
+            {
+              "id": "benford_ones",
+              "type": "choice",
+              "topic": "estimation",
+              "prompt": "Take a big pile of real-world numbers — river lengths, town populations, electricity bills — and look only at the first digit of each. How often is that digit a 1?",
+              "vizHint": "Pick a source and tally its first digits. The pale curve is what the law predicts.",
+              "viz": "firstDigits",
+              "choices": [
+                "11%",
+                "20%",
+                "30%",
+                "50%"
+              ],
+              "answer": 2,
+              "answerValue": "30%",
+              "explain": "About 30%, and 9s turn up under 5% of the time. Anything that grows spends longer with a 1 at the front than with a 9, because getting from 1,000 to 2,000 is a doubling while getting from 9,000 to 10,000 is an 11% nudge. The giveaway that this is the only possible answer is that it does not care what units you use — measure the rivers in miles or kilometres and the same curve comes out."
+            },
+            {
+              "id": "spot_the_fake",
+              "type": "tap",
+              "topic": "estimation",
+              "prompt": "Three expense ledgers, and one of them was invented by a person trying to look random — tap the fake.",
+              "vizHint": "Tap a ledger to tally its first digits against the curve.",
+              "viz": "ledgerCheck",
+              "regions": [
+                {
+                  "id": "ledgerA",
+                  "label": "Ledger A"
+                },
+                {
+                  "id": "ledgerB",
+                  "label": "Ledger B"
+                },
+                {
+                  "id": "ledgerC",
+                  "label": "Ledger C"
+                }
+              ],
+              "answerRegion": "ledgerC",
+              "answerValue": "ledgerC",
+              "explain": "Ledger C. Its first digits are spread far too evenly and it has only one number beginning with 1, where the other two have five and six — exactly the fingerprint of a person making numbers up, because people spread their digits out and steer away from starting a figure with a 1. The round endings give it away too. Tax authorities and auditors really do run this test, and it has put people in prison."
+            },
+            {
+              "id": "errors_stack",
+              "type": "choice",
+              "topic": "estimation",
+              "prompt": "You multiply three guessed numbers together and each one is typically 10% out either way — how far out is the answer likely to be?",
+              "vizHint": "Run the three guesses thousands of times and read the spread of the answer.",
+              "viz": "errorStack",
+              "choices": [
+                "about 3%",
+                "about 10%",
+                "about 17%",
+                "about 30%"
+              ],
+              "answer": 2,
+              "answerValue": "about 17%",
+              "explain": "About 17%, not the 30% that adding them up would suggest. Errors combine the way the sides of a right-angled triangle do, not the way a bill does: some of your guesses run high while others run low and they partly cancel, so three of them give you root-three times one, not three times one. This is the licence for the whole business of estimating — chaining rough guesses together is far safer than it feels, and a fourth guess costs you almost nothing."
+            }
+          ]
+        }
+      ]
     }
   ],
   "libraries": [
@@ -2859,6 +3546,324 @@ window.QQ_DATA = {
     }
   ],
   "vizData": {
+    "markov": {
+      "ringPads": 6,
+      "weather": {
+        "rainAfterRain": 0.5,
+        "rainAfterDry": 0.25
+      },
+      "maze": {
+        "rooms": [
+          "First",
+          "Middle",
+          "Last"
+        ],
+        "doors": [
+          [
+            "First",
+            "Middle"
+          ],
+          [
+            "Middle",
+            "Last"
+          ],
+          [
+            "Last",
+            "OUT"
+          ]
+        ],
+        "start": "First"
+      },
+      "surfer": {
+        "pages": [
+          {
+            "id": "home",
+            "name": "Home",
+            "x": 0.5,
+            "y": 0.16
+          },
+          {
+            "id": "ads",
+            "name": "Ads",
+            "x": 0.14,
+            "y": 0.5
+          },
+          {
+            "id": "blog",
+            "name": "Blog",
+            "x": 0.5,
+            "y": 0.62
+          },
+          {
+            "id": "shop",
+            "name": "Shop",
+            "x": 0.86,
+            "y": 0.85
+          },
+          {
+            "id": "news",
+            "name": "News",
+            "x": 0.86,
+            "y": 0.5
+          }
+        ],
+        "links": [
+          [
+            "home",
+            "news"
+          ],
+          [
+            "home",
+            "shop"
+          ],
+          [
+            "home",
+            "blog"
+          ],
+          [
+            "ads",
+            "blog"
+          ],
+          [
+            "blog",
+            "home"
+          ],
+          [
+            "shop",
+            "home"
+          ],
+          [
+            "news",
+            "blog"
+          ],
+          [
+            "news",
+            "ads"
+          ]
+        ]
+      },
+      "gas": {
+        "molecules": 10
+      },
+      "deuce": {
+        "pointWin": 0.6
+      },
+      "deck": 52
+    },
+    "stopping": {
+      "candidates": 100,
+      "shortlist": 4,
+      "sloppyCutoff": 50,
+      "purse": 5,
+      "houseCash": 95,
+      "roulette": {
+        "slots": 37,
+        "reds": 18,
+        "bankroll": 100
+      },
+      "martingale": {
+        "maxDoubles": 10
+      }
+    },
+    "info": {
+      "suspects": [
+        {
+          "id": "A",
+          "name": "A",
+          "num": 1,
+          "den": 2
+        },
+        {
+          "id": "B",
+          "name": "B",
+          "num": 1,
+          "den": 4
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "num": 1,
+          "den": 8
+        },
+        {
+          "id": "D",
+          "name": "D",
+          "num": 1,
+          "den": 8
+        }
+      ],
+      "questions": [
+        {
+          "id": "q_a",
+          "asks": [
+            "A"
+          ]
+        },
+        {
+          "id": "q_ab",
+          "asks": [
+            "A",
+            "B"
+          ]
+        },
+        {
+          "id": "q_c",
+          "asks": [
+            "C"
+          ]
+        },
+        {
+          "id": "q_bc",
+          "asks": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "hamming": {
+        "rings": [
+          {
+            "name": "left",
+            "lamps": [
+              1,
+              4,
+              5,
+              7
+            ]
+          },
+          {
+            "name": "right",
+            "lamps": [
+              2,
+              4,
+              6,
+              7
+            ]
+          },
+          {
+            "name": "bottom",
+            "lamps": [
+              3,
+              5,
+              6,
+              7
+            ]
+          }
+        ],
+        "lit": [
+          1,
+          2,
+          4,
+          6
+        ]
+      },
+      "message": 16,
+      "wireNoise": 0.1,
+      "copies": 3,
+      "bentCoin": {
+        "heads": 0.9,
+        "flips": 1000
+      }
+    },
+    "estimate": {
+      "london": {
+        "people": 9000000,
+        "perPiano": 200,
+        "tuningsPerDay": 4,
+        "workDays": 250
+      },
+      "pub": {
+        "inside": 60,
+        "stayMinutes": 45
+      },
+      "lake": {
+        "tagged": 100,
+        "secondCatch": 100,
+        "recaptured": 4
+      },
+      "taxis": [
+        12,
+        47,
+        89,
+        104
+      ],
+      "ledgers": [
+        {
+          "id": "ledgerA",
+          "name": "Ledger A",
+          "values": [
+            123,
+            138,
+            310,
+            588,
+            659,
+            762,
+            840,
+            1057,
+            1109,
+            1516,
+            2435,
+            2765,
+            2918,
+            3155,
+            4575,
+            4702,
+            5191,
+            9881
+          ]
+        },
+        {
+          "id": "ledgerB",
+          "name": "Ledger B",
+          "values": [
+            100,
+            116,
+            159,
+            220,
+            267,
+            329,
+            887,
+            1248,
+            1488,
+            1986,
+            2259,
+            3961,
+            4173,
+            4679,
+            5620,
+            6047,
+            7977,
+            9824
+          ]
+        },
+        {
+          "id": "ledgerC",
+          "name": "Ledger C",
+          "values": [
+            325,
+            445,
+            525,
+            675,
+            699,
+            820,
+            1950,
+            2800,
+            2990,
+            3800,
+            4000,
+            4450,
+            5450,
+            5750,
+            6950,
+            7250,
+            7750,
+            9950
+          ]
+        }
+      ],
+      "guessError": 0.1,
+      "guessCount": 3
+    },
     "spinners": [
       { "id": "left", "label": "Left", "slices": 12, "gold": 3 },
       { "id": "middle", "label": "Middle", "slices": 12, "gold": 5 },
