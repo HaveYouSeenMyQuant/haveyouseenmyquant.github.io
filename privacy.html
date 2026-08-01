@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy — have you seen my quant</title>
+<meta name="description" content="What this site records, what it does not, where it is stored, and how to have it deleted.">
+<meta name="theme-color" content="#0d1117">
+<link rel="stylesheet" href="css/legal.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d1117'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%2358a6ff' stroke-width='3'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<div class="legal-top"><a href="index.html">← have you seen my quant</a></div>
+
+<main class="legal">
+
+  <h1>Privacy</h1>
+  <p class="stamp">Last updated 1 August 2026</p>
+
+  <p class="lede">Play the free road with no account, no email and no network. If
+  you do, the only thing that leaves your device is an anonymous record of which
+  questions you saw and how they went — never your name, never your email
+  address.</p>
+
+  <p>Run by <span class="todo">[OWNER NAME]</span>. This is a static website:
+  there is no server of ours anywhere. Everything below is what the code in your
+  browser does, and all of it is readable in the page source.</p>
+
+  <h2>Usage events</h2>
+
+  <p>As you play, short events go to a hosted database (Supabase), so it is
+  possible to see which questions are too hard and where people stop. Each one
+  carries a <strong>random session id</strong> (new per tab session), a
+  <strong>random device id</strong> kept in this browser, a visit count, the
+  event name and time, and the details of that event: which question or lesson,
+  whether the answer was right, how long it took, hearts, XP, streak, the screen
+  you were on, your window size, the referring page, and a
+  <code>utm_source</code> tag if your link had one.</p>
+
+  <p>Neither id is a name or tied to you anywhere; they exist so ten events from
+  one visit count as one visit. Clearing this site's storage throws the device id
+  away and you become a new, unrelated device.</p>
+
+  <p><strong>Your email address is never put in an event.</strong> The email
+  screen records only the <em>domain</em> after the <code>@</code> and how many
+  characters the address was. The address itself is not in the event stream and
+  not in the events table. One thing to be honest about: a domain can identify
+  you if it is your own — <code>you@yourname.com</code> leaves
+  <code>yourname.com</code> in the log.</p>
+
+  <p>The events table is <strong>write-only from the browser</strong>: the key
+  shipped in the page can add an event and nothing else — it cannot read the
+  stream back, or read anybody's account. Only the owner can, through the
+  database's own admin login.</p>
+
+  <p>Every event carries a <code>host</code> stamp, the hostname the page was
+  served from. And analytics <strong>does not fire at all</strong> from
+  <code>file://</code>, <code>localhost</code>, <code>127.0.0.1</code> or a local
+  network address — that exists because the owner's own testing was otherwise
+  indistinguishable from real visitors, but the effect is that development
+  traffic is never recorded.</p>
+
+  <p>To see exactly what is recorded about you, add <code>?debug=1</code> to the
+  address, or tap the small grey line at the bottom of the road three times. A
+  drawer opens with this device's recent events, to read, copy or clear.</p>
+
+  <h2>What stays in your browser</h2>
+
+  <p>Your progress lives in this browser's <code>localStorage</code>: solved
+  questions, attempts, XP, crowns, streak, daily goal, XP per day, and an email
+  address if you entered one. Also there: the recent-events buffer, your device
+  id, your sign-in session, and your membership state.</p>
+
+  <p><strong>None of it is uploaded unless you sign in.</strong> Signed out, it
+  stays on the device, and clearing the site's data in your browser erases it
+  permanently — there is no copy to restore from.</p>
+
+  <h2>Signing in by email</h2>
+
+  <p>Past the free road the site asks for an email address. If you give one it is
+  sent to Supabase, which emails you a one-time sign-in link. So for sign-in, and
+  only for sign-in, the real address is sent and stored — in Supabase's own
+  <code>auth.users</code> table, which is what makes the link work, and in a
+  <code>profiles</code> row holding your address, XP, streak, best streak, last
+  active day, daily goal, lesson crowns, the last 30 days of daily XP, and your
+  membership state.</p>
+
+  <p>Once signed in, solved questions are also mirrored to a
+  <code>progress</code> table — one row per question, with attempts, time spent
+  and when you solved it. That is what lets you carry on from your phone on a
+  laptop, and it is why the site asks at all. The database rules only ever let
+  you read and write your own rows.</p>
+
+  <p>Opening the sign-in link wipes the tokens out of the address bar before
+  anything else happens, so a link you paste to someone later is not a live
+  session. Signing out deletes the session here and revokes it at Supabase. If
+  the mail service cannot be reached, the site says so plainly, keeps your
+  address on the device only, and opens the road anyway.</p>
+
+  <h2>The membership, and Gumroad</h2>
+
+  <p>The optional membership is sold and billed by <strong>Gumroad</strong>.
+  Payment happens entirely on Gumroad's checkout: <strong>card details never
+  touch this site and are never seen by us.</strong> What Gumroad collects there
+  is theirs, under their privacy policy. Their checkout script loads
+  <strong>only</strong> when you tap a buy button — until then the free road has
+  no third-party code on it at all.</p>
+
+  <p>Gumroad issues a <strong>licence key</strong>. Pasting it in is how the site
+  learns you are a member, and it is used for exactly one thing: asking Gumroad's
+  public licence-check endpoint, about once a day, whether that subscription is
+  still live. The key is kept on your device, and on your profile row if you are
+  signed in, with the membership status, the date access runs to, when it was
+  last checked, and the Gumroad subscription id. It is kept so the re-check need
+  not ask you again, so one key stays with one account, and so a new phone is
+  "paste the key" rather than an email to a human.</p>
+
+  <h2>Hosting</h2>
+
+  <p>The site is static files served by <strong>GitHub Pages</strong>. There is
+  no application server and no logging of ours. GitHub serves every request, so
+  GitHub sees the ordinary web-server record of it — your IP address, the page
+  asked for, the time. That is GitHub's, under GitHub's privacy statement; we
+  neither see it nor control it. The same is unavoidably true of Supabase and
+  Gumroad: a request carries your IP to whoever answers it.</p>
+
+  <h2>No advertising, no tracking pixels</h2>
+
+  <p>None. The site references exactly three outside addresses, and this is all
+  of them: <code>*.supabase.co</code> (events, sign-in, sync),
+  <code>gumroad.com</code> (checkout, on tap only) and
+  <code>api.gumroad.com</code> (the licence check). No ad network, no analytics
+  SDK, no social pixel, no web fonts, no CDN, no embedded video, and no cookies
+  set by this site. Nothing is sold or handed to anyone.</p>
+
+  <p>It is a site about interview maths, made for adults. Nothing on it is
+  directed at children.</p>
+
+  <h2>Deleting your data</h2>
+
+  <ul>
+    <li><strong>On your device, now.</strong> Clear this site's data in your
+    browser. Progress, events, session and membership all go, with no copy
+    left.</li>
+    <li><strong>Your account.</strong> Email <span class="todo">[CONTACT EMAIL]</span>
+    from the address you signed in with. That removes the account, the profile
+    row and every progress row attached to it.</li>
+    <li><strong>Usage events.</strong> They are not stored against a person, so
+    there is nothing to look you up by. If you want yours gone anyway, open the
+    debug drawer above, copy your device id and send it — those rows can then be
+    found and deleted.</li>
+  </ul>
+
+  <p>The same address is the right one for any question about any of this, or to
+  ask what is held about you.</p>
+
+  <p>If what the site does changes, this page changes with it and the date at the
+  top moves. This describes the practice; it is not a certification against any
+  particular regulation.</p>
+
+  <p class="legal-foot">
+    <a href="index.html">The road</a><span>·</span><a href="terms.html">Terms</a>
+  </p>
+
+</main>
+
+</body>
+</html>

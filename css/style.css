@@ -511,6 +511,14 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
   margin: 26px 0 0; text-align: center; color: var(--dim);
   font-size: 11px; letter-spacing: .04em; cursor: default;
 }
+/* The two legal pages. Kept off #footerLine, which app.js overwrites and which
+   is also the debug drawer's tap target. */
+.footer.legal-links { margin-top: 2px; }
+.footer.legal-links a {
+  display: inline-block; padding: 10px 8px;   /* a real tap target, not 13px */
+  color: var(--dim); text-decoration: none; cursor: pointer;
+}
+.footer.legal-links a:hover { color: var(--muted); }
 
 /* ------------------------------------------------------------- lesson --- */
 .play-top {
