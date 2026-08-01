@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 70,
+ "count": 71,
  "entries": [
+  {
+   "slug": "snowflake_infinite_edge",
+   "title": "An edge of infinite length around an area of exactly 1.6",
+   "ts": "2026-08-01T10:35:26+00:00",
+   "date": "1 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Keep pushing the middle of every side outwards and this edge gets longer forever. The area doesn't.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It stops at 1.6× the triangle you started with."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rule is the whole thing: take a triangle, push the middle third of every side out into a bump, then do it again on every new side. Forever."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every round replaces each side with four pieces, each a third as long. Four thirds. So the edge is 33% longer after every single round — 1.33, 1.78, 2.37, 3.16, 4.21, 5.62 — and it never stops. Do it a hundred times and the outline of a shape you could hold in your hand is over three trillion times its original length."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The area is a different story. Round 1 adds 3 new bumps. Round 2 adds 12 bumps, but each has a ninth of the area. Round 3 adds 48 bumps at a ninth of that. The count multiplies by 4, the size divides by 9 — so what gets added shrinks by 4/9 every round, and the total converges:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1 → 1.333 → 1.481 → 1.547 → 1.577 → 1.590 → 1.595 → … → 1.6 exactly (8/5)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "An infinitely long edge, wrapped around an area you could measure with a ruler. Both are true at once, and nothing here is a trick — the edge really is unbounded, and the shape really does fit inside a circle drawn through the original triangle's corners."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both numbers in the video are measured, not typed in. Every frame builds the outline by actually applying the rule, then reads the edge counter off the total segment length and the area counter off the shoelace formula for that exact polygon. Checked three ways: exact rational arithmetic (edge (4/3)^n, area 8/5 − (3/5)(4/9)^n), the measured polygon agreeing with it to 2e-14, and a 2,000,000-point Monte-Carlo area count at 1.598 ± 0.003."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is why \"how long is a coastline?\" has no answer. Measure with a shorter ruler and you find more wiggles, and the number goes up — with no length it settles on."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Play the questions instead of reading them. Level 1 is open, no signup — link in bio."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
   {
    "slug": "sixty_five_thousand_boxes",
    "title": "8 measurements, 500 patients, 65,536 boxes — 99% of them empty",
