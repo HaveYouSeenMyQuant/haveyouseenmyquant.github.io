@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 68,
+ "count": 69,
  "entries": [
+  {
+   "slug": "eighteen_beats_two_twelves",
+   "title": "One 18-inch pizza is 2.25 twelve-inch pizzas",
+   "ts": "2026-08-01T09:24:37+00:00",
+   "date": "1 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Two 12-inch pizzas do not add up to one 18-inch. They are not even close.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "An 18-inch is only half as wide again as a 12-inch. Width x1.5."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But you eat the surface, and the surface goes up by 1.5 squared. So the big one is 2.25 twelve-inch pizzas."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In square inches: 254.5 for the 18, 113.1 for the 12. Two twelves come to 226.2 — short by 28.3, which is exactly a quarter of a 12-inch pizza. Not roughly a quarter. Exactly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is why one 12-inch pizza's worth of an 18-inch is a slice of exactly 160 degrees, and two of them leave 40 degrees over. The video cuts it 160 / 160 / 40, and that adds to 360."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same rule everywhere: double the width of anything flat and you get four times as much of it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "(Same thickness both times, and nothing here about price — just how much pizza there is.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Stop reading maths and start playing it — first question free, no signup, no account: link in bio."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
   {
    "slug": "lost_boarding_pass",
    "title": "100 seats, the first passenger sits at random — does the last one get their own seat?",
