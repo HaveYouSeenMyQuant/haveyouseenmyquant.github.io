@@ -1,0 +1,3455 @@
+/* THE ANSWERS ARCHIVE — GENERATED FILE, DO NOT EDIT BY HAND.
+ *
+ * Written by pipeline/build_answers.py out of analytics/posts.jsonl and the
+ * caption / comment / module files each posted video already has. Re-run it
+ * after every post:
+ *
+ *     python3 pipeline/build_answers.py
+ *
+ * Same inputs, byte-identical output — a re-run with nothing new is a no-op.
+ * Every `a` and every `why` here is quoted from this repo; nothing was
+ * written for the website, so nothing here can drift from what we published.
+ *
+ * src: "comment" = the worked answer we posted under the video
+ *      "caption" = the video's own caption
+ *      "module"  = the docstring of pipeline/questions/<slug>.py, whose
+ *                  verify() is what proves the number
+ */
+window.QQ_ANSWERS = {
+ "count": 67,
+ "entries": [
+  {
+   "slug": "thousand_cores",
+   "title": "A job that is 95% parallel, on a thousand cores — how much faster?",
+   "ts": "2026-08-01T07:41:32+00:00",
+   "date": "1 Aug 2026",
+   "topic": "cs_systems",
+   "q": "95% of this job splits across cores. Throw a thousand cores at it and it does NOT get a thousand times faster.",
+   "a": "19.6 times faster. Not a thousand.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The arithmetic, in minutes. The job is 60 minutes. 5% of it — 3 minutes — has to run in order on one core, and nothing can help it. The other 95% — 57 minutes — splits perfectly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put 1000 cores on it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "the 57 minutes becomes 57/1000 = 3.42 seconds",
+      "the 3 minutes stays 3 minutes",
+      "total = 3 min 3.4 s",
+      "60 / 3.057 = 19.63x"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the part that stings. However many cores you buy, those 3 minutes never go away, so you can never beat 60/3 = 20x. Your thousand cores got you 19.63 of the 20 that exist, and 98% of the machine is doing nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And you never needed them. 19 cores: 3 + 57/19 = 3 + 3 = 6 minutes, which is exactly 10x. So the first 19 cores buy you half of all the speed there is, and the next 981 buy the other half."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general rule, with a fraction s of the work stuck in order:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  time(p) = s + (1 - s)/p",
+      "  speedup(p) = 1 / (s + (1 - s)/p)",
+      "  ceiling = 1/s, no matter what you spend"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At s = 5%:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  1 core ....... 60.00 min .... 1.00x",
+      "  2 cores ...... 31.50 min .... 1.90x",
+      "  4 cores ...... 17.25 min .... 3.48x",
+      "  8 cores ...... 10.13 min .... 5.93x",
+      "  19 cores ...... 6.00 min ... 10.00x",
+      "  100 cores ..... 3.57 min ... 16.81x",
+      "  1000 cores .... 3.06 min ... 19.63x",
+      "  1,000,000 ..... 3.00 min ... 20.00x"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is Amdahl's law, and 19.63x is the optimistic figure: it assumes the 57 minutes divides into 1000 exactly equal pieces with zero coordination. Simulate it with realistically uneven chunks thrown at the cores at random and the job waits for the unluckiest core — about 19.44x. The formula is an upper bound you never quite reach."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The practical reading: the way to make a parallel program fast is almost never more cores. It is shrinking the 5%."
+     ]
+    }
+   ],
+   "src": "comment",
+   "road": {
+    "qid": "parallel_cores",
+    "lesson": "u10l2",
+    "unit": 10,
+    "prompt": "A ten-hour job splits neatly across as many cores as you like, apart from one hour of it that cannot be split at all — run it on a hundred cores and how many hours does it take?"
+   }
+  },
+  {
+   "slug": "ninety_nine_in_line",
+   "title": "99 people in the line — and the checkout is keeping up",
+   "ts": "2026-07-31T21:44:01+00:00",
+   "date": "31 Jul 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "A checkout that serves every single person who turns up still ends up with 99 people in the line.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is not too slow. It is just never idle."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One checkout, shoppers arriving at random, each taking a random time to serve. Take the fraction of time the checkout is busy, and the average number of people in the shop is pinned to it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "busy 50% → 1 person",
+      "busy 90% → 9",
+      "busy 99% → 99"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So ten percent more shoppers takes the line from 9 to 99. Eleven times the queue for a tenth more customers."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And nothing is broken at 99%. Everyone gets served, the line does not grow forever, the shop is not overloaded. It is simply long."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What makes it long is randomness. Shoppers arrive in clumps, and the only time a checkout can claw back the backlog is while it is standing empty. Idle time is the shock absorber — and at 99% busy there is 1% of it left."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same checkout, same 99% busy, three different worlds (all simulated for the video):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "arrivals random, service times random → you wait about 99 service times",
+      "arrivals random, service times exact → 49.5",
+      "arrivals on the clock, service exact → nobody waits at all. Zero."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Identical load, and one of them has no queue. The queue was never the load. It was the variability, and what absorbs variability is slack."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which is why hospital planners warn about running wards much above 85% full, why a motorway collapses the moment it fills rather than gradually, and why the one machine your day depends on should never be the busiest thing you own."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A model, not a measurement of any real shop: one server, arrivals at random, random service times. The numbers come out of the balance equations and are checked by simulation."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "hundred_lockers",
+   "title": "A hundred lockers, a hundred people — which end up open?",
+   "ts": "2026-07-31T21:15:22+00:00",
+   "date": "31 Jul 2026",
+   "topic": "puzzles",
+   "q": "A hundred lockers, all shut. A hundred people walk past. Which lockers end up open?",
+   "a": "Exactly ten lockers stay open — 1, 4, 9, 16, 25, 36, 49, 64, 81, 100. The perfect squares.",
+   "why": [
+    {
+     "h": "WHY A LOCKER ENDS OPEN",
+     "t": "p",
+     "lines": [
+      "Person k touches locker n only when k divides n. So locker n gets flipped once for each of its divisors, and nothing else happens to it. It starts shut, so:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "flipped an EVEN number of times -> back to shut",
+      "flipped an ODD number of times -> open"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The whole puzzle is now one question: which numbers have an odd number of divisors?"
+     ]
+    },
+    {
+     "h": "DIVISORS COME IN PAIRS",
+     "t": "p",
+     "lines": [
+      "Pick any divisor d of n, and n/d is a divisor too. They come as a couple, d x (n/d). 12 = 1x12, 2x6, 3x4 -> six divisors -> even -> locker 12 ends SHUT. 7 = 1x7 -> two divisors -> shut. 40 = 1x40, 2x20, 4x10, 5x8 -> eight -> shut. This pairing is why nearly every locker ends up closed again: whoever opens it, someone else comes along and shuts it."
+     ]
+    },
+    {
+     "h": "WHERE THE PAIRING BREAKS",
+     "t": "p",
+     "lines": [
+      "A pair fails to be two different numbers in exactly one case: when d = n/d, i.e. n = d x d. A square has one divisor standing alone in the middle, so its divisor count is odd. 36 = 1x36, 2x18, 3x12, 4x9, 6x6 -> nine divisors, because 6 has no partner -> locker 36 ends OPEN. 100 = 1x100, 2x50, 4x25, 5x20, 10x10 -> nine -> OPEN. Every non-square pairs up perfectly and closes. Every square has one unmatched divisor and stays open."
+     ]
+    },
+    {
+     "h": "SO",
+     "t": "p",
+     "lines": [
+      "Open lockers = the squares from 1 to 100 = 1, 4, 9, 16, 25, 36, 49, 64, 81, 100. Ten of them."
+     ]
+    },
+    {
+     "h": "TWO THINGS WORTH NOTICING",
+     "t": "p",
+     "lines": [
+      "The order of the people is irrelevant. Only how many times each locker is flipped matters, and that is fixed. Shuffle the hundred people any way you like and the same ten lockers are open. It scales: with N lockers the number left open is floor(sqrt(N)). A thousand lockers leaves 31 open. A million leaves a thousand."
+     ]
+    },
+    {
+     "h": "CHECKED",
+     "t": "p",
+     "lines": [
+      "I simulated all 482 individual flips directly, counted divisor parity separately, and listed the squares — all three give the identical set. Then I re-ran it with the people in five random orders (same answer every time) and for 10, 25, 50, 250 and 1000 lockers (3, 5, 7, 15, 31 open — exactly floor(sqrt(N)) each time)."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "important_links_to_you",
+   "title": "A page is important if important pages link to it",
+   "ts": "2026-07-31T20:05:22+00:00",
+   "date": "31 Jul 2026",
+   "topic": "graphs",
+   "q": null,
+   "a": "One page has a single link pointing at it. Another has three. The single-link page ends up twice as important.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "How do you rank pages when the rule eats itself? A page counts as important if important pages link to it — so you would need the answer before you could work out the answer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The way out is to stop looking for a starting point. Give every page the same share of importance. Then let every page hand its share along its outgoing links, split evenly between them. Do it again. And again. The shares swing about for a few rounds and then stop moving, and where they stop is the ranking."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The graph here is 7 pages and 13 links. The page that wins collects one link — but that link comes from a well-connected hub that spends its entire share on that single link. The page that loses collects three links, from pages almost nobody links to. Final shares: 26% against 13%, exactly two to one. A fourth page collects four links and still lands below the winner."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every circle's size is its share, live. The gold is importance in flight: once a round, every page fires a bead down each of its links at once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is the founding idea behind ranking the web by links — not a description of how any search engine ranks today."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "nearest_one_wins",
+   "title": "Colour every spot by its nearest dot and the map draws itself",
+   "ts": "2026-07-31T19:00:21+00:00",
+   "date": "31 Jul 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Five shops on a map. Colour every spot by whichever shop is nearest — and the borders come out perfectly straight.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nobody drew a single line."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That's the surprising part. Regions this clean look designed — someone with a ruler carving the town into districts. The only rule here is \"go to the nearest shop\", and the straight edges fall out of it on their own."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why straight? Take any two shops. The places that belong to neither one more than the other are the places that are exactly the same distance from both — and that set of places is a straight line. Every border in the picture is one of those. Where three of them meet you get a corner, and the map ends up as flat-sided patches with no curves anywhere."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You can watch it happen: colour spreads out of all five shops at the same speed, and wherever two of those spreading circles collide they stop dead in a straight crease — the crease is where the two arrivals tie."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then move one shop. Every border around it re-forms at once, because nothing is stored: the map is just \"who's nearest\", recomputed everywhere. Add a sixth and it cuts its own patch out of its neighbours."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "How it's computed, honestly:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "every frame is a 540 × 723 grid over the map — 390,420 cells — each coloured by the true nearest shop. No boundary is drawn from a formula; the bright edges are simply the cells whose neighbour has a different owner.",
+      "the straight-edge claim is measured, not asserted: at ~2,400 places where two neighbouring cells disagree, the crossing point was found and its distances to the two owning shops compared. Max difference: 0.002 of a pixel.",
+      "fit a straight line through each border's crossing points and the worst point sits 0.0013 pixels off it.",
+      "when a shop moves, the whole grid is recomputed for that frame — nothing is tweened."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same idea behind phone coverage maps, which warehouse ships your parcel, and which weather station \"counts\" for your postcode."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "is_the_forecast_honest",
+   "title": "How to check a forecaster without knowing the future",
+   "ts": "2026-07-31T18:04:29+00:00",
+   "date": "31 Jul 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "You can't tell if a 70% forecast was right. But you can grade a thousand of them, without ever knowing the future.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Someone says 70% chance of rain. It rains. Were they right? Nothing about that one day says yes or no. A single probability cannot be graded."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So don't grade one. Grade the record."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Take every day they ever forecast and throw it onto a pile by the number they attached: the 10 pile, the 30 pile, the 70 pile. Then, inside each pile, count how often it actually rained."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If the 70 pile rained on about 70% of its days, that number means what it says. Do it at every level and the five answers draw a line. An honest record climbs the straight one. Someone who always sounds too sure draws a flatter line that pulls away from it, saying 90 when reality is nearer 73, and 10 when reality is nearer 27."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole test. It needs nothing but their past record, and no forecast of the future anywhere in it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In the video: 4,000 simulated days for each of two forecasters, about 800 days behind every bar. The honest one's piles rained 10.4, 28.0, 51.0, 70.9 and 91.0% of the time -- close to the straight line but not dead on it, because 800 days still wobble by a point or two. The too-sure one's piles rained 27.8, 41.5, 49.1, 58.0 and 71.6% of the time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which one would you trust with a 90%?"
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "learns_from_the_score",
+   "title": "Nobody taught it how — it only ever heard how well",
+   "ts": "2026-07-31T17:03:08+00:00",
+   "date": "31 Jul 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Nobody ever told this thing how to balance the pole. It only ever heard how well it did.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That's the whole trick."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A cart on a rail, a pole hinged on top. The thing driving it was never told what the pole is, what a push does, or which way to go. All it can do is shove the cart left or right — and when the pole falls, one number comes back: how long it stayed up. No answer, no correction, no hint about which push was the bad one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then it nudges itself toward whatever it was doing before a bigger number, and away from what came before a smaller one. Repeat."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Attempt 1: 0.24 seconds. Attempt 50: 1.18 seconds. Attempt 500: the full 10 seconds the run allows — it doesn't fall at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Everything here is a real run, not a drawing of one:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "the world is the standard cart-pole: gravity 9.8, cart 1 kg, pole 0.1 kg, half-length 0.5 m, pushes of ±10 N, stepped every 0.02 s. An attempt ends at 12° from upright, at 2.4 m from centre, or after 500 steps.",
+      "the learner is one logistic unit over the four numbers it can see, updated after each attempt by plain score-weighted reinforcement. Learning rate 0.02, discount 0.99, seed 20, all weights starting at zero — so attempt 1 really is a coin flip at every step.",
+      "every frame is a genuine simulator state from that run, and the stopwatch shows the true score. Failed attempts play slightly slower than real time so the topple reads; the ten-second one plays faster. The stopwatch is honest either way.",
+      "mean over the first 50 attempts: 0.58 s. Over the last 50: 6.73 s."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Lucky run? I re-ran the identical setup on 60 seeds. All 60 learn — every one improves, every one ends above a 2-second average, median improvement 7.7x. What IS better than typical is this attempt 500: it hits the cap, which only 2 of 60 seeds do on that exact attempt. Seed 20 was picked for that, on criteria fixed before the scan."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A toy, not a claim about how big modern systems get trained — but the same idea, at a size you can watch."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "twenty_questions_rule",
+   "title": "A rule learned by asking yes-or-no questions",
+   "ts": "2026-07-31T16:07:15+00:00",
+   "date": "31 Jul 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Two colours of dot, mixed so no straight line can separate them. A machine learns the rule by asking yes-or-no questions.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That's the whole method."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One question at a time — \"is it left of here?\" — and each question cuts the space in two. It tries every possible cut and keeps the one that leaves both sides closest to a single colour. Then it does the same thing again inside each piece."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Four cuts later the space is five boxes, and each box is almost entirely one colour. No formula, no curve to fit. Just yes or no, over and over, until the answer falls out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What's left is a rule a person can read straight off the picture: gold in the top-left corner, gold in the bottom-right, blue everywhere between."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The numbers, honestly:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "the best straight line anywhere on this data gets 84%, and still puts 25 of the 160 dots on the wrong side. That's why a line won't do.",
+      "the four cuts get 97.5% — 156 of 160 dots land in a box whose majority colour is their own.",
+      "that is accuracy on exactly the dots the cuts were fitted to. Nothing here claims anything about new dots.",
+      "every cut is chosen by the same stated rule, greedily: take the cut anywhere in the picture that raises size-weighted purity the most. Not one line is hand-placed.",
+      "5% of the labels were flipped on purpose, so no rule can be perfect. The four dots left in the wrong box are still on screen at the end — \"almost all one colour\" is a measurement, not a figure of speech."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "resample_your_own_data",
+   "title": "How far off is your average? Ask your own data",
+   "ts": "2026-07-31T15:07:45+00:00",
+   "date": "31 Jul 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "You can work out how far off your average might be without collecting a single extra measurement.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the trick. You have one sample — forty measurements — and you take its average. To find out how much that average could have wobbled, build fake samples out of the sample you already have: pick one of your forty at random, write it down, PUT IT BACK, and repeat forty times. Because everything goes back in, some measurements come up twice or three times and some never come up at all, so every fake sample is genuinely different from the real one. Average each one. The spread of those averages is your answer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The simulation in the video, so you can check it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "one real sample of 40, from a world whose true noise spread is 1 — a number the method never sees",
+      "20,000 fake samples, each 40 draws with replacement",
+      "spread of the fake averages: 0.15672",
+      "textbook value on the same sample: 0.15891",
+      "the truth, which neither may look at: 0.15811"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the trick reproduces the formula to within 1.4% without ever being told the formula. Repeat the whole thing on 300 fresh samples and the two agree to about 2% on any given sample."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Where it does NOT work, because this is not magic:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "It can only reflect what your one sample happens to contain. A sample that came out tighter than the world it came from gives you a tighter answer, and nothing inside the data can tell you that happened.",
+      "It does badly with very small samples — with eight or ten measurements there simply isn't enough in there to re-draw from.",
+      "It fails for some quantities, extremes especially. The largest value in a fake sample can never exceed the largest value you actually measured, so the wobble of a maximum comes out far too small.",
+      "It cannot fix a biased sample. If the measurements were collected badly, every fake sample inherits exactly the same bias, and the answer comes back looking reassuringly precise and being wrong."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "what_95_percent_means",
+   "title": "A 95% range is not what almost everyone thinks it is",
+   "ts": "2026-07-31T13:53:25+00:00",
+   "date": "31 Jul 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "A 95% range does not mean there's a 95% chance the true value is inside it. Almost everyone reads it that way.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The true value is fixed. Your range is already drawn. That one range either contains it or it doesn't — there is no 95 about it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The 95 only means something across repeats. Take a fresh sample, build a fresh range by the same rule, over and over: about 95 out of every 100 of those ranges contain the true value. It describes the recipe, not the one range in front of you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The simulation in the video, so you can check it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "the thing being measured really is 0, and every measurement is 0 plus noise of known spread 1",
+      "one go = 25 fresh measurements",
+      "the rule for the range = the average of those 25, plus or minus 1.96 × 1 ÷ √25, i.e. average ± 0.392",
+      "because the noise spread is known, the chance a range built this way contains the true value is exactly 0.95 — not approximately. A 2,000,000-repetition check measured 0.94995."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The hundred ranges on screen are one fixed seed. 95 of them contain the true value; 5 miss it entirely — and the closest miss clears the line by 0.012, because misses are almost always marginal. Nothing is exaggerated to make a gap look bigger than it is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Worth being precise about one thing: this is about the range you get from that rule. A Bayesian credible interval is a different object, built a different way, and it genuinely can be read as \"95% chance the value is in here\". The misreading is applying that sentence to a range that was never built to support it."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "words_as_points",
+   "title": "A machine gives every word a place on a map",
+   "ts": "2026-07-31T12:57:55+00:00",
+   "date": "31 Jul 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Every word gets a place on a map. Nobody chose the places — and yet dog lands next to cat, miles from bread.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The positions in this clip are real, not drawn by hand. They are the published GloVe word vectors — 50 numbers per word, trained on Wikipedia and Gigaword, released by Stanford in 2014 — flattened onto two directions so they fit on a phone. Both projections are stated in the code, and every dot on screen comes straight out of them. No product's internals are being shown, and nothing was nudged to look nicer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Where do the places come from? Only from which words turn up in the same company. Nothing was labelled and no one placed anything. Words used in the same kind of sentence end up in the same part of the map: the three animal words score 0.70 to 0.92 alike, the three food words 0.81 to 0.84, and every animal-food pair sits right down at 0.16 to 0.40."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then the strange part. Directions carry meaning too. Take the step from man to woman, put that same step on king, and the closest word to where you land — out of all 400,000 words in the file — is queen."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Small print, because this one gets oversold: the arithmetic is not exact. The miss is about as long as the step itself, and the two steps sit roughly 53 degrees apart. Queen genuinely wins the nearest-word contest, but this parallel structure is a tendency that emerges from what was read, not a law that always holds. The gap you can see on screen is the real gap."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "spam_dial_tradeoff",
+   "title": "Catch more spam, lose more real mail — the dial you cannot win",
+   "ts": "2026-07-31T11:31:22+00:00",
+   "date": "31 Jul 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "A stricter spam filter doesn't just catch more spam. It also throws away more of your real email.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is one dial. Every email gets a score for how spammy it looks, and anything above the dial goes to the junk folder. Move the dial and you don't get \"better\" — you get a different pair of mistakes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The simulation in the video: 40 real emails and 40 spam, scored on how spammy they look. Same 80 emails, three settings:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "strict — 0 spam got through, but 26 real emails binned",
+      "middle — 7 spam through, 7 real emails binned",
+      "loose — 0 real emails binned, but 34 spam through"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Turning it up strictly cuts the spam getting through AND strictly raises the real mail thrown away. Across every setting in between, the best you can do is 12 mistakes in total. Never zero."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the condition that makes all of that true, because it matters: the two groups OVERLAP on the score. Some real email looks spammier than some spam. If they didn't overlap — if every spam scored above every real email — you could park the dial in the gap and make both counts zero, and there would be no trade at all. The trade is a fact about the overlap, not about filters."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which is why the right setting is never \"the accurate one\". It depends on which mistake costs you more. A junk folder can afford to eat one email a month. A cancer screen cannot afford to miss one case, so it is set to raise false alarms on purpose, and the follow-up test sorts them out. Same dial, opposite ends."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Simulated data, not a description of how any real email provider works."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "twenty_tests_one_wins",
+   "title": "Test twenty things that do nothing and one will look real",
+   "ts": "2026-07-31T09:59:52+00:00",
+   "date": "31 Jul 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "Test twenty things that do nothing, and one of them will still look like a discovery.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The usual bar for calling a result real is a one-in-twenty chance of seeing it when nothing is going on. So run twenty tests on twenty things that genuinely have no effect, and you should EXPECT about one to clear the bar anyway."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Everything in this video is simulated with no effect anywhere: twenty tests, each comparing two groups of 30 measurements drawn from the same distribution. On the seed we rendered, exactly one cleared the bar. Show only that one and it reads as a finding."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The honest numbers, across repeats: the count clearing the bar averages exactly 1, and at least one clears it 64% of the time. Not guaranteed — but often enough that \"we found something\" always deserves the question: how many things did you test?"
+     ]
+    }
+   ],
+   "src": "caption",
+   "road": {
+    "qid": "p_hacking",
+    "lesson": "u2l2",
+    "unit": 3,
+    "prompt": "You run 20 completely useless experiments. Each one has a 1 in 20 chance of throwing up an exciting-looking result purely by luck. On average, how many exciting results will you get?"
+   }
+  },
+  {
+   "slug": "attention_which_word",
+   "title": "How a language model works out which word \"it\" means",
+   "ts": "2026-07-31T09:03:53+00:00",
+   "date": "31 Jul 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "The trophy didn't fit in the suitcase because it was too big. What is \"it\"? You knew instantly. A computer doesn't.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now swap one word. \"Because it was too small.\" Suddenly \"it\" means the suitcase. Same sentence, opposite answer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So how does a language model get this right? Every word gets to look at every other word and decide how much each one matters. The word \"it\" sends out its looks, and the strongest one lands on \"trophy\". Change big to small and that strongest look swings across to \"suitcase\". Nobody wrote that rule down — it was learned, just from reading."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One thing to be straight about: what you are watching is the mechanism illustrated, not a trace from a real system. The strengths of those arcs come from one simple rule written into the code, printed in full when the module runs — they are not measured inside anybody's model, and no model is named. What is not made up is the sentence itself: one adjective really does flip what \"it\" refers to, and that is exactly the problem the machine has to solve."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "gps_clock_drift",
+   "title": "Switch off one correction and your phone is kilometres out by tonight",
+   "ts": "2026-07-31T08:30:36+00:00",
+   "date": "31 Jul 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Your phone finds you by timing signals from space — and the clocks up there don't tick at the same rate as yours.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A GPS satellite sits 26,560 km from Earth's centre and moves at 3.874 km/s. Two things happen to its clock, and they pull opposite ways:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "moving fast makes it run SLOW — −7.2 millionths of a second a day",
+      "sitting high up makes it run FAST — +45.7 millionths of a second a day"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Height wins. Net: the satellite clock gains +38.5 millionths of a second every day."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That sounds like nothing. It isn't, because the whole method is timing. Light travels 30 cm in a billionth of a second, so:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "38.5 millionths of a second × the speed of light = 11,543 m ≈ 11.5 km"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Roughly what a day of uncorrected drift amounts to. Not a precise error budget — a real receiver solves for its own clock alongside its position using several satellites at once, so it's messier than one multiplication — but that is the scale, and it is why the correction exists."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And it never happens. The satellites' atomic clocks are manufactured deliberately running slow, so that once they are up there, at that speed and that height, they tick at exactly the right rate. Someone had to work that out before the first one launched."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The small print:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "Gravitational term = (GM/c²)(1/R_earth − 1/r) with mean Earth radius 6,371 km; kinematic term = −v²/2c². Cross-checked against the rotating-geoid reference (which folds in Earth's spin and oblateness): +38.57 a day, a 0.2% difference. Both land on the standard published ~38.",
+      "Every number on screen was computed, not quoted."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "socks_in_the_dark",
+   "title": "A drawer of socks in four colours, in the dark — how many to be sure of a pair?",
+   "ts": "2026-07-31T07:28:36+00:00",
+   "date": "31 Jul 2026",
+   "topic": "puzzles",
+   "q": "A drawer of socks in four colours. The light is off. How many must you grab to be sure two of them match?",
+   "a": "5 socks.",
+   "why": [
+    {
+     "h": "THE SETUP, EXACTLY",
+     "t": "p",
+     "lines": [
+      "Four colours in the drawer, plenty of every colour, all jumbled, and you cannot see. You take socks out one at a time and you want two of the SAME colour. The count has to work every single time, not most of the time."
+     ]
+    },
+    {
+     "h": "WHY 4 IS NOT ENOUGH",
+     "t": "p",
+     "lines": [
+      "Picture the worst possible luck: first sock red, second gold, third green, fourth blue. Four socks, four colours, no pair. That is not a freak case you can wave away - there is at least one sock of every colour in there, so it really can come out that way. An answer that can fail even once is not a guarantee."
+     ]
+    },
+    {
+     "h": "WHY 5 ALWAYS WORKS",
+     "t": "p",
+     "lines": [
+      "Now take one more. There are only four colours, so that fifth sock is red, gold, green or blue - and in the worst case you are already holding one of each. It has to match one of them. There is no way to lay out five socks in four colours without two of them being the same, so no run of bad luck can beat you. The fifth sock's odds never enter into it: it has nowhere else to go."
+     ]
+    },
+    {
+     "h": "THE DRAWER SIZE IS IRRELEVANT",
+     "t": "p",
+     "lines": [
+      "5 is the answer whether the drawer holds 20 socks or 20,000. The only number that matters is how many COLOURS there are. With C colours the worst case is one of each - C socks, still no pair - and the very next sock must repeat one of them. So the answer is always C + 1. Ten colours: eleven socks. Two colours: three socks."
+     ]
+    },
+    {
+     "h": "WHY IT FEELS LIKE A PROBABILITY QUESTION",
+     "t": "p",
+     "lines": [
+      "Most people start estimating - how likely is a pair after three, after four - and by four you are very probably fine. But \"very probably\" is not what was asked. Asked for a guarantee, the answer needs no probability at all. Just counting."
+     ]
+    },
+    {
+     "h": "CHECKED BY BRUTE FORCE",
+     "t": "p",
+     "lines": [
+      "All 256 ways to draw 4 socks from 4 colours: 24 of them have no pair. All 1024 ways to draw 5: not a single one is pair-free. Re-run with 1, 2, 5, 9 and 50 socks of each colour, and with lopsided drawers like 2/7/3/8 - the answer comes back 5 every time."
+     ]
+    }
+   ],
+   "src": "comment",
+   "road": {
+    "qid": "socks_dark",
+    "lesson": "u1l2",
+    "unit": 1,
+    "prompt": "A drawer holds ten black socks and ten blue socks, all mixed up. The room is pitch dark. How many socks must you take out to be certain you have a matching pair?"
+   }
+  },
+  {
+   "slug": "inflation_halves_it",
+   "title": "A calm 2% a year halves what your cash buys in one working life",
+   "ts": "2026-07-31T06:00:20+00:00",
+   "date": "31 Jul 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "The Bank of England AIMS for 2% inflation. At exactly that rate, £100 left sitting in cash buys half as much 35 years later.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Not a crisis. Not the 1970s. The target — the calm, everything-going-to-plan number."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "£100 · 2% a year · what it buys = 100 × 1.02⁻ᵗ"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "Year 10 → £82",
+      "Year 20 → £67",
+      "Year 30 → £55",
+      "Year 35 → £50  ← half gone (exactly 35.00 years: ln2 ÷ ln1.02 = 35.0028)",
+      "Year 40 → £45"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The number printed on the note never changes. What the note fetches does. Nobody ever feels 2% in a single year — it's about the size of a rounding error on a weekly shop — and that is exactly why it works: 35 years of \"you'd never notice\" is half of everything."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One working life is enough to do it once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The small print, because this is about money and I'd rather say it than have it assumed:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "This is a constant-rate simplification about CASH LEFT IDLE — the same £100 sitting still, nothing added, nothing invested. Real inflation moves year to year, differs by what you actually buy, and wages and investments often rise with it or beyond it. Nothing here is a claim about anyone's living standards.",
+      "2% is the Bank of England's CPI target, chosen deliberately because it is the *least* dramatic defensible number. The UK's long-run average since 1949 is nearer 3.6%, which halves it in 19.6 years and leaves £24 after 40. The point is that even the on-target rate does this.",
+      "Every figure above is 100 × 1.02⁻ᵗ, checked three ways (closed form, forty successive divisions, and a bisection for the halving time).",
+      "Not financial advice. It's arithmetic about what a fixed pile of cash fetches over time."
+     ]
+    }
+   ],
+   "src": "caption",
+   "road": {
+    "qid": "compound_double",
+    "lesson": "u3l2",
+    "unit": 5,
+    "prompt": "Money in an account grows by 6% each year, and the growth compounds. Roughly how many years until it has doubled? Give the nearest whole year."
+   }
+  },
+  {
+   "slug": "mortgage_interest_first",
+   "title": "For years, almost every pound of a mortgage payment is interest",
+   "ts": "2026-07-31T05:34:43+00:00",
+   "date": "31 Jul 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Borrow £250,000 and you'll hand the bank £188,443 in interest — and for 11 years, most of each payment IS the interest.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "£250,000 · 25 years · 5% a year Monthly payment: £1,461"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The payment never changes. The split does."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Month 1: £1,042 of it is interest, £420 comes off the house. The interest is charged on what you still owe, and at the start you owe nearly all of it — so barely a third of the payment is buying you any of the house."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "As the balance falls the interest shrinks and the other part grows. Slowly. It is not until month 135 — eleven years and three months in — that the part paying off the house is finally the bigger half. By then you have paid £121,431 in interest and still owe £174,132 of the original £250,000."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Over the full 25 years: paid £438,443 · house £250,000 · interest £188,443 That's 75% of what you borrowed, and 43% of every pound you ever paid."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The small print, because this is about money and I'd rather say it than have it assumed:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "Worked out payment by payment, all 300 of them. Balance after the last one: £0.0000000014. The repayment parts add up to £250,000 to the same rounding.",
+      "A repayment mortgage at a rate that never moves for 25 years, with no fees and no overpayments. UK mortgages are normally fixed for 2–5 years and then revert to something else, so a 25-year fixed rate is a simplification — the shape of the split is the point, not the exact pound figure.",
+      "The rate matters enormously. Same loan at 3%: £105,658 of interest and the crossover comes at month 24. At 7%: £280,084 and month 182.",
+      "Not financial advice, and not an argument for or against a mortgage. It's arithmetic about how a repayment schedule works."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "overbooked_flight",
+   "title": "Airlines sell more seats than the plane has",
+   "ts": "2026-07-31T05:03:40+00:00",
+   "date": "31 Jul 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Airlines sell more tickets than the plane has seats — and the maths says they should.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A 100-seat plane. Say each booked passenger turns up independently with probability 0.9."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sell exactly 100 tickets and 10 seats fly empty on the average flight. A genuinely full plane happens about once in 37,600 departures."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sell 105 and the whole spread of arrivals slides up against the seat line. Average empty seats fall from 10 to 5.5 — and the chance that more than 100 people turn up, so someone gets bumped, is 1.67%. About 1 flight in 60."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every figure computed exactly from the binomial distribution, no normal approximation."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Simplified model, on purpose: real airlines estimate no-show rates per route and per fare class, ask for volunteers and pay compensation, and people travelling together clearly don't show up independently. This is why the practice exists — not a defence of how any particular airline runs it."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "ten_hats_in_a_line",
+   "title": "Ten people in a line, a black or white hat each — how many are saved?",
+   "ts": "2026-07-30T21:31:48+00:00",
+   "date": "30 Jul 2026",
+   "topic": "puzzles",
+   "q": "Ten people in a line. Each gets a black or white hat. You only see the hats in front. How many can be saved?",
+   "a": "9 of the 10 are saved for certain. The last one is a straight 50/50, and no plan can ever do better than that.",
+   "why": [
+    {
+     "h": "THE RULES, EXACTLY",
+     "t": "p",
+     "lines": [
+      "All ten face the same way. You see every hat ahead of you and nothing else - never your own, never behind. From the back forward, each says one word, black or white, everyone hears it, and the right word saves you. The plan is agreed before the hats go on; after that the one word is all you get. The hats are chosen by someone who knows the plan, so the count has to hold for all 1024 arrangements."
+     ]
+    },
+    {
+     "h": "THE PLAN",
+     "t": "p",
+     "lines": [
+      "The person at the back counts the black hats among the nine in front of them. If that count is odd they say \"black\". If it is even they say \"white\". That word is not a guess about their own hat - it is a report on everybody else's, and it is the one they sacrifice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The next person has heard the report and can see the eight hats in front of them. They count the black ones they can see. The report covered nine hats; they can see eight of them; the only one missing is their own. If their own count is already odd-or-even in the way the report said, their hat must be white, otherwise it is black. They know it exactly, and they say it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Everyone after that does the same: take the report, cross off every colour already called out behind them (those were all correct), cross off every hat they can see ahead, and what is left is their own hat. Nine people, nine certainties."
+     ]
+    },
+    {
+     "h": "WHY THE TENTH CANNOT BE SAVED",
+     "t": "p",
+     "lines": [
+      "The back person's word is decided entirely by the nine hats they can see, so it is fixed before their own hat matters. Whoever places the hats knows the plan, looks at those nine, works out what the back person will say, and then puts the opposite colour on them. Nothing can beat 50/50 there."
+     ]
+    },
+    {
+     "h": "CHECKED BY SIMULATION",
+     "t": "p",
+     "lines": [
+      "All 2^10 = 1024 arrangements: the nine in front are correct in 1024 of 1024. The back person is correct in 512 of 1024. And for each of the 512 patterns of the nine front hats, exactly one of the two choices for the back hat makes them wrong - which is the proof that the tenth is a coin flip."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "two_eggs_hundred_floors",
+   "title": "A hundred floors, two eggs: find the floor where they break",
+   "ts": "2026-07-30T20:22:06+00:00",
+   "date": "30 Jul 2026",
+   "topic": "puzzles",
+   "q": "A 100-floor tower. Two eggs. Somewhere there's a floor where an egg starts to break. Find it — how few drops?",
+   "a": "14 drops. And the trick is that the steps SHRINK.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rules exactly: identical eggs, and one floor F such that an egg dropped from F or above breaks, while below F it survives and can be reused. F is somewhere in 1 to 100 and you must name it exactly. A broken egg is gone. The count must work for EVERY possible F."
+     ]
+    },
+    {
+     "h": "THE STRATEGY",
+     "t": "p",
+     "lines": [
+      "Drop the first egg from floor 14. If it survives, go up 13 to floor 27. Then up 12 to 39, then 11 to 50, then 10 to 60, then 9, 8, 7, 6, 5, 4 - floors 14, 27, 39, 50, 60, 69, 77, 84, 90, 95, 99. The moment it breaks, walk the gap below it upward with the second egg, one floor at a time."
+     ]
+    },
+    {
+     "h": "WHY THE STEPS SHRINK",
+     "t": "p",
+     "lines": [
+      "Every drop of the first egg is a drop already spent. Start at 14: if it breaks you have 13 left and 13 floors to walk - exactly enough. If it survives you have used one, so the next gap can only afford 13 steps, so you step 13. Survive again and you can afford 12. The shrinking keeps the total at 14 wherever the egg breaks."
+     ]
+    },
+    {
+     "h": "WHY 14 IS THE MINIMUM",
+     "t": "p",
+     "lines": [
+      "With d drops and two eggs the biggest building you can ever handle is 1 + d(d+1)/2 floors. Thirteen drops covers 92 - not enough. Fourteen covers 106. So 14 is provably the best possible, and a dynamic program over (floors, eggs) agrees."
+     ]
+    },
+    {
+     "h": "WHY THE OBVIOUS METHODS LOSE",
+     "t": "list",
+     "lines": [
+      "One floor at a time from the bottom: correct, but up to 99 drops.",
+      "Halving: if the first egg breaks at 50 you have one egg and 49 floors to test one by one. Worst case 50. Halving needs to halve again, and one egg cannot.",
+      "Every 10th floor then walk up: best of the fixed steps, still 19 worst case. Fixed steps waste the fact that the walk gets cheaper as you climb."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why 99 and not 100 for a single egg: if it survives floor 99 then 100 is the answer by elimination, so you never pay for the last one."
+     ]
+    }
+   ],
+   "src": "comment",
+   "road": {
+    "qid": "egg_first_drop",
+    "lesson": "u10l1",
+    "unit": 10,
+    "prompt": "Two eggs, a hundred floors, and you want the highest floor an egg survives with as few drops as possible in the worst case — tap the floor to drop from first."
+   }
+  },
+  {
+   "slug": "bridge_torch_17",
+   "title": "Four people, one torch, seventeen minutes",
+   "ts": "2026-07-30T19:21:26+00:00",
+   "date": "30 Jul 2026",
+   "topic": "puzzles",
+   "q": "Four people, one torch, a bridge that holds two. They cross in 1, 2, 5 and 10 minutes. Get all four over in 17.",
+   "a": "Send the two slow ones across TOGETHER.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "1 and 2 cross                    2 min   → clock 2",
+      "1 comes back with the torch      1 min   → clock 3",
+      "5 and 10 cross together         10 min   → clock 13",
+      "2 comes back with the torch      2 min   → clock 15",
+      "1 and 2 cross                    2 min   → clock 17"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "All four across in exactly 17 minutes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The whole puzzle turns on one idea: 5 and 10 must make their trip at the same time. A pair costs the SLOWER one's time, so if 5 and 10 ever cross separately you pay 10 minutes once and 5 minutes again — 15 minutes of walking for two people. Send them together and the 5 rides along inside the 10 for free. To set that up you need your two fast walkers already waiting on the far side to ferry the torch back, which is what the first two moves are for."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why the obvious approach fails: most people make the fastest person the escort and shuttle everyone over one at a time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1 and 10 cross (10) → 1 back (1) → 1 and 5 cross (5) → 1 back (1) → 1 and 2 cross (2). Total 19."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That feels efficient because the return trips are as cheap as possible — only 1 ever walks back, costing 1 minute a time. But it makes the 10 cross alone with an escort, so the 10 and the 5 are paid for separately. The 17-minute answer deliberately spends a more expensive return trip (2 minutes instead of 1) to buy the chance to bundle the 5 and the 10 into a single crossing. Two minutes worse on returns, five minutes better on crossings."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And 17 really is the best possible. Exhaustive search over every legal sequence of crossings — any one or two people, torch always carried, pair priced at the slower walker — gives a minimum of exactly 17 minutes, and exactly two sequences achieve it: the one above, and the same thing with the first two return trips swapped (2 comes back at step 2, 1 comes back at step 4). Nothing in between 17 and 19 is even reachable: 18 minutes is impossible."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "huffman_shrink",
+   "title": "The same sentence, a quarter smaller, with nothing thrown away",
+   "ts": "2026-07-30T18:02:13+00:00",
+   "date": "30 Jul 2026",
+   "topic": "information_theory",
+   "q": null,
+   "a": "A quarter of this sentence was never needed — and nothing at all gets thrown away.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "26% smaller."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Normally every letter costs the same amount of space. But letters aren't equally common. In \"e is everywhere and z is almost never there\" — 43 characters, 17 different symbols — the e turns up nine times, the space eight, and the z exactly once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So stop paying the same for all of them. Give the common ones short codes and the rare ones long ones: e gets 01, the space gets 110, and the z gets 10110. The whole sentence goes from 215 bits to 159."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What the 26% is measured against: a fixed-width code over the 17 symbols the sentence actually uses — 5 bits each — which is the honest comparison. (It's also 5 bits if you allow the full a–z plus space, so nothing is being flattered here.) Against 8-bit ASCII it would read 53.8%, but most of that is just the four bits per byte nobody was using in the first place."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And nothing is lost, because no short code is the start of a longer one. That's why the run of bits at the end decodes straight back with no separators, no markers, and no ambiguity — the same 43 characters, exactly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is Huffman coding. It's the entropy-coding stage of DEFLATE, which is what compresses every ZIP and gzip file, and baseline JPEG uses it too."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "hash_one_step_lookup",
+   "title": "Finding one name in a million without searching",
+   "ts": "2026-07-30T17:33:45+00:00",
+   "date": "30 Jul 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Finding one name in a million doesn't mean searching through a million. You can jump straight to it.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here's the trick, shown with 10 slots instead of a million."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Take a name and add up its letters, A is 1, B is 2, all the way to Z is 26. MAYA is 13+1+25+1 = 40. Take the last digit of that total — 0 — and that's the slot the name lives in. Drop it in."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "LEO 32 → slot 2 · SAM 33 → slot 3 · RAY 44 → slot 4 · IVY 56 → slot 6 · LUCA 37 → slot 7 · NOAH 38 → slot 8"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Want LUCA back later? Add its letters again, get 37, go to slot 7. It's sitting there. You never looked at a single other name."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then THEO: 20+8+5+15 = 48, last digit 8 — and NOAH is already in slot 8. Two names, one slot. That's a collision, and collisions are the normal case, not a rare accident: 8 names dropped into 10 slots average about 3 colliding pairs. It costs you almost nothing — both names hang in slot 8, and to find one you check just those two."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The part that actually matters is what happens as the pile grows. Give a million names a million slots and each slot still holds about one name, so a lookup touches roughly 1.5 names — at ten names, at a million, at a billion. The work doesn't grow with the pile. Checking one at a time would average half a million comparisons."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That's a hash table. It's how your phone finds a contact the instant you type it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which surprised you more — that it works, or that collisions are normal? 👇"
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "start_early_stop_early",
+   "title": "Ten years of saving, then stop, beats thirty years of saving",
+   "ts": "2026-07-30T16:47:42+00:00",
+   "date": "30 Jul 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "She paid into her pot for ten years and then stopped forever. He paid in for thirty. She retired with more.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same £200 a month, same 8% a year, both finish at 65."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Anna pays in from 25 to 35 — £24,000 — and never adds another penny after that. Her pot just sits there for thirty years. Ben starts the month Anna stops and pays in every month to 65 — £72,000. Three times as much money in."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At 65: Anna £402,797 Ben £300,059"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Anna is £102,738 ahead on a third of the money. Nothing grew faster for her — both pots grow at exactly the same rate. Her first £200 simply had forty years to work instead of thirty, and each year's growth spends the rest of the time growing too. Ben's £72,000 never gets the long runway."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The small print, because this is about money and I'd rather say it than have it assumed:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "8% a year nominal, compounded monthly, worked out month by month. No tax, no fees, and a return that never varies — none of which is real life. Real returns swing about, and inflation means £402,797 in 2066 does not buy what it buys today. This is an illustration of how time works, not a forecast and not a promise.",
+      "It also has a threshold. Below about 6.1% a year, Ben wins — his extra £48,000 outweighs Anna's extra decade. Above it, Anna wins, and the higher the return the wider the gap.",
+      "Not financial advice. It's arithmetic about time."
+     ]
+    }
+   ],
+   "src": "caption",
+   "road": {
+    "qid": "compound_double",
+    "lesson": "u3l2",
+    "unit": 5,
+    "prompt": "Money in an account grows by 6% each year, and the growth compounds. Roughly how many years until it has doubled? Give the nearest whole year."
+   }
+  },
+  {
+   "slug": "eigenvectors_dont_turn",
+   "title": "The two directions a stretch never turns",
+   "ts": "2026-07-30T15:40:46+00:00",
+   "date": "30 Jul 2026",
+   "topic": "linear_algebra",
+   "q": null,
+   "a": "Stretch and shear space and almost every arrow swings away from where it pointed. Two never turn at all.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "24 arrows leave the same point, one every 15°, all the same length. Then space gets pulled about. Watch what happens: the arrows are dragged round, most of them a long way — the median swing is 41°, and one arrow ends up 71° from where it started."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Except four of them. Two directions and their opposites come out pointing at exactly the angle they went in at. One pair is 2.2× longer. The other pair is 0.65× as long. Neither has turned by a thousandth of a degree."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Those are the eigenvectors, and the two numbers are the eigenvalues. Both positive here on purpose — a negative one would flip its arrow end for end, and then \"it doesn't turn\" would be a lie."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Honest detail you can see in the video: an arrow starting 15° from the stretched direction only swings 9°, because the map pulls every direction toward that one. That is why the two survivors get marked rather than left to the field alone."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The map is [[0.65, 1.55], [0, 2.2]]. Every arrow on screen is its real image — nothing is drawn by hand."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "poisoned_wine_ten",
+   "title": "1,000 bottles, one poisoned, ten tasters, one round",
+   "ts": "2026-07-30T15:08:42+00:00",
+   "date": "30 Jul 2026",
+   "topic": "puzzles",
+   "q": "1,000 bottles of wine. Exactly one is poisoned. You get 10 tasters and ONE round of testing. Find the bad bottle.",
+   "a": "Ten yes/no reactions are exactly enough to name one bottle in a thousand.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Number the bottles 1 to 1000, and number the tasters 1 to 10. Give taster 1 the value 1, taster 2 the value 2, taster 3 the value 4, and keep doubling: 8, 16, 32, 64, 128, 256, and taster 10 gets 512."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every number from 1 to 1000 can be written as a sum of those ten values in exactly one way. So for each bottle, work out which values add up to its number, and pour that bottle into the glass of every taster holding one of those values."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now everyone drinks their whole collection at once. Hours later, add up the values of the tasters who reacted. That sum IS the bottle number."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Example. Bottle 573 = 512 + 32 + 16 + 8 + 4 + 1, so it goes to tasters 10, 6, 5, 4, 3 and 1. Those six react and the other four do not. Read their values back: 512 + 32 + 16 + 8 + 4 + 1 = 573. Done, in one round."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY TEN IS ENOUGH. Each taster either reacts or does not — two outcomes each. Ten tasters therefore give 2 x 2 x ... ten times = 1024 possible patterns of reactions. 1024 is more than 1000, so there are enough distinct patterns to hand every bottle its own, and the scheme above does exactly that (24 patterns simply go unused)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY NINE CANNOT. Nine tasters give only 2^9 = 512 patterns, and there are 1000 possible culprits. By the pigeonhole principle at least two bottles must produce the same pattern of reactions, and when that pattern turns up you cannot tell which of the two it was. This is true of ANY scheme, not just this one, because in a single round the entire result is a fixed function of which bottle is bad. So ten is not merely sufficient — it is the minimum."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And notice what the one-round rule kills. If you could test, wait, and test again, you would split the thousand in half, then in half again, and one taster would find it in ten rounds. The reaction takes hours, so you only get one shot. The trick is to run all ten of those halvings simultaneously, on ten different people — which is exactly what the doubling values do."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "kmeans_converging",
+   "title": "A machine finds the groups nobody told it about",
+   "ts": "2026-07-30T13:33:26+00:00",
+   "date": "30 Jul 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Nobody labelled a single dot — and three badly-placed markers still walk themselves into the middle of the groups 🤯",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two rules, repeated: every dot takes the colour of its nearest marker, then every marker slides to the middle of its own colour. Four moves and it's done — the grouping was already in the data."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "(It doesn't always work: drop the markers badly enough and about 1 start in 10 gets stuck.)"
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "giant_component_jump",
+   "title": "Join random pairs of dots — nothing, nothing, then one blob",
+   "ts": "2026-07-30T12:40:38+00:00",
+   "date": "30 Jul 2026",
+   "topic": "graphs",
+   "q": null,
+   "a": "120 dots. After 60 random links the biggest connected group is 22 dots. After 120 it's 97. Watch where it flips.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Join two random dots. Then two more. For ages you get scraps — a chain here, a pair there, and the biggest island barely grows. Then the islands stop growing and start swallowing each other, and almost everything ends up in one piece."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The counter on the right is the biggest island, live, after every single link."
+     ]
+    }
+   ],
+   "src": "caption",
+   "road": {
+    "qid": "random_connect",
+    "lesson": "u9l2",
+    "unit": 9,
+    "prompt": "Twenty offices and no cables at all: you keep picking two offices at random and joining them — roughly how many cables before the whole lot is finally connected?"
+   }
+  },
+  {
+   "slug": "taylor_sine_terms",
+   "title": "A wave built out of nothing but powers of x",
+   "ts": "2026-07-30T11:03:44+00:00",
+   "date": "30 Jul 2026",
+   "topic": "calculus",
+   "q": null,
+   "a": "A straight line can imitate a wave. You just keep adding pieces — eight of them, and you can't tell it from the real thing.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Start with a straight line through the middle. It has no wiggle in it at all, and yet near the centre it sits exactly on top of the wave. Then it lets go and shoots off."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add one curved piece and it bends back and holds on further. Add another, and another. Every piece extends the stretch where the two curves are indistinguishable — and the extension is almost exactly the same size every time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is how far the copy stays within 0.01 of the wave, measured from the middle:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "1 piece → 0.39",
+      "2 pieces → 1.04",
+      "3 pieces → 1.76",
+      "4 pieces → 2.50",
+      "5 pieces → 3.25",
+      "6 pieces → 4.00",
+      "7 pieces → 4.75",
+      "8 pieces → 5.50"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Roughly +0.75 of extra reach per piece, forever. That is the honest catch too: no matter how many pieces you stack, the copy always escapes eventually — you only ever push the escape point further out. Watch the last few seconds and you can see the eight-piece copy peel away at both edges and fly off the frame."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nothing here is fitted. Each piece is a fixed power of x with a fixed coefficient, added on top of the last."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "(For the curious: this is the Taylor series for sine, one term at a time.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Would you have guessed plain powers could do that? Follow for one clean math idea a day."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "thousand_days_weekday",
+   "title": "1,000 days from a Monday — what day is it?",
+   "ts": "2026-07-30T10:06:18+00:00",
+   "date": "30 Jul 2026",
+   "topic": "number_theory",
+   "q": "Start on a Monday. What day is it 1,000 days later? No calendar, no calculator — you can do this one in your head.",
+   "a": "Sunday.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A week is a wheel of seven days, so every 7 days you land back exactly where you started. Split 1,000 into whole weeks plus whatever is left over:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  7 x 142 = 994        142 whole turns of the wheel — these change nothing",
+      "  1,000 - 994 = 6      six days left over"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Those 142 turns put you right back on Monday. Now walk the six leftover days: Tue, Wed, Thu, Fri, Sat, SUNDAY."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Check it against a real calendar: Monday 3 August 2026 plus 1,000 days is Sunday 29 April 2029."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same trick works for any number of days. Divide by 7, throw away the whole weeks, step forward by the remainder. 100 days from a Monday? 100 = 98 + 2, so two steps: Wednesday. 365 days? 365 = 364 + 1, one step — which is exactly why your birthday moves forward one weekday each ordinary year, and two after a leap year."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "overfitting_perfect_fit",
+   "title": "The curve that fits your data perfectly is the worst one",
+   "ts": "2026-07-30T09:54:51+00:00",
+   "date": "30 Jul 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "This curve fits every single measurement exactly. Zero error. It's the worst one on the screen.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Twelve temperature readings taken through one day. Underneath them is one simple smooth arc — cool in the morning, warm in the afternoon — and every reading lands a little off it, because measuring is never exact."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Make a curve flexible enough and you can bend it through all twelve exactly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Average miss on those twelve readings:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "wiggly curve — 0.00°",
+      "gentle curve — 0.85°"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The wiggly one looks perfect. Then ten fresh readings arrive from the same day, at new times."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Average miss on the ten new readings:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "wiggly curve — 2.67°",
+      "gentle curve — 0.86°"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three times worse. On the very first new reading the wiggly curve predicts 25° and the thermometer says 16° — nine degrees out. The gentle curve is 1.6° out, and it's the closer of the two on 8 of the 10."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The wiggly curve never learned the pattern. It memorised the wobble. Wobble doesn't repeat, so the moment you ask about a time it hasn't seen, it's lost."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That's overfitting — and it's why nobody judges a model on the data it was trained on. A perfect score on what you've already seen is not evidence of anything."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "(Seed 58544, both curves fitted, all four numbers computed. The ordering holds in 1,500 of 1,500 independent redraws, not just this one.)"
+     ]
+    }
+   ],
+   "src": "caption",
+   "road": {
+    "qid": "overfit_degree",
+    "lesson": "u4l1",
+    "unit": 6,
+    "prompt": "Ten measurements, and three curves fitted through them. The wiggliest one passes through every single point exactly. Which curve will do best on new measurements it has never seen?"
+   }
+  },
+  {
+   "slug": "kelly_bet_sizing",
+   "title": "A winning coin can still wipe you out",
+   "ts": "2026-07-30T09:32:34+00:00",
+   "date": "30 Jul 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "This coin lands heads 60% of the time — and betting half your money on it every flip still leaves you with $33.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three players. One coin, one shared sequence of 100 flips. Heads doubles your stake, tails loses it. The only difference between them is how much of their money they put on each flip:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "bets 10% → $1,000 becomes $4,501",
+      "bets 20% → $1,000 becomes $7,490",
+      "bets 50% → $1,000 becomes $33"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nobody got unlucky. That run is 60 heads out of 100 — exactly the median outcome — and the 50% player still ends with 3% of what they started with. Across 20,000 simulated runs they finish below their starting money 77% of the time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why: money multiplies. Lose half, and you need to double just to get back. String a few of those together and the winning coin can't dig you out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A good bet is only half the decision. How much you put on it is the other half."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which of the three would you have been? Follow for one clean math idea a day."
+     ]
+    }
+   ],
+   "src": "caption",
+   "road": {
+    "qid": "kelly_fraction",
+    "lesson": "u4l1",
+    "unit": 6,
+    "prompt": "A coin lands heads 60% of the time. You may bet any share of your money on heads, over and over: win and you double the stake, lose and it is gone. What percentage of your money should you stake each time to grow fastest in the long run?"
+   }
+  },
+  {
+   "slug": "two_ropes_45",
+   "title": "Two ropes, one lighter: measure exactly 45 minutes",
+   "ts": "2026-07-30T08:56:47+00:00",
+   "date": "30 Jul 2026",
+   "topic": "puzzles",
+   "q": "Two ropes. Each burns end to end in exactly one hour — but unevenly. One lighter. Measure exactly 45 minutes.",
+   "a": "Light three ends, not two.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Light rope A at BOTH ends and rope B at ONE end, all at the same moment."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Rope A is now being eaten from both directions at once, so whatever is left of it is disappearing at twice the usual pace. It takes an hour to burn from one end, so lit from both it is gone in exactly 30 minutes — and that is true no matter how unevenly it burns, because the two flames together always consume the whole rope in the time one flame would need for all of it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The instant rope A dies, 30 minutes have passed. Rope B has been burning from one end the whole time, so it has exactly 30 minutes of burning left in it. Now light rope B's other end too. Its remaining 30 minutes worth is being eaten from both directions, so it takes 15."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "30 + 15 = 45 minutes, exactly, from the first spark to the last."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why the obvious move fails: \"burn half a rope\" would only give you half an hour if the rope burned at a steady rate — and it does not. On the rope in the video the flame reaches the halfway point after 40.5 minutes, not 30. Length tells you nothing about time here. The only thing you can trust is that a whole rope is one hour, and the trick is that lighting both ends turns \"one hour of rope\" into \"half an hour of clock\" without ever needing to know where the halfway point in TIME is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Note you never measure anything, cut anything, or fold anything. You just use the fact that two flames burn a rope twice as fast as one."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "optimisers_local_minimum",
+   "title": "Two searchers, one hill: the greedy one gets stuck",
+   "ts": "2026-07-30T07:57:36+00:00",
+   "date": "30 Jul 2026",
+   "topic": "optimization",
+   "q": null,
+   "a": "Always stepping downhill is exactly what gets you stuck 🔴🔵",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two markers, released from the same point on the same hill, both hunting for the lowest place on it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "🔴 only ever takes the downhill step. It walks into the first dip it meets, the ground there is flat, so it stops. As far as it can tell, it is finished. Depth reached: 0.78."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "🔵 carries its speed. It reaches that same dip already moving, rolls up the far side, crests the ridge, and drops into the valley next door. Depth reached: 3.11 — four times deeper. Even at the top of its overshoot up the far wall it is still lower than where 🔴 gave up."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole trick: a search that never accepts a worse step can never leave the first place that looks good. Being willing to go the wrong way for a moment is what gets you to the bottom."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The hill is f(x) = 0.10x² − exp(−((x+1.55)/0.85)²) − 3.6·exp(−((x−2.25)/1.05)²). Its first dip sits at x = −1.444 and the real bottom at x = +2.183. Both paths in the video are the actual iterates of the two searches — nothing is drawn by hand."
+     ]
+    }
+   ],
+   "src": "caption",
+   "road": {
+    "qid": "gradient_valley",
+    "lesson": "u4l1",
+    "unit": 6,
+    "prompt": "A machine learns by always stepping downhill from where it is standing. It starts at the arrow. Tap the valley it will end up in."
+   }
+  },
+  {
+   "slug": "chaos_double_pendulum",
+   "title": "Two pendulums, one hundredth of a degree apart",
+   "ts": "2026-07-30T07:23:36+00:00",
+   "date": "30 Jul 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Two pendulums. One starts a hundredth of a degree further over. For three seconds they are the same pendulum.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then they aren't. And nothing pushed them apart."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both are hanging arms, one swinging from the end of the other. Same lengths, same weights, same gravity, same equations. The only difference is where they start: 0.01° at the upper joint, which puts the two tips 0.17 mm apart — less than a fifth of a millimetre."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That gap doubles, and doubles, and doubles, roughly every quarter of a second. After 2.7 seconds you can see two pendulums. After 3.6 they are a fifth of their own reach apart. By the end of the clip they are on opposite sides of the pivot, 2.8 metres apart, with nothing left in common."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nothing random happened. Run it again from exactly the same numbers and you get exactly the same video. The catch is that \"exactly\" is impossible in the real world — every measurement you could ever make of a real pendulum is rounded off somewhere, and this thing takes that rounding and blows it up into the whole picture."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the entire reason nobody can tell you the weather in three weeks. The forecast isn't badly written. The atmosphere is one of these."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The clip is a real simulation, not an animation: the equations of motion integrated with a small fixed step, energy conserved to about one part in 90 billion, and both paths re-run at a quarter of the step size and again with a completely different integrator — so the split is physics, not arithmetic."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "tax_brackets_myth",
+   "title": "A raise cannot cut your take-home pay",
+   "ts": "2026-07-30T02:43:45+00:00",
+   "date": "30 Jul 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "A pay rise pushes you into a higher tax bracket and leaves you with LESS. Almost everyone believes this. It's false.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Only the pounds ABOVE the threshold pay the higher rate. UK income tax, 2026/27: the first £12,570 is tax-free, the next £37,700 pays 20p in the pound, and only what spills over £50,270 pays 40p. Each bucket fills to its own limit before a single pound reaches the next one — so a raise only ever lands in the top bucket, and the buckets underneath never change."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "£58,000 → income tax £10,632",
+      "£60,000 → income tax £11,432"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That £2,000 raise costs £800 in tax and leaves £1,200 in your pocket. It cannot leave you worse off."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The honest small print, before someone beats me to it: between £100,000 and £125,140 your tax-free allowance is withdrawn at £1 for every £2 you earn, so the marginal rate there hits 60% — and past about £116,760 that same withdrawal tips you into the 45% band and it reaches 67.5%. Even there you keep roughly 30p of every extra pound, so take-home still goes UP, just by far less than you'd expect. National Insurance is a separate 8% / 2%, and the real cliff edges above £100k are benefits like tax-free childcare, not income tax."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "great_circle_flight",
+   "title": "London to Tokyo: which route is shorter?",
+   "ts": "2026-07-30T01:22:29+00:00",
+   "date": "30 Jul 2026",
+   "topic": "geometry",
+   "q": "London to Tokyo: one of these two routes is 1,820 km shorter. Which one?",
+   "a": "Route 2 — the one that looks like a ridiculous detour.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "Great circle (route 2), London Heathrow to Tokyo Haneda ... 9,591 km",
+      "Straight line on the flat map (route 1) .................. 11,411 km",
+      "Route 1 is 1,820 km longer — 19% extra, about two more hours in the air."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The shortest path between two points on a sphere is an arc of the great circle through them. That arc peaks at 71.0 degrees north, off the Arctic coast of Siberia — 4.5 degrees inside the Arctic Circle. It only looks bent because a flat map has to stretch the sphere to make it lie down, and the stretching is worst near the poles: on a flat lat/long map every degree of longitude is drawn the same width at the equator and in the Arctic, when up there a degree is really less than a third as wide. The map makes the polar shortcut look long."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The numbers: spherical Earth, mean radius 6371 km, haversine distance. London Heathrow 51.4700 N, 0.4543 W. Tokyo Haneda 35.5533 N, 139.7811 E. Route 1 = linear interpolation in latitude and longitude, measured along the sphere. Central angle of route 2 = 86.26 degrees."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "phantom_traffic_jam",
+   "title": "A traffic jam with no cause - and it travels backwards",
+   "ts": "2026-07-29T23:45:38+00:00",
+   "date": "29 Jul 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "This traffic jam has no cause. No crash, no roadworks - and it is travelling backwards.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "14 cars on a loop, every one at the same speed with the same gap. One driver taps the brake for a single second, then drives on normally. The car behind reacts a moment late, so it brakes a little harder. The next one harder still. Thirteen seconds later, cars are at a standstill - and nobody did anything wrong."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the strange part. Not one car ever moves backwards. The jam does - it slides upstream through the traffic at about 14 km/h."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why that number? Stopped cars sit about 8 metres apart, and each driver takes about 2 seconds to pull away after the one in front. 8 metres every 2 seconds. Neither number knows anything about how fast you drive - so the wave crawls upstream at the same speed whether the traffic is doing 30 or 100."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And the driver who started it? Long gone, back up to speed. On a loop, his own jam comes round and catches him again."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "(Simulated with the Intelligent Driver Model plus a real driver reaction delay. The 14 km/h was measured off the simulation, not quoted - and it matches what gets measured on real motorways.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Free 5-puzzle sample in bio if you want more of these."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "svd_circle_to_ellipse",
+   "title": "A circle can only ever become an ellipse",
+   "ts": "2026-07-29T23:32:48+00:00",
+   "date": "29 Jul 2026",
+   "topic": "linear_algebra",
+   "q": null,
+   "a": "A matrix can't squash a circle into any shape it likes. It's always an ellipse.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Stretch it, shear it, spin it — the ring of dots never comes out wobbly. And that one fact tells you everything a transformation can do: turn it, stretch two perpendicular directions, turn it again. Three moves. One of them is just two numbers."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Those two directions and those two numbers are the singular value decomposition — the machinery behind PCA, image compression and least squares. No formula needed to see it."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "you_exist_odds",
+   "title": "The odds you exist — the one part you can actually compute",
+   "ts": "2026-07-29T06:44:14+00:00",
+   "date": "29 Jul 2026",
+   "topic": "relatable",
+   "q": null,
+   "a": "About 250 million swimmers. One egg. You are what happened next.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the one part you can actually compute, with the assumptions on screen: about 250 million sperm in one ejaculate, and about 1 million eggs a woman is born with (the low end of the usual 1-2 million). So one specific child of one specific couple is one sperm in 250,000,000 and one egg in 1,000,000 = 250 trillion to one, about 1 in 10^14. The exponent is rounded DOWN, so that is an understatement."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now zoom out. That whole race is a single dot on your family tree, and every ancestor you have won it too. You plus 10 generations of ancestors is 2^11 - 1 = 2,047 conceptions, so that single factor alone compounds to (2.5 x 10^14)^2047 - a number with 29,473 digits, i.e. more than 10^29,000. That assumes those 2,046 ancestor slots are 2,046 different people."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is only the conception lottery. It says nothing about the odds your parents met, which is exactly the part the famous viral version of this stat invents - so we left that number out entirely."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And the part that needs no arithmetic: every ancestor you have, back through roughly 3.7 billion years of life on Earth, lived long enough to reproduce. Not one broke the chain."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "bertrand_chord_paradox",
+   "title": "One question, three correct answers: Bertrand's paradox",
+   "ts": "2026-07-29T06:35:41+00:00",
+   "date": "29 Jul 2026",
+   "topic": "geometry_prob",
+   "q": "Draw a line at random across a circle. Is it longer than the side of the triangle that fits inside?",
+   "a": "The answer is 1/2. And 1/3. And 1/4. All three are correct.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A chord beats the triangle's side exactly when its midpoint sits closer than half a radius to the centre. So everything hangs on what \"at random\" means:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "two uniform points on the rim → the second must land on the far 120° arc → 1/3",
+      "a uniform direction, then a uniform point along that radius → 1/2",
+      "a midpoint uniform over the disc's area → the inner circle is a quarter of it → 1/4"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each rule is perfectly uniform — just uniform over a different thing. None of them is the answer, and none is wrong. The question never said HOW to pick the line. That's Bertrand's paradox (1889), and it's why every well-posed probability question has to state its sampling rule."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "popular_vote_paradox",
+   "title": "52% of the votes, 2 of 5 seats — the wasted-vote arithmetic",
+   "ts": "2026-07-28T22:08:38+00:00",
+   "date": "28 Jul 2026",
+   "topic": "topical",
+   "q": null,
+   "a": "A party can win more votes than the other side and still end up with fewer seats 🗳️",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "An invented country, five districts, 100 voters each. Whoever gets the most votes in a district takes that seat."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Party A: 70 + 70 + 40 + 40 + 40 = 260 Party B: 30 + 30 + 60 + 60 + 60 = 240"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "260 out of 500 is 52% of every vote cast — and A takes 2 seats out of 5."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why: a district only needs 51 votes. Anything on top of that, plus every vote in a district you lose, wins nothing. A wastes 19 + 19 + 40 + 40 + 40 = 158 votes; B wastes 30 + 30 + 9 + 9 + 9 = 87. (158 + 87 + 5×51 = 500, so every ballot is accounted for.) A's support is packed 70–30 where it already wins; B's is spread just thick enough to carry three districts 60–40."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same 500 votes, different distribution, different chamber. Party A and Party B are made up — this is arithmetic about counting seats district by district, not a claim about any real election."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "illusion_motion",
+   "title": "Cafe wall — eleven parallel lines your eyes refuse to believe",
+   "ts": "2026-07-28T21:54:46+00:00",
+   "date": "28 Jul 2026",
+   "topic": "illusions",
+   "q": null,
+   "a": "Every grey line here is perfectly parallel. You won't believe it until the tiles slide back at the end 👀",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is the Café Wall illusion — the real wall is in Bristol, and the tiling made so many people stop and argue that a vision lab ended up studying it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nothing in this video is tilted. Every mortar line is drawn as a flat horizontal rectangle at a fixed height, all evenly spaced. The only thing that ever changes is the sideways position of the tiles."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Your visual system builds each black-white-grey corner into a tiny tilted cue, then merges them along the row into one long slope. Shift alternate rows by half a tile and the slopes flip direction each line — so you get wedges that taper and converge out of eleven lines that are mathematically parallel."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The red rulers in the middle of the clip are dead straight and sit exactly on the mortar. The illusion survives them. It even survives you knowing."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "monty_hall_10s",
+   "title": "Monty Hall: 2/3 or 1/2 depending on what the host knew",
+   "ts": "2026-07-28T21:14:05+00:00",
+   "date": "28 Jul 2026",
+   "topic": "paradox",
+   "q": "Everyone argues about Monty Hall, but nobody asks the one question that decides the answer: did the host know?",
+   "a": "It depends on the host. A host who KNOWS where the car is and can never open it → switching wins 2/3. A host who does not know, opens one of the other two at random and happens to reveal a goat → switching wins exactly 1/2.",
+   "why": [
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "The host KNOWS where the car is and can never open it → switching wins 2/3.",
+      "The host does NOT know, opens one of the other two at random, and it happens to be a goat → switching wins exactly 1/2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why the second one is a coin flip: conditioning on \"a goat got revealed\", you picked the car → 1/3 × 1 = 1/3 you picked a goat → 2/3 × 1/2 = 1/3 Equal weight, so 50/50. (And 1/3 of the time the clueless host just opens the car and kills the round.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The evidence was never \"there's a goat behind that door\". It was \"a host who was avoiding the car chose THAT door\". Take his knowledge away and the evidence disappears."
+     ]
+    }
+   ],
+   "src": "caption",
+   "road": {
+    "qid": "clumsy_host",
+    "lesson": "u7l1",
+    "unit": 7,
+    "prompt": "Three doors, one prize. You pick a door, and a host who has forgotten where the prize is opens another door at random — it happens to be empty. Out of 100 games like this, how many would switching win?"
+   }
+  },
+  {
+   "slug": "breaking_news_odds_12s",
+   "title": "BREAKING: did Argentina cheat at the World Cup? (12s cut)",
+   "ts": "2026-07-28T20:44:46+00:00",
+   "date": "28 Jul 2026",
+   "topic": "topical",
+   "q": null,
+   "a": "Did Argentina cheat at the World Cup? A 5-of-5 run of calls is 3% for one named team — but 64% for SOMEBODY ⚽",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The look-elsewhere effect in 12 seconds. If every contested call were a coin flip, a team you named BEFORE kickoff taking all 5 its way is 1/32 ≈ 3%. Nobody named a team first — we watched all 32, then picked the one that looked worst. P(some team of 32 does it) = 1 − (31/32)^32 ≈ 64%, and the expected number of teams with a \"perfect\" run is exactly 1, every tournament. Figures as reported by analysts, which found no proof of deliberate favouritism. Nobody has to be cheating — that's just what randomness looks like."
+     ]
+    }
+   ],
+   "src": "caption",
+   "road": {
+    "qid": "p_hacking",
+    "lesson": "u2l2",
+    "unit": 3,
+    "prompt": "You run 20 completely useless experiments. Each one has a 1 in 20 chance of throwing up an exciting-looking result purely by luck. On average, how many exciting results will you get?"
+   }
+  },
+  {
+   "slug": "breaking_news_odds",
+   "title": "BREAKING: did Argentina cheat at the World Cup? (64%)",
+   "ts": "2026-07-28T20:12:33+00:00",
+   "date": "28 Jul 2026",
+   "topic": "topical",
+   "q": null,
+   "a": "Did Argentina cheat at the World Cup? Run the honest test and the answer gets boring fast ⚽",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "As reported by analysts: only 2 of Argentina's 7 matches were free of refereeing controversy, and 4 VAR interventions on fouls went in their favour. On those same reported numbers the highest favourable-VAR rate wasn't theirs — Mexico's was higher (7.8 vs 6.7) — and those analyses concluded the evidence does not prove deliberate favouritism."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here's the test almost nobody runs: the look-elsewhere effect. If every contested call were a coin flip, one team you named BEFORE kickoff taking all 5 of 5 its way is 1/32 ≈ 3%. Suspicious. But nobody named a team first — we scanned all 32, then picked the one that looked worst. P(some team of 32 does it) = 1 − (31/32)^32 ≈ 64%, and the expected number of teams with a \"perfect\" run is exactly 1. A striking run somewhere is what a fair tournament looks like, every single time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nobody has to be cheating. That's not a scandal, that's arithmetic — and it's the bar any bias claim has to clear 📌"
+     ]
+    }
+   ],
+   "src": "caption",
+   "road": {
+    "qid": "p_hacking",
+    "lesson": "u2l2",
+    "unit": 3,
+    "prompt": "You run 20 completely useless experiments. Each one has a 1 in 20 chance of throwing up an exciting-looking result purely by luck. On average, how many exciting results will you get?"
+   }
+  },
+  {
+   "slug": "referee_bias_test",
+   "title": "How you would actually test 'the refs are favouring them'",
+   "ts": "2026-07-28T19:34:53+00:00",
+   "date": "28 Jul 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "Every World Cup someone looks like the refs' favourite. The maths has a much duller explanation ⚽",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "As reported by analysts: only 2 of Argentina's 7 matches were free of refereeing controversy, and 4 VAR interventions on fouls went in their favour. But on the same reported numbers the highest favourable-VAR rate wasn't theirs — Mexico's was higher (7.8 vs 6.7) — and the most decisions going against a side went to Croatia (6.5) and Iran (6.4). Those analyses concluded the evidence does not prove deliberate favouritism."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here's the test almost nobody runs — the look-elsewhere effect. If every contested call were a coin flip, one team you named BEFORE kickoff getting 5 of 5 its way is 1/32 ≈ 3%. Suspicious. But nobody named a team first; we scanned all 32 and then picked the one that looked worst. P(some team of 32 does it) = 1 − (31/32)^32 ≈ 64%, and the expected number of teams with a \"perfect\" run is exactly 1. So a striking run somewhere is what a fair tournament looks like — every single time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Not a defence, not an accusation. Just the bar any bias claim has to clear 📌"
+     ]
+    }
+   ],
+   "src": "caption",
+   "road": {
+    "qid": "p_hacking",
+    "lesson": "u2l2",
+    "unit": 3,
+    "prompt": "You run 20 completely useless experiments. Each one has a 1 in 20 chance of throwing up an exciting-looking result purely by luck. On average, how many exciting results will you get?"
+   }
+  },
+  {
+   "slug": "berksons_paradox",
+   "title": "Berkson's paradox — selection invents a correlation",
+   "ts": "2026-07-28T18:33:24+00:00",
+   "date": "28 Jul 2026",
+   "topic": "bayes_stats",
+   "q": null,
+   "a": "Two traits with nothing to do with each other — until you look only at the people you'd actually date",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In the population, r = 0.00. Inside the dating pool, r = −0.45. Same people."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rule does all the work: you'd date anyone in the top 40% on kindness OR the top 40% on interesting, and skip the ones who are neither. That deletes the bottom-left corner of the cloud — and what's left tilts. If someone is kind enough to make your cut, they never needed to be interesting, so on average they're less interesting. The trade-off is manufactured by your filter, not by people."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That's Berkson's paradox: condition on a collider — something both traits feed into — and you invent a correlation that does not exist."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same illusion behind \"why are talented people always so unreliable?\" You only ever meet the ones who cleared a talent-or-reliability bar. Berkson found it in 1946 in hospital records: two unrelated diseases look linked among admitted patients, because being admitted needs one or the other."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Checked two ways: the exact correlation on that region is −0.4497, and 200,000 uniform draws (seed 20260728) give population r = −0.0035 and selected r = −0.4525. 64% of people survive the filter 📌"
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "pirate_game_98",
+   "title": "5 pirates, 100 coins — the boss keeps 98",
+   "ts": "2026-07-28T17:54:20+00:00",
+   "date": "28 Jul 2026",
+   "topic": "game_theory",
+   "q": "Five pirates have to split 100 gold coins, and the ruthless one at the top walks away with almost all of them",
+   "a": "98 · 0 · 1 · 0 · 1 — the senior pirate keeps 98 and buys one vote each from the two who would get nothing next round. It passes 3–2.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Label the pirates 1 (most senior) to 5. Work backwards from the smallest game."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "2 left → 4 proposes 100 · 0. He votes for himself, that's 1 of 2, a tie passes. So pirate 5 gets NOTHING here — remember that.",
+      "3 left → 3 needs 2 votes. Pirate 5 gets 0 next round, so 1 coin buys him. 99 · 0 · 1.",
+      "4 left → 2 needs 2 votes. Pirate 4 gets 0 next round, so 1 coin buys him. 99 · 0 · 1 · 0.",
+      "5 left → 1 needs 3 votes. Next round pirates 3 and 5 both get 0, so a single coin buys each of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    98 · 0 · 1 · 0 · 1     passes 3–2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why he can't be greedier: at 99 he can only pay one pirate, so he gets 2 votes out of 5 and it fails. 98 is exactly optimal."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trick is that a vote is priced at the continuation value plus one coin — and the whole ladder is built on the fact that with 2 pirates left, the last one gets zero."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "knight_return_168",
+   "title": "A random knight takes exactly 168 moves to come home",
+   "ts": "2026-07-28T17:05:33+00:00",
+   "date": "28 Jul 2026",
+   "topic": "markov_chains",
+   "q": null,
+   "a": "A knight wandering at random takes way longer to find its way home than anyone guesses ♞",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "168 moves, on average — and that's exact, not a simulation."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why: a random walk on a graph has stationary distribution π(v) = deg(v)/2E, so the mean first return time to v is exactly 2E/deg(v). The knight's graph on an 8×8 board has 168 edges, so 2E = 336. A corner square has only 2 legal moves → 336/2 = 168. A centre square has 8 → 336/8 = 42. Four times faster, same board, same walk."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "one_in_a_million",
+   "title": "A 1-in-a-million event happens 8,000 times a day",
+   "ts": "2026-07-28T16:14:15+00:00",
+   "date": "28 Jul 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "A \"1 in a million\" event happens 8,000 times a day 🌍",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The law of truly large numbers, real-world framing, for @have_you_seen_my_quant. Hook = a shock number in the first second: an event with odds of 1 in 1,000,000 happens **8,000 times every day** on Earth."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "All arithmetic below is exact and independently checked:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "population N = 8e9 (approx. world population), per-person daily p = 1e-6"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      expected hits/day  = N*p           = 8,000",
+      "      expected hits/year = N*p*365       = 2,920,000"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "P(it happens to NOBODY today) = (1 - 1e-6)^(8e9)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      = exp(8e9 * ln(1 - 1e-6)) = 4.39e-3475      (log10 = -3474.3576)",
+      "    so we quote ~4 x 10^-3475 on screen and \"ten to the minus three thousand",
+      "    four hundred seventy-five\" in narration."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "coin-flip crowd size: 1-(1-p)^n = 1/2  =>  n = ln2 / -ln(1-p) = 693,146.8"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (the familiar ln2/p = 693,147.2 — we show 693,147)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "at p = 1e-9 (one in a BILLION): N*p = 8 per day, 2,920 per year."
+     ]
+    }
+   ],
+   "src": "module"
+  },
+  {
+   "slug": "ten_heads_2046",
+   "title": "2046 vs 1024 — two coin patterns, same odds, double the wait",
+   "ts": "2026-07-28T15:24:02+00:00",
+   "date": "28 Jul 2026",
+   "topic": "expectation_tricks",
+   "q": null,
+   "a": "Two coin patterns with identical odds — but one takes twice as long to show up 🪙",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "HHHHHHHHHH → 2046 flips on average",
+      "HHHHHHHHHT → 1024 flips"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both patterns have exactly the same 1-in-1024 chance in any 10-flip window, so the wait \"should\" be the same. It isn't."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trick is self-overlap. Getting 9 heads in a row takes 1022 flips on average. Then:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "chasing a TAIL — extra heads keep your nine, and the first tail finishes the job: 1022 + 2 = 1024",
+      "chasing a 10th HEAD — one tail wipes out all nine and you restart: 2 × (1022 + 1) = 2046"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A pattern that overlaps itself arrives in clumps, so you wait longer for the first one. Same probability ≠ same waiting time — that's the whole trap."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Save this one for your next interview 🧠"
+     ]
+    }
+   ],
+   "src": "caption",
+   "road": {
+    "qid": "hh_vs_ht",
+    "lesson": "u1l2",
+    "unit": 1,
+    "prompt": "Flip a coin until you have just seen heads then heads. Start again and flip until you see heads then tails. Which wait is longer on average?"
+   }
+  },
+  {
+   "slug": "arcsine_law_10s",
+   "title": "22% of fair coin games: one player leads 97% of the time",
+   "ts": "2026-07-28T14:34:56+00:00",
+   "date": "28 Jul 2026",
+   "topic": "random_walk",
+   "q": null,
+   "a": "In 22% of fair coin games, ONE player is ahead 97% of the time 🪙 (a near 50/50 split? just 6%)",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That's the arcsine law: P(share of time in the lead ≤ x) = (2/π)·arcsin(√x). The density 1/(π√(x(1−x))) is U-shaped, so a near-even lead split is the LEAST likely outcome and one side hogging the lead is the MOST likely. A fair game rarely feels fair."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
+  {
+   "slug": "shuffle_52_factorial",
+   "title": "52! — the number of ways to shuffle a deck",
+   "ts": "2026-07-28T13:44:00+00:00",
+   "date": "28 Jul 2026",
+   "topic": "combinatorics",
+   "q": "Shuffle a deck of cards. That exact order has almost certainly never existed before in history 🃏",
+   "a": "52! = 52 × 51 × 50 × … × 1 = 80,658,175,170,943,878,571,660,636,856,403,766,975,289,505,440,883,277,824,000,000,000,000 — exactly 68 digits, ≈ 8.07 × 10^67.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why: the top card can be any of 52, the next any of the 51 left, the next 50… multiply them all and you get 52 factorial."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "🌌 How absurd is that? If all 8 billion people alive shuffled one deck every second since the Big Bang (13.787 billion years ≈ 4.35 × 10^17 seconds), we'd have produced ~3.5 × 10^27 orderings — under 10^-40 of the total. So a properly shuffled deck is almost certainly an order that has never existed and never will again."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "📘 Free 5-puzzle sample + the full pack → link in bio."
+     ]
+    }
+   ],
+   "src": "comment",
+   "road": {
+    "qid": "queue_orders",
+    "lesson": "u5l1",
+    "unit": 2,
+    "prompt": "Five friends line up at a bus stop. How many different orders could the queue be in?"
+   }
+  },
+  {
+   "slug": "ballot_never_tied",
+   "title": "Final vote 7-3. Was the winner ahead the whole count?",
+   "ts": "2026-07-28T11:54:01+00:00",
+   "date": "28 Jul 2026",
+   "topic": "random_walk",
+   "q": "Final vote: A 7 — B 3. The ballots are counted one at a time in a random order. What's the probability A was strictly AHEAD the entire count — never tied, never behind?",
+   "a": "2/5 — just 40%. (Most people guess 70-80%.)",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Bertrand's ballot theorem: if the winner gets a votes and the loser b, the chance the winner is strictly ahead at EVERY point of the count is (a − b) / (a + b) = (7 − 3) / 10 = 2/5."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why: A's running lead is a ±1 random walk from 0 to +4 in 10 steps. By the reflection principle, the paths that touch 0 after the start are exactly TWICE the paths whose first vote is B → P(bad) = 2 × 3/10 = 6/10, so P(ahead all the way) = 4/10 = 40%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "✅ Brute force agrees: 48 of the 120 possible counting orders stay ahead (Monte-Carlo: 0.3999)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "📘 Free 5-puzzle sample + the full pack → link in bio."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "lottery_ev",
+   "title": "The $800M jackpot: buy 100 tickets?",
+   "ts": "2026-07-28T11:09:02+00:00",
+   "date": "28 Jul 2026",
+   "topic": "real_world",
+   "q": "The $800M jackpot: buy 100 tickets?",
+   "a": "No. Even at an $800M headline the expected value of a $2 ticket is about −$1.45, because the cash value after tax and splitting is nearer $160M and the odds are 1 in 292,201,338.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Topical hook: a record jackpot has crossed $800 million and everyone's buying tickets. The relatable-but-wrong instinct is \"100 tickets = a decent shot.\""
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The math nobody wants to hear:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "Odds of one ticket winning are about 1 in 300 million (Powerball is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 in 292,201,338). 100 tickets only lift you to ~1 in 3 million — still,",
+      "    for all practical purposes, zero."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "The advertised $800M is a mirage: it's the annuity, not cash; the cash"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    value is roughly half, taxes take ~37%+, and at record jackpots you often",
+      "    have to SPLIT the pot. The value a winning ticket actually delivers is",
+      "    closer to ~$160M."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "So even at an $800M headline, expected value per ticket is negative:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "        EV = P(win) * J_effective - price",
+      "           ~ (1/3e8) * 160e6 - 2  ~  $0.55 - $2  =  -$1.45  < 0."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "Buying 100 * (a chance of ~nothing) is still ~nothing: a fixed-seed sim of"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    200,000 lifetimes each buying 100 tickets wins the jackpot zero times and",
+      "    returns $0 against $40M spent."
+     ]
+    }
+   ],
+   "src": "module",
+   "road": {
+    "qid": "raffle_ticket",
+    "lesson": "u6l1",
+    "unit": 4,
+    "prompt": "A raffle sells 500 tickets and has one prize of £600. Forget what a ticket costs — what is a ticket worth on average, in pounds?"
+   }
+  },
+  {
+   "slug": "boy_tuesday_short",
+   "title": "A boy born on Tuesday — can you solve it?",
+   "ts": "2026-07-28T07:00:05+00:00",
+   "date": "28 Jul 2026",
+   "topic": "paradox",
+   "q": "A woman has two children. One is a boy born on a Tuesday. What's the probability that BOTH are boys?",
+   "a": "It's 13/27 (≈ 48%). Not 1/2, not 1/3.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Treat each child as (gender + day of week) → 2 × 7 = 14 equally likely types. For two kids that's 14 × 14 = 196 equally likely (older, younger) combinations."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "We're told at least one child is a boy born on Tuesday (call it B-Tue). Count those combos:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "first child B-Tue → 14",
+      "second child B-Tue → 14",
+      "minus the 1 where BOTH are B-Tue (counted twice)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "= 14 + 14 − 1 = 27 possible worlds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now, how many of those 27 have TWO boys? A boy + a day = 7 boy-types, so pairs of boys with at least one B-Tue = 7 + 7 − 1 = 13."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "P(both boys | one is a boy born on Tuesday) = 13 / 27 ≈ 0.48."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "🤯 The mind-bender: a totally \"irrelevant\" detail (Tuesday) makes the two-boys case harder to double-count, pushing the answer from 1/3 UP toward 1/2. The more specific the clue about the boy, the closer to 1/2 you get. If you'd been told nothing about the day, it's the classic 1/3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Comment \"13/27\" if you got it 😉"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "📘 Full 38-puzzle pack + free sample → link in bio."
+     ]
+    }
+   ],
+   "src": "comment",
+   "road": {
+    "qid": "boy_weekday",
+    "lesson": "u7l1",
+    "unit": 7,
+    "prompt": "A woman tells you she has two children, and that one of them is a boy born on a weekday. What is the chance that both of her children are boys?"
+   }
+  },
+  {
+   "slug": "simpsons_paradox",
+   "title": "Help every group, hurt overall — Simpson's paradox",
+   "ts": "2026-07-27T00:18:52+00:00",
+   "date": "27 Jul 2026",
+   "topic": "real_world",
+   "q": "Can a treatment beat another in every subgroup and still lose overall?",
+   "a": "Yes. Treatment A beats B on mild cases (95% v 90%) AND on severe cases (50% v 45%), and still loses overall, 59% to 81%.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A trend that shows up in each subgroup can REVERSE when the groups are pooled, because of a lurking (confounding) variable and unequal group sizes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Clean, neutral medical example. Treatment A vs Treatment B, patients split into mild and severe cases:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "                 mild cases          severe cases        combined",
+      "    Treatment A  19/20 = 95%         40/80 = 50%          59/100 = 59%",
+      "    Treatment B  72/80 = 90%          9/20 = 45%          81/100 = 81%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A beats B for mild AND for severe, yet B wins overall. The reason is the mix: A was given mostly to severe (hard-to-cure) patients, B mostly to mild (easy) ones, so A's pooled rate is dragged down by all the tough cases even though it was the better choice inside every group."
+     ]
+    }
+   ],
+   "src": "module",
+   "road": {
+    "qid": "workshop_split",
+    "lesson": "u7l2",
+    "unit": 7,
+    "prompt": "Two bike workshops. On easy repairs A fixes a bigger share than B does, and on hard repairs A fixes a bigger share than B as well."
+   }
+  },
+  {
+   "slug": "arcsine_law",
+   "title": "In a fair coin game, who's in the lead? Almost never 50/50.",
+   "ts": "2026-07-26T23:24:56+00:00",
+   "date": "26 Jul 2026",
+   "topic": "random_walk",
+   "q": null,
+   "a": "In a fair coin game, who's in the lead? Almost never 50/50.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Track cumulative heads-minus-tails in a long fair coin game — a symmetric random walk. Intuition says that in a fair game the lead should trade back and forth, so each player leads about half the time. That intuition is spectacularly wrong. By the arcsine law, the fraction of TIME one player spends in the lead is LEAST likely to be near one half and MOST likely to be near 0 or 1: one player usually leads almost the entire game."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(fraction of time in lead <= x) = (2/pi) arcsin(sqrt(x))",
+      "    density f(x) = 1 / (pi sqrt(x(1-x)))  — U-shaped, blows up at 0 and 1."
+     ]
+    }
+   ],
+   "src": "module"
+  },
+  {
+   "slug": "random_walk_stocks",
+   "title": "Can you tell a real stock chart from pure randomness?",
+   "ts": "2026-07-26T22:34:51+00:00",
+   "date": "26 Jul 2026",
+   "topic": "random_walk",
+   "q": "Can you tell a real stock chart from pure randomness?",
+   "a": "No. A pure coin-flip walk produces convincing \"trends\", \"support levels\" and \"patterns\" that are nothing but noise.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Topical hook — everyone has an opinion on stocks and crypto right now. A pure coin-flip random walk (price_{t+1} = price_t +/- 1, each step 50/50) produces charts that look exactly like real price series: convincing \"trends\", \"support levels\" and \"patterns\" that are, in fact, pure noise."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is the random-walk model of markets: short-term moves are close to unpredictable, and E[price tomorrow | everything so far] = price today (a martingale). The honest point is NOT that markets are perfectly efficient — it is that randomness fools us, so most chart \"patterns\" people trade on are illusions our brains impose on noise, and short-term prediction is extremely hard. Educational, accurate, NOT investment advice."
+     ]
+    }
+   ],
+   "src": "module"
+  },
+  {
+   "slug": "hundred_prisoners",
+   "title": "100 prisoners, 100 boxes — the 31% miracle",
+   "ts": "2026-07-26T20:47:25+00:00",
+   "date": "26 Jul 2026",
+   "topic": "",
+   "q": "100 prisoners must each find their own number among 100 boxes, opening at most 50 each, and every one of them has to succeed. What are the odds?",
+   "a": "About 31%. Following the loop — open your own number, then the box matching the number you find — beats random guessing's (1/2)^100.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "100 prisoners must each find their own number among 100 boxes; each may open at most 50 boxes, and EVERY prisoner must succeed or all are executed. Random guessing gives survival (1/2)^100 ≈ 0. Yet the \"follow the loop\" strategy — open your own number's box, then the box matching the number you find, chaining along a cycle — gives survival ≈ 31%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trick: label the box you open by its position and the slip inside by its number, and the boxes decompose into cycles of a random permutation. A prisoner following his loop returns to his own number in exactly (cycle length) steps, so he succeeds iff his cycle is ≤ 50 long. EVERYONE succeeds iff the permutation has NO cycle longer than 50. Since a permutation of 100 has at most one cycle longer than 50, P(some cycle > 50) = sum_{k=51}^{100} 1/k ≈ ln 2 ≈ 0.69, so survival ≈ 1 - 0.69 ≈ 0.31."
+     ]
+    }
+   ],
+   "src": "module"
+  },
+  {
+   "slug": "polya_recurrence",
+   "title": "The drunk always finds home. The lost drone never does.",
+   "ts": "2026-07-26T19:54:06+00:00",
+   "date": "26 Jul 2026",
+   "topic": "random_walk",
+   "q": null,
+   "a": "The drunk always finds home. The lost drone never does.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The direct sequel to the drunkard's walk. A symmetric random walk on a flat grid (2D) returns to its start with probability 1 — it is RECURRENT. Lift the same random walk into 3D space and it becomes TRANSIENT: it comes home only with probability ~0.3405, escaping forever about two thirds of the time. That is Polya's theorem. The intuition: the chance of being back at the origin after 2n steps decays like 1/n^{d/2}; summed over all time that diverges in 1D and 2D (certain return) but converges in 3D (escape)."
+     ]
+    }
+   ],
+   "src": "module"
+  },
+  {
+   "slug": "birthday_problem",
+   "title": "The Birthday Problem — how few people?",
+   "ts": "2026-07-26T18:54:10+00:00",
+   "date": "26 Jul 2026",
+   "topic": "counting",
+   "q": "The birthday paradox — how few people until two share a birthday?",
+   "a": "23 people. Not 183 — that is where the chance of a shared birthday passes 50%.",
+   "why": [],
+   "src": "module",
+   "road": {
+    "qid": "birthday_23",
+    "lesson": "u1l2",
+    "unit": 1,
+    "prompt": "People walk into a room one at a time. At what point does it become more likely than not that two of them share a birthday?"
+   }
+  },
+  {
+   "slug": "two_players_first_six",
+   "title": "Two players race to roll a 6 — does going first help?",
+   "ts": "2026-07-26T15:46:32+00:00",
+   "date": "26 Jul 2026",
+   "topic": "gamblers",
+   "q": "Two players race to roll a 6 — does going first help?",
+   "a": "Going first helps: P(A wins) = (1/6)/(1 − 25/36) = 6/11 ≈ 0.545.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Players A and B alternate rolling a fair die; the first to roll a 6 wins, and A goes first. Because A gets the first shot, A is the favourite:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(A) = 1/6 + (5/6)^2 P(A)      # A wins now, or both miss and it recurses",
+      "    P(A) = (1/6) / (1 - 25/36) = (1/6)/(11/36) = 6/11 ≈ 0.545."
+     ]
+    }
+   ],
+   "src": "module"
+  },
+  {
+   "slug": "two_children",
+   "title": "The boy-girl paradox — at least one boy",
+   "ts": "2026-07-26T14:38:23+00:00",
+   "date": "26 Jul 2026",
+   "topic": "paradox",
+   "q": "A family has two children and at least one is a boy. What is the chance both are boys?",
+   "a": "1/3, not 1/2. Four equally likely families {BB, BG, GB, GG}; \"at least one boy\" rules out GG, leaving three, of which exactly one is BB.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A family has two children. You're told at least one is a boy. The probability that both are boys is 1/3, not 1/2. The centrepiece is a 2x2 grid of the four equally-likely families {BB, BG, GB, GG}; conditioning on \"at least one boy\" rules out GG, leaving 3 cells, of which exactly one is BB."
+     ]
+    }
+   ],
+   "src": "module",
+   "road": {
+    "qid": "two_children",
+    "lesson": "u1l1",
+    "unit": 1,
+    "prompt": "A family has two children. You are told at least one of them is a girl. What is the chance both are girls?"
+   }
+  },
+  {
+   "slug": "st_petersburg",
+   "title": "The St. Petersburg paradox",
+   "ts": "2026-07-26T14:10:26+00:00",
+   "date": "26 Jul 2026",
+   "topic": "paradox",
+   "q": "Flip a fair coin until the first heads. If it lands on flip k you win $2^k. What is the game worth?",
+   "a": "The expected payout is infinite — every term is worth exactly $1 and there are infinitely many — yet almost nobody would pay even $20 to play.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A coin game: flip a fair coin until the first heads. If the first heads lands on flip k, you win 2^k dollars. The expected payout is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E = sum_{k=1}^inf (1/2^k)(2^k) = 1 + 1 + 1 + ... = infinity."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every term is worth exactly one dollar because the prize doubles (2^k) exactly as fast as its probability halves (1/2^k), so the sum diverges. Yet almost nobody would pay even $20 to play."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The resolution is diminishing marginal value: value the LOG of the payout, not the payout. Under log utility"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E[ln X] = sum (1/2^k) ln 2^k = ln2 * sum k/2^k = 2 ln2 = ln 4,"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "so the certainty-equivalent is e^{ln 4} = $4. Infinite expected dollars, but only a few dollars of expected utility."
+     ]
+    }
+   ],
+   "src": "module"
+  }
+ ]
+};

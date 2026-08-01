@@ -14,6 +14,8 @@ site/
   css/style.css         the stylesheet for everything except the mascot
   js/questions.js       THE question bank — pure JSON, the source of truth
   js/app.js             path, lesson loop, hearts, XP, wall, libraries
+  js/answers.js         THE ANSWERS ARCHIVE — generated, never edited by hand
+  js/answers_ui.js      the answers screen, and the #answers/<slug> route
   js/mascot.js          Flip, the mascot — waits on the road, walks, reacts
   css/mascot.css        everything Flip needs, and nothing else needs
   js/store.js           persistent player state (localStorage)
@@ -49,6 +51,42 @@ cd site && python3 -m http.server 8770     # then open http://localhost:8770
 
 Deploying is `git push` to the Pages repo. There is no server-side code and there
 never will be — GitHub Pages does not run any.
+
+## The answers archive
+
+A video withholds its answer and says "answer in the first comment". The comment
+is on Instagram; this is where it lives on the site, so a caption can link
+straight to it.
+
+```
+python3 pipeline/build_answers.py          # rewrites site/js/answers.js
+python3 pipeline/build_answers.py --check  # report only, writes nothing
+```
+
+**Run it after every post.** It reads `analytics/posts.jsonl` for what is
+actually live, then takes each entry's words from that video's own
+`videos/<date>/<slug>.comment.txt`, its caption, or the docstring of
+`pipeline/questions/<slug>.py` — in that order, and says on the page which one
+it used. Nothing is written for the website, so nothing on the page can drift
+from what we published. A posted video it cannot source an answer for is
+**reported and skipped**, never guessed at. Same inputs give a byte-identical
+file, so a re-run with nothing new is a no-op.
+
+Two routes, and the deep link is the point:
+
+- `#answers` — the list, newest first, searchable.
+- `#answers/<slug>` — that one answer, open, at the top of the page. This is
+  what a caption links to, so **the answer has to be readable without
+  scrolling at 390px**. The archive's own header and search bar are hidden in
+  this mode for exactly that reason. Check it after any change to the card.
+
+Where a video's idea is also a question on the road, the entry offers it —
+`ROAD` in `build_answers.py`, and the build fails if an id there is not in
+`js/questions.js`. If the lesson is locked the button says so and puts the
+visitor on the road rather than showing them a sheet saying no.
+
+`verify_answers.py` knows nothing about any of this; the archive is published
+prose, the question bank is the thing that gets re-derived.
 
 ## Checking the questions
 
