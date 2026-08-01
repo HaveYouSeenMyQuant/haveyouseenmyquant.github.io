@@ -29,8 +29,9 @@ site/
   js/viz_lab.js         the reusable engines (sim, dial, grid, dots, graph, race…)
   js/viz_chance.js      js/viz_stats.js   js/viz_growth.js   js/viz_onramp.js
   js/viz_countval.js    js/viz_bayesgeo.js  js/viz_netalgo.js
+  js/viz_markov.js      js/viz_stopping.js  js/viz_info.js   js/viz_estimate.js
   js/viz_premium_js.js  js/viz_premium_opt.js  js/viz_premium_ts.js
-  verify_answers.py     re-derives all 161 answers from scratch
+  verify_answers.py     re-derives all 197 answers from scratch
   checks/*.py           the checkers, one module per slice of the bank
   schema.sql            the Supabase tables and their Row Level Security
   METRICS.md            every event and the funnel question it answers
@@ -91,7 +92,7 @@ prose, the question bank is the thing that gets re-derived.
 ## Checking the questions
 
 ```
-python3 site/verify_answers.py        # 161/161, about 0.9 s, stdlib only
+python3 site/verify_answers.py        # 197/197, about 1.1 s, stdlib only
 python3 site/verify_answers.py -v     # shows the working for each one
 ```
 
@@ -106,14 +107,23 @@ cannot write a genuine checker for it, cut the question.
 
 **Real, working now:**
 
-- 161 questions, every one with its own interactive visual and every answer
-  machine-verified: 89 on the free road, and 72 across six named premium
+- 197 questions, every one with its own interactive visual and every answer
+  machine-verified: 125 on the free road, and 72 across six named premium
   sets — Jane Street, Citadel, Optiver speed round, Mental maths under
   pressure, Two Sigma and Brainteaser classics. The conditional-probability,
   geometric-probability, network and algorithm material that was briefly sold
   as the SIG and Jump Trading sets now lives on the road, as units 7–10, where
   it was originally drafted: engagement is the site's problem, not
   monetisation, and a longer free road is worth more than two more paid sets.
+- **The road runs to fourteen units.** It used to stop at ten, which anyone who
+  actually engaged finished in about two sittings — and then the streak, the
+  daily goal and the crowns had nothing left to retain them for. Units 11–14 are
+  the hardest on the road and are meant to feel like it: *Where it settles*
+  (chains with a memory, steady states, mixing), *Knowing when to stop* (the
+  secretary problem, ruin, betting systems), *Twenty questions* (information,
+  coding, error correction) and *Back of an envelope* (Fermi chains,
+  capture-recapture, Benford). Same product, though: one sentence, one drawn
+  answer, never algebra on the screen.
 - **A mascot that travels the road with you.** Flip, a gold coin on two legs,
   drawn as inline SVG in `js/mascot.js` — no image files, no fonts, works from
   `file://`. It stands at the node you are meant to play next, so "where do I
@@ -166,7 +176,7 @@ cannot write a genuine checker for it, cut the question.
 | **Accounts / cross-device progress** | real. `js/sync.js` pulls `progress` + `profiles`, merges them into the local store, and pushes the result back. The merge takes the better of local and remote per question — solved beats unsolved, fewer attempts wins, XP earned since the last confirmed push is added rather than dropped — so a phone that played unit 1 anonymously and then signed in keeps everything, and so does an account opened on a new laptop. `localStorage` is still written first and the sync runs in the background; offline just means the push retries later. | Nothing. Hearts are the one thing not synced: they are per-lesson and refill every start, so `profiles.hearts` stays at its default until hearts become a real cross-session currency. |
 | **Payments** | stub. `QQPay.checkout()` records local interest and opens an honest sheet saying nothing was charged. | Create the payment processor account, do the identity/bank verification, create one product per library, paste the resulting public Payment Link into `js/payments.js`. Entitlement must then be decided server-side, not in that file — a browser can lie. |
 | **The paid libraries themselves** | written. Six sets, twelve questions each, every one drawn and machine-verified exactly like the road. A member gets a **Play this set** button on the detail screen and the set is dealt out as a shuffled lesson. Non-members still see the same door: topics, two real sample questions, and the only price in the app. | Nothing to build. Watch `library_set_started` against `library_detail_viewed` to see which sets a membership is actually bought for. |
-| **Units 2–10 unlocking in order** | works, but note that the sequence rule means unit 3 needs unit 2 finished, and so on up to unit 10. | Nothing — this is deliberate. |
+| **Units 2–14 unlocking in order** | works, but note that the sequence rule means unit 3 needs unit 2 finished, and so on up to unit 14. | Nothing — this is deliberate. |
 
 **Three files, three seams.** `js/auth.js`, `js/payments.js` and
 `js/analytics.js` are the only places a backend appears. Each has one documented
