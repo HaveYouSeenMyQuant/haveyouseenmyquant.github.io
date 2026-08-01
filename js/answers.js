@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 73,
+ "count": 74,
  "entries": [
+  {
+   "slug": "fourteen_new_records",
+   "title": "A million random numbers, fourteen records",
+   "ts": "2026-08-01T15:25:17+00:00",
+   "date": "1 Aug 2026",
+   "topic": "expectation_tricks",
+   "q": "Numbers land one at a time, all random. How often does one beat everything before it?",
+   "a": "A million numbers → about 14 times.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Not fourteen thousand. Fourteen."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why: the tenth number leads only if it's the biggest of the ten — one chance in ten. The millionth, one chance in a million. Add up all those chances and the total crawls: ten times more numbers buys you only about two more records. So a BILLION numbers still only reaches 21."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And it wobbles — run it again and you get 11, or 17. Fourteen is the average, not a promise."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It's why records dry up in anything nobody is actually getting better at, and why \"best month ever\" quietly gets rarer without a single thing going wrong."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Play the maths instead of reading it → link in bio. No signup."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
   {
    "slug": "million_steps_798",
    "title": "A million random steps, 798 steps from home",
