@@ -27,8 +27,19 @@ window.sb = {
   // most of the traffic and the whole point of unit 1.
   event(name, props, sessionId, userId) {
     try {
+      // Never log from a dev server or a local file. Our own testing was
+      // indistinguishable from real visitors and completely swamped the funnel:
+      // on 2026-08-01 the site showed 53 "sessions" whose hourly peaks mapped
+      // exactly onto when agents were driving Chrome, and a 33% -> 45% jump in
+      // the first-tap rate turned out to be an artefact of who was testing.
+      // A metric you cannot trust is worse than no metric, because you act on it.
+      var h = (window.location && window.location.hostname) || '';
+      if (window.location.protocol === 'file:' ||
+          h === 'localhost' || h === '127.0.0.1' || h === '' ||
+          h.indexOf('192.168.') === 0 || h.indexOf('10.') === 0) return;
       const body = JSON.stringify({
-        session_id: sessionId, user_id: userId || null, name: name, props: props || {},
+        session_id: sessionId, user_id: userId || null, name: name,
+        props: Object.assign({ host: (window.location && window.location.hostname) || '?' }, props || {}),
       });
       const url = window.SUPABASE_CONFIG.url + "/rest/v1/events";
       fetch(url, {
