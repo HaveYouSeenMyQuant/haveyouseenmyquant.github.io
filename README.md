@@ -55,9 +55,17 @@ never will be — GitHub Pages does not run any.
 
 ## The answers archive
 
-A video withholds its answer and says "answer in the first comment". The comment
-is on Instagram; this is where it lives on the site, so a caption can link
-straight to it.
+**From 2026-08-02 a video withholds its answer everywhere** — not on screen, not
+in the caption, not in the first comment. This page is the only place an answer
+exists, and **reading one costs an email** (`program.md`, *The answer is never
+free*). The question, the topic and the shape of the working are free and
+immediate; the answer lede and the working are behind `QQAuth.hasAccess()` —
+the same predicate the road's wall uses, so one address opens every answer for
+ever. It is one ask per visitor, not one per entry.
+
+**The road is not gated by any of this.** Unit 1 is free, no login, no wall,
+and the "play this one" button stays on the free side of the gate: somebody who
+would rather solve it than be told is worth more than an email, not less.
 
 ```
 python3 pipeline/build_answers.py          # rewrites site/js/answers.js
@@ -77,9 +85,19 @@ Two routes, and the deep link is the point:
 
 - `#answers` — the list, newest first, searchable.
 - `#answers/<slug>` — that one answer, open, at the top of the page. This is
-  what a caption links to, so **the answer has to be readable without
-  scrolling at 390px**. The archive's own header and search bar are hidden in
-  this mode for exactly that reason. Check it after any change to the card.
+  what a caption links to, so **the question and the gate — or the answer, for
+  a visitor who already has access — have to be readable without scrolling at
+  390px**. The archive's own header and search bar are hidden in this mode for
+  exactly that reason. Check it after any change to the card.
+
+Two things the gate must keep doing, both easy to break:
+
+- **Never quote an entry's headings in the teaser.** They are lifted from what
+  we published and routinely give the answer away — "WHY 14 IS THE MINIMUM".
+  Only *counts* derived from the working are safe to show.
+- **Keep `a` out of the search index while locked** (`_findLocked` in
+  `answers_ui.js`), or the search box becomes a way to confirm the answer
+  without paying for it.
 
 Where a video's idea is also a question on the road, the entry offers it —
 `ROAD` in `build_answers.py`, and the build fails if an id there is not in

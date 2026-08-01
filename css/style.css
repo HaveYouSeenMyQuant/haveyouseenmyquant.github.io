@@ -972,6 +972,48 @@ body.in-lesson .tabs { display: none; }
 }
 .ans.open .ans-chev { transform: rotate(180deg); }
 
+/* ---------------------------------------------------- the answers gate ---
+ * While the answer is behind an email, the QUESTION is the content of the
+ * card, so on the one they came for it stops being a caption and becomes the
+ * headline. Only on an open gated card: 76 of these at full size would be a
+ * wall of text rather than a list. */
+.ans.gated.open .ans-q { font-size: 17px; line-height: 1.38; color: var(--fg); font-weight: 600; }
+
+/* Where the gold answer sits on an open card. Deliberately NOT gold and NOT
+ * shaped like an answer — nothing here may read as if something were being
+ * shown. */
+.ans-a-locked { color: var(--muted); font-weight: 600; font-size: 14px; }
+.ans-label-locked { color: var(--muted); }
+.ans-lockmark { display: inline-block; vertical-align: -1px; color: var(--gold); }
+.ans-shape {
+  margin: 5px 0 0; font-size: 12px; line-height: 1.45; color: var(--muted); opacity: .8;
+}
+
+.ans-gate {
+  margin: 14px 0 0; padding: 14px; border-radius: 12px;
+  background: rgba(210, 153, 34, .07); border: 1px solid rgba(210, 153, 34, .34);
+}
+.ans-gate-h { margin: 0; font-size: 15.5px; font-weight: 800; color: var(--gold); }
+.ans-gate-p { margin: 8px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--fg); }
+.ans-gate-plain { color: var(--muted); }
+.ans-gate-form { margin-top: 12px; }
+.ans-gate-input {
+  width: 100%; padding: 14px 14px; font-size: 16px; font-family: inherit;
+  -webkit-appearance: none; appearance: none;
+  background: var(--bg); border: 1.5px solid var(--line); border-radius: 12px; color: var(--fg);
+}
+.ans-gate-input:focus { outline: none; border-color: var(--accent); }
+.ans-gate-err { color: var(--bad); font-size: 13px; min-height: 18px; margin: 6px 0 0; }
+.ans-gate-btn { width: 100%; margin-top: 2px; }
+.ans-gate-small {
+  margin: 10px 0 0; font-size: 11.5px; line-height: 1.5; color: var(--muted); opacity: .85;
+}
+.ans-unlocked {
+  margin: 12px 0 0; padding: 10px 12px; border-radius: 10px;
+  background: rgba(63, 185, 80, .09); border: 1px solid rgba(63, 185, 80, .34);
+  font-size: 13px; line-height: 1.5; color: var(--fg);
+}
+
 .ans-body { padding: 2px 14px 14px; border-top: 1px solid var(--line); margin-top: 2px; }
 .ans-h {
   margin: 15px 0 6px; font-size: 11.5px; font-weight: 800; letter-spacing: .07em;
