@@ -1050,6 +1050,32 @@ body.in-lesson .tabs { display: none; }
 }
 .ans-none { color: var(--muted); font-size: 14.5px; }
 
+/* ------------------------------------- leaving an answer, onto the road ---
+ * Appears BELOW the card they just left, never over it. It is an offer, so it
+ * looks like the "play this one" button (green, the app's one offer colour)
+ * rather than like the gate. Nothing here may cover what they were reading. */
+.ans-next {
+  margin: 0 0 10px; padding: 14px; border-radius: 14px;
+  background: rgba(63, 185, 80, .08);
+  border: 1px solid rgba(63, 185, 80, .38);
+  opacity: 0; transform: translateY(-6px);
+  transition: opacity .22s ease, transform .22s ease;
+}
+.ans-next.on { opacity: 1; transform: none; }
+.ans-next-kick {
+  margin: 0; font-size: 10.5px; font-weight: 800; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--good);
+}
+.ans-next-q {
+  margin: 8px 0 0; font-size: 15.5px; line-height: 1.42; color: var(--fg); font-weight: 600;
+}
+.ans-next-go { width: 100%; margin-top: 13px; }
+.ans-next-no { width: 100%; margin-top: 4px; }
+/* The sentinel that says "they reached the bottom of the working". It is a
+ * measurement, not a thing on the page. */
+.ans-end { height: 1px; margin-top: 10px; }
+
 @media (prefers-reduced-motion: reduce) {
   .ans-chev { transition: none; }
+  .ans-next { transition: none; opacity: 1; transform: none; }
 }
