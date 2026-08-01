@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TikTok authorisation — have you seen my quant</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center;
+         justify-content:center; background:#0d1117; color:#e6edf3;
+         font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+         padding:24px; }
+  .card { max-width:520px; width:100%; }
+  h1 { font-size:20px; margin:0 0 4px; }
+  p  { color:#8b949e; margin:0 0 18px; font-size:14px; }
+  code { display:block; background:#161b22; border:1px solid #30363d;
+         border-radius:10px; padding:14px; margin:0 0 12px;
+         font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+         word-break:break-all; color:#58a6ff; }
+  .none { color:#d29922; }
+  button { background:#238636; color:#fff; border:0; border-radius:10px;
+           padding:11px 18px; font-size:15px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>TikTok authorisation</h1>
+  <!-- This page exists ONLY to catch the TikTok OAuth redirect.
+       It deliberately loads NO other script.
+
+       The site root cannot be used as the TikTok redirect URI: js/auth.js
+       scrubs `code` out of the address bar via history.replaceState before
+       anything can read it, because Supabase's magic-link flow uses that same
+       parameter name and leaving it in the URL would leak a login credential
+       into shared links. That scrub is correct and stays. TikTok simply needs
+       a landing page that is not behind it. -->
+  <p>Copy the code below and paste it back into the terminal.</p>
+  <code id="code">reading…</code>
+  <button id="copy" type="button">Copy code</button>
+</div>
+<script>
+  var q = new URLSearchParams(window.location.search);
+  var code = q.get("code");
+  var err  = q.get("error") || q.get("error_type");
+  var el   = document.getElementById("code");
+
+  if (code) {
+    el.textContent = code;
+  } else if (err) {
+    el.textContent = "TikTok returned an error: " + err;
+    el.className = "none";
+  } else {
+    el.textContent = "No code in the URL. Start again from --auth-url.";
+    el.className = "none";
+  }
+
+  document.getElementById("copy").addEventListener("click", function () {
+    if (!code) return;
+    navigator.clipboard.writeText(code).then(function () {
+      document.getElementById("copy").textContent = "Copied";
+    }, function () { /* clipboard blocked; the code is on screen to select */ });
+  });
+</script>
+</body>
+</html>
