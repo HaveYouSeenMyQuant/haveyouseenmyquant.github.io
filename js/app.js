@@ -1781,6 +1781,25 @@
 
   global.QQApp = {
     go: go, renderPath: renderPath, currentLesson: currentLesson,
-    startLesson: startLesson, allLessons: allLessons
+    startLesson: startLesson, allLessons: allLessons,
+
+    /* Open a lesson from outside the road — the answers archive uses this for
+     * its "play this one" link. It goes through onLessonTap, not startLesson,
+     * so a locked lesson still meets the wall or the in-order sheet exactly as
+     * it would if the node itself had been tapped. */
+    openLesson: function (lessonId) {
+      var x = allLessons().filter(function (n) { return n.lesson.id === lessonId; })[0];
+      if (!x) return false;
+      onLessonTap(x.unit, x.lesson, x.indexInUnit);
+      return true;
+    },
+
+    /* false when the lesson can be started right now, otherwise the reason
+     * ('email' or 'sequence'). The archive asks before it offers, so it never
+     * says "play this one" and then hands over a sheet saying no. */
+    lessonLockFor: function (lessonId) {
+      var x = allLessons().filter(function (n) { return n.lesson.id === lessonId; })[0];
+      return x ? lessonLock(x.unit, x.lesson, x.indexInUnit) : 'missing';
+    }
   };
 })(window);

@@ -888,3 +888,118 @@ main { max-width: var(--w); margin: 0 auto; padding: 0 16px 40px; }
   font-weight: 800; font-size: 13.5px; padding: 0 16px;
 }
 .pay-go:disabled { opacity: .5; }
+
+/* ======================================================================== */
+/* THE ANSWERS ARCHIVE                                                      */
+/* Most people who see this arrived from a Reel that withheld its answer.   */
+/* So: the answer is the loudest thing in the card, above the fold, before  */
+/* any reasoning. Everything else here is deliberately quiet.               */
+/* ======================================================================== */
+
+/* Not sticky. The topbar already owns top: 0, and two sticky strips at the
+ * same offset stack on top of each other the moment anything scrolls. */
+.tabs {
+  display: flex; gap: 6px;
+  max-width: var(--w); margin: 0 auto; padding: 0 16px 10px;
+  background: linear-gradient(180deg, var(--bg) 72%, rgba(13, 17, 23, 0));
+}
+.tab {
+  flex: 1 1 0; min-width: 0;
+  padding: 9px 10px; border-radius: 10px;
+  background: var(--panel); border: 1px solid var(--line);
+  color: var(--muted); font-size: 13.5px; font-weight: 700;
+}
+.tab.on { color: var(--fg); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.tab:only-child { display: none; }
+body.in-lesson .tabs { display: none; }
+
+.ans-head { padding: 4px 2px 12px; }
+.ans-head h1 { font-size: 25px; line-height: 1.2; }
+.ans-head p { margin: 7px 0 0; color: var(--muted); font-size: 14.5px; }
+
+.ans-tools { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+#ansSearch {
+  flex: 1 1 auto; min-width: 0; -webkit-appearance: none; appearance: none;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  color: var(--fg); font-family: inherit; font-size: 15px; padding: 11px 12px;
+}
+#ansSearch:focus { outline: none; border-color: var(--accent); }
+#ansSearch::placeholder { color: var(--dim); }
+.ans-count {
+  flex: 0 0 auto; font-size: 12px; font-weight: 700; color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.ans-back { margin: 0 0 12px; }
+
+.ans {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+  margin-bottom: 10px; overflow: hidden;
+}
+.ans.open { border-color: color-mix(in srgb, var(--accent) 30%, var(--line)); }
+
+.ans-top {
+  position: relative; display: block; width: 100%; text-align: left;
+  background: none; border: 0; padding: 13px 40px 14px 14px;
+}
+.ans-kick {
+  display: flex; gap: 6px; font-size: 11px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.ans-sep { opacity: .55; }
+.ans-q {
+  margin: 7px 0 0; font-size: 14px; line-height: 1.4; color: var(--muted);
+}
+/* The whole point of the page. Gold, big, and never below the reasoning. */
+.ans-a {
+  margin: 8px 0 0; font-size: 16.5px; line-height: 1.42;
+  font-weight: 700; color: var(--gold); overflow-wrap: anywhere;
+}
+.ans-label {
+  display: block; font-size: 10.5px; font-weight: 800; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--good); margin-bottom: 3px;
+}
+.ans-chev {
+  position: absolute; right: 11px; top: 14px; color: var(--muted);
+  transition: transform .2s ease;
+}
+.ans.open .ans-chev { transform: rotate(180deg); }
+
+.ans-body { padding: 2px 14px 14px; border-top: 1px solid var(--line); margin-top: 2px; }
+.ans-h {
+  margin: 15px 0 6px; font-size: 11.5px; font-weight: 800; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--accent);
+}
+.ans-body > .ans-h:first-child { margin-top: 12px; }
+.ans-p { margin: 10px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--fg); }
+.ans-ul { margin: 8px 0 0; padding-left: 18px; }
+.ans-ul li { font-size: 14.5px; line-height: 1.5; margin-bottom: 5px; }
+.ans-pre {
+  margin: 10px 0 0; padding: 10px 11px; border-radius: 9px;
+  background: var(--bg); border: 1px solid var(--line);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px; line-height: 1.55; color: var(--fg);
+  overflow-x: auto; white-space: pre;
+}
+
+/* The conversion. Green, because it is the one thing here that is an offer. */
+.ans-play {
+  display: block; width: 100%; text-align: left; margin: 16px 0 0;
+  padding: 11px 13px; border-radius: 11px;
+  background: rgba(63, 185, 80, .09); border: 1px solid rgba(63, 185, 80, .38);
+}
+.ans-play b { display: block; font-size: 14px; font-weight: 800; color: var(--good); }
+.ans-play span {
+  display: block; margin-top: 3px; font-size: 12.5px; line-height: 1.45;
+  color: var(--muted);
+}
+.ans-src { margin: 12px 0 0; font-size: 11.5px; color: var(--muted); opacity: .72; }
+
+.ans-more {
+  margin: 22px 0 10px; font-size: 11.5px; font-weight: 800; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--muted);
+}
+.ans-none { color: var(--muted); font-size: 14.5px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ans-chev { transition: none; }
+}

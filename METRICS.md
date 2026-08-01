@@ -161,6 +161,24 @@ library_viewed  ->  library_clicked  ->  library_detail_viewed  ->  library_buy_
 | `library_interest` | `libraryId`, `stub` | Registered interest after checkout returns. While payments are not live this is the only revenue-side signal we have, and it decides which library gets written first. |
 | `library_set_started` | `libraryId` | A **member** pressed "Play this set". The retention question on the paid side: does a membership get used more than once, and which set gets replayed? Fires only for someone `QQPay.owns()` says already has it, so it can never be confused with intent. |
 
+### The answers archive
+
+The other door into the site, and the one most Reel traffic will use. A video
+withholds its answer and points at `#answers/<slug>`; the visitor lands on that
+one answer, already open. So this is a funnel in its own right, and its whole
+point is the last step — whether an answer turns into a question played.
+
+```
+answers_opened  ->  answers_entry_opened  ->  answers_play_clicked  ->  lesson_started
+ (deepLink:true)     (browsed to another)     (the conversion)
+```
+
+| event | props | why it exists |
+|---|---|---|
+| `answers_opened` | `slug`, `deepLink`, `how`, `unknownSlug` | The archive was shown. `deepLink:true` with `how:'load'` is a viewer arriving straight off a video, which is the traffic this page exists for; `how:'tab'` is somebody already on the site who went looking. **`unknownSlug:true` means a video is pointing at an answer we have not generated** — a broken link in a caption, and otherwise invisible. |
+| `answers_entry_opened` | `slug`, `src` | An entry expanded from the list, so the archive is being browsed rather than bounced off. `src` (`comment` / `caption` / `module`) says which kind of source people actually open. |
+| `answers_play_clicked` | `slug`, `lessonId`, `questionId`, `lock` | **The conversion the archive exists for.** `answers_play_clicked / answers_opened` is the number to judge every link a video makes. `lock` is `null` when the lesson started, `'sequence'` or `'email'` when it was locked and they were put on the road instead — a high locked share means the questions we link to are too far along the road. |
+
 ### Plumbing
 
 | event | props | why it exists |
