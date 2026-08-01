@@ -3,6 +3,18 @@
  * The content is js/answers.js, which pipeline/build_answers.py generates from
  * the posted-video record. Nothing is written here; this file only draws it.
  *
+ * FROM 2026-08-02 THIS IS THE DEFAULT LANDING SCREEN. A visitor with no deep
+ * link and no progress lands here rather than on the road, because every
+ * caption now says the answer is on the site and nowhere else — so "answers"
+ * is the promise they are arriving with, and this is the page that keeps it.
+ * app.js owns that decision (see entryPath there, and the 33% it is judged
+ * against); this file reads it in boot() and never re-derives it. A deep link
+ * still wins, and a visitor with progress still lands on the road.
+ *
+ * The other half of that change is `offerRoad` below: when a visitor leaves an
+ * answer, the road's next question appears under it. Getting a reader to play
+ * is the only reason this archive is worth landing anyone on.
+ *
  * ==========================================================================
  * THE ANSWER COSTS AN EMAIL.  (program.md, "The answer is never free")
  * ==========================================================================
@@ -167,6 +179,162 @@
   }
 
   // ======================================================================
+  // leaving an answer — the road's next question, offered as the next thing
+  // ======================================================================
+  /* From 2026-08-02 this page is where a cold visitor LANDS, not a side room
+   * they wander into. That makes the end of an answer the most important
+   * moment on the site: they came for a thing, they got the thing, and the
+   * next second decides whether they ever touch the product.
+   *
+   * So when they leave an answer — collapse it, or reach the bottom of one
+   * they have unlocked — the road's next question appears underneath, with
+   * its actual words on it. For the visitor this exists for that is question
+   * one of unit one; for anybody with progress it is where they are.
+   *
+   * The rules it is built to, all of them the owner's:
+   *   - it is an OFFER, never a wall and never a redirect. It appears BELOW
+   *     what they were reading; the answer stays exactly where it was, open,
+   *     and "Not now" removes the offer and nothing else.
+   *   - it never fires twice in a page load. One offer, then silence — a
+   *     second one is nagging, and nagging is what makes a page feel like a
+   *     funnel rather than a thing worth reading.
+   *   - it is shown to a locked visitor too. Someone who would rather solve
+   *     it than pay an email for it is worth MORE to us, not less
+   *     (site/README.md), so refusing the gate must not also cost them the
+   *     road.
+   *
+   * And it is instrumented, because "they read and then left" and "they read
+   * and then played" are the whole question and look identical without it:
+   * `answers_road_question_shown` -> `_started` is the conversion, and
+   * `lesson_started` follows from QQApp.openLesson on its own. */
+  var roadOfferDone = false;      // once per page load, whatever the trigger
+  var roadOfferAt = 0;
+
+  function entryPathNow() {
+    try { return QQApp.entryPath(); } catch (e) { return null; }
+  }
+
+  function offerRoad(art, entry, trigger) {
+    if (roadOfferDone || !art || !art.parentNode) return;
+    var next = null;
+    try { next = QQApp.nextRoadQuestion(); } catch (e) { next = null; }
+    /* Never offer a lesson that would answer back with a wall or a sheet.
+     * currentLesson() never picks a locked one, so this is a guard, not a
+     * branch — if it ever trips, the offer is silently skipped rather than
+     * turning into the thing it was built to avoid. */
+    if (!next || next.lock) return;
+
+    roadOfferDone = true;
+    roadOfferAt = Date.now();
+
+    function props(extra) {
+      var p = {
+        slug: entry ? entry.slug : null,
+        trigger: trigger,
+        unitId: next.unitId, lessonId: next.lessonId, questionId: next.questionId,
+        firstOnRoad: next.fresh,
+        gated: locked(),
+        entryPath: entryPathNow(),
+        utm: utm()
+      };
+      if (extra) for (var k in extra) if (Object.prototype.hasOwnProperty.call(extra, k)) p[k] = extra[k];
+      return p;
+    }
+
+    var box = el('div', 'ans-next');
+    box.appendChild(el('p', 'ans-next-kick',
+      next.fresh ? 'The first question on the road' : 'Where you are on the road'));
+    box.appendChild(el('p', 'ans-next-q', next.prompt));
+
+    var goBtn = el('button', 'primary-btn ans-next-go', 'Solve this one');
+    goBtn.type = 'button';
+    box.appendChild(goBtn);
+
+    var laterBtn = el('button', 'ghost-btn ans-next-no', 'Not now');
+    laterBtn.type = 'button';
+    box.appendChild(laterBtn);
+
+    goBtn.addEventListener('click', function () {
+      QQA.track('answers_road_question_started', props({ msShown: Date.now() - roadOfferAt }));
+      clearHash();
+      QQApp.openLesson(next.lessonId);
+    });
+    laterBtn.addEventListener('click', function () {
+      QQA.track('answers_road_question_dismissed', props({ msShown: Date.now() - roadOfferAt }));
+      box.classList.remove('on');
+      setTimeout(function () { if (box.parentNode) box.parentNode.removeChild(box); }, 220);
+    });
+
+    art.parentNode.insertBefore(box, art.nextSibling);
+    /* Painted closed for one frame so the reveal has something to animate
+     * from; under prefers-reduced-motion the stylesheet makes it a no-op.
+     * The timer is a backstop, not a duplicate: rAF does not run in a hidden
+     * tab, and an offer that is in the DOM at opacity 0 for ever would be a
+     * silent hole in the funnel. classList.add twice costs nothing. */
+    var reveal = function () { box.classList.add('on'); };
+    if (global.requestAnimationFrame) global.requestAnimationFrame(reveal);
+    setTimeout(reveal, 120);
+
+    QQA.track('answers_road_question_shown', props());
+
+    /* 'nearest' on purpose: it does nothing at all when the offer is already
+     * on screen, which is the common case. Nothing here may yank the page
+     * away from the answer they were reading. */
+    setTimeout(function () {
+      try { box.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (e) {}
+    }, 280);
+  }
+
+  /* The other exit: they unlocked an answer and read to the end of it. A
+   * sentinel after the last line reaching the viewport is the honest version
+   * of "finished reading" — not a timer pretending to be one.
+   *
+   * IntersectionObserver does the watching, because a scroll handler on a
+   * long list is the classic way to make a phone stutter. It is on every
+   * browser we ship to; the plain-rect fallback below exists so that a
+   * browser without it loses the offer's timing rather than the offer. */
+  function watchForEnd(body, entry) {
+    if (roadOfferDone) return;
+    var end = el('div', 'ans-end');
+    end.setAttribute('aria-hidden', 'true');
+    body.appendChild(end);
+
+    /* A beat before the offer, so it is not part of the same visual event as
+     * the last line of the working arriving. `body.parentNode` is read at fire
+     * time, not now: card() fills the body before putting it in the article. */
+    function reached() {
+      setTimeout(function () { offerRoad(body.parentNode, entry, 'read_end'); }, 700);
+    }
+
+    if (global.IntersectionObserver) {
+      var obs = new global.IntersectionObserver(function (rows) {
+        for (var i = 0; i < rows.length; i++) {
+          if (!rows[i].isIntersecting) continue;
+          obs.disconnect();
+          reached();
+          return;
+        }
+      }, { threshold: 0.9 });
+      obs.observe(end);
+      return;
+    }
+
+    function check() {
+      if (roadOfferDone) { global.removeEventListener('scroll', check); return; }
+      var r = end.getBoundingClientRect();
+      if (r.bottom <= 0 || r.top >= (global.innerHeight || 0)) return;
+      global.removeEventListener('scroll', check);
+      reached();
+    }
+    global.addEventListener('scroll', check, { passive: true });
+    /* Deferred, not immediate: card() fills a body BEFORE putting it in the
+     * article, so a rect read now is all zeros and a short answer that never
+     * needs scrolling would never fire. IntersectionObserver has no such
+     * problem — it reports a first-time-visible element on its own. */
+    setTimeout(check, 60);
+  }
+
+  // ======================================================================
   // the gate
   // ======================================================================
   /* Fired once per entry per page load, so a visitor scrolling past the same
@@ -277,6 +445,11 @@
             'follows you onto the account. They are all open here already.'
           : 'Saved on this device. We could not reach the sign-in service, so no link was ' +
             'sent — every answer is open here either way.';
+        /* render() rebuilds the list, which throws away any offer already on
+         * the page. Paying is the moment the offer is most worth making, so
+         * it is re-armed rather than lost — the reader will meet it again at
+         * the bottom of the answer they have just bought. */
+        roadOfferDone = false;
         /* Every card on the page is now unlocked, not just this one — and the
          * one they paid at must come back OPEN, showing the thing they just
          * bought, wherever in the list it was. */
@@ -312,6 +485,8 @@
     drawWhy(body, entry);
     drawPlay(body, entry);
     body.appendChild(el('p', 'ans-src', SRC_NOTE[entry.src] || ''));
+    /* They have the answer. The bottom of it is where the road gets offered. */
+    watchForEnd(body, entry);
 
     if (!unlockSeen[entry.slug]) {
       unlockSeen[entry.slug] = true;
@@ -391,6 +566,10 @@
         QQA.track('answers_entry_opened', {
           slug: entry.slug, src: entry.src, gated: isLocked
         });
+      } else {
+        /* Closing an answer is leaving it, whether they paid for it or not.
+         * The offer goes under the card they just shut — not over it. */
+        offerRoad(art, entry, 'closed');
       }
     });
     return art;
@@ -550,10 +729,25 @@
       });
     }
 
-    /* A first-ever visitor is normally dropped straight into a question. If
-     * they arrived on an answer link that is not what they came for, so this
-     * runs last and wins. */
-    route('load');
+    /* The first screen, and the deep link always wins it. app.js decided which
+     * door this visit came through before anything was drawn; this file reads
+     * that decision rather than making a second one, so the `entryPath` on
+     * `arrived` is always the screen that was actually shown.
+     *
+     *   #answers/<slug>  -> that entry, open, at the top          (route)
+     *   #answers         -> the list                              (route)
+     *   no hash, nothing solved -> the list                       (open, 'entry')
+     *   anything else    -> not ours; app.js has the road already
+     *
+     * The middle case is the change of 2026-08-02: every caption now says the
+     * answer is on the site and nowhere else, so the page a visitor lands on
+     * should be the thing the caption promised. Judged against 33% — see
+     * app.js entryPath(). */
+    if (parse()) { route('load'); return; }
+    var lands = false;
+    try { lands = !!(global.QQApp && QQApp.landsOnAnswers && QQApp.landsOnAnswers()); }
+    catch (e) { lands = false; }
+    if (lands) open(null, 'entry');
   }
 
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', boot);

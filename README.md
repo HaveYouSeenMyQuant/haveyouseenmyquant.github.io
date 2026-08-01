@@ -83,12 +83,18 @@ file, so a re-run with nothing new is a no-op.
 
 Two routes, and the deep link is the point:
 
-- `#answers` — the list, newest first, searchable.
+- `#answers` — the list, newest first, searchable. **This is also where a
+  first-time visitor with no hash now lands** (see *First-timers* below).
 - `#answers/<slug>` — that one answer, open, at the top of the page. This is
   what a caption links to, so **the question and the gate — or the answer, for
   a visitor who already has access — have to be readable without scrolling at
   390px**. The archive's own header and search bar are hidden in this mode for
   exactly that reason. Check it after any change to the card.
+
+**The way out is the road, not a dead end.** Leaving an answer puts the road's
+next question under the card (`offerRoad` in `answers_ui.js`). It goes through
+`QQApp.nextRoadQuestion` and `QQApp.openLesson`, so there is no second idea of
+what "the next question" is, and no second way into a lesson.
 
 Two things the gate must keep doing, both easy to break:
 
@@ -155,13 +161,29 @@ cannot write a genuine checker for it, cut the question.
   standing where the road says it belongs. `aria-hidden`, `pointer-events: none`,
   transforms and opacity only; under `prefers-reduced-motion` it simply appears at
   the right node with no walking, no door and no blinking.
-- **First-timers start in a question, not on the map.** A visitor with no progress
-  at all is put straight into question 1 and sees the road only *after* they have
-  answered it — with their own answer already showing on the first node and Flip
-  walking out of the door onto it. Anyone with any history lands on the road as
-  before, because their streak and their place on it are why they came back.
-  `?road=1` and `?play=1` force either opening for testing, and every visit records
-  which one it got so the change can be judged and reverted rather than assumed.
+- **First-timers land on the answers archive** (2026-08-02). Every caption now
+  says the answer is on the site and nowhere else, so the promise a cold visitor
+  arrives holding is *an answer*, and the first screen is the thing they were
+  promised. A deep link still wins outright — `#answers/<slug>` opens that entry
+  whatever else is true — and **anyone with progress still lands on the road**,
+  because their streak and their place on it are why they came back.
+  `?answers=1`, `?road=1` and `?play=1` force an opening for testing, and every
+  visit records which one it got (`entryPath` on `arrived`) so the change can be
+  judged and reverted rather than assumed.
+
+  This **reverses** the 2026-08-01 change that dropped first-timers straight into
+  question 1, which itself replaced a road-as-front-door that converted 33% of
+  arrivals into a first tap. All three openings are one field apart in the data;
+  `python analytics/site_metrics.py` prints them side by side against that 33%.
+  If landing on the archive does not beat it, put the previous opening back.
+- **Leaving an answer offers the road's next question.** Collapse an answer, or
+  read one you have unlocked to the bottom, and question 1 of the road appears
+  *underneath* the card with its actual words on it. It is an offer, never a
+  wall: the answer stays open, "Not now" removes the offer and nothing else, and
+  it is shown at most once per page load. It is shown to a locked visitor too —
+  someone who would rather solve it than pay an email for it is worth more to us,
+  not less. `answers_road_question_shown -> _started` is the number that says
+  whether the archive makes players or only readers.
 - The whole Duolingo loop: a path you land on mid-road, lessons of 4–5 questions,
   a progress bar, 4 hearts, immediate right/wrong feedback with an explanation,
   wrong answers requeued to the end of the lesson, an out-of-hearts screen you can

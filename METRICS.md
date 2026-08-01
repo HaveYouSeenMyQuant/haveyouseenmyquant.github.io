@@ -55,7 +55,20 @@ enters the event log or the events table. Keep it that way.
 | event | props | why it exists / what it answers |
 |---|---|---|
 | `arrived` | `entryPath`, `referrer`, `viewportW/H`, `isFirstEverVisit`, `visitNumber`, `hasEmail`, `xp`, `solvedTotal`, `utm`, `offline` | The top of the funnel. Every other rate is divided by this. `referrer` + `utm` say which Reel or CTA sent them, which is what makes site metrics steerable from content. **`entryPath` is on the envelope of the funnel's first event on purpose:** every downstream rate can be split by which opening the visitor got. |
-| `entry_path_chosen` | `entryPath`, `straightToQuestion`, `lessonId`, `solvedTotal`, `xp` | Which opening this visit got, decided once before anything is drawn. `question` = dropped straight into question 1; `road` = landed on the map; `*-forced` = a `?play=1` / `?road=1` override, which must be **excluded** from any comparison because it is us, not a visitor. |
+| `entry_path_chosen` | `entryPath`, `straightToQuestion`, `landedOnAnswers`, `deepLinkSlug`, `lessonId`, `solvedTotal`, `xp` | Which opening this visit got, decided once in `boot()` before anything is drawn. See the table below for the values. `*-forced` is a `?answers=1` / `?play=1` / `?road=1` override, which must be **excluded** from any comparison because it is us, not a visitor. |
+
+**`entryPath`, the whole vocabulary.** It rides on `arrived` as well, which is
+what makes every downstream rate splittable by which door the visitor came
+through. A new opening gets a NEW value; never re-point an existing one.
+
+| value | who gets it | what they see first |
+|---|---|---|
+| `answers` | no hash, nothing solved, no email, no session | the answers archive, as a list. **The default from 2026-08-02.** |
+| `answers-deep-link` | `#answers/<slug>` | that one answer, open, at the top. Outranks everything, including progress. |
+| `answers-link` | bare `#answers` | the archive list |
+| `road` | anybody with progress, an email or a session | the road, where their streak is |
+| `question` | nothing solved **and** the archive is unavailable | dropped straight into question 1. The 2026-08-01 default; now only a fallback. |
+| `answers-forced` / `road-forced` / `question-forced` | `?answers=1` / `?road=1` / `?play=1` | whatever was forced — **us, testing. Exclude.** |
 | `first_question_handoff` | `lessonId`, `questionId`, `solvedTotal`, `answeredCount`, `msInLesson` | The straight-to-question opening handing over to the road after the first answer. Fires once per visitor at most. `first_question_handoff / entry_path_chosen(question)` is the share who answered anything at all — the number the whole change exists to move. |
 | `return_visit` | `visitNumber`, `hoursSinceLastVisit`, `daysSinceFirstSeen`, `streak`, `xp`, `solvedTotal` | Retention. D1/D7 return rate, and whether returners are the ones with streaks. |
 | `screen_viewed` | `screen` | Coarse navigation trace; lets us rebuild any route through the app without bespoke events. |
@@ -180,9 +193,37 @@ answers_opened  ->  answers_entry_opened  ->  answers_play_clicked  ->  lesson_s
 
 | event | props | why it exists |
 |---|---|---|
-| `answers_opened` | `slug`, `deepLink`, `how`, `unknownSlug`, `gated`, `utm` | The archive was shown. `deepLink:true` with `how:'load'` is a viewer arriving straight off a video, which is the traffic this page exists for; `how:'tab'` is somebody already on the site who went looking. **`unknownSlug:true` means a video is pointing at an answer we have not generated** — a broken link in a caption, and otherwise invisible. `gated` is whether this visitor still owes us an email. |
+| `answers_opened` | `slug`, `deepLink`, `how`, `unknownSlug`, `gated`, `utm` | The archive was shown. `deepLink:true` with `how:'load'` is a viewer arriving straight off a video, which is the traffic this page exists for; `how:'entry'` is the 2026-08-02 default landing (no hash, nothing solved); `how:'tab'` is somebody already on the site who went looking. **`unknownSlug:true` means a video is pointing at an answer we have not generated** — a broken link in a caption, and otherwise invisible. `gated` is whether this visitor still owes us an email. |
 | `answers_entry_opened` | `slug`, `src`, `gated` | An entry expanded from the list, so the archive is being browsed rather than bounced off. `src` (`comment` / `caption` / `module`) says which kind of source people actually open. |
 | `answers_play_clicked` | `slug`, `lessonId`, `questionId`, `lock`, `gated` | **The conversion the archive exists for.** `answers_play_clicked / answers_opened` is the number to judge every link a video makes. `lock` is `null` when the lesson started, `'sequence'` or `'email'` when it was locked and they were put on the road instead — a high locked share means the questions we link to are too far along the road. |
+
+#### Leaving an answer, onto the road (2026-08-02)
+
+From 2026-08-02 the archive is where a cold visitor **lands**, so the end of an
+answer is the moment that decides whether they ever touch the product. When
+they leave one — collapse it, or reach the bottom of one they have unlocked —
+the road's next question appears underneath it, with its actual words on it.
+
+It is an offer, not a wall: it is inserted *below* the card, the answer stays
+open, "Not now" removes the offer and nothing else, and it fires **at most once
+per page load** whatever the trigger.
+
+```
+answer_unlocked / answers_entry_opened
+   ->  answers_road_question_shown  ->  answers_road_question_started  ->  lesson_started
+                                    ->  answers_road_question_dismissed
+```
+
+| event | props | why it exists |
+|---|---|---|
+| `answers_road_question_shown` | `slug`, `trigger`, `unitId`, `lessonId`, `questionId`, `firstOnRoad`, `gated`, `entryPath`, `utm` | The denominator for the exit transition. `trigger` is `closed` (they collapsed the answer) or `read_end` (they reached the bottom of an unlocked one) — two different moments, and if one converts and the other does not, only this says so. `gated:true` is somebody who never paid the email and is being offered the road anyway, which is deliberate. `firstOnRoad:true` means the offer really was question 1, i.e. a genuinely cold visitor. |
+| `answers_road_question_started` | same, plus `msShown` | **The number the landing change lives or dies on.** `started / shown` is whether landing readers on the archive turns them into players. `lesson_started` follows on its own through `QQApp.openLesson`, so the road's own funnel picks them up unchanged. |
+| `answers_road_question_dismissed` | same, plus `msShown` | The honest denominator partner. A dismissal costs the reader nothing, so a high rate is a signal to change the moment or the wording, never a reason to make the offer harder to refuse. |
+
+`analytics/site_metrics.py` prints this as its own funnel, split by `trigger`
+and `gated`, and per day. It is deliberately **not** hung off `answer_unlocked`:
+the offer is also shown to people who never unlocked anything, so that ratio
+would exceed 100% and mean nothing.
 
 #### The answers gate (2026-08-02)
 
@@ -225,7 +266,8 @@ Ratios, not counts. In rough order of how much they should change what we build:
 | number | from | what it decides |
 |---|---|---|
 | **activation** | `lesson_started / arrived` | whether the landing surface works at all. If this is low, nothing downstream matters. |
-| **the opening, judged** | `answer_submitted / arrived`, **split by `entryPath`** | the one number that says whether dropping first-timers straight into a question beat showing them the road. It replaced a road where only a third of arrivals ever tapped a lesson while five in six of those who did start one finished it — so the questions were never the problem, the map-as-front-door was. Compare `question` against `road` on **new visitors only** (`solvedTotal = 0` at `arrived`), and drop the `-forced` rows. If it does not move, put the road back: this is a bet, not a belief. |
+| **the opening, judged** | `lesson_started / arrived`, `answer_gate_shown / arrived` and `email_submitted / arrived`, all **split by `entryPath`** | the numbers that say which front door works. The baseline to beat is **33%** `arrived -> lesson_started`, measured with the road as the front door (program.md, *The first tap is the whole funnel*). `question` was the first attempt at beating it; `answers` is the second, and it trades a share of first taps for a shot at an email, so all three ratios have to be read together — a landing that halves activation and doubles signups is not obviously worse, and a landing that does neither is obviously wrong. Compare on **new visitors only** (`solvedTotal = 0` at `arrived`), drop the `-forced` rows, and give it a week. If it beats nothing, put the previous one back: this is a bet, not a belief. `analytics/site_metrics.py` prints the whole table. |
+| **reader → player** | `answers_road_question_started / answers_road_question_shown` | whether landing someone on the archive produces a player or only a reader. This is the specific thing the 2026-08-02 landing change is betting on; if it is near zero the archive is a dead end and the road should go back to being the front door. |
 | **first-lesson completion** | `lesson_completed(u1l1) / lesson_started(u1l1)` | whether the loop is satisfying and the right length. |
 | **unit-1 completion** | `unit_completed(u1) / arrived` | the free experience end-to-end. The wall's denominator. |
 | **signup conversion** | `email_submitted / wall_shown`, **split by `wallKind`** | the wall's copy, placement and timing. Never pool the two kinds: the soft prompt is asked of everyone who finishes one lesson, the hard wall only of the few who finish a whole unit, so pooling them mostly measures which one fired more often. |

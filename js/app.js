@@ -1132,31 +1132,72 @@
   }
 
   /* ====================================================================
-   * the opening: straight into a question, or onto the road
+   * the opening: the answers archive, a question, or the road
    * ====================================================================
-   * Two thirds of arrivals never tapped a lesson, while five in six of the
-   * people who did start one finished it. So the questions were not the
-   * problem — the road was, as a first screen. A map you have not walked
-   * any of is a decision, and a decision is where people leave.
+   * HISTORY, because this has now moved twice and the numbers matter more
+   * than the argument:
    *
-   * A first-ever visitor is therefore put straight into question one, and
-   * the road is shown to them AFTER they have answered it, with their own
-   * progress already on it and the mascot walking out of the door. The
-   * road stops being a menu and becomes a reward.
+   *   arrived -> lesson_started was 33% when the road was the front door.
+   *   Two thirds of arrivals never tapped a lesson, while five in six of the
+   *   people who did start one finished it — so the questions were never the
+   *   problem, the map-as-a-menu was. The fix was to drop a first-timer
+   *   straight into question one ('question'), which is what shipped on
+   *   2026-08-01.
    *
-   * Anybody with any history keeps the road as their first screen. Their
-   * streak, their XP and their place on the map are the reason they came
-   * back, and yanking them into a question would take that away.
+   *   From 2026-08-02 every caption says the answer is on the site and
+   *   nowhere else (program.md, "The answer is never free"). So the promise
+   *   a cold visitor arrives holding is *an answer*, and the first screen
+   *   should be the thing they were promised: the archive ('answers').
+   *   Landing them in a question they were not offered is a bait, and
+   *   "never show a cold visitor a menu" cuts both ways — the road is a
+   *   menu, but so is an answer page for somebody who came to play.
    *
-   * ?road=1 forces the road, ?play=1 forces the question — both so this
-   * can be tested without clearing storage, and so the decision can be
-   * checked against the analytics rather than assumed. */
+   * That reversal is a BET, exactly like the one before it. It is judged
+   * against 33%, and `entryPath` rides on `arrived` so every downstream
+   * rate — answer_gate_shown, email_submitted, lesson_started — can be
+   * split by which door the visitor came through. If 'answers' does not
+   * beat 'question' and 'road', put it back.
+   *
+   * The values, all greppable, and all on `arrived`:
+   *   answers            no hash, nothing solved -> the archive list  (NEW DEFAULT)
+   *   answers-deep-link  #answers/<slug> -> that one answer, open
+   *   answers-link       bare #answers
+   *   road               anybody with progress, an email or a session
+   *   question           the old default, now only reachable when the
+   *                      archive is unavailable (answers.js missing/empty)
+   *   *-forced           ?answers=1 / ?road=1 / ?play=1, i.e. us testing.
+   *                      EXCLUDE these from every comparison.
+   *
+   * Two things this must never do, both constraints from the owner:
+   *   - a deep link always wins. #answers/<slug> lands on that entry.
+   *   - a returning visitor with progress lands on the ROAD. Someone
+   *     mid-streak did not come back for an archive. */
   var handoffPending = false;
   var entryPathTaken = null;
+
+  var ANSWERS_HASH = /^#answers(?:\/([a-z0-9_]+))?$/i;
+
+  /* answers.js is generated and can legitimately be empty (nothing posted
+   * yet), and js/answers_ui.js bails out silently when it is. Landing on an
+   * archive that will never draw itself would leave a blank screen, so the
+   * decision is made against the same predicate that module uses. */
+  function archiveAvailable() {
+    try {
+      return !!(global.QQ_ANSWERS && QQ_ANSWERS.entries && QQ_ANSWERS.entries.length);
+    } catch (e) { return false; }
+  }
 
   function entryPath() {
     if (/[?&]road=1/.test(location.search)) return 'road-forced';
     if (/[?&]play=1/.test(location.search)) return 'question-forced';
+    if (/[?&]answers=1/.test(location.search)) return 'answers-forced';
+
+    /* The deep link is the whole reason the archive exists — a caption points
+     * at one answer and that is what has to be on screen. It outranks
+     * progress, a streak and everything else. */
+    var deep = ANSWERS_HASH.exec(location.hash || '');
+    if (deep && archiveAvailable()) return deep[1] ? 'answers-deep-link' : 'answers-link';
+
     /* "Never done anything here" has to be read from progress, not from a
      * visit counter — a returning visitor who never answered anything is
      * still someone the road has already failed once. */
@@ -1165,7 +1206,18 @@
                     !QQStore.hasEmail() &&
                     !QQAuth.isSignedIn() &&
                     !QQAuth.arrivedWith();
-    return untouched ? 'question' : 'road';
+    if (!untouched) return 'road';
+    return archiveAvailable() ? 'answers' : 'question';
+  }
+
+  /* True when js/answers_ui.js, which loads after this file, is the module
+   * that owns the first screen. It reads this rather than re-deriving the
+   * decision, so there is one rule and not two that can drift. */
+  function landsOnAnswers() {
+    return entryPathTaken === 'answers' ||
+           entryPathTaken === 'answers-forced' ||
+           entryPathTaken === 'answers-link' ||
+           entryPathTaken === 'answers-deep-link';
   }
 
   function handoffToRoad() {
@@ -1682,9 +1734,10 @@
     var lostStreak = QQStore.noticeBrokenStreak();
 
     /* Decided once, before anything is drawn, and carried on `arrived` so
-     * that arrived -> answer_submitted can be compared between the two
-     * openings. If straight-to-question does not actually move the first-tap
-     * rate we need to be able to see that and put it back. */
+     * that arrived -> answer_gate_shown, arrived -> email_submitted and
+     * arrived -> lesson_started can each be compared between the openings.
+     * 33% is the number to beat (program.md, "The first tap is the whole
+     * funnel"); if landing on the archive does not beat it, put it back. */
     entryPathTaken = entryPath();
 
     QQA.track('arrived', {
@@ -1801,19 +1854,29 @@
     openTheApp();
   }
 
-  /* The first screen. Everything above this point is the same either way;
-   * this is the only place the two openings differ. */
+  /* The first screen. Everything above this point is the same whichever door
+   * they came through; this is the only place the openings differ. */
   function openTheApp() {
     var straightIn = (entryPathTaken === 'question' || entryPathTaken === 'question-forced');
+    var toAnswers = landsOnAnswers();
     var cur = straightIn ? currentLesson() : null;
 
     QQA.track('entry_path_chosen', {
       entryPath: entryPathTaken,
       straightToQuestion: straightIn,
+      landedOnAnswers: toAnswers,
+      deepLinkSlug: (ANSWERS_HASH.exec(location.hash || '') || [])[1] || null,
       lessonId: cur ? cur.lesson.id : null,
       solvedTotal: QQStore.solvedCount(),
       xp: QQStore.totalXp()
     });
+
+    /* js/answers_ui.js draws the first screen from here — it loads after this
+     * file, so it takes over on its own DOMContentLoaded. Deliberately NOT
+     * calling go('path') first: rendering the road on the way past would fire
+     * path_viewed for a visitor who never saw the road, and path_viewed is a
+     * denominator. */
+    if (toAnswers) return;
 
     /* A forced ?play=1 on an account that has finished everything would have
      * no unfinished lesson to open — fall back to the road rather than break. */
@@ -1852,6 +1915,41 @@
       if (!x) return false;
       onLessonTap(x.unit, x.lesson, x.indexInUnit);
       return true;
+    },
+
+    /* Which door this visit came through, decided once in boot() before
+     * anything is drawn. js/answers_ui.js reads these two rather than working
+     * it out again — one rule, in one place, so the analytics and the screen
+     * can never disagree about what happened. */
+    entryPath: function () { return entryPathTaken; },
+    landsOnAnswers: landsOnAnswers,
+
+    /* The question to offer somebody who has just finished reading an answer:
+     * the first thing on the road they have not done. For the visitor this is
+     * built for — cold, off a Reel, nothing solved — that is literally
+     * question 1 of unit 1. For anyone with progress it is where they are,
+     * because sending a returning player back to the start would be worse
+     * than offering nothing.
+     *
+     * Never returns a locked lesson: currentLesson() only ever picks an open
+     * one, so the offer can always be taken. `lock` is reported anyway, so a
+     * future change that breaks that shows up in the data instead of in a
+     * sheet saying no. */
+    nextRoadQuestion: function () {
+      var x = currentLesson();
+      if (!x || !x.lesson.questions || !x.lesson.questions.length) return null;
+      var q = null;
+      for (var i = 0; i < x.lesson.questions.length; i++) {
+        if (!QQStore.isSolved(x.lesson.questions[i].id)) { q = x.lesson.questions[i]; break; }
+      }
+      if (!q) q = x.lesson.questions[0];
+      return {
+        unitId: x.unit.id, unitTitle: x.unit.title,
+        lessonId: x.lesson.id, lessonTitle: x.lesson.title,
+        questionId: q.id, prompt: q.prompt, type: q.type, topic: q.topic || null,
+        lock: lessonLock(x.unit, x.lesson, x.indexInUnit) || null,
+        fresh: QQStore.solvedCount() === 0
+      };
     },
 
     /* false when the lesson can be started right now, otherwise the reason
