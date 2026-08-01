@@ -284,6 +284,27 @@
           seg.style.strokeDashoffset = -(c * circ / QQStore.MAX_CROWNS) - 3;
           ring.appendChild(seg);
         }
+
+        /* Questions answered inside a lesson you have not finished yet.
+         *
+         * The crown ring above only moves when a whole lesson is done, so a
+         * player who has answered one question and come back out had nothing
+         * at all to look at — the road told them they had done nothing. That
+         * is exactly the moment a first-time visitor lands on the road under
+         * the straight-to-question opening, so it has to show. One thin arc,
+         * under the crown segments, in the unit's colour. */
+        var solvedHere = 0;
+        if (!done) {
+          lesson.questions.forEach(function (q) { if (QQStore.isSolved(q.id)) solvedHere++; });
+        }
+        if (solvedHere > 0) {
+          var part = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          part.setAttribute('cx', 37); part.setAttribute('cy', 37); part.setAttribute('r', R);
+          part.setAttribute('class', 'ring-part');
+          var frac = Math.min(1, solvedHere / lesson.questions.length);
+          part.style.strokeDasharray = (circ * frac).toFixed(1) + ' ' + circ;
+          ring.appendChild(part);
+        }
         btn.appendChild(ring);
 
         var face = el('span', 'node-face');
@@ -302,6 +323,7 @@
         if (state === 'next') sub.textContent = 'next up';
         else if (state === 'locked') sub.textContent = lock === 'email' ? 'email to unlock' : 'locked';
         else if (done) sub.textContent = st.crowns + '/' + QQStore.MAX_CROWNS + ' crowns';
+        else if (solvedHere > 0) sub.textContent = solvedHere + ' of ' + lesson.questions.length + ' answered';
         else sub.textContent = lesson.questions.length + ' questions';
         lab.appendChild(sub);
         holder.appendChild(lab);
@@ -326,6 +348,11 @@
     renderLibraries();
     renderHeader();
     renderAccountLine();
+
+    /* The mascot stands wherever the road says "current" — it is re-derived
+     * from this freshly drawn path every time, so it can never be stranded
+     * at a node the player has already finished. */
+    if (global.QQMascot) QQMascot.pathRendered();
 
     /* Only ever on the road, and only when the road is the screen you are
      * looking at — a re-render from a background sync must not spend the
@@ -548,6 +575,25 @@
       sHost.appendChild(card);
     });
 
+    /* MEMBERS PLAY. The sets are written, drawn and verified like the road, so
+     * a member should be able to play one. This ASKS QQPay whether they own it
+     * and does nothing else: the gate is still entirely payments.js's, and a
+     * signed-out stranger sees exactly what they saw before. No count is shown
+     * — the owner took counts out of the UI on purpose. */
+    var oldPlay = document.getElementById('libPlayRow');
+    if (oldPlay && oldPlay.parentNode) oldPlay.parentNode.removeChild(oldPlay);
+    var owns = false;
+    try { owns = !!(QQPay.owns && QQPay.owns(lib.id)); } catch (e) { owns = false; }
+    if (owns && (lib.questions || []).length) {
+      var row = el('div', 'lib-play');
+      row.id = 'libPlayRow';
+      var playBtn = el('button', 'primary-btn', 'Play this set');
+      playBtn.type = 'button';
+      playBtn.addEventListener('click', function () { startLibrarySet(lib); });
+      row.appendChild(playBtn);
+      sHost.parentNode.insertBefore(row, sHost);
+    }
+
     var status = $('#libStatusBadge');
     status.className = 'lib-badge plain';
     status.textContent = 'Premium';
@@ -632,6 +678,25 @@
     go('path');
   }
 
+  /* A premium set played as a lesson. The loop does not care where a question
+   * came from — same widgets, same hearts, same visuals — so a set is dressed
+   * as a one-lesson unit and handed straight to it. Sets are long, so they are
+   * dealt out ten at a time, shuffled, and the XP lands like any other lesson. */
+  function startLibrarySet(lib) {
+    var qs = (lib.questions || []).slice();
+    for (var i = qs.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1)), t = qs[i]; qs[i] = qs[j]; qs[j] = t;
+    }
+    qs = qs.slice(0, 10);
+    var lesson = { id: lib.id + '_set', title: 'Mixed round', questions: qs };
+    var unit = {
+      id: lib.id, index: 0, title: lib.name, colour: lib.colour || '#d29922',
+      free: false, premium: true, lessons: [lesson]
+    };
+    QQA.track('library_set_started', { libraryId: lib.id });
+    startLesson(unit, lesson);
+  }
+
   function onLessonTap(unit, lesson, i) {
     var lock = lessonLock(unit, lesson, i);
     if (lock === 'email') {
@@ -644,6 +709,9 @@
       openSheet(lesson.title, '<p>The road goes in order. Finish the one before.</p>', 'OK');
       return;
     }
+    /* You do not swap screens, you follow the character inside: a door opens
+     * in the node, the mascot walks through it, and it shuts behind you. */
+    if (global.QQMascot) { QQMascot.enter(lesson.id, function () { startLesson(unit, lesson); }); return; }
     startLesson(unit, lesson);
   }
 
@@ -743,6 +811,7 @@
       isRetry: !!play.requeued[q.id],
       seenBefore: QQStore.isSolved(q.id)
     });
+    if (global.QQMascot) QQMascot.question();
     global.scrollTo(0, 0);
   }
 
@@ -1023,6 +1092,7 @@
       play.queue.shift();
       $('#playProgressFill').style.width = (play.cleared / play.total * 100) + '%';
       $('#continueBtn').textContent = play.queue.length ? 'Continue' : 'Finish lesson';
+      if (global.QQMascot) QQMascot.react('correct', { firstTry: play.attempts[q.id] === 1 });
       if (global.navigator.vibrate) { try { global.navigator.vibrate(8); } catch (e) {} }
     } else {
       bar.classList.add('bad');
@@ -1046,6 +1116,7 @@
       }
       $('#continueBtn').textContent = play.hearts <= 0 ? 'Out of hearts'
         : (play.queue.length ? 'Got it' : 'Finish lesson');
+      if (global.QQMascot) QQMascot.react('wrong', {});
       if (global.navigator.vibrate) { try { global.navigator.vibrate([12, 40, 12]); } catch (e) {} }
     }
     bar.scrollTop = 0;
@@ -1053,8 +1124,68 @@
 
   function onContinue() {
     if (play.hearts <= 0) { outOfHearts(); return; }
+    /* The straight-to-question opening hands over to the road after ONE
+     * question, and this is the hand-over. See entryPath() for why. */
+    if (handoffPending) { handoffToRoad(); return; }
     if (play.queue.length) { showQuestion(); return; }
     finishLesson();
+  }
+
+  /* ====================================================================
+   * the opening: straight into a question, or onto the road
+   * ====================================================================
+   * Two thirds of arrivals never tapped a lesson, while five in six of the
+   * people who did start one finished it. So the questions were not the
+   * problem — the road was, as a first screen. A map you have not walked
+   * any of is a decision, and a decision is where people leave.
+   *
+   * A first-ever visitor is therefore put straight into question one, and
+   * the road is shown to them AFTER they have answered it, with their own
+   * progress already on it and the mascot walking out of the door. The
+   * road stops being a menu and becomes a reward.
+   *
+   * Anybody with any history keeps the road as their first screen. Their
+   * streak, their XP and their place on the map are the reason they came
+   * back, and yanking them into a question would take that away.
+   *
+   * ?road=1 forces the road, ?play=1 forces the question — both so this
+   * can be tested without clearing storage, and so the decision can be
+   * checked against the analytics rather than assumed. */
+  var handoffPending = false;
+  var entryPathTaken = null;
+
+  function entryPath() {
+    if (/[?&]road=1/.test(location.search)) return 'road-forced';
+    if (/[?&]play=1/.test(location.search)) return 'question-forced';
+    /* "Never done anything here" has to be read from progress, not from a
+     * visit counter — a returning visitor who never answered anything is
+     * still someone the road has already failed once. */
+    var untouched = QQStore.solvedCount() === 0 &&
+                    QQStore.totalXp() === 0 &&
+                    !QQStore.hasEmail() &&
+                    !QQAuth.isSignedIn() &&
+                    !QQAuth.arrivedWith();
+    return untouched ? 'question' : 'road';
+  }
+
+  function handoffToRoad() {
+    handoffPending = false;
+    var q = play.queue.length ? play.queue[0] : null;
+    QQA.track('first_question_handoff', {
+      lessonId: play.lesson.id,
+      questionId: q ? q.id : null,
+      solvedTotal: QQStore.solvedCount(),
+      answeredCount: play.answeredCount,
+      msInLesson: Date.now() - play.startedTs
+    });
+    /* The lesson is abandoned on purpose — the questions already answered are
+     * saved in the store, so the node shows them and tapping back in carries
+     * straight on. Nothing here is lost. */
+    if (play.viz && play.viz.destroy) { play.viz.destroy(); play.viz = null; }
+    /* Come out of the door rather than materialise beside it: their first
+     * sight of the road should be the character moving on it. */
+    if (global.QQMascot) QQMascot.stepOutOnNextRoad();
+    go('path');
   }
 
   function outOfHearts() {
@@ -1108,7 +1239,9 @@
     if (play.viz && play.viz.destroy) { play.viz.destroy(); play.viz = null; }
 
     // --- the celebration
-    var unitCleared = res.firstEver && QQStore.unitComplete(unit);
+    /* A premium set is dressed as a one-lesson unit so the loop can play it;
+     * it is not a unit of the road, so it never claims a unit was cleared. */
+    var unitCleared = res.firstEver && !unit.premium && QQStore.unitComplete(unit);
     $('#doneTitle').textContent = unitCleared ? ('Unit ' + unit.index + ' complete')
       : (perfect ? 'Perfect lesson' : 'Lesson complete');
     var burst = $('#crownBurst');
@@ -1134,13 +1267,16 @@
     /* Held, not played: the road plays it the moment the road is looked at.
      * A node that is still locked is not woken up — the road does not pretend
      * to go somewhere it will not take you yet. */
-    pendingLevelUp = {
+    pendingLevelUp = unit.premium ? null : {
       lessonId: lv.id,
       nextLessonId: (doneNext && !doneNext.lock) ? doneNext.lesson.id : null,
       unitCleared: (res.firstEver && QQStore.unitComplete(unit)) ? unit.id : null
     };
 
-    if (!doneNext) {
+    if (unit.premium) {
+      $('#doneNext').textContent = 'That set is yours. It deals a fresh handful every time.';
+      $('#doneNextBtn').textContent = 'Back to the road';
+    } else if (!doneNext) {
       $('#doneNext').textContent = 'End of the road, for now. More is being written.';
       $('#doneNextBtn').textContent = 'Back to the road';
     } else if (doneNext.lock === 'email') {
@@ -1153,6 +1289,12 @@
 
     go('done');
     confetti(perfect);
+    if (global.QQMascot) {
+      QQMascot.react('celebrate', {
+        perfect: perfect, unitCleared: !!unitCleared,
+        goalMet: metGoal && before < D.dailyGoalXp, streakUp: !!xpRes.streakChanged
+      });
+    }
     QQA.track('celebration_shown', { lessonId: lv.id, xp: xpEarned, perfect: perfect });
     renderHeader();
   }
@@ -1353,12 +1495,18 @@
   function closeSheet() { $('#sheet').classList.remove('on'); }
 
   function go(screen) {
+    /* The hand-over lives only between the opening question and the first
+     * sight of the road. Leaving the lesson by ANY other door — the close
+     * button, running out of hearts, a wall — ends it, so a stale flag can
+     * never bounce somebody off a later question they meant to answer. */
+    if (screen !== 'lesson') handoffPending = false;
     if (screen !== 'lesson' && play && play.viz && play.viz.destroy) {
       play.viz.destroy(); play.viz = null;
     }
     $$('.screen').forEach(function (s) { s.classList.toggle('on', s.id === 'screen-' + screen); });
     document.body.classList.toggle('in-lesson', screen === 'lesson');
     $('#topbar').hidden = (screen === 'lesson');
+    if (global.QQMascot) QQMascot.screen(screen);
     global.scrollTo(0, 0);
     QQA.track('screen_viewed', { screen: screen });
     if (screen === 'path') {
@@ -1481,9 +1629,16 @@
 
     var lostStreak = QQStore.noticeBrokenStreak();
 
+    /* Decided once, before anything is drawn, and carried on `arrived` so
+     * that arrived -> answer_submitted can be compared between the two
+     * openings. If straight-to-question does not actually move the first-tap
+     * rate we need to be able to see that and put it back. */
+    entryPathTaken = entryPath();
+
     QQA.track('arrived', {
       referrer: document.referrer || null,
       viewportW: global.innerWidth, viewportH: global.innerHeight,
+      entryPath: entryPathTaken,
       isFirstEverVisit: id.isFirstEverVisit,
       visitNumber: id.visitNumber,
       hasEmail: QQStore.hasEmail(),
@@ -1591,7 +1746,34 @@
     QQA.onEvent = function () { if ($('#debug').classList.contains('on')) renderDebug(); };
 
     wireAccounts();
-    go('path');
+    openTheApp();
+  }
+
+  /* The first screen. Everything above this point is the same either way;
+   * this is the only place the two openings differ. */
+  function openTheApp() {
+    var straightIn = (entryPathTaken === 'question' || entryPathTaken === 'question-forced');
+    var cur = straightIn ? currentLesson() : null;
+
+    QQA.track('entry_path_chosen', {
+      entryPath: entryPathTaken,
+      straightToQuestion: straightIn,
+      lessonId: cur ? cur.lesson.id : null,
+      solvedTotal: QQStore.solvedCount(),
+      xp: QQStore.totalXp()
+    });
+
+    /* A forced ?play=1 on an account that has finished everything would have
+     * no unfinished lesson to open — fall back to the road rather than break. */
+    if (!straightIn || !cur) { go('path'); return; }
+
+    handoffPending = true;
+    /* The road has never been drawn at this point, so there is no node to walk
+     * out of and no door to open. The mascot is simply already in its corner
+     * when the question appears, and it says hello — it is the first thing
+     * they meet here. */
+    if (global.QQMascot) QQMascot.greetOnNextLesson();
+    startLesson(cur.unit, cur.lesson);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

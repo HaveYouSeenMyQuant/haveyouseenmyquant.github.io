@@ -169,23 +169,27 @@
 
         var pad = 14, axisY = h - 24, top = 22;
         if (mode === 'rate') {
-          /* one big proportion bar, plus the last twenty results as pips */
-          var bw = w - pad * 2, bh = 34, by = h * 0.42;
+          /* One big proportion bar. The caption sits at the very top, the
+           * marker's label just under it, and the bar itself in the middle —
+           * three separate lines, because on a 390px phone anything else
+           * collides. */
+          var bw = w - pad * 2, bh = 38, by = Math.max(46, h * 0.42);
+          g.fillStyle = C.muted; g.font = f(10.5, 600); g.textAlign = 'left';
+          g.fillText(spec.barLabel || (spec.rateLabel || ''), pad, 16);
           g.fillStyle = C.panel; roundRect(g, pad, by, bw, bh, 8); g.fill();
           var p = n ? hits / n : 0;
           g.fillStyle = C.accent; roundRect(g, pad, by, Math.max(2, bw * p), bh, 8); g.fill();
           if (spec.mark != null) {
             var mx = pad + bw * spec.mark;
             g.strokeStyle = C.gold; g.lineWidth = 2; g.setLineDash([4, 3]);
-            g.beginPath(); g.moveTo(mx, by - 10); g.lineTo(mx, by + bh + 10); g.stroke();
+            g.beginPath(); g.moveTo(mx, by - 16); g.lineTo(mx, by + bh + 12); g.stroke();
             g.setLineDash([]);
-            g.fillStyle = C.gold; g.font = f(10, 700); g.textAlign = 'center';
-            g.fillText(spec.markLabel || '', mx, by - 14);
+            g.fillStyle = C.gold; g.font = f(10, 700);
+            g.textAlign = mx > w * 0.62 ? 'right' : 'left';
+            g.fillText(spec.markLabel || '', mx + (mx > w * 0.62 ? -6 : 6), by - 8);
           }
-          g.fillStyle = n ? '#0d1117' : C.muted; g.font = f(15, 800); g.textAlign = 'left';
-          g.fillText(n ? (p * 100).toFixed(1) + '%' : 'press run', pad + 10, by + 23);
-          g.fillStyle = C.muted; g.font = f(10, 600); g.textAlign = 'left';
-          g.fillText(spec.barLabel || (spec.rateLabel || ''), pad, by - 8);
+          g.fillStyle = n ? '#0d1117' : C.muted; g.font = f(16, 800); g.textAlign = 'left';
+          g.fillText(n ? (p * 100).toFixed(1) + '%' : 'press run', pad + 12, by + 26);
           return;
         }
 
@@ -218,13 +222,16 @@
         g.textAlign = 'left'; g.font = f(10, 500);
         g.fillText(spec.axisLabel || (spec.label || ''), pad, top - 8);
         if (n) {
+          /* The mean is a line in the plot; its VALUE is pinned to the top
+           * right corner rather than floating over the line, because when the
+           * average sits near the left edge a floating tag lands straight on
+           * top of the axis label. */
           var mean = sum / n;
           var mx2 = pad + (w - pad * 2) * ((mean - kmin) / Math.max(1e-9, (kmax - kmin + step)));
           g.strokeStyle = C.gold; g.lineWidth = 2;
           g.beginPath(); g.moveTo(mx2, top - 4); g.lineTo(mx2, axisY); g.stroke();
-          g.fillStyle = C.gold; g.font = f(11, 800); g.textAlign = 'center';
-          g.fillText('avg ' + mean.toFixed(spec.dp == null ? 2 : spec.dp),
-            clamp(mx2, pad + 24, w - pad - 24), top - 8);
+          g.fillStyle = C.gold; g.font = f(11, 800); g.textAlign = 'right';
+          g.fillText('avg ' + mean.toFixed(spec.dp == null ? 2 : spec.dp), w - pad, top - 8);
         }
       };
       return { destroy: stage.destroy };
@@ -783,15 +790,18 @@
         pending -= take;
         if (take) render();
 
-        var pad = 14, laneH = (h - 10) / lanes.length;
+        /* Lanes are a fixed block each and stack from the top: dividing the
+         * whole canvas up leaves a bar floating in the middle of nothing. */
+        var pad = 14, laneH = Math.min(64, (h - 10) / lanes.length);
         var maxV = spec.maxV;
         if (!maxV) {
           maxV = 1;
           lanes.forEach(function (l) { if (l.n) maxV = Math.max(maxV, l.sum / l.n); });
           maxV *= 1.35;
         }
+        var block = laneH * lanes.length;
         lanes.forEach(function (l, i) {
-          var y = 6 + i * laneH;
+          var y = Math.max(6, (h - block) / 2) + i * laneH;
           g.fillStyle = C.muted; g.font = f(11.5, 600); g.textAlign = 'left';
           g.fillText(l.name, pad, y + 13);
           var avg = l.n ? l.sum / l.n : 0;
