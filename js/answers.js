@@ -16,8 +16,93 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 75,
+ "count": 76,
  "entries": [
+  {
+   "slug": "meet_within_fifteen",
+   "title": "Two friends, a random hour, a 15-minute wait — do they ever meet?",
+   "ts": "2026-08-01T18:02:23+00:00",
+   "date": "1 Aug 2026",
+   "topic": "probability",
+   "q": "Two friends, a random hour, a 15-minute wait — do they ever meet? — comment MEET and I'll DM you the answer",
+   "a": "Exactly 7/16 — 43.75%. Just under a coin flip.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the whole argument, and it needs no algebra."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "They meet exactly when their two arrival times land within fifteen minutes of each other. Nothing else matters — not who gets there first, not where in the hour it happens."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So draw every possible pair of arrivals at once. One friend's time runs left to right, the other's runs bottom to top, and the square that makes — an hour on each side — holds every pair they could have had. Both turn up at random, so every point in it is equally likely, and a chance is now just an area."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "\"Within fifteen minutes\" is the band along the diagonal. What it leaves out is two corner triangles: one where she is more than fifteen minutes later than him, one where he is more than fifteen minutes later than her. Each has legs of forty-five minutes — three quarters of the hour — so each takes 1/2 x (3/4)^2 = 9/32 of the square, and the pair takes 9/16."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The band is the rest: 1 - 9/16 = 7/16 = 43.75%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Four checks, none of which assumes that argument:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "exact area of the meeting hexagon from its six corners (shoelace, exact fractions): 7/16",
+      "exact integral of the overlap length across the hour, in three straight pieces: 7/16",
+      "exact counting on a minute grid, then finer: 0.450000 at 60 points, 0.438750 at 600, 0.437625 at 6,000, 0.437513 at 60,000",
+      "10,000,000 simulated pairs: 0.437214, which is 1.8 standard errors from 7/16"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rule in full: the first to arrive waits their fifteen minutes even if that runs past two o'clock — which is why the rails in the video carry on below the two o'clock mark."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The part people miss: waiting twice as long does not double your chances. Five minutes gives 23/144 = 16.0%. Ten gives 11/36 = 30.6%. Fifteen gives 7/16 = 43.75%. Thirty — half the hour — gives only 3/4. Each extra minute buys less than the last, because the strip you add along the diagonal keeps running out of room at the corners."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And it is the ratio that counts, not the clock: fifteen minutes inside an hour is the same problem as one minute inside four, and both come out at 7/16."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "four_shadows",
    "title": "A ball's skin covers its own shadow exactly 4 times",

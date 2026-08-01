@@ -100,6 +100,11 @@ both.
 |---|---|---|
 | `soft` | straight after the **first lesson** is finished, once per device, ever | A request. Nothing is locked, "Not now" returns the player to exactly what they were doing, and the pitch is the streak and XP they have just started building. |
 | `hard` | entering **unit 2** (tapping a locked lesson, or the celebration CTA) | The gate. Unchanged, and still the only place the road actually stops. |
+| `answers` | opening any answer in the **answers archive** (`js/answers_ui.js`) | A different person entirely: cold off a Reel, has solved nothing, came for one specific answer. See *The answers gate* below. |
+
+A new ask gets a NEW `wallKind`. **Never reuse `soft` or `hard` for a surface
+that is not the road**, and never total the kinds: they are asked of different
+populations, so a pooled rate mostly measures which one fired more often.
 
 | event | props | why it exists / what it answers |
 |---|---|---|
@@ -175,9 +180,34 @@ answers_opened  ->  answers_entry_opened  ->  answers_play_clicked  ->  lesson_s
 
 | event | props | why it exists |
 |---|---|---|
-| `answers_opened` | `slug`, `deepLink`, `how`, `unknownSlug` | The archive was shown. `deepLink:true` with `how:'load'` is a viewer arriving straight off a video, which is the traffic this page exists for; `how:'tab'` is somebody already on the site who went looking. **`unknownSlug:true` means a video is pointing at an answer we have not generated** — a broken link in a caption, and otherwise invisible. |
-| `answers_entry_opened` | `slug`, `src` | An entry expanded from the list, so the archive is being browsed rather than bounced off. `src` (`comment` / `caption` / `module`) says which kind of source people actually open. |
-| `answers_play_clicked` | `slug`, `lessonId`, `questionId`, `lock` | **The conversion the archive exists for.** `answers_play_clicked / answers_opened` is the number to judge every link a video makes. `lock` is `null` when the lesson started, `'sequence'` or `'email'` when it was locked and they were put on the road instead — a high locked share means the questions we link to are too far along the road. |
+| `answers_opened` | `slug`, `deepLink`, `how`, `unknownSlug`, `gated`, `utm` | The archive was shown. `deepLink:true` with `how:'load'` is a viewer arriving straight off a video, which is the traffic this page exists for; `how:'tab'` is somebody already on the site who went looking. **`unknownSlug:true` means a video is pointing at an answer we have not generated** — a broken link in a caption, and otherwise invisible. `gated` is whether this visitor still owes us an email. |
+| `answers_entry_opened` | `slug`, `src`, `gated` | An entry expanded from the list, so the archive is being browsed rather than bounced off. `src` (`comment` / `caption` / `module`) says which kind of source people actually open. |
+| `answers_play_clicked` | `slug`, `lessonId`, `questionId`, `lock`, `gated` | **The conversion the archive exists for.** `answers_play_clicked / answers_opened` is the number to judge every link a video makes. `lock` is `null` when the lesson started, `'sequence'` or `'email'` when it was locked and they were put on the road instead — a high locked share means the questions we link to are too far along the road. |
+
+#### The answers gate (2026-08-02)
+
+From 2026-08-02 no video carries its answer anywhere, so this page is the only
+place one exists — and reading it costs an email. The question, the topic and
+the *shape* of the working (`whySteps`, reading time) are free and immediate;
+the answer lede and the working are behind `QQAuth.hasAccess()`. One address
+opens every answer for ever, so this is one ask per visitor, **not one per
+entry** — count it per session, never per event.
+
+```
+arrived  ->  answers_opened  ->  answer_gate_shown  ->  email_submitted(answers)  ->  answer_unlocked
+                                  (the ask)             (the point of it)           (they read it)
+```
+
+| event | props | why it exists |
+|---|---|---|
+| `answer_gate_shown` | `wallKind:'answers'`, `slug`, `topic`, `utm`, `arrival`, `deepLink`, `whySteps`, `hasRoadQuestion`, `archiveSize` | **The denominator for the second reward signal.** `arrival` is `deep_link` (straight off a reel to one answer) or `browse` (found in the archive) — two different intents that convert differently and must never be pooled. `utm` is the `utm_source` that brought them, so a gate can be attributed to the comment or the bio link that caused it. Fired once per entry per page load. |
+| `answer_unlocked` | `slug`, `topic`, `how`, `utm`, `whySteps`, `signedIn` | An answer was actually opened and read by someone with access. `how` is `just_unlocked` (they paid at this entry), `deep_link` or `browse`. This is the consumption signal: an email that never comes back and reads anything is worth much less than one that does. |
+
+`email_attempted` and `email_submitted` carry `wallKind:'answers'` here, plus
+every prop above, so **an email captured at the gate is separable from one
+captured on the road** in a single query. `analytics/site_metrics.py` prints
+this funnel, the split by `wallKind`, the split by `arrival`/`utm`, which
+answers people came for, and arrivals → gate → email **per day**.
 
 ### Plumbing
 

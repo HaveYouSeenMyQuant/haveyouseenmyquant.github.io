@@ -1446,30 +1446,75 @@
     if (next) next(); else go('path');
   }
 
+  /* THE one place an email is ever captured, whichever surface did the asking.
+   *
+   * There are now two asks in two different places — the road's wall and the
+   * answers archive's gate — and they must stay separable in the funnel. But
+   * there is exactly ONE validation, ONE submission and ONE pair of events, so
+   * that a change to how an ask looks can never quietly become a change to what
+   * is stored or what is counted.
+   *
+   * `wallKind` is the field that tells them apart afterwards:
+   *
+   *   'soft'     the streak ask, after the first lesson
+   *   'hard'     entering unit 2 — the road's gate
+   *   'answers'  the answers archive — a different visitor entirely, usually
+   *              cold off a Reel, who has solved nothing and owes us nothing
+   *
+   * A new surface gets a NEW value. Never overload one of the road's two: the
+   * entire point of the field is that wall_shown -> email_submitted can be read
+   * per surface, and an overloaded value silently averages two funnels.
+   */
+  function captureEmail(value, opts) {
+    opts = opts || {};
+    var kind = opts.wallKind || wallKind;
+    var extra = opts.props || {};
+
+    function withContext(base) {
+      for (var k in extra) {
+        if (Object.prototype.hasOwnProperty.call(extra, k)) base[k] = extra[k];
+      }
+      return base;
+    }
+
+    var err = QQAuth.validate(value);
+    QQA.track('email_attempted', withContext({ wallKind: kind, valid: !err }));
+    if (err) return Promise.resolve({ ok: false, error: err });
+
+    return QQAuth.submitEmail(value).then(function (res) {
+      if (!res.ok) return res;
+      /* PRIVACY: the domain and the length, never the address. The address
+       * lives in QQStore and in Supabase auth, and in neither event log. */
+      QQA.track('email_submitted', withContext({
+        wallKind: kind,
+        emailDomain: (value.split('@')[1] || ''), emailLength: value.length,
+        mode: res.mode,
+        lessonsDone: lessonsDoneCount(), streak: QQStore.currentStreak(),
+        solvedTotal: QQStore.solvedCount(), xp: QQStore.totalXp()
+      }));
+      renderPath();
+      return res;
+    });
+  }
+
   function submitEmail(ev) {
     ev.preventDefault();
     var soft = wallKind === 'soft';
     var restore = soft ? 'Keep my streak' : 'Unlock the rest of the road';
     var input = $('#emailInput');
     var value = (input.value || '').trim();
-    var err = QQAuth.validate(value);
-    QQA.track('email_attempted', { wallKind: wallKind, valid: !err });
-    if (err) { $('#wallError').textContent = err; return; }
 
     var submit = $('#wallSubmit');
     submit.disabled = true;
     submit.textContent = 'One moment…';
-    QQAuth.submitEmail(value).then(function (res) {
+    captureEmail(value, {
+      wallKind: wallKind,
+      props: { unitId: wallFor ? wallFor.id : null }
+    }).then(function (res) {
       submit.disabled = false;
       submit.textContent = restore;
       if (!res.ok) { $('#wallError').textContent = res.error || 'Something went wrong.'; return; }
-      QQA.track('email_submitted', {
-        wallKind: wallKind,
-        emailDomain: (value.split('@')[1] || ''), emailLength: value.length,
-        mode: res.mode, unitId: wallFor ? wallFor.id : null,
-        lessonsDone: lessonsDoneCount(), streak: QQStore.currentStreak(),
-        solvedTotal: QQStore.solvedCount(), xp: QQStore.totalXp()
-      });
+      $('#wallError').textContent = '';
       $('#wallForm').hidden = true;
       $('#wallAfter').hidden = false;
       $('#wallAfterBack').textContent = (soft && afterSoftWall) ? 'Carry on' : 'Back to the road';
@@ -1478,7 +1523,6 @@
           (soft ? '' : ' The road is open already.')
         : 'Saved on this device. We could not reach the sign-in service, so no link was sent — ask again when you are back online.' +
           (soft ? '' : ' The road is open either way.');
-      renderPath();
     });
   }
 
@@ -1623,6 +1667,14 @@
   // ======================================================================
   var ARRIVED_AT = Date.now();
 
+  /* Which reel, comment or DM sent them. Read raw and undecoded, because that
+   * is the shape already sitting in the events table and a decoded copy would
+   * not group with it. One definition, shared — the answers gate reports the
+   * same string on the same visit as `arrived` does. */
+  function utmSource() {
+    return (location.search.match(/[?&]utm_source=([^&]+)/) || [])[1] || null;
+  }
+
   function boot() {
     var id = QQA.identity();
     QQA.debug = /[?&]debug=1/.test(location.search);
@@ -1646,7 +1698,7 @@
       returningFromLink: QQAuth.arrivedWith() || null,
       xp: QQStore.totalXp(),
       solvedTotal: QQStore.solvedCount(),
-      utm: (location.search.match(/utm_source=([^&]+)/) || [])[1] || null,
+      utm: utmSource(),
       offline: !global.navigator.onLine
     });
     if (!id.isFirstEverVisit) {
@@ -1782,6 +1834,14 @@
   global.QQApp = {
     go: go, renderPath: renderPath, currentLesson: currentLesson,
     startLesson: startLesson, allLessons: allLessons,
+
+    /* The one email-capture path, shared with the answers gate. Pass your own
+     * `wallKind` so the two asks stay separable in the funnel; everything
+     * else — validation, submission, both events, the road redraw — is done
+     * here and must not be reimplemented anywhere. Resolves
+     * { ok, mode } or { ok: false, error }. See captureEmail above. */
+    captureEmail: captureEmail,
+    utmSource: utmSource,
 
     /* Open a lesson from outside the road — the answers archive uses this for
      * its "play this one" link. It goes through onLessonTap, not startLesson,
