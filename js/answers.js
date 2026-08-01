@@ -16,8 +16,85 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 67,
+ "count": 68,
  "entries": [
+  {
+   "slug": "lost_boarding_pass",
+   "title": "100 seats, the first passenger sits at random — does the last one get their own seat?",
+   "ts": "2026-08-01T09:05:04+00:00",
+   "date": "1 Aug 2026",
+   "topic": "probability",
+   "q": "A hundred people board a plane and the first one sits in a random seat. Does the last passenger get their own?",
+   "a": "Exactly 1/2. A coin flip — not 1 in 100.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the whole argument, and it needs no algebra."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Only two seats ever matter: the ticketless man's own seat (seat 1) and the last passenger's seat (seat 100)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So look at any random pick in the chain. Seat 1 and seat 100 are both still free at that moment — they have to be, or the chain would already have stopped. The picker is choosing uniformly, so seat 1 and seat 100 are equally likely."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That makes \"which of those two gets taken first\" a straight 50/50."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If seat 1 goes first, the chain stops and everyone left finds their own seat empty — including the last passenger. If seat 100 goes first, he is out of luck. Nothing else can happen. So the answer is 1/2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three checks, none of which assumes that argument:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "exact enumeration of the entire process with fractions, for 2, 3, 4 ... up to 10 passengers: every single one comes out at exactly 1/2",
+      "200,000 simulated 100-seat flights: 50.13% (standard error 0.11%)",
+      "change the plane: 3 seats, 5, 20, 100, 1000 — still 1/2 every time"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The part people miss: everyone else is fine. Passenger k gets their own seat with probability (n-k+1)/(n-k+2). The second passenger 99/100. The fiftieth 51/52. The ninety-ninth 2/3. Only the very last one is down to a coin flip, because he is the only person who can still be beaten to his seat at the final moment."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is why \"1 in 100\" feels right and is wrong: the odds are not spread over a hundred seats, they are concentrated on two."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "thousand_cores",
    "title": "A job that is 95% parallel, on a thousand cores — how much faster?",
