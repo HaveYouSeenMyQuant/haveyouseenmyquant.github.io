@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 69,
+ "count": 70,
  "entries": [
+  {
+   "slug": "sixty_five_thousand_boxes",
+   "title": "8 measurements, 500 patients, 65,536 boxes — 99% of them empty",
+   "ts": "2026-08-01T10:07:47+00:00",
+   "date": "1 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Your model has never seen 99% of the situations you'll ask it about.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "500 patients. Eight measurements each. Split every measurement into four levels — low to high — and there are 65,536 different boxes a patient can land in."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "500 patients land in 500 of them. 65,036 boxes are empty."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One measurement gave you four boxes and 125 patients in each. To be that well covered at eight measurements you would need 8,192,000 patients."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every column you add multiplies the space by four. Your data does not multiply with it — so the model spends most of its life guessing in boxes it has never seen."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Free interactive version in bio. No account needed."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
   {
    "slug": "eighteen_beats_two_twelves",
    "title": "One 18-inch pizza is 2.25 twelve-inch pizzas",
