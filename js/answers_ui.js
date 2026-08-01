@@ -202,15 +202,17 @@
   }
 
   function drawGate(host, entry) {
+    /* No copy. The owner cut the heading and both paragraphs on 2026-08-02:
+     * the card above already says "ANSWER — behind one email" and how long the
+     * working is, so everything here was repeating it at length. A cold visitor
+     * off a Reel reads the field and the button, not an argument for filling
+     * them in — and every line of persuasion is another line between arriving
+     * and acting ("never show a cold visitor a menu", program.md).
+     *
+     * The one line kept is `wallSmallPrint()`, which is disclosure rather than
+     * talking: it is what tells someone an email is actually going to be sent
+     * to them before they hand over the address. */
     var box = el('div', 'ans-gate');
-    box.appendChild(el('h3', 'ans-gate-h', 'The answer is yours for an email'));
-    box.appendChild(el('p', 'ans-gate-p',
-      'One address, and every answer we have ever posted opens — this one and the other ' +
-      (ENTRIES.length - 1) + ', the full working with them, now and every time you come back. ' +
-      'You give it once. Nothing is charged and there is no account to manage.'));
-    box.appendChild(el('p', 'ans-gate-p ans-gate-plain',
-      'We ask because we want the email. That is the whole of it, and we would rather ' +
-      'say so than dress it up as something else. The road is free without one.'));
 
     var form = el('form', 'ans-gate-form');
     form.setAttribute('novalidate', 'novalidate');
