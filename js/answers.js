@@ -16,15 +16,162 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 76,
+ "count": 78,
  "entries": [
+  {
+   "slug": "three_rates_loop",
+   "title": "Three ordinary exchange rates, one loop, and the money does not come back",
+   "ts": "2026-08-01T22:46:04+00:00",
+   "date": "1 Aug 2026",
+   "topic": "finance",
+   "q": "Three ordinary exchange rates. Send a million dollars round the loop and it doesn't come back a million.",
+   "a": "$1,000,960. You end up $960 richer than you started, out of nothing.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is one multiplication: £782,000 x 1.28 = $1,000,960."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And it isn't a million because the three rates multiply to 0.92 x 0.85 x 1.28 = 1.00096, not to 1. A round trip multiplies your money by the product of the three rates, so the only question that ever mattered is whether that product is 1. It is 3128/3125 — 0.096% too big."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trap is that the pile shrank twice on the way round: €920,000, then £782,000. Two legs down, one leg up, and none of that matters. Only the product does."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Go the other way and every rate becomes a division, so the loop multiplies by exactly 3125/3128 — the reciprocal. A million comes back as $999,040.92, a loss of $959.08. Not equal to the gain: losing x% of a smaller base never is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it is invisible: the first two quotes already fix the third. 1/(0.92 x 0.85) = 1.278772... dollars per pound. The quote is $1.28. It is 0.12 US cents too high. That is all a free $960 looks like."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Does it survive real costs? Every quote is really two — you give up half the spread on each of three legs — so the loop also gets multiplied by (1 - spread/2)^3:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  0 bp   ->   +$960.00",
+      "  2 bp   ->   +$659.74",
+      "  5 bp   ->   +$209.47",
+      "  6.4 bp ->     -$0.61",
+      "  20 bp  -> -$2,039.88"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Break-even is a full spread of 6.396 basis points per pair. Major pairs trade far tighter than that, so this edge would clear real costs comfortably — which is exactly why it does not exist. 0.096% between three major quotes is enormous, and it would be taken in milliseconds by machines whose whole job is watching for it. Real loop products sit at 1 to within a fraction of a basis point. The name, if you want to read further: triangular arbitrage. You never find one because everyone is already looking."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And it is a ratio, not a jackpot: the same three rates turn $10,000 into $10,009.60."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Checked in exact fractions (loop = 3128/3125, forward x reverse = 1 exactly), recomputed at 60 digits, break-even solved as a cube root to 25 places, and 1.6 million simulated round trips agreed."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "minimum_payment_never_ends",
+   "title": "The credit card minimum payment that takes 28 years",
+   "ts": "2026-08-01T22:39:07+00:00",
+   "date": "1 Aug 2026",
+   "topic": "everyday",
+   "q": "Your credit card's minimum payment gets smaller exactly as fast as your debt does.",
+   "a": "The whole thing in text, in case you watched it on mute:",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "£3,000 on a card at 24.9% APR. The minimum payment is 1% of what you owe plus that month's interest, with a £5 floor — so it is a slice of the balance, and it shrinks as the balance shrinks."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the part almost nobody notices. Start the month owing B. The card adds interest rB, then takes 0.01B + rB off. What is left is:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "B + rB − (0.01B + rB) = 0.99B"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The interest cancels. Completely. The balance falls exactly 1% a month whatever the APR is — 20%, 25%, 30%, it makes no difference to the pace. The rate sets the price, not the speed. That is why it takes 341 months (28.4 years) and £5,394.92 of interest — nearly twice what was borrowed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now freeze the first payment. £86.10, every month, never allowed to fall. Same money in month one, and the debt is gone in 57 months — 4 years and 9 months, £1,899.76 of interest. The only thing that changed is that the payment stopped shrinking."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The practical version: pay a fixed amount, not \"the minimum\". Any fixed amount."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Play this one instead of reading it — the first unit is free, no signup: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/minimum_payment_never_ends"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "meet_within_fifteen",
    "title": "Two friends, a random hour, a 15-minute wait — do they ever meet?",
    "ts": "2026-08-01T18:02:23+00:00",
    "date": "1 Aug 2026",
    "topic": "probability",
-   "q": "Two friends, a random hour, a 15-minute wait — do they ever meet? — comment MEET and I'll DM you the answer",
+   "q": "Two friends, a random hour, a 15-minute wait — do they ever meet?",
    "a": "Exactly 7/16 — 43.75%. Just under a coin flip.",
    "why": [
     {
