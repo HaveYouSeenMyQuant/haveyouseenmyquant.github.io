@@ -16,8 +16,41 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 71,
+ "count": 72,
  "entries": [
+  {
+   "slug": "no_best_die",
+   "title": "Four dice, each beating the next 2 rolls in 3",
+   "ts": "2026-08-01T11:25:47+00:00",
+   "date": "1 Aug 2026",
+   "topic": "paradox",
+   "q": null,
+   "a": "Four dice. Whichever one you pick, I can pick one that beats you 2 rolls in 3.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Look at the faces. The first beats the second. The second beats the third. The third beats the fourth. And the fourth beats the first — every one of those exactly 2 in 3, counted over all 36 outcomes, with no ties possible."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So \"better than\" does not have to line up, and there is no best die. Let the other person choose first."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Play this instead of reading it → link in bio. No signup."
+     ]
+    }
+   ],
+   "src": "caption"
+  },
   {
    "slug": "snowflake_infinite_edge",
    "title": "An edge of infinite length around an area of exactly 1.6",
