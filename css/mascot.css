@@ -1,0 +1,374 @@
+/* have you seen my quant — Pip, the mascot.
+ * =====================================================================
+ * A separate stylesheet on purpose: everything the character needs is
+ * here, nothing here is needed by anything else, and style.css does not
+ * gain a single line it would have to keep in step.
+ *
+ * Rules that hold everywhere below:
+ *   - transform and opacity only. Nothing animates a size, an inset or
+ *     a colour, so nothing here can cause a layout or a paint storm.
+ *   - four layers, and each owns exactly one job:
+ *       .qq-mascot   where on the road it is standing (travel)
+ *       .qq-m-gait   breathing, or the rhythm of a walk
+ *       .qq-m-fx     what it is reacting to
+ *       .qq-m-svg    the drawing itself
+ *     They never write each other's transform, so a cheer during a walk
+ *     cannot cancel the walk.
+ *   - pointer-events: none, everywhere, always. It is scenery.
+ * ===================================================================== */
+
+/* the road becomes the mascot's coordinate space; nothing else moves */
+.path { position: relative; }
+
+.qq-mascot {
+  position: absolute; left: 0; top: 0;
+  width: 54px; height: 54px; margin: -27px 0 0 -27px;
+  z-index: 6; pointer-events: none;
+  opacity: 0; visibility: hidden;
+  --lx: 0px; --ly: 0px;
+}
+.qq-mascot.on { opacity: 1; visibility: visible; transition: opacity .3s ease; }
+.qq-mascot.walking { will-change: transform; }
+.qq-m-svg { display: block; width: 100%; height: 100%; overflow: visible; }
+
+/* ---------------------------------------------------------------- perch ---
+ * In a lesson it leaves the road and stands INSIDE the answer bar, to the
+ * left of the button.
+ *
+ * This is measured, not guessed. At 390px the content column runs from
+ * x=16 to x=359 and the answer options are full width, so there is no free
+ * gutter anywhere on the screen — a mascot floating above the bar sits on
+ * top of the third option and covers it. The bar is the one strip that is
+ * always present, never scrolls, and has room to give: the button loses
+ * 54px of width and the character gets a home that can never collide with
+ * a question, a graphic or an option.
+ *
+ * It is smaller here than on the road (44px against 54px) because it is
+ * company, not the subject. */
+.qq-mascot.corner {
+  position: fixed; margin: 0; z-index: 31;
+  transition: transform .34s cubic-bezier(.25, .9, .3, 1);
+}
+.qq-mascot.corner.stage-lesson {
+  left: 10px; bottom: 11px; top: auto;
+  width: 44px; height: 44px;
+}
+/* the room the button gives up. Tied to a class the script only adds when
+ * the mascot actually exists, so the button is never indented around
+ * nothing. */
+body.qq-has-mascot.in-lesson .answer-bar .primary-btn {
+  margin-left: 54px; width: calc(100% - 54px);
+}
+/* The speech bubble rises out of the mascot's head into the bottom-left of
+ * the explanation panel. The geometry is fixed — the bubble always lands
+ * 16px above the panel's bottom edge, because both are pinned to the same
+ * button below — so a constant strip of padding is all it takes to keep it
+ * off the words. Reserved whether or not a line is showing, so the
+ * explanation never reflows underneath the reader. */
+body.qq-has-mascot.in-lesson .feedback { padding-bottom: 26px; }
+.qq-mascot.corner.stage-mid    { left: 16px; bottom: 26px; top: auto; }
+/* the celebration: it stands beside the crown rather than under the
+ * buttons, which it must never sit on top of */
+.qq-mascot.corner.stage-done {
+  left: 50%; top: 44px; bottom: auto; margin-left: -122px;
+}
+
+/* ================================================================ the art
+ * One ink colour throughout (#20140a, a very dark warm brown rather than
+ * black — black on gold reads as a printing error, brown reads as struck
+ * metal). Every feature is either that ink or the gold face, so there are
+ * exactly two values in the drawing and it cannot get muddy when small. */
+.qq-m-glow   { fill: url(#qqmGlow); }
+.qq-m-shadow { fill: rgba(0, 0, 0, .5); }
+.qq-m-body   { fill: url(#qqmFace); stroke: #20140a; stroke-width: 2.6; }
+/* the struck inner ring. Invisible at 40px and that is fine — it is not
+ * carrying the read, it is only there to say "coin" once you are close. */
+.qq-m-ring   { fill: none; stroke: #20140a; stroke-width: 1.8; opacity: .26; }
+.qq-m-sheen  { fill: none; stroke: #ffffff; stroke-width: 3.4; stroke-linecap: round; opacity: .30; }
+.qq-m-bevel  { fill: none; stroke: #20140a; stroke-width: 3.6; stroke-linecap: round; opacity: .13; }
+
+/* The limbs are the same metal seen in shadow, NOT ink. Ink feet on a
+ * #0d1117 page are invisible and the coin then looks like it is floating;
+ * bronze separates from the background and from the lit face at once, and
+ * it is what makes the character read as standing on the road. */
+.qq-m-leg, .qq-m-foot { fill: #9c6614; stroke: #20140a; stroke-width: 1.6; }
+/* the hip. Rotating the whole limb about its top is what makes a step a
+ * step rather than a foot sliding about on its own. */
+.qq-m-limb { transform-box: fill-box; transform-origin: 50% 0%; }
+
+.qq-m-eye  { transform-box: fill-box; transform-origin: 50% 50%; transition: transform .09s ease; }
+.qq-m-look {
+  transform-box: fill-box;
+  transform: translate(var(--lx), var(--ly));
+  transition: transform .42s cubic-bezier(.3, .9, .3, 1);
+}
+.qq-m-eyeball { fill: #20140a; }
+.qq-m-glint   { fill: #ffffff; opacity: .92; }
+
+.qq-m-mouth {
+  fill: none; stroke: #20140a;
+  stroke-width: 2.6; stroke-linecap: round;
+  transition: opacity .16s linear;
+}
+.qq-m-mouth-open {
+  fill: #20140a; stroke: none;
+  opacity: 0; transition: opacity .16s linear;
+}
+.qq-m-mouth-soft { opacity: 0; }
+.qq-m-spin { transform-box: fill-box; transform-origin: 50% 50%; transition: transform .3s ease; }
+
+/* --- moods. Three mouths live in the drawing; a class picks one. ------- */
+.mood-soft .qq-m-mouth-smile { opacity: 0; }
+.mood-soft .qq-m-mouth-soft  { opacity: 1; }
+.mood-soft .qq-m-spin { transform: rotate(-6deg); }
+.mood-open .qq-m-mouth-smile { opacity: 0; }
+.mood-open .qq-m-mouth-open  { opacity: 1; }
+.mood-open .qq-m-eye { transform: scaleY(1.08); }
+
+/* --- the blink. A scale on the eye's own box: no eyelid to draw. ------- */
+.qq-mascot.blink .qq-m-eye { transform: scaleY(.06); }
+
+/* ============================================================== breathing */
+.qq-m-gait { width: 100%; height: 100%; transform-origin: 50% 88%; }
+.qq-m-fx   { width: 100%; height: 100%; transform-origin: 50% 88%; }
+
+.qq-mascot.on .qq-m-gait { animation: qqm-breathe 3.4s ease-in-out infinite; }
+@keyframes qqm-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-1.5px) scale(1.02); }
+}
+
+/* ================================================================= walking
+ * A coin cannot stride, so it waddles: weight onto one edge, a small lift,
+ * weight onto the other. The limbs swing on the OFF-beat — half a cycle
+ * behind the body — and that offset is the whole trick. In step with the
+ * body it reads as one object wobbling; out of step it reads as something
+ * taking steps. */
+.qq-mascot.walking .qq-m-gait { animation: qqm-step .44s linear infinite; }
+@keyframes qqm-step {
+  0%   { transform: translateY(0)    rotate(-5deg); }
+  25%  { transform: translateY(-4px) rotate(0deg); }
+  50%  { transform: translateY(0)    rotate(5deg); }
+  75%  { transform: translateY(-4px) rotate(0deg); }
+  100% { transform: translateY(0)    rotate(-5deg); }
+}
+.qq-mascot.walking .qq-m-limb-l { animation: qqm-limb .44s ease-in-out infinite; }
+.qq-mascot.walking .qq-m-limb-r { animation: qqm-limb .44s ease-in-out .22s infinite; }
+@keyframes qqm-limb {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  35%      { transform: translate(1.5px, -3px) rotate(-13deg); }
+  70%      { transform: translate(-1px, 0)     rotate(6deg); }
+}
+/* the shadow tightens as it lifts, so the bob reads as leaving the ground */
+.qq-mascot.walking .qq-m-shadow { animation: qqm-shadow .44s ease-in-out infinite; }
+@keyframes qqm-shadow {
+  0%, 100% { transform: scaleX(1);   opacity: 1; }
+  25%, 75% { transform: scaleX(.78); opacity: .6; }
+}
+
+/* ============================================================== reactions */
+/* correct: a double bounce, the second one smaller */
+.fx-cheer { animation: qqm-cheer .9s cubic-bezier(.25, .8, .3, 1) both; }
+@keyframes qqm-cheer {
+  0%   { transform: translateY(0) scale(1); }
+  20%  { transform: translateY(-14px) scale(1.07); }
+  42%  { transform: translateY(0) scale(.95); }
+  62%  { transform: translateY(-7px) scale(1.03); }
+  82%  { transform: translateY(0) scale(.99); }
+  100% { transform: none; }
+}
+
+/* wrong: a shrug. It leans, it comes back, and that is the whole story —
+ * nothing here droops, shrinks, covers its eyes or shakes its head. */
+.fx-soft { animation: qqm-soft 1.2s cubic-bezier(.35, .7, .35, 1) both; }
+@keyframes qqm-soft {
+  0%   { transform: translateY(0) rotate(0deg); }
+  20%  { transform: translateY(-3px) rotate(-7deg); }
+  50%  { transform: translateY(0) rotate(5deg); }
+  76%  { transform: translateY(-1px) rotate(-2deg); }
+  100% { transform: none; }
+}
+
+/* lesson done: it flips, because it is a coin.
+ *
+ * The toss is on .qq-m-fx (the whole character leaves the ground) and the
+ * flip is on .qq-m-spin (only the coin turns) — so the ground shadow and
+ * the glow stay put and the coin spins against them.
+ *
+ * The turn is scaleX, not rotateY. A 2D squash through zero is what a
+ * spinning coin actually looks like from the side, and it behaves
+ * identically in every browser, where 3D transforms on SVG children do
+ * not. Two full turns, landing face-on. */
+.fx-party { animation: qqm-toss 1.6s cubic-bezier(.3, .7, .3, 1) both; }
+@keyframes qqm-toss {
+  0%   { transform: translateY(0) scale(1); }
+  14%  { transform: translateY(-30px) scale(1.06); }
+  40%  { transform: translateY(-34px) scale(1.06); }
+  62%  { transform: translateY(0) scale(.94); }
+  74%  { transform: translateY(-9px) scale(1.02); }
+  88%  { transform: translateY(0) scale(.99); }
+  100% { transform: none; }
+}
+.fx-party .qq-m-spin { animation: qqm-flip 1.6s cubic-bezier(.3, .7, .3, 1) both; }
+@keyframes qqm-flip {
+  0%   { transform: scaleX(1); }
+  10%  { transform: scaleX(.08); }
+  22%  { transform: scaleX(1); }
+  34%  { transform: scaleX(.08); }
+  46%  { transform: scaleX(1); }
+  58%  { transform: scaleX(.12); }
+  70%  { transform: scaleX(1); }
+  100% { transform: scaleX(1); }
+}
+
+/* the landing hop at the end of a walk, and the "over here" nudge */
+.fx-hop { animation: qqm-hop .42s cubic-bezier(.3, 1.5, .4, 1) both; }
+@keyframes qqm-hop {
+  0%   { transform: translateY(0) scaleY(1); }
+  30%  { transform: translateY(1px) scaleY(.9); }
+  65%  { transform: translateY(-8px) scaleY(1.05); }
+  100% { transform: none; }
+}
+
+/* stepping through the door */
+.fx-in { animation: qqm-in .24s ease-in both; }
+@keyframes qqm-in {
+  from { transform: scale(1); opacity: 1; }
+  to   { transform: scale(.26) translateY(6px); opacity: 0; }
+}
+
+/* and coming back out of it. Not simply qqm-in reversed: it overshoots a
+ * little on the way out, which is the difference between a door opening and
+ * a video played backwards. */
+.fx-out { animation: qqm-out .34s cubic-bezier(.25, 1.5, .4, 1) both; }
+@keyframes qqm-out {
+  0%   { transform: scale(.26) translateY(6px); opacity: 0; }
+  55%  { transform: scale(1.08) translateY(-2px); opacity: 1; }
+  100% { transform: none; opacity: 1; }
+}
+
+/* ================================================================= sparks
+ * Six of them, built once at boot and left in the DOM for ever. A
+ * reaction adds a class; nothing is ever created mid-celebration. */
+.qq-m-sparks {
+  position: absolute; left: 50%; top: 20px;
+  width: 0; height: 0; pointer-events: none;
+}
+.qq-m-sparks i {
+  position: absolute; left: -3px; top: -3px; width: 6px; height: 6px;
+  border-radius: 2px; background: #58a6ff; display: block; opacity: 0;
+}
+/* the character is gold, so gold sparks would vanish into it — the
+ * everyday burst is the road's blue, and the "first try" burst is a pale
+ * gold bright enough to separate from the coin behind it */
+.qq-m-sparks.gold i { background: #ffd76a; }
+.qq-m-sparks.pop i { animation: qqm-spark .62s cubic-bezier(.15, .75, .3, 1) both; }
+@keyframes qqm-spark {
+  0%   { transform: translate(0, 0) scale(.4); opacity: 1; }
+  30%  { transform: translate(calc(var(--tx) * .4), calc(var(--ty) * .4)) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(.5); opacity: 0; }
+}
+
+/* ================================================================= speech
+ * Three to six words, and only sometimes. Held in one node whose text is
+ * replaced — no bubble is ever built or thrown away. */
+.qq-bubble-wrap {
+  position: absolute; left: 50%; bottom: 100%; margin-bottom: 9px;
+  transform: translateX(-50%);
+  width: 152px; display: flex; justify-content: center;
+  pointer-events: none;
+}
+.qq-bubble {
+  position: relative; max-width: 100%;
+  background: var(--panel-2, #1c232c); border: 1px solid var(--line, #242c38);
+  border-radius: 11px; padding: 6px 10px;
+  font-size: 12px; font-weight: 700; line-height: 1.3; text-align: center;
+  color: var(--fg, #e6edf3);
+  box-shadow: 0 8px 20px rgba(3, 6, 10, .6);
+  opacity: 0; transform: translateY(6px) scale(.86); transform-origin: 50% 115%;
+  transition: opacity .16s linear, transform .24s cubic-bezier(.2, 1.5, .4, 1);
+}
+.qq-bubble::after {
+  content: ''; position: absolute; left: 50%; top: 100%; margin-left: -5px;
+  border: 5px solid transparent; border-top-color: var(--line, #242c38);
+}
+.qq-bubble-wrap.on .qq-bubble { opacity: 1; transform: none; }
+
+/* left-aligned when it is perched in a corner, or the bubble runs off screen */
+.qq-mascot.corner .qq-bubble-wrap {
+  left: 2px; transform: none; justify-content: flex-start;
+}
+.qq-mascot.corner .qq-bubble::after { left: 24px; }
+/* on the celebration screen it stands high, so the bubble drops below it */
+.qq-mascot.stage-done .qq-bubble-wrap {
+  bottom: auto; top: 100%; margin: 10px 0 0;
+}
+.qq-mascot.stage-done .qq-bubble::after {
+  top: auto; bottom: 100%; border-top-color: transparent;
+  border-bottom-color: var(--line, #242c38);
+}
+
+/* =================================================================== door
+ * The node the mascot is standing at grows a two-leaf door. It opens, the
+ * mascot walks through, it shuts, and the shutting is what hands you over
+ * to the lesson screen. Built on tap, removed 200ms later. */
+.qq-portal {
+  position: absolute; inset: 4px; border-radius: 50%; overflow: hidden;
+  pointer-events: none; opacity: 0; z-index: 3;
+  transition: opacity .14s linear;
+}
+.qq-portal.on { opacity: 1; }
+.qq-portal-in { position: absolute; inset: 0; background: #05080c; }
+@supports (background: color-mix(in srgb, red, blue)) {
+  .qq-portal-in {
+    background: radial-gradient(circle at 50% 62%,
+      color-mix(in srgb, var(--unit) 34%, #05080c), #05080c 74%);
+  }
+}
+.qq-leaf {
+  position: absolute; top: -2px; bottom: -2px; width: 51%;
+  background: var(--unit);
+  transition: transform .26s cubic-bezier(.35, .85, .35, 1);
+}
+@supports (background: color-mix(in srgb, red, blue)) {
+  .qq-leaf {
+    background: linear-gradient(180deg,
+      color-mix(in srgb, var(--unit) 60%, #0d1117),
+      color-mix(in srgb, var(--unit) 24%, #0d1117));
+  }
+}
+.qq-leaf-l { left: 0;  box-shadow: inset -2px 0 0 rgba(0, 0, 0, .5); }
+.qq-leaf-r { right: 0; box-shadow: inset  2px 0 0 rgba(0, 0, 0, .5); }
+.qq-portal.open .qq-leaf-l { transform: translateX(-102%); }
+.qq-portal.open .qq-leaf-r { transform: translateX(102%); }
+
+.node.qq-thunk { animation: qqm-thunk .3s cubic-bezier(.3, 1.4, .4, 1) both; }
+@keyframes qqm-thunk {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.09); }
+  100% { transform: scale(1); }
+}
+
+/* =========================================================== calm mode ===
+ * prefers-reduced-motion. No walking, no gait, no blinking, no rolling:
+ * the mascot is simply already standing at the right node with a level
+ * pose. The site-wide rule in style.css already flattens durations; this
+ * makes sure the resting pose is the good one rather than a frozen frame
+ * of something else. */
+@media (prefers-reduced-motion: reduce) {
+  .qq-mascot .qq-m-gait,
+  .qq-mascot .qq-m-fx,
+  .qq-mascot .qq-m-limb,
+  .qq-mascot .qq-m-spin,
+  .qq-mascot .qq-m-shadow,
+  .qq-m-sparks i { animation: none !important; }
+  .qq-mascot .qq-m-gait,
+  .qq-mascot .qq-m-fx,
+  .qq-mascot .qq-m-limb { transform: none !important; }
+  .qq-m-sparks { display: none; }
+  .qq-mascot.corner { transition: none; }
+  .qq-bubble { transition: opacity .01ms; transform: none; }
+}
+.qq-mascot.calm .qq-m-gait,
+.qq-mascot.calm .qq-m-fx { animation: none; transform: none; }
+.qq-mascot.calm .qq-m-sparks { display: none; }

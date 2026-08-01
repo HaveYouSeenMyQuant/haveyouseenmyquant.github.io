@@ -54,7 +54,9 @@ enters the event log or the events table. Keep it that way.
 
 | event | props | why it exists / what it answers |
 |---|---|---|
-| `arrived` | `referrer`, `viewportW/H`, `isFirstEverVisit`, `visitNumber`, `hasEmail`, `xp`, `solvedTotal`, `utm`, `offline` | The top of the funnel. Every other rate is divided by this. `referrer` + `utm` say which Reel or CTA sent them, which is what makes site metrics steerable from content. |
+| `arrived` | `entryPath`, `referrer`, `viewportW/H`, `isFirstEverVisit`, `visitNumber`, `hasEmail`, `xp`, `solvedTotal`, `utm`, `offline` | The top of the funnel. Every other rate is divided by this. `referrer` + `utm` say which Reel or CTA sent them, which is what makes site metrics steerable from content. **`entryPath` is on the envelope of the funnel's first event on purpose:** every downstream rate can be split by which opening the visitor got. |
+| `entry_path_chosen` | `entryPath`, `straightToQuestion`, `lessonId`, `solvedTotal`, `xp` | Which opening this visit got, decided once before anything is drawn. `question` = dropped straight into question 1; `road` = landed on the map; `*-forced` = a `?play=1` / `?road=1` override, which must be **excluded** from any comparison because it is us, not a visitor. |
+| `first_question_handoff` | `lessonId`, `questionId`, `solvedTotal`, `answeredCount`, `msInLesson` | The straight-to-question opening handing over to the road after the first answer. Fires once per visitor at most. `first_question_handoff / entry_path_chosen(question)` is the share who answered anything at all — the number the whole change exists to move. |
 | `return_visit` | `visitNumber`, `hoursSinceLastVisit`, `daysSinceFirstSeen`, `streak`, `xp`, `solvedTotal` | Retention. D1/D7 return rate, and whether returners are the ones with streaks. |
 | `screen_viewed` | `screen` | Coarse navigation trace; lets us rebuild any route through the app without bespoke events. |
 | `path_viewed` | `units`, `lessonsVisible`, `lessonsDone`, `xp`, `streak`, `hasEmail` | The landing surface rendered, and in what state. Denominator for "did they start a lesson". |
@@ -157,6 +159,7 @@ library_viewed  ->  library_clicked  ->  library_detail_viewed  ->  library_buy_
 | `library_buy_tapped` | `libraryId`, `priceUsd`, `status`, `msOnDetail`, `paymentsLive` | **Priced purchase intent** — they read the price, the samples and the topics, and pressed the button anyway. This is the number a price change should be judged on. `msOnDetail` says whether they decided instantly or had to be convinced. |
 | `library_detail_dismissed` | `libraryId`, `priceUsd`, `msOnDetail`, `buyTapped` | Left the detail view. With `buyTapped:false` this is the price rejection we previously could not see at all. |
 | `library_interest` | `libraryId`, `stub` | Registered interest after checkout returns. While payments are not live this is the only revenue-side signal we have, and it decides which library gets written first. |
+| `library_set_started` | `libraryId` | A **member** pressed "Play this set". The retention question on the paid side: does a membership get used more than once, and which set gets replayed? Fires only for someone `QQPay.owns()` says already has it, so it can never be confused with intent. |
 
 ### Plumbing
 
@@ -174,6 +177,7 @@ Ratios, not counts. In rough order of how much they should change what we build:
 | number | from | what it decides |
 |---|---|---|
 | **activation** | `lesson_started / arrived` | whether the landing surface works at all. If this is low, nothing downstream matters. |
+| **the opening, judged** | `answer_submitted / arrived`, **split by `entryPath`** | the one number that says whether dropping first-timers straight into a question beat showing them the road. It replaced a road where only a third of arrivals ever tapped a lesson while five in six of those who did start one finished it — so the questions were never the problem, the map-as-front-door was. Compare `question` against `road` on **new visitors only** (`solvedTotal = 0` at `arrived`), and drop the `-forced` rows. If it does not move, put the road back: this is a bet, not a belief. |
 | **first-lesson completion** | `lesson_completed(u1l1) / lesson_started(u1l1)` | whether the loop is satisfying and the right length. |
 | **unit-1 completion** | `unit_completed(u1) / arrived` | the free experience end-to-end. The wall's denominator. |
 | **signup conversion** | `email_submitted / wall_shown`, **split by `wallKind`** | the wall's copy, placement and timing. Never pool the two kinds: the soft prompt is asked of everyone who finishes one lesson, the hard wall only of the few who finish a whole unit, so pooling them mostly measures which one fired more often. |

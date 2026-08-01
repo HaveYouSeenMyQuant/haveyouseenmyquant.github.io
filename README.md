@@ -11,9 +11,11 @@ Live at **https://gaspardol.github.io/quant-road/**, served from the public repo
 ```
 site/
   index.html            every screen, as static markup
-  css/style.css         the whole stylesheet
+  css/style.css         the stylesheet for everything except the mascot
   js/questions.js       THE question bank — pure JSON, the source of truth
   js/app.js             path, lesson loop, hearts, XP, wall, libraries
+  js/mascot.js          Flip, the mascot — waits on the road, walks, reacts
+  css/mascot.css        everything Flip needs, and nothing else needs
   js/store.js           persistent player state (localStorage)
   js/analytics.js       every event, and the one sink seam
   js/auth.js            the email seam + the Supabase session (magic-link return,
@@ -22,10 +24,12 @@ site/
   js/payments.js        the money seam
   js/supabase-config.js project URL + publishable key + a tiny REST helper
   js/viz.js             canvas kit + 7 visuals
-  js/viz_chance.js      8 visuals
-  js/viz_stats.js       7 visuals
-  js/viz_growth.js      8 visuals
-  verify_answers.py     re-derives all 30 answers from scratch
+  js/viz_lab.js         the reusable engines (sim, dial, grid, dots, graph, race…)
+  js/viz_chance.js      js/viz_stats.js   js/viz_growth.js   js/viz_onramp.js
+  js/viz_countval.js    js/viz_bayesgeo.js  js/viz_netalgo.js
+  js/viz_premium_js.js  js/viz_premium_opt.js  js/viz_premium_ts.js
+  verify_answers.py     re-derives all 161 answers from scratch
+  checks/*.py           the checkers, one module per slice of the bank
   schema.sql            the Supabase tables and their Row Level Security
   METRICS.md            every event and the funnel question it answers
 ```
@@ -49,7 +53,7 @@ never will be — GitHub Pages does not run any.
 ## Checking the questions
 
 ```
-python3 site/verify_answers.py        # 30/30, about 1.3 s, stdlib only
+python3 site/verify_answers.py        # 161/161, about 0.9 s, stdlib only
 python3 site/verify_answers.py -v     # shows the working for each one
 ```
 
@@ -64,8 +68,34 @@ cannot write a genuine checker for it, cut the question.
 
 **Real, working now:**
 
-- 30 questions across 4 units and 7 lessons, every one with its own interactive
-  visual, every answer machine-verified.
+- 161 questions, every one with its own interactive visual and every answer
+  machine-verified: 89 on the free road, and 72 across six named premium
+  sets — Jane Street, Citadel, Optiver speed round, Mental maths under
+  pressure, Two Sigma and Brainteaser classics. The conditional-probability,
+  geometric-probability, network and algorithm material that was briefly sold
+  as the SIG and Jump Trading sets now lives on the road, as units 7–10, where
+  it was originally drafted: engagement is the site's problem, not
+  monetisation, and a longer free road is worth more than two more paid sets.
+- **A mascot that travels the road with you.** Flip, a gold coin on two legs,
+  drawn as inline SVG in `js/mascot.js` — no image files, no fonts, works from
+  `file://`. It stands at the node you are meant to play next, so "where do I
+  start" is answered by a character standing there rather than by copy. Tap that
+  node and a door opens in it and Flip walks through, which is what carries you
+  into the lesson. During a lesson it stands in the answer bar beside the button —
+  measured to never cover a question, a graphic or an option at 390px. Finish, and
+  it comes back out and walks the road to the next node, which is the reward. Its
+  position is **derived from progress on every render**, never remembered, so a
+  reload, a fast-tapped run of lessons or a walk interrupted half way all leave it
+  standing where the road says it belongs. `aria-hidden`, `pointer-events: none`,
+  transforms and opacity only; under `prefers-reduced-motion` it simply appears at
+  the right node with no walking, no door and no blinking.
+- **First-timers start in a question, not on the map.** A visitor with no progress
+  at all is put straight into question 1 and sees the road only *after* they have
+  answered it — with their own answer already showing on the first node and Flip
+  walking out of the door onto it. Anyone with any history lands on the road as
+  before, because their streak and their place on it are why they came back.
+  `?road=1` and `?play=1` force either opening for testing, and every visit records
+  which one it got so the change can be judged and reverted rather than assumed.
 - The whole Duolingo loop: a path you land on mid-road, lessons of 4–5 questions,
   a progress bar, 4 hearts, immediate right/wrong feedback with an explanation,
   wrong answers requeued to the end of the lesson, an out-of-hearts screen you can
@@ -97,8 +127,8 @@ cannot write a genuine checker for it, cut the question.
 | **Email sign-in** | real, both directions. `js/auth.js` calls `/auth/v1/otp` to send the link, and handles the **return**: it reads the session out of the URL (fragment tokens, `?token_hash=`, or `?code=`), strips the credentials out of the address bar with `replaceState` before anything else runs, stores the session, restores it on later loads, and refreshes it with `grant_type=refresh_token`. A refresh the provider rejects degrades to signed-out rather than erroring. | Ideally real SMTP: the built-in sender is rate-limited to a handful an hour. Keep the redirect allow-list (**Authentication → URL Configuration**) in step with wherever the site is served from — a link that comes back to an address not on that list lands on the site URL instead. |
 | **Accounts / cross-device progress** | real. `js/sync.js` pulls `progress` + `profiles`, merges them into the local store, and pushes the result back. The merge takes the better of local and remote per question — solved beats unsolved, fewer attempts wins, XP earned since the last confirmed push is added rather than dropped — so a phone that played unit 1 anonymously and then signed in keeps everything, and so does an account opened on a new laptop. `localStorage` is still written first and the sync runs in the background; offline just means the push retries later. | Nothing. Hearts are the one thing not synced: they are per-lesson and refill every start, so `profiles.hearts` stays at its default until hearts become a real cross-session currency. |
 | **Payments** | stub. `QQPay.checkout()` records local interest and opens an honest sheet saying nothing was charged. | Create the payment processor account, do the identity/bank verification, create one product per library, paste the resulting public Payment Link into `js/payments.js`. Entitlement must then be decided server-side, not in that file — a browser can lie. |
-| **The paid libraries themselves** | named, not written. Each one has a detail screen — topics, question count, two sample questions — reached by tapping its card; that screen is the only place a price ever appears. | Decide from `library_buy_tapped / library_detail_viewed` which one to write first: that ratio is measured *after* the player has seen the price, which `library_clicked` no longer is. |
-| **Units 2–4 unlocking in order** | works, but note that the sequence rule means unit 3 needs unit 2 finished. | Nothing — this is deliberate. |
+| **The paid libraries themselves** | written. Six sets, twelve questions each, every one drawn and machine-verified exactly like the road. A member gets a **Play this set** button on the detail screen and the set is dealt out as a shuffled lesson. Non-members still see the same door: topics, two real sample questions, and the only price in the app. | Nothing to build. Watch `library_set_started` against `library_detail_viewed` to see which sets a membership is actually bought for. |
+| **Units 2–10 unlocking in order** | works, but note that the sequence rule means unit 3 needs unit 2 finished, and so on up to unit 10. | Nothing — this is deliberate. |
 
 **Three files, three seams.** `js/auth.js`, `js/payments.js` and
 `js/analytics.js` are the only places a backend appears. Each has one documented
@@ -118,8 +148,10 @@ Pages serves every byte of this repo to the public. They belong in
 
 ## Adding a question
 
-1. Add it to the right lesson in `js/questions.js`. Keep that file **pure JSON**
-   after the assignment — `verify_answers.py` parses it with `json.loads`.
+1. Add it to the right lesson — or to the right `libraries[].questions` — in
+   `js/questions.js`. Keep that file **pure JSON** after the assignment;
+   `verify_answers.py` parses it with `json.loads`, and it checks a paid
+   question exactly as hard as a free one.
 2. Pick a `type` (`choice`, `truefalse`, `number`, `order`, `tap`) and fill in the
    fields that type needs. `answerValue` is the canonical string the verifier
    asserts against, whatever the type.
@@ -127,7 +159,10 @@ Pages serves every byte of this repo to the public. They belong in
    `QQViz.register('myViz', function (host, api) { ... })`. Use `QQViz.kit` for
    the canvas plumbing. It must be interactive — a slider, a drag, a tap, or a
    re-runnable simulation. A picture of a formula is not a visual.
-4. Write a checker in `verify_answers.py` and run it.
+4. Write a checker — in `verify_answers.py` for the early units, otherwise in the
+   right `checks/*.py` module, which the harness picks up automatically — and
+   run it. A checker with no question fails the run just as loudly as a
+   question with no checker.
 5. Add any new event to `METRICS.md` in the same commit.
 
 ## Design rules that are not negotiable

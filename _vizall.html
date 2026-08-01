@@ -1,0 +1,61 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+<title>every visual</title>
+<style>body{background:#0d1117;color:#e6edf3;font:14px -apple-system,sans-serif;padding:8px}
+h3{margin:16px 0 4px;font-size:12px;color:#8b949e;font-weight:700}
+.p{font-size:13px;margin:0 0 6px;color:#e6edf3}
+.viz-host{background:#161b22;border-radius:12px;padding:10px;margin-bottom:6px}
+#err{color:#f85149;font-size:12px;white-space:pre-wrap}</style>
+</head><body>
+<div id="err"></div>
+<div id="hosts"></div>
+<script src="js/questions.js"></script>
+<script src="js/viz.js"></script>
+<script src="js/viz_lab.js"></script>
+<script src="js/viz_chance.js"></script>
+<script src="js/viz_stats.js"></script>
+<script src="js/viz_growth.js"></script>
+<script src="js/viz_onramp.js"></script>
+<script src="js/viz_countval.js"></script>
+<script src="js/viz_bayesgeo.js"></script>
+<script src="js/viz_netalgo.js"></script>
+<script src="js/viz_premium_js.js"></script>
+<script src="js/viz_premium_opt.js"></script>
+<script src="js/viz_premium_ts.js"></script>
+<script>
+var qs = [];
+QQ_DATA.units.forEach(function (u) { u.lessons.forEach(function (l) {
+  l.questions.forEach(function (q) { qs.push(q); }); }); });
+(QQ_DATA.libraries || []).forEach(function (lib) {
+  (lib.questions || []).forEach(function (q) { qs.push(q); }); });
+
+var params = new URLSearchParams(location.search);
+var from = parseInt(params.get('from') || '0', 10);
+var n = parseInt(params.get('n') || '6', 10);
+var only = params.get('id');
+var slice = only ? qs.filter(function (q) { return q.id === only; }) : qs.slice(from, from + n);
+
+var missing = [], errs = [];
+var host = document.getElementById('hosts');
+slice.forEach(function (q, i) {
+  var t = document.createElement('h3');
+  t.textContent = (from + i) + '. ' + q.id + '  [' + q.viz + ']  ' + q.type;
+  host.appendChild(t);
+  var p = document.createElement('p'); p.className = 'p'; p.textContent = q.prompt;
+  host.appendChild(p);
+  var d = document.createElement('div'); d.className = 'viz-host'; host.appendChild(d);
+  if (!QQViz.has(q.viz)) { missing.push(q.id + ' -> ' + q.viz); }
+  try {
+    QQViz.mount(q.viz, d, { regions: q.regions || null, data: QQ_DATA.vizData,
+      onSelect: function () {}, onInteract: function () {}, locked: function () { return false; } });
+  } catch (e) { errs.push(q.id + ': ' + e.message); }
+});
+var report = [];
+report.push('total questions: ' + qs.length + ' — showing ' + slice.length + ' from ' + from);
+if (missing.length) report.push('MISSING VISUALS (' + missing.length + '): ' + missing.join(', '));
+if (errs.length) report.push('THREW: ' + errs.join(' | '));
+document.getElementById('err').textContent = report.join('\n');
+window.__missing = missing; window.__errs = errs; window.__total = qs.length;
+</script>
+</body></html>

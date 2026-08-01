@@ -1,0 +1,56 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+<title>lab engines</title>
+<style>body{background:#0d1117;color:#e6edf3;font:14px -apple-system,sans-serif;padding:8px}
+h3{margin:14px 0 4px;font-size:13px;color:#8b949e}.viz-host{background:#161b22;border-radius:12px;padding:10px;margin-bottom:6px}</style>
+</head><body>
+<div id="hosts"></div>
+<script src="js/questions.js"></script>
+<script src="js/viz.js"></script>
+<script src="js/viz_lab.js"></script>
+<script>
+var U = QQLab.util;
+var specs = [
+  ['sim hist', QQLab.sim({ trial: function(){ var s=0; for(var i=0;i<10;i++) s+=U.coin(); return s; },
+      label:'heads', min:0, max:10, batches:[50,1000], axisLabel:'heads in ten flips' })],
+  ['tally', QQLab.tally({ cats:['red','blue','green'], trial:function(){ var r=Math.random();
+      return r<0.5?'red':(r<0.8?'blue':'green'); }, batches:[50,500] })],
+  ['dial', QQLab.dial({ min:0, max:100, step:1, value:20, label:'stake',
+      f:function(x){ return x*(100-x)/100; }, readout:function(x,y){ return 'stake <b>'+x+'%</b> grows <b>'+y.toFixed(2)+'</b>'; },
+      marks:[{x:50,label:'half'}], yLabel:'growth rate', fill:true })],
+  ['grid', QQLab.grid({ rows:6, cols:6, chips:['2','7','12'], key:function(r,c){ return String(r+c+2); },
+      cellText:function(r,c){ return String(r+c+2); }, caption:function(l,h,t){ return '<b>'+h+'</b> of '+t; } })],
+  ['dots', QQLab.dots({ n:400, member:function(i){ return { i:i, sick: i<8, flagged: (i<8? Math.random()<0.9 : Math.random()<0.1),
+      colour: i<8 ? '#f78166' : '#58a6ff' }; },
+      steps:[{ label:'Keep the positives', keep:function(m){ return m.flagged; } }],
+      caption:function(k,step){ return step? '<b>'+k.length+'</b> tested positive' : '400 people, orange are ill'; },
+      keptLabel:function(k){ return 'everyone who tested positive'; } })],
+  ['steps', QQLab.steps({ n:12, caption:function(i){ return 'day <b>'+i+'</b>'; },
+      draw:function(g,w,h,i){ g.fillStyle='#58a6ff'; var s=Math.pow(2,i)/4096;
+        g.fillRect(10,h-10-s*(h-20),w-20,s*(h-20)); } })],
+  ['graph', QQLab.graph({ nodes:[{x:.2,y:.2,label:'A'},{x:.8,y:.2,label:'B'},{x:.5,y:.5,label:'C'},
+      {x:.2,y:.8,label:'D'},{x:.8,y:.8,label:'E'}], edges:[[0,2],[1,2],[2,3],[2,4],[3,4]],
+      onPick:function(i,adj){ return 'node has <b>'+adj[i].length+'</b> links'; } })],
+  ['drag', QQLab.drag({ min:0, max:10, value:3, readout:function(v){ return 'width <b>'+v.toFixed(1)+'</b>'; },
+      draw:function(g,w,h,v){ g.fillStyle='rgba(88,166,255,.4)'; g.fillRect(20,h-20-v*10,v*20,v*10); },
+      hint:'drag me' })],
+  ['race', QQLab.race({ lanes:[{name:'switch', trial:function(){ return Math.random()<2/3?1:0; }},
+      {name:'stay', trial:function(){ return Math.random()<1/3?1:0; }}], batches:[50,500], unit:'wins' })],
+  ['bars', QQLab.bars({ items:[{label:'1',value:10},{label:'2',value:25},{label:'3',value:40},{label:'4',value:18}],
+      caption:function(it){ return 'bar <b>'+it.label+'</b> is '+it.value; }, axisLabel:'a distribution' })],
+  ['picture', QQLab.picture({ regions:[{id:'a',label:'Left'},{id:'b',label:'Right'}],
+      readout:function(sel){ return sel? 'picked <b>'+sel+'</b>' : 'tap a half'; },
+      hitTest:function(x,y,w){ return x<w/2?'a':'b'; },
+      draw:function(g,w,h,sel){ g.fillStyle= sel==='a'?'#58a6ff':'#30363d'; g.fillRect(0,0,w/2-2,h);
+        g.fillStyle= sel==='b'?'#58a6ff':'#30363d'; g.fillRect(w/2+2,0,w/2-2,h); } })]
+];
+var host = document.getElementById('hosts');
+specs.forEach(function (s) {
+  var t = document.createElement('h3'); t.textContent = s[0]; host.appendChild(t);
+  var d = document.createElement('div'); d.className = 'viz-host'; host.appendChild(d);
+  QQViz.register('_t_' + s[0].replace(/ /g,'_'), s[1]);
+  QQViz.mount('_t_' + s[0].replace(/ /g,'_'), d, { regions: [{id:'a',label:'Left'},{id:'b',label:'Right'}] });
+});
+</script>
+</body></html>
