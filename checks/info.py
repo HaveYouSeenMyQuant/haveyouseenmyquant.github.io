@@ -16,7 +16,6 @@ import random
 from fractions import Fraction
 
 from checks._helpers import (
-    first_number,
     nearest_choice,
     strict_min,
 )
@@ -85,7 +84,10 @@ def _huffman_lengths(weights):
 # ---------------------------------------------------------------------------
 
 def check_deck_questions(q, data):
-    n = data["markov"]["deck"] if "markov" in data else 52
+    # the deck size lives in vizData.markov, because the riffle question in
+    # unit 11 shuffles the same 52 cards this one counts the orders of
+    assert "markov" in data and "deck" in data["markov"], "vizData.markov.deck"
+    n = data["markov"]["deck"]
     assert n == 52, n
     orders = math.factorial(n)
     k = 0

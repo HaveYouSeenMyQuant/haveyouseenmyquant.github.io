@@ -114,12 +114,14 @@
         var t2 = tally[c];
         if (t2.runs < 30) continue;
         var p = t2.wins / t2.runs;
-        g.beginPath(); g.arc(X(+c), Y(p), Math.min(6, 2 + t2.runs / 400), 0, 7);
+        g.beginPath(); g.arc(X(+c), Y(p), Math.min(6, 3 + t2.runs / 500), 0, 7);
         g.fillStyle = (+c === cut) ? C.gold : 'rgba(88,166,255,0.75)';
         g.fill();
       }
-      g.strokeStyle = C.gold; g.lineWidth = 1.5;
+      g.strokeStyle = 'rgba(210,153,34,0.45)'; g.lineWidth = 1;
+      g.setLineDash([3, 4]);
       g.beginPath(); g.moveTo(X(cut), top); g.lineTo(X(cut), base); g.stroke();
+      g.setLineDash([]);
       g.fillStyle = C.muted; g.font = f(9.5, 600);
       g.textAlign = 'left'; g.fillText('turn down 0', left, base + 13);
       g.textAlign = 'right'; g.fillText('turn down ' + (N - 1), right, base + 13);
@@ -230,7 +232,7 @@
 
     stage.draw = function (g, w, h) {
       var cols = 4, rows = Math.ceil(perms.length / cols);
-      var pad = 12, cw = (w - pad * 2) / cols, ch = Math.min((h - 26) / rows, 26);
+      var pad = 12, cw = (w - pad * 2) / cols, ch = Math.min((h - 24) / rows, 40);
       perms.forEach(function (p, k) {
         var cx = pad + (k % cols) * cw, cy = 8 + Math.floor(k / cols) * ch;
         var r = plays(p), win = r.got === n - 1;
@@ -402,7 +404,7 @@
         g.fillText(commas((path.length - 1) * 20) + ' spins', right, base + 13);
       }
       g.fillStyle = C.muted; g.font = f(9, 700); g.textAlign = 'left';
-      g.fillText('£' + bank + ' to start', left, Y(bank) - 4);
+      g.fillText('£' + bank + ' to start', left, Math.max(top + 9, Y(bank) - 6));
       g.fillStyle = C.bad; g.fillText('broke', left, Y(0) + 11);
       g.fillStyle = C.muted; g.font = f(9.5, 600); g.textAlign = 'center';
       g.fillText('the wheel takes about 2.7p a spin — the line only points one way',
@@ -453,7 +455,7 @@
         for (var i = 0; i < take; i++) night(i === take - 1);
         pending -= take; render();
       }
-      var pad = 14, top = 12, rowH = Math.min(13, (h - 56) / steps);
+      var pad = 14, top = 10, rowH = Math.max(9, Math.min(16, (h - 62) / steps));
       var maxW = w - pad * 2 - 44;
       for (var k = 0; k < steps; k++) {
         var bet = Math.pow(2, k);

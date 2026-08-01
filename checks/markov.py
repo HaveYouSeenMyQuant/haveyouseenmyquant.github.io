@@ -18,7 +18,6 @@ import random
 from fractions import Fraction
 
 from checks._helpers import (
-    first_number,
     nearest_choice,
     strict_max,
 )
@@ -160,9 +159,8 @@ def check_chain_forgets(q, data):
     assert gaps[0] == Fraction(1, 4) and gaps[13] < Fraction(1, 10 ** 8), gaps[13]
     assert abs(a[0] - pi[0]) < Fraction(1, 10 ** 20)
     assert abs(b[0] - pi[0]) < Fraction(1, 10 ** 20)
-    same = True
     return {
-        "bool": same,
+        "bool": True,
         "value": "true",
         "notes": "the gap between the two starts is exactly 1/4 on day 1 and is "
                  "multiplied by 1/4 every day after; by day 14 it is under 1e-8 "
