@@ -16,8 +16,62 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 90,
+ "count": 91,
  "entries": [
+  {
+   "slug": "maybe_never_no",
+   "title": "A checker that can lie yes, but never lie no",
+   "ts": "2026-08-02T19:02:55+00:00",
+   "date": "2 Aug 2026",
+   "topic": "cs_systems",
+   "q": "A checker that can lie \"yes\", but can never lie \"no\".",
+   "a": "Not giving you the sizing rule — but here is the observation it falls out of, and you can get most of the way from it.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Think about one single position in the row after everything has been inserted. Each item lights a handful of positions, so each insert gets a few independent chances to miss this one particular spot. Multiply those chances together across all the items and you have the probability this position is still dark."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now a false \"maybe\" is just: every position the query checks happens to be lit. Those checks are near enough independent, so it is that single-position probability, flipped and raised to the number of scramblers."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Write that down and something surprising falls out. More scramblers means more chances to catch a missing item — but it also means each insert lights more bits, so the row fills faster and every check is likelier to hit a lit one by accident. The two effects fight, so there is a best number of scramblers, and it is NOT \"as many as you can afford\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The tell: work out what fraction of the row is dark at that optimum. It comes out at an absurdly clean number, and the moment you see it the whole sizing rule drops out in one line."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Worth knowing before you use one: it never wrongly says no, so you can put it in front of an expensive lookup and only pay for the maybes. That is the entire reason it exists."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Full derivation, the sizing rule and the optimal count — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/maybe_never_no"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "goat_grazes_half",
    "title": "A goat tied to the fence of a round field — how long a rope eats exactly half?",
