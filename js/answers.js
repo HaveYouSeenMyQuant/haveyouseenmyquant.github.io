@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 95,
+ "count": 96,
  "entries": [
+  {
+   "slug": "fourier_circles_draw",
+   "title": "How many rotating circles does it take to draw a sharp square?",
+   "ts": "2026-08-02T22:45:37+00:00",
+   "date": "2 Aug 2026",
+   "topic": "calculus",
+   "q": "Solve the square hiding inside spinning circles.",
+   "a": "TIP: Watch the pen's velocity at a corner, not just the outline. A finite stack of rotations gives a smooth velocity. A square corner asks for a sudden turn; that is the pressure point in the problem.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/fourier_circles_draw"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "determinant_area_scale",
    "title": "One linear map, one area multiplier",

@@ -718,6 +718,81 @@ window.QQ_DATA = {
               "explain": "Exactly one, on average — and it makes no difference whether there are thirty people or thirty thousand. Take the people one at a time: with thirty hats flying about, each person has a one in thirty chance of getting their own, and thirty people times one thirtieth is one. More people means more chances, but each chance is rarer, and the two cancel out perfectly."
             }
           ]
+        },
+        {
+          "id": "u6l3",
+          "title": "Average is not typical",
+          "questions": [
+            {
+              "id": "jackpot_average",
+              "type": "number",
+              "topic": "expectation",
+              "prompt": "A scratch card has one thousand equally likely cards. Nine hundred and ninety-nine pay nothing, and one pays £10,000. What is one card worth on average, in pounds?",
+              "vizHint": "Scratch batches of cards and watch one rare win drag the average.",
+              "viz": "jackpotCards",
+              "answerNumber": 10,
+              "tolerance": 0,
+              "placeholder": "pounds",
+              "answerValue": "£10",
+              "explain": "One card in a thousand pays ten thousand pounds, so the average share is ten pounds per card. Almost every actual card pays nothing. The trap is using the usual outcome as the value: the mean is being pulled up by a rare huge result, and that is exactly why the average can feel unlike a normal day."
+            },
+            {
+              "id": "double_until_heads_cap",
+              "type": "number",
+              "topic": "expectation",
+              "prompt": "Flip a coin until the first heads. Heads on the first flip pays £1, heads on the second pays £2, heads on the third pays £4, and it keeps doubling. The game stops after ten flips, and no heads pays nothing. What is it worth on average, in pounds?",
+              "vizHint": "Step through the ten possible first-heads rows. The prize doubles as the chance halves.",
+              "viz": "doublingHeadsRows",
+              "answerNumber": 5,
+              "tolerance": 0,
+              "placeholder": "pounds",
+              "answerValue": "£5",
+              "explain": "Each possible first heads is worth the same half pound on average. Heads first pays one pound half the time. Heads second pays two pounds one time in four. Heads tenth pays five hundred and twelve pounds one time in 1024. Ten rows at fifty pence each make five pounds. The trap is watching the prizes double and forgetting the chance is halving just as fast."
+            },
+            {
+              "id": "sure_or_longshot",
+              "type": "choice",
+              "topic": "expectation",
+              "prompt": "You may take £3 for sure, or take a one-in-four chance at £20 and get nothing otherwise. Which choice is worth more on average?",
+              "vizHint": "Run the sure thing and the long shot side by side.",
+              "viz": "sureLongshotRace",
+              "choices": [
+                "Take the £3 for sure",
+                "Take the one-in-four chance at £20",
+                "They are worth the same",
+                "You cannot tell until luck happens"
+              ],
+              "answer": 1,
+              "answerValue": "the one-in-four chance",
+              "explain": "The long shot is worth five pounds on average, because one quarter of twenty is five. That beats the sure three pounds. But on a single play it still pays nothing three times in four, so the safer choice may be the one you actually want. The trap is treating 'worth more on average' as the same sentence as 'better for this one person right now'."
+            },
+            {
+              "id": "wait_for_two_sixes",
+              "type": "number",
+              "topic": "expectation",
+              "prompt": "Roll a die until you see two sixes in a row. On average, how many rolls does that take?",
+              "vizHint": "Run the wait again and again. Any non-six after one six sends you back to the start.",
+              "viz": "twoSixesWait",
+              "answerNumber": 42,
+              "tolerance": 0,
+              "placeholder": "how many rolls?",
+              "answerValue": "42",
+              "explain": "It takes forty-two rolls on average. Two sixes in a row feels like a one-in-thirty-six thing, so people guess thirty-six, but the waiting game is harsher than that. If you have one six and then roll anything else, you lose the progress and start again. The trap is pricing the pattern as if failed attempts never reset."
+            },
+            {
+              "id": "divided_by_die",
+              "type": "number",
+              "topic": "expectation",
+              "prompt": "Roll one die. Your prize is £12 divided by the number showing: £12 on a 1, £6 on a 2, and so on. What is one play worth on average, in pounds?",
+              "vizHint": "Roll batches and watch the average of the six payouts, not 12 divided by the average roll.",
+              "viz": "inverseDiePrize",
+              "answerNumber": 4.9,
+              "tolerance": 0.01,
+              "placeholder": "pounds, e.g. 4.90",
+              "answerValue": "£4.90",
+              "explain": "It is £4.90. The six possible payouts are £12, £6, £4, £3, £2.40 and £2. Add those six actual payouts and divide by six. The trap is dividing twelve by the average roll, 3.5. You do not get paid for an average roll: you get paid a curved amount on each real roll, and the small rolls pull the average payout up."
+            }
+          ]
         }
       ]
     },

@@ -649,6 +649,141 @@ def _own_hats(n):
     return sum(1 for i, v in enumerate(hats) if v == i)
 
 
+def check_jackpot_average(q, data):
+    cards, prize = 1000, 10_000
+    value = Fraction(prize, cards)
+    assert value == 10, value
+    assert 999 * 0 + prize == 10_000
+    typical = Fraction(999, cards)
+    assert typical > Fraction(99, 100), typical
+    mc = mc_mean(lambda: prize if random.randrange(cards) == 0 else 0, 20_000)
+    assert abs(mc - float(value)) < 9.0, mc
+    return {
+        "number": float(value),
+        "value": "£10",
+        "notes": "one £%s winner across %s equally likely cards gives %s = £%s per "
+                 "card, while %s of cards pay nothing; MC(20k) = £%.2f" % (
+                     "{:,}".format(prize), "{:,}".format(cards), prize, value,
+                     typical, mc),
+    }
+
+
+def check_double_until_heads_cap(q, data):
+    cap = 10
+    rows = []
+    for k in range(1, cap + 1):
+        prize = 2 ** (k - 1)
+        chance = Fraction(1, 2 ** k)
+        rows.append(Fraction(prize) * chance)
+    assert all(r == Fraction(1, 2) for r in rows), rows
+    value = sum(rows)
+    assert value == 5, value
+    no_heads = Fraction(1, 2 ** cap)
+    assert no_heads * 0 == 0
+    mc = mc_mean(_double_until_heads_cap_trial, 20_000)
+    assert abs(mc - float(value)) < 0.6, mc
+    return {
+        "number": float(value),
+        "value": "£5",
+        "notes": "for each first-heads time k=1..%d, payout 2^(k-1) times chance "
+                 "1/2^k is exactly 1/2; ten such rows sum to £%s, and no-heads "
+                 "probability %s contributes £0; MC(20k) = £%.3f" % (
+                     cap, value, no_heads, mc),
+    }
+
+
+def _double_until_heads_cap_trial():
+    for k in range(1, 11):
+        if random.randrange(2) == 0:
+            return 2 ** (k - 1)
+    return 0
+
+
+def check_sure_or_longshot(q, data):
+    sure = Fraction(3)
+    longshot = Fraction(1, 4) * 20
+    assert longshot == 5 and longshot > sure, (sure, longshot)
+    assert Fraction(3, 4) > Fraction(1, 2), "the long shot usually pays nothing"
+    mc_sure = mc_mean(lambda: 3, 5_000)
+    mc_long = mc_mean(lambda: 20 if random.randrange(4) == 0 else 0, 20_000)
+    assert abs(mc_sure - float(sure)) < 1e-12, mc_sure
+    assert abs(mc_long - float(longshot)) < 0.35, mc_long
+    derived = only_choice(q, "one-in-four")
+    return {
+        "choice": derived,
+        "value": "the one-in-four chance",
+        "notes": "sure thing is £%s; the long shot is 1/4 x £20 = £%s, despite "
+                 "paying nothing 3/4 of the time; MC long shot(20k) = £%.3f" % (
+                     sure, longshot, mc_long),
+    }
+
+
+def check_wait_for_two_sixes(q, data):
+    # State 0: no useful previous roll. State 1: the last roll was a six.
+    # e1 = 1 + (5/6)e0, e0 = 1 + (1/6)e1 + (5/6)e0.
+    e0 = Fraction(42)
+    e1 = Fraction(36)
+    assert e1 == 1 + Fraction(5, 6) * e0
+    assert e0 == 1 + Fraction(1, 6) * e1 + Fraction(5, 6) * e0
+    mc = mc_mean(_wait_for_two_sixes, 20_000)
+    assert abs(mc - float(e0)) < 1.4, mc
+    # exhaustive finite-state probabilities up to a long cutoff agree with the mean
+    dist = {(0, 0): Fraction(1)}       # (state, done) -> probability before a flip
+    mean = Fraction(0)
+    for step in range(1, 1000):
+        nxt = {}
+        for (state, done), pr in dist.items():
+            if done:
+                nxt[(state, done)] = nxt.get((state, done), Fraction(0)) + pr
+                continue
+            if state == 1:
+                mean += step * pr * Fraction(1, 6)
+                nxt[(0, 0)] = nxt.get((0, 0), Fraction(0)) + pr * Fraction(5, 6)
+            else:
+                nxt[(1, 0)] = nxt.get((1, 0), Fraction(0)) + pr * Fraction(1, 6)
+                nxt[(0, 0)] = nxt.get((0, 0), Fraction(0)) + pr * Fraction(5, 6)
+        dist = nxt
+    assert abs(float(mean) - 42) < 1e-7, float(mean)
+    return {
+        "number": float(e0),
+        "value": "42",
+        "notes": "solving e1 = 1 + 5e0/6 and e0 = 1 + e1/6 + 5e0/6 gives e0 = "
+                 "%s; finite-state sum to 1000 rolls gives %.8f; MC(20k) = %.3f" % (
+                     e0, float(mean), mc),
+    }
+
+
+def _wait_for_two_sixes():
+    flips, streak = 0, 0
+    while streak < 2:
+        flips += 1
+        if random.randrange(1, 7) == 6:
+            streak += 1
+        else:
+            streak = 0
+    return flips
+
+
+def check_divided_by_die(q, data):
+    payouts = [Fraction(12, face) for face in range(1, 7)]
+    value = sum(payouts) / 6
+    assert payouts == [Fraction(12), Fraction(6), Fraction(4), Fraction(3),
+                       Fraction(12, 5), Fraction(2)], payouts
+    assert value == Fraction(49, 10), value
+    wrong_ratio = Fraction(12, 1) / (sum(Fraction(i) for i in range(1, 7)) / 6)
+    assert wrong_ratio == Fraction(24, 7) and wrong_ratio != value, wrong_ratio
+    mc = mc_mean(lambda: 12 / random.randrange(1, 7), 20_000)
+    assert abs(mc - float(value)) < 0.08, mc
+    return {
+        "number": float(value),
+        "value": "£4.90",
+        "notes": "mean of the six payouts %s is %s = £%.2f; dividing £12 by "
+                 "the average roll would give %s, which is a different question; "
+                 "MC(20k) = £%.3f" % (
+                     [str(p) for p in payouts], value, float(value), wrong_ratio, mc),
+    }
+
+
 CHECKERS = {
     "handshakes_room": check_handshakes_room,
     "queue_orders": check_queue_orders,
@@ -673,4 +808,9 @@ CHECKERS = {
     "sticker_album": check_sticker_album,
     "bus_wait": check_bus_wait,
     "hat_check": check_hat_check,
+    "jackpot_average": check_jackpot_average,
+    "double_until_heads_cap": check_double_until_heads_cap,
+    "sure_or_longshot": check_sure_or_longshot,
+    "wait_for_two_sixes": check_wait_for_two_sixes,
+    "divided_by_die": check_divided_by_die,
 }
