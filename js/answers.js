@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "determinant_area_scale",
    "title": "One linear map, one area multiplier",
-   "ts": "2026-08-02T21:32:17+00:00",
+   "ts": "2026-08-02T21:34:26+00:00",
    "date": "2 Aug 2026",
    "topic": "linear_algebra",
    "q": "A slanted grid changes every area by one secret number. Answer's in bio — free, takes an email.",
