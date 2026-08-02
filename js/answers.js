@@ -16,8 +16,34 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 93,
+ "count": 94,
  "entries": [
+  {
+   "slug": "annealing_escapes_valley",
+   "title": "The bad move that finds the better valley",
+   "ts": "2026-08-02T21:04:02+00:00",
+   "date": "2 Aug 2026",
+   "topic": "optimization",
+   "q": "The best move in this search is the one that looks wrong. Answer's in bio — free, takes an email.",
+   "a": "Useful tip: annealing is not \"random search\". The random part is strongest only when the temperature is high. Once the temperature is low, the same rule becomes almost greedy again.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "On this landscape, look at the shallow dip and ask one question: how can a local rule ever cross a ridge if it is forbidden to move uphill?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Full transition table and the exact checks: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/annealing_escapes_valley"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "shortest_path_wavefront",
    "title": "The shortest route is not the one with the fewest roads",

@@ -1079,3 +1079,17 @@ body.in-lesson .tabs { display: none; }
   .ans-chev { transition: none; }
   .ans-next { transition: none; opacity: 1; transform: none; }
 }
+
+/* The unsubscribe landing. A terminal page: no tabs, no topbar, nothing to do
+ * but leave — so it is centred, quiet, and does not argue. Added 2026-08-02
+ * with the daily email; the one-tap promise in the capture copy is only true
+ * if this page exists and works signed-out. */
+.unsub {
+  max-width: 30rem;
+  margin: 4rem auto;
+  padding: 0 1.25rem;
+  text-align: center;
+}
+.unsub h1 { font-size: 1.35rem; line-height: 1.3; margin: 0 0 .85rem; }
+.unsub p  { color: var(--muted); line-height: 1.55; margin: 0 0 1.25rem; }
+.unsub .primary-btn { display: inline-block; text-decoration: none; }
