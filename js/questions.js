@@ -366,6 +366,75 @@ window.QQ_DATA = {
               "explain": "Tie the two of them together and treat the pair as one person. That leaves four things to put in a row, which is 24 ways, and the tied pair can be either way round, so double it: 48. Out of the 120 orders for five people, 48 have them side by side — two in every five, which is far more than most people expect."
             }
           ]
+        },
+        {
+          "id": "u5l3",
+          "title": "Do not count the same thing twice",
+          "questions": [
+            {
+              "id": "banana_words",
+              "type": "number",
+              "topic": "counting",
+              "prompt": "The letters in BANANA are shuffled. How many different-looking strings can you make?",
+              "vizHint": "Shuffle the six tiles. The same-looking string can be made by many hidden swaps.",
+              "viz": "bananaShuffles",
+              "answerNumber": 60,
+              "tolerance": 0,
+              "placeholder": "how many strings?",
+              "answerValue": "60",
+              "explain": "Six different tiles would give 720 orders. But BANANA has three As and two Ns, and swapping those matching letters does not make a new-looking string. Each visible string has been counted twelve times: six swaps of the As, and two swaps of the Ns. So 720 shrinks to 60. The trap is counting labels the eye cannot see."
+            },
+            {
+              "id": "round_table",
+              "type": "choice",
+              "topic": "counting",
+              "prompt": "Six friends sit around a round table. Turning the whole table does not make a new seating order. How many different orders are there?",
+              "vizHint": "Spin the table and shuffle it. A turn changes the seats, but not the circle.",
+              "viz": "roundTableSpin",
+              "choices": ["30", "120", "720", "5040"],
+              "answer": 1,
+              "answerValue": "120",
+              "explain": "In a row there would be 720 orders. Around a round table, the same circle can be turned into six different seat numbers, so the row count has counted each real seating six times. Divide by six and you get 120. The trap is treating the chair labels as if they matter when only the neighbours do."
+            },
+            {
+              "id": "checkpoint_paths",
+              "type": "number",
+              "topic": "counting",
+              "prompt": "On a four by four city grid, you walk from the bottom-left corner to the top-right, only east or north. Your route must pass through the corner two blocks east and one block north from the start. How many routes can do that?",
+              "vizHint": "Walk routes through the gold corner. The trip is two smaller trips stuck together.",
+              "viz": "checkpointRoutes",
+              "answerNumber": 30,
+              "tolerance": 0,
+              "placeholder": "how many routes?",
+              "answerValue": "30",
+              "explain": "To reach the gold corner you need three moves: two east and one north. That can happen three ways. From there to the finish you need five more moves: two east and three north. That can happen ten ways. Each first half can be glued to each second half, so it is three times ten: 30. The trap is adding the two counts instead of pairing them up."
+            },
+            {
+              "id": "grid_rectangles",
+              "type": "choice",
+              "topic": "counting",
+              "prompt": "A window is split into a grid four little squares wide and three little squares high. Counting every rectangle you can trace on the grid, how many rectangles are there?",
+              "vizHint": "Pick two vertical grid lines and two horizontal grid lines. They frame one rectangle.",
+              "viz": "rectanglePicker",
+              "choices": ["12", "20", "60", "120"],
+              "answer": 2,
+              "answerValue": "60",
+              "explain": "A rectangle is fixed by its left and right grid lines, and its bottom and top grid lines. There are five vertical grid lines, so ten ways to choose the two sides. There are four horizontal grid lines, so six ways to choose the top and bottom. Ten times six is 60. The trap is counting only the twelve little panes, or only the twenty squares."
+            },
+            {
+              "id": "three_pairings",
+              "type": "number",
+              "topic": "counting",
+              "prompt": "Six friends split into three pairs for a game. The pairs are not named, and the order inside a pair does not matter. How many different pairings are possible?",
+              "vizHint": "Pair the six friends again and again. Swapping the pairs around does not make a new split.",
+              "viz": "pairingSplits",
+              "answerNumber": 15,
+              "tolerance": 0,
+              "placeholder": "how many pairings?",
+              "answerValue": "15",
+              "explain": "Pick a partner for the first person: five choices. Of the four people left, pick a partner for the next unpaired person: three choices. The final two are forced. Five times three is 15. The trap is lining everyone up first, then forgetting that pair order and pair names were never part of the question."
+            }
+          ]
         }
       ]
     },

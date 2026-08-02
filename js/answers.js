@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 94,
+ "count": 95,
  "entries": [
+  {
+   "slug": "determinant_area_scale",
+   "title": "One linear map, one area multiplier",
+   "ts": "2026-08-02T21:32:17+00:00",
+   "date": "2 Aug 2026",
+   "topic": "linear_algebra",
+   "q": "A slanted grid changes every area by one secret number. Answer's in bio — free, takes an email.",
+   "a": "TIP: Do not follow the whole grid at once. Follow one unit square. Its image has side vectors equal to where the two grid steps land, and every other tile is just that image shifted somewhere else.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/determinant_area_scale"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "annealing_escapes_valley",
    "title": "The bad move that finds the better valley",
