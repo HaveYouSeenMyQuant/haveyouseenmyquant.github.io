@@ -16,8 +16,219 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 86,
+ "count": 89,
  "entries": [
+  {
+   "slug": "seven_bits_one_flip",
+   "title": "Seven bits, one flips, and the block says which",
+   "ts": "2026-08-02T10:44:32+00:00",
+   "date": "2 Aug 2026",
+   "topic": "information_theory",
+   "q": "Seven bits go down a wire, one of them flips, and the message can still tell you exactly which one.",
+   "a": "Not going to hand you the position — but here is the observation that unlocks it, and it is the whole idea:",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three overlapping circles cut the plane into exactly seven regions. Seven positions, seven regions — so every position sits in its own unique combination of circles. No two are alike."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is why the receiver never has to search. \"Which checks came out odd\" is not a hint about the broken bit; it is a name for it. There is exactly one region inside both of the circles that went odd and outside the one that stayed even, and that region holds exactly one position."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So: two circles odd, one even. Find the region that is inside both odd ones and outside the even one, and read off the number underneath it. That is your answer, and you can do it from the frame in the video."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things worth knowing once you have it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— The check bits are the ones sitting alone in each circle. That is not a coincidence, it is what makes the encoder trivial: choose your four message bits, then set each check so its own circle comes out even. Nothing else has to be recomputed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— It breaks on two flips, and not gracefully. It does not report a problem — it confidently blames a third, innocent position and hands back a wrong message with no complaint. Worth thinking about why before you look that up."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Full worked answer, the construction, and the exhaustive 128-case check — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/seven_bits_one_flip"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "diamond_or_circle_budget",
+   "title": "Two ways to keep the dials small — only one switches a dial off",
+   "ts": "2026-08-02T09:11:59+00:00",
+   "date": "2 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": "Two ways to tell a model to keep its numbers small. One of them deletes a feature outright.",
+   "a": "Not giving you the answer — but here is the one observation that cracks it, and you can do it in your head.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The constrained answer is the lowest-error point of the budget region. The error contours are nested ellipses growing out of the free best fit, so that point is simply wherever the growing ellipse FIRST touches the region."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now ask what a \"first touch\" needs at each kind of place on a boundary."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— At a smooth point, the ellipse and the boundary have to be tangent: their outward directions must agree exactly. That is one equation. Tilt the ellipse slightly — different data, differently correlated columns — and the touch point slides somewhere else. It is a knife edge."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— At a corner there is no single outward direction to match; a corner has a whole fan of them. So a corner keeps on winning across a RANGE of ellipse orientations rather than one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the entire difference. Now look at where each region's corners sit relative to the axes, and ask what it means for a coefficient when the answer lands exactly on an axis."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things worth doing yourself before you look them up:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— Write the answer on the flat face of the diamond as a function of the budget t. With standardised columns it comes out linear in t, so you can read off the exact budget at which the second coefficient hits zero. It is a difference of two numbers you already have."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— For the circle, the answer is (X'X + m·I)^-1 X'y as m runs from 0 upwards. Write its second component as a fraction in m and find the m that makes it vanish. Then check whether that m is a penalty you could ever actually apply."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both coefficient paths, the exact threshold, the data, and the proof that the drawn touch point really is the constrained minimum — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/diamond_or_circle_budget"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "cube_root_seven_slides",
+   "title": "Four slides down a curve pin the cube root of 7 to 21 decimals",
+   "ts": "2026-08-02T07:45:05+00:00",
+   "date": "2 Aug 2026",
+   "topic": "optimization",
+   "q": "Nobody can tell you the number whose cube is seven. Four slides down a curve can.",
+   "a": "Not giving you the digits — but you can get the first two yourself in about a minute, on paper, and here is exactly how.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Start at x = 2. Two cubed is eight, so you are one too big."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The line you slide down is the one touching the curve at your guess. For y = x³ − 7 its steepness at x is 3x², which at x = 2 is 12. You are 1 above zero and descending 12 for every 1 you move left, so you move 1/12 to the left."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    next guess = 2 − 1/12 = 23/12 = 1.91666…"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The true answer starts 1.9129…, so one slide has already bought you the integer part and the first decimal. Do it once more with the same rule — steepness 3x² at your new guess, divide the height you are above zero by it, step that far left — and four or five decimals appear at once. That is the doubling starting."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rule in one line: subtract (how far above zero you are) divided by (how steep the curve is there)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things worth noticing while you do it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— You never need the answer to check your work. The error shrinks so fast that each guess agrees with the next to twice as many places, and that agreement IS the accuracy."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— It only doubles once you are close. Start where the curve is nearly flat, so the line you follow is nearly horizontal, and it will throw you a long way off. Worth working out where that happens for this curve."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "All 30 decimals, every exact fraction in the chain, and the proof the digit count doubles — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/cube_root_seven_slides"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "three_switches_one_look",
    "title": "Three switches, one bulb behind a closed door, one look",
