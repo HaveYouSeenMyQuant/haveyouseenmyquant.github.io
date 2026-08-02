@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 91,
+ "count": 92,
  "entries": [
+  {
+   "slug": "euler_steps_converge",
+   "title": "Arrow walks: what do Euler steps converge to?",
+   "ts": "2026-08-02T19:30:59+00:00",
+   "date": "2 Aug 2026",
+   "topic": "calculus",
+   "q": "A staircase can be aiming at a curve. Answer's in bio — free, takes an email.",
+   "a": "TIP: With n equal steps across the unit interval, the walker does not add the same amount each time. Each step multiplies the current height by the same factor. Write that endpoint first; then compare it with the smooth route's finish height.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Full worked answer and the error-rate check - free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/euler_steps_converge"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "maybe_never_no",
    "title": "A checker that can lie yes, but never lie no",
