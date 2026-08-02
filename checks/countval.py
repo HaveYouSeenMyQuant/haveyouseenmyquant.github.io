@@ -247,6 +247,154 @@ def _adjacent_shuffle():
     return abs(a.index(0) - a.index(1)) == 1
 
 
+def check_banana_words(q, data):
+    letters = "BANANA"
+    visible = {"".join(p) for p in itertools.permutations(letters)}
+    n = len(visible)
+    labelled = math.factorial(len(letters))
+    repeats = math.factorial(3) * math.factorial(2)
+    assert n == 60, n
+    assert labelled // repeats == n, (labelled, repeats, n)
+    assert len(set(itertools.permutations(range(len(letters))))) == labelled
+    # every visible string is made by the same hidden swaps of the three As and two Ns
+    fibres = {}
+    for p in itertools.permutations(range(len(letters))):
+        word = "".join(letters[i] for i in p)
+        fibres[word] = fibres.get(word, 0) + 1
+    assert set(fibres.values()) == {repeats}, set(fibres.values())
+    return {
+        "number": n,
+        "value": str(n),
+        "notes": "enumerated all labelled orders of BANANA: %d hidden orders collapse "
+                 "to %d visible strings; each visible string appears %d times because "
+                 "the three As and two Ns can be swapped invisibly" % (
+                     labelled, n, repeats),
+    }
+
+
+def check_round_table(q, data):
+    n_people = 6
+    perms = list(itertools.permutations(range(n_people)))
+
+    def canon(p):
+        rots = [p[i:] + p[:i] for i in range(n_people)]
+        return min(rots)
+
+    circles = {canon(p) for p in perms}
+    n = len(circles)
+    assert n == math.factorial(n_people) // n_people == 120, n
+    assert len(perms) == n * n_people
+    # Mirrors are not rotations: left and right neighbours have swapped.
+    assert canon((0, 1, 2, 3, 4, 5)) != canon((0, 5, 4, 3, 2, 1))
+    derived = str(n)
+    assert derived in q["choices"], derived
+    return {
+        "choice": derived,
+        "value": derived,
+        "notes": "all %d labelled seatings enumerated; after identifying the %d "
+                 "rotations of each circle, %d circular orders remain" % (
+                     len(perms), n_people, n),
+    }
+
+
+def check_checkpoint_paths(q, data):
+    east = north = 4
+    checkpoint = (2, 1)
+    seqs = []
+    for s in itertools.product("EN", repeat=east + north):
+        if s.count("E") != east:
+            continue
+        x = y = 0
+        hit = False
+        for step in s:
+            if step == "E":
+                x += 1
+            else:
+                y += 1
+            if (x, y) == checkpoint:
+                hit = True
+        if hit:
+            seqs.append(s)
+    n = len(seqs)
+    before = math.comb(sum(checkpoint), checkpoint[0])
+    after_e = east - checkpoint[0]
+    after_n = north - checkpoint[1]
+    after = math.comb(after_e + after_n, after_e)
+    assert n == before * after == 30, (n, before, after)
+    assert before + after != n, "the two halves are paired, not added"
+    return {
+        "number": n,
+        "value": str(n),
+        "notes": "enumerated all 4E/4N routes and kept those through %s -> %d; "
+                 "split count is C(3,2)=%d before and C(5,2)=%d after, product %d" % (
+                     checkpoint, n, before, after, before * after),
+    }
+
+
+def check_grid_rectangles(q, data):
+    width, height = 4, 3
+    rects = [
+        (x0, x1, y0, y1)
+        for x0 in range(width)
+        for x1 in range(x0 + 1, width + 1)
+        for y0 in range(height)
+        for y1 in range(y0 + 1, height + 1)
+    ]
+    n = len(rects)
+    by_lines = math.comb(width + 1, 2) * math.comb(height + 1, 2)
+    squares = [
+        r for r in rects
+        if r[1] - r[0] == r[3] - r[2]
+    ]
+    assert n == by_lines == 60, (n, by_lines)
+    assert len(squares) == 20, len(squares)
+    assert width * height == 12
+    derived = str(n)
+    assert derived in q["choices"], derived
+    return {
+        "choice": derived,
+        "value": derived,
+        "notes": "enumerated all left/right/top/bottom grid-line choices -> %d "
+                 "rectangles; choosing 2 of 5 vertical lines and 2 of 4 horizontal "
+                 "lines gives %d; only %d of them are squares" % (
+                     n, by_lines, len(squares)),
+    }
+
+
+def check_three_pairings(q, data):
+    people = tuple(range(6))
+
+    def matchings(xs):
+        if not xs:
+            return [()]
+        first = xs[0]
+        out = []
+        for i in range(1, len(xs)):
+            partner = xs[i]
+            rest = xs[1:i] + xs[i + 1:]
+            for tail in matchings(rest):
+                out.append(((first, partner),) + tail)
+        return out
+
+    pairings = matchings(people)
+    normalised = {
+        tuple(sorted(tuple(sorted(p)) for p in m))
+        for m in pairings
+    }
+    n = len(normalised)
+    assert len(pairings) == n == 15, (len(pairings), n)
+    formula = math.factorial(6) // (2 ** 3 * math.factorial(3))
+    assert formula == n
+    assert 5 * 3 == n
+    return {
+        "number": n,
+        "value": str(n),
+        "notes": "recursive exact matching gives %d splits; equivalently 6! divided "
+                 "by 2^3 inside-pair orders and 3! pair orders, or 5 choices then "
+                 "3 choices" % n,
+    }
+
+
 # ---------------------------------------------------------------------------
 # unit 6 — what it's worth
 # ---------------------------------------------------------------------------
@@ -511,6 +659,11 @@ CHECKERS = {
     "at_least_one_six": check_at_least_one_six,
     "pigeonhole_hair": check_pigeonhole_hair,
     "seating_together": check_seating_together,
+    "banana_words": check_banana_words,
+    "round_table": check_round_table,
+    "checkpoint_paths": check_checkpoint_paths,
+    "grid_rectangles": check_grid_rectangles,
+    "three_pairings": check_three_pairings,
     "coin_game_value": check_coin_game_value,
     "value_order": check_value_order,
     "raffle_ticket": check_raffle_ticket,

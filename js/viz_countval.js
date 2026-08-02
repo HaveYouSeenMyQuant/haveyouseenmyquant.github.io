@@ -612,6 +612,349 @@
     }
   }));
 
+  /* -------------------------------------- 10. repeated letters in BANANA */
+  reg('bananaShuffles', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Shuffle the tiles. Matching letters hide repeated counts.');
+    var stage = K.Stage(host, 0.56);
+    var base = ['B', 'A', 'N', 'A', 'N', 'A'];
+    var cur = base.slice();
+    var seen = {}, distinct = 0, runs = 0, pending = 0, movedAt = 0;
+
+    function record() {
+      shuffle(cur);
+      runs++;
+      var key = cur.join('');
+      if (!seen[key]) { seen[key] = 1; distinct++; }
+    }
+    function render() {
+      if (!runs) { out.innerHTML = 'Shuffle the tiles. Matching letters hide repeated counts.'; return; }
+      out.innerHTML = '<b>' + commas(runs) + '</b> shuffles &nbsp;·&nbsp; <b>' +
+        distinct + '</b> different-looking strings found';
+    }
+    K.button(ctr, 'Shuffle', function () {
+      record(); movedAt = now(); render(); api.onInteract('run');
+    }).classList.add('primary');
+    K.button(ctr, 'Shuffle 200 times', function () {
+      pending += 200; api.onInteract('run');
+    }).classList.add('small');
+    K.button(ctr, 'Start over', function () {
+      cur = base.slice(); seen = {}; distinct = 0; runs = 0; pending = 0;
+      render(); api.onInteract('reset');
+    }).classList.add('small');
+    render();
+
+    stage.draw = function (g, w, h) {
+      var take = Math.min(pending, 120), i;
+      for (i = 0; i < take; i++) record();
+      pending -= take;
+      if (take) { movedAt = now(); render(); }
+
+      var pad = 10, step = (w - pad * 2) / cur.length;
+      var tile = Math.min(step - 6, h * 0.38);
+      var y = h * 0.36;
+      var pop = 1 - easeOut(clamp((now() - movedAt) / 280, 0, 1));
+      for (i = 0; i < cur.length; i++) {
+        var x = pad + step * (i + 0.5), letter = cur[i];
+        var lift = pop * ((i % 2) ? 7 : 3);
+        g.fillStyle = letter === 'A' ? C.gold : (letter === 'N' ? C.accent : C.good);
+        roundRect(g, x - tile / 2, y - tile / 2 - lift, tile, tile, 8); g.fill();
+        g.fillStyle = '#0d1117'; g.font = f(Math.max(18, tile * 0.46), 900);
+        g.textAlign = 'center';
+        g.fillText(letter, x, y + tile * 0.16 - lift);
+        g.fillStyle = '#5b6672'; g.font = f(10, 700);
+        g.fillText(String(i + 1), x, y + tile * 0.5 + 14 - lift);
+      }
+      g.fillStyle = C.muted; g.font = f(10, 500); g.textAlign = 'left';
+      g.fillText('three A tiles and two N tiles look identical after a swap', 4, h - 3);
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* --------------------------------------------- 11. seats around a table */
+  reg('roundTableSpin', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Shuffle the friends. Spin the table to see what did not change.');
+    var stage = K.Stage(host, 0.72);
+    var names = ['A', 'B', 'C', 'D', 'E', 'F'];
+    var cur = names.slice();
+    var seen = {}, distinct = 0, runs = 0, pending = 0, spin = 0, movedAt = 0;
+
+    function canon(a) {
+      var at = a.indexOf('A'), out = [], i;
+      for (i = 0; i < a.length; i++) out.push(a[(at + i) % a.length]);
+      return out.join('');
+    }
+    function record() {
+      shuffle(cur);
+      runs++;
+      var key = canon(cur);
+      if (!seen[key]) { seen[key] = 1; distinct++; }
+    }
+    function render(msg) {
+      if (!runs) { out.innerHTML = msg || 'Shuffle the friends. Spin the table to see what did not change.'; return; }
+      out.innerHTML = '<b>' + commas(runs) + '</b> shuffles &nbsp;·&nbsp; <b>' +
+        distinct + '</b> different circles found';
+    }
+    K.button(ctr, 'Shuffle', function () {
+      record(); movedAt = now(); render(); api.onInteract('run');
+    }).classList.add('primary');
+    K.button(ctr, 'Shuffle 200 times', function () {
+      pending += 200; api.onInteract('run');
+    }).classList.add('small');
+    K.button(ctr, 'Spin table', function () {
+      spin += Math.PI / 3; movedAt = now(); render('Same circle, just turned.'); api.onInteract('spin');
+    }).classList.add('small');
+    render();
+
+    stage.draw = function (g, w, h) {
+      var take = Math.min(pending, 120), i;
+      for (i = 0; i < take; i++) record();
+      pending -= take;
+      if (take) { movedAt = now(); render(); }
+
+      var cx = w / 2, cy = h * 0.46;
+      var r = Math.min(w, h) * 0.27;
+      g.fillStyle = '#141a21';
+      g.beginPath(); g.arc(cx, cy, r * 0.98, 0, 7); g.fill();
+      g.strokeStyle = C.line; g.lineWidth = 2;
+      g.beginPath(); g.arc(cx, cy, r * 0.98, 0, 7); g.stroke();
+      for (i = 0; i < cur.length; i++) {
+        var a = -Math.PI / 2 + spin + i * Math.PI * 2 / cur.length;
+        var x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r;
+        var hot = cur[i] === 'A';
+        g.fillStyle = hot ? C.gold : '#1c232c';
+        g.beginPath(); g.arc(x, y, 18, 0, 7); g.fill();
+        g.strokeStyle = hot ? C.gold : C.line; g.lineWidth = hot ? 2 : 1;
+        g.beginPath(); g.arc(x, y, 18, 0, 7); g.stroke();
+        g.fillStyle = hot ? '#0d1117' : C.fg;
+        g.font = f(15, 900); g.textAlign = 'center';
+        g.fillText(cur[i], x, y + 5);
+      }
+      g.fillStyle = C.muted; g.font = f(10, 500); g.textAlign = 'left';
+      g.fillText('A is gold so you can see that a spin has not made a new circle', 4, h - 3);
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* -------------------------------------------- 12. routes via a corner */
+  reg('checkpointRoutes', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Walk through the gold corner on the way to the finish.');
+    var stage = K.Stage(host, 0.86);
+    var seen = {}, distinct = 0, walks = 0, pending = 0, last = null, lastAt = 0;
+
+    function route() {
+      var first = shuffle(['E', 'E', 'N']);
+      var second = shuffle(['E', 'E', 'N', 'N', 'N']);
+      return first.concat(second);
+    }
+    function record() {
+      last = route();
+      walks++;
+      var key = last.join('');
+      if (!seen[key]) { seen[key] = 1; distinct++; }
+    }
+    function render() {
+      if (!walks) { out.innerHTML = 'Walk through the gold corner on the way to the finish.'; return; }
+      out.innerHTML = '<b>' + commas(walks) + '</b> walks &nbsp;·&nbsp; <b>' +
+        distinct + '</b> different checkpoint routes found';
+    }
+    K.button(ctr, 'Walk route', function () {
+      record(); lastAt = now(); render(); api.onInteract('run');
+    }).classList.add('primary');
+    K.button(ctr, 'Walk 200 routes', function () {
+      pending += 200; api.onInteract('run');
+    }).classList.add('small');
+    K.button(ctr, 'Start over', function () {
+      seen = {}; distinct = 0; walks = 0; pending = 0; last = null;
+      render(); api.onInteract('reset');
+    }).classList.add('small');
+    render();
+
+    stage.draw = function (g, w, h) {
+      var take = Math.min(pending, 80), i;
+      for (i = 0; i < take; i++) record();
+      pending -= take;
+      if (take) { lastAt = now(); render(); }
+
+      var B = 4, pad = 24;
+      var size = Math.min((w - pad * 2) / B, (h - pad * 2) / B);
+      var ox = (w - size * B) / 2, oy = h - pad - size * B + 5;
+      function PX(c) { return ox + c * size; }
+      function PY(r) { return oy + (B - r) * size; }
+
+      g.strokeStyle = 'rgba(139,148,158,0.32)'; g.lineWidth = 1.4;
+      for (i = 0; i <= B; i++) {
+        g.beginPath(); g.moveTo(PX(0), PY(i)); g.lineTo(PX(B), PY(i)); g.stroke();
+        g.beginPath(); g.moveTo(PX(i), PY(0)); g.lineTo(PX(i), PY(B)); g.stroke();
+      }
+      g.fillStyle = C.gold; g.beginPath(); g.arc(PX(2), PY(1), 7, 0, 7); g.fill();
+      if (last) {
+        var age = (now() - lastAt) / 1000, upto = clamp(age / 0.6, 0, 1) * last.length;
+        var r = 0, c = 0;
+        g.strokeStyle = C.good; g.lineWidth = 4; g.lineJoin = 'round'; g.lineCap = 'round';
+        g.beginPath(); g.moveTo(PX(0), PY(0));
+        for (i = 0; i < last.length; i++) {
+          var part = clamp(upto - i, 0, 1);
+          if (part <= 0) break;
+          var nr = r + (last[i] === 'N' ? 1 : 0), nc = c + (last[i] === 'E' ? 1 : 0);
+          g.lineTo(lerp(PX(c), PX(nc), part), lerp(PY(r), PY(nr), part));
+          r = nr; c = nc;
+        }
+        g.stroke(); g.lineCap = 'butt';
+      }
+      g.fillStyle = C.accent; g.beginPath(); g.arc(PX(0), PY(0), 6, 0, 7); g.fill();
+      g.fillStyle = C.gold; g.beginPath(); g.arc(PX(B), PY(B), 6, 0, 7); g.fill();
+      g.fillStyle = C.muted; g.font = f(10, 500); g.textAlign = 'left';
+      g.fillText('the gold corner splits the route into two smaller route counts', 4, h - 3);
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* ---------------------------------------------- 13. all grid rectangles */
+  reg('rectanglePicker', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Pick two vertical lines and two horizontal lines by making rectangles.');
+    var stage = K.Stage(host, 0.72);
+    var rects = [], seen = {}, distinct = 0, picks = 0, pending = 0, cur = null, all = false, movedAt = 0;
+    var x0, x1, y0, y1;
+    for (x0 = 0; x0 < 4; x0++) for (x1 = x0 + 1; x1 <= 4; x1++) {
+      for (y0 = 0; y0 < 3; y0++) for (y1 = y0 + 1; y1 <= 3; y1++) rects.push([x0, x1, y0, y1]);
+    }
+    function key(r) { return r.join(','); }
+    function record() {
+      cur = rects[pickInt(rects.length)];
+      picks++;
+      if (!seen[key(cur)]) { seen[key(cur)] = 1; distinct++; }
+    }
+    function render() {
+      if (all) {
+        out.innerHTML = 'all <b>' + rects.length + '</b> rectangles are shown as faint outlines';
+      } else if (!picks) {
+        out.innerHTML = 'Pick two vertical lines and two horizontal lines by making rectangles.';
+      } else {
+        out.innerHTML = '<b>' + commas(picks) + '</b> picks &nbsp;·&nbsp; <b>' +
+          distinct + '</b> different rectangles found';
+      }
+    }
+    K.button(ctr, 'Pick rectangle', function () {
+      all = false; record(); movedAt = now(); render(); api.onInteract('run');
+    }).classList.add('primary');
+    K.button(ctr, 'Pick 200', function () {
+      all = false; pending += 200; api.onInteract('run');
+    }).classList.add('small');
+    K.button(ctr, 'Show all', function () {
+      all = true; render(); api.onInteract('show');
+    }).classList.add('small');
+    render();
+
+    stage.draw = function (g, w, h) {
+      var take = Math.min(pending, 100), i;
+      for (i = 0; i < take; i++) record();
+      pending -= take;
+      if (take) { movedAt = now(); render(); }
+
+      var W = 4, H = 3, pad = 24;
+      var size = Math.min((w - pad * 2) / W, (h - pad * 2) / H);
+      var ox = (w - size * W) / 2, oy = (h - size * H) / 2 - 2;
+      function RX(x) { return ox + x * size; }
+      function RY(y) { return oy + (H - y) * size; }
+      g.strokeStyle = 'rgba(139,148,158,0.42)'; g.lineWidth = 1.5;
+      for (i = 0; i <= W; i++) { g.beginPath(); g.moveTo(RX(i), RY(0)); g.lineTo(RX(i), RY(H)); g.stroke(); }
+      for (i = 0; i <= H; i++) { g.beginPath(); g.moveTo(RX(0), RY(i)); g.lineTo(RX(W), RY(i)); g.stroke(); }
+      if (all) {
+        g.strokeStyle = 'rgba(63,185,80,0.20)'; g.lineWidth = 1;
+        rects.forEach(function (r) {
+          g.strokeRect(RX(r[0]) + 1, RY(r[3]) + 1, (r[1] - r[0]) * size - 2, (r[3] - r[2]) * size - 2);
+        });
+      }
+      if (cur) {
+        var k = easeOut(clamp((now() - movedAt) / 320, 0, 1));
+        g.fillStyle = 'rgba(210,153,34,' + (0.10 + 0.20 * k) + ')';
+        g.fillRect(RX(cur[0]) + 2, RY(cur[3]) + 2, (cur[1] - cur[0]) * size - 4, (cur[3] - cur[2]) * size - 4);
+        g.strokeStyle = C.gold; g.lineWidth = 3;
+        g.strokeRect(RX(cur[0]) + 1.5, RY(cur[3]) + 1.5, (cur[1] - cur[0]) * size - 3, (cur[3] - cur[2]) * size - 3);
+      }
+      g.fillStyle = C.muted; g.font = f(10, 500); g.textAlign = 'left';
+      g.fillText('one rectangle is made by two vertical and two horizontal grid lines', 4, h - 3);
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* ------------------------------------------------------ 14. three pairs */
+  reg('pairingSplits', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Pair the six friends. Pair names and pair order do not count.');
+    var stage = K.Stage(host, 0.62);
+    var names = ['A', 'B', 'C', 'D', 'E', 'F'];
+    var cur = [['A', 'B'], ['C', 'D'], ['E', 'F']];
+    var seen = {}, distinct = 0, runs = 0, pending = 0, movedAt = 0;
+
+    function makePairing() {
+      var a = shuffle(names.slice()), pairs = [], i;
+      for (i = 0; i < a.length; i += 2) {
+        pairs.push([a[i], a[i + 1]].sort());
+      }
+      pairs.sort(function (p, q) { return p.join('').localeCompare(q.join('')); });
+      return pairs;
+    }
+    function key(pairs) { return pairs.map(function (p) { return p.join(''); }).join('|'); }
+    function record() {
+      cur = makePairing();
+      runs++;
+      var k = key(cur);
+      if (!seen[k]) { seen[k] = 1; distinct++; }
+    }
+    function render() {
+      if (!runs) { out.innerHTML = 'Pair the six friends. Pair names and pair order do not count.'; return; }
+      out.innerHTML = '<b>' + commas(runs) + '</b> pairings &nbsp;·&nbsp; <b>' +
+        distinct + '</b> different splits found';
+    }
+    K.button(ctr, 'Pair them', function () {
+      record(); movedAt = now(); render(); api.onInteract('run');
+    }).classList.add('primary');
+    K.button(ctr, 'Pair 100 times', function () {
+      pending += 100; api.onInteract('run');
+    }).classList.add('small');
+    K.button(ctr, 'Start over', function () {
+      cur = [['A', 'B'], ['C', 'D'], ['E', 'F']]; seen = {}; distinct = 0; runs = 0; pending = 0;
+      render(); api.onInteract('reset');
+    }).classList.add('small');
+    render();
+
+    stage.draw = function (g, w, h) {
+      var take = Math.min(pending, 80), i;
+      for (i = 0; i < take; i++) record();
+      pending -= take;
+      if (take) { movedAt = now(); render(); }
+
+      var pad = 14, rowH = (h - 28) / 3;
+      var pop = 1 - easeOut(clamp((now() - movedAt) / 280, 0, 1));
+      for (i = 0; i < cur.length; i++) {
+        var y = 20 + rowH * i + rowH / 2;
+        var x1 = w * 0.32, x2 = w * 0.68;
+        g.strokeStyle = C.good; g.lineWidth = 3;
+        g.beginPath();
+        g.moveTo(x1 + 18, y);
+        g.bezierCurveTo(w * 0.44, y - 18 - pop * 10, w * 0.56, y - 18 - pop * 10, x2 - 18, y);
+        g.stroke();
+        [0, 1].forEach(function (j) {
+          var x = j ? x2 : x1;
+          g.fillStyle = j ? C.gold : C.accent;
+          g.beginPath(); g.arc(x, y, 19, 0, 7); g.fill();
+          g.fillStyle = '#0d1117'; g.font = f(15, 900); g.textAlign = 'center';
+          g.fillText(cur[i][j], x, y + 5);
+        });
+        g.fillStyle = '#5b6672'; g.font = f(10, 700); g.textAlign = 'center';
+        g.fillText('pair ' + (i + 1), w / 2, y + 20);
+      }
+      g.fillStyle = C.muted; g.font = f(10, 500); g.textAlign = 'left';
+      g.fillText('after A has a partner, the next unpaired friend has three choices', pad, h - 3);
+    };
+    return { destroy: stage.destroy };
+  });
+
   /* ==========================================================  unit 6  === */
 
   /* ---------------------------------------------- 10. the ten-or-six game */
