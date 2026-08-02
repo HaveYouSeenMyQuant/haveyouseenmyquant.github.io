@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 89,
+ "count": 90,
  "entries": [
+  {
+   "slug": "goat_grazes_half",
+   "title": "A goat tied to the fence of a round field — how long a rope eats exactly half?",
+   "ts": "2026-08-02T18:34:49+00:00",
+   "date": "2 Aug 2026",
+   "topic": "geometry",
+   "q": "A goat is tied to a post on the fence of a round field. How long a rope lets it eat exactly half the grass?",
+   "a": "The one move that unlocks it: the eaten patch is not one shape, it is two.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Write down both circles — the field, and the circle the rope can reach — and subtract one equation from the other. Every squared term cancels, and what is left is a single straight horizontal line. So the two circles cross at two points that sit at exactly the same height."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That line cuts the grazed patch in half. Below it the edge is the fence; above it the edge is the rope. Each piece is a circle cut off by a straight line, and the area of one of those is something you can write down in one go. Do the two separately, add them, set the total equal to half the field."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then comes the part nobody warns you about. Look at what you are holding: the rope length appears inside two inverse cosines AND multiplied outside them. There is no rearrangement that gets it on its own — no root, no substitution, nothing. That is not you being bad at algebra. The equation genuinely has no solution in the ordinary functions, and the only route left is to close in on the number."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things worth knowing before you start. First, the eaten area only ever grows as the rope gets longer, so there is exactly one length that works — no second answer hiding anywhere, and that is what makes closing in on it safe. Second, a rope equal to the distance from the fence to the middle only gets you 39.1%, which tells you the answer is quite a bit longer than most people's first guess."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Full working, the length to ten decimal places, and the checks: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/goat_grazes_half"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "seven_bits_one_flip",
    "title": "Seven bits, one flips, and the block says which",
