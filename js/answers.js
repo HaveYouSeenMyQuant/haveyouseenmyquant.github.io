@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "annealing_escapes_valley",
    "title": "The bad move that finds the better valley",
-   "ts": "2026-08-02T21:04:02+00:00",
+   "ts": "2026-08-02T21:06:28+00:00",
    "date": "2 Aug 2026",
    "topic": "optimization",
    "q": "The best move in this search is the one that looks wrong. Answer's in bio — free, takes an email.",
