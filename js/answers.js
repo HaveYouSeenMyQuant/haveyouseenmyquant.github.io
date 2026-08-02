@@ -16,8 +16,48 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 92,
+ "count": 93,
  "entries": [
+  {
+   "slug": "shortest_path_wavefront",
+   "title": "The shortest route is not the one with the fewest roads",
+   "ts": "2026-08-02T19:58:43+00:00",
+   "date": "2 Aug 2026",
+   "topic": "graphs",
+   "q": "Solve this map before the wave reaches the finish.",
+   "a": "Tip: do not choose the next road. Choose the next town whose arrival time is now impossible to improve.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At the start, write 0 at S and send a wave down every road out of S. When the first new town lights up, freeze that time. From that town, send new waves onward. If a new wave gives a town a smaller time than the one it already has, replace the label; if it is larger, ignore it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The key observation is that once the smallest unsettled label is picked, every other unfinished route would have to add a positive road time before it could get there. So it cannot sneak in later with a smaller number."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Use that to reconstruct the route into T, but stop yourself from counting hops. The road drawn longest on the map is not the same thing as the slowest road."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Full answer and the checked route: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/shortest_path_wavefront"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "euler_steps_converge",
    "title": "Arrow walks: what do Euler steps converge to?",
