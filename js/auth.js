@@ -429,7 +429,17 @@
       if (isFile()) {
         return 'Opened from a file, so nothing can be sent. Your address stays on this device.';
       }
-      return 'A sign-in link, and at most one message a week. Nothing already solved is lost.';
+      /* Three jobs, in this order. (1) Kill the friction: submitEmail unlocks
+       * before the network call, so nobody has to leave the page or go and
+       * find a link — saying so is the difference between a tap and a chore,
+       * and 2 of the first 3 signups never clicked the link they were sent.
+       * (2) State the cadence, because that IS the consent: one a day is what
+       * pipeline/daily_email.py sends, so it is what this must promise. It
+       * said "at most one message a week" until 2026-08-02, and a daily send
+       * under that wording would have been a bait-and-switch on every address
+       * we hold. (3) Name the exit before they commit, not after. */
+      return 'Unlocked straight away — no link to click. Then one question a ' +
+             'day, and one tap to stop. Nothing already solved is lost.';
     }
   };
 
