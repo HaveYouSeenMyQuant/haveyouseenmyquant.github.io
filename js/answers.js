@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "fourier_circles_draw",
    "title": "How many rotating circles does it take to draw a sharp square?",
-   "ts": "2026-08-02T22:45:37+00:00",
+   "ts": "2026-08-02T22:47:53+00:00",
    "date": "2 Aug 2026",
    "topic": "calculus",
    "q": "Solve the square hiding inside spinning circles.",
