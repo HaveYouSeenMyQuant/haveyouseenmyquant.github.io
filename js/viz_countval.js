@@ -1209,4 +1209,186 @@
     idle: 'Hand the hats back at random and count who got their own.',
     axisLabel: 'average number of people who got their own hat back'
   }));
+
+  /* -------------------------------------------- 19. rare jackpot average */
+  reg('jackpotCards', LAB.sim({
+    trial: function () { return pickInt(1000) === 0 ? 10000 : 0; },
+    mode: 'hist', min: 0, max: 10000, step: 10000, dp: 2,
+    batches: [200, 5000], perFrame: 500,
+    idle: 'Scratch cards in batches and count the rare winners.',
+    axisLabel: 'what one scratch card paid',
+    highlight: function (x) { return x > 0; },
+    statLine: function (st) {
+      var wins = Math.round((st.mean * st.n) / 10000);
+      return '<b>' + commas(st.n) + '</b> cards &nbsp;·&nbsp; jackpot hits <b>' +
+        wins + '</b> &nbsp;·&nbsp; average <b>£' + st.mean.toFixed(2) + '</b>';
+    }
+  }));
+
+  /* ----------------------------------- 20. capped doubling until heads */
+  reg('doublingHeadsRows', LAB.steps({
+    n: 10,
+    aspect: 0.74,
+    playLabel: 'Walk the rows',
+    everyMs: 520,
+    caption: function (i) {
+      if (!i) return 'Step through where the first heads could arrive.';
+      return 'first heads on flip <b>' + i + '</b> pays <b>£' +
+        Math.pow(2, i - 1) + '</b> and needs <b>' + i +
+        '</b> exact coin flips';
+    },
+    draw: function (g, w, h, i) {
+      var pad = 14, top = 16, rowH = (h - 30) / 10, maxPrize = 512;
+      for (var k = 1; k <= 10; k++) {
+        var y = top + (k - 1) * rowH;
+        var chanceW = (w - pad * 2) * Math.pow(0.5, k);
+        var prizeW = (w - pad * 2) * (Math.pow(2, k - 1) / maxPrize);
+        var on = i >= k;
+        g.fillStyle = on ? 'rgba(88,166,255,0.35)' : '#1c232c';
+        roundRect(g, pad, y, Math.max(3, chanceW), rowH * 0.34, 5); g.fill();
+        g.fillStyle = on ? 'rgba(210,153,34,0.65)' : 'rgba(210,153,34,0.18)';
+        roundRect(g, pad, y + rowH * 0.40, Math.max(3, prizeW), rowH * 0.34, 5); g.fill();
+        g.fillStyle = on ? C.fg : C.muted;
+        g.font = f(Math.min(10.5, rowH * 0.42), on ? 800 : 600); g.textAlign = 'right';
+        g.fillText(String(k), pad - 5, y + rowH * 0.55);
+        if (on && rowH > 15) {
+          g.textAlign = 'left'; g.font = f(9.5, 700);
+          g.fillStyle = C.gold;
+          g.fillText('£' + Math.pow(2, k - 1), pad + prizeW + 5, y + rowH * 0.70);
+        }
+      }
+      g.fillStyle = C.accent; g.font = f(10, 700); g.textAlign = 'left';
+      g.fillText('blue: chance', pad, h - 4);
+      g.fillStyle = C.gold; g.textAlign = 'right';
+      g.fillText('gold: prize', w - pad, h - 4);
+    }
+  }));
+
+  /* ---------------------------------------------- 21. sure vs long shot */
+  reg('sureLongshotRace', LAB.race({
+    lanes: [
+      { name: 'sure £3', trial: function () { return 3; } },
+      { name: 'one in four at £20', trial: function () { return pickInt(4) === 0 ? 20 : 0; } }
+    ],
+    batches: [40, 1000], dp: 2, unit: '£', maxV: 6.5,
+    idle: 'Run both choices many times and compare their average payout.',
+    axisLabel: 'average pounds paid per play'
+  }));
+
+  /* ----------------------------------------- 22. waiting for six-six */
+  reg('twoSixesWait', LAB.sim({
+    trial: function () {
+      var flips = 0, streak = 0;
+      while (streak < 2) {
+        flips++;
+        if (die() === 6) streak++; else streak = 0;
+      }
+      return flips;
+    },
+    mode: 'hist', min: 2, max: 120, step: 2, dp: 2,
+    label: 'rolls', batches: [20, 500],
+    idle: 'No waits run yet.',
+    axisLabel: 'rolls until two sixes in a row'
+  }));
+
+  /* ------------------------------------------- 23. prize divided by die */
+  function dieFaceBox(i, w, h) {
+    var pad = 12, cols = 3, gap = 8;
+    var sz = Math.min((w - pad * 2 - gap * 2) / 3, (h * 0.62 - gap) / 2, 62);
+    var ox = (w - (sz * cols + gap * 2)) / 2;
+    var oy = 18;
+    return { x: ox + (i % 3) * (sz + gap), y: oy + ((i / 3) | 0) * (sz + gap), w: sz, h: sz };
+  }
+  function drawPips(g, x, y, s, v) {
+    var pts = [[], [[0.5, 0.5]], [[0.28, 0.28], [0.72, 0.72]],
+      [[0.28, 0.28], [0.5, 0.5], [0.72, 0.72]],
+      [[0.28, 0.28], [0.72, 0.28], [0.28, 0.72], [0.72, 0.72]],
+      [[0.28, 0.28], [0.72, 0.28], [0.5, 0.5], [0.28, 0.72], [0.72, 0.72]],
+      [[0.28, 0.25], [0.72, 0.25], [0.28, 0.5], [0.72, 0.5], [0.28, 0.75], [0.72, 0.75]]][v];
+    pts.forEach(function (p) {
+      g.beginPath(); g.arc(x + p[0] * s, y + p[1] * s, s * 0.07, 0, 7); g.fill();
+    });
+  }
+  reg('inverseDiePrize', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Roll the die and average the payouts it actually creates.');
+    var stage = K.Stage(host, 0.76);
+    var counts = [0, 0, 0, 0, 0, 0], n = 0, total = 0, last = 0, pending = 0;
+
+    function payout(v) { return 12 / v; }
+    function pounds(v) { return '£' + v.toFixed(2); }
+    function record() {
+      last = die();
+      counts[last - 1]++;
+      n++;
+      total += payout(last);
+    }
+    function render() {
+      if (!n) {
+        out.innerHTML = 'Roll the die and average the payouts it actually creates.';
+        return;
+      }
+      out.innerHTML = '<b>' + commas(n) + '</b> rolls &nbsp;·&nbsp; last paid <b>' +
+        pounds(payout(last)) + '</b> &nbsp;·&nbsp; running average <b>' +
+        pounds(total / n) + '</b>';
+    }
+
+    K.button(ctr, 'Roll once', function () {
+      record(); render(); api.onInteract('roll');
+    }).classList.add('primary');
+    K.button(ctr, 'Roll 200', function () {
+      pending += 200; api.onInteract('roll');
+    }).classList.add('small');
+    K.button(ctr, 'Start over', function () {
+      counts = [0, 0, 0, 0, 0, 0]; n = 0; total = 0; last = 0; pending = 0;
+      render(); api.onInteract('reset');
+    }).classList.add('small');
+    render();
+
+    stage.draw = function (g, w, h) {
+      var take = Math.min(pending, 80);
+      for (var j = 0; j < take; j++) record();
+      pending -= take;
+      if (take) render();
+
+      for (var i = 0; i < 6; i++) {
+        var b = dieFaceBox(i, w, h), v = i + 1, on = last === v;
+        var pay = payout(v);
+        g.fillStyle = on ? C.gold : '#1c232c';
+        roundRect(g, b.x, b.y, b.w, b.h, 9); g.fill();
+        g.strokeStyle = on ? C.gold : C.line; g.lineWidth = on ? 2 : 1;
+        roundRect(g, b.x, b.y, b.w, b.h, 9); g.stroke();
+        g.fillStyle = on ? '#0d1117' : C.fg;
+        drawPips(g, b.x, b.y, b.w, v);
+        g.fillStyle = on ? C.gold : C.muted;
+        g.font = f(10, 800); g.textAlign = 'center';
+        g.fillText(pounds(pay), b.x + b.w / 2, b.y + b.h + 13);
+        if (counts[i]) {
+          g.fillStyle = C.good;
+          g.font = f(9.5, 800);
+          g.fillText(String(counts[i]) + 'x', b.x + b.w / 2, b.y - 5);
+        }
+      }
+
+      var y = h * 0.78, left = w * 0.14, right = w * 0.86;
+      g.strokeStyle = C.line; g.lineWidth = 3;
+      g.beginPath(); g.moveTo(left, y); g.lineTo(right, y); g.stroke();
+      for (i = 0; i < 6; i++) {
+        var x = left + (right - left) * ((payout(i + 1) - 2) / 10);
+        g.fillStyle = i + 1 === last ? C.gold : C.accent;
+        g.beginPath(); g.arc(x, y, i + 1 === last ? 6 : 4, 0, 7); g.fill();
+      }
+      if (n) {
+        var avg = total / n, ax = left + (right - left) * ((avg - 2) / 10);
+        g.strokeStyle = C.good; g.lineWidth = 2;
+        g.beginPath(); g.moveTo(ax, y - 17); g.lineTo(ax, y + 17); g.stroke();
+        g.fillStyle = C.good; g.font = f(11, 800); g.textAlign = 'center';
+        g.fillText('average of payouts', ax, y - 23);
+      }
+      g.fillStyle = C.muted; g.font = f(10, 600);
+      g.textAlign = 'left'; g.fillText('£2', left, y + 28);
+      g.textAlign = 'right'; g.fillText('£12', right, y + 28);
+    };
+    return { destroy: stage.destroy };
+  });
 })(window);
