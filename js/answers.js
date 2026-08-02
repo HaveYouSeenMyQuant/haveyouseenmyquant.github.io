@@ -16,8 +16,502 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 78,
+ "count": 86,
  "entries": [
+  {
+   "slug": "three_switches_one_look",
+   "title": "Three switches, one bulb behind a closed door, one look",
+   "ts": "2026-08-02T06:10:29+00:00",
+   "date": "2 Aug 2026",
+   "topic": "puzzles",
+   "q": "Three switches, one bulb behind a closed door — and you only get to look inside once. Try it yourself.",
+   "a": "Not giving you the answer — but here is the argument that turns this from guesswork into something you can reason your way to.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "START WITH THE COUNT, NOT WITH THE SWITCHES. There are three possible worlds: switch one is live, switch two is live, switch three is live. You get one look. If the only thing your look can come back with is \"lit\" or \"not lit\", that is two outcomes for three worlds, and no strategy repairs it — two boxes cannot hold three things. That is not a hint that the puzzle is hard. It is a proof that a light-only reading is impossible."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which flips the question. Don't ask \"which switch do I flip first?\" Ask: how many genuinely different states can that room be in when the door opens? You need at least three. Find three, and the flipping plan writes itself in about ten seconds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "NOW THE LINE EVERYONE SKIMS. You may flip the switches as much as you like, AND wait as long as you like. Two freedoms. Almost everyone spends the first and completely ignores the second. Nothing about \"on or off\" gets better if you wait — a bulb that is on stays on. So ask yourself why a puzzle about a light bulb would go out of its way to hand you unlimited time. It is not padding. It is the whole thing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two more things worth noticing once you have it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— You get to choose what ALL THREE switches are doing at the moment the door opens, not just which one you touched last. That is more control over the final state than it first looks like, and it is where the extra readings come from."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— With two looks it is trivial (flip one, look, that settles it or eliminates it; flip another, look, done). The entire difficulty is compressing two readings into one, which is why the counting argument above is the right place to start."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Full answer, the case table for all three worlds, and why the reading you end up with really is enough — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/three_switches_one_look"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "twelve_coins_three_weighings",
+   "title": "Twelve coins, one is the wrong weight, three weighings",
+   "ts": "2026-08-02T05:43:34+00:00",
+   "date": "2 Aug 2026",
+   "topic": "puzzles",
+   "q": "Twelve coins, one is the wrong weight, and nobody tells you which way. Solve it in three weighings.",
+   "a": "Not giving you the strategy — but here is the counting argument that tells you it is even possible, and it is most of the battle.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Twelve coins, and the odd one could be heavy OR light. So there are 24 possible worlds, not 12."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A balance has three outcomes, not two: left down, right down, level. So three weighings can distinguish at most 3 × 3 × 3 = 27 worlds. Two weighings reach only 9, and 9 < 24. So two is provably impossible for ANY strategy, however clever — and three leaves you 27 slots for 24 worlds, with three to spare."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That margin is what makes this hard. There is almost no slack, which means every weighing has to split the remaining possibilities into three nearly equal piles. Get one weighing that splits 24 into 12/8/4 and the worst branch has already killed you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the real question is: how many coins go on each pan first? Try each option and count the worst pile it can leave you with. Only one number works, and once you have found it the rest of the puzzle follows from the same rule applied again."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One more thing worth noticing: after the first weighing you know things about coins you have not weighed, and about the DIRECTION a coin would be wrong in. A coin that was on the heavy side can only be heavy. Carrying that forward is what makes the later weighings cheap."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The full strategy, all three branches, and the exhaustive check over all 24 cases — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/twelve_coins_three_weighings"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "how_few_colours",
+   "title": "Twelve exams, some clash — how few time slots do you need?",
+   "ts": "2026-08-02T04:40:03+00:00",
+   "date": "2 Aug 2026",
+   "topic": "graphs",
+   "q": "Twelve exams, some pairs clash. How few time slots do you need? Nobody solves this one in their head.",
+   "a": "Not giving you the number — but here is the move that turns this from guesswork into something you can actually finish.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do it in two halves, because a single number needs both of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE UPPER HALF: find a colouring that works. Don't go in reading order — that is exactly the order the video shows failing. Go in order of how busy each exam is: colour the ones with four clashes first, while you still have all your freedom, and leave the ones with only two clashes till last, because a quiet exam can nearly always be slotted in at the end. The two exams along the top of the picture clash with two others each; they will never be your problem. The tight part is the bottom."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE LOWER HALF: show that nothing smaller works. Three exams that all clash force three colours between them, and that much you can just see. Going below that is impossible; going below whatever number you land on is the bit you have to argue. \"I couldn't find one\" is not an argument. The argument that does work is forcing: fix a colour on one exam, follow the consequences round the picture — each exam whose neighbours already use every colour but one has no choice — and if every starting choice ends with two joined exams pushed onto the same colour, you are done."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And a check while you work: if your colouring uses k colours and you have also found a set of k exams that all clash with each other, stop. You have squeezed it from both sides and nothing more needs proving. If those two numbers do NOT meet, the gap is real work — which is the whole point of this one."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "new_road_slows_everyone",
+   "title": "A new road that makes everybody's drive longer",
+   "ts": "2026-08-02T04:13:05+00:00",
+   "date": "2 Aug 2026",
+   "topic": "paradox",
+   "q": "A town opened a new road, free and instant. Every single journey got longer. Try it yourself",
+   "a": "The tip for spotting this one coming: look at what the new road lets people STOP using.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ACTUALLY CHANGED. Before it opened, every driver used exactly one road whose time depends on the crowd and one road whose time does not. That flat 45-minute road was doing real work — it was a brake. It made the two ways self-balancing, because the moment one narrow road got busier than the other, drivers moved back."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The new link doesn't add a lane. It lets every driver drop the flat road entirely and ride two crowd-sensitive roads instead of one. Twice the sensitivity, and no brake at all. That is the whole mechanism, and it is why \"more capacity\" can be the wrong instinct: capacity that changes which roads people can AVOID is not the same as capacity that carries more cars."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW BAD CAN IT GET? Keep 40 drivers and a narrow road at a minute per car (so a full one is 40 minutes) and slide the wide road's flat time F:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "F = 41 -> 61 minutes becomes 80  (x1.31)",
+      "F = 45 -> 65 becomes 80          (x1.23, the video)",
+      "F = 50 -> 70 becomes 80          (x1.14)",
+      "F = 59 -> 79 becomes 80          (x1.01)",
+      "F = 60 -> 80 becomes 80          (no change)",
+      "F = 65 -> 85 becomes 80          (the road HELPS)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Below F = 40 nobody would take the new road at all. So the paradox lives in a window, and the ratio is worst at the bottom of it: as F approaches 40, \"before\" approaches 60 and the ratio approaches 80/60 = 4/3. A free road can make every drive a THIRD longer. It cannot do worse than that here."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE ROAD ISN'T THE VILLAIN. If you could simply tell 6 of the 40 to use it and the other 34 to stay put, the town would burn 2,588 driver-minutes — less than the 2,600 it managed with no new road at all. Left to choose for themselves they burn 3,200. The road is fine. Uncoordinated self-interest is what costs."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Cities have run the experiment backwards. Seoul demolished the Cheonggyecheon elevated motorway in 2003 and journey times improved; New York closed 42nd Street for Earth Day 1990 expecting chaos and got smoother traffic."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Play one yourself, free, no signup: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/new_road_slows_everyone"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "two_losers_one_winner",
+   "title": "Two losing games that make a winner",
+   "ts": "2026-08-02T02:41:06+00:00",
+   "date": "2 Aug 2026",
+   "topic": "paradox",
+   "q": "Two gambling games. Each one loses you money on its own. Play them in a random order and you get rich.",
+   "a": "The tip for seeing this one coming: stop asking whether a game is good, and ask where it leaves you standing.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Game two's coins are excellent. Hand them a balance spread evenly across the three remainders and they earn 5.67p a round. Game two loses because it never gets an even spread — its OWN play manufactures the spread it is then forced to play on. Look for that in any system where the next move depends on the current state."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SELF-SABOTAGE, in one line: winning with the great coin moves you up one, and one above \"two past a multiple of three\" is a multiple of three. The good coin's reward is being handed the bad coin. The walk gets stuck in a two-step loop, 101 → 102 → 101, going nowhere while it bleeds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ARITHMETIC OF THE FLIP. Let p0 be the long-run share of rounds sitting on a multiple of three. The edge per round is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  −0.81·p0 + 0.49·(1 − p0)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which is positive exactly when p0 < 0.3769. Game two alone sits at 0.3836. It misses by seven thousandths. Mixing in a game that ignores your balance drags p0 to 0.3451, and that is all it takes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT MOST WRITE-UPS GET WRONG. Strict alternation LOSES here. I checked all of them exactly rather than trusting any:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  random 50/50      +1.5704 p/round  WINS",
+      "  two-of-each       +1.4651          WINS",
+      "  one,two,one,two   −0.6738          loses",
+      "  game one alone    −1.0000          loses",
+      "  game two alone    −0.8695          loses"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So \"just take turns\" is not the lesson: a fixed schedule can lock onto the very rhythm that traps game two (its two-step chain settles on 0.2347 / 0.0759 / 0.6895). The mixing has to break the pattern, not join it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THIS BITES. Any strategy whose payoff depends on the state it has itself produced — a rule that moves the price it trades on, a policy that shapes the queue it serves, a scheme that generates its own training data. Testing each piece alone can mislead in both directions."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Play one yourself, free, no signup: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/two_losers_one_winner"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "pipes_tightest_cut",
+   "title": "How much water gets through this network of pipes?",
+   "ts": "2026-08-02T01:28:16+00:00",
+   "date": "2 Aug 2026",
+   "topic": "graphs",
+   "q": "Two pipes feed the top of this network and they can carry twenty between them. Far less than twenty comes out.",
+   "a": "Not giving you the number — but here is the idea that turns it from guesswork into something you can just read off the picture.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Adding up the pipes leaving the source is wrong, and so is adding up the pipes arriving at the drain. Both are only upper bounds, and usually bad ones."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the one that is exact. Draw any line that separates the source from the drain, cutting the network in two. Everything that gets through must cross that line, so the total capacity of the pipes it cuts is a ceiling on the flow. Every possible line gives you a ceiling — and the true answer is the SMALLEST ceiling any line gives."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is not an approximation. The best flow and the tightest cut come out exactly equal, always, which is why you can find the answer by looking for the worst bottleneck rather than by routing anything."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So: try to find the line that cuts the least capacity. It is not near the source and it is not near the drain — it is somewhere in the middle, and in this network no pipe touching the source or the drain is part of it. Count what it cuts."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A check while you work: whatever number you get, try to actually push that much through. If you can, and you have found a cut of the same size, you are done — you have squeezed the answer from both sides and nothing else needs proving."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "biggest_square_tiles",
+   "title": "Cut the biggest square off this rectangle, again and again",
+   "ts": "2026-08-02T00:09:24+00:00",
+   "date": "2 Aug 2026",
+   "topic": "number_theory",
+   "q": "Two numbers that look like they share nothing at all. Five squares later, out falls the length that measures both.",
+   "a": "THE MECHANISM, in full.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rectangle is 1496 by 935. Cut off the biggest square that fits, over and over:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "1496 x 935  ->  cut a 935 square, leaving 561 x 935",
+      " 561 x 935  ->  cut a 561 square, leaving 561 x 374",
+      " 561 x 374  ->  cut a 374 square, leaving 187 x 374",
+      " 187 x 374  ->  cut a 187 square, leaving 187 x 187",
+      " 187 x 187  ->  already a square. Stop."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Five squares: 935, 561, 374, 187, 187. Their areas add to 1,398,760, and 1496 x 935 = 1,398,760 — so they tile the rectangle exactly, no overlaps and no gaps."
+     ]
+    },
+    {
+     "h": "WHY THE LAST SQUARE IS THE ANSWER",
+     "t": "p",
+     "lines": [
+      "Suppose some length L fits a whole number of times into both sides of a rectangle. Cut a square off it. The square's side is one of those sides, so L fits into it too — and the leftover side is just one side minus the other, so L fits into that as well. Nothing is ever lost: the lengths that measure both sides of the NEW rectangle are exactly the lengths that measured both sides of the old one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Run that all the way to the end and you're holding a single square. The biggest length that measures a square's two sides is its own side. So the last square's side, 187, is the biggest length that measured 1496 and 935 all along."
+     ]
+    },
+    {
+     "h": "CHECK IT BY HAND",
+     "t": "p",
+     "lines": [
+      "The only whole lengths that go into both 1496 and 935 are 1, 11, 17 and 187. 1496 = 8 x 187. 935 = 5 x 187. So forty 187-squares tile the rectangle — which is the last thing the video draws."
+     ]
+    },
+    {
+     "h": "THE OTHER CASE",
+     "t": "p",
+     "lines": [
+      "Try 89 by 55. Same rule, and the squares march all the way down: 55, 34, 21, 13, 8, 5, 3, 2, 1, 1 — ten of them, ending on a square of side 1. That IS what \"these two share nothing\" looks like. Ten squares for two two-digit numbers, five squares for two four-digit ones: the count has almost nothing to do with how big the numbers are."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every number above was derived and checked three independent ways before this was posted — the cutting procedure, a brute-force search over every possible length, and a cell-by-cell sweep of all 1,398,760 unit cells of the rectangle proving the five squares cover each exactly once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Full write-up and more like it: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/biggest_square_tiles"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "cube_unfold_shortcut",
+   "title": "The shortest walk across the surface of a cube",
+   "ts": "2026-08-01T23:29:51+00:00",
+   "date": "1 Aug 2026",
+   "topic": "puzzles",
+   "q": "Everyone's route across a cube is too long. The best one crosses the edge at a spot nobody guesses.",
+   "a": "The thing that makes this one click, without giving you the number:",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Stop thinking in 3D. A route across two faces stays exactly as long if you unfold those two faces flat — unfolding doesn't stretch anything, so every path keeps its length. And on a flat rectangle, the shortest route between opposite corners isn't a debate: it's the straight line."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the question \"what is the shortest walk over the surface?\" becomes \"how long is the diagonal of the flattened rectangle?\" — which you can do in your head."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things worth noticing once you have it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— The straight line crosses the shared edge exactly halfway up. On the folded cube that looks like a kink with no reason to be where it is; the reason only exists when the cube is flat."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— Going through the inside of the cube is shorter still, but that's a hole, not a walk. Worth checking how much you'd save if you were allowed to tunnel."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Full working, every unfolding checked, and why no other route beats it — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/cube_unfold_shortcut"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "three_rates_loop",
    "title": "Three ordinary exchange rates, one loop, and the money does not come back",
