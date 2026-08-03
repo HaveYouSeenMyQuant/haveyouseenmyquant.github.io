@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 117,
+ "count": 118,
  "entries": [
+  {
+   "slug": "medians_meet_balance_point",
+   "title": "Three triangle medians meet at the same balance point",
+   "ts": "2026-08-03T23:43:47+00:00",
+   "date": "3 Aug 2026",
+   "topic": "geometry",
+   "q": "Three triangle lines should miss. Solve where they meet in bio - it costs an email.",
+   "a": "The three medians always meet, and the meeting point sits two thirds of the way down each one from its vertex.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put the three corners at A, B and C and just average them: the point (A + B + C)/3. Call it G."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Check that G lies on the median from A. The midpoint of BC is (B + C)/2, and G is A plus two thirds of the way from A to that midpoint - the arithmetic works out immediately. By symmetry the same argument works from B and from C, so all three medians pass through this one point. That is why they always meet: they all contain the average of the corners."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That construction also hands you the ratio. G divides each median 2:1, measured from the vertex - two thirds of the way along, one third left over."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is called the centroid, and it really is the balance point: cut the triangle out of card and it balances on that spot, because it is the average position of the whole shape."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is also why the ratio never changes as you drag the corners. An average does not care where the points are - it just moves with them."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "gaussian_band_pinches",
    "title": "A Gaussian-process band pinches wherever data lands",
