@@ -150,29 +150,67 @@
     });
   }
 
+  /* Which entries have already offered the GENERIC road question, so the
+   * read-end offer does not repeat a question the visitor just declined. */
+  var genericOfferFor = {};
+
   function drawPlay(host, entry) {
-    if (!entry.road) return;
-    var lock = QQApp.lessonLockFor(entry.road.lesson);
-    if (lock === 'missing') return;
+    /* A FREE DOOR ON EVERY ANSWER, not just the 21 that are mapped (2026-08-03).
+     *
+     * `entry.road` is the hand-mapped "this exact puzzle is lesson X" link, and
+     * only 21 of 110 entries have one. NONE of the 20 videos posted in the last
+     * 24h do — and those are precisely the slugs a Reel deep-links to. So the
+     * deep-link visitor hit this early return, got no play button, and met a
+     * bare email gate. Measured over the same day: the archive landing turned
+     * 31 arrivals into 8 plays and 6 emails; the deep link turned its 31 into
+     * ZERO and ZERO. Same volume, same gate, no free door.
+     *
+     * When there is no mapping, offer the road's next question instead. It is a
+     * different puzzle and the label says so — the point is that somebody who
+     * would rather solve than pay an email is worth more to us, and that has to
+     * be true for a slug posted this morning too, not only for a mapped one. */
+    var lock = null, lessonId = null, qid = null, prompt = null, mapped = false;
+
+    if (entry.road) {
+      var l = QQApp.lessonLockFor(entry.road.lesson);
+      if (l !== 'missing') {
+        lock = l; lessonId = entry.road.lesson; qid = entry.road.qid;
+        prompt = entry.road.prompt; mapped = true;
+      }
+    }
+    if (!mapped) {
+      var next = null;
+      try { next = QQApp.nextRoadQuestion(); } catch (e) { next = null; }
+      /* Same guard offerRoad uses: never offer something that answers with a
+       * wall — that would replace no free door with a fake one. */
+      if (!next || next.lock) return;
+      lessonId = next.lessonId; qid = next.questionId; prompt = next.prompt;
+      genericOfferFor[entry.slug] = lessonId;
+    }
 
     var btn = el('button', 'ans-play');
     btn.type = 'button';
-    btn.appendChild(el('b', null, lock ? 'This one is on the road' : 'Play this one'));
-    btn.appendChild(el('span', null, entry.road.prompt));
+    btn.appendChild(el('b', null,
+      mapped ? (lock ? 'This one is on the road' : 'Play this one')
+             : 'Rather solve one yourself?'));
+    btn.appendChild(el('span', null, prompt));
     btn.addEventListener('click', function (ev) {
       ev.stopPropagation();
       QQA.track('answers_play_clicked', {
-        slug: entry.slug, lessonId: entry.road.lesson,
-        questionId: entry.road.qid, lock: lock || null,
+        slug: entry.slug, lessonId: lessonId,
+        questionId: qid, lock: lock || null,
+        /* So the lift can be attributed. A rise that is all `mapped:false` is
+         * this change; a rise in `mapped:true` is something else. */
+        mapped: mapped,
         gated: locked()
       });
       clearHash();
-      if (!lock) { QQApp.openLesson(entry.road.lesson); return; }
+      if (!lock) { QQApp.openLesson(lessonId); return; }
       /* Locked. Saying no to somebody who just asked to play is the worst
        * thing this page could do, so put them on the road instead, looking at
        * the node they came for, with the mascot standing where they start. */
       QQApp.go('path');
-      var node = doc.querySelector('.node-holder[data-lesson="' + entry.road.lesson + '"]');
+      var node = doc.querySelector('.node-holder[data-lesson="' + lessonId + '"]');
       if (node) setTimeout(function () { node.scrollIntoView({ block: 'center' }); }, 60);
     });
     host.appendChild(btn);
@@ -223,6 +261,9 @@
      * branch — if it ever trips, the offer is silently skipped rather than
      * turning into the thing it was built to avoid. */
     if (!next || next.lock) return;
+    /* Already offered as the free door inside this entry — showing it again on
+     * the way out is the nagging the block comment above rules out. */
+    if (entry && genericOfferFor[entry.slug] === next.lessonId) return;
 
     roadOfferDone = true;
     roadOfferAt = Date.now();
