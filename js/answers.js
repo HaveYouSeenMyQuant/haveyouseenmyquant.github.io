@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "angle_in_semicircle",
    "title": "One angle refuses to move in a sliding semicircle",
-   "ts": "2026-08-03T17:14:46+00:00",
+   "ts": "2026-08-03T17:18:17+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
    "q": "A triangle goes wild but one angle will not move. Solve it in bio - answer takes an email.",
