@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "gaussian_band_pinches",
    "title": "A Gaussian-process band pinches wherever data lands",
-   "ts": "2026-08-03T23:05:29+00:00",
+   "ts": "2026-08-03T23:08:25+00:00",
    "date": "3 Aug 2026",
    "topic": "ml_fundamentals",
    "q": "A measured point makes uncertainty pinch. Solve the far-away band in bio - answer costs an email.",
