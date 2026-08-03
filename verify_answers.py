@@ -526,6 +526,90 @@ def check_random_day_month(q, data):
     }
 
 
+def check_balloon_letter(q, data):
+    slots = list("BALLOON")
+    hits = [i for i, ch in enumerate(slots, start=1) if ch == "O"]
+    assert len(slots) == 7
+    assert hits == [5, 6], hits
+    return {
+        "number": len(hits),
+        "value": str(len(hits)),
+        "notes": "seven letter slots enumerated from BALLOON; O appears in slots %s -> %d" % (
+            hits, len(hits)),
+    }
+
+
+def check_pin_match_sum(q, data):
+    pins = [(a, b) for a in range(10) for b in range(10)]
+    matching = [p for p in pins if p[0] == p[1]]
+    sum9 = [p for p in pins if p[0] + p[1] == 9]
+    assert len(pins) == 100
+    assert len(matching) == len(sum9) == 10, (matching, sum9)
+    assert set(matching) != set(sum9), "different rules should tie, not match case-for-case"
+    return {
+        "choice": only_choice(q, "equally likely"),
+        "value": "10 each out of 100",
+        "notes": "two-digit PINs enumerated: matching digits=%d, digit sum 9=%d, total=%d" % (
+            len(matching), len(sum9), len(pins)),
+    }
+
+
+def check_ace_in_two_draws(q, data):
+    deck = ("A", "B1", "B2", "B3")
+    deals = list(itertools.permutations(deck, 2))
+    ace_first = [d for d in deals if d[0] == "A"]
+    ace_seen = [d for d in deals if "A" in d]
+    p_first = Fraction(len(ace_first), len(deals))
+    p_seen = Fraction(len(ace_seen), len(deals))
+    assert len(deals) == 12
+    assert p_first == Fraction(1, 4), p_first
+    assert p_seen == Fraction(1, 2), p_seen
+    assert p_seen > p_first
+    return {
+        "choice": only_choice(q, "appears in your two cards"),
+        "value": "ace in two cards (1/2 vs 1/4)",
+        "notes": "ordered two-card deals from A,B1,B2,B3: ace first=%d/%d=%s; "
+                 "ace in either drawn slot=%d/%d=%s" % (
+                     len(ace_first), len(deals), p_first,
+                     len(ace_seen), len(deals), p_seen),
+    }
+
+
+def check_traffic_light_time(q, data):
+    seconds = list(range(60))
+    counts = {
+        "green": sum(1 for s in seconds if 0 <= s < 25),
+        "amber": sum(1 for s in seconds if 25 <= s < 30),
+        "red": sum(1 for s in seconds if 30 <= s < 60),
+    }
+    assert counts == {"green": 25, "amber": 5, "red": 30}, counts
+    best = max(counts, key=counts.get)
+    assert best == "red"
+    assert sorted(counts.values())[-2] < counts[best], "no strict maximum"
+    return {
+        "choice": best,
+        "value": "red (30 seconds out of 60)",
+        "notes": "one-minute cycle enumerated by second: %s; strict max=%s" % (
+            counts, best),
+    }
+
+
+def check_page_starts_ends_one(q, data):
+    pages = list(range(1, 101))
+    starts = [p for p in pages if str(p).startswith("1")]
+    ends = [p for p in pages if str(p).endswith("1")]
+    assert len(pages) == 100
+    assert len(starts) == 12, starts
+    assert len(ends) == 10, ends
+    assert len(starts) > len(ends)
+    return {
+        "choice": only_choice(q, "starts with 1"),
+        "value": "starts with 1 (12 pages vs 10)",
+        "notes": "pages 1..100 enumerated: starts with 1=%d %s; ends with 1=%d %s" % (
+            len(starts), starts, len(ends), ends),
+    }
+
+
 # ---------------------------------------------------------------------------
 # unit 2 — numbers that lie
 # ---------------------------------------------------------------------------
@@ -1109,6 +1193,11 @@ CHECKERS = {
     "domino_double_six": check_domino_double_six,
     "minute_neighbours": check_minute_neighbours,
     "random_day_month": check_random_day_month,
+    "balloon_letter": check_balloon_letter,
+    "pin_match_sum": check_pin_match_sum,
+    "ace_in_two_draws": check_ace_in_two_draws,
+    "traffic_light_time": check_traffic_light_time,
+    "page_starts_ends_one": check_page_starts_ends_one,
     "coin_spread": check_coin_spread,
     "hospital_boys": check_hospital_boys,
     "mean_vs_median": check_mean_vs_median,
