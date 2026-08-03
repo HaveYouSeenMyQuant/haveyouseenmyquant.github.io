@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 112,
+ "count": 113,
  "entries": [
+  {
+   "slug": "backprop_blame_flows",
+   "title": "Backpropagation: every edge gets its own share of the blame",
+   "ts": "2026-08-03T17:53:49+00:00",
+   "date": "3 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": "This network learns by sending blame backward. Answer's in bio - free, takes an email.",
+   "a": "Blame flows backward in exactly the same shape it flowed forward.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The network starts by outputting 0.845 against a target of 1.2, so the miss is -0.355 and the squared loss is 0.0630. Every gradient below is that one miss, handed backward."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each output edge gets blamed in proportion to the hidden value it carried: the hidden node holding 0.95 earns a gradient of -0.3373, and the one holding -0.45 earns +0.1598. Bigger contribution, bigger share of the blame - and the sign flips when the contribution was negative."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The input edges get the same treatment one layer further back: the blame arriving at each hidden node is multiplied by the input that fed it. That is why the edge from input 1 to hidden 1 carries -0.2485 while the edge from input 2 to hidden 1 carries exactly half of it, -0.1243 - input 2 is half the size of input 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now take one step of size 0.35 down every gradient at once. The output moves from 0.845 to about 1.1230, and the loss falls from 0.0630 to 0.0030 - a drop of more than 95% from a single nudge."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It does NOT land on 1.2. Gradient descent takes a step proportional to the slope, not a jump to the answer, so it closes most of the gap and leaves a little. That leftover is what the next step works on."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "angle_in_semicircle",
    "title": "One angle refuses to move in a sliding semicircle",
