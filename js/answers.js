@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 113,
+ "count": 114,
  "entries": [
+  {
+   "slug": "shortest_path_off_wall",
+   "title": "The shortest path that has to touch a wall",
+   "ts": "2026-08-03T18:41:50+00:00",
+   "date": "3 Aug 2026",
+   "topic": "geometry",
+   "q": "A wall-touch shortcut hides in a mirror. Solve it in bio - answer takes an email.",
+   "a": "Reflect one of the points through the wall, and the problem stops being a minimisation.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Take B and mirror it to the other side of the wall, call it B'. For any touch point P on the wall, the distance from P to B is exactly the distance from P to B', because the wall is the perpendicular bisector of the segment BB'."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the length you are minimising, AP + PB, is the same number as AP + PB' - a path from A to a fixed point B' that happens to bend at P. The shortest such path is the straight one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That means the best touch point is simply where the straight segment from A to B' crosses the wall, and the minimum total length is the straight-line distance |AB'| itself. Nothing has to be differentiated."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The angle fact falls out for free. The straight line makes equal angles with the wall on either side of P, and reflecting B' back to B carries one of those angles onto the outgoing leg. So the angle the path arrives at equals the angle it leaves - the same law light obeys off a mirror."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole reason light takes this path: it is not obeying a rule about angles, it is taking the shortest route, and equal angles are what shortest looks like."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "backprop_blame_flows",
    "title": "Backpropagation: every edge gets its own share of the blame",
