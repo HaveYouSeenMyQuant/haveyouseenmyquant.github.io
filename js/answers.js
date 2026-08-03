@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 109,
+ "count": 110,
  "entries": [
+  {
+   "slug": "staircase_never_shortens",
+   "title": "A staircase that never gets shorter",
+   "ts": "2026-08-03T14:52:41+00:00",
+   "date": "3 Aug 2026",
+   "topic": "geometry",
+   "q": "This staircase never gets shorter. Answer's in bio - free, takes an email.",
+   "a": "TIP: Count the horizontal pieces and the vertical pieces separately. Whatever the step size, the horizontals must add to one side of the square and the verticals to the other - the step count never enters the sum at all. That is why refining changes the picture and not the total.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/staircase_never_shortens"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "pca_direction_of_spread",
    "title": "A spinning line turns a cloud into shadows",
