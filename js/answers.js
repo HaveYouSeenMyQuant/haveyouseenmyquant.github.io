@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "change_of_basis_same_arrow",
    "title": "The arrow stayed still. Why did its numbers change?",
-   "ts": "2026-08-03T05:57:57+00:00",
+   "ts": "2026-08-03T06:00:14+00:00",
    "date": "3 Aug 2026",
    "topic": "linear_algebra",
    "q": "This arrow keeps still while the ruler moves. Solve it in bio - answer costs an email.",
