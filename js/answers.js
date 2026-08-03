@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 97,
+ "count": 98,
  "entries": [
+  {
+   "slug": "convex_hull_rubber_band",
+   "title": "Which points does the rubber band touch?",
+   "ts": "2026-08-03T00:40:25+00:00",
+   "date": "3 Aug 2026",
+   "topic": "geometry",
+   "q": "Solve this: which points can a rubber band actually touch?",
+   "a": "TIP: Do not guess by looking for points far from the centre. Use a supporting edge. From your current touch point, the next touch is the candidate where every other label lies on the same side of the directed line.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Full worked answer - free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/convex_hull_rubber_band"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "least_squares_drop",
    "title": "Least squares: where does the line settle?",
