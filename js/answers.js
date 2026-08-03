@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "same_perimeter_different_area",
    "title": "Same perimeter, wildly different area",
-   "ts": "2026-08-03T15:12:05+00:00",
+   "ts": "2026-08-03T15:14:22+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
    "q": "Same fence, wildly different field. Solve it in bio - free, takes an email.",
