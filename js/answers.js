@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 115,
+ "count": 116,
  "entries": [
+  {
+   "slug": "midpoints_make_parallelogram",
+   "title": "What shape do four side midpoints always make?",
+   "ts": "2026-08-03T21:12:59+00:00",
+   "date": "3 Aug 2026",
+   "topic": "geometry",
+   "q": "Solve this: four midpoints hide one shape. Answer's in bio - it costs an email.",
+   "a": "It is always a parallelogram - for every quadrilateral, however ugly, and even a non-convex one.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Draw one diagonal of the outer quadrilateral. It cuts the shape into two triangles, and two of your midpoints are the midpoints of two sides of the first triangle."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now use the midline theorem: the segment joining the midpoints of two sides of a triangle is parallel to the third side and exactly half its length. So that inner side is parallel to the diagonal, and half of it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do the same on the other triangle. Its midline is also parallel to that same diagonal and also half its length. Two inner sides, both parallel to the same diagonal, both half of it - so they are parallel to each other and equal."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A quadrilateral with one pair of opposite sides both parallel and equal is a parallelogram. Repeat with the other diagonal and you get the second pair for free."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is Varignon's theorem, and the reason it never fails is that nothing in the argument used any property of the outer shape at all - only that it has two diagonals. Its area, incidentally, is always exactly half the original's."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "bias_variance_dartboard",
    "title": "Two dartboards hide the bias-variance trade-off",
