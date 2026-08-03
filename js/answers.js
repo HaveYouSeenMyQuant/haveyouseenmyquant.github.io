@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 116,
+ "count": 117,
  "entries": [
+  {
+   "slug": "gaussian_band_pinches",
+   "title": "A Gaussian-process band pinches wherever data lands",
+   "ts": "2026-08-03T23:05:29+00:00",
+   "date": "3 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": "A measured point makes uncertainty pinch. Solve the far-away band in bio - answer costs an email.",
+   "a": "Far from every measurement, the band forgets the data entirely and returns to the prior.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The posterior at a new point is built from the kernel links between that point and each observation. Those links decay with distance, so as you move far from all of them, every link goes to zero."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "With all links zero, the update term vanishes: the posterior mean falls back to the prior mean, and the posterior variance falls back to the prior variance. Nothing about the observations reaches that far."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the band does not keep widening without limit, and it does not stay narrow either. It converges to a fixed width - the prior standard deviation, which here is exactly 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the honest reading of a Gaussian process far from data: it is not confident, and it is not infinitely uncertain. It has simply reverted to what you told it before you measured anything."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The pinch points are the mirror image of the same fact. At an observation the links are strongest, the update is largest, and with noiseless data the variance is driven to zero - which is why the band is stitched to the ground exactly where you measured."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "midpoints_make_parallelogram",
    "title": "What shape do four side midpoints always make?",
