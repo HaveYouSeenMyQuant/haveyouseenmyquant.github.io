@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 111,
+ "count": 112,
  "entries": [
+  {
+   "slug": "angle_in_semicircle",
+   "title": "One angle refuses to move in a sliding semicircle",
+   "ts": "2026-08-03T17:14:46+00:00",
+   "date": "3 Aug 2026",
+   "topic": "geometry",
+   "q": "A triangle goes wild but one angle will not move. Solve it in bio - answer takes an email.",
+   "a": "TIP: Add the circle centre and draw the two radii to the slider and the diameter ends. That splits the moving triangle into two isosceles triangles, so the two changing base angles can be tracked from the same centre angle.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/angle_in_semicircle"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "kl_two_coins_apart",
    "title": "Two coins are separated by evidence, not by vote count",
