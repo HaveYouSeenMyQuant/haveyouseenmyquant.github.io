@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 99,
+ "count": 100,
  "entries": [
+  {
+   "slug": "derivative_secant_collapse",
+   "title": "What does a derivative actually measure?",
+   "ts": "2026-08-03T02:21:49+00:00",
+   "date": "3 Aug 2026",
+   "topic": "calculus",
+   "q": "The two points meet, but the line survives. Solve its steepness in bio - free, takes an email.",
+   "a": "TIP: Do not try to use the two coincident points directly. Keep a tiny gap, compute the average climb across that gap, then ask what number those averages approach as the gap shrinks.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/derivative_secant_collapse"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "crt_two_gears",
    "title": "Three slot rings hide the Chinese remainder theorem",
