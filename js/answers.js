@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "bias_variance_dartboard",
    "title": "Two dartboards hide the bias-variance trade-off",
-   "ts": "2026-08-03T20:34:26+00:00",
+   "ts": "2026-08-03T20:37:38+00:00",
    "date": "3 Aug 2026",
    "topic": "ml_fundamentals",
    "q": "Two dartboards hide the bias-variance trade. Full answer's in bio - free, takes an email.",
