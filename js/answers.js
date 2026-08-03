@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 108,
+ "count": 109,
  "entries": [
+  {
+   "slug": "pca_direction_of_spread",
+   "title": "A spinning line turns a cloud into shadows",
+   "ts": "2026-08-03T10:54:09+00:00",
+   "date": "3 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": "A spinning line turns dots into shadows. Solve the direction in bio - answer costs an email.",
+   "a": "TIP: A shadow's position is a signed distance along the spinning line. The spread bar is the average squared signed distance after the cloud has been centred. So compare directions by what happens to those signed distances, not by how close the line looks to the dots.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/pca_direction_of_spread"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "coin_covers_line",
    "title": "A coin exactly as wide as the floor gap",
