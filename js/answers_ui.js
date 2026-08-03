@@ -673,13 +673,34 @@
        * back to the list asked for the list. */
       var coldLanding = !q && (arrivalHow === 'entry' || arrivalHow === 'load')
                         && list.length;
+      /* WHICH answer a cold landing opens (2026-08-03). It used to be the
+       * newest. Four of the five emails this site has ever collected were
+       * given with goat_grazes_half open — the video then driving the most
+       * traffic — and all three of that day's signups met the auto-opened
+       * newest answer, did not convert, scrolled to the goat, and converted
+       * there. People arrive from whichever video is travelling and want THAT
+       * answer, which is rarely the latest upload.
+       *
+       * build_answers.py picks it (see featured_slug) and ships it in the
+       * bundle. Falls back to the newest when there is no featured slug or it
+       * is not in the list, so an old bundle still behaves as before. */
+      var featureIdx = 0;
+      try {
+        var want = (global.QQ_ANSWERS || {}).featured;
+        if (want) {
+          for (var fi = 0; fi < list.length; fi++) {
+            if (list[fi].slug === want) { featureIdx = fi; break; }
+          }
+        }
+      } catch (e) { featureIdx = 0; }
       list.forEach(function (e, i) {
-        host.appendChild(card(e, coldLanding && i === 0));
+        host.appendChild(card(e, coldLanding && i === featureIdx));
       });
       if (coldLanding) {
-        openSet[list[0].slug] = true;
+        openSet[list[featureIdx].slug] = true;
         QQA.track('archive_landing_opened', {
-          slug: list[0].slug, gated: isLocked, utm: utm()
+          slug: list[featureIdx].slug, gated: isLocked, utm: utm(),
+          featured: featureIdx !== 0
         });
       }
     }

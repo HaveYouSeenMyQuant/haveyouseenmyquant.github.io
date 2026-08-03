@@ -5286,5 +5286,6 @@ window.QQ_ANSWERS = {
    ],
    "src": "module"
   }
- ]
+ ],
+ "featured": "goat_grazes_half"
 };
