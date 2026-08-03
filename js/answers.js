@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "derivative_secant_collapse",
    "title": "What does a derivative actually measure?",
-   "ts": "2026-08-03T02:21:49+00:00",
+   "ts": "2026-08-03T02:24:02+00:00",
    "date": "3 Aug 2026",
    "topic": "calculus",
    "q": "The two points meet, but the line survives. Solve its steepness in bio - free, takes an email.",
