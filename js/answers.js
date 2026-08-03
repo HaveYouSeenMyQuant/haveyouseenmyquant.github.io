@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "continued_fraction_squares",
    "title": "The continued fraction hiding inside a rectangle",
-   "ts": "2026-08-03T03:55:56+00:00",
+   "ts": "2026-08-03T03:59:05+00:00",
    "date": "3 Aug 2026",
    "topic": "number_theory",
    "q": "One rectangle never stops making squares. Full answer's in bio - free, takes an email.",
