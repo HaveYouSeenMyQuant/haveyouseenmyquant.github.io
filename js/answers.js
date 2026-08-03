@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "coin_covers_line",
    "title": "A coin exactly as wide as the floor gap",
-   "ts": "2026-08-03T09:56:22+00:00",
+   "ts": "2026-08-03T09:58:23+00:00",
    "date": "3 Aug 2026",
    "topic": "puzzles",
    "q": "A coin as wide as the floor gap looks like it should miss. Solve it in bio - answer costs an email.",
