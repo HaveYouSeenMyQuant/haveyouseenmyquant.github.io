@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 114,
+ "count": 115,
  "entries": [
+  {
+   "slug": "bias_variance_dartboard",
+   "title": "Two dartboards hide the bias-variance trade-off",
+   "ts": "2026-08-03T20:34:26+00:00",
+   "date": "3 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": "Two dartboards hide the bias-variance trade. Full answer's in bio - free, takes an email.",
+   "a": "It depends entirely on how many throws you get to average, and the crossover is exact.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Write the expected squared miss for an average of m throws: bias squared plus variance divided by m. Averaging shrinks the variance term - it divides by m - and does absolutely nothing to the bias term."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The tight thrower is off-centre by 0.8, so its bias squared is 0.64 and its variance is 0.16. The wide thrower is centred, so its bias squared is 0 and its variance is 2.56."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For a single throw: the tight thrower's error is 0.80 and the wide thrower's is 2.56. The tight one wins comfortably."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But average four throws and it reverses: tight 0.68, wide 0.64. The exact crossover is m = 15/4, so from four throws onward the wide, centred thrower is better, and its lead only grows - at 16 throws it is 0.16 against 0.65."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the honest answer is: take the wide scattered thrower if you can average even four attempts, and the tight biased one only if you get a single shot. Spread is a problem you can pay to fix with more data. Bad aim is not - no amount of averaging removes it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "shortest_path_off_wall",
    "title": "The shortest path that has to touch a wall",
