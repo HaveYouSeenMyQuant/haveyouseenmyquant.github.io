@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "sieve_primes_fall",
    "title": "Why does the prime sieve stop after 7?",
-   "ts": "2026-08-03T04:24:50+00:00",
+   "ts": "2026-08-03T04:27:11+00:00",
    "date": "3 Aug 2026",
    "topic": "number_theory",
    "q": "The grid says stop after 7. Full answer's in bio - free, takes an email.",
