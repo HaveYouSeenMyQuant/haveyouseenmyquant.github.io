@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 107,
+ "count": 108,
  "entries": [
+  {
+   "slug": "coin_covers_line",
+   "title": "A coin exactly as wide as the floor gap",
+   "ts": "2026-08-03T09:56:22+00:00",
+   "date": "3 Aug 2026",
+   "topic": "puzzles",
+   "q": "A coin as wide as the floor gap looks like it should miss. Solve it in bio - answer costs an email.",
+   "a": "TIP: Track the centre, not the rim. Once you fold the landing point into one gap, the only distance that matters is from that centre to the nearest ruled line.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/coin_covers_line"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "max_likelihood_slide",
    "title": "Where does maximum likelihood put the bell curve?",
