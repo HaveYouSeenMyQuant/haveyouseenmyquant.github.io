@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 98,
+ "count": 99,
  "entries": [
+  {
+   "slug": "crt_two_gears",
+   "title": "Three slot rings hide the Chinese remainder theorem",
+   "ts": "2026-08-03T01:08:28+00:00",
+   "date": "3 Aug 2026",
+   "topic": "number_theory",
+   "q": "Two slot rings hide a count. Answer's in bio - free, takes an email.",
+   "a": "TIP: Track the tick count k, not the slots. A gold slot is back on top exactly when that ring's slot count divides k, so the machine is asking for one count that passes several divisibility tests at once.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/crt_two_gears"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "convex_hull_rubber_band",
    "title": "Which points does the rubber band touch?",
