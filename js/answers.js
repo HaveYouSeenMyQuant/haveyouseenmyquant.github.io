@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "backprop_blame_flows",
    "title": "Backpropagation: every edge gets its own share of the blame",
-   "ts": "2026-08-03T17:53:49+00:00",
+   "ts": "2026-08-03T17:56:10+00:00",
    "date": "3 Aug 2026",
    "topic": "ml_fundamentals",
    "q": "This network learns by sending blame backward. Answer's in bio - free, takes an email.",
