@@ -233,17 +233,45 @@ window.QQ_ANSWERS = {
    "date": "3 Aug 2026",
    "topic": "geometry",
    "q": "Two off-centre pizza cuts make a hidden winner. Solve it in bio - free to play, answer takes an email.",
-   "a": "Useful tip: draw the two cut directions again through the centre. The curved edge pieces cancel in opposite pairs; the only uncancelled area is the little rectangle between the crossing point and the centre.",
+   "a": "The pair containing the centre wins, and the margin is exactly 4ab.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/pizza_slice_two_cuts"
+      "Put the crossing point at (a, b) away from the centre in the cuts' own coordinates, with the pizza a unit circle. Let D be the area of one opposite pair minus the other."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Start with the cuts centred. By symmetry the four pieces are equal and D is zero. Now slide the vertical cut by a small amount: the only area that changes lives in that thin slice, and on it the length above the horizontal cut minus the length below is exactly -2b. So D changes at the rate 4b per unit slide."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Integrate that and D = 4ab, exactly. No approximation and no case analysis - just the product of the two offsets, times four."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So whenever the crossing point is off-centre in both directions, the pair that includes the pizza's centre is strictly bigger, and the further off-centre the crossing, the bigger the margin. With a = 1/4 and b = 1/3, the gap is exactly 1/3 of a unit of area."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The two cuts being PERPENDICULAR is what makes it this clean. It also means the answer never depends on how the cuts are rotated, only on how far the crossing point sits from the middle."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "matching_stable_pairs",
@@ -271,17 +299,45 @@ window.QQ_ANSWERS = {
    "date": "3 Aug 2026",
    "topic": "linear_algebra",
    "q": "This arrow keeps still while the ruler moves. Solve it in bio - answer costs an email.",
-   "a": "TIP: Treat the two slanted new steps as the ruler. If the new readout is a and b, then a copies of the down-right step plus b copies of the up-right step must match the arrow's horizontal and vertical movement at the same time.",
+   "a": "One third and seven thirds. The arrow never moved; only the ruler did.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/change_of_basis_same_arrow"
+      "You are solving for the amounts a and b that satisfy a times (2, -1) plus b times (1, 1) equals (3, 2). That is two equations: 2a + b = 3 across, and -a + b = 2 up."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Subtract the second from the first and the b cancels: 3a = 1, so a = 1/3. Put that back and b = 2 + 1/3 = 7/3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Check it. One third of (2, -1) is (2/3, -1/3); seven thirds of (1, 1) is (7/3, 7/3). Add them: (2/3 + 7/3, -1/3 + 7/3) = (3, 2). Exactly the arrow you started with."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the same arrow is \"(3, 2)\" in one basis and \"(1/3, 7/3)\" in the other. Neither is more real than the other - coordinates are a description, not the thing. What stayed fixed through all of it is the arrow."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole content of a change of basis, and it is why the matrix whose COLUMNS are the new basis vectors turns new coordinates into old ones. Going the other way, as here, means solving with it - which is the same as multiplying by its inverse."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "sieve_primes_fall",
@@ -290,17 +346,45 @@ window.QQ_ANSWERS = {
    "date": "3 Aug 2026",
    "topic": "number_theory",
    "q": "The grid says stop after 7. Full answer's in bio - free, takes an email.",
-   "a": "TIP: Do not try to certify the lit numbers one by one. Try to invent one composite number that survives the sweeps, then look at its two factors. One of them has to be small.",
+   "a": "Because 7 squared is 49 and the next prime squared, 121, is already past 100.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/sieve_primes_fall"
+      "Take any composite number up to 100. It factors into at least two pieces bigger than 1, and both cannot exceed 10 - if they did, their product would exceed 100. So EVERY composite up to 100 has a factor of at most 10."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That factor is either prime or it breaks down further into primes, so every composite up to 100 has a PRIME factor of at most 10. The primes at most 10 are 2, 3, 5 and 7 - exactly the four you crossed with."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So by the time you have swept the multiples of 7, every composite has already been struck out by one of the four, and anything still standing has no prime factor below 10. It cannot be composite, so it is prime."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general rule is that you only ever need primes up to the square root of your limit. For 100 that is 10, so you stop at 7. For 1000 you would stop at 31."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The tell that you have gone far enough is the sweep for 11: its first uncrossed multiple would be 11 times 11, which is 121 - off the board entirely. There is nothing left for it to do."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "continued_fraction_squares",
@@ -328,17 +412,38 @@ window.QQ_ANSWERS = {
    "date": "3 Aug 2026",
    "topic": "statistics",
    "q": "A test catches more sick people only by scaring more healthy ones. Solve the curve in bio - free, takes an email.",
-   "a": "TIP: Before thinking about the area, label the axes carefully. The horizontal axis is not the cutoff; it is the false-alarm rate produced by that cutoff. That is the trap most people miss.",
+   "a": "The area under the curve is a probability: the chance a randomly chosen sick person scores higher than a randomly chosen healthy one.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/roc_threshold_slide"
+      "That is what makes it useful. It is not an accuracy, and it is not tied to any particular cutoff - it summarises the whole trade-off curve in one number, which is exactly why you can compare two tests with it before deciding where to put the threshold."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Read the extremes. An area of 0.5 is a coin flip: the two score distributions overlap completely and the test carries no information. An area of 1.0 means every sick person outscores every healthy one, so some threshold separates them perfectly. Below 0.5 means your test is right but your sign is backwards."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For the two clouds drawn here it comes to 0.830109 - so about 83% of sick/healthy pairs are ranked the right way round. Checked three ways: the closed form for two equal-variance normals, Phi of the separation over root 2; a numerical integral agreeing to 4e-16; and 2,000,000 Monte Carlo pairs landing on 0.83023."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The practical point the sliding threshold is making: the curve is the menu and the area is the quality of the menu. Choosing WHERE to sit on it is a separate decision about what a miss costs versus what a false alarm costs."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "derivative_secant_collapse",
@@ -527,17 +632,45 @@ window.QQ_ANSWERS = {
    "date": "2 Aug 2026",
    "topic": "calculus",
    "q": "A staircase can be aiming at a curve. Answer's in bio — free, takes an email.",
-   "a": "TIP: With n equal steps across the unit interval, the walker does not add the same amount each time. Each step multiplies the current height by the same factor. Write that endpoint first; then compare it with the smooth route's finish height.",
+   "a": "They converge on e, which is 2.718281828... and the error halves every time you halve the step.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Full worked answer and the error-rate check - free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/euler_steps_converge"
+      "The rule is that the arrow's steepness equals your current height, started at height 1. Take one Euler step of size h: you multiply your height by (1 + h). Do that n times across one unit of distance, with h = 1/n, and you finish at exactly (1 + 1/n) to the power n."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That expression is the classic definition of e. One step lands at 2, two steps at 2.25, four at 2.44, sixteen at 2.638 - climbing towards 2.71828 and never quite arriving."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It never arrives because Euler's method always cuts the corner. The true curve keeps steepening between your sample points, and you walked using the arrow measured only at the start of each step, so you always land LOW."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The error has a clean shape: e minus (1 + 1/n) to the n is about e/(2n). That means halving the step halves the error - first order accuracy - which is why Euler's method needs so many steps to get a few decimals, and why better integrators exist."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the picture is honest: the jagged path really is heading for the smooth curve, just slowly."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "maybe_never_no",
@@ -600,45 +733,45 @@ window.QQ_ANSWERS = {
    "date": "2 Aug 2026",
    "topic": "geometry",
    "q": "A goat is tied to a post on the fence of a round field. How long a rope lets it eat exactly half the grass?",
-   "a": "The one move that unlocks it: the eaten patch is not one shape, it is two.",
+   "a": "The rope is about 1.1587 times the field's radius - 1.158728473 to nine decimals.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Write down both circles — the field, and the circle the rope can reach — and subtract one equation from the other. Every squared term cancels, and what is left is a single straight horizontal line. So the two circles cross at two points that sit at exactly the same height."
+      "Set the field radius to 1 and put the post on the fence. The grazed patch is the overlap of two discs, and the two boundaries cross on the horizontal line y = r squared over 2, minus 1. That line splits the patch into two circular segments: below it the edge is the fence, above it the edge is the rope."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "That line cuts the grazed patch in half. Below it the edge is the fence; above it the edge is the rope. Each piece is a circle cut off by a straight line, and the area of one of those is something you can write down in one go. Do the two separately, add them, set the total equal to half the field."
+      "Each segment has a closed form. Adding them gives the grazed area as a function of r alone, and you set that equal to pi over 2 - half the field."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Then comes the part nobody warns you about. Look at what you are holding: the rope length appears inside two inverse cosines AND multiplied outside them. There is no rearrangement that gets it on its own — no root, no substitution, nothing. That is not you being bad at algebra. The equation genuinely has no solution in the ordinary functions, and the only route left is to close in on the number."
+      "Now the sting. The rope length r appears inside two inverse cosines AND multiplied outside them. There is no rearrangement that isolates it: no root, no substitution, nothing. The equation is genuinely transcendental, so the only honest route is to close in on the number."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Two things worth knowing before you start. First, the eaten area only ever grows as the rope gets longer, so there is exactly one length that works — no second answer hiding anywhere, and that is what makes closing in on it safe. Second, a rope equal to the distance from the fence to the middle only gets you 39.1%, which tells you the answer is quite a bit longer than most people's first guess."
+      "That is safe to do here because the grazed area increases strictly with r, so there is exactly one solution and no second answer hiding anywhere. Squeezing it gives r = 1.1587284730."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Full working, the length to ten decimal places, and the checks: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/goat_grazes_half"
+      "For scale: a rope equal to the distance from the fence to the centre - r = 1 - only gets the goat 39.1% of the field. The answer is a good deal longer than most people's first guess."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "seven_bits_one_flip",
