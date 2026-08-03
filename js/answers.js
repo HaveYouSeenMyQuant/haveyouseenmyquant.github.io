@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "max_likelihood_slide",
    "title": "Where does maximum likelihood put the bell curve?",
-   "ts": "2026-08-03T09:11:10+00:00",
+   "ts": "2026-08-03T09:14:00+00:00",
    "date": "3 Aug 2026",
    "topic": "statistics",
    "q": "Seven dots choose one bell curve. Solve where it peaks in bio - it costs an email.",
