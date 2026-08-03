@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "shortest_path_off_wall",
    "title": "The shortest path that has to touch a wall",
-   "ts": "2026-08-03T18:41:50+00:00",
+   "ts": "2026-08-03T18:44:05+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
    "q": "A wall-touch shortcut hides in a mirror. Solve it in bio - answer takes an email.",
