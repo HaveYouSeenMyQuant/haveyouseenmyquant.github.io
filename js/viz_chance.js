@@ -837,6 +837,248 @@
     return { destroy: stage.destroy };
   });
 
+  /* -------------------------------------------- 8. red marble kept out */
+  global.QQViz.register('marbleSecondDraw', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Four marbles in the bag. Pick what came out first.');
+    var stage = K.Stage(host, 0.48);
+    var first = null, pickedAt = 0;
+
+    function choose(colour) {
+      first = colour; pickedAt = now();
+      out.innerHTML = colour === 'red'
+        ? 'A red marble is out. The bag now holds <b>1 red</b> and <b>2 blue</b>.'
+        : 'A blue marble is out. The bag now holds <b>2 red</b> and <b>1 blue</b>.';
+      api.onInteract('draw');
+    }
+    K.button(ctr, 'First draw is red', function () { choose('red'); }).classList.add('primary');
+    K.button(ctr, 'First draw is blue', function () { choose('blue'); }).classList.add('small');
+
+    stage.draw = function (g, w, h) {
+      var base = ['red', 'red', 'blue', 'blue'];
+      var rem = first === 'red' ? ['red', 'blue', 'blue']
+        : (first === 'blue' ? ['red', 'red', 'blue'] : base);
+      var y = h * 0.44, gap = w / (rem.length + 1);
+      var r = Math.min(24, h * 0.18), i;
+      for (i = 0; i < rem.length; i++) {
+        var cx = gap * (i + 1);
+        g.fillStyle = rem[i] === 'red' ? C.bad : C.accent;
+        g.beginPath(); g.arc(cx, y, r, 0, 7); g.fill();
+        g.strokeStyle = C.line; g.lineWidth = 2;
+        g.beginPath(); g.arc(cx, y, r, 0, 7); g.stroke();
+      }
+      if (first) {
+        var pop = 1 - easeOut(clamp((now() - pickedAt) / 320, 0, 1));
+        var x = w - 38, yy = 26 - pop * 10;
+        g.globalAlpha = 0.72;
+        g.fillStyle = first === 'red' ? C.bad : C.accent;
+        g.beginPath(); g.arc(x, yy, r * 0.72, 0, 7); g.fill();
+        g.strokeStyle = C.muted; g.lineWidth = 2;
+        g.beginPath(); g.moveTo(x - r, yy - r); g.lineTo(x + r, yy + r); g.stroke();
+        g.globalAlpha = 1;
+      }
+      g.fillStyle = C.muted; g.font = f(10.5, 600); g.textAlign = 'center';
+      g.fillText(first ? 'the next draw comes from the marbles still inside' : 'nothing has been removed yet', w / 2, h - 4);
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* -------------------------------------------- 9. gold token position */
+  global.QQViz.register('goldPositionBags', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Shuffle the three bags.');
+    var stage = K.Stage(host, 0.56);
+    var counts = [0, 0, 0], runs = 0, pending = 0, last = -1, lastAt = 0;
+
+    function record() {
+      last = pickInt(3);
+      counts[last]++;
+      runs++;
+    }
+    function render() {
+      if (!runs) out.innerHTML = 'Shuffle the three bags.';
+      else out.innerHTML = '<b>' + runs + '</b> shuffles &nbsp;·&nbsp; left ' +
+        counts[0] + ' &nbsp;·&nbsp; middle ' + counts[1] + ' &nbsp;·&nbsp; right ' + counts[2];
+    }
+    K.button(ctr, 'Shuffle', function () {
+      record(); lastAt = now(); render(); api.onInteract('run');
+    }).classList.add('primary');
+    K.button(ctr, 'Shuffle 100 times', function () { pending += 100; api.onInteract('run'); }).classList.add('small');
+    K.button(ctr, 'Reset', function () {
+      counts = [0, 0, 0]; runs = 0; pending = 0; last = -1; render(); api.onInteract('reset');
+    }).classList.add('small');
+    render();
+
+    stage.draw = function (g, w, h) {
+      var take = Math.min(pending, 25), i;
+      for (i = 0; i < take; i++) record();
+      pending -= take;
+      if (take) { lastAt = now(); render(); }
+
+      var y = h * 0.36, bw = Math.min(70, (w - 48) / 3), gap = (w - bw * 3) / 4;
+      var maxC = Math.max(1, counts[0], counts[1], counts[2]);
+      for (i = 0; i < 3; i++) {
+        var x = gap + i * (bw + gap), on = i === last;
+        g.fillStyle = on ? 'rgba(210,153,34,0.22)' : '#1c232c';
+        roundRect(g, x, y, bw, 58, 8); g.fill();
+        g.strokeStyle = on ? C.gold : C.line; g.lineWidth = on ? 2.5 : 1.5;
+        roundRect(g, x, y, bw, 58, 8); g.stroke();
+        if (on) {
+          var lift = 1 - easeOut(clamp((now() - lastAt) / 360, 0, 1));
+          g.fillStyle = C.gold;
+          g.beginPath(); g.arc(x + bw / 2, y + 24 - lift * 16, 12, 0, 7); g.fill();
+        }
+        g.fillStyle = C.muted; g.font = f(10, 700); g.textAlign = 'center';
+        g.fillText(['left', 'middle', 'right'][i], x + bw / 2, y + 76);
+        var bh = (h - y - 98) * (counts[i] / maxC);
+        g.fillStyle = C.accent;
+        roundRect(g, x + bw * 0.25, h - 12 - bh, bw * 0.5, bh, 4); g.fill();
+      }
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* -------------------------------------------- 10. double-six dominoes */
+  global.QQViz.register('dominoSixDoubles', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Tap a description.');
+    var stage = K.Stage(host, 0.62);
+    var tiles = [], sel = null, selAt = 0;
+    var a, b;
+    for (a = 0; a <= 6; a++) for (b = a; b <= 6; b++) tiles.push([a, b]);
+
+    function hit(t) {
+      if (sel === 'double') return t[0] === t[1];
+      if (sel === 'six') return t[0] === 6 || t[1] === 6;
+      return false;
+    }
+    function pick(kind) {
+      sel = kind; selAt = now();
+      var n = tiles.filter(hit).length;
+      out.innerHTML = '<b>' + n + '</b> of the 28 dominoes match';
+      api.onInteract('chip');
+    }
+    K.button(ctr, 'doubles', function () { pick('double'); }).classList.add('primary');
+    K.button(ctr, 'has a six', function () { pick('six'); }).classList.add('small');
+
+    stage.draw = function (g, w, h) {
+      var pad = 8, cols = 7, rows = 4, tw = (w - pad * 2) / cols, th = (h - pad * 2) / rows;
+      tiles.forEach(function (t, i) {
+        var c = i % cols, r = Math.floor(i / cols);
+        var x = pad + c * tw, y = pad + r * th, on = hit(t);
+        var k = on ? easeOut(clamp((now() - selAt) / 330 - i * 0.006, 0, 1)) : 0;
+        g.fillStyle = '#1c232c';
+        roundRect(g, x + 3, y + 4, tw - 6, th - 8, 5); g.fill();
+        if (k) {
+          g.fillStyle = C.accent; g.globalAlpha = 0.2 + 0.8 * k;
+          roundRect(g, x + 3, y + 4, tw - 6, th - 8, 5); g.fill();
+          g.globalAlpha = 1;
+        }
+        g.fillStyle = on ? '#0d1117' : '#647080';
+        g.font = f(Math.max(8, Math.min(12, tw * 0.23)), on ? 800 : 600);
+        g.textAlign = 'center';
+        g.fillText(t[0] + ' | ' + t[1], x + tw / 2, y + th / 2 + 4);
+      });
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* -------------------------------------------- 11. five-minute pairs */
+  global.QQViz.register('minuteArrivalGrid', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Tap a case.');
+    var stage = K.Stage(host, 0.88);
+    var sel = null, selAt = 0;
+
+    function isOn(a, b) {
+      if (sel === 'same') return a === b;
+      if (sel === 'apart') return Math.abs(a - b) === 1;
+      return false;
+    }
+    function pick(kind) {
+      sel = kind; selAt = now();
+      var hits = 0, a, b;
+      for (a = 1; a <= 5; a++) for (b = 1; b <= 5; b++) if (isOn(a, b)) hits++;
+      out.innerHTML = '<b>' + hits + '</b> of the 25 ordered pairs match';
+      api.onInteract('chip');
+    }
+    K.button(ctr, 'same minute', function () { pick('same'); }).classList.add('primary');
+    K.button(ctr, 'one minute apart', function () { pick('apart'); }).classList.add('small');
+
+    stage.draw = function (g, w, h) {
+      var pad = 28, size = Math.min((w - pad - 10) / 5, (h - pad - 10) / 5);
+      var ox = (w - size * 5) / 2 + 6, oy = (h - size * 5) / 2 + 8;
+      var a, b;
+      g.fillStyle = C.muted; g.font = f(11, 700);
+      for (a = 1; a <= 5; a++) {
+        g.textAlign = 'center'; g.fillText(String(a), ox + size * (a - 0.5), oy - 8);
+        g.textAlign = 'right'; g.fillText(String(a), ox - 8, oy + size * (a - 0.5) + 4);
+      }
+      for (a = 1; a <= 5; a++) {
+        for (b = 1; b <= 5; b++) {
+          var x = ox + (b - 1) * size, y = oy + (a - 1) * size, on = isOn(a, b);
+          var age = (now() - selAt) / 1000 - (a + b) * 0.025;
+          var k = on ? easeOut(clamp(age / 0.3, 0, 1)) : 0;
+          g.fillStyle = '#1c232c';
+          roundRect(g, x + 2, y + 2, size - 4, size - 4, 5); g.fill();
+          if (k) {
+            g.fillStyle = C.gold; g.globalAlpha = 0.2 + 0.8 * k;
+            roundRect(g, x + 2, y + 2, size - 4, size - 4, 5); g.fill();
+            g.globalAlpha = 1;
+          }
+          g.fillStyle = on ? '#0d1117' : '#5b6672';
+          g.font = f(Math.max(9, size * 0.27), on ? 800 : 600);
+          g.textAlign = 'center';
+          g.fillText(a + ',' + b, x + size / 2, y + size / 2 + size * 0.11);
+        }
+      }
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* -------------------------------------------- 12. days inside months */
+  global.QQViz.register('calendarMonthWeights', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Tap a month type.');
+    var stage = K.Stage(host, 0.62);
+    var months = [
+      ['J', 31], ['F', 28], ['M', 31], ['A', 30], ['M', 31], ['J', 30],
+      ['J', 31], ['A', 31], ['S', 30], ['O', 31], ['N', 30], ['D', 31]
+    ];
+    var sel = null, selAt = 0;
+
+    function pick(kind) {
+      sel = kind; selAt = now();
+      var days = 0;
+      months.forEach(function (m) { if ((kind === 'long') === (m[1] === 31)) days += m[1]; });
+      out.innerHTML = '<b>' + days + '</b> days are in the selected months';
+      api.onInteract('chip');
+    }
+    K.button(ctr, '31 days', function () { pick('long'); }).classList.add('primary');
+    K.button(ctr, 'shorter', function () { pick('short'); }).classList.add('small');
+
+    stage.draw = function (g, w, h) {
+      var pad = 10, slot = (w - pad * 2) / months.length;
+      var base = h - 22, maxH = h - 44;
+      months.forEach(function (m, i) {
+        var long = m[1] === 31, on = sel && ((sel === 'long') === long);
+        var x = pad + i * slot, bh = maxH * (m[1] / 31);
+        var k = on ? easeOut(clamp((now() - selAt) / 360 - i * 0.018, 0, 1)) : 0;
+        g.fillStyle = on ? C.accent : '#1c232c';
+        g.globalAlpha = on ? 0.35 + 0.65 * k : 1;
+        roundRect(g, x + 2, base - bh, slot - 4, bh, 4); g.fill();
+        g.globalAlpha = 1;
+        g.fillStyle = on ? C.fg : C.muted;
+        g.font = f(Math.max(8, Math.min(11, slot * 0.55)), on ? 800 : 600);
+        g.textAlign = 'center';
+        g.fillText(m[0], x + slot / 2, base + 13);
+      });
+      g.fillStyle = C.muted; g.font = f(10, 600); g.textAlign = 'left';
+      g.fillText('bar height is days in the month', pad, 12);
+    };
+    return { destroy: stage.destroy };
+  });
+
   /* ------------------------------------------------ 8. ten flips, counted */
   global.QQViz.register('binomialBars', function (host, api) {
     var ctr = K.controls(host);

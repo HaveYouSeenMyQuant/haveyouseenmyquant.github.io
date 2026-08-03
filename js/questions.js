@@ -227,6 +227,72 @@ window.QQ_DATA = {
               "explain": "Both pairs are equally likely on any given two flips, but heads-heads can trip over itself. Get a head, then a tail, and you are back to nothing — the tail is no use as a start. Whereas when you are hunting heads-tails, a miss means you got another head, and you are still one step in. On average: six flips for heads-heads, four for heads-tails."
             }
           ]
+        },
+        {
+          "id": "u1l3",
+          "title": "Hidden sample spaces",
+          "questions": [
+            {
+              "id": "marble_after_red",
+              "type": "choice",
+              "topic": "probability",
+              "prompt": "A bag has two red marbles and two blue marbles. You pull out a red marble and keep it out. What is the chance the next marble is red?",
+              "vizHint": "Take out the first marble and watch the bag change.",
+              "viz": "marbleSecondDraw",
+              "choices": ["1 in 2", "1 in 3", "2 in 3", "certain"],
+              "answer": 1,
+              "answerValue": "1/3",
+              "explain": "The trap is using the old bag after the first draw has changed it. Once a red marble is out, the bag has one red and two blue marbles left. The next draw is one red chance in three, not half."
+            },
+            {
+              "id": "gold_bag_position",
+              "type": "choice",
+              "topic": "probability",
+              "prompt": "One gold token and two grey tokens are shuffled in a row of three bags. Which bag is most likely to hold the gold token?",
+              "vizHint": "Shuffle the bags and watch the gold token's position build up.",
+              "viz": "goldPositionBags",
+              "choices": ["the left bag", "the middle bag", "the right bag", "all three are equally likely"],
+              "answer": 3,
+              "answerValue": "all three positions equally likely",
+              "explain": "The trap is treating the middle as special because it has neighbours on both sides. The shuffle does not care about neighbours. The gold token can sit left, middle or right in the same number of hidden orders."
+            },
+            {
+              "id": "domino_double_six",
+              "type": "choice",
+              "topic": "counting",
+              "prompt": "Pick one tile from a double-six domino set. Which is more likely: a double, or a tile with a six on it?",
+              "vizHint": "Tap a description and the matching dominoes light up.",
+              "viz": "dominoSixDoubles",
+              "choices": ["a double", "a tile with a six on it", "they are equally likely"],
+              "answer": 2,
+              "answerValue": "7 each out of 28",
+              "explain": "The trap is forgetting that the double-six tile belongs to both descriptions. There are seven doubles, from blank-blank through six-six. There are also seven tiles with a six, from blank-six through six-six. Same count, same chance."
+            },
+            {
+              "id": "minute_neighbours",
+              "type": "choice",
+              "topic": "probability",
+              "prompt": "Alex and Bea each choose one of five minutes at random. Which is more likely: they choose the same minute, or their minutes are one apart?",
+              "vizHint": "Tap a case and the ordered pair grid lights up.",
+              "viz": "minuteArrivalGrid",
+              "choices": ["the same minute", "one minute apart", "they are equally likely"],
+              "answer": 1,
+              "answerValue": "one minute apart (8 ways vs 5)",
+              "explain": "The trap is counting only the four neighbouring gaps. Each gap has two orders: Alex first then Bea, or Bea first then Alex. Same minute has five ordered pairs. One minute apart has eight."
+            },
+            {
+              "id": "random_day_month",
+              "type": "choice",
+              "topic": "probability",
+              "prompt": "Pick one day at random from an ordinary year. Are you more likely to land in a month with 31 days, or in a shorter month?",
+              "vizHint": "Tap the month type and the calendar days get counted.",
+              "viz": "calendarMonthWeights",
+              "choices": ["a 31-day month", "a shorter month", "they are equally likely"],
+              "answer": 0,
+              "answerValue": "31-day month (217 days vs 148)",
+              "explain": "The trap is counting month names instead of days. Seven months have 31 days, and those months also have more chances to be hit. They cover 217 days of the year, while the shorter months cover 148."
+            }
+          ]
         }
       ]
     },

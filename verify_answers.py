@@ -446,6 +446,86 @@ def check_hh_vs_ht(q, data):
     }
 
 
+def check_marble_after_red(q, data):
+    balls = ("R1", "R2", "B1", "B2")
+    kept = []
+    red_second = []
+    for first in balls:
+        for second in balls:
+            if second == first:
+                continue
+            if first.startswith("R"):
+                kept.append((first, second))
+                if second.startswith("R"):
+                    red_second.append((first, second))
+    exact = Fraction(len(red_second), len(kept))
+    assert exact == Fraction(1, 3), exact
+    return {
+        "choice": only_choice(q, "1 in 3"),
+        "value": "1/3",
+        "notes": "ordered first/second draws after first red: %d cases, %d have red next -> %s" % (
+            len(kept), len(red_second), exact),
+    }
+
+
+def check_gold_bag_position(q, data):
+    tokens = ("G", "A", "B")                  # A and B are the two hidden grey tokens
+    counts = [0, 0, 0]
+    orders = list(itertools.permutations(tokens))
+    for order in orders:
+        counts[order.index("G")] += 1
+    assert len(orders) == 6 and counts == [2, 2, 2], counts
+    return {
+        "choice": only_choice(q, "all three"),
+        "value": "all three positions equally likely",
+        "notes": "six hidden orders of G,A,B put gold in positions left/middle/right %s" % counts,
+    }
+
+
+def check_domino_double_six(q, data):
+    tiles = [(a, b) for a in range(7) for b in range(a, 7)]
+    doubles = [t for t in tiles if t[0] == t[1]]
+    sixes = [t for t in tiles if 6 in t]
+    assert len(tiles) == 28
+    assert len(doubles) == len(sixes) == 7, (doubles, sixes)
+    return {
+        "choice": only_choice(q, "equally likely"),
+        "value": "7 each out of 28",
+        "notes": "double-six set enumerated: %d doubles and %d tiles containing six, out of %d" % (
+            len(doubles), len(sixes), len(tiles)),
+    }
+
+
+def check_minute_neighbours(q, data):
+    outcomes = [(a, b) for a in range(1, 6) for b in range(1, 6)]
+    same = [p for p in outcomes if p[0] == p[1]]
+    apart = [p for p in outcomes if abs(p[0] - p[1]) == 1]
+    assert len(outcomes) == 25
+    assert len(same) == 5 and len(apart) == 8, (same, apart)
+    assert len(apart) > len(same)
+    return {
+        "choice": only_choice(q, "one minute apart"),
+        "value": "one minute apart (8 ways vs 5)",
+        "notes": "ordered minute pairs: same=%d, one-apart=%d, total=%d" % (
+            len(same), len(apart), len(outcomes)),
+    }
+
+
+def check_random_day_month(q, data):
+    lengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    long_days = sum(d for d in lengths if d == 31)
+    short_days = sum(d for d in lengths if d != 31)
+    assert sum(lengths) == 365
+    assert long_days == 217 and short_days == 148, (long_days, short_days)
+    assert Fraction(long_days, 365) > Fraction(1, 2)
+    return {
+        "choice": only_choice(q, "31-day"),
+        "value": "31-day month (217 days vs 148)",
+        "notes": "ordinary-year month lengths give %d days in 31-day months and %d shorter-month days" % (
+            long_days, short_days),
+    }
+
+
 # ---------------------------------------------------------------------------
 # unit 2 — numbers that lie
 # ---------------------------------------------------------------------------
@@ -1024,6 +1104,11 @@ CHECKERS = {
     "monty_hall": check_monty_hall,
     "coin_streak": check_coin_streak,
     "hh_vs_ht": check_hh_vs_ht,
+    "marble_after_red": check_marble_after_red,
+    "gold_bag_position": check_gold_bag_position,
+    "domino_double_six": check_domino_double_six,
+    "minute_neighbours": check_minute_neighbours,
+    "random_day_month": check_random_day_month,
     "coin_spread": check_coin_spread,
     "hospital_boys": check_hospital_boys,
     "mean_vs_median": check_mean_vs_median,
