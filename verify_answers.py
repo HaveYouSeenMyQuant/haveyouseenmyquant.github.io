@@ -1239,7 +1239,105 @@ def main():
     print("all %d questions verified in %.1fs — %d on the road, %d in the "
           "premium sets" % (len(rows), took, free, premium))
     print("by type: %s" % breakdown)
+    warn_near_duplicates(bank)
     return 0
+
+
+# ---------------------------------------------------------------------------
+# novelty — a different property from correctness, and the one nothing checked
+# ---------------------------------------------------------------------------
+# Added 2026-08-03. On 2026-08-02 a new free question, `reroll_threshold`, was
+# added to unit 6 and every check above passed it: the answer was right and
+# independently derived. It was still a repeat — `dice_reroll` had taught the
+# same insight in unit 4 all along, and both explanations literally said "a
+# fresh roll averages 3.5, so keep a 4, 5 or 6". It was caught by eye, which is
+# not a system.
+#
+# The video side has had "One idea, one video — no repeats" as an explicit rule
+# since 2026-07-29. The road had no equivalent. This is it.
+#
+# A WARNING, NEVER A GATE. Overlapping words are evidence of a repeat, not proof
+# of one: two genuinely different questions can share a setup (dice, coins, a
+# queue) and the honest call needs a person. A gate that blocks a build on a
+# guess costs more than it saves, so this prints and returns 0.
+_STOP = set("""a an and are as at be been but by can do does for from get give given
+had has have how if in into is it its many much no not of on one or our out over per
+question same say see should so than that the their them then there these they this
+those to two up was were what when where which who why will with would you your
+what's it's average worth pounds pound tap which more less most least
+""".split())
+
+
+# House style writes numbers as words in the narration voice and as digits in
+# the terse ones, so the SAME sentence appears as "a fresh roll averages 3.5"
+# and "a fresh die roll averages three and a half". The first version of this
+# detector compared bare words and scored that pair at zero — it missed the
+# exact repeat it was written for. Numbers are normalised to digits first.
+_NUMWORD = {
+    "zero": "0", "one": "1", "two": "2", "three": "3", "four": "4", "five": "5",
+    "six": "6", "seven": "7", "eight": "8", "nine": "9", "ten": "10",
+    "eleven": "11", "twelve": "12", "twenty": "20", "thirty": "30",
+    "forty": "40", "fifty": "50", "hundred": "100", "thousand": "1000",
+    "half": "0.5", "quarter": "0.25", "third": "0.33", "double": "2",
+    "twice": "2", "dice": "die", "rolls": "roll", "rolled": "roll",
+    "flips": "flip", "coins": "coin", "cards": "card", "numbers": "number",
+}
+
+
+def _content_words(text):
+    t = (text or "").lower()
+    t = re.sub(r"(\d)\s+and\s+a\s+half", r"\1.5", t)      # "3 and a half"
+    words = re.findall(r"[a-z]+|\d+(?:\.\d+)?", t)
+    out = set()
+    for w in words:
+        w = _NUMWORD.get(w, w)
+        if w in _STOP:
+            continue
+        if len(w) > 2 or w.replace(".", "").isdigit():
+            out.add(w)
+    # "three and a half" -> 3 . 0.5 ; collapse it to the number it says
+    if "3" in out and "0.5" in out:
+        out.discard("0.5"); out.add("3.5")
+    return out
+
+
+def warn_near_duplicates(bank, threshold=0.33):
+    """Threshold set by testing against the pair that motivated this, not by
+    taste: dice_reroll ~ reroll_threshold scores 0.344 on their explanations,
+    so anything above 0.34 misses the one real repeat we know about. At 0.33
+    the live bank of 207 raises 6 flags — Monty variants, boy-girl variants,
+    two gambler's-ruin questions — every one of which is worth a human glance
+    and none of which is noise. Raise it and you stop catching repeats; lower
+    it and the list stops being read."""
+    qs = []
+    for u in bank.get("units", []):
+        for l in u.get("lessons", []):
+            for q in l.get("questions", []):
+                qs.append((q.get("id"), u.get("id"), q.get("prompt", ""),
+                           q.get("explain", "")))
+    hits = []
+    for i in range(len(qs)):
+        for j in range(i + 1, len(qs)):
+            a, b = qs[i], qs[j]
+            # The prompt says what is asked; the explanation says what is
+            # TAUGHT. reroll_threshold and dice_reroll asked different things
+            # and taught the same thing, so weight the explanation equally.
+            for field, ai, bi in (("prompt", 2, 2), ("explain", 3, 3)):
+                wa, wb = _content_words(a[ai]), _content_words(b[bi])
+                if len(wa) < 5 or len(wb) < 5:
+                    continue
+                jac = len(wa & wb) / len(wa | wb)
+                if jac >= threshold:
+                    hits.append((jac, a[0], a[1], b[0], b[1], field))
+                    break
+    if not hits:
+        return
+    hits.sort(reverse=True)
+    print("\n%d possible repeat(s) — SAME IDEA, not a wrong answer. Judge each "
+          "by hand; this is a warning, not a failure:" % len(hits))
+    for jac, aid, au, bid, bu, field in hits[:12]:
+        print("  %.0f%% %s overlap:  %s (%s)  ~  %s (%s)"
+              % (jac * 100, field, aid, au, bid, bu))
 
 
 if __name__ == "__main__":

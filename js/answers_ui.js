@@ -604,7 +604,45 @@
       if (!list.length) {
         host.appendChild(el('p', 'ans-none', 'Nothing matches “' + query.trim() + '”.'));
       }
-      list.forEach(function (e) { host.appendChild(card(e, false)); });
+      /* THE LANDING OPENS THE NEWEST ANSWER (2026-08-03).
+       *
+       * Measured over the two days before this: 65 people reached the archive
+       * and 49 of them never opened a single card, so 75% of the traffic our
+       * own captions send here never met the gate, never saw a worked answer,
+       * and could not have converted if they wanted to. The card is not the
+       * problem — it already says "Answer, behind one email" and shows the
+       * shape of the working. The LIST is the problem. app.js's own comment
+       * says it: never show a cold visitor a menu, and a wall of 93 collapsed
+       * rows is a menu.
+       *
+       * So the first card arrives open. The other 92 are still underneath, so
+       * nothing is taken away — it is the difference between a filing cabinet
+       * and a magazine left open on the table.
+       *
+       * Deliberately narrow: only on a cold LOAD, only with no deep link and
+       * no search. Someone who typed a query, tapped back to the list, or
+       * navigated within the archive has told us what they want and gets the
+       * list they asked for.
+       *
+       * DO NOT JUDGE THIS ON answer_gate_shown. Opening a card fires the gate,
+       * so that number is about to go from 16/65 to nearly every arrival, and
+       * it will look like a triumph while proving only that I forced it. The
+       * metric is EMAIL_SUBMITTED PER ARCHIVE ARRIVAL — 2 unlocks from 65 over
+       * the two days before this. Watch `answer_gate_shown -> email_submitted`
+       * too: if the rate per gate collapses while emails per arrival stay flat,
+       * this is showing the ask to people who were never going to give one,
+       * which is how an account teaches its audience to ignore it. Revert then
+       * — it is one `if`. */
+      var coldLanding = !q && arrivalHow === 'load' && list.length;
+      list.forEach(function (e, i) {
+        host.appendChild(card(e, coldLanding && i === 0));
+      });
+      if (coldLanding) {
+        openSet[list[0].slug] = true;
+        QQA.track('archive_landing_opened', {
+          slug: list[0].slug, gated: isLocked, utm: utm()
+        });
+      }
     }
     $('#ansCount').textContent = q
       ? list.length + ' of ' + ENTRIES.length
