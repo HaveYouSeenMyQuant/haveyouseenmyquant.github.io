@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "least_squares_drop",
    "title": "Least squares: where does the line settle?",
-   "ts": "2026-08-03T00:12:19+00:00",
+   "ts": "2026-08-03T00:14:35+00:00",
    "date": "3 Aug 2026",
    "topic": "linear_algebra",
    "q": "A line can look right and still lose. Solve its best angle in bio - free, takes an email.",
