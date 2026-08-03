@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 110,
+ "count": 111,
  "entries": [
+  {
+   "slug": "kl_two_coins_apart",
+   "title": "Two coins are separated by evidence, not by vote count",
+   "ts": "2026-08-03T16:08:50+00:00",
+   "date": "3 Aug 2026",
+   "topic": "information_theory",
+   "q": "Two coins can be close in heads and far in evidence. Solve it in bio - it costs an email.",
+   "a": "TIP: Do not count heads minus tails. Use a likelihood score. One head adds a small push toward the 90% coin; one tail adds a much bigger push toward the fair coin. Compare each average push with the 100-to-1 gate.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/kl_two_coins_apart"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "same_perimeter_different_area",
    "title": "Same perimeter, wildly different area",
