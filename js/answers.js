@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "roc_threshold_slide",
    "title": "A diagnostic threshold has no single best place",
-   "ts": "2026-08-03T03:27:47+00:00",
+   "ts": "2026-08-03T03:30:08+00:00",
    "date": "3 Aug 2026",
    "topic": "statistics",
    "q": "A test catches more sick people only by scaring more healthy ones. Solve the curve in bio - free, takes an email.",
