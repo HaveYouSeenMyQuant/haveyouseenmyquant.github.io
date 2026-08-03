@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "pizza_slice_two_cuts",
    "title": "Two off-centre right-angle pizza cuts; which opposite pair wins?",
-   "ts": "2026-08-03T07:58:57+00:00",
+   "ts": "2026-08-03T08:02:47+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
    "q": "Two off-centre pizza cuts make a hidden winner. Solve it in bio - free to play, answer takes an email.",
