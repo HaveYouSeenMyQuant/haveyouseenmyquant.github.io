@@ -465,12 +465,10 @@
      * proven fix. Judge it on email_submitted per deep-link arrival, which is
      * 0 from 33 today. If it does not move once there are 20+ deep-link gates,
      * take it out. */
-    if (focusSlug && locked() && ENTRIES.length > 1) {
-      var opens = el('p', 'ans-gate-opens');
-      opens.textContent = 'One email opens this and all ' + (ENTRIES.length - 1)
-                        + ' others.';
-      form.appendChild(opens);
-    }
+    /* The line that used to sit here is gone — see the note in render(). It
+     * was given 24 deep-link gates to move a number that was 0, and the number
+     * is still 0. The offer is now stated by #ansHeadSub, which that path can
+     * see again. */
 
     var small = el('p', 'ans-gate-small');
     small.textContent = QQAuth.wallSmallPrint();
@@ -685,8 +683,36 @@
     var list = q ? ENTRIES.filter(function (e) { return e[key].indexOf(q) !== -1; }) : ENTRIES;
 
     var focused = focusSlug && !q ? BY_SLUG[focusSlug] : null;
+
+    /* DEEP LINKS NO LONGER OPEN STRAIGHT ONTO THE GATE (2026-08-03, cycle 251).
+     *
+     * The comment link is `#answers/<slug>`, and that path has never once
+     * produced an email. Measured now over 14 days: 36 deep-link arrivals, 36
+     * gates shown, 0 emails. Over the same window people who reached the same
+     * archive by browsing converted 6 of 35 gates. Identical gate, identical
+     * copy — the difference is entirely what is around it.
+     *
+     * Cycle 206 already tried explaining the offer better ("One email opens
+     * this and all N others") on exactly this path. Its own note set the kill
+     * criterion: take it out if 20+ deep-link gates go by without movement.
+     * 24 gates have gone by since it shipped and it is still 0, so the copy
+     * hypothesis is spent and that line is gone.
+     *
+     * What is left is structural. Opening the card forced the gate to be the
+     * first thing on screen, so the visitor met a price before any evidence
+     * there was something worth paying for. Browsers meet the evidence first —
+     * a list of 90-odd worked answers — and then choose to open one. So a
+     * LOCKED deep link now lands on that same list with the answer they came
+     * for at the top, collapsed, one tap away. Unlocked visitors still get it
+     * opened immediately, because for them there is no price to soften.
+     *
+     * Judge it on email_submitted per deep-link arrival, currently 0 of 36. It
+     * costs one tap; against a path that converts at zero there is nothing to
+     * protect. If it is still 0 after 30 more deep-link gates, the landing is
+     * not the problem and the traffic itself is the thing to question. */
+    var openFocused = !!focused && !isLocked;
     if (focused) {
-      host.appendChild(card(focused, true));
+      host.appendChild(card(focused, openFocused));
       var rest = ENTRIES.filter(function (e) { return e.slug !== focusSlug; });
       host.appendChild(el('p', 'ans-more', 'More answers'));
       rest.forEach(function (e) { host.appendChild(card(e, false)); });
@@ -781,9 +807,13 @@
     /* Arriving on a deep link, the archive's own furniture is in the way of
      * the one line the visitor came for. Take it out and the answer is the
      * second thing on the screen. */
-    $('#ansBackAll').hidden = !focused;
-    $('#ansHeadSub').hidden = !!focused;
-    $('#ansTools').hidden = !!focused;
+    /* The furniture comes back for a LOCKED deep link. `#ansHeadSub` is the
+     * line that says one email opens all of them — the only place the offer is
+     * stated at all — and stripping it was leaving exactly the visitors who
+     * had seen no other answer with no idea what they were buying. */
+    $('#ansBackAll').hidden = !openFocused;
+    $('#ansHeadSub').hidden = !!openFocused;
+    $('#ansTools').hidden = !!openFocused;
   }
 
   // ======================================================================
