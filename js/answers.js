@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 101,
+ "count": 102,
  "entries": [
+  {
+   "slug": "continued_fraction_squares",
+   "title": "The continued fraction hiding inside a rectangle",
+   "ts": "2026-08-03T03:55:56+00:00",
+   "date": "3 Aug 2026",
+   "topic": "number_theory",
+   "q": "One rectangle never stops making squares. Full answer's in bio - free, takes an email.",
+   "a": "TIP: After the first square is removed, rotate the leftover rectangle in your head. The unlock is making its long-to-short ratio match the original ratio again, before any second square could fit.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/continued_fraction_squares"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "roc_threshold_slide",
    "title": "A diagnostic threshold has no single best place",
