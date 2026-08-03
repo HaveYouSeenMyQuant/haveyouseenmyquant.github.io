@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "midpoints_make_parallelogram",
    "title": "What shape do four side midpoints always make?",
-   "ts": "2026-08-03T21:12:59+00:00",
+   "ts": "2026-08-03T21:15:07+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
    "q": "Solve this: four midpoints hide one shape. Answer's in bio - it costs an email.",
