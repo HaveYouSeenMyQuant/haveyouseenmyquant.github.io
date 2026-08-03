@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 96,
+ "count": 97,
  "entries": [
+  {
+   "slug": "least_squares_drop",
+   "title": "Least squares: where does the line settle?",
+   "ts": "2026-08-03T00:12:19+00:00",
+   "date": "3 Aug 2026",
+   "topic": "linear_algebra",
+   "q": "A line can look right and still lose. Solve its best angle in bio - free, takes an email.",
+   "a": "TIP: The best line is not chosen by making the vertical misses add to zero; forcing the line through the middle already does that. The unlock is to watch the misses after multiplying each one by how far left or right its dot is. At the winning angle, those weighted pushes balance.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/least_squares_drop"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "fourier_circles_draw",
    "title": "How many rotating circles does it take to draw a sharp square?",
