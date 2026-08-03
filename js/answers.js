@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 100,
+ "count": 101,
  "entries": [
+  {
+   "slug": "roc_threshold_slide",
+   "title": "A diagnostic threshold has no single best place",
+   "ts": "2026-08-03T03:27:47+00:00",
+   "date": "3 Aug 2026",
+   "topic": "statistics",
+   "q": "A test catches more sick people only by scaring more healthy ones. Solve the curve in bio - free, takes an email.",
+   "a": "TIP: Before thinking about the area, label the axes carefully. The horizontal axis is not the cutoff; it is the false-alarm rate produced by that cutoff. That is the trap most people miss.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/roc_threshold_slide"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "derivative_secant_collapse",
    "title": "What does a derivative actually measure?",
