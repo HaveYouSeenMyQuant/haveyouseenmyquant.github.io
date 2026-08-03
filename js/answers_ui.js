@@ -403,6 +403,34 @@
     btn.type = 'submit';
     form.appendChild(btn);
 
+    /* WHAT THE EMAIL ACTUALLY BUYS — deep-link arrivals only (2026-08-03).
+     *
+     * Measured over 7 days: visitors who land on the archive LIST convert 3
+     * emails from 14 gates; visitors who arrive on a #answers/<slug> deep link
+     * convert 0 from 12. Both groups see the identical gate. The difference is
+     * what surrounds it — and `$('#ansHeadSub').hidden = !!focused` a few lines
+     * below hides "One email opens all N of them" for exactly the deep-link
+     * group. So the visitor who came for one specific answer is the only one
+     * never told the email buys the other 92, and is asked to pay a price for
+     * a single thing.
+     *
+     * This is NOT the copy the owner cut on 2026-08-02. That was a heading and
+     * two paragraphs shown to everyone, arguing for the ask. This is one line,
+     * on one path, restoring information that path uniquely lacks. The header
+     * furniture stays hidden, so the answer is still the second thing on screen.
+     *
+     * HONEST ABOUT THE EVIDENCE: 0/12 against 3/14 is not significant — Fisher
+     * gives about p=0.22 — so this is a hypothesis with a mechanism, not a
+     * proven fix. Judge it on email_submitted per deep-link arrival, which is
+     * 0 from 33 today. If it does not move once there are 20+ deep-link gates,
+     * take it out. */
+    if (focusSlug && locked() && ENTRIES.length > 1) {
+      var opens = el('p', 'ans-gate-opens');
+      opens.textContent = 'One email opens this and all ' + (ENTRIES.length - 1)
+                        + ' others.';
+      form.appendChild(opens);
+    }
+
     var small = el('p', 'ans-gate-small');
     small.textContent = QQAuth.wallSmallPrint();
     form.appendChild(small);
