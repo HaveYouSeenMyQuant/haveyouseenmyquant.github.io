@@ -176,17 +176,45 @@ window.QQ_ANSWERS = {
    "date": "3 Aug 2026",
    "topic": "ml_fundamentals",
    "q": "A spinning line turns dots into shadows. Solve the direction in bio - answer costs an email.",
-   "a": "TIP: A shadow's position is a signed distance along the spinning line. The spread bar is the average squared signed distance after the cloud has been centred. So compare directions by what happens to those signed distances, not by how close the line looks to the dots.",
+   "a": "The direction at about 36.87 degrees - the 3-4-5 direction - and it wins because it is the top eigenvector of the covariance.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/pca_direction_of_spread"
+      "The bar you are watching is the variance of the shadows on the spinning line. Written down, that is u-transpose C u, where u is the unit direction and C is the cloud's covariance matrix. So the question is which unit direction maximises that quadratic form."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is exactly the eigenvector problem. The maximum equals the largest eigenvalue and is achieved at its eigenvector; the minimum is the smallest eigenvalue, at right angles to it. For this cloud the eigenvalues are 5.3825 and 0.68493, so the long axis carries 7.86 times the spread of the short one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Because the two are perpendicular, the spinning bar has exactly two maxima and two minima per full turn - which is why the animation looks like a smooth double pulse rather than something lumpier."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the number worth keeping: 5.3825 out of 5.3825 + 0.68493, about 89%, of all the variance in the cloud lives along that one direction. Project onto it and you throw away two numbers per point in exchange for 11% of the spread."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That trade is all PCA is - order the directions by how much spread they carry, then keep the front of the list."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "coin_covers_line",
@@ -195,17 +223,45 @@ window.QQ_ANSWERS = {
    "date": "3 Aug 2026",
    "topic": "puzzles",
    "q": "A coin as wide as the floor gap looks like it should miss. Solve it in bio - answer costs an email.",
-   "a": "TIP: Track the centre, not the rim. Once you fold the landing point into one gap, the only distance that matters is from that centre to the nearest ruled line.",
+   "a": "Every single time. The probability is exactly 1, not something with a pi in it.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/coin_covers_line"
+      "Once the coin's diameter equals the line spacing, the angle stops mattering - a disk has no orientation. All that matters is where the centre lands between two lines."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Fold the picture down to one gap and measure the distance from the centre to the nearest line. That distance is somewhere between 0 and half a gap, uniformly. The coin touches a line whenever that distance is at most its radius - which is also half a gap."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the touching interval is the ENTIRE range of possible positions: length one half out of one half, a ratio of exactly 1. There is nowhere the centre can land that misses."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is the trap the setup is built on. It looks like Buffon's needle, where the answer famously carries a pi, but a needle's random ANGLE is what puts pi there - the crossing condition involves a sine. A coin has no angle to integrate over, so no pi appears anywhere."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Shrink the coin below the gap and it becomes interesting again: with diameter d and spacing s, the touching probability is simply d/s, still with no pi in sight. The pi was never about round things - it was about angles."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "max_likelihood_slide",
@@ -393,17 +449,45 @@ window.QQ_ANSWERS = {
    "date": "3 Aug 2026",
    "topic": "number_theory",
    "q": "One rectangle never stops making squares. Full answer's in bio - free, takes an email.",
-   "a": "TIP: After the first square is removed, rotate the leftover rectangle in your head. The unlock is making its long-to-short ratio match the original ratio again, before any second square could fit.",
+   "a": "The golden ratio - about 1.6180339887 - and it is the only ratio that repeats forever with the same cut every time.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/continued_fraction_squares"
+      "The rule is: cut the largest square you can off a rectangle, keep the leftover, repeat. This is the Euclidean algorithm made visible, and the counts of squares at each stage ARE the continued fraction of the side ratio."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For 13 by 5 the counts are 2, 1, 1, 2 and it stops, because 13 and 5 are whole numbers with a common measure. Every rational ratio terminates - that is exactly what a common factor means geometrically."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now demand that ONE square comes off and the leftover is a smaller copy of the original. If the ratio is x, cutting one square leaves a rectangle of ratio 1/(x-1), and setting that equal to x gives x squared minus x minus 1 = 0."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The positive root is (1 + root 5)/2 = 1.6180339887. Its continued fraction is all ones, forever, which is another way of saying the picture never changes shape and never terminates."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is also why the golden ratio is called the most irrational number: all-ones is the slowest possible continued fraction to converge, so it is the ratio hardest to approximate well by fractions."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "roc_threshold_slide",
@@ -490,17 +574,45 @@ window.QQ_ANSWERS = {
    "date": "3 Aug 2026",
    "topic": "geometry",
    "q": "Solve this: which points can a rubber band actually touch?",
-   "a": "TIP: Do not guess by looking for points far from the centre. Use a supporting edge. From your current touch point, the next touch is the candidate where every other label lies on the same side of the directed line.",
+   "a": "Eight of the fourteen. The band settles on A, B, C, D, E, F, G and H; the other six are strictly inside and never feel it.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Full worked answer - free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/convex_hull_rubber_band"
+      "The test for a point being touched is local and needs no algorithm to state: a point is on the hull exactly when you can draw a straight line through it with EVERY other point on one side. That is what a taut band is - a supporting line at each contact."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Run that test on I, J, K, L, M and N and it fails for all of them. Each has points of the cloud on both sides of any line you draw through it, so the band passes over rather than around."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Notice what the interior points do NOT affect: nothing. You can slide any of the six anywhere inside the boundary and the band does not move. Only the outermost points carry any of the tension, which is why the hull is a summary of a cloud's extent and says nothing about its density."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The standard way to compute it is to sort the points and sweep, keeping a chain and discarding any point where the turn goes the wrong way - the same left-turn test, applied greedily. It runs in n log n, and the sort is the expensive part."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Convex hulls are the first step in a lot of geometry code precisely because they throw away the interior cheaply."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "least_squares_drop",
@@ -509,17 +621,45 @@ window.QQ_ANSWERS = {
    "date": "3 Aug 2026",
    "topic": "linear_algebra",
    "q": "A line can look right and still lose. Solve its best angle in bio - free, takes an email.",
-   "a": "TIP: The best line is not chosen by making the vertical misses add to zero; forcing the line through the middle already does that. The unlock is to watch the misses after multiplying each one by how far left or right its dot is. At the winning angle, those weighted pushes balance.",
+   "a": "The slope that minimises the stacked area is 5/7, through the average point (0, 1/2).",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/least_squares_drop"
+      "Write the total dropped-square area as a function of the slope m. Each dot contributes the square of its vertical miss, so the total is sum over points of (centred y minus m times x) squared."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Expand it and it is a quadratic in m: (sum x squared) m squared minus 2 (sum x times centred y) m plus (sum centred y squared). With these six points that is 28 m squared minus 40 m + 17.5."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A quadratic with a positive leading coefficient has exactly one minimum, at m = (sum x times centred y) / (sum x squared) = 20/28 = 5/7. No search, no iteration - one division."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole least-squares idea in miniature: the thing being minimised is quadratic in the unknown, so the answer is a single formula rather than a hunt, and it is unique."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things worth noticing. Squaring is what makes it quadratic, and hence solvable in closed form - minimising the total ABSOLUTE miss instead has no such formula. And squaring is also why one far-off dot drags the line so hard: its miss counts by its square, so a dot twice as far off pulls four times as much."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "fourier_circles_draw",
@@ -528,17 +668,45 @@ window.QQ_ANSWERS = {
    "date": "2 Aug 2026",
    "topic": "calculus",
    "q": "Solve the square hiding inside spinning circles.",
-   "a": "TIP: Watch the pen's velocity at a corner, not just the outline. A finite stack of rotations gives a smooth velocity. A square corner asks for a sudden turn; that is the pressure point in the problem.",
+   "a": "No finite number. A truly sharp square needs infinitely many circles, and the reason is worth more than the answer.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/fourier_circles_draw"
+      "Each circle contributes one sine wave. Adding finitely many sine waves gives a sum of smooth functions, which is itself smooth - and smooth curves do not have corners. So no finite stack of circles can produce a genuine right angle."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What you get instead is a curve that hugs the square more and more closely everywhere except at the corners. The error in the flat parts falls away as you add circles, and the drawing becomes visually indistinguishable from a square long before it is one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At the corners something stubborn happens. The overshoot beside a jump does not shrink towards zero as you add terms - it settles at about 9% of the jump and simply gets NARROWER. That is the Gibbs phenomenon, and it is why the corners keep a small permanent ear no matter how many circles you add."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the honest answer has two halves: infinitely many for exactness, and surprisingly few for a good picture. A handful of circles already looks square to the eye."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is exactly the trade every compression scheme makes. Keep the big low-frequency circles, discard the tiny fast ones, and accept a little ringing at the edges - which is what JPEG artefacts around sharp boundaries actually are."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "determinant_area_scale",
