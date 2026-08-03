@@ -502,8 +502,29 @@
     body.setAttribute('data-filled', want);
 
     if (isLocked) {
-      drawGate(body, entry);
+      /* PLAY FIRST, THEN THE ASK (2026-08-03).
+       *
+       * These two were the other way round, so a locked visitor met the email
+       * form and only found the free alternative underneath it — below the
+       * fold on a phone, after the thing they had just decided not to do.
+       * Measured: 30 sessions saw a gate on 2026-08-03 and answers_play_clicked
+       * was ZERO. Across two days, 45 gates produced 8 people who typed
+       * anything. The free door was there the whole time and nobody was shown
+       * it while they still had attention.
+       *
+       * This does NOT touch the price. The answer still costs an email;
+       * program.md's "the answer is never free" is untouched. It reorders two
+       * elements so the free option — solving it yourself on the road — is seen
+       * before the paid one, which is what the site's own comment above already
+       * says it believes: somebody who would rather solve it than be told is
+       * worth more to us than an email, not less. It was just printed second.
+       *
+       * Judge on answers_play_clicked (currently 0) AND on email_submitted per
+       * gate (currently 8/45 attempts, 6 submitted). If plays rise while emails
+       * fall, that is a real trade and the owner should choose; if both stay
+       * flat, put it back. */
       drawPlay(body, entry);
+      drawGate(body, entry);
       return;
     }
     if (entry.slug === justUnlocked && unlockNote) {
