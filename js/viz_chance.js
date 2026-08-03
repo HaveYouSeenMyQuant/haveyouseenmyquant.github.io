@@ -1079,6 +1079,269 @@
     return { destroy: stage.destroy };
   });
 
+  /* --------------------------------------------- 13. BALLOON slots */
+  global.QQViz.register('balloonLetterSlots', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Tap a letter.');
+    var stage = K.Stage(host, 0.48);
+    var slots = 'BALLOON'.split('');
+    var letters = ['B', 'A', 'L', 'O', 'N'];
+    var sel = '', selAt = 0;
+
+    function pick(ch) {
+      sel = ch; selAt = now();
+      var n = slots.filter(function (x) { return x === ch; }).length;
+      out.innerHTML = '<b>' + n + '</b> of the 7 positions hold ' + ch;
+      api.onInteract('chip');
+    }
+    letters.forEach(function (ch) {
+      K.button(ctr, ch, function () { pick(ch); }).classList.add(ch === 'O' ? 'primary' : 'small');
+    });
+
+    stage.draw = function (g, w, h) {
+      var pad = 10, gap = 5, bw = (w - pad * 2 - gap * 6) / 7;
+      var y = h * 0.34, bh = Math.min(58, h * 0.38);
+      slots.forEach(function (ch, i) {
+        var x = pad + i * (bw + gap);
+        var on = ch === sel;
+        var k = on ? easeOut(clamp((now() - selAt) / 320 - i * 0.025, 0, 1)) : 0;
+        g.fillStyle = on ? C.gold : '#1c232c';
+        g.globalAlpha = on ? 0.35 + 0.65 * k : 1;
+        roundRect(g, x, y, bw, bh, 6); g.fill();
+        g.globalAlpha = 1;
+        g.strokeStyle = on ? C.gold : C.line; g.lineWidth = on ? 2 : 1;
+        roundRect(g, x, y, bw, bh, 6); g.stroke();
+        g.fillStyle = on ? '#0d1117' : C.muted;
+        g.font = f(Math.max(14, Math.min(22, bw * 0.55)), 800);
+        g.textAlign = 'center';
+        g.fillText(ch, x + bw / 2, y + bh / 2 + 7);
+        g.fillStyle = C.muted; g.font = f(10, 600);
+        g.fillText(String(i + 1), x + bw / 2, y + bh + 14);
+      });
+      g.fillStyle = C.muted; g.font = f(10.5, 600); g.textAlign = 'center';
+      g.fillText('the random pick is a slot, not a different letter name', w / 2, h - 4);
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* --------------------------------------------- 14. two-digit PINs */
+  global.QQViz.register('pinDigitGrid', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Tap a rule.');
+    var stage = K.Stage(host, 0.88);
+    var sel = '', selAt = 0;
+
+    function hit(a, b) {
+      if (sel === 'match') return a === b;
+      if (sel === 'sum9') return a + b === 9;
+      return false;
+    }
+    function pick(kind) {
+      sel = kind; selAt = now();
+      var n = 0, a, b;
+      for (a = 0; a < 10; a++) for (b = 0; b < 10; b++) if (hit(a, b)) n++;
+      out.innerHTML = '<b>' + n + '</b> of the 100 PINs match';
+      api.onInteract('chip');
+    }
+    K.button(ctr, 'digits match', function () { pick('match'); }).classList.add('primary');
+    K.button(ctr, 'add to 9', function () { pick('sum9'); }).classList.add('small');
+
+    stage.draw = function (g, w, h) {
+      var pad = 22, size = Math.min((w - pad - 8) / 10, (h - pad - 8) / 10);
+      var ox = (w - size * 10) / 2 + 6, oy = (h - size * 10) / 2 + 8;
+      var a, b;
+      g.fillStyle = C.muted; g.font = f(10, 700);
+      for (a = 0; a < 10; a++) {
+        g.textAlign = 'center'; g.fillText(String(a), ox + size * (a + 0.5), oy - 7);
+        g.textAlign = 'right'; g.fillText(String(a), ox - 7, oy + size * (a + 0.5) + 3);
+      }
+      for (a = 0; a < 10; a++) {
+        for (b = 0; b < 10; b++) {
+          var x = ox + b * size, y = oy + a * size, on = hit(a, b);
+          var age = (now() - selAt) / 1000 - (a + b) * 0.012;
+          var k = on ? easeOut(clamp(age / 0.28, 0, 1)) : 0;
+          g.fillStyle = '#1c232c';
+          roundRect(g, x + 1, y + 1, size - 2, size - 2, 3); g.fill();
+          if (k) {
+            g.fillStyle = C.accent; g.globalAlpha = 0.25 + 0.75 * k;
+            roundRect(g, x + 1, y + 1, size - 2, size - 2, 3); g.fill();
+            g.globalAlpha = 1;
+          }
+          if (size >= 18) {
+            g.fillStyle = on ? '#0d1117' : '#53606d';
+            g.font = f(Math.max(7, size * 0.28), on ? 800 : 600);
+            g.textAlign = 'center';
+            g.fillText(String(a) + String(b), x + size / 2, y + size / 2 + 3);
+          }
+        }
+      }
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* --------------------------------------------- 15. ace in two cards */
+  global.QQViz.register('aceTwoDrawSlots', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Shuffle the tiny deck.');
+    var stage = K.Stage(host, 0.56);
+    var deck = ['A', 'blank', 'blank', 'blank'];
+    var mode = '', dealtAt = 0;
+
+    function shuffle() {
+      deck = ['A', 'blank', 'blank', 'blank'];
+      for (var i = deck.length - 1; i > 0; i--) {
+        var j = pickInt(i + 1), tmp = deck[i];
+        deck[i] = deck[j]; deck[j] = tmp;
+      }
+      dealtAt = now();
+      out.textContent = 'The first two slots are the two cards you draw.';
+      api.onInteract('shuffle');
+    }
+    function mark(kind) {
+      mode = kind;
+      out.innerHTML = kind === 'first'
+        ? '<b>1</b> of the 4 ace positions counts'
+        : '<b>2</b> of the 4 ace positions count';
+      api.onInteract('chip');
+    }
+    K.button(ctr, 'Shuffle', shuffle).classList.add('primary');
+    K.button(ctr, 'ace first', function () { mark('first'); }).classList.add('small');
+    K.button(ctr, 'ace in two cards', function () { mark('two'); }).classList.add('small');
+
+    stage.draw = function (g, w, h) {
+      var pad = 12, gap = 8, cw = (w - pad * 2 - gap * 3) / 4;
+      var ch = Math.min(76, h * 0.48), y = h * 0.28;
+      var drawnW = cw * 2 + gap;
+      g.fillStyle = 'rgba(88,166,255,0.10)';
+      roundRect(g, pad - 3, y - 5, drawnW + 6, ch + 10, 8); g.fill();
+      for (var i = 0; i < 4; i++) {
+        var x = pad + i * (cw + gap);
+        var counts = mode === 'two' ? i < 2 : (mode === 'first' ? i === 0 : false);
+        var lift = easeOut(clamp((now() - dealtAt) / 360 - i * 0.04, 0, 1));
+        g.fillStyle = counts ? 'rgba(210,153,34,0.32)' : '#1c232c';
+        roundRect(g, x, y - (1 - lift) * 10, cw, ch, 7); g.fill();
+        g.strokeStyle = counts ? C.gold : C.line; g.lineWidth = counts ? 2 : 1.2;
+        roundRect(g, x, y - (1 - lift) * 10, cw, ch, 7); g.stroke();
+        g.fillStyle = deck[i] === 'A' ? C.gold : C.muted;
+        g.font = f(Math.max(13, Math.min(24, cw * 0.42)), 800);
+        g.textAlign = 'center';
+        g.fillText(deck[i] === 'A' ? 'A' : '', x + cw / 2, y + ch / 2 + 7 - (1 - lift) * 10);
+        g.fillStyle = C.muted; g.font = f(10, 700);
+        g.fillText(i < 2 ? 'draw ' + (i + 1) : 'slot ' + (i + 1), x + cw / 2, y + ch + 15);
+      }
+    };
+    shuffle();
+    return { destroy: stage.destroy };
+  });
+
+  /* --------------------------------------------- 16. traffic light time */
+  global.QQViz.register('trafficLightMinute', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Tap a colour, or run arrivals.');
+    var stage = K.Stage(host, 0.5);
+    var sel = '', selAt = 0, arrivals = [], pending = 0;
+    var parts = [
+      { id: 'green', label: 'green', start: 0, end: 25, colour: C.good },
+      { id: 'amber', label: 'amber', start: 25, end: 30, colour: C.gold },
+      { id: 'red', label: 'red', start: 30, end: 60, colour: C.bad }
+    ];
+
+    function pick(kind) {
+      sel = kind; selAt = now();
+      var part = parts.filter(function (p) { return p.id === kind; })[0];
+      out.innerHTML = '<b>' + (part.end - part.start) + '</b> seconds of the minute are ' + part.label;
+      api.onInteract('chip');
+    }
+    parts.forEach(function (p) {
+      K.button(ctr, p.label, function () { pick(p.id); }).classList.add(p.id === 'red' ? 'primary' : 'small');
+    });
+    K.button(ctr, 'Arrive 30 times', function () { pending += 30; api.onInteract('run'); }).classList.add('small');
+
+    function colourAt(s) {
+      return parts.filter(function (p) { return s >= p.start && s < p.end; })[0];
+    }
+    stage.draw = function (g, w, h) {
+      var take = Math.min(pending, 3);
+      for (var i = 0; i < take; i++) arrivals.push(Math.random() * 60);
+      pending -= take;
+      if (take) out.innerHTML = '<b>' + arrivals.length + '</b> random arrivals shown';
+
+      var pad = 14, x0 = pad, x1 = w - pad, y = h * 0.36, barH = 34;
+      parts.forEach(function (p) {
+        var x = x0 + (x1 - x0) * (p.start / 60);
+        var bw = (x1 - x0) * ((p.end - p.start) / 60);
+        var on = sel === p.id;
+        var k = on ? easeOut(clamp((now() - selAt) / 300, 0, 1)) : 0;
+        g.fillStyle = p.colour;
+        g.globalAlpha = on ? 0.45 + 0.55 * k : 0.25;
+        roundRect(g, x, y, bw, barH, 4); g.fill();
+        g.globalAlpha = 1;
+        g.strokeStyle = on ? p.colour : C.line; g.lineWidth = on ? 2 : 1;
+        roundRect(g, x, y, bw, barH, 4); g.stroke();
+        g.fillStyle = on ? C.fg : C.muted;
+        g.font = f(10.5, 700); g.textAlign = 'center';
+        g.fillText(p.label, x + bw / 2, y + barH + 14);
+      });
+      arrivals.slice(-60).forEach(function (s) {
+        var p = colourAt(s);
+        var x = x0 + (x1 - x0) * (s / 60);
+        g.strokeStyle = p.colour; g.lineWidth = 1.5;
+        g.beginPath(); g.moveTo(x, y - 8); g.lineTo(x, y - 1); g.stroke();
+      });
+      g.fillStyle = C.muted; g.font = f(10, 600); g.textAlign = 'left';
+      g.fillText('one minute of time', x0, y - 13);
+      g.textAlign = 'right';
+      g.fillText('60 seconds', x1, y - 13);
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* --------------------------------------------- 17. page numbers */
+  global.QQViz.register('pageNumberEnds', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Tap a rule.');
+    var stage = K.Stage(host, 0.86);
+    var sel = '', selAt = 0;
+
+    function hit(n) {
+      if (sel === 'starts') return String(n).charAt(0) === '1';
+      if (sel === 'ends') return String(n).slice(-1) === '1';
+      return false;
+    }
+    function pick(kind) {
+      sel = kind; selAt = now();
+      var n = 0;
+      for (var p = 1; p <= 100; p++) if (hit(p)) n++;
+      out.innerHTML = '<b>' + n + '</b> of the 100 page numbers match';
+      api.onInteract('chip');
+    }
+    K.button(ctr, 'starts with 1', function () { pick('starts'); }).classList.add('primary');
+    K.button(ctr, 'ends with 1', function () { pick('ends'); }).classList.add('small');
+
+    stage.draw = function (g, w, h) {
+      var pad = 8, cols = 10, rows = 10, size = Math.min((w - pad * 2) / cols, (h - pad * 2) / rows);
+      var ox = (w - size * cols) / 2, oy = (h - size * rows) / 2;
+      for (var n = 1; n <= 100; n++) {
+        var i = n - 1, c = i % cols, r = (i / cols) | 0;
+        var x = ox + c * size, y = oy + r * size, on = hit(n);
+        var age = (now() - selAt) / 1000 - (r + c) * 0.011;
+        var k = on ? easeOut(clamp(age / 0.28, 0, 1)) : 0;
+        g.fillStyle = '#1c232c';
+        roundRect(g, x + 1, y + 1, size - 2, size - 2, 3); g.fill();
+        if (k) {
+          g.fillStyle = C.gold; g.globalAlpha = 0.25 + 0.75 * k;
+          roundRect(g, x + 1, y + 1, size - 2, size - 2, 3); g.fill();
+          g.globalAlpha = 1;
+        }
+        g.fillStyle = on ? '#0d1117' : '#586473';
+        g.font = f(Math.max(7, Math.min(11, size * 0.31)), on ? 800 : 600);
+        g.textAlign = 'center';
+        g.fillText(String(n), x + size / 2, y + size / 2 + 3);
+      }
+    };
+    return { destroy: stage.destroy };
+  });
+
   /* ------------------------------------------------ 8. ten flips, counted */
   global.QQViz.register('binomialBars', function (host, api) {
     var ctr = K.controls(host);

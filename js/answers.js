@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 103,
+ "count": 104,
  "entries": [
+  {
+   "slug": "change_of_basis_same_arrow",
+   "title": "The arrow stayed still. Why did its numbers change?",
+   "ts": "2026-08-03T05:57:57+00:00",
+   "date": "3 Aug 2026",
+   "topic": "linear_algebra",
+   "q": "This arrow keeps still while the ruler moves. Solve it in bio - answer costs an email.",
+   "a": "TIP: Treat the two slanted new steps as the ruler. If the new readout is a and b, then a copies of the down-right step plus b copies of the up-right step must match the arrow's horizontal and vertical movement at the same time.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/change_of_basis_same_arrow"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "sieve_primes_fall",
    "title": "Why does the prime sieve stop after 7?",

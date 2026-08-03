@@ -31,6 +31,22 @@ window.QQ_DATA = {
           "title": "Your first win",
           "questions": [
             {
+              "id": "best_spinner",
+              "type": "tap",
+              "topic": "probability",
+              "prompt": "Three spinners, each with some gold on it. Tap the one that lands on gold most often.",
+              "vizHint": "Tap a spinner. It tells you how much of it is gold.",
+              "viz": "spinnerPick",
+              "regions": [
+                { "id": "left", "label": "Left" },
+                { "id": "middle", "label": "Middle" },
+                { "id": "right", "label": "Right" }
+              ],
+              "answerRegion": "middle",
+              "answerValue": "middle",
+              "explain": "The middle one: five of its twelve wedges are gold, against three and two on the others. Chance is just the share of the circle painted gold, so the biggest gold slice wins however the wedges are arranged. Spread the same gold into five thin slivers and nothing changes."
+            },
+            {
               "id": "two_coins_pair",
               "type": "choice",
               "topic": "probability",
@@ -53,22 +69,6 @@ window.QQ_DATA = {
               "answer": 0,
               "answerValue": "even (3 faces beat 2)",
               "explain": "Count the faces. Even gives you 2, 4 and 6 — three of the six. Bigger than four gives you only 5 and 6 — two of the six. Almost every probability question you will ever meet is this in disguise: count what wins, count what could happen, compare."
-            },
-            {
-              "id": "best_spinner",
-              "type": "tap",
-              "topic": "probability",
-              "prompt": "Three spinners, each with some gold on it. Tap the one that lands on gold most often.",
-              "vizHint": "Tap a spinner. It tells you how much of it is gold.",
-              "viz": "spinnerPick",
-              "regions": [
-                { "id": "left", "label": "Left" },
-                { "id": "middle", "label": "Middle" },
-                { "id": "right", "label": "Right" }
-              ],
-              "answerRegion": "middle",
-              "answerValue": "middle",
-              "explain": "The middle one: five of its twelve wedges are gold, against three and two on the others. Chance is just the share of the circle painted gold, so the biggest gold slice wins however the wedges are arranged. Spread the same gold into five thin slivers and nothing changes."
             },
             {
               "id": "streak_next_flip",
@@ -291,6 +291,73 @@ window.QQ_DATA = {
               "answer": 0,
               "answerValue": "31-day month (217 days vs 148)",
               "explain": "The trap is counting month names instead of days. Seven months have 31 days, and those months also have more chances to be hit. They cover 217 days of the year, while the shorter months cover 148."
+            }
+          ]
+        },
+        {
+          "id": "u1l4",
+          "title": "Counting the slots",
+          "questions": [
+            {
+              "id": "balloon_letter",
+              "type": "number",
+              "topic": "counting",
+              "prompt": "Pick one position at random from the word BALLOON. How many of the seven positions hold the letter O?",
+              "vizHint": "Tap a letter. Matching positions light up.",
+              "viz": "balloonLetterSlots",
+              "answerNumber": 2,
+              "tolerance": 0,
+              "placeholder": "how many positions?",
+              "answerValue": "2",
+              "explain": "The trap is counting letter names instead of letter positions. BALLOON has five different letter names, but the random pick lands on one of seven slots. O owns two of those slots."
+            },
+            {
+              "id": "pin_match_sum",
+              "type": "choice",
+              "topic": "probability",
+              "prompt": "A two-digit PIN is chosen at random from 00 to 99. Which is more likely: the two digits match, or the two digits add to 9?",
+              "vizHint": "Tap a rule. The matching PINs light up in the grid.",
+              "viz": "pinDigitGrid",
+              "choices": ["the two digits match", "the digits add to 9", "they are equally likely"],
+              "answer": 2,
+              "answerValue": "10 each out of 100",
+              "explain": "The trap is letting familiar PINs feel less real than ordinary numbers. There are ten matching pairs, from 00 through 99. There are also ten ordered pairs that add to 9, from 09 through 90."
+            },
+            {
+              "id": "ace_in_two_draws",
+              "type": "choice",
+              "topic": "probability",
+              "prompt": "A tiny deck has one ace and three blank cards. You draw two cards without putting the first one back. Which is more likely: the ace is first, or the ace appears in your two cards?",
+              "vizHint": "Deal the tiny deck and watch which slots would count.",
+              "viz": "aceTwoDrawSlots",
+              "choices": ["the ace is first", "the ace appears in your two cards", "they are equally likely"],
+              "answer": 1,
+              "answerValue": "ace in two cards (1/2 vs 1/4)",
+              "explain": "The trap is treating a two-card hand like one draw with extra drama. The ace is equally likely to sit in any of four deck positions. First only means position one. In your two cards means position one or two."
+            },
+            {
+              "id": "traffic_light_time",
+              "type": "choice",
+              "topic": "probability",
+              "prompt": "A traffic light repeats a one-minute cycle: 25 seconds green, 5 seconds amber, and 30 seconds red. If you arrive at a random moment, which colour are you most likely to see?",
+              "vizHint": "Tap a colour. Its part of the minute lights up.",
+              "viz": "trafficLightMinute",
+              "choices": ["green", "amber", "red", "all three are equally likely"],
+              "answer": 2,
+              "answerValue": "red (30 seconds out of 60)",
+              "explain": "The trap is counting colour names instead of time. You do not arrive once per colour; you arrive somewhere inside the minute. Red takes the biggest slice of that minute, so red gets the most chances to catch you."
+            },
+            {
+              "id": "page_starts_ends_one",
+              "type": "choice",
+              "topic": "counting",
+              "prompt": "Pick a page number at random from 1 to 100. Which is more likely: the number starts with 1, or the number ends with 1?",
+              "vizHint": "Tap a rule. The matching page numbers light up.",
+              "viz": "pageNumberEnds",
+              "choices": ["starts with 1", "ends with 1", "they are equally likely"],
+              "answer": 0,
+              "answerValue": "starts with 1 (12 pages vs 10)",
+              "explain": "The trap is trusting the last digit pattern for both ends of the number. Ending in 1 happens once in each ten-page row. Starting with 1 also catches the whole run from 10 to 19, plus page 1 and page 100."
             }
           ]
         }
