@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "kl_two_coins_apart",
    "title": "Two coins are separated by evidence, not by vote count",
-   "ts": "2026-08-03T16:08:50+00:00",
+   "ts": "2026-08-03T16:11:10+00:00",
    "date": "3 Aug 2026",
    "topic": "information_theory",
    "q": "Two coins can be close in heads and far in evidence. Solve it in bio - it costs an email.",
