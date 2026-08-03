@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "crt_two_gears",
    "title": "Three slot rings hide the Chinese remainder theorem",
-   "ts": "2026-08-03T01:08:28+00:00",
+   "ts": "2026-08-03T01:11:12+00:00",
    "date": "3 Aug 2026",
    "topic": "number_theory",
    "q": "Two slot rings hide a count. Answer's in bio - free, takes an email.",
