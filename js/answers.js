@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "pca_direction_of_spread",
    "title": "A spinning line turns a cloud into shadows",
-   "ts": "2026-08-03T10:54:09+00:00",
+   "ts": "2026-08-03T10:57:16+00:00",
    "date": "3 Aug 2026",
    "topic": "ml_fundamentals",
    "q": "A spinning line turns dots into shadows. Solve the direction in bio - answer costs an email.",
