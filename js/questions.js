@@ -568,6 +568,75 @@ window.QQ_DATA = {
               "explain": "Pick a partner for the first person: five choices. Of the four people left, pick a partner for the next unpaired person: three choices. The final two are forced. Five times three is 15. The trap is lining everyone up first, then forgetting that pair order and pair names were never part of the question."
             }
           ]
+        },
+        {
+          "id": "u5l4",
+          "title": "Count what is really different",
+          "questions": [
+            {
+              "id": "red_folder_middle",
+              "type": "number",
+              "topic": "counting",
+              "prompt": "Five labelled folders sit on a shelf. The red folder is not allowed at either end. How many shelf orders are possible?",
+              "vizHint": "Tap where the red folder goes. The other four folders can fill the rest.",
+              "viz": "redFolderMiddle",
+              "answerNumber": 72,
+              "tolerance": 0,
+              "placeholder": "how many orders?",
+              "answerValue": "72",
+              "explain": "Put the red folder in one of the three middle places. The other four folders can then be ordered in 24 ways. Three middle places times 24 is 72. The trap is trying to start with all shelf orders and subtract by feel. The forbidden ends are easier to avoid than to repair."
+            },
+            {
+              "id": "pack_or_leave_books",
+              "type": "choice",
+              "topic": "counting",
+              "prompt": "You own seven books and pack exactly three for a trip. Counting the three packed books, or counting the four left at home, should give the same answer. How many choices are there?",
+              "vizHint": "Switch between packed and left behind. The highlighted set is the same choice seen two ways.",
+              "viz": "packLeaveBooks",
+              "choices": ["21", "28", "35", "210"],
+              "answer": 2,
+              "answerValue": "35",
+              "explain": "Choosing the packed books and choosing the books left behind are the same decision seen from opposite sides. Every pack-three choice leaves one pack-four choice, and every pack-four choice points back to one pack-three choice. The trap is treating those as two jobs with different counts."
+            },
+            {
+              "id": "smoothie_three_fruits",
+              "type": "choice",
+              "topic": "counting",
+              "prompt": "A smoothie bar has eight fruits. A drink uses exactly three different fruits, and the order in the blender does not matter. How many smoothies are possible?",
+              "vizHint": "Pick fruits and watch sorted triples appear only once.",
+              "viz": "smoothieTriples",
+              "choices": ["24", "56", "336", "512"],
+              "answer": 1,
+              "answerValue": "56",
+              "explain": "If you line up first fruit, second fruit and third fruit, you count each smoothie six times. Apple, banana, cherry is the same drink in every order. The trap is counting the order you said the fruits, when the blender only sees the set of fruits."
+            },
+            {
+              "id": "must_include_omar",
+              "type": "number",
+              "topic": "counting",
+              "prompt": "A five-person committee is chosen from ten volunteers. Omar must be on the committee. How many committees are possible?",
+              "vizHint": "Omar is already in. Choose the four empty seats from the nine people left.",
+              "viz": "omarCommittee",
+              "answerNumber": 126,
+              "tolerance": 0,
+              "placeholder": "how many committees?",
+              "answerValue": "126",
+              "explain": "Omar is not a choice any more. He is already on the committee. The real job is choosing four more people from the other nine volunteers, which gives 126 committees. The trap is choosing all five seats from ten and then trying to force Omar in afterwards."
+            },
+            {
+              "id": "trail_network_paths",
+              "type": "number",
+              "topic": "counting",
+              "prompt": "A park trail only moves left to right. From Start you can go to A or B. From A you can go to C or D. From B you can go to D or E. From C, D and E there is one path to Finish. How many routes go from Start to Finish?",
+              "vizHint": "Trace routes through the trail map. D is shared, but the route into it still matters.",
+              "viz": "trailNetworkPaths",
+              "answerNumber": 4,
+              "tolerance": 0,
+              "placeholder": "how many routes?",
+              "answerValue": "4",
+              "explain": "List routes by their first split. Through A there are two routes. Through B there are two routes. That makes four. The trap is treating the shared point D as if it merges the histories before the count is done. A to D and B to D are different routes."
+            }
+          ]
         }
       ]
     },

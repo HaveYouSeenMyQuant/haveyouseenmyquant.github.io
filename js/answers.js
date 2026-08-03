@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 105,
+ "count": 106,
  "entries": [
+  {
+   "slug": "pizza_slice_two_cuts",
+   "title": "Two off-centre right-angle pizza cuts; which opposite pair wins?",
+   "ts": "2026-08-03T07:58:57+00:00",
+   "date": "3 Aug 2026",
+   "topic": "geometry",
+   "q": "Two off-centre pizza cuts make a hidden winner. Solve it in bio - free to play, answer takes an email.",
+   "a": "Useful tip: draw the two cut directions again through the centre. The curved edge pieces cancel in opposite pairs; the only uncancelled area is the little rectangle between the crossing point and the centre.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/pizza_slice_two_cuts"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "matching_stable_pairs",
    "title": "Four ranked lists: can every red pair be killed?",
