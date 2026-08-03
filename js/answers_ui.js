@@ -633,7 +633,18 @@
        * this is showing the ask to people who were never going to give one,
        * which is how an account teaches its audience to ignore it. Revert then
        * — it is one `if`. */
-      var coldLanding = !q && arrivalHow === 'load' && list.length;
+      /* 'entry' is the DEFAULT no-hash landing — app.js decides the archive is
+       * the first screen and boot() calls open(null, 'entry'). 'load' is only
+       * set when the URL carried #answers. The first version of this guard
+       * tested for 'load' alone, which excluded exactly the visitors it was
+       * written for: archive_landing_opened fired ZERO times in the four hours
+       * after it shipped, across nine arrivals, because every cold landing
+       * comes through 'entry'. I checked the deployed file for the string
+       * instead of testing the behaviour, which is not a check.
+       * 'tab' and 'back' stay excluded — someone who tapped Answers or came
+       * back to the list asked for the list. */
+      var coldLanding = !q && (arrivalHow === 'entry' || arrivalHow === 'load')
+                        && list.length;
       list.forEach(function (e, i) {
         host.appendChild(card(e, coldLanding && i === 0));
       });
