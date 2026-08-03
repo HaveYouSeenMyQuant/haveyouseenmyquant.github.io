@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "convex_hull_rubber_band",
    "title": "Which points does the rubber band touch?",
-   "ts": "2026-08-03T00:40:25+00:00",
+   "ts": "2026-08-03T00:42:48+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
    "q": "Solve this: which points can a rubber band actually touch?",
