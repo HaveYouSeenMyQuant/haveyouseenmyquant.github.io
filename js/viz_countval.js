@@ -955,6 +955,306 @@
     return { destroy: stage.destroy };
   });
 
+  /* ----------------------------------------- 15. red folder in the middle */
+  reg('redFolderMiddle', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Tap a shelf slot for the red folder.');
+    var stage = K.Stage(host, 0.58);
+    var pos = -1, touched = false;
+
+    function render() {
+      if (!touched) { out.innerHTML = 'Tap a shelf slot for the red folder.'; return; }
+      if (pos === 0 || pos === 4) {
+        out.innerHTML = 'that end slot is forbidden';
+      } else {
+        out.innerHTML = 'red in slot <b>' + (pos + 1) + '</b> &nbsp;·&nbsp; the other four folders have <b>24</b> orders';
+      }
+    }
+    for (var i = 0; i < 5; i++) {
+      (function (slot) {
+        K.button(ctr, String(slot + 1), function () {
+          pos = slot; touched = true; render(); api.onInteract('slot');
+        }).classList.add('small');
+      })(i);
+    }
+    render();
+
+    stage.draw = function (g, w, h) {
+      var pad = 12, gap = 7;
+      var bw = (w - pad * 2 - gap * 4) / 5;
+      var bh = Math.min(80, h * 0.48);
+      var y = h * 0.28;
+      for (var j = 0; j < 5; j++) {
+        var x = pad + j * (bw + gap), forbidden = j === 0 || j === 4;
+        g.fillStyle = pos === j ? C.gold : (forbidden ? '#241820' : '#1c232c');
+        roundRect(g, x, y, bw, bh, 7); g.fill();
+        g.strokeStyle = forbidden ? '#f85149' : (pos === j ? C.gold : C.line);
+        g.lineWidth = pos === j ? 2 : 1;
+        roundRect(g, x, y, bw, bh, 7); g.stroke();
+        g.fillStyle = pos === j ? '#0d1117' : (forbidden ? '#f85149' : C.fg);
+        g.font = f(Math.max(13, bw * 0.32), 900); g.textAlign = 'center';
+        g.fillText(pos === j ? 'R' : String(j + 1), x + bw / 2, y + bh / 2 + 6);
+      }
+      g.fillStyle = C.muted; g.font = f(10, 600); g.textAlign = 'left';
+      g.fillText('three allowed slots for red, then four folders left to arrange', pad, h - 4);
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* ------------------------------------------ 16. pack or leave the books */
+  reg('packLeaveBooks', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Choose a view. Packed and left behind are paired.');
+    var stage = K.Stage(host, 0.58);
+    var mode = 'pack';
+    var packed = [0, 2, 5];
+    var seen = {}, seenCount = 0;
+
+    function key(a) { return a.slice().sort(function (x, y) { return x - y; }).join(','); }
+    function leftSet() {
+      var m = {}, out = [], i;
+      for (i = 0; i < packed.length; i++) m[packed[i]] = 1;
+      for (i = 0; i < 7; i++) if (!m[i]) out.push(i);
+      return out;
+    }
+    function newChoice() {
+      var a = shuffle([0, 1, 2, 3, 4, 5, 6]).slice(0, 3).sort(function (x, y) { return x - y; });
+      packed = a;
+      var k = key(a);
+      if (!seen[k]) { seen[k] = 1; seenCount++; }
+    }
+    function render() {
+      var active = mode === 'pack' ? packed : leftSet();
+      out.innerHTML = (mode === 'pack' ? 'packed books' : 'books left at home') +
+        ': <b>' + active.map(function (x) { return x + 1; }).join(', ') +
+        '</b> &nbsp;·&nbsp; <b>' + seenCount + '</b> pack-three choices seen';
+    }
+    K.button(ctr, 'New choice', function () {
+      newChoice(); render(); api.onInteract('choice');
+    }).classList.add('primary');
+    K.button(ctr, 'Show packed', function () {
+      mode = 'pack'; render(); api.onInteract('mode');
+    }).classList.add('small');
+    K.button(ctr, 'Show left', function () {
+      mode = 'left'; render(); api.onInteract('mode');
+    }).classList.add('small');
+    newChoice(); render();
+
+    stage.draw = function (g, w, h) {
+      var active = mode === 'pack' ? packed : leftSet();
+      var hot = {}, i;
+      for (i = 0; i < active.length; i++) hot[active[i]] = 1;
+      var pad = 10, gap = 5, bw = (w - pad * 2 - gap * 6) / 7;
+      var bh = Math.min(92, h * 0.52), y = h * 0.22;
+      for (i = 0; i < 7; i++) {
+        var x = pad + i * (bw + gap), on = !!hot[i];
+        g.fillStyle = on ? C.gold : '#1c232c';
+        roundRect(g, x, y, bw, bh, 6); g.fill();
+        g.strokeStyle = on ? C.gold : C.line; g.lineWidth = on ? 2 : 1;
+        roundRect(g, x, y, bw, bh, 6); g.stroke();
+        g.fillStyle = on ? '#0d1117' : C.fg;
+        g.font = f(Math.max(11, bw * 0.36), 800); g.textAlign = 'center';
+        g.fillText(String(i + 1), x + bw / 2, y + bh / 2 + 5);
+      }
+      g.fillStyle = C.muted; g.font = f(10, 600); g.textAlign = 'left';
+      g.fillText('one highlighted side determines the other side exactly', pad, h - 4);
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* --------------------------------------------- 17. three-fruit drinks */
+  reg('smoothieTriples', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Pick exactly three fruits.');
+    var stage = K.Stage(host, 0.72);
+    var names = ['apple', 'berry', 'citrus', 'date', 'fig', 'grape', 'kiwi', 'mango'];
+    var picked = {}, seen = {}, seenCount = 0, buttons = [];
+
+    function selected() {
+      var a = [];
+      for (var i = 0; i < names.length; i++) if (picked[i]) a.push(i);
+      return a;
+    }
+    function render() {
+      var a = selected();
+      buttons.forEach(function (b, i) { b.classList.toggle('on', !!picked[i]); });
+      if (a.length < 3) {
+        out.innerHTML = '<b>' + a.length + '</b> fruit' + (a.length === 1 ? '' : 's') + ' picked';
+      } else {
+        var k = a.join(',');
+        if (!seen[k]) { seen[k] = 1; seenCount++; }
+        out.innerHTML = 'smoothie: <b>' + a.map(function (i) { return names[i]; }).join(', ') +
+          '</b> &nbsp;·&nbsp; <b>' + seenCount + '</b> different triples seen';
+      }
+    }
+    names.forEach(function (name, idx) {
+      var b = el('button', 'viz-chip', name);
+      b.type = 'button';
+      b.addEventListener('click', function () {
+        if (picked[idx]) picked[idx] = 0;
+        else {
+          if (selected().length >= 3) picked = {};
+          picked[idx] = 1;
+        }
+        render(); api.onInteract('fruit');
+      });
+      ctr.appendChild(b); buttons.push(b);
+    });
+    render();
+
+    stage.draw = function (g, w, h) {
+      var cols = 4, pad = 16;
+      var cellW = (w - pad * 2) / cols, cellH = (h - 24) / 2;
+      for (var i = 0; i < names.length; i++) {
+        var x = pad + (i % cols) * cellW + cellW / 2;
+        var y = 20 + ((i / cols) | 0) * cellH + cellH / 2;
+        var on = !!picked[i];
+        g.fillStyle = on ? C.gold : '#1c232c';
+        g.beginPath(); g.arc(x, y, Math.min(24, cellW * 0.28, cellH * 0.34), 0, 7); g.fill();
+        g.strokeStyle = on ? C.gold : C.line; g.lineWidth = on ? 2 : 1;
+        g.beginPath(); g.arc(x, y, Math.min(24, cellW * 0.28, cellH * 0.34), 0, 7); g.stroke();
+        g.fillStyle = on ? '#0d1117' : C.fg;
+        g.font = f(10.5, 800); g.textAlign = 'center';
+        g.fillText(names[i], x, y + 4);
+      }
+      g.fillStyle = C.muted; g.font = f(10, 600); g.textAlign = 'left';
+      g.fillText('the triple is sorted once; tapping in another order does not make a new drink', pad, h - 4);
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* ------------------------------------------ 18. Omar must be included */
+  reg('omarCommittee', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Omar is fixed. Fill the four open seats.');
+    var stage = K.Stage(host, 0.64);
+    var pool = ['Ava', 'Ben', 'Cy', 'Dee', 'Eli', 'Flo', 'Gia', 'Hal', 'Ivy'];
+    var chosen = [], seen = {}, seenCount = 0, pending = 0;
+
+    function pickFour() {
+      chosen = shuffle(pool.slice()).slice(0, 4).sort();
+      var k = chosen.join('|');
+      if (!seen[k]) { seen[k] = 1; seenCount++; }
+    }
+    function render() {
+      out.innerHTML = 'Omar plus <b>' + chosen.join(', ') + '</b> &nbsp;·&nbsp; <b>' +
+        seenCount + '</b> committees found';
+    }
+    K.button(ctr, 'Choose four', function () {
+      pickFour(); render(); api.onInteract('choose');
+    }).classList.add('primary');
+    K.button(ctr, 'Choose 100', function () {
+      pending += 100; api.onInteract('choose');
+    }).classList.add('small');
+    K.button(ctr, 'Start over', function () {
+      chosen = []; seen = {}; seenCount = 0; pending = 0; pickFour(); render(); api.onInteract('reset');
+    }).classList.add('small');
+    pickFour(); render();
+
+    stage.draw = function (g, w, h) {
+      var take = Math.min(pending, 50);
+      for (var j = 0; j < take; j++) pickFour();
+      pending -= take;
+      if (take) render();
+
+      var seats = ['Omar'].concat(chosen);
+      var cx = w / 2, cy = h * 0.45;
+      var r = Math.min(w, h) * 0.25;
+      g.strokeStyle = C.line; g.lineWidth = 2;
+      g.beginPath(); g.arc(cx, cy, r, 0, 7); g.stroke();
+      for (var i = 0; i < seats.length; i++) {
+        var a = -Math.PI / 2 + i * Math.PI * 2 / seats.length;
+        var x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r;
+        var fixed = i === 0;
+        g.fillStyle = fixed ? C.gold : C.accent;
+        g.beginPath(); g.arc(x, y, 20, 0, 7); g.fill();
+        g.fillStyle = '#0d1117'; g.font = f(fixed ? 11 : 12, 900); g.textAlign = 'center';
+        g.fillText(seats[i], x, y + 4);
+      }
+      g.fillStyle = C.muted; g.font = f(10, 600); g.textAlign = 'left';
+      g.fillText('the fixed member uses one seat before the counting starts', 10, h - 4);
+    };
+    return { destroy: stage.destroy };
+  });
+
+  /* ----------------------------------------- 19. routes on a trail shape */
+  reg('trailNetworkPaths', function (host, api) {
+    var ctr = K.controls(host);
+    var out = K.readout(host, 'Trace a route from Start to Finish.');
+    var stage = K.Stage(host, 0.7);
+    var routes = [
+      ['Start', 'A', 'C', 'Finish'],
+      ['Start', 'A', 'D', 'Finish'],
+      ['Start', 'B', 'D', 'Finish'],
+      ['Start', 'B', 'E', 'Finish']
+    ];
+    var cur = null, seen = {}, seenCount = 0, pending = 0, tracedAt = 0;
+
+    function record(route) {
+      cur = route || routes[pickInt(routes.length)];
+      var k = cur.join('>');
+      if (!seen[k]) { seen[k] = 1; seenCount++; }
+      tracedAt = now();
+    }
+    function render() {
+      if (!cur) { out.innerHTML = 'Trace a route from Start to Finish.'; return; }
+      out.innerHTML = '<b>' + cur.join(' to ') + '</b> &nbsp;·&nbsp; <b>' +
+        seenCount + '</b> different routes traced';
+    }
+    K.button(ctr, 'Trace route', function () {
+      record(); render(); api.onInteract('trace');
+    }).classList.add('primary');
+    K.button(ctr, 'Trace all', function () {
+      pending += routes.length; api.onInteract('trace');
+    }).classList.add('small');
+    render();
+
+    stage.draw = function (g, w, h) {
+      var take = Math.min(pending, 1);
+      if (take) {
+        record(routes[seenCount % routes.length]);
+        pending -= take;
+        render();
+      }
+
+      var pts = {
+        Start: [w * 0.12, h * 0.50],
+        A: [w * 0.34, h * 0.28],
+        B: [w * 0.34, h * 0.72],
+        C: [w * 0.58, h * 0.18],
+        D: [w * 0.58, h * 0.50],
+        E: [w * 0.58, h * 0.82],
+        Finish: [w * 0.86, h * 0.50]
+      };
+      var edges = [['Start', 'A'], ['Start', 'B'], ['A', 'C'], ['A', 'D'], ['B', 'D'], ['B', 'E'],
+        ['C', 'Finish'], ['D', 'Finish'], ['E', 'Finish']];
+      var hot = {};
+      if (cur) {
+        for (var i = 0; i < cur.length - 1; i++) hot[cur[i] + '>' + cur[i + 1]] = 1;
+      }
+      edges.forEach(function (e) {
+        var on = hot[e[0] + '>' + e[1]];
+        g.strokeStyle = on ? C.good : 'rgba(139,148,158,0.36)';
+        g.lineWidth = on ? 4 : 2;
+        g.beginPath(); g.moveTo(pts[e[0]][0], pts[e[0]][1]); g.lineTo(pts[e[1]][0], pts[e[1]][1]); g.stroke();
+      });
+      Object.keys(pts).forEach(function (name) {
+        var p = pts[name], on = cur && cur.indexOf(name) >= 0;
+        g.fillStyle = name === 'D' ? C.gold : (on ? C.accent : '#1c232c');
+        g.beginPath(); g.arc(p[0], p[1], name.length > 1 ? 18 : 15, 0, 7); g.fill();
+        g.strokeStyle = on ? C.good : C.line; g.lineWidth = on ? 2 : 1;
+        g.beginPath(); g.arc(p[0], p[1], name.length > 1 ? 18 : 15, 0, 7); g.stroke();
+        g.fillStyle = name === 'D' ? '#0d1117' : C.fg;
+        g.font = f(name.length > 1 ? 9.5 : 12, 800); g.textAlign = 'center';
+        g.fillText(name, p[0], p[1] + 4);
+      });
+      g.fillStyle = C.muted; g.font = f(10, 600); g.textAlign = 'left';
+      g.fillText('D is shared, but the two ways into D are still different routes', 8, h - 4);
+      void tracedAt;
+    };
+    return { destroy: stage.destroy };
+  });
+
   /* ==========================================================  unit 6  === */
 
   /* ---------------------------------------------- 10. the ten-or-six game */

@@ -395,6 +395,128 @@ def check_three_pairings(q, data):
     }
 
 
+def check_red_folder_middle(q, data):
+    folders = range(5)
+    red = 0
+    orders = [p for p in itertools.permutations(folders) if p[0] != red and p[-1] != red]
+    n = len(orders)
+    by_position = sum(
+        1 for pos in range(1, 4)
+        for p in itertools.permutations([f for f in folders if f != red])
+    )
+    assert n == by_position == 3 * math.factorial(4) == 72, (n, by_position)
+    assert len(set(orders)) == n
+    assert all(0 < p.index(red) < 4 for p in orders)
+    return {
+        "number": n,
+        "value": str(n),
+        "notes": "enumerated all 5-folder orders and kept red away from the two ends "
+                 "-> %d; equivalently 3 middle positions x 4! other orders" % n,
+    }
+
+
+def check_pack_or_leave_books(q, data):
+    books = tuple(range(7))
+    packed = list(itertools.combinations(books, 3))
+    left = list(itertools.combinations(books, 4))
+    complements = {
+        tuple(sorted(set(books) - set(p)))
+        for p in packed
+    }
+    n = len(packed)
+    assert n == len(left) == len(complements) == 35, (n, len(left), len(complements))
+    assert set(left) == complements
+    assert math.comb(7, 3) == math.comb(7, 4) == n
+    derived = str(n)
+    assert derived in q["choices"], derived
+    return {
+        "choice": derived,
+        "value": derived,
+        "notes": "enumerated C(7,3) packed sets -> %d; their complements are exactly "
+                 "the C(7,4) left-at-home sets, so the two counts agree" % n,
+    }
+
+
+def check_smoothie_three_fruits(q, data):
+    fruits = range(8)
+    combos = list(itertools.combinations(fruits, 3))
+    ordered = list(itertools.permutations(fruits, 3))
+    n = len(combos)
+    assert n == 56 == math.comb(8, 3), n
+    assert len(ordered) == 336
+    assert len(ordered) // math.factorial(3) == n
+    fibres = {}
+    for p in ordered:
+        key = tuple(sorted(p))
+        fibres[key] = fibres.get(key, 0) + 1
+    assert set(fibres.values()) == {6}, set(fibres.values())
+    derived = str(n)
+    assert derived in q["choices"], derived
+    return {
+        "choice": derived,
+        "value": derived,
+        "notes": "enumerated %d unordered triples from 8 fruits. The %d ordered "
+                 "three-fruit lists collapse six-to-one onto those same smoothies" % (
+                     n, len(ordered)),
+    }
+
+
+def check_must_include_omar(q, data):
+    volunteers = range(10)
+    omar = 0
+    committees = [c for c in itertools.combinations(volunteers, 5) if omar in c]
+    choose_rest = list(itertools.combinations([v for v in volunteers if v != omar], 4))
+    n = len(committees)
+    rebuilt = {tuple(sorted((omar,) + c)) for c in choose_rest}
+    assert n == 126 == math.comb(9, 4), n
+    assert set(committees) == rebuilt
+    assert math.comb(10, 5) == 252 and Fraction(n, math.comb(10, 5)) == Fraction(1, 2)
+    return {
+        "number": n,
+        "value": str(n),
+        "notes": "enumerated all 5-person committees from 10 and kept the ones with "
+                 "Omar -> %d; choosing Omar plus 4 of the other 9 gives the same set" % n,
+    }
+
+
+def check_trail_network_paths(q, data):
+    graph = {
+        "Start": ["A", "B"],
+        "A": ["C", "D"],
+        "B": ["D", "E"],
+        "C": ["Finish"],
+        "D": ["Finish"],
+        "E": ["Finish"],
+        "Finish": [],
+    }
+
+    def routes(node):
+        if node == "Finish":
+            return [("Finish",)]
+        out = []
+        for nxt in graph[node]:
+            for tail in routes(nxt):
+                out.append((node,) + tail)
+        return out
+
+    all_routes = routes("Start")
+    n = len(all_routes)
+    assert n == 4, all_routes
+    assert len(set(all_routes)) == n
+    via_a = [r for r in all_routes if r[1] == "A"]
+    via_b = [r for r in all_routes if r[1] == "B"]
+    assert len(via_a) == len(via_b) == 2
+    assert ("Start", "A", "D", "Finish") in all_routes
+    assert ("Start", "B", "D", "Finish") in all_routes
+    return {
+        "number": n,
+        "value": str(n),
+        "notes": "DFS over the directed trail map gives routes %s; D is shared, but "
+                 "Start-A-D-Finish and Start-B-D-Finish are different routes" % (
+                     all_routes,),
+    }
+
+
 # ---------------------------------------------------------------------------
 # unit 6 — what it's worth
 # ---------------------------------------------------------------------------
@@ -799,6 +921,11 @@ CHECKERS = {
     "checkpoint_paths": check_checkpoint_paths,
     "grid_rectangles": check_grid_rectangles,
     "three_pairings": check_three_pairings,
+    "red_folder_middle": check_red_folder_middle,
+    "pack_or_leave_books": check_pack_or_leave_books,
+    "smoothie_three_fruits": check_smoothie_three_fruits,
+    "must_include_omar": check_must_include_omar,
+    "trail_network_paths": check_trail_network_paths,
     "coin_game_value": check_coin_game_value,
     "value_order": check_value_order,
     "raffle_ticket": check_raffle_ticket,
