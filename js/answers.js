@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 102,
+ "count": 103,
  "entries": [
+  {
+   "slug": "sieve_primes_fall",
+   "title": "Why does the prime sieve stop after 7?",
+   "ts": "2026-08-03T04:24:50+00:00",
+   "date": "3 Aug 2026",
+   "topic": "number_theory",
+   "q": "The grid says stop after 7. Full answer's in bio - free, takes an email.",
+   "a": "TIP: Do not try to certify the lit numbers one by one. Try to invent one composite number that survives the sweeps, then look at its two factors. One of them has to be small.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/sieve_primes_fall"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "continued_fraction_squares",
    "title": "The continued fraction hiding inside a rectangle",
