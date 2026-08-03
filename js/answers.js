@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 104,
+ "count": 105,
  "entries": [
+  {
+   "slug": "matching_stable_pairs",
+   "title": "Four ranked lists: can every red pair be killed?",
+   "ts": "2026-08-03T06:25:53+00:00",
+   "date": "3 Aug 2026",
+   "topic": "graphs",
+   "q": "Can four random rankings always avoid a red pair? Answer's in bio - free, takes an email.",
+   "a": "TIP: Watch the receiving side. Once a receiver is holding an offer, they only ever trade up. So if someone has already been rejected by a receiver, that receiver cannot later be part of a red pair with them.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Full worked answer - free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/matching_stable_pairs"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "change_of_basis_same_arrow",
    "title": "The arrow stayed still. Why did its numbers change?",
