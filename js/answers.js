@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "matching_stable_pairs",
    "title": "Four ranked lists: can every red pair be killed?",
-   "ts": "2026-08-03T06:25:53+00:00",
+   "ts": "2026-08-03T06:28:12+00:00",
    "date": "3 Aug 2026",
    "topic": "graphs",
    "q": "Can four random rankings always avoid a red pair? Answer's in bio - free, takes an email.",
