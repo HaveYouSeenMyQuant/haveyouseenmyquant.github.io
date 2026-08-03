@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "medians_meet_balance_point",
    "title": "Three triangle medians meet at the same balance point",
-   "ts": "2026-08-03T23:43:47+00:00",
+   "ts": "2026-08-03T23:46:23+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
    "q": "Three triangle lines should miss. Solve where they meet in bio - it costs an email.",
