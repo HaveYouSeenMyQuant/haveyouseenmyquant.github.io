@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 133,
+ "count": 134,
  "entries": [
+  {
+   "slug": "ant_on_a_stretching_rope",
+   "title": "The ant on the stretching rope",
+   "ts": "2026-08-04T15:16:22+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Yes. The ant gets there. It always gets there, for any crawl speed and any stretch rate — and it takes about 10^43 seconds, which is longer than the universe has existed by an absurd margin.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both halves of that are worth having, and the first one is the surprise."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trick is to stop measuring in metres. Track the FRACTION of the rope that is behind the ant instead."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Stretching is uniform. It pulls the ant forward and the far end forward in exactly the same proportion, so the fraction behind the ant is completely unchanged by a stretch. Read that again, because it is the whole puzzle: the stretching, the thing that looks like it is defeating the ant, cannot change the quantity that decides the outcome. Only crawling changes it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So how much fraction does a crawl buy? During second n the rope is n metres long, and crawling 1 cm on an n-metre rope covers 1/(100n) of it. Add them up:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "fraction after n seconds = (1/100) x (1 + 1/2 + 1/3 + ... + 1/n)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That bracket is the harmonic series. It grows without limit — slowly, but it passes any number you name. So the fraction passes 1, and the ant arrives."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It needs the bracket to reach 100, and the harmonic series reaches 100 at around n = e^100, which is roughly 10^43 seconds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason almost everyone says no is that they answer a different question. \"Is the ant falling behind?\" — yes, hopelessly, and further behind every second forever. \"Does the gap ahead of it grow?\" — yes, without limit. Both true. Neither is what was asked. An infinite process can lose ground forever and still arrive, and the harmonic series is the standard example of a sum whose terms shrink to nothing while the total goes to infinity."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_corners_off_the_board",
    "title": "Two corners off the board",
