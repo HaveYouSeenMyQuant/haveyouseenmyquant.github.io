@@ -721,7 +721,22 @@
      * landing is not the problem and the traffic itself is the thing to
      * question. A fall in gates shown is expected and is not evidence either
      * way. */
-    var openFocused = !!focused && !isLocked;
+    /* THE COLLAPSE WAS A MISTAKE, AND AN ALREADY-MEASURED ONE (2026-08-04).
+     *
+     * The note a few lines below this one records that 49 of 65 archive
+     * arrivals never opened a single card, and concludes: the list is the
+     * problem, a wall of collapsed rows is a menu, so the first card arrives
+     * open. I then collapsed the card for deep-link visitors and handed
+     * exactly that menu to the one group already converting at zero.
+     *
+     * Measured after: 0 of 8 deep-link arrivals opened anything, against 3 of
+     * 6 on the browse path — which still auto-opens. The asymmetry was mine.
+     *
+     * So the card opens again. What is KEPT from that change is the other
+     * half, which was never the problem: #ansHeadSub and #ansTools stay
+     * visible, so a deep-link visitor is told one email opens all of them and
+     * can see there are more. Open card, offer stated, list underneath. */
+    var openFocused = !!focused;
     if (focused) {
       host.appendChild(card(focused, openFocused));
       var rest = ENTRIES.filter(function (e) { return e.slug !== focusSlug; });
@@ -822,9 +837,9 @@
      * line that says one email opens all of them — the only place the offer is
      * stated at all — and stripping it was leaving exactly the visitors who
      * had seen no other answer with no idea what they were buying. */
-    $('#ansBackAll').hidden = !openFocused;
-    $('#ansHeadSub').hidden = !!openFocused;
-    $('#ansTools').hidden = !!openFocused;
+    $('#ansBackAll').hidden = !focused;
+    $('#ansHeadSub').hidden = false;
+    $('#ansTools').hidden = false;
   }
 
   // ======================================================================
