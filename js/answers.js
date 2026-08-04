@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 119,
+ "count": 120,
  "entries": [
+  {
+   "slug": "rolls_flat_not_round",
+   "title": "A non-round shape that rolls a plank flat",
+   "ts": "2026-08-04T02:25:11+00:00",
+   "date": "4 Aug 2026",
+   "topic": "geometry",
+   "q": "This triangle rolls like a circle. Answer's in bio - costs an email.",
+   "a": "The shape has to have CONSTANT WIDTH, and roundness has nothing to do with it.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Squeeze the shape between two parallel lines and slide them until they touch. The plank rides on the top line and the ground is the bottom one, so the plank stays level exactly when that gap is the same in every direction."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A circle has this property, but it is not the only shape that does. Start with an equilateral triangle of side 1 and draw three arcs of radius 1, each centred at the opposite corner. In any direction one support line touches a corner while the other touches the arc centred at that same corner - and that arc is exactly 1 unit away. So the width is exactly 1, in every direction."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is a Reuleaux triangle, and it plainly has corners. Corners are fine. What would tip the plank is a change in WIDTH, not a change in curvature."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The centre still bobs up and down as it rolls, which is why this makes a terrible wheel and a perfectly good roller. A wheel needs a fixed axle; a roller only needs to keep its load level."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is a bonus fact that catches people out: every shape of constant width w has the same perimeter, pi times w - exactly the circle's. That is Barbier's theorem."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "rope_round_the_earth",
    "title": "Add one metre to a rope around Earth. How big is the gap?",
