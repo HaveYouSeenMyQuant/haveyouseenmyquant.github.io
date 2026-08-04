@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 132,
+ "count": 133,
  "entries": [
+  {
+   "slug": "two_corners_off_the_board",
+   "title": "Two corners off the board",
+   "ts": "2026-08-04T14:19:44+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "No. It cannot be done — not by being clever, not ever.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Colour the board the way a chessboard is already coloured, and look at what a domino does. A domino covers two squares that share an edge, and two squares that share an edge are always opposite colours. So every domino, wherever you put it and whichever way you turn it, covers exactly one light square and one dark square. Thirty-one dominoes must therefore cover thirty-one light and thirty-one dark."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now look at the two corners you removed. Opposite corners of a chessboard are the same colour as each other. Taking both away leaves thirty of that colour and thirty-two of the other."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Thirty-one dominoes need 31 and 31. The board offers 30 and 32. There is no arrangement to find, because the obstruction has nothing to do with arrangement — you are asked to pair up squares that cannot be paired."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is worth more than the puzzle. The counting was a trap: 62 = 2 x 31 is true and completely useless, because it counts the wrong thing. The quantity that actually matters is the DIFFERENCE between the two colours, and that number never changes no matter how you lay the pieces. A quantity that cannot change is an invariant, and finding one is how you prove something is impossible rather than merely difficult — searching harder can never settle \"no\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One more thing, so the colour argument is not oversold. It rules this board out, but does having 31 of each guarantee success? Here, yes: remove any ONE light square and any ONE dark square, anywhere on the board, and a tiling always exists. That is Gomory's theorem, and it has a lovely proof — thread a closed loop through all 64 squares, remove two squares of opposite colours, and the loop falls into two arcs each of even length, which you simply pave along."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "wine_water_spoonful",
    "title": "A spoonful each way",
