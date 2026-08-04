@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "rope_round_the_earth",
    "title": "Add one metre to a rope around Earth. How big is the gap?",
-   "ts": "2026-08-04T01:36:44+00:00",
+   "ts": "2026-08-04T01:39:18+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": "Solve this: add one metre around Earth. How big is the gap? Answer's in bio - costs an email.",
