@@ -706,10 +706,21 @@
      * for at the top, collapsed, one tap away. Unlocked visitors still get it
      * opened immediately, because for them there is no price to soften.
      *
-     * Judge it on email_submitted per deep-link arrival, currently 0 of 36. It
-     * costs one tap; against a path that converts at zero there is nothing to
-     * protect. If it is still 0 after 30 more deep-link gates, the landing is
-     * not the problem and the traffic itself is the thing to question. */
+     * Judge it on email_submitted per deep-link ARRIVAL, currently 0 of 36.
+     *
+     * Per ARRIVAL, not per gate, and the distinction is the whole measurement.
+     * Before this change every deep-link arrival was shown a gate immediately —
+     * 36 arrivals, 36 gates. Now the gate only appears if they tap, so gate
+     * COUNT is suppressed by design and will fall whether the change works or
+     * not. An earlier version of this note set the kill criterion at "30 more
+     * deep-link gates", which is a threshold this change actively prevents
+     * being reached: it could have sat here for days looking inconclusive while
+     * the number it waited on was one the code had deliberately removed.
+     *
+     * So: 30 more deep-link ARRIVALS. If emails are still 0 across them, the
+     * landing is not the problem and the traffic itself is the thing to
+     * question. A fall in gates shown is expected and is not evidence either
+     * way. */
     var openFocused = !!focused && !isLocked;
     if (focused) {
       host.appendChild(card(focused, openFocused));
