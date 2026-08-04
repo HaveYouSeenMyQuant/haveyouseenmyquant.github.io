@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "two_turns_two_orders",
    "title": "Same two cube turns, reversed, end differently",
-   "ts": "2026-08-04T05:33:48+00:00",
+   "ts": "2026-08-04T05:36:30+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
    "q": "Same two cube turns, reversed. Why do the endings split? Answer's in bio - free, takes an email.",
