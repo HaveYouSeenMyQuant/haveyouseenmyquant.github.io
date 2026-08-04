@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "rolls_flat_not_round",
    "title": "A non-round shape that rolls a plank flat",
-   "ts": "2026-08-04T02:25:11+00:00",
+   "ts": "2026-08-04T02:28:22+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
    "q": "This triangle rolls like a circle. Answer's in bio - costs an email.",
