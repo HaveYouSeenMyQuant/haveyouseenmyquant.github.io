@@ -499,6 +499,41 @@
      * it holds the source fixed and changes only the landing. The DM template
      * lives in the OpenReply app, not in this repo. */
 
+    /* 2026-08-04, later the same night. Two things changed, and both make the
+     * recommendation above STRONGER rather than merely older.
+     *
+     * ONE — the significance. The note above says "0/12 against 3/14 is not
+     * significant — Fisher gives about p=0.22". Over 6 clean days the same
+     * split now reads:
+     *
+     *   answers      (index)      82 arrivals, 54 gate views, 8 emails
+     *   answers-deep-link         69 arrivals, 38 gate views, 0 emails
+     *
+     * At the index's own gate->email rate of 8/54, the chance of seeing zero
+     * from 38 gate views is 0.852^38 = 0.002. This is no longer a hypothesis
+     * with a mechanism. It is a result.
+     *
+     * TWO — the confound that would have killed it is ruled out. Zero emails
+     * is exactly what you would expect if the deep-link visitors were ALREADY
+     * SIGNED UP, because a returning user is never asked. Checked against
+     * user_id on the events: of the 38 deep-link sessions that saw the gate,
+     * 0 were authenticated, and only 1 deep-link session in 69 was
+     * authenticated at all. They are 38 strangers who were shown the price and
+     * declined it.
+     *
+     * WHAT IT IS WORTH. Deep-link arrivals run about 17/day. At the index's
+     * observed 55% gate rate and 15% gate->email, moving that traffic would be
+     * worth roughly 1.4 emails/day against a current total of 2.5/day.
+     *
+     * AND WHY IT IS STILL NOT DONE HERE. Every page-side lever is spent: the
+     * "one email opens all N" line, the open card, and the full list rendered
+     * underneath. The source-vs-landing confound in the note above is still
+     * live and only the redirect separates them. Our own comment links are in
+     * this repo (pipeline/answer_comments.py, pipeline/produce.py) but they no
+     * longer fire — every post now carries the keyword caption, and publish.py
+     * suppresses the answer comment under a post that charges for the answer.
+     * So the DM really is the last remaining source, and it is owner-only. */
+
     var small = el('p', 'ans-gate-small');
     small.textContent = QQAuth.wallSmallPrint();
     form.appendChild(small);
