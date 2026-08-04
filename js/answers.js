@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "lln_vs_clt_two_claims",
    "title": "Two coin-flip laws that people mash together",
-   "ts": "2026-08-04T23:15:26+00:00",
+   "ts": "2026-08-04T23:17:47+00:00",
    "date": "4 Aug 2026",
    "topic": "statistics",
    "q": null,
