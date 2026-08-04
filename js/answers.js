@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "ant_on_a_stretching_rope",
    "title": "The ant on the stretching rope",
-   "ts": "2026-08-04T15:16:22+00:00",
+   "ts": "2026-08-04T15:19:29+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
