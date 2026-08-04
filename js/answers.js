@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 123,
+ "count": 124,
  "entries": [
+  {
+   "slug": "wheel_inside_wheel",
+   "title": "A wheel rolling inside a wheel",
+   "ts": "2026-08-04T06:13:16+00:00",
+   "date": "4 Aug 2026",
+   "topic": "geometry",
+   "q": "A wheel rolls inside a wheel twice its size. Answer's in bio - free, takes an email.",
+   "a": "A perfectly straight line - the diameter of the big circle.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two rotations are happening at once, and at exactly half the size they cancel. The small wheel's centre travels around the big circle, and rolling without slipping spins the small wheel backwards relative to that trip, at a rate of (R - r) divided by r."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Set r to half of R and that rate is exactly 1. So the marked point's own spin precisely undoes its orbit - one turn against one turn - and two circular motions add up to no circle at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Write the coordinates out and one of them collapses to zero identically: the point never leaves the line. Checked at 20,001 positions, its greatest distance from the diameter is under 1e-9, and it sweeps the full span from one edge to the other."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It works ONLY at exactly half. At ratios of 0.4, 0.45, 0.55 or 0.6 the trace bows away from straight by a clearly measurable amount, so this is a fact about that one ratio and not a coincidence of the numbers drawn."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general family is called a hypocycloid, and this straight-line case has its own name - the Tusi couple - because it was known centuries before the algebra existed to write it down this way."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_turns_two_orders",
    "title": "Same two cube turns, reversed, end differently",
