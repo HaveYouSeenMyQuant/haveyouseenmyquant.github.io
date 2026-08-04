@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 140,
+ "count": 141,
  "entries": [
+  {
+   "slug": "lln_vs_clt_two_claims",
+   "title": "Two coin-flip laws that people mash together",
+   "ts": "2026-08-04T23:15:26+00:00",
+   "date": "4 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "The rescaled bell's width does not change at all. It is the same for every n.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two different things are happening at once and the rescale is what separates them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The raw running average genuinely does close in on one half. Its variance after n flips is 1/(4n), so its typical distance from a half shrinks like 1 over 2 root n. That is the law of large numbers, and it is the left-hand picture."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The right-hand picture asks a different question: not how big the miss is, but what SHAPE it has. To see the shape you have to zoom in as the miss shrinks, and the correct zoom is exactly root n - which is precisely what the drawn quantity does."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Once you zoom by root n, the shrinking cancels perfectly. The second moment of the rescaled miss is exactly 1 for every n - 16, 64, 256, 512, all of them. So the bell does not narrow, does not widen, and does not drift."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What it does do is become more BELL-shaped. The width is already fixed; the central limit theorem is a statement about the shape converging, not the spread. That is the distinction the two panels exist to separate: one quantity is vanishing, the other is standing still."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "four_from_three_and_five",
    "title": "Four litres from three and five",
