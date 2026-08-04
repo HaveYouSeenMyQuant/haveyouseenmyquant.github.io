@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 118,
+ "count": 119,
  "entries": [
+  {
+   "slug": "rope_round_the_earth",
+   "title": "Add one metre to a rope around Earth. How big is the gap?",
+   "ts": "2026-08-04T01:36:44+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": "Solve this: add one metre around Earth. How big is the gap? Answer's in bio - costs an email.",
+   "a": "About 16 centimetres - and it is exactly the same for the Earth and the tennis ball.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do the algebra before picking any radius. A tight rope around a circle of radius R has length 2 pi R. Lift it by a gap h and it becomes a circle of radius R + h, with length 2 pi (R + h)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Subtract: the extra rope needed is 2 pi (R + h) minus 2 pi R, which is 2 pi h. The R has cancelled completely."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the extra length depends ONLY on the gap, never on what you are wrapping. Turn it round: one extra metre gives h = 1/(2 pi), which is 0.159 metres, about 16 cm - enough to crawl under."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The tennis ball gets the same 16 cm. So does a marble, and so does the Sun. The answer to \"how big is the object\" is that it does not enter the question."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason it feels impossible is that we expect a fixed addition to matter in proportion to the size, and circumference simply is not built that way - it is LINEAR in the radius, so a fixed extra length buys a fixed extra radius. The Earth's 40,000 km never appears in the arithmetic because it cancels against itself."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "medians_meet_balance_point",
    "title": "Three triangle medians meet at the same balance point",
