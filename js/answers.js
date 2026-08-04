@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "seven_links_one_cut",
    "title": "Seven links, seven days",
-   "ts": "2026-08-04T18:03:11+00:00",
+   "ts": "2026-08-04T18:05:32+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
