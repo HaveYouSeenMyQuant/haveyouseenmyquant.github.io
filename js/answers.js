@@ -16,8 +16,92 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 138,
+ "count": 139,
  "entries": [
+  {
+   "slug": "worst_shot_goes_first",
+   "title": "The worst shot goes first",
+   "ts": "2026-08-04T20:45:13+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Fire into the air. Deliberately miss.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It sounds like giving up your turn. It is the best move you have, and by a wide margin."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Work out what happens if you actually shoot at someone."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Shoot the deadly one and hit, and now it is the middling shooter's turn with only you left to aim at. They hit two times in three, and they are shooting first. You survive that duel about one time in seven."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Shoot the middling one and hit, and it is now the deadly one's turn with only you left. They never miss. You are dead with certainty."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both of your \"successes\" hand the next shot to somebody good, with you as the only target left. Hitting is the thing that gets you killed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now miss on purpose. Nobody has been eliminated, and — this is the point — neither of the other two will waste their shot on you. You are the least dangerous person there. The middling shooter fires at the deadly one, because the deadly one is the bigger threat to them; the deadly one fires at the middling shooter for the same reason. They fight each other. One of them falls, and then you get the first shot at whoever is left."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Exact numbers, with both opponents playing sensibly:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "fire into the air     25/63   about 39.7%",
+      "shoot the deadly one  59/189  about 31.2%",
+      "shoot the middling    50/189  about 26.5%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Missing on purpose is worth more than a quarter again as much as the obvious move."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general lesson is worth more than the puzzle. Being the weakest player changed what the right move was: your advantage is that nobody considers you worth shooting, and firing a real shot throws that advantage away. Sometimes the strongest thing you can do with a turn is not use it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "seven_bridges_one_walk",
    "title": "Seven bridges, one walk",
