@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 124,
+ "count": 125,
  "entries": [
+  {
+   "slug": "ladder_midpoint_arc",
+   "title": "A ladder slips down a wall",
+   "ts": "2026-08-04T06:50:56+00:00",
+   "date": "4 Aug 2026",
+   "topic": "geometry",
+   "q": "A ladder slips down a wall. Answer's in bio - free, takes an email.",
+   "a": "A quarter circle, centred on the corner, with radius exactly half the ladder.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Forget the sliding and look at a single instant. The corner, the foot and the top form a RIGHT-ANGLED triangle, and the ladder is its hypotenuse."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now use the one fact that settles it: the midpoint of a hypotenuse is equidistant from all three vertices of a right triangle - it is the centre of the circle through them. So the midpoint sits half a hypotenuse from the corner, and the hypotenuse is the ladder, whose length never changes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A point at a fixed distance from a fixed corner traces a circle. Measured across 5,001 ladder angles, that distance does not vary by even 1e-12, and it equals L/2 to the same precision."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The contrast is the part worth keeping. A point one third of the way along is NOT special: its distance from the corner swings by roughly a third of the ladder over the same slide, and it traces an ellipse instead. Only the midpoint sits at the centre of that circle."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the whole thing collapses to one line of school geometry - and it feels surprising because both ends are accelerating differently the entire time, yet the middle is pinned."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "wheel_inside_wheel",
    "title": "A wheel rolling inside a wheel",
