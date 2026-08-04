@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "rock_out_of_the_boat",
    "title": "The rock out of the boat",
-   "ts": "2026-08-04T16:13:10+00:00",
+   "ts": "2026-08-04T16:15:03+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
