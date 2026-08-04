@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "ants_on_a_pole",
    "title": "Ants on a pole",
-   "ts": "2026-08-04T10:15:11+00:00",
+   "ts": "2026-08-04T10:17:50+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
