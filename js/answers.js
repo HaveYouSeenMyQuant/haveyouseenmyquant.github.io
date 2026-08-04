@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "three_jars_all_wrong",
    "title": "Three jars, every label wrong",
-   "ts": "2026-08-04T12:08:12+00:00",
+   "ts": "2026-08-04T12:11:36+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
