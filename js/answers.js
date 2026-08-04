@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "camel_bananas_market",
    "title": "A camel, 3000 bananas and a market",
-   "ts": "2026-08-04T08:22:15+00:00",
+   "ts": "2026-08-04T08:24:50+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
