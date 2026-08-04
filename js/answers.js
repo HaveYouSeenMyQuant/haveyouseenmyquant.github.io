@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "worst_shot_goes_first",
    "title": "The worst shot goes first",
-   "ts": "2026-08-04T20:45:13+00:00",
+   "ts": "2026-08-04T20:47:23+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
