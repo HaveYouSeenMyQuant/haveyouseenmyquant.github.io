@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "fly_between_two_trains",
    "title": "The fly between two trains",
-   "ts": "2026-08-04T17:19:17+00:00",
+   "ts": "2026-08-04T17:22:36+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
