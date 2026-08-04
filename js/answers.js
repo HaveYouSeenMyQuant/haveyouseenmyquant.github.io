@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "cone_unrolled_straight",
    "title": "A cone hides its straight shortest path",
-   "ts": "2026-08-04T03:03:43+00:00",
+   "ts": "2026-08-04T03:05:51+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
    "q": "A cone hides its shortest walking path. Full answer in bio - free, takes an email.",
