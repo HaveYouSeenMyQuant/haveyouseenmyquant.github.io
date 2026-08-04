@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 134,
+ "count": 135,
  "entries": [
+  {
+   "slug": "rock_out_of_the_boat",
+   "title": "The rock out of the boat",
+   "ts": "2026-08-04T16:13:10+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "The level goes DOWN.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nothing left the pond, which is exactly why almost everyone says \"the same\". But the water does not care how much mass is in the pond. It only responds to how much space is taken up below its surface, and that changes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the whole thing in two lines."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A FLOATING object pushes aside its own WEIGHT of water. That is what floating means: the boat sinks into the water until the water it has shoved out of the way weighs exactly as much as the boat and everything in it. While the rock is in the boat, the rock is being carried by something floating, so the water it displaces is its weight — call it m divided by the density of water."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A SUNKEN object pushes aside its own VOLUME. Once the rock is on the bottom it is not being carried by anything. It just occupies space: m divided by the density of rock."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the question becomes: which is bigger, m/rho_water or m/rho_rock? A rock is several times denser than water, so m/rho_rock is several times smaller. On the bottom it displaces less. Less displacement, lower level."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put a number on it. Granite is about 2.7 times the density of water, so a rock that displaced 10 litres while riding in the boat displaces only about 3.7 litres on the bottom. Over 6 litres of displacement simply disappears, and the pond drops."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The formula is delta_h = (m/A) x (1/rho_rock - 1/rho_water), negative for anything denser than water."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two cases worth having, because they show the rule rather than the example. Throw a wooden plank overboard and the level does not move at all — it floats, so it goes on displacing its weight exactly as it did in the boat. And something with precisely the density of water also changes nothing, because for it, weight and volume displacement are the same number. Down, only for things that sink."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ant_on_a_stretching_rope",
    "title": "The ant on the stretching rope",
