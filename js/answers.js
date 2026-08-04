@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 130,
+ "count": 131,
  "entries": [
+  {
+   "slug": "last_one_standing_circle",
+   "title": "Forty-one in a circle",
+   "ts": "2026-08-04T12:46:57+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Position nineteen. Stand nineteenth and you are the one left.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The clean way to see it is in binary, and it is almost absurdly simple. Write the number of people in base two, take the leading 1 off the front, and stick it on the end. That is the safe place."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Forty-one is 101001 in binary. Move the leading 1 to the back and you get 010011, which is 19. That is the whole method."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it works: if the circle size is exactly a power of two, the first person survives. Every second person going out halves a power of two into another power of two, and the counting always comes back round to where it started. So position 1 wins whenever n is 2, 4, 8, 16, 32 and so on."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For any other n, write it as a power of two plus a remainder: 41 = 32 + 9. Let the first 9 eliminations happen and you are left with exactly 32 people, with the count about to restart. Whoever is \"first\" in that reduced circle survives, and that person is at 2 times 9 plus 1 = 19 in the original numbering. The general formula is 2L + 1 where L is the remainder."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Checked both ways: running the elimination directly on 41 people gives 19, and it agrees with the binary rule for every circle size up to 500."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_jars_all_wrong",
    "title": "Three jars, every label wrong",
