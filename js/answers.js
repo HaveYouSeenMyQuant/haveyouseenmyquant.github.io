@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 122,
+ "count": 123,
  "entries": [
+  {
+   "slug": "two_turns_two_orders",
+   "title": "Same two cube turns, reversed, end differently",
+   "ts": "2026-08-04T05:33:48+00:00",
+   "date": "4 Aug 2026",
+   "topic": "geometry",
+   "q": "Same two cube turns, reversed. Why do the endings split? Answer's in bio - free, takes an email.",
+   "a": "They end up in genuinely different orientations. Rotations in three dimensions do not commute.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Take the cube. Turn it a quarter turn about one axis, then a quarter turn about another. Now start again from the same cube and do those two turns in the opposite order. The faces do not match, and it is not an artefact of the drawing - the two results differ by a real rotation."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason is that the second turn happens about an axis in the CURRENT frame, and the first turn has already moved that frame. So the same instruction means something different depending on what came before it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "As matrices it is immediate: composing rotations is multiplying matrices, and matrix multiplication is not commutative. AB and BA are different matrices, so they send the cube to different places."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two dimensions are the special case where this does not bite. Every planar rotation shares the same axis, the angles simply add, and order stops mattering - which is exactly why intuition built on turning things flat on a table lets you down in space."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is also why orientation in 3D is genuinely awkward to store: the order of the turns is part of the answer, so any system using angles has to fix a convention and stick to it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "flip_the_skinny_triangle",
    "title": "The skinny triangle flip test",
