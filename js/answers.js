@@ -16,12 +16,59 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 127,
+ "count": 128,
  "entries": [
+  {
+   "slug": "camel_bananas_market",
+   "title": "A camel, 3000 bananas and a market",
+   "ts": "2026-08-04T08:22:15+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Five hundred and thirty-three. Not a thousand, and not zero - 533 bananas reach the market.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trick is that the cost per mile is not one banana, it is one banana PER TRIP, and how many trips you must make depends on how many bananas are still behind you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "With 3000 bananas the camel can only shift them a mile by going forward, back, forward, back, forward - five crossings of that mile, so five bananas a mile. That rate holds until the pile drops to 2000, which takes 1000 bananas, so 200 miles. You are at mile 200 with 2000 bananas."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now only three crossings are needed per mile - forward, back, forward - so three bananas a mile. That holds until the pile drops to 1000, which takes another 1000 bananas over 333 and a third miles. You are at mile 533 and a third with 1000 bananas."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "From there the camel carries the lot in one go and eats one a mile. There are 466 and two thirds miles left, so it arrives with 1000 minus 466 and two thirds = 533 and a third bananas. Whole bananas: 533."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason to put bananas DOWN is what most people miss. Dropping a depot lets the camel stop paying the five-a-mile rate as soon as possible, and the whole solution is just three stretches at three different rates. Checked against every possible first depot position, no other plan does better."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "five_serials_how_many",
    "title": "Five serial numbers, how many exist?",
-   "ts": "2026-08-04T08:06:15+00:00",
+   "ts": "2026-08-04T08:08:33+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
