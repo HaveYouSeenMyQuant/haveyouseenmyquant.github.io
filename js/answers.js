@@ -16,8 +16,48 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 125,
+ "count": 126,
  "entries": [
+  {
+   "slug": "staircase_never_shortens",
+   "title": "A staircase that never gets shorter",
+   "ts": "2026-08-04T07:28:25+00:00",
+   "date": "4 Aug 2026",
+   "topic": "geometry",
+   "q": "This staircase never gets shorter. Answer's in bio - free, takes an email.",
+   "a": "Count the pieces separately instead of looking at the shape.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every horizontal piece of the staircase points the same way, so all of them together add up to exactly one side of the square. The same is true of the vertical pieces and the other side. That is the whole sum: one side plus one side, which is 2, and the number of steps never enters it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now refine. Halving the steps doubles how many there are and halves each one, so both totals are untouched. That is why the picture changes and the number does not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trap is assuming that if two shapes look the same, their lengths must be close. Area behaves that way; length does not. Length can be made to sit as close to the diagonal as you like while staying stubbornly at 2, because at every magnification the path is still made of horizontal and vertical pieces - it never once becomes slanted."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The diagonal is the square root of 2, about 1.414. The staircase is exactly 2 forever."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ladder_midpoint_arc",
    "title": "A ladder slips down a wall",
