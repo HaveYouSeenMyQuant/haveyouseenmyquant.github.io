@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "staircase_never_shortens",
    "title": "A staircase that never gets shorter",
-   "ts": "2026-08-04T07:28:25+00:00",
+   "ts": "2026-08-04T07:30:39+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
    "q": "This staircase never gets shorter. Answer's in bio - free, takes an email.",
