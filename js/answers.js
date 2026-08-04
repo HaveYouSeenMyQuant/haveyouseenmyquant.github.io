@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 136,
+ "count": 137,
  "entries": [
+  {
+   "slug": "seven_links_one_cut",
+   "title": "Seven links, seven days",
+   "ts": "2026-08-04T18:03:11+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "One cut. Just one — the third link from either end.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Cut link 3 and the chain falls into three pieces: a single loose link, a piece of two, and a piece of four. 1, 2 and 4. (Cutting link 5 does the same thing by symmetry — it gives a four, a loose link and a two — so there are two right answers and they are mirror images.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now watch what the innkeeper is holding at the end of each day, remembering that he gives change."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Day 1: hand him the 1. He holds 1. Day 2: hand him the 2 and take the 1 back. He holds 2. Day 3: hand him the 1 as well. He holds 1 + 2 = 3. Day 4: hand him the 4 and take back both the 1 and the 2. He holds 4. Day 5: hand him the 1. He holds 5. Day 6: hand him the 2, take back the 1. He holds 6. Day 7: hand him the 1. He holds 7."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every day settles exactly, and you cut once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason 1, 2, 4 works is that those are the powers of two, and every number from 1 to 7 is a sum of distinct powers of two — that is exactly what writing a number in binary means. 5 is 101, so it is 4 + 1, which is the piece of four plus the loose link. The innkeeper's daily total is just counting from 1 to 7 in binary, and you are handing him the bits."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why most people overshoot: they think about PAYING one link a day, so they look for seven things to hand over. The question is only ever what the innkeeper HOLDS at the end of the day, and change turns handing over into arithmetic in both directions. Once you can take pieces back, three pieces cover seven days."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general rule is lovely too. With k cuts you get k loose links plus k+1 segments, and by choosing the segment sizes well you can settle a chain of up to (k+1) x 2^(k+1) - 1 links. One cut therefore covers up to 7 — seven links is exactly the largest chain that a single cut can handle, which is why the puzzle uses seven."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "fly_between_two_trains",
    "title": "The fly between two trains",
