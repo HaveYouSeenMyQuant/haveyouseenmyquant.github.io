@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "wine_water_spoonful",
    "title": "A spoonful each way",
-   "ts": "2026-08-04T13:25:35+00:00",
+   "ts": "2026-08-04T13:28:08+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
