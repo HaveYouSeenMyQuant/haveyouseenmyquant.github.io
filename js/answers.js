@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 129,
+ "count": 130,
  "entries": [
+  {
+   "slug": "three_jars_all_wrong",
+   "title": "Three jars, every label wrong",
+   "ts": "2026-08-04T12:08:12+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "One. A single fruit, and it has to come from the jar labelled MIXED.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Start by counting the worlds you are actually in. Three labels, all wrong, is a permutation with no fixed point - a derangement - and on three items there are exactly TWO of those. That is the whole search space."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "World one: the APPLES jar holds oranges, the ORANGES jar holds the mix, the MIXED jar holds apples. World two: the APPLES jar holds the mix, the ORANGES jar holds apples, the MIXED jar holds oranges."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now look at what each draw tells you. Reach into the jar labelled MIXED. In world one it gives an apple; in world two it gives an orange. The two worlds disagree, so whatever comes out names your world outright - and naming the world labels all three jars at once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The other two jars are useless for this, and that is the part people miss. The jar labelled APPLES holds oranges in one world and the MIXED jar in the other, so pulling an orange out of it leaves you exactly where you started. Same for the jar labelled ORANGES."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why the MIXED jar works is worth saying plainly: it is the only jar guaranteed to be PURE. Since its label is wrong, it cannot be the mix, so every fruit in it is the same kind - which means one fruit speaks for the whole jar. And zero draws is not enough, because both worlds are consistent with the labels before you touch anything."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ants_on_a_pole",
    "title": "Ants on a pole",
