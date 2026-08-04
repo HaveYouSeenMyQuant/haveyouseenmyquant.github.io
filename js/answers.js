@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "flip_the_skinny_triangle",
    "title": "The skinny triangle flip test",
-   "ts": "2026-08-04T03:41:12+00:00",
+   "ts": "2026-08-04T03:43:28+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
    "q": "This skinny triangle flips when one dot falls inside a circle. Answer's in bio - takes an email.",
