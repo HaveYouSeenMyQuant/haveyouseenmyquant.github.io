@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 126,
+ "count": 127,
  "entries": [
+  {
+   "slug": "five_serials_how_many",
+   "title": "Five serial numbers, how many exist?",
+   "ts": "2026-08-04T08:06:15+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Seventy-one. The batch is estimated at 71, not 60 - you add one average gap on top of the highest serial you saw.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The five serials sit at 4, 9, 42, 48 and 60. Look at the gaps: 4, 5, 33, 6 and 12. Lumpy - but they average 12 apart. Those five draws cut the range into six-ish stretches of similar size, and you have only measured the ones BELOW your maximum."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The stretch above the top serial is, on average, the same size as the ones you did measure. So the range does not end at 60 - it ends about one average gap further on."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The average gap is the maximum divided by the count: 60 over 5, which is 12. That gives the estimator N = m(1 + 1/k) - 1, and here 60 times 6/5 minus 1 is 71."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The minus one is because the serials start at 1 rather than 0. And this is not a rule of thumb - it is the minimum-variance unbiased estimator, exactly unbiased for every N and k, which you can check by enumerating every possible sample rather than simulating."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The naive answer, the maximum itself, is biased low by exactly the amount you just added: on average m falls short of N by (N-k)/(k+1). This is the German tank problem, and in the Second World War it estimated German tank production from captured gearbox serials far more accurately than the intelligence estimates did."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "staircase_never_shortens",
    "title": "A staircase that never gets shorter",
