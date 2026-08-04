@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 137,
+ "count": 138,
  "entries": [
+  {
+   "slug": "seven_bridges_one_walk",
+   "title": "Seven bridges, one walk",
+   "ts": "2026-08-04T18:52:06+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "No. It cannot be done, and the reason is a counting argument that takes one line once you see it.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Forget the map. Ask only one thing about each piece of land: how many bridges touch it?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now think about what a walk does at a piece of land it is passing through. It arrives on one bridge and it leaves on another. Arrive, leave. Arrive, leave. The bridges at that land get used in PAIRS."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The only lands where that fails are the one you start on and the one you finish on. On the starting land you leave without having arrived; on the finishing land you arrive without leaving. Everywhere else, in and out, always paired."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So a land touched by an ODD number of bridges can only be the start or the finish. A walk has exactly one start and one finish, so at most TWO lands may have an odd number of bridges."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Count them here. The big island has five bridges. The north bank has three, the south bank has three, the small island has three. All four are odd. Four lands needing to be an end, and only two ends available."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole proof, and notice what it never mentions: which bridge you take first, or the shape of the river, or how clever you are. It rules out every route at once, without checking any of them, which is what makes it a proof rather than a failed search."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Change one thing and it flips. Build one more bridge between two of the odd lands and those two become even, leaving exactly two odd lands — so a walk exists, and it must start at one of them and end at the other. Same town, one bridge different."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This little argument is where graph theory started. The lands became points, the bridges became lines between them, and the map — the thing everyone was staring at — turned out to be irrelevant. What mattered was how many lines met at each point."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "seven_links_one_cut",
    "title": "Seven links, seven days",
@@ -6890,5 +6958,5 @@ window.QQ_ANSWERS = {
    "src": "module"
   }
  ],
- "featured": "goat_grazes_half"
+ "featured": "pizza_slice_two_cuts"
 };
