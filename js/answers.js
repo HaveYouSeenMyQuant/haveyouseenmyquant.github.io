@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 128,
+ "count": 129,
  "entries": [
+  {
+   "slug": "ants_on_a_pole",
+   "title": "Ants on a pole",
+   "ts": "2026-08-04T10:15:11+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "One minute at the very most - and for this particular line-up, 0.91 of a minute.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The move is to stop tracking which ant is which. When two identical ants meet and both turn round, the PICTURE is exactly the same as if they had walked straight through each other. The only thing that changed is the label, and the labels are not part of the question."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So replace the collisions with ants that ignore each other completely. Every ant then walks in a straight line at one metre a minute and falls off the end it was already facing. No interactions at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "An ant that far from its end takes exactly that distance in minutes. The pole clears when the LAST of these straight walkers falls off, so the answer is the largest distance any ant has to travel - and no ant is ever more than a whole pole-length from an end."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That caps it at one minute, whatever you do. Five ants or five hundred, all facing the same way or alternating, clustered or spread - the bound never moves."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For the line-up here the ant starting 0.09 from the left and facing right has the furthest to go, 0.91, so the pole is clear at 0.91 minutes. The one thing that IS lost in the swap is identity: the ant that falls off the right end is not the ant you were following, and no argument built on tracking individuals will get you there."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "camel_bananas_market",
    "title": "A camel, 3000 bananas and a market",
