@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 135,
+ "count": 136,
  "entries": [
+  {
+   "slug": "fly_between_two_trains",
+   "title": "The fly between two trains",
+   "ts": "2026-08-04T17:19:17+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "75 kilometres. The fly flies for exactly one hour at 75 km/h, and that is the whole calculation.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Stop thinking about the fly's path and think about the CLOCK."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The two trains are 100 km apart and closing at 50 + 50 = 100 km/h. So they meet after exactly one hour. That is not affected by the fly in any way — the fly weighs nothing and changes nothing about the trains."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The fly is in the air for that entire hour, from the moment it sets off to the moment the trains meet. It never stops, never slows, never rests. It flies at a constant 75 km/h for one hour."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "75 kilometres."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The number of turns it makes is infinite, and it does not matter in the slightest. The path is a mess; the time is not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You can do it the long way. Each hop is shorter than the last by a constant factor, so the hop lengths form a geometric series, and summing it gives 75 km too. It takes considerably longer and it teaches you nothing you did not already have."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is a famous story attached. A mathematician was given this puzzle and answered immediately. \"Ah, you spotted the trick,\" said the asker — the trick being to use the time. \"What trick?\" he said. \"I summed the series.\""
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The real lesson is about choosing the frame. A quantity that looks impossible in one accounting can be trivial in another, and the skill being tested is noticing which quantity is actually pinned down. Here the fly's PATH is complicated and its TIME is fixed by something that has nothing to do with it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "rock_out_of_the_boat",
    "title": "The rock out of the boat",
