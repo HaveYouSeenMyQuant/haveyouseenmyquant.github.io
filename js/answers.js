@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "two_corners_off_the_board",
    "title": "Two corners off the board",
-   "ts": "2026-08-04T14:19:44+00:00",
+   "ts": "2026-08-04T14:22:59+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
