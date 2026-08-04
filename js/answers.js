@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 131,
+ "count": 132,
  "entries": [
+  {
+   "slug": "wine_water_spoonful",
+   "title": "A spoonful each way",
+   "ts": "2026-08-04T13:25:35+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "They are exactly equal. There is precisely as much wine in the water as there is water in the wine.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Not approximately. Not \"about the same\". Exactly, every time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The fast way to see it, with no algebra at all: both glasses end up holding exactly what they started with — one glass of liquid each. The wine glass is full. So whatever wine is missing from it must have been replaced by something, and the only other liquid in the room is water. The volume of wine that left equals the volume of water that arrived. Those two volumes are the two things you were asked to compare. They are the same number twice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Notice what that argument never used. It never mentioned the size of the spoon. It never mentioned stirring. It never mentioned doing it once. Pour back and forth all day with a bucket, stir or do not stir, and as long as the two glasses finish level, the answer is still \"equal\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you want the algebra anyway: call a glass V and the spoon s. After moving s of wine across, the water glass holds V + s, of which s is wine, so the mixture is wine in fraction s/(V+s). The spoonful going back carries s x s/(V+s) of wine, leaving s - s^2/(V+s) = sV/(V+s) wine behind in the water. That same spoonful carries s x V/(V+s) = sV/(V+s) of water into the wine. Same expression, twice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The algebra is correct but it is a worse answer, because it makes a general truth look like a coincidence of one particular procedure."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "last_one_standing_circle",
    "title": "Forty-one in a circle",
