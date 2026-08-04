@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 121,
+ "count": 122,
  "entries": [
+  {
+   "slug": "flip_the_skinny_triangle",
+   "title": "The skinny triangle flip test",
+   "ts": "2026-08-04T03:41:12+00:00",
+   "date": "4 Aug 2026",
+   "topic": "geometry",
+   "q": "This skinny triangle flips when one dot falls inside a circle. Answer's in bio - takes an email.",
+   "a": "Keep flipping and you always land on the same mesh - the one that makes the smallest angle in it as large as possible.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The circle test is the whole rule. Draw the circle through three corners of a triangle; if the fourth point lies INSIDE it, that pair of triangles is illegal and its shared diagonal should be flipped. If it lies outside, leave it alone."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each legal flip strictly improves the mesh's list of angles, sorted smallest first. That is why the process cannot cycle - you can never return to a configuration you have already left - and with finitely many triangulations it must therefore stop."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Where it stops is the Delaunay triangulation. It is the unique triangulation with no point inside any triangle's circumcircle, and it MAXIMISES the minimum angle over every possible triangulation of those points."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is exactly the slivers vanishing on screen. Skinny triangles are the ones with tiny angles, and a rule that pushes the smallest angle upward is a rule that destroys slivers."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is also why the answer matters beyond the picture: the same criterion is what mesh generators, terrain models and finite-element solvers use, because long thin triangles are what make numerical methods fall apart."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "cone_unrolled_straight",
    "title": "A cone hides its straight shortest path",
