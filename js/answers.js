@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 120,
+ "count": 121,
  "entries": [
+  {
+   "slug": "cone_unrolled_straight",
+   "title": "A cone hides its straight shortest path",
+   "ts": "2026-08-04T03:03:43+00:00",
+   "date": "4 Aug 2026",
+   "topic": "geometry",
+   "q": "A cone hides its shortest walking path. Full answer in bio - free, takes an email.",
+   "a": "Cut the cone open and the shortest path is a straight line on the flat sector - about 0.840 of the slant height.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Rolling a cone flat does not stretch anything. The distance between two points measured on the curved surface is exactly the distance measured on the flattened skin, because unrolling preserves lengths - the metric on the cone turns into the ordinary flat polar metric."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the shortest path on the cone is whatever becomes the straight segment when you unroll. Draw the sector, mark the two points at their radii, join them, and roll it back up. The bent-looking curve on the cone IS the straight line."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Getting the number is then the law of cosines in the sector: root of (rA squared plus rB squared minus 2 rA rB cos of the sector angle between them). That gives 0.840053."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Compare the tempting routes. Going over the tip is 1.500. Hugging the base is 1.687. The straight-sector path beats both by a wide margin, and a search over 80,000 random two-bend paths never found anything shorter than 0.840131."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The catch is the sector angle. A full turn around the base is NOT 360 degrees on the flat skin - here it is 108. That shrinkage is why the shortest route looks like it leans the wrong way."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "rolls_flat_not_round",
    "title": "A non-round shape that rolls a plank flat",
