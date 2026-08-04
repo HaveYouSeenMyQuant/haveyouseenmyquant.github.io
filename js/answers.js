@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "wheel_inside_wheel",
    "title": "A wheel rolling inside a wheel",
-   "ts": "2026-08-04T06:13:16+00:00",
+   "ts": "2026-08-04T06:15:34+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
    "q": "A wheel rolls inside a wheel twice its size. Answer's in bio - free, takes an email.",
