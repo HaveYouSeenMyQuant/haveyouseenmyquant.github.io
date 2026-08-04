@@ -470,6 +470,35 @@
      * is still 0. The offer is now stated by #ansHeadSub, which that path can
      * see again. */
 
+    /* 2026-08-04, third reading, and it is time to stop treating this as a
+     * copy problem on this page.
+     *
+     * Seven days, split by entry path, counting SESSIONS:
+     *
+     *   browse (#answers)     37 gates, 55 gate views, 10 typed, 7 submitted
+     *   deep link (#answers/) 38 gates, 38 gate views,  0 typed, 0 submitted
+     *
+     * Two things in there matter more than the totals. The deep-link group has
+     * exactly one gate view per session — 38 from 38 — while the browse group
+     * has 1.5, so a browser opens a second answer and a deep-linker never
+     * does. And the deep-link group has ZERO email_attempted, not a poor
+     * submit rate: nobody types anything. A broken form would show attempts
+     * without submissions, so this is not a bug on this page.
+     *
+     * Two fixes have now been spent here — restoring "one email opens all N"
+     * for this path, and the free play door on every answer — and neither
+     * moved it off zero. The remaining untested lever is not on this page at
+     * all: it is that we SEND people here. Every comment and DM link points at
+     * #answers/<slug>. Pointing them at the archive index instead would put
+     * that traffic on the path that demonstrably converts.
+     *
+     * Honest about the confound: deep-link traffic comes from comments and DMs
+     * while browse traffic largely comes from the bio, so the two arms differ
+     * in source as well as landing page, and the source may simply be worse
+     * traffic. That is exactly why the next thing to try is the redirect —
+     * it holds the source fixed and changes only the landing. The DM template
+     * lives in the OpenReply app, not in this repo. */
+
     var small = el('p', 'ans-gate-small');
     small.textContent = QQAuth.wallSmallPrint();
     form.appendChild(small);
