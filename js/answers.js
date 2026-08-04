@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 139,
+ "count": 140,
  "entries": [
+  {
+   "slug": "four_from_three_and_five",
+   "title": "Four litres from three and five",
+   "ts": "2026-08-04T21:22:45+00:00",
+   "date": "4 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Six moves. Here is the whole thing.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Fill the five. (0, 5) Pour the five into the three until the three is full. (3, 2) Empty the three. (0, 2) Pour the two litres across into the three. (2, 0) Fill the five again. (2, 5) Pour from the five into the three until the three is full — the three already holds two, so it takes exactly one litre, and five minus one is four. (3, 4)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Four litres, in the five-litre jug."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is a second solution of the same length that starts from the other jug: fill the three, tip it into the five, fill the three again, top the five up from it — the five takes two, leaving one in the three. Empty the five, move that one litre across, fill the three and add it: one plus three is four."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The idea underneath is the useful part. Every move adds a whole jug, removes a whole jug, or moves liquid between them, so every amount you can ever reach is a whole number of threes plus a whole number of fives — some 3x + 5y, where x and y may be negative because emptying counts as subtracting. The numbers of that form are exactly the multiples of the greatest common divisor of 3 and 5, which is 1. So with these two jugs you can make ANY whole number of litres up to five, and four is nothing special."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Change the jugs to 4 and 6 and the same reasoning kills the puzzle instantly: their gcd is 2, so only even amounts are reachable, and no sequence of moves however clever will ever produce five litres. That is the real question being asked — not \"can you find four\" but \"which amounts are reachable at all\", and the answer is decided by one gcd before you pour anything."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "worst_shot_goes_first",
    "title": "The worst shot goes first",
