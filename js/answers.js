@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "ladder_midpoint_arc",
    "title": "A ladder slips down a wall",
-   "ts": "2026-08-04T06:50:56+00:00",
+   "ts": "2026-08-04T06:53:04+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
    "q": "A ladder slips down a wall. Answer's in bio - free, takes an email.",
