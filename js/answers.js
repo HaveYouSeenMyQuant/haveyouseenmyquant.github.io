@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "seven_bridges_one_walk",
    "title": "Seven bridges, one walk",
-   "ts": "2026-08-04T18:52:06+00:00",
+   "ts": "2026-08-04T18:54:50+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
