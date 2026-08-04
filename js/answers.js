@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "last_one_standing_circle",
    "title": "Forty-one in a circle",
-   "ts": "2026-08-04T12:46:57+00:00",
+   "ts": "2026-08-04T12:50:13+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
    "q": null,
