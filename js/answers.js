@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "five_layers_no_activation",
    "title": "Five layers, no activation",
-   "ts": "2026-08-05T08:06:35+00:00",
+   "ts": "2026-08-05T08:08:37+00:00",
    "date": "5 Aug 2026",
    "topic": "ml_fundamentals",
    "q": null,
