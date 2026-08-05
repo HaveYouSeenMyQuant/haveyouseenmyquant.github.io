@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "splitting_a_group",
    "title": "Splitting a group",
-   "ts": "2026-08-05T15:16:32+00:00",
+   "ts": "2026-08-05T15:19:38+00:00",
    "date": "5 Aug 2026",
    "topic": "combinatorics",
    "q": null,
