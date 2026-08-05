@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "orthogonal_shadow_zero",
    "title": "The shadow between two arrows vanishes at one angle",
-   "ts": "2026-08-05T02:33:22+00:00",
+   "ts": "2026-08-05T02:35:52+00:00",
    "date": "5 Aug 2026",
    "topic": "linear_algebra",
    "q": null,
