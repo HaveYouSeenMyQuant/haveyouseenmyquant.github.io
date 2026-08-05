@@ -16,8 +16,87 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 161,
+ "count": 162,
  "entries": [
+  {
+   "slug": "snail_out_of_the_well",
+   "title": "The snail in the well",
+   "ts": "2026-08-05T21:43:01+00:00",
+   "date": "5 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "28 days, not 30.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The net gain is one foot a day and the well is 30 feet deep, so 30 looks right and almost everyone says it. The mistake is not in the arithmetic. It is in assuming the snail has to still be in the well when the night comes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  end of day 1: 3 up, 2 back, so 1 foot",
+      "  end of day 2: 2 feet",
+      "  end of day 3: 3 feet",
+      "  ...",
+      "  end of day 27: 27 feet"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now day 28 begins with the snail 27 feet up. It climbs its 3 feet, reaches 30, and it is over the rim — in the middle of the day, before there is any night to slide back through. The slip that would have taken it to 28 never happens, because the snail is no longer in the well."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the last day is worth 3 feet, not 1. The other 27 days are worth 1 foot each, and 27 + 3 = 30."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general shape, for a well of depth H, climbing u a day and slipping d a night with u > d:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  days = ceil((H - u) / (u - d)) + 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The (H - u) is the part that has to be covered a slow foot at a time; the + 1 is the final day, the one that behaves differently from all the others. Put H = 30, u = 3, d = 2 and you get 27 + 1 = 28."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Notice what changes if the numbers change slightly. A 31-foot well needs 29 days, but a 32-foot well needs 30 — because the snail must start the final day within 3 feet of the rim, and how the depth divides up decides how many slow days come first."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The habit this rewards is one that shows up constantly in modelling: check whether the process you are averaging actually runs to the end. A rate of one foot a day is a perfectly good description of days 1 to 27 and a completely wrong description of day 28, because the snail stops being subject to the rule that made the average. Averages assume the process keeps going. Stopping conditions break averages, and the last step is where they break."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "going_second_wins",
    "title": "Going second wins",
