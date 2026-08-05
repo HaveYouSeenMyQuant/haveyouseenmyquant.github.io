@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "integral_area_fills",
    "title": "The area is the number the rectangles head toward",
-   "ts": "2026-08-05T00:03:48+00:00",
+   "ts": "2026-08-05T00:06:20+00:00",
    "date": "5 Aug 2026",
    "topic": "calculus",
    "q": null,
