@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "trapping_rain_water",
    "title": "Two pointers trap rain water without looking ahead",
-   "ts": "2026-08-05T05:05:20+00:00",
+   "ts": "2026-08-05T05:07:55+00:00",
    "date": "5 Aug 2026",
    "topic": "cs_systems",
    "q": null,
