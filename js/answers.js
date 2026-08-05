@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "going_second_wins",
    "title": "Going second wins",
-   "ts": "2026-08-05T20:57:10+00:00",
+   "ts": "2026-08-05T20:59:47+00:00",
    "date": "5 Aug 2026",
    "topic": "game_theory",
    "q": null,
