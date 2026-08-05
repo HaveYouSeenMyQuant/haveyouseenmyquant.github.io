@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 148,
+ "count": 149,
  "entries": [
+  {
+   "slug": "five_layers_no_activation",
+   "title": "Five layers, no activation",
+   "ts": "2026-08-05T08:06:35+00:00",
+   "date": "5 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Write the layers as matrices and apply them one after another.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A layer without an activation is just x going to A x. Five of them in a row is A5 A4 A3 A2 A1 x."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Matrix multiplication is associative, so you may bracket the five matrices together FIRST and only then touch the vector. That bracket is itself a single 2-by-2 matrix."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the five-layer network computes exactly what one layer computes. There is one matrix that reproduces it on every input, and stacking more layers adds parameters and training cost while adding nothing the model can express."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The picture gives it away: the grid stays straight and evenly spaced no matter how deep you go. Only a bend could come from somewhere other than a matrix."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is what the activation function is for. Put one non-linearity between two layers and no single matrix can reproduce the stack any more - depth finally starts buying you something."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "step_too_big_explodes",
    "title": "The step size that stops working",
@@ -7458,5 +7505,5 @@ window.QQ_ANSWERS = {
    "src": "module"
   }
  ],
- "featured": "pizza_slice_two_cuts"
+ "featured": "worst_shot_goes_first"
 };
