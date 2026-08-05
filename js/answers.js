@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 141,
+ "count": 142,
  "entries": [
+  {
+   "slug": "integral_area_fills",
+   "title": "The area is the number the rectangles head toward",
+   "ts": "2026-08-05T00:03:48+00:00",
+   "date": "5 Aug 2026",
+   "topic": "calculus",
+   "q": null,
+   "a": "They are heading for exactly 26/5, which is 5.2.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The curve is 0.7 + x/10 + 3(x-2) squared /10 + 8 sin(pi x/2)/25 on the interval 0 to 4. Split it into the polynomial part and the sine part and each becomes easy."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The polynomial integrates to exactly 26/5. The sine part integrates to exactly ZERO over this interval - it completes two half-waves that cancel, one above the axis and one below. So the whole hidden area is 26/5, with no approximation anywhere."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now watch how the rectangles approach it. Using midpoints, the total for n rectangles is exactly 26/5 minus 8/(5 n squared). At 4 rectangles you are 0.100 short; at 8, 0.025; at 16, 0.00625."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the pattern worth taking away: the error carries 1/n squared, so every time you halve the width you QUARTER the gap. Doubling the work buys four times the accuracy, which is why the jagged roof snaps onto the curve so fast."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Push n up and the gap goes to zero. The number the rectangles are heading for is the integral, and it is 5.2 exactly."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "lln_vs_clt_two_claims",
    "title": "Two coin-flip laws that people mash together",
