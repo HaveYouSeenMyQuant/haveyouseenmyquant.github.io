@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "half_in_cash_wins",
    "title": "Half in cash wins",
-   "ts": "2026-08-05T23:33:01+00:00",
+   "ts": "2026-08-05T23:35:15+00:00",
    "date": "5 Aug 2026",
    "topic": "finance",
    "q": null,
