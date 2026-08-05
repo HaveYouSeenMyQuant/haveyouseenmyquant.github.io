@@ -16,8 +16,118 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 155,
+ "count": 156,
  "entries": [
+  {
+   "slug": "splitting_a_group",
+   "title": "Splitting a group",
+   "ts": "2026-08-05T15:16:32+00:00",
+   "date": "5 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "These are the Bell numbers, and they grow faster than anything you would guess from the first few.",
+   "why": [
+    {
+     "h": "WHAT IS BEING COUNTED",
+     "t": "p",
+     "lines": [
+      "A \"grouping\" here is a set partition: split everyone into non-empty groups, where only WHO IS WITH WHOM matters. The groups are not labelled and their order does not matter, so {A,B}{C} is the same grouping as {C}{A,B}. Everyone in one group counts, and everyone alone counts."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For three people A, B, C there are five:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  ABC | AB,C | AC,B | BC,A | A,B,C"
+     ]
+    },
+    {
+     "h": "THE RECURRENCE",
+     "t": "p",
+     "lines": [
+      "Fix one person, say the newest arrival, in a group of n people. Whatever the grouping, that person sits with some subset of the other n-1 — say k of them. There are C(n-1, k) ways to choose those k companions, and the remaining n-1-k people can then be grouped among themselves in B(n-1-k) ways. Summing over k:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  B(n) = sum_{k=0}^{n-1} C(n-1, k) B(n-1-k),    B(0) = 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which is usually written B(n+1) = sum C(n,k) B(k). Run it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  B(0)=1, B(1)=1, B(2)=2, B(3)=5, B(4)=15, B(5)=52, B(6)=203, B(7)=877"
+     ]
+    },
+    {
+     "h": "WHY IT EXPLODES",
+     "t": "p",
+     "lines": [
+      "Every new person can join any existing group OR start a new one, so the count multiplies roughly by the number of groups already present — and that number is itself growing. B(20) = 51,724,158,235,372. Going from 10 people to 20 multiplies the count by about 446 million."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It grows faster than any exponential: B(n)^(1/n) tends to infinity, roughly like n/log n. So there is no constant c with B(n) < c^n, which is the precise sense in which \"it explodes\"."
+     ]
+    },
+    {
+     "h": "THE MISTAKE PEOPLE MAKE",
+     "t": "p",
+     "lines": [
+      "Most first answers are 2^n or n!. Both are wrong, and wrong in interesting ways."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2^n = 1,048,576 for twenty people counts SUBSETS — picking who is in \"the group\" and who is not. That is one group and a leftover, not a partition into any number of groups."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "n! = 2.4 x 10^18 counts ORDERINGS, which massively overcounts because it treats the same grouping arrived at in a different order as different, and because the groups here are unlabelled."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The true answer sits between them: 5.2 x 10^13. Being between 2^n and n! is a useful sanity check, and noticing that the answer must be between them is most of the way to respecting the problem."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a count resists a direct formula, condition on one element. \"Which group is person 1 in?\" splits every partition into disjoint cases indexed by that group's size, and each case is a smaller copy of the same problem. That single move — fix something, sum over what it could be — generates most recurrences you will ever need, and it is exactly what turns an impossible-looking count into eight lines of arithmetic."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "squares_on_a_chessboard",
    "title": "How many squares on a chessboard",
