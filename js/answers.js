@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 145,
+ "count": 146,
  "entries": [
+  {
+   "slug": "trapping_rain_water",
+   "title": "Two pointers trap rain water without looking ahead",
+   "ts": "2026-08-05T05:05:20+00:00",
+   "date": "5 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Six units of water, and the rule is local: each column holds up to the shorter of the two tallest walls on either side.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For any column, water can only pile as high as the lower of the two barriers containing it - the tallest bar to its left and the tallest bar to its right. Take the smaller of those two, subtract the column's own height, and never let it go below zero."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Run that across [0,1,0,2,1,0,1,3,2,1,2,1] and the water per column is [0,0,1,0,1,2,1,0,0,1,0,0]. Add it up: 6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Notice what the rule does NOT care about: the shape of the terrain between the two walls. Only the two maxima matter. That is what turns an apparently two-dimensional puddle into one pass of bookkeeping."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The efficient version keeps a pointer at each end and always advances the side whose running maximum is SMALLER. That side's answer is already decided - the other wall can only get taller - so you can commit that column's water immediately and never revisit it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One pass, constant extra memory, and no need to precompute either array. That is why this question survives as an interview staple: the naive answer and the good answer look nothing alike."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "arrows_none_a_mix",
    "title": "Arrows that are not mixes of each other",
