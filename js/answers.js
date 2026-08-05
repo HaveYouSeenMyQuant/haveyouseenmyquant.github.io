@@ -16,8 +16,104 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 156,
+ "count": 157,
  "entries": [
+  {
+   "slug": "monk_same_time_twice",
+   "title": "Same spot, same time",
+   "ts": "2026-08-05T15:54:52+00:00",
+   "date": "5 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Yes. There is always such a time, whatever he did on either day.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is not \"sometimes\" and it does not depend on him keeping a steady pace. He can sprint, sit down for four hours, or wander back downhill for a while, on either day, and a matching moment still has to exist."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trick is to stop thinking about two days and start thinking about two monks."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Imagine both journeys happening on the SAME day. One monk sets off from the bottom at six in the morning; the other sets off from the top at six in the morning; each does exactly what the real monk did on his day. They are both on the same path at the same time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "They must meet. Not \"probably\" — they are on one path, one is above the other at the start, the other is above at the end, and neither of them leaves the path. Wherever they pass each other, that is a place and a clock time where the monk was at the same height on both days."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The formal version is the same argument in symbols. Let u(t) be his height going up and d(t) his height coming down, both as functions of the time of day, both continuous, over the same twelve hours. Look at"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  f(t) = u(t) - d(t)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At six in the morning he is at the bottom on day one and the top on day two, so f is negative. At six in the evening it is the other way round, so f is positive. A continuous function that goes from negative to positive must be zero somewhere in between. That zero is the moment. This is the Intermediate Value Theorem, and it is doing all the work."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Notice what the argument never needs: it never needs him to move steadily, never needs the two days to be similar, and never locates the moment. It proves a time exists without telling you when — which is why trying to find it by reasoning about his pace gets nowhere."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The one thing it does need is that the two journeys overlap in time at all — and that is a weaker condition than it first looks, which is worth seeing, because the obvious guess about it is wrong."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You might think a shorter second day breaks it: he comes down between eight in the morning and two in the afternoon while the climb ran six to six, so surely he can now dodge every height he was at during those hours. He cannot. Run the same argument over the shorter window. At eight in the morning he is at the top on day two and somewhere at or below it on day one, so f is negative or zero. At two in the afternoon he is at the bottom on day two and somewhere at or above it on day one, so f is positive or zero. Negative to positive again, and the moment still exists."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Push it the other way and it still holds: a second day that starts before the first got going, or finishes after it, gives you the same two signs at the ends of whatever stretch the two have in common."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The guarantee only disappears when the journeys share no clock time whatsoever — he climbs in the morning and descends in the evening — and then the question is not false so much as empty, because there is no common time of day for the two heights to be compared at."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "splitting_a_group",
    "title": "Splitting a group",
