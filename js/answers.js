@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "monk_same_time_twice",
    "title": "Same spot, same time",
-   "ts": "2026-08-05T15:54:52+00:00",
+   "ts": "2026-08-05T15:57:21+00:00",
    "date": "5 Aug 2026",
    "topic": "puzzles",
    "q": null,
