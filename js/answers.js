@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "paper_folds_to_moon",
    "title": "Folding paper to the Moon",
-   "ts": "2026-08-05T08:52:21+00:00",
+   "ts": "2026-08-05T08:55:28+00:00",
    "date": "5 Aug 2026",
    "topic": "everyday",
    "q": null,
