@@ -16,8 +16,48 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 149,
+ "count": 150,
  "entries": [
+  {
+   "slug": "paper_folds_to_moon",
+   "title": "Folding paper to the Moon",
+   "ts": "2026-08-05T08:52:21+00:00",
+   "date": "5 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Forty-two folds, and the way to see it is to count doublings rather than add.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One sheet is 0.1 mm. Each fold doubles it, so after n folds the stack is 0.1 mm times 2 to the n. The question is how many doublings take you from a tenth of a millimetre to 384,400 km."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put both in the same unit first. The Moon is 384,400,000,000 mm away, so the ratio you need is about 3.8 million million - roughly 2 to the power 42."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the shock: the ratio is astronomically large and the answer is a number you could count on your fingers twice. Doubling is not a big step; it is a small step taken a small number of times that outruns anything linear."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Check the near misses. 41 folds reaches about 220,000 km, which is short of the Moon. 42 reaches about 440,000 km, which clears it. So the answer is 42 - and the reason nobody guesses it is that we are built to add, and this multiplies."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "five_layers_no_activation",
    "title": "Five layers, no activation",
