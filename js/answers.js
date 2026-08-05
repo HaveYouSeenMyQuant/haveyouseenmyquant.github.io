@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "diffusion_noise_to_shape",
    "title": "Diffusion models: noise walks back into a shape",
-   "ts": "2026-08-05T05:43:17+00:00",
+   "ts": "2026-08-05T05:45:36+00:00",
    "date": "5 Aug 2026",
    "topic": "ml_fundamentals",
    "q": null,
