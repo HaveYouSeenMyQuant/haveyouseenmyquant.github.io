@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_long_way_is_faster",
    "title": "The long way is faster",
-   "ts": "2026-08-05T17:44:52+00:00",
+   "ts": "2026-08-05T17:47:48+00:00",
    "date": "5 Aug 2026",
    "topic": "physics",
    "q": null,
