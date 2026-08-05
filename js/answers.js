@@ -16,8 +16,140 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 162,
+ "count": 163,
  "entries": [
+  {
+   "slug": "half_in_cash_wins",
+   "title": "Half in cash wins",
+   "ts": "2026-08-05T23:33:01+00:00",
+   "date": "5 Aug 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "Because rebalancing sells after a rise and buys after a fall, and with a volatile asset that is worth more than the asset's own drift.",
+   "why": [
+    {
+     "h": "THE TWO AVERAGES",
+     "t": "p",
+     "lines": [
+      "The stock returns x2 or x0.5 with equal chance. Its ARITHMETIC mean is (2 + 0.5)/2 = 1.25, which sounds like +25% a period. Its GEOMETRIC mean — the one that governs what your money actually does over many periods — is sqrt(2 x 0.5) = 1 exactly. It compounds to nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The gap between those two averages is the whole subject. Arithmetic means add, geometric means multiply, and money multiplies."
+     ]
+    },
+    {
+     "h": "WHAT REBALANCING DOES",
+     "t": "p",
+     "lines": [
+      "Hold half in the stock and half in cash. After each move, rebalance back to 50/50. Your portfolio multiplies by"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  stock up:    0.5 x 2   + 0.5 x 1 = 1.50",
+      "  stock down:  0.5 x 0.5 + 0.5 x 1 = 0.75"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and the geometric mean of those is sqrt(1.50 x 0.75) = sqrt(1.125) = 1.0607."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the portfolio compounds at about +6.1% per period, from an asset that compounds at 0% and cash that pays nothing. Neither ingredient grows. The mixture does."
+     ]
+    },
+    {
+     "h": "WHERE THE RETURN COMES FROM",
+     "t": "p",
+     "lines": [
+      "Rebalancing forces you to sell some stock after it doubles and buy more after it halves. That is not clever timing — it is mechanical, and it happens on a fixed schedule regardless of what you think will happen next. What it harvests is VOLATILITY: the bigger the swings, the more there is to capture. This is usually called volatility harvesting, or Shannon's demon after the information theorist who described it."
+     ]
+    },
+    {
+     "h": "THE CONDITIONS, WHICH MATTER MORE THAN THE RESULT",
+     "t": "p",
+     "lines": [
+      "This is not free money and it is not a strategy to run at home."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "It needs REAL volatility. A calm asset gives almost nothing.",
+      "It needs the rebalancing to be cheap. Every rebalance is two trades; with"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    spreads, commissions and taxes the 6% can vanish entirely."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "The 2x/0.5x asset here is far wilder than any index. Realistic numbers give"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    a rebalancing bonus measured in tenths of a percent, not sixes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "And it does not always beat an asset that GROWS. With half in cash the"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    condition is exact: rebalancing wins if and only if u + d + 1 > 3ud, where",
+      "    u and d are the up and down factors. For 2 and 0.5 that reads 3.5 > 3, so",
+      "    it wins. For 2 and 0.7 it reads 3.7 > 4.2, which is false, and holding the",
+      "    stock is better. The pair 2 and 0.6 sits exactly on the boundary and the",
+      "    two strategies tie — worth knowing, because it is easy to pick an example",
+      "    that seems to prove the point and is in fact the one case that proves",
+      "    nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the honest lesson is not \"hold cash\". It is that the arithmetic mean of returns is the wrong number to plan with, and that a portfolio's growth is not the average of its parts' growth."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever something compounds, use the geometric mean and be suspicious of anyone quoting the arithmetic one. The two coincide only when there is no variance, and the gap between them is roughly half the variance — which is why volatility is a cost to a compounding process, and occasionally, as here, an opportunity."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "snail_out_of_the_well",
    "title": "The snail in the well",
