@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "ten_stacks_one_weighing",
    "title": "Ten stacks, one weighing",
-   "ts": "2026-08-05T13:14:33+00:00",
+   "ts": "2026-08-05T13:17:22+00:00",
    "date": "5 Aug 2026",
    "topic": "puzzles",
    "q": null,
