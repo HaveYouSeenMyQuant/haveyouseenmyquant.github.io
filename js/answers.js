@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 143,
+ "count": 144,
  "entries": [
+  {
+   "slug": "orthogonal_shadow_zero",
+   "title": "The shadow between two arrows vanishes at one angle",
+   "ts": "2026-08-05T02:33:22+00:00",
+   "date": "5 Aug 2026",
+   "topic": "linear_algebra",
+   "q": null,
+   "a": "The shadow dies at exactly 90 degrees, and it is the only angle where it does.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The shadow's length is the dot product of the two arrows, divided by the length of the one you are projecting onto. With the fixed arrow at (4, 3), its own length is 5, so a unit arrow pointing the same way gives a shadow of exactly 5 - the whole arrow."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Open the angle and the shadow is 5 times the cosine of it. Cosine is 1 when they agree, and it falls away smoothly as the angle grows."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Cosine hits zero at 90 degrees and nowhere else in half a turn. So the shadow collapses to the tail exactly when the arrows are perpendicular, which is what a zero dot product means: no part of one arrow points along the other."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Keep swinging and the shadow does not stay at zero - it reappears pointing BACKWARD, because the cosine goes negative. That is why the dot product is signed, and why \"perpendicular\" is the clean dividing line between the two."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is the whole reason perpendicularity and a zero dot product are the same statement: one is the geometry, the other is the arithmetic that measures it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "chain_rule_two_gears",
    "title": "Why chain-rule rates multiply",
