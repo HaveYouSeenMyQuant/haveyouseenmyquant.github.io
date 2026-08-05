@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 146,
+ "count": 147,
  "entries": [
+  {
+   "slug": "diffusion_noise_to_shape",
+   "title": "Diffusion models: noise walks back into a shape",
+   "ts": "2026-08-05T05:43:17+00:00",
+   "date": "5 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "In this model, you get exactly the same star. Every time, from any patch of static.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The schedule is the reason. Each backward step removes a fixed 1/32 of the ORIGINAL noise, so after k steps the leftover noise carries a coefficient of (32-k)/32 - 31/32, then 30/32, and so on. After 32 steps the coefficient is exactly 0."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Zero means zero: whatever static you started from has been multiplied away, and every dot lands on its own target to floating-point precision. The measured RMS distance to the clean shape falls 5.115, 3.836, 2.557, 1.279, 0.000 - a straight line to nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So in this toy the starting static is irrelevant. It is a fixed destination reached from anywhere, which is why the star reassembles identically no matter how the noise fell."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Real diffusion models do NOT behave this way, and the difference is the interesting part. There, the denoiser looks at the current point and predicts a direction; it is not matching each dot to a pre-assigned target. Different starting noise therefore lands you somewhere else - a DIFFERENT sample from the same distribution."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is what sampling means in a generative model: the noise you start from is the random seed that chooses which image you get."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "trapping_rain_water",
    "title": "Two pointers trap rain water without looking ahead",
