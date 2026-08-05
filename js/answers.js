@@ -16,8 +16,48 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 144,
+ "count": 145,
  "entries": [
+  {
+   "slug": "arrows_none_a_mix",
+   "title": "Arrows that are not mixes of each other",
+   "ts": "2026-08-05T03:12:51+00:00",
+   "date": "5 Aug 2026",
+   "topic": "linear_algebra",
+   "q": null,
+   "a": "Two on a flat page - and the clean way to see it is to count equations, not arrows.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Writing a target as so-much-of-A plus so-much-of-B is really two equations - one for the across direction, one for the up direction - in two unknowns, the two amounts."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two equations in two unknowns generally has exactly one solution. So on a flat page, ANY third arrow you draw can be built from your first two, and you can compute exactly how much of each it takes. It is never new."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The exception is when your two arrows point along the same line. Then the equations are not independent, they cannot reach off that line, and you never had two genuine directions to begin with."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So on a plane the count is 2. In three dimensions you get three equations and the count is 3, and in n dimensions it is n. The count is the number of dimensions, which is exactly what \"dimension\" means - and this is what \"linearly independent\" is for."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "orthogonal_shadow_zero",
    "title": "The shadow between two arrows vanishes at one angle",
