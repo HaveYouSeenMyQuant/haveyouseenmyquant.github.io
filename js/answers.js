@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "step_too_big_explodes",
    "title": "The step size that stops working",
-   "ts": "2026-08-05T06:52:12+00:00",
+   "ts": "2026-08-05T06:54:05+00:00",
    "date": "5 Aug 2026",
    "topic": "ml_fundamentals",
    "q": null,
