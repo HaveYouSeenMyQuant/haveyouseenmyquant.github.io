@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 151,
+ "count": 152,
  "entries": [
+  {
+   "slug": "a4_halves_same_shape",
+   "title": "The paper ratio that survives halving",
+   "ts": "2026-08-05T12:38:27+00:00",
+   "date": "5 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "The square root of two - about 1.414 - and it is the only ratio that works.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Call the sheet w wide and h tall, with h the long side. Cut across the middle and the piece you get is h/2 tall and w wide. Turn it so its long side is upright and its dimensions are w by h/2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For the half to be the SAME SHAPE as the whole, the two long-to-short ratios must agree: h/w has to equal w/(h/2), which is 2w/h."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Cross-multiply and h squared equals 2 w squared, so h/w is the square root of 2. Nothing else satisfies it - the equation is quadratic and only one root is positive."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is exactly what A-series paper is built on. A0 is one square metre with sides in that ratio; halving it gives A1, then A2, and every sheet down the line is the same shape. It is why enlarging A4 to A3 is a clean 141% on a photocopier, and why reducing is 71% - those are root 2 and one over root 2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The everyday tell is that it never quite feels like a nice number. A ratio of 1.5 would be tidier, but halving 1.5 gives 1.333, then 1.5 again - it oscillates instead of settling. Only root 2 is a fixed point, because it is the number that is its own partner under this operation."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "milk_now_or_later",
    "title": "Milk now or milk later",
