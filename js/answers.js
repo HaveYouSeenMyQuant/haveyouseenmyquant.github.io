@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 150,
+ "count": 151,
  "entries": [
+  {
+   "slug": "milk_now_or_later",
+   "title": "Milk now or milk later",
+   "ts": "2026-08-05T10:45:49+00:00",
+   "date": "5 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "The cup that got its milk FIRST ends up hotter, and the coffee's own temperature never enters it.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Newton's law of cooling says that gap shrinks by the same PROPORTION every minute, whatever it starts at. Over ten minutes it is multiplied by some factor - call it E, a number between 0 and 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Cup A gets the milk first. Mixing pulls it down to a weighted average, so its gap to the room starts smaller, and then that smaller gap is multiplied by E."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Cup B cools first with its full, larger gap, so it LOSES MORE HEAT to the room over the same ten minutes. Only then is the same cold milk mixed in."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Write both out and nearly everything cancels. The difference comes to f times (1 - E) times (room temperature minus milk temperature), where f is the fraction of the cup that is milk."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Look at what is NOT in that expression: the coffee's temperature. It cancels completely. The winner does not depend on how hot the coffee was, how long you waited, or how big the splash was - only on whether the milk is colder than the ROOM. It is, so the cup that got its milk early ends up hotter."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "paper_folds_to_moon",
    "title": "Folding paper to the Moon",
