@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a4_halves_same_shape",
    "title": "The paper ratio that survives halving",
-   "ts": "2026-08-05T12:38:27+00:00",
+   "ts": "2026-08-05T12:40:24+00:00",
    "date": "5 Aug 2026",
    "topic": "everyday",
    "q": null,
