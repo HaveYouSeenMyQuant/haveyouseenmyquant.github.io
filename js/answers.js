@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 142,
+ "count": 143,
  "entries": [
+  {
+   "slug": "chain_rule_two_gears",
+   "title": "Why chain-rule rates multiply",
+   "ts": "2026-08-05T01:43:18+00:00",
+   "date": "5 Aug 2026",
+   "topic": "calculus",
+   "q": null,
+   "a": "Six units. You multiply the rates, you do not add them.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A nudges B twice as far, so B's rate with respect to A is 2. B nudges C three times as far, so C's rate with respect to B is 3. Move A by one unit and B moves 2; B moving 2 drags C by three times that, which is 6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the chain rule: dC/dA equals dC/dB times dB/dA, so 3 times 2 is 6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The tempting wrong answer is 5, from adding. Adding would be right if A pushed B and C independently - two separate contributions arriving at the same place. Here the linkage is in SERIES: everything A does to C has to travel through B, so B's effect is applied to A's effect rather than alongside it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is also why the units work out. \"Twice as far\" and \"three times as far\" are ratios, and ratios compose by multiplying - the B in dC/dB times dB/dA cancels exactly the way it does in fractions."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And it is why deep networks train the way they do: the gradient reaching an early layer is the PRODUCT of every rate along the way, which is precisely why long chains of small numbers vanish and long chains of large ones explode."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "integral_area_fills",
    "title": "The area is the number the rectangles head toward",
