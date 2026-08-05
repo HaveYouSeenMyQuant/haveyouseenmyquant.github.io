@@ -16,8 +16,106 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 153,
+ "count": 154,
  "entries": [
+  {
+   "slug": "two_patterns_one_coin",
+   "title": "Two patterns, one coin",
+   "ts": "2026-08-05T13:50:38+00:00",
+   "date": "5 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "Waiting for HH takes 6 flips on average. Waiting for HT takes 4. Same coin, same fairness, and both patterns equally likely in any fixed pair of flips.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason is not how LIKELY each pattern is. It is what happens when you fall short."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Suppose you want HT and you have just flipped a head. The next flip is a head. Have you lost anything? No: the new head is exactly as good a start as the old one. You are still one flip away. You can never be pushed back to the beginning."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now suppose you want HH and you have just flipped a head. The next flip is a tail. That tail destroys the head as well. Nothing you have seen is any use to you, and you start again from nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HH can be knocked back to the start; HT cannot. That asymmetry is the whole difference."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The arithmetic, for HH. Write a for the expected wait from a fresh start and b for the expected wait once you are holding a head."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  a = 1 + (1/2)b + (1/2)a   flip once; heads takes you to b, tails back to a",
+      "  b = 1 + (1/2)(0) + (1/2)a  heads finishes, tails sends you all the way back"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Solving: a = 2 + b and b = 1 + a/2, so a = 6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same two lines for HT, changing only the last term, because a second head keeps you where you are instead of sending you back:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  a = 1 + (1/2)b + (1/2)a",
+      "  b = 1 + (1/2)b + (1/2)(0)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now b = 2 and a = 4."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general rule is Conway's: the expected wait for a pattern is the sum of 2^k over every k such that the pattern's first k characters equal its last k. HH overlaps itself at length 1 and length 2, giving 2 + 4 = 6. HT overlaps only at length 2, giving 4. Self-overlap is expensive, and patterns that can partly rebuild themselves are the slow ones."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It goes further than a curiosity. HHH takes 14 and HTH takes 10, and once you know that expected waits differ you can build a game where you pick your pattern SECOND and win more than half the time against any pattern your opponent picked first. Equally likely is not the same as equally soon, and that gap is where the edge lives."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ten_stacks_one_weighing",
    "title": "Ten stacks, one weighing",
