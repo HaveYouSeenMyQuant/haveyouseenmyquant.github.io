@@ -16,8 +16,93 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 160,
+ "count": 161,
  "entries": [
+  {
+   "slug": "going_second_wins",
+   "title": "Going second wins",
+   "ts": "2026-08-05T20:57:10+00:00",
+   "date": "5 Aug 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "Because \"beats\" is not transitive here. There is no best sequence, so whoever chooses LAST gets to answer the other one.",
+   "why": [
+    {
+     "h": "THE RULE FOR THE REPLY",
+     "t": "p",
+     "lines": [
+      "Given the first player's choice abc, the second player answers with"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  (not b) a b"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Take b, flip it, and put it in front; drop the last letter. Against HHH that gives THH. Against HTT it gives HHT. That one rule generates the whole table, and it is never worse than 2/3."
+     ]
+    },
+    {
+     "h": "WHY IT WORKS",
+     "t": "p",
+     "lines": [
+      "Think about the moment the first player's sequence is about to complete. For HHH to appear, the stream must show HH first — and immediately before that HH, unless we are at the very start, there is some letter. If it was a T, then THH has ALREADY happened, one flip earlier. The reply is built to sit one step upstream of its target: it uses the opponent's own first two letters as its last two, so it keeps arriving just in time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is also why the first player cannot escape by choosing cleverly. Every choice hands over the two letters that the reply needs."
+     ]
+    },
+    {
+     "h": "THE EXACT NUMBERS",
+     "t": "p",
+     "lines": [
+      "Model the stream by the longest suffix that is still a prefix of either sequence. That is a finite Markov chain with two absorbing states, and solving it in rationals gives"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  HHH  vs THH   1/8  vs  7/8",
+      "  HHT  vs THH   1/4  vs  3/4",
+      "  HTH  vs HHT   1/3  vs  2/3",
+      "  HTT  vs HHT   1/3  vs  2/3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and the mirror images with H and T swapped. Worst case for the second player: 2/3."
+     ]
+    },
+    {
+     "h": "WHY IT FEELS IMPOSSIBLE",
+     "t": "p",
+     "lines": [
+      "All eight sequences are equally likely to appear in three specific flips — each has probability 1/8. The mistake is assuming that settles a race. It does not, because the sequences OVERLAP with themselves differently. HHH can only be reached by building up three heads from scratch, so a single T destroys all progress. THH, once it has TH, needs one more head and cannot be knocked all the way back. Self-overlap decides who arrives first, and it has nothing to do with either sequence's standalone probability."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever a comparison is pairwise, check whether \"better than\" is actually transitive before assuming there is a best option. Non-transitive dice, voting cycles, and this game are all the same trap. The tell is when every candidate has a specific counter — that is a loop, not a ranking, and in a loop the last mover wins."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "eight_balls_two_weighings",
    "title": "Eight balls, two weighings",
