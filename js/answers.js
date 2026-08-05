@@ -16,8 +16,80 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 158,
+ "count": 159,
  "entries": [
+  {
+   "slug": "stones_first_or_second",
+   "title": "Twenty-one stones",
+   "ts": "2026-08-05T18:19:52+00:00",
+   "date": "5 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Go first. The first player wins, against any defence at all, and the whole strategy fits in one line: always leave a multiple of four behind.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Twenty-one is one more than twenty, so open by taking ONE stone. That leaves 20. From then on, whatever your opponent takes — one, two or three — you take enough to bring the pile down to the next multiple of four: 16, then 12, then 8, then 4, then 0. If they take 1 you take 3; if they take 2 you take 2; if they take 3 you take 1. Their move and yours always add to four."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You take the last stone, so you win."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why multiples of four are the losing seats, worked backwards from the end:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  0 stones — you have lost. There is nothing to take.",
+      "  1, 2, 3  — you win. Take them all.",
+      "  4        — you lose. Whatever you take leaves 1, 2 or 3, and your opponent takes the rest.",
+      "  5, 6, 7  — you win. Take 1, 2 or 3 to leave exactly 4, and now THEY are stuck.",
+      "  8        — you lose, for the same reason 4 was losing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The pattern repeats forever, because from any multiple of four every move lands you on a non-multiple, and from any non-multiple there is exactly one move that lands your opponent back on a multiple. So the losing positions are precisely 0, 4, 8, 12, 16, 20 — and 21 is not one of them, which is why the first player wins."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general rule is worth more than this puzzle. If each turn may take between 1 and k stones, the losing positions are the multiples of k+1, and the player to move loses exactly when the pile is one of them. Take-1-to-3 gives multiples of 4. Take-1-to-5 would give multiples of 6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two habits are doing the work here, and both transfer. First, solve the end and work backwards — the last position is trivial and every earlier one follows from the ones after it. Second, look for the quantity you can force to stay the same: your opponent's move plus yours always totals four, so the pile falls by exactly four each round no matter what they do. That is control disguised as arithmetic."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same idea answers the version where taking the last stone LOSES. Then you want to leave your opponent exactly one stone, so the losing positions become the numbers that are one more than a multiple of four — and from 21, which is one more than 20, the first player is now the one in trouble."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_long_way_is_faster",
    "title": "The long way is faster",
