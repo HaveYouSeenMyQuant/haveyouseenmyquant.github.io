@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "two_patterns_one_coin",
    "title": "Two patterns, one coin",
-   "ts": "2026-08-05T13:50:38+00:00",
+   "ts": "2026-08-05T13:52:52+00:00",
    "date": "5 Aug 2026",
    "topic": "probability",
    "q": null,
