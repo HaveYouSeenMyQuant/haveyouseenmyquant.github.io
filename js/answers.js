@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "stones_first_or_second",
    "title": "Twenty-one stones",
-   "ts": "2026-08-05T18:19:52+00:00",
+   "ts": "2026-08-05T18:22:50+00:00",
    "date": "5 Aug 2026",
    "topic": "puzzles",
    "q": null,
