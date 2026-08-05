@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "arrows_none_a_mix",
    "title": "Arrows that are not mixes of each other",
-   "ts": "2026-08-05T03:12:51+00:00",
+   "ts": "2026-08-05T03:15:00+00:00",
    "date": "5 Aug 2026",
    "topic": "linear_algebra",
    "q": null,
