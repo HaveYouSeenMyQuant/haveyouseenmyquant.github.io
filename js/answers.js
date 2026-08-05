@@ -16,8 +16,92 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 159,
+ "count": 160,
  "entries": [
+  {
+   "slug": "eight_balls_two_weighings",
+   "title": "Eight balls, two weighings",
+   "ts": "2026-08-05T20:09:52+00:00",
+   "date": "5 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Because each weighing has THREE possible outcomes, not two, and three outcomes twice over is nine — just enough to separate eight balls.",
+   "why": [
+    {
+     "h": "THE COUNTING ARGUMENT",
+     "t": "p",
+     "lines": [
+      "A balance can come back left-heavy, right-heavy, or level. So k weighings can produce at most 3^k distinguishable results:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 weighing    3 results   - fewer than 8, so impossible",
+      "    2 weighings   9 results   - at least 8, so possibly enough"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That rules out one weighing before you try anything. It does not prove two works; it only says two is not immediately absurd. The second half is the strategy."
+     ]
+    },
+    {
+     "h": "THE STRATEGY",
+     "t": "p",
+     "lines": [
+      "Weigh three against three, leaving two aside."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "If it tips, the heavy ball is among those three. Weigh one of them against another: if one drops it is that one, if they level it is the third.",
+      "If it balances, the heavy ball is one of the two set aside. Weigh those two against each other."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Either way you are done in two, and every branch ends with exactly one candidate."
+     ]
+    },
+    {
+     "h": "WHY THREE AND THREE, NOT FOUR AND FOUR",
+     "t": "p",
+     "lines": [
+      "Four against four is the natural first move and it wastes the whole point. It always tips, so it never uses the \"level\" outcome, and you learn only one bit instead of the log-base-3 you paid for. That leaves four candidates and one weighing, and one weighing cannot separate four."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rule is to split so that all three outcomes leave you with roughly equal work. Three, three and two is the balanced split of eight; four, four and zero is not."
+     ]
+    },
+    {
+     "h": "HOW FAR IT SCALES",
+     "t": "p",
+     "lines": [
+      "Since two weighings cover up to nine balls, the answer is the same for nine as for eight - and 27 balls take three weighings, 81 take four. The number you can handle is 3^k, so it grows startlingly fast: ten weighings would find one heavy ball among 59,049."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Count the OUTCOMES before designing the procedure. It tells you immediately what is impossible, and it tells you what a good step looks like - one that splits the possibilities as evenly as the number of outcomes allows. Most people default to halving because they are thinking in yes/no; a balance is a three-way instrument and halving throws a third of it away."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "stones_first_or_second",
    "title": "Twenty-one stones",
