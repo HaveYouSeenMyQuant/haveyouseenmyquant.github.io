@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 147,
+ "count": 148,
  "entries": [
+  {
+   "slug": "step_too_big_explodes",
+   "title": "The step size that stops working",
+   "ts": "2026-08-05T06:52:12+00:00",
+   "date": "5 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "The step breaks at exactly 2 divided by L, and one line of algebra shows why.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "On a bowl f(x) = L x squared over 2, the gradient at x is L x - proportional to how far you are from the bottom. So a step of size eta takes x to x minus eta L x, which is x times (1 - eta L)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole thing: every step MULTIPLIES your distance from the bottom by the fixed factor (1 - eta L). Nothing else about the problem matters."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now ask when repeatedly multiplying by that factor shrinks. It shrinks exactly when the factor's size is less than 1, so you need the absolute value of (1 - eta L) to be under 1. Solve it and eta must sit strictly between 0 and 2 divided by L."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the breaking point is eta = 2/L, and it depends only on the curvature. At exactly 2/L the factor is -1: the ball bounces between two points forever and never settles. Past it the bounces grow and the whole thing diverges."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The pretty case is eta = 1/L, where the factor is 0 and it lands on the bottom in a single jump."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "diffusion_noise_to_shape",
    "title": "Diffusion models: noise walks back into a shape",
