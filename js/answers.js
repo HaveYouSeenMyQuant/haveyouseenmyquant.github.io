@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 152,
+ "count": 153,
  "entries": [
+  {
+   "slug": "ten_stacks_one_weighing",
+   "title": "Ten stacks, one weighing",
+   "ts": "2026-08-05T13:14:33+00:00",
+   "date": "5 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Take a different number of coins from each stack, weigh them all together once, and the shortfall tells you the stack.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One coin from stack 1, two from stack 2, three from stack 3, all the way to ten from stack 10. That is 55 coins. If every one were genuine they would weigh 550 grams."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now put them on the scale. Every fake is one gram light, and the number of fakes sitting there is exactly the number of coins you took from the fake stack. So:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "reading 549 g, short by 1, the fake stack is 1 reading 547 g, short by 3, the fake stack is 3 reading 543 g, short by 7, the fake stack is 7"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The deficit IS the stack number. Nothing to interpret, no second weighing, and it works for all ten cases with the same procedure."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason it feels impossible is that people think of a weighing as measuring one quantity, so one weighing looks like one bit of information and ten stacks need more than that. But a scale does not return a bit, it returns a NUMBER — and you get to choose what that number means before you use it. By taking a different count from each stack you make each stack contribute a different, identifiable amount to the total. You are not weighing the coins so much as reading a label you designed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the transferable idea: when you are allowed one measurement, spend your effort on the encoding rather than on the measurement. It is the same trick as weighing a sample to count sheets of paper, and the same idea behind checksums."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It also scales with nothing added. Twenty stacks? Take 1 through 20; the deficit still names the stack. A hundred? The same. And if the fakes were HEAVIER instead of lighter, the excess names it just as well."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a4_halves_same_shape",
    "title": "The paper ratio that survives halving",
