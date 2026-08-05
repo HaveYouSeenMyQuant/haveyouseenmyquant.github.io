@@ -307,11 +307,45 @@ deleted rather than documented.
     answers-link               9       9     9          3     3
     question                  10       3     1          0     0
 
-Read the two big rows against each other. The index path loses people gradually
-and converts; the deep-link path loses nobody until the gate and then converts
-NOTHING. 38 people saw the price and not one typed a character. That is the
-already-documented finding, and this is the cleanest form of it: it is not a
-poor submit rate, it is zero intent.
+**THAT TABLE IS WRONG AND THE CONCLUSION DRAWN FROM IT WAS WRONG (corrected
+2026-08-05).** It is kept here because the error is more instructive than the
+number, and because the wrong version was carried to the owner for days as the
+single highest-value fix available: repoint the OpenReply DM at the archive
+index, supposedly worth about +1.4 emails/day.
+
+The two rows are not two treatments of one audience. They are two different
+traffic SOURCES, which the referrer says outright:
+
+    answers-deep-link   42 m.facebook.com, 24 www.facebook.com, 1 l.instagram
+    answers             74 l.instagram.com
+
+The Facebook-sourced sessions are link previewers, not people. Their durations
+sit on a clamp — 76 sessions with only 22 distinct whole-second values,
+quartiles 30/32/33s, 70% inside a five-second band — against the index's 116
+sessions with 75 distinct values, quartiles 10/29/116s and a 32-minute maximum.
+All 71 deep-link arrivals were also brand-new anonIds, every single one.
+
+Excluding them (analytics/site_metrics.py now does this for every split, see
+AUTOMATED_SQL) the honest comparison is:
+
+    entryPath            gate  attempted  gave   gate->email
+    answers                61         17     9         14.8%
+    answers-deep-link      12          2     1          8.3%
+    answers-link            9          3     3         33.3%
+
+1 of 12 against 9 of 61 is Fisher p=1.0. There is no deep-link penalty. The
+"zero intent" reading was bots inflating the losing arm's denominator, and
+"0 of 38" was really 0 of about 12 humans plus 26 machines.
+
+WHAT THIS MEANS FOR THE ROADMAP: the DM redirect is NOT a known win and should
+not be spent on. The three page-side fixes already tried on that path were
+chasing a defect that was never there.
+
+THE GENERAL LESSON, which cost three findings in one day: a comparison is only
+a comparison if the arms are alike in everything except the treatment. Era
+confounded the hook arm, time confounded the breakout lift, and traffic source
+confounded this one. Before believing a split, ask what ELSE differs between
+the groups — and for anything arriving from a link, check the referrer first.
 
 TWO THINGS I WENT LOOKING FOR AND DID NOT FIND
 ----------------------------------------------
