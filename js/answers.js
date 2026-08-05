@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "chain_rule_two_gears",
    "title": "Why chain-rule rates multiply",
-   "ts": "2026-08-05T01:43:18+00:00",
+   "ts": "2026-08-05T01:45:42+00:00",
    "date": "5 Aug 2026",
    "topic": "calculus",
    "q": null,
