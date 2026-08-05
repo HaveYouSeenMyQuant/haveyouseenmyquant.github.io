@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "eight_balls_two_weighings",
    "title": "Eight balls, two weighings",
-   "ts": "2026-08-05T20:09:52+00:00",
+   "ts": "2026-08-05T20:12:09+00:00",
    "date": "5 Aug 2026",
    "topic": "puzzles",
    "q": null,
