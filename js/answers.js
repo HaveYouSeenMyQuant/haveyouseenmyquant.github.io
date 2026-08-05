@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "snail_out_of_the_well",
    "title": "The snail in the well",
-   "ts": "2026-08-05T21:43:01+00:00",
+   "ts": "2026-08-05T21:45:17+00:00",
    "date": "5 Aug 2026",
    "topic": "puzzles",
    "q": null,
