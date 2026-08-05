@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "milk_now_or_later",
    "title": "Milk now or milk later",
-   "ts": "2026-08-05T10:45:49+00:00",
+   "ts": "2026-08-05T10:48:06+00:00",
    "date": "5 Aug 2026",
    "topic": "everyday",
    "q": null,
