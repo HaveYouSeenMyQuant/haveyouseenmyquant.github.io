@@ -298,3 +298,43 @@ Ratios, not counts. In rough order of how much they should change what we build:
 Add its event here in the same commit, with the funnel question it answers in the
 last column. An event with no question in that column is noise, and should be
 deleted rather than documented.
+
+## The answers-gate funnel, step by step (measured 2026-08-05, 7 clean days)
+
+    entryPath            arrived  opened  gate  attempted  gave
+    answers                   89      89    61         17     9
+    answers-deep-link         69      68    38          0     0
+    answers-link               9       9     9          3     3
+    question                  10       3     1          0     0
+
+Read the two big rows against each other. The index path loses people gradually
+and converts; the deep-link path loses nobody until the gate and then converts
+NOTHING. 38 people saw the price and not one typed a character. That is the
+already-documented finding, and this is the cleanest form of it: it is not a
+poor submit rate, it is zero intent.
+
+TWO THINGS I WENT LOOKING FOR AND DID NOT FIND
+----------------------------------------------
+Both are recorded because each looked like a lever we control, and neither is.
+
+1. "17 attempted but only 9 gave — eight people abandoned the form."
+   They did not abandon. Those sessions went on to fire `answer_submitted` 97
+   times and earn XP: they met the gate, declined to pay, and played the free
+   road instead. That is the design working as intended — answers_ui.js says it
+   outright, that someone who would rather solve it than be told is worth more
+   to us, not less. It is not a leak.
+
+2. "12 of 23 attempts were invalid — the validator is too strict."
+   The regex is /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, which accepts plus-tags,
+   subdomains, capitals and multi-part TLDs. The obvious failure mode is a
+   pasted address with surrounding whitespace — and BOTH gates already
+   `.trim()` before validating (answers_ui.js:559, app.js:1613). So there is no
+   whitespace leak to fix.
+
+   Why it cannot be taken further: the addresses are deliberately NOT logged.
+   app.js records the domain and the length and nothing else, on purpose. That
+   is the right trade and it means "what did the 12 invalid ones actually
+   type?" is unanswerable from here — and should stay that way.
+
+SO: no lever in our control was found on this path. The email objective is
+still bounded by the DM destination, which lives in the OpenReply app.
