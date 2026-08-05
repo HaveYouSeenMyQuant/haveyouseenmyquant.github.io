@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "squares_on_a_chessboard",
    "title": "How many squares on a chessboard",
-   "ts": "2026-08-05T14:25:38+00:00",
+   "ts": "2026-08-05T14:28:14+00:00",
    "date": "5 Aug 2026",
    "topic": "puzzles",
    "q": null,
