@@ -16,8 +16,91 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 157,
+ "count": 158,
  "entries": [
+  {
+   "slug": "the_long_way_is_faster",
+   "title": "The long way is faster",
+   "ts": "2026-08-05T17:44:52+00:00",
+   "date": "5 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "The curve is a cycloid, and it is the fastest possible ramp between those two points — the brachistochrone. It beats the straight line by 35% here.",
+   "why": [
+    {
+     "h": "WHY LONGER CAN BE QUICKER",
+     "t": "p",
+     "lines": [
+      "Speed on a frictionless ramp depends only on how far you have already fallen: v = sqrt(2 g h). It does not depend on the shape of the path at all, only on the current depth."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So a path that drops steeply at the START buys speed EARLY, and then spends the rest of the journey covering ground quickly. The straight line spreads its descent evenly and is therefore slow for the whole first half, when it matters most. The cycloid gives up distance to buy speed, and the trade pays."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is also why it can dip BELOW the finish and still win. Going deeper means going faster; the climb back costs some of that speed back, but on these proportions the extra pace over the middle stretch more than covers it."
+     ]
+    },
+    {
+     "h": "THE EXACT SHAPE",
+     "t": "p",
+     "lines": [
+      "Parametrise by an angle θ:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  x = R(θ - sin θ),   y = -R(1 - cos θ)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A bead released from the cusp satisfies θ(t) = t sqrt(g/R) exactly, which is the same statement as \"this curve is an isochrone\": release the bead anywhere on it and it reaches the bottom in the same time, sqrt(R/g) π. Huygens used precisely this to try to build a pendulum clock that kept time regardless of swing amplitude."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For a drop of 0.25 m over a 1.0 m run, solving (θ - sin θ)/(1 - cos θ) = 4 gives θ₁ = 4.3761 rad and R = 0.1880 m. Then:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  straight   length 1.031 m   time 0.9308 s",
+      "  cycloid    length 1.187 m   time 0.6057 s"
+     ]
+    },
+    {
+     "h": "WHAT IT IS NOT",
+     "t": "p",
+     "lines": [
+      "It is not \"steeper is always better\". A vertical drop followed by a horizontal run is the extreme version of buying speed early, and it LOSES — the flat section has no acceleration and the corner is a disaster. The optimum is a genuine trade-off between falling early and not wasting length, and the cycloid is where that trade balances."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "The instinct that says \"shortest = fastest\" is smuggling in an assumption of constant speed. Once speed depends on the path itself, the shortest route and the quickest route come apart, and which one you want depends on the question. Light refracting at a boundary bends for the same reason — it is buying time in the faster medium, not saving distance. Whenever a cost depends on the route taken rather than just its length, expect the optimum to look longer than you think it should."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "monk_same_time_twice",
    "title": "Same spot, same time",
