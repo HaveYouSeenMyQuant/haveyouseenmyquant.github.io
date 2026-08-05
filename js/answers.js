@@ -16,8 +16,90 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 154,
+ "count": 155,
  "entries": [
+  {
+   "slug": "squares_on_a_chessboard",
+   "title": "How many squares on a chessboard",
+   "ts": "2026-08-05T14:25:38+00:00",
+   "date": "5 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "There are 204 squares on a chessboard, not 64.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "64 is the number of CELLS. It is not the number of squares, because plenty of squares on the board are not cells: every 2x2 block is a square, every 3x3 block is a square, and the whole board is a square."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Count them by size, and the counting is easier than it looks."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A square of side k is completely determined by where its top-left corner sits. That corner cannot go just anywhere: if the square is to fit on the board, the corner has to leave k-1 squares of room to the right and below. On an 8x8 board that leaves 9-k choices across and 9-k choices down."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the number of squares of side k is (9-k)^2:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  side 1: 8 x 8 = 64",
+      "  side 2: 7 x 7 = 49",
+      "  side 3: 6 x 6 = 36",
+      "  side 4: 5 x 5 = 25",
+      "  side 5: 4 x 4 = 16",
+      "  side 6: 3 x 3 = 9",
+      "  side 7: 2 x 2 = 4",
+      "  side 8: 1 x 1 = 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add them: 64 + 49 + 36 + 25 + 16 + 9 + 4 + 1 = 204."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That sum is the sum of the first eight square numbers, and it has a closed form: n(n+1)(2n+1)/6. Putting n = 8 gives 8 x 9 x 17 / 6 = 204, with no adding up at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The transferable habit is the one that does the work here: when something is hard to count directly, find a feature that names each object exactly once. Every square on the board corresponds to exactly one (size, top-left corner) pair, and once you see that, counting squares becomes counting corners — which is easy."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same move answers the follow-up. How many RECTANGLES are on a chessboard? A rectangle is fixed by choosing two of the nine vertical lines and two of the nine horizontal ones, so the count is C(9,2) x C(9,2) = 36 x 36 = 1296. Different question, same trick: find what determines the object, then count those instead."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_patterns_one_coin",
    "title": "Two patterns, one coin",
