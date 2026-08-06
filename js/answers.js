@@ -16,8 +16,101 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 175,
+ "count": 176,
  "entries": [
+  {
+   "slug": "two_crowds_wearing_one_face",
+   "title": "Two crowds wearing one face",
+   "ts": "2026-08-06T12:38:20+00:00",
+   "date": "6 Aug 2026",
+   "topic": "graphs",
+   "q": null,
+   "a": "By scoring every possible split against what random wiring would have produced, and keeping the one that beats chance by the most. The measure is called modularity and it needs no labels, no training data and no idea in advance of how many groups there are.",
+   "why": [
+    {
+     "h": "THE NETWORK",
+     "t": "p",
+     "lines": [
+      "Eight people, fourteen friendships:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    0-1 0-2 0-3 1-2 1-3 2-3        the first four, all connected",
+      "    4-5 4-6 4-7 5-6 5-7 6-7        the second four, all connected",
+      "    3-4  2-5                       two friendships across"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Drawn as a ring that is invisible. Drawn as two blobs it is obvious. The picture changed; the data did not - which is the reason a number is worth more than a layout."
+     ]
+    },
+    {
+     "h": "WHAT MODULARITY MEASURES",
+     "t": "p",
+     "lines": [
+      "For a proposed split, take the fraction of edges that fall INSIDE groups, then subtract the fraction you would expect if the same people had the same number of friends but chose them at random:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Q  =  (edges inside / total edges)  -  sum over groups of (group's degree share)^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The subtraction is the whole idea. Any split puts SOME edges inside a group, so the raw count proves nothing; only the excess over chance does."
+     ]
+    },
+    {
+     "h": "THE NUMBERS",
+     "t": "pre",
+     "lines": [
+      "    the true split   {0,1,2,3} | {4,5,6,7}     Q = +0.357",
+      "    everyone in one group                       Q =  0.000",
+      "    a plausible wrong split {0,1,4,5} | rest    Q = -0.214"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A negative score means the split cuts through more friendships than random wiring would - genuinely worse than no structure at all. That the measure can go negative is what makes it a test rather than a description."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Searching all 127 two-way splits, the maximum is the true one. Real networks are too large for that, so practical algorithms - greedy merging, or the Louvain method - climb towards a maximum instead, which is why they can return slightly different answers on the same graph."
+     ]
+    },
+    {
+     "h": "WHERE THIS IS ACTUALLY USED",
+     "t": "p",
+     "lines": [
+      "Finding trading groups from transaction records, fraud rings from shared details, functional modules in protein networks, topic groups in citation graphs. Everywhere the labels are missing and the connections are not."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When you catch yourself asking whether a pattern is really there, write down what \"not there\" would look like as a number and subtract it. Modularity is that discipline in one line, and the habit generalises far past graphs."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "same_numbers_different_picture",
    "title": "Same numbers, different picture",
