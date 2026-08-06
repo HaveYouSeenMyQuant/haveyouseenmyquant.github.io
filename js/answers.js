@@ -16,8 +16,91 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 173,
+ "count": 174,
  "entries": [
+  {
+   "slug": "it_circles_but_never_turns",
+   "title": "It circles, but never turns",
+   "ts": "2026-08-06T11:28:20+00:00",
+   "date": "6 Aug 2026",
+   "topic": "calculus",
+   "q": null,
+   "a": "Because circling and turning are different things, and only one of them is local. The field goes round the centre, but at every single point where it is defined its curl is exactly zero - so a paddle wheel is carried around the centre without ever spinning about its own axis.",
+   "why": [
+    {
+     "h": "THE FIELD",
+     "t": "pre",
+     "lines": [
+      "    F(x, y)  =  ( -y / (x^2 + y^2),  x / (x^2 + y^2) )"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every arrow is perpendicular to the line joining it to the origin, so the picture is unambiguously circular. Its length falls off as 1/r."
+     ]
+    },
+    {
+     "h": "THE CURL IS ZERO",
+     "t": "p",
+     "lines": [
+      "Curl in two dimensions is dFy/dx - dFx/dy. Differentiate and the two terms are identical, so they cancel everywhere except at the origin, where the field is not defined at all. Checked numerically at several points: zero to within 1e-6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the local answer is \"no rotation\". A paddle wheel has its outer side dragged more slowly than its inner side - the 1/r falloff - and those two effects cancel exactly. That cancellation IS the zero curl."
+     ]
+    },
+    {
+     "h": "THE CIRCULATION IS NOT ZERO",
+     "t": "p",
+     "lines": [
+      "Walk once round a circle of radius R and add up the field along the way:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    radius 1  ->  6.2832",
+      "    radius 3  ->  6.2832"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2*pi, whatever the radius. Non-zero, and the same for every loop enclosing the origin."
+     ]
+    },
+    {
+     "h": "HOW BOTH CAN BE TRUE",
+     "t": "p",
+     "lines": [
+      "Stokes' theorem says circulation round a loop equals the total curl inside it - but only when the field is defined everywhere inside. Here it is not. Every loop that encircles the origin has a puncture in it, and all of the circulation comes from that one missing point. Take a loop that does NOT enclose the origin and the circulation is zero, exactly as the zero curl predicts."
+     ]
+    },
+    {
+     "h": "THE CONTRAST WORTH SEEING",
+     "t": "p",
+     "lines": [
+      "Rigid rotation F = (-y, x) looks similar and behaves completely differently: curl 2 everywhere, and circulation that grows with the loop - 6.28 at radius 1, but 56.5 at radius 3. That is what a genuinely rotating field does, and it is how you know 6.28-at-every-radius is a statement about THIS field and not about circles."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "\"It obviously goes round, so it must be rotating\" is a global observation doing duty as a local one. Whenever a quantity is defined by a limit at a point, check it at the point - the shape of the whole picture is not evidence about it, and a single missing point can carry the entire effect."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_guards_one_question",
    "title": "Two guards, one question",
