@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "sample_spread_runs_small",
    "title": "The sample's spread runs small",
-   "ts": "2026-08-06T07:26:45+00:00",
+   "ts": "2026-08-06T07:30:01+00:00",
    "date": "6 Aug 2026",
    "topic": "statistics",
    "q": null,
