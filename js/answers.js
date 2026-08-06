@@ -16,8 +16,72 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 174,
+ "count": 175,
  "entries": [
+  {
+   "slug": "same_numbers_different_picture",
+   "title": "Same numbers, different picture",
+   "ts": "2026-08-06T12:03:20+00:00",
+   "date": "6 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "Because mean, variance and correlation each collapse the data to a single number, and a single number cannot carry a shape. Four different shapes can agree on all of them at once.",
+   "why": [
+    {
+     "h": "WHAT THE FOUR SETS ACTUALLY LOOK LIKE",
+     "t": "pre",
+     "lines": [
+      "    I    a fuzzy upward band - the honest case the statistics describe",
+      "    II   a clean curve, rising then falling - not a straight-line relationship at all",
+      "    III  a tight straight line with ONE far-off point dragging the fit",
+      "    IV   every x is 8 except a single point at 19, which alone creates the correlation"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And every one of them has mean x = 9.00, mean y = 7.50, variance 11.00 and 4.13, correlation 0.816, and the same best-fit line to two decimal places."
+     ]
+    },
+    {
+     "h": "WHY SUMMARIES CANNOT SEE IT",
+     "t": "p",
+     "lines": [
+      "Each statistic is an average of something. The mean averages the values, the variance averages squared distances from the mean, the correlation averages the product of the two standardised variables. Averaging is exactly the operation that throws away where things are."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In set IV, ten points sit on top of each other and one sits far away. The correlation of 0.816 is generated entirely by that one point - remove it and there is no relationship at all, because x never varies. The number cannot tell you that it is resting on a single observation."
+     ]
+    },
+    {
+     "h": "WHAT TO DO INSTEAD",
+     "t": "p",
+     "lines": [
+      "Plot it. That is the whole lesson and it is not a joke: these four sets were built in 1973 specifically to make the point that a scatter plot takes two seconds and catches what a page of summaries misses."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "More concretely, the four failures each have a name and a fix: the curve in II needs a different model, the outlier in III needs identifying rather than averaging over, and the leverage point in IV means your entire slope depends on one row of data. All three are invisible in the summary and obvious in the picture."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before trusting any summary, ask what it AVERAGED. Every average is a deliberate loss of information, and the question worth asking is whether the thing it discarded was the thing you needed. With data, the cheapest way to find out is to look at it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "it_circles_but_never_turns",
    "title": "It circles, but never turns",
