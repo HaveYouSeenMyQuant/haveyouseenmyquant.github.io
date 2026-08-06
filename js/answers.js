@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "two_guards_one_question",
    "title": "Two guards, one question",
-   "ts": "2026-08-06T10:53:21+00:00",
+   "ts": "2026-08-06T10:58:23+00:00",
    "date": "6 Aug 2026",
    "topic": "puzzles",
    "q": null,
