@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "same_numbers_different_picture",
    "title": "Same numbers, different picture",
-   "ts": "2026-08-06T12:03:20+00:00",
+   "ts": "2026-08-06T12:07:23+00:00",
    "date": "6 Aug 2026",
    "topic": "statistics",
    "q": null,
