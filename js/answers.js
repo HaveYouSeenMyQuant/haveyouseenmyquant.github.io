@@ -16,8 +16,97 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 182,
+ "count": 183,
  "entries": [
+  {
+   "slug": "the_mirror_swaps_neither",
+   "title": "The mirror swaps neither",
+   "ts": "2026-08-06T19:28:23+00:00",
+   "date": "6 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because a mirror does not touch left or right at all. It reverses the one axis nobody mentions - the one pointing INTO the glass - and you supply the left-right swap yourself, by imagining turning around.",
+   "why": [
+    {
+     "h": "WHAT THE MIRROR ACTUALLY DOES",
+     "t": "p",
+     "lines": [
+      "Set up three axes: x to your right, y up, z pointing towards the mirror. The mirror sends"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (x, y, z)  ->  (x, y, -z)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Your right hand is still on the right of the image. Your head is still at the top. Only depth is reversed: the tip of your nose, which was closest to the glass, is the closest part of the image too - so in the image it points BACK at you."
+     ]
+    },
+    {
+     "h": "WHERE THE LEFT-RIGHT SWAP COMES FROM",
+     "t": "p",
+     "lines": [
+      "You do it. To compare yourself with the image you imagine walking round behind the glass and turning to face the way it faces. Turning around is a rotation about the vertical axis:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    turn around  =  (x, y, z) -> (-x, y, -z)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Compose the two and the z terms cancel:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    turn ∘ mirror  =  (x, y, z) -> (-x, y, z)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which IS the left-right flip. The mirror supplied the depth reversal, you supplied the turn, and the left-right swap is the product of the two. Nothing in the glass ever distinguished left from right."
+     ]
+    },
+    {
+     "h": "THE TEST THAT SETTLES IT",
+     "t": "p",
+     "lines": [
+      "Lie down on your side in front of a mirror. Your image lies on its side too - and now people describe it as swapping head and feet. The \"swapped\" axis follows the axis you rotate about, not any property of the mirror."
+     ]
+    },
+    {
+     "h": "WHY YOU CANNOT TURN TO MATCH IT",
+     "t": "p",
+     "lines": [
+      "A mirror's transformation has determinant -1. Every rotation has determinant +1, and multiplying rotations never changes that. So no amount of turning can ever bring you into alignment with your reflection - which is precisely why a left hand cannot be rotated into a right hand, and why chemists care whether a molecule has a mirror image distinct from itself."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a question sounds like it is about an object, check how much of it is about the observer. Half of this one is a rotation the viewer performs without noticing, and the puzzle dissolves the moment that step is written down instead of imagined."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_thousand_elephants_overhead",
    "title": "A thousand elephants overhead",
