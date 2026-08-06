@@ -16,8 +16,106 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 165,
+ "count": 166,
  "entries": [
+  {
+   "slug": "zeros_on_the_end",
+   "title": "Zeros on the end of a hundred factorial",
+   "ts": "2026-08-06T03:13:18+00:00",
+   "date": "6 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "24 zeros, not 20.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A zero on the end of a number is a factor of ten, and every ten is a two times a five. So the question is really: how many times does 10 divide 100 factorial?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Twos are cheap. Every second number contributes one, so there are dozens of them and they are never the constraint. The fives are the bottleneck, and the answer is however many fives you can find in the product."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Count the multiples of 5 from 1 to 100 and you get 20: 5, 10, 15, ..., 100. That is where almost everyone stops, and it is where the mistake is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Because 25 is not one five. It is 5 x 5, and it contributes TWO. So does 50, which is 2 x 5 x 5. So does 75, and so does 100. There are four such numbers below 100, and each of them has a second five that the first count missed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  20 + 4 = 24"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The clean way to write it is Legendre's formula. The number of times a prime p divides n factorial is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  floor(n/p) + floor(n/p^2) + floor(n/p^3) + ..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each term counts the numbers that carry at least that many copies of p, so together they count every copy exactly once. For n = 100 and p = 5:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  floor(100/5)   = 20",
+      "  floor(100/25)  = 4",
+      "  floor(100/125) = 0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which stops there, and totals 24."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sanity check the \"twos are plentiful\" claim with the same formula: 50 + 25 + 12 + 6 + 3 + 1 = 97 twos against 24 fives. There are far more twos than fives, which is why only the fives matter — and why this shortcut works for 10 but you would need to think again for a base like 12."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The transferable habit is worth more than the number. When something is built out of repeated multiplication, do not count the objects — count the PRIME you actually care about, and remember that some objects carry it more than once. The same slip shows up whenever people count multiples instead of counting factors."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "no_arms_may_cross",
    "title": "No arms may cross",
