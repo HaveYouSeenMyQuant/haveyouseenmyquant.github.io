@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_sum_that_never_stops",
    "title": "A sum that never stops",
-   "ts": "2026-08-06T06:51:51+00:00",
+   "ts": "2026-08-06T06:58:12+00:00",
    "date": "6 Aug 2026",
    "topic": "calculus",
    "q": null,
