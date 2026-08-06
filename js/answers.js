@@ -16,8 +16,77 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 185,
+ "count": 186,
  "entries": [
+  {
+   "slug": "every_answer_goes_backwards",
+   "title": "Every answer goes backwards",
+   "ts": "2026-08-06T21:29:08+00:00",
+   "date": "6 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "The goat, and you have to row it back because it is the only one that cannot be left with EITHER of the others.",
+   "why": [
+    {
+     "h": "THE TWO SOLUTIONS, IN FULL",
+     "t": "p",
+     "lines": [
+      "There are exactly two shortest answers and both take seven crossings:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    goat over, back empty, wolf over, GOAT BACK, cabbage over, back empty, goat over",
+      "    goat over, back empty, cabbage over, GOAT BACK, wolf over, back empty, goat over"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "They differ only in whether the wolf or the cabbage travels third. The fourth move is the same in both, and it is the one nobody wants to make."
+     ]
+    },
+    {
+     "h": "WHY THE GOAT",
+     "t": "p",
+     "lines": [
+      "Look at what conflicts with what. The wolf eats the goat; the goat eats the cabbage. The wolf and the cabbage are perfectly happy alone together. So the goat is in BOTH conflicts and the other two are in one each - the goat is the only item that cannot share a bank with anything unsupervised."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That settles the first move: it must be the goat, because leaving the goat with either of the others is immediately fatal. And it settles the fourth: once the second item is delivered, the goat cannot stay there with it, so the goat comes back. It is not a detour. It is the only legal move."
+     ]
+    },
+    {
+     "h": "WHY THIS PUZZLE IS HARD FOR ITS SIZE",
+     "t": "p",
+     "lines": [
+      "There are 16 conceivable arrangements and only 10 are legal, so the whole problem fits on a postcard. People still get stuck, because searching forward from \"what have I delivered\" makes a backward move look like undoing your work. Progress is not measured by how many items are across; it is measured by distance through the state graph, and those are different things."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Run it as a graph - 10 legal states, an edge for each legal crossing - and breadth-first search finds seven immediately, with no cleverness at all."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a search feels stuck, check whether your notion of \"progress\" is the real one. Hill-climbing on an intuitive score - items delivered, tests passing, features shipped - fails exactly when the optimum requires giving some back. That is why algorithms that only ever improve get trapped, why refactors that temporarily break things are sometimes the only route, and why the state you are in matters more than the distance you have travelled."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "five_or_five_million",
    "title": "Five or five million",
