@@ -16,8 +16,62 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 166,
+ "count": 167,
  "entries": [
+  {
+   "slug": "ancestors_dont_add_up",
+   "title": "A trillion ancestors that never existed",
+   "ts": "2026-08-06T05:03:18+00:00",
+   "date": "6 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Your family tree is not a tree. The same people appear on it over and over, and once you allow that, the impossible number disappears.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The arithmetic is right as far as it goes: 2 parents, 4 grandparents, 8 great-grandparents, doubling every generation. Forty generations back that is 2^40 = 1,099,511,627,776 slots on your family tree — a trillion. There were only about 300 million people alive in the year 1000, and roughly 117 billion humans have ever existed at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The mistake is assuming those trillion SLOTS are filled by a trillion DIFFERENT people."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "They are not. Your parents were not related to each other in any way you would notice, but go back far enough and every pair of your ancestors shares ancestors of their own. When that happens, one person occupies many slots at once — appearing as, say, both a great-great-grandparent on your mother's side and again on your father's. Genealogists call it pedigree collapse, and it is not rare or shameful; it is arithmetic. There is nowhere near enough humanity for it to be otherwise."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "How severe it gets: by around 29 generations the demand already exceeds the entire world population of that era, so collapse is not optional beyond that point. Working backwards from the present, the true number of distinct ancestors rises for a while, peaks, and then FALLS — because far enough back, the pool of people who could be your ancestor at all is small, and eventually everyone alive then who left any descendants is an ancestor of everyone alive now."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That last claim is the striking one and it is not folklore. Statistical models of human genealogy put the most recent common ancestor of everyone alive today at only a few thousand years ago, and the point at which each person alive back then is either an ancestor of ALL of us or of none of us not much further back. Not a metaphor about human kinship — a counting result."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The transferable habit: when exponential growth collides with a hard physical bound, do not doubt the arithmetic, doubt the independence you assumed. The doubling was fine. What failed was \"and they are all different people\". The same error shows up whenever independent-looking counts are multiplied — distinct paths that secretly share edges, distinct samples that secretly share sources, distinct risks that secretly share a cause."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "zeros_on_the_end",
    "title": "Zeros on the end of a hundred factorial",
