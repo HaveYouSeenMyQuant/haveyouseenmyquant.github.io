@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "every_answer_goes_backwards",
    "title": "Every answer goes backwards",
-   "ts": "2026-08-06T21:29:08+00:00",
+   "ts": "2026-08-06T21:31:42+00:00",
    "date": "6 Aug 2026",
    "topic": "puzzles",
    "q": null,
