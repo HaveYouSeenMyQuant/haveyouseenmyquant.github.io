@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "twenty_five_horses",
    "title": "Twenty-five horses, five tracks",
-   "ts": "2026-08-06T05:38:18+00:00",
+   "ts": "2026-08-06T05:40:51+00:00",
    "date": "6 Aug 2026",
    "topic": "puzzles",
    "q": null,
