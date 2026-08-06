@@ -16,8 +16,94 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 186,
+ "count": 187,
  "entries": [
+  {
+   "slug": "always_the_wrong_way",
+   "title": "Always the wrong way",
+   "ts": "2026-08-06T22:04:08+00:00",
+   "date": "6 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because the lift spends most of its time BELOW you, and something below you can only reach you by coming up.",
+   "why": [
+    {
+     "h": "THE ONE LINE",
+     "t": "p",
+     "lines": [
+      "Think about where the car is at a random moment. It runs the whole shaft, so at any instant it is equally likely to be anywhere in it. If you are on floor f of a building of height H, the fraction of the shaft below you is f/H."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now ask what happens next. If the car is below you it must travel upward to reach you - whether it is currently rising, or falling and about to turn around at the bottom. Either way, the next time it passes your floor, it is going UP. And if it is above you, the next passage is going DOWN."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(the next lift passes you going up) = f / H"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "On floor 9 of 10 that is 90%. Nine times out of ten the doors open on a car heading up, and nine times out of ten you wanted to go down."
+     ]
+    },
+    {
+     "h": "IT IS NOT BAD LUCK, IT IS WHERE YOU STAND",
+     "t": "pre",
+     "lines": [
+      "    floor 1 of 10  ->  10% going up   (so 90% going down)",
+      "    floor 3        ->  30%",
+      "    floor 5        ->  50%            the only fair floor",
+      "    floor 7        ->  70%",
+      "    floor 9        ->  90%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Near the bottom the complaint reverses exactly: you want to go up and the car keeps arriving going down. Only in the middle is it even, and the middle is the one place nobody notices anything odd."
+     ]
+    },
+    {
+     "h": "THE PART THAT MAKES IT FEEL PERSONAL",
+     "t": "p",
+     "lines": [
+      "The direction that annoys you is correlated with the direction that is rare. High up, you almost always want to go down - and going down is exactly the passage that is rare up there. The two effects multiply instead of cancelling, which is why it feels targeted."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add more lifts and it fades: with several cars at independent positions, the chance that ALL of them are below you is (f/H)^n, so the first to arrive is much more likely to be useful. One lift is the worst case, and one lift is what most buildings have."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something seems to happen at the wrong moment suspiciously often, check whether you are sampling at a random time from a process that spends unequal time in each state. The same length-biasing makes your bus feel more crowded than average, makes the queue you join move slower than the ones you did not, and makes any waiting-time survey overstate the wait. You are not unlucky; you are being sampled proportionally to duration."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "every_answer_goes_backwards",
    "title": "Every answer goes backwards",
