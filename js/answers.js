@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 181,
+ "count": 182,
  "entries": [
+  {
+   "slug": "a_thousand_elephants_overhead",
+   "title": "A thousand elephants overhead",
+   "ts": "2026-08-06T18:37:24+00:00",
+   "date": "6 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because the air it is sitting in weighs two and a half thousand times more, and the droplets are so small that falling through it takes them forever.",
+   "why": [
+    {
+     "h": "THE WEIGHT IS REAL",
+     "t": "p",
+     "lines": [
+      "A cumulus cloud a kilometre on each side is 10^9 cubic metres. Cloud holds roughly half a gram of liquid water per cubic metre, so:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    10^9 m^3 x 0.5 g/m^3 = 5 x 10^8 grams = 500 tonnes"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is about 1,250 adult elephants, or a loaded jumbo jet and a quarter."
+     ]
+    },
+    {
+     "h": "WHY IT DOES NOT FALL - PART ONE",
+     "t": "p",
+     "lines": [
+      "Weigh the AIR in that same cube. Air is about 1.225 kg per cubic metre, so the cube contains 1,225,000 tonnes of it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The water is 0.041% of the air's own mass. Asking why the cloud does not fall is a bit like asking why a teaspoon of sugar makes a cup of tea sink - the cloud is not an object sitting in the air, it IS the air, very slightly damp."
+     ]
+    },
+    {
+     "h": "WHY IT DOES NOT FALL - PART TWO",
+     "t": "p",
+     "lines": [
+      "The droplets do fall. They are just extremely slow. A cloud droplet is about 20 microns across, and for something that small, air resistance balances gravity almost immediately - it reaches a terminal velocity of roughly one centimetre per second."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Meanwhile the updrafts inside a growing cumulus run at a metre per second or more, a hundred times faster. So the droplets are falling and the air is rising faster, and the cloud stays put."
+     ]
+    },
+    {
+     "h": "WHEN IT DOES FALL",
+     "t": "p",
+     "lines": [
+      "Rain happens when droplets merge until they are big enough for gravity to win. A drizzle drop at 200 microns falls about 70 cm per second; a 2 mm raindrop does 6 metres per second. The size has gone up by a hundred and the speed by six hundred, which is why rain arrives suddenly rather than gradually."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something huge appears to defy gravity, check what it is suspended IN before reaching for anything exotic. Density ratios settle most of these questions, and the remaining piece is almost always that small things have enormous surface area for their mass, so drag dominates."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_molecule_comes_back",
    "title": "One molecule comes back",
