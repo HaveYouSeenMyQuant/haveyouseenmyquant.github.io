@@ -16,8 +16,79 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 167,
+ "count": 168,
  "entries": [
+  {
+   "slug": "twenty_five_horses",
+   "title": "Twenty-five horses, five tracks",
+   "ts": "2026-08-06T05:38:18+00:00",
+   "date": "6 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "7 races.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Five races to sort the five groups. A sixth to race the five group winners. Then one more — and the seventh is where the whole puzzle lives."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Races 1 to 5: split the 25 horses into five groups of five and race each group. You now know the order within every group, and nothing between them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Race 6: race the five group winners. The horse that wins this is the fastest of all 25, because it beat the best of every group. That is 1st place settled, and it is the only thing race 6 settles."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now think about who can still be 2nd or 3rd. Call the group winners A, B, C, D, E in the order they finished race 6, so A is the champion."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "E and D can be dropped entirely. D lost to A, B and C, so D is at best 4th; everyone in D's group is behind D. Same for E.",
+      "From C's group: only C survives. C lost to A and B, so C can be 3rd at best, and anyone behind C is 4th or worse.",
+      "From B's group: B and the horse directly behind B. B could be 2nd; that runner-up could be 3rd.",
+      "From A's group: the 2nd and 3rd horses. If A is the fastest overall, the second-fastest could easily be the horse that came 2nd in A's group."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is exactly five candidates: A2, A3, B1, B2, C1. Race those five — race 7 — and the first two home are 2nd and 3rd overall."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why six is not enough: the tempting answer is to take the podium of race 6. But the horses finishing 2nd and 3rd in race 6 are only the best of THEIR groups, and the true second-fastest horse in the world may be sitting in A's group having lost one race, to A. Six races cannot see that horse at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two ideas do the work, and both transfer. First, a race is a comparison, not a measurement — with no clock, results are only meaningful within a race, so the design has to build a chain of overlapping comparisons. Second, and more useful: eliminate by DOMINATION. You never work out where the other 20 horses are, only that each of them has already lost to enough horses to be out of the running. Most of the work is proving horses cannot be on the podium, which is much cheaper than ranking them."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ancestors_dont_add_up",
    "title": "A trillion ancestors that never existed",
