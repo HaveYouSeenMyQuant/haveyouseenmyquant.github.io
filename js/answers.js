@@ -16,8 +16,86 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 179,
+ "count": 180,
  "entries": [
+  {
+   "slug": "thirteenth_favours_friday",
+   "title": "The 13th prefers Friday",
+   "ts": "2026-08-06T17:14:27+00:00",
+   "date": "6 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Friday, 688 times out of 4,800. The calendar is lopsided, and the reason is that it repeats at all.",
+   "why": [
+    {
+     "h": "THE CYCLE",
+     "t": "p",
+     "lines": [
+      "The Gregorian rule is: leap year every 4 years, except centuries, except centuries divisible by 400. Over 400 years that gives 97 leap years, so"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  400 x 365 + 97 = 146,097 days"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and 146,097 = 7 x 20,871 exactly. The day count is a whole number of weeks, so after 400 years every date returns to the same weekday and the entire pattern repeats forever. That is the only reason a fixed answer exists — if the cycle length were not divisible by 7, the counts would drift and no weekday would be permanently favoured."
+     ]
+    },
+    {
+     "h": "WHY IT CANNOT BE EVEN",
+     "t": "p",
+     "lines": [
+      "One cycle contains 400 x 12 = 4,800 thirteenths spread over 7 weekdays. But 4,800 = 7 x 685 + 5. It does not divide. So perfect evenness is arithmetically impossible: five weekdays must carry 686 and two 685, or some other unequal split. Something has to win."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That argument alone only forces a spread of ONE. The actual counts are"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  Friday     688      Monday     685",
+      "  Sunday     687      Tuesday    685",
+      "  Wednesday  687      Thursday   684",
+      "                      Saturday   684"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "a spread of four. So the leftover-5 argument explains why it cannot be flat; it does not explain why Friday specifically, or why the gap is this wide. That comes from the irregular structure inside the cycle — months of 28, 30 and 31 days advance the weekday by 0, 2 or 3 each time, and the leap-day pattern is itself irregular (skipping 1700, 1800, 1900, keeping 2000). The interaction of those two irregular sequences is what tilts the tally, and there is no tidier reason than the arithmetic itself. Some facts are true by computation rather than by insight, and this is one."
+     ]
+    },
+    {
+     "h": "HOW BIG IS IT REALLY",
+     "t": "p",
+     "lines": [
+      "688/4800 = 14.33%. An even share would be 14.29%. The excess is 0.05 percentage points — about one extra Friday the 13th per 400 years above par. It is real and permanent and it is nothing you would ever notice. Anyone claiming superstition is vindicated by this is quoting a true number about a difference of four events in forty centuries."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Two questions worth separating whenever a count \"should\" be uniform. First: is uniformity even possible? Divisibility answers that instantly — 4,800 mod 7 = 5, so no. Second: how far from uniform is it actually? Those have different answers here, one and four, and conflating them is how people talk themselves into believing a rounding artefact is a pattern. Check divisibility first; it is free and it often settles the question."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "horizon_five_kilometres",
    "title": "How far is the horizon",
