@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 171,
+ "count": 172,
  "entries": [
+  {
+   "slug": "million_billion_seconds",
+   "title": "A million seconds against a billion",
+   "ts": "2026-08-06T09:29:30+00:00",
+   "date": "6 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "A million seconds is 11.6 days. A billion seconds is 31.7 years.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both from the same arithmetic: a day is 86,400 seconds, and a mean Gregorian year is 365.2425 days, so"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  1,000,000 / 86,400 = 11.574 days",
+      "  1,000,000,000 / (86,400 x 365.2425) = 31.688 years"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A trillion seconds, while we are here, is 31,688 years — further back than agriculture."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason this lands is not the arithmetic, it is that \"million\" and \"billion\" are adjacent words. They sound like neighbours: same rhythm, same shape, one syllable different. Nothing in how we say them signals that one is a THOUSAND times the other."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And a thousand times is not a quantity anyone has intuition for, because we experience number logarithmically. The gap between 1 and 10 feels much the same as the gap between 10 and 100 — which is a real feature of perception, not a failure of education. So a factor of a thousand between two similar-sounding words slides past unnoticed, every time, even for people who know the definitions perfectly well."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The fix is to convert to something the body knows. Not \"a thousand times bigger\" but \"last week versus most of your life\". Time is ideal for this because everyone has a calibrated sense of it. Distance works too: a million millimetres is a kilometre, a billion millimetres is a thousand kilometres."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is worth more than a party trick, because the same blindness is what makes large-number claims unarguable in practice. A budget of £3 million and one of £3 billion get discussed in the same tone of voice. So do a one-in-a-million risk and a one-in-a-billion one. If you cannot feel the difference, you cannot weigh it — and the only reliable defence is to convert every large number into a unit you have actually experienced, before you form an opinion about it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "always_an_even_number",
    "title": "Always an even number",
