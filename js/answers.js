@@ -16,8 +16,103 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 168,
+ "count": 169,
  "entries": [
+  {
+   "slug": "a_sum_that_never_stops",
+   "title": "A sum that never stops",
+   "ts": "2026-08-06T06:51:51+00:00",
+   "date": "6 Aug 2026",
+   "topic": "calculus",
+   "q": null,
+   "a": "Because the terms shrink like 1/n, and 1/n shrinks just slowly enough that the pieces keep adding up. Halve the exponent to 1/n^2 and the same sum stops dead at a finite number.",
+   "why": [
+    {
+     "h": "THE PROOF THAT IT DIVERGES, IN ONE PICTURE",
+     "t": "p",
+     "lines": [
+      "Group the terms in blocks whose lengths double:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1/2                                    = 1/2",
+      "    1/3 + 1/4                              > 1/4 + 1/4  = 1/2",
+      "    1/5 + 1/6 + 1/7 + 1/8                  > 4 x 1/8    = 1/2",
+      "    1/9 ... 1/16                           > 8 x 1/16   = 1/2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every block beats one half, and there are infinitely many blocks. So the total passes any number you choose - you just need enough blocks."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That also tells you the SPEED. Each new half costs twice as many terms as the last, so reaching a total of T takes something like 2^(2T) terms. Growth in the total is logarithmic in the number of terms, and logarithms are the slowest useful thing in mathematics."
+     ]
+    },
+    {
+     "h": "THE NUMBERS",
+     "t": "p",
+     "lines": [
+      "Writing H(n) for the sum of the first n terms, H(n) is very close to ln(n) + 0.5772..., where that constant is the Euler-Mascheroni number. So:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    to pass 10     12,367 terms          (this one is counted exactly)",
+      "    to pass 14.4   1,000,000 terms",
+      "    to pass 20     about 2.7 x 10^8",
+      "    to pass 100    about 1.5 x 10^43"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Multiply the number of terms by a thousand and the total goes up by about 6.9. That is the whole character of the thing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY 1/n^2 IS DIFFERENT"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Group 1/n^2 the same way and each block is BELOW a half rather than above it, and the block bounds shrink geometrically. The sum converges - to pi^2/6, about 1.6449. Both series have terms going to zero, so \"the terms vanish\" tells you nothing at all about whether the total does."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The dividing line sits exactly at 1/n. Any exponent above 1 converges, any exponent at or below 1 diverges, and 1/n is the knife edge - which is why it is the example everyone is shown."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something accumulates in ever-smaller amounts, do not ask whether the increments vanish - ask how fast. Compare against a series you already know, by grouping terms into blocks you can bound. The doubling-block trick is the whole technique, and it decides convergence for almost everything that looks like this."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "twenty_five_horses",
    "title": "Twenty-five horses, five tracks",
