@@ -16,8 +16,104 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 178,
+ "count": 179,
  "entries": [
+  {
+   "slug": "horizon_five_kilometres",
+   "title": "How far is the horizon",
+   "ts": "2026-08-06T16:39:27+00:00",
+   "date": "6 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "The horizon sits at d = sqrt(2Rh + h^2), which for any height you can stand on is just sqrt(2Rh) — about 3.57 x sqrt(h) kilometres with h in metres.",
+   "why": [
+    {
+     "h": "WHERE IT COMES FROM",
+     "t": "p",
+     "lines": [
+      "Your eye is at height h above a sphere of radius R. Your line of sight to the horizon is the TANGENT to that sphere, and a tangent meets the radius at the point of contact at exactly 90 degrees. So the centre of the Earth, the point of contact, and your eye form a right-angled triangle:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "hypotenuse: centre to eye = R + h",
+      "one leg: centre to contact point = R",
+      "other leg: contact point to eye = d, the distance you can see"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Pythagoras:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  d^2 + R^2 = (R + h)^2",
+      "  d^2 = R^2 + 2Rh + h^2 - R^2",
+      "  d^2 = 2Rh + h^2",
+      "  d   = sqrt(2Rh + h^2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For h = 1.7 m against R = 6,371,000 m the h^2 term is 2.9 against 21,661,400 — it changes the answer by seven millionths of a percent. Drop it and d = sqrt(2Rh)."
+     ]
+    },
+    {
+     "h": "WHY FOUR TIMES THE HEIGHT FOR TWICE THE VIEW",
+     "t": "p",
+     "lines": [
+      "Because d grows like sqrt(h), doubling d needs h multiplied by 4. That is the whole shape of the thing:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  1.7 m   ->  4.65 km",
+      "  6.8 m   ->  9.31 km      (4x height, 2x distance)",
+      "  27.2 m  -> 18.62 km      (4x again, 2x again)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is why lighthouses are tall and still do not see very far, and why gaining the last few kilometres of view costs so much height. In convenient form: d in km is roughly 3.57 x sqrt(h in metres)."
+     ]
+    },
+    {
+     "h": "THE REFRACTION FOOTNOTE",
+     "t": "p",
+     "lines": [
+      "Everything above is pure geometry. Real air is denser near the ground, so light bends slightly downward and follows the curve of the Earth a little way — which pushes the visible horizon out. The standard correction is to use an effective radius of about 7/6 R, giving roughly 8% more distance: about 5.0 km instead of 4.65 at eye level. Both numbers are honest; they answer slightly different questions, and the video draws the geometric one because that is the one the picture supports."
+     ]
+    },
+    {
+     "h": "TWO PEOPLE, BOTH TALL",
+     "t": "p",
+     "lines": [
+      "If the thing you are looking at also has height — a ship's mast, another person on a hill — each of you gets your own horizon distance and they ADD. Two people of eye height 1.7 m can see each other at 9.3 km, not 4.65, which is why \"the horizon\" is not one number but a property of a pair."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "A square root means diminishing returns that never quite stop. Anything of the form sqrt(x) rewards the first units of effort enormously and the later ones barely at all, and the tell is exactly this: to double the output you must quadruple the input. Standard error shrinks like 1/sqrt(n) for the same reason — which is why the 100th sample matters far more than the 10,000th."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "twenty_books_one_shelf",
    "title": "Twenty books, more orders than seconds since the Big Bang",
