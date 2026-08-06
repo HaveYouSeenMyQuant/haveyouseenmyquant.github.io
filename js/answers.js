@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "thirteenth_favours_friday",
    "title": "The 13th prefers Friday",
-   "ts": "2026-08-06T17:14:27+00:00",
+   "ts": "2026-08-06T17:16:02+00:00",
    "date": "6 Aug 2026",
    "topic": "everyday",
    "q": null,
