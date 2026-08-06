@@ -16,8 +16,92 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 172,
+ "count": 173,
  "entries": [
+  {
+   "slug": "two_guards_one_question",
+   "title": "Two guards, one question",
+   "ts": "2026-08-06T10:53:21+00:00",
+   "date": "6 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Point at either door and ask either guard: \"If I asked the OTHER guard whether this door leads out, would he say yes?\"",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then do the opposite of whatever you are told. If the answer is yes, take the other door. If the answer is no, take the one you pointed at."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it works: the question routes the answer through both guards, so exactly one lie is always involved, whoever you happen to be talking to."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Suppose the door you point at IS the exit."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  Ask the truthful guard. He considers the liar, who would say \"no\". He reports that honestly: \"no\".",
+      "  Ask the liar. He considers the truthful guard, who would say \"yes\". He lies about it: \"no\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both say no. Now suppose the door you point at is NOT the exit."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  Ask the truthful guard. The liar would say \"yes\". He reports it: \"yes\".",
+      "  Ask the liar. The truthful guard would say \"no\". He lies: \"yes\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both say yes. So the answer is always the opposite of the truth, no matter which guard you asked — and because it is always wrong, it is completely reliable. You do not learn who you are talking to and you never need to."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason a direct question fails is worth being precise about. Ask \"does this door lead out?\" and a truthful guard says yes when it does; a liar says yes when it does not. The same word means opposite things depending on who said it, and you have no way to tell. The information is there and you cannot decode it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Embedding the question inside the other guard fixes that, because every route now passes through exactly one liar. Truth-then-lie and lie-then-truth are the same thing: one inversion. The uncertainty about WHO you asked cancels, and only the inversion survives."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The transferable habit is a good one. When a source's reliability is unknown but the SET of possible sources is known, do not try to identify the source — construct a query whose answer is the same for every source in the set. You have then removed the uncertainty instead of estimating it. It is the same instinct behind control questions in surveys, and behind randomised response, where an answer is deliberately routed through a coin flip so that the reply means the same thing whoever gives it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "million_billion_seconds",
    "title": "A million seconds against a billion",
