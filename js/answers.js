@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 183,
+ "count": 184,
  "entries": [
+  {
+   "slug": "still_and_doing_a_thousand",
+   "title": "Still, and doing a thousand",
+   "ts": "2026-08-06T20:03:23+00:00",
+   "date": "6 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "About 1,043 kilometres an hour, if you are in London. At the equator, 1,674. At either pole, zero. Same planet, same rotation - the difference is entirely the cosine of your latitude.",
+   "why": [
+    {
+     "h": "WHERE THE NUMBERS COME FROM",
+     "t": "p",
+     "lines": [
+      "The Earth turns once per SIDEREAL day - one turn relative to the stars, not relative to the Sun - which is 23 hours 56 minutes 4.09 seconds. Its equatorial circumference is 40,075 km. So a point on the equator covers"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    40,075 / 23.9345  =  1,674 km/h"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Away from the equator you are not going round the big circle. You are going round the circle of your own latitude, and that circle has radius R·cos(latitude). Your speed scales the same way:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    v  =  1,674 × cos(latitude)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "London sits at 51.5° N, and cos(51.5°) = 0.6225, giving 1,043 km/h. At 60° it is 837. At the pole the circle has shrunk to a point and you are simply turning on the spot."
+     ]
+    },
+    {
+     "h": "THE PART THAT IS NOT WORTH A GOTCHA",
+     "t": "p",
+     "lines": [
+      "Using the solar day of exactly 24 hours instead gives 1,670 km/h - low by 4.6 km/h, or 0.27%. It is the wrong day to use, but it changes nothing you would notice, and anyone presenting it as the interesting error has picked the 0.27% effect over the 38% one sitting next to it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "COULD YOU CANCEL IT?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "To hold still relative to the Earth's axis you would have to fly west at your local rotation speed. In London that is 1,043 km/h, and a typical airliner cruises near 900 - so you would very nearly do it, and fall slowly behind. Concorde cruised at about 2,180 km/h and comfortably outran the rotation, which is why a westbound crossing could land at a local clock time earlier than it departed."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "\"How fast are you moving?\" has no answer until someone names what it is measured against. Most questions that feel paradoxical have a missing reference frame exactly like this one, and the fastest way in is to ask what the number is relative to before trying to compute it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_mirror_swaps_neither",
    "title": "The mirror swaps neither",
