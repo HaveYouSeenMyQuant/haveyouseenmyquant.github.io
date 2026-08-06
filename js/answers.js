@@ -16,8 +16,101 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 184,
+ "count": 185,
  "entries": [
+  {
+   "slug": "five_or_five_million",
+   "title": "Five or five million",
+   "ts": "2026-08-06T20:38:24+00:00",
+   "date": "6 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "About 36.8%, and — this is the real answer — it is 36.8% for five people, for fifty, and for five million. The size of the crowd does not matter.",
+   "why": [
+    {
+     "h": "THE EXACT NUMBERS",
+     "t": "p",
+     "lines": [
+      "Count the arrangements where nobody gets their own. These are derangements, written D(n):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    n =  4:       9/24            = 0.375000",
+      "    n =  5:      44/120           = 0.366667",
+      "    n =  6:     265/720           = 0.368056",
+      "    n =  8:  14,833/40,320        = 0.367882",
+      "    n = 10:                         0.367879"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is not drifting toward something. It has already arrived, and it alternates above and below on the way in — 0.375, then 0.3667, then 0.3681 — closing on the answer from both sides."
+     ]
+    },
+    {
+     "h": "WHAT IT CONVERGES TO",
+     "t": "pre",
+     "lines": [
+      "    1/e = 0.367879..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "By n = 10 the exact fraction agrees with 1/e to eight decimal places. Not approximately: the error is 2 x 10^-8."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY e SHOWS UP"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Inclusion-exclusion. Count everything, subtract the arrangements where person 1 gets their own coat, add back the double-counted ones where two people do, and so on. The alternating sum is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    D(n)/n! = 1 - 1/1! + 1/2! - 1/3! + ... + (-1)^n / n!"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which is exactly the series for e^-1, cut off at n terms. The alternating signs are the inclusion-exclusion corrections, and they are why the answer approaches from alternate sides. Since the terms shrink factorially, cutting the series short costs almost nothing — that is the flatness."
+     ]
+    },
+    {
+     "h": "WHY IT DOES NOT DEPEND ON THE CROWD",
+     "t": "p",
+     "lines": [
+      "Each person has about a 1/n chance of drawing their own coat, and there are n people, so the expected number of matches is about 1 — no matter how big the crowd. Rare events, many chances, constant average: that is the Poisson shape, and the chance of zero matches in a Poisson with mean 1 is e^-1. The n cancels, which is the whole reason nothing changes."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When the number of opportunities grows while each one gets proportionally rarer, the count of successes stops depending on the size at all. It is the same argument behind hash collisions, birthday coincidences, and why a rare fault in a big fleet is a near-certainty somewhere and unpredictable anywhere. Ask what the EXPECTED count is before asking how big the system is."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "still_and_doing_a_thousand",
    "title": "Still, and doing a thousand",
