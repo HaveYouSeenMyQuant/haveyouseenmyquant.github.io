@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_thousand_elephants_overhead",
    "title": "A thousand elephants overhead",
-   "ts": "2026-08-06T18:37:24+00:00",
+   "ts": "2026-08-06T18:38:58+00:00",
    "date": "6 Aug 2026",
    "topic": "everyday",
    "q": null,
