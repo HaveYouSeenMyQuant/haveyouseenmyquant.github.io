@@ -16,8 +16,99 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 176,
+ "count": 177,
  "entries": [
+  {
+   "slug": "eight_is_not_the_answer",
+   "title": "Eight is not the answer",
+   "ts": "2026-08-06T14:14:27+00:00",
+   "date": "6 Aug 2026",
+   "topic": "linear_algebra",
+   "q": null,
+   "a": "Because the eight products are not independent. Seven cleverly chosen combinations already contain all the information the four answers need, and the extra additions are free by comparison.",
+   "why": [
+    {
+     "h": "THE SEVEN PRODUCTS",
+     "t": "p",
+     "lines": [
+      "Write the matrices as a b / c d and e f / g h. Then form:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P1 = a(f - h)",
+      "    P2 = (a + b)h",
+      "    P3 = (c + d)e",
+      "    P4 = d(g - e)",
+      "    P5 = (a + d)(e + h)",
+      "    P6 = (b - d)(g + h)",
+      "    P7 = (a - c)(e + f)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and the answer is:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    top-left     = P5 + P4 - P2 + P6",
+      "    top-right    = P1 + P2",
+      "    bottom-left  = P3 + P4",
+      "    bottom-right = P1 + P5 - P3 - P7"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Seven multiplications and eighteen additions, against the usual eight multiplications and four additions. Nobody would find this by staring; it was found in 1969 and it surprised people who had assumed eight was obviously optimal."
+     ]
+    },
+    {
+     "h": "WHY TRADING ADDITIONS FOR A MULTIPLICATION IS WORTH IT",
+     "t": "p",
+     "lines": [
+      "On single numbers it is not - you have swapped one multiply for fourteen extra adds, which is a bad deal. The point is that it works when a, b, c, d are themselves MATRICES."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Split an n-by-n matrix into four blocks of size n/2. The formulas above still hold with blocks in place of numbers. Now each \"multiplication\" is a whole n/2-sized matrix multiply, costing about (n/2)^3, while each \"addition\" costs only (n/2)^2. Saving one of the expensive things at the price of ten cheap ones is an excellent trade, and it repeats all the way down."
+     ]
+    },
+    {
+     "h": "WHAT IT COSTS INSTEAD",
+     "t": "p",
+     "lines": [
+      "The recursion does 7 subproblems of half the size, so the total is n^log2(7) = n^2.807, against the ordinary n^log2(8) = n^3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That gap widens without limit. At n = 1,024 it is about 4 times fewer operations; at n = 1,000,000 it would be about 60 times fewer. The exponent is the whole prize, and every fast matrix algorithm since has been an attempt to push it lower - the current record is around 2.37, though nothing near it is practical."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a calculation seems to need k pieces, ask whether the pieces are independent or whether some combination of fewer pieces already determines them. Counting what you need is not the same as counting what you were taught to compute, and the gap between those two is where most algorithmic speedups live."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_crowds_wearing_one_face",
    "title": "Two crowds wearing one face",
@@ -9674,5 +9765,5 @@ window.QQ_ANSWERS = {
    "src": "module"
   }
  ],
- "featured": "worst_shot_goes_first"
+ "featured": "monk_same_time_twice"
 };
