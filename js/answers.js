@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_mirror_swaps_neither",
    "title": "The mirror swaps neither",
-   "ts": "2026-08-06T19:28:23+00:00",
+   "ts": "2026-08-06T19:30:15+00:00",
    "date": "6 Aug 2026",
    "topic": "everyday",
    "q": null,
