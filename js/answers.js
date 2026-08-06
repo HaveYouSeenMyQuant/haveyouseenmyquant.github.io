@@ -16,8 +16,97 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 169,
+ "count": 170,
  "entries": [
+  {
+   "slug": "sample_spread_runs_small",
+   "title": "The sample's spread runs small",
+   "ts": "2026-08-06T07:26:45+00:00",
+   "date": "6 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "Divide by n-1 instead of n. The obvious calculation comes out too small by a factor of exactly (n-1)/n, every time, whatever the data came from.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "With 5 measurements it lands at 80% of the truth on average. With 10, 90%. With 2, half."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason is one sentence: you measured the distances from the WRONG CENTRE, and the wrong centre was chosen to make those distances small."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Unpacking that. If you knew the true average of the underlying distribution, you could measure squared distances from it and divide by n, and you would be right on average — no correction needed. But you do not know it. You use the sample's own average instead, and the sample average is the number that MINIMISES the total squared distance to your particular data points. It is, by construction, the most flattering centre available."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So every sample looks slightly tighter around its own mean than it really is around the true mean. The shortfall is not random — it is systematic, always in the same direction, and it does not shrink as you take more samples. It shrinks only as each sample gets bigger."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "How much exactly. Write the sum of squared distances from the sample mean as S. Then"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  E[S] = (n - 1) x sigma^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "so dividing S by n gives (n-1)/n x sigma^2, which is short, and dividing by n-1 gives sigma^2 exactly. That is Bessel's correction, and it is why the formula on the calculator has an n-1 in it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The usual phrase is \"you have used up one degree of freedom\". It means something concrete: the n distances from the sample mean are not n independent numbers. They must sum to zero, because that is what the mean being the mean means. Given any n-1 of them, the last is determined. There are only n-1 free quantities in there, so you should be averaging over n-1 of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things worth knowing that this does not say."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Dividing by n-1 makes the VARIANCE unbiased, not the standard deviation. Taking a square root is a curved operation, so the corrected standard deviation is still slightly low. There is no single fix for that one that works for every distribution."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And unbiased is not automatically better. The n version has smaller mean squared error for a normal distribution, so if you care about being close rather than being right on average, the \"wrong\" estimator can be the better choice. Bias is one property of an estimator, not the only one that matters."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_sum_that_never_stops",
    "title": "A sum that never stops",
