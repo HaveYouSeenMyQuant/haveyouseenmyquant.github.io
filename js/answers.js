@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "still_and_doing_a_thousand",
    "title": "Still, and doing a thousand",
-   "ts": "2026-08-06T20:03:23+00:00",
+   "ts": "2026-08-06T20:04:14+00:00",
    "date": "6 Aug 2026",
    "topic": "everyday",
    "q": null,
