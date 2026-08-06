@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "twenty_books_one_shelf",
    "title": "Twenty books, more orders than seconds since the Big Bang",
-   "ts": "2026-08-06T16:04:27+00:00",
+   "ts": "2026-08-06T16:09:02+00:00",
    "date": "6 Aug 2026",
    "topic": "everyday",
    "q": null,
