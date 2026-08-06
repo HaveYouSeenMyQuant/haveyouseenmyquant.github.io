@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "eight_is_not_the_answer",
    "title": "Eight is not the answer",
-   "ts": "2026-08-06T14:14:27+00:00",
+   "ts": "2026-08-06T14:19:21+00:00",
    "date": "6 Aug 2026",
    "topic": "linear_algebra",
    "q": null,
