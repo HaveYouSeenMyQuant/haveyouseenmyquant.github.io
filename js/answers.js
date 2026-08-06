@@ -16,8 +16,111 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 180,
+ "count": 181,
  "entries": [
+  {
+   "slug": "one_molecule_comes_back",
+   "title": "One molecule comes back",
+   "ts": "2026-08-06T17:49:27+00:00",
+   "date": "6 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because a single breath is, near enough, the geometric mean of one molecule and the whole atmosphere. Halfway on a scale of powers, so the two enormous numbers cancel and leave about one.",
+   "why": [
+    {
+     "h": "THE TWO NUMBERS",
+     "t": "p",
+     "lines": [
+      "A breath is about half a litre. A mole of gas occupies 22.4 litres and contains 6.022 x 10^23 molecules, so:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    one breath      = 0.5 / 22.4 x 6.022e23  =  1.3 x 10^22 molecules"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The atmosphere weighs about 5.15 x 10^18 kg, and air averages 0.029 kg per mole, so:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    the atmosphere  = 5.15e18 / 0.029 x 6.022e23  =  1.1 x 10^44 molecules"
+     ]
+    },
+    {
+     "h": "THE CANCELLATION",
+     "t": "p",
+     "lines": [
+      "Suppose an old breath has long since mixed evenly through the whole atmosphere. Then the share of the air that came from it is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1.3e22 / 1.1e44  =  1.2 x 10^-22"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and your breath contains 1.3 x 10^22 molecules, so the number of them that came from that breath is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1.3e22 x 1.2e-22  =  about 1.7"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The breath count appears twice - once as the size of your lungful and once as the size of theirs - so the answer is (breath)^2 / atmosphere. Since 10^22 squared is 10^44, and the atmosphere IS about 10^44, the whole thing collapses to roughly one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is what \"geometric mean\" means here: 10^22 sits exactly halfway between 10^0 and 10^44 on a scale of powers. A breath is as many molecules bigger than one molecule as the atmosphere is bigger than a breath."
+     ]
+    },
+    {
+     "h": "WHAT THE ANSWER ASSUMES",
+     "t": "p",
+     "lines": [
+      "Two things, and both are worth stating. First, that the old breath has mixed evenly - true for a couple of thousand years, since the atmosphere turns over in roughly a year. Second, that the molecules are still free in the air, which is why this works for an inert gas like argon and works less well for oxygen, some of which has since been locked into other things."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the honest version is: about one ARGON atom from any ancient breath, in every breath you take."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a question involves two absurd numbers, take logarithms before doing anything else. Here the answer was determined the moment you noticed 22 is half of 44 - no arithmetic required, and the estimate is robust to being wrong about the breath size by a factor of two, because it moves that midpoint hardly at all."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "thirteenth_favours_friday",
    "title": "The 13th prefers Friday",
