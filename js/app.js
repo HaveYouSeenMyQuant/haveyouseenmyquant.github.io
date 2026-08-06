@@ -522,7 +522,19 @@
       top.appendChild(libBadge(lib, false));
       card.appendChild(top);
       card.appendChild(el('div', 'lib-blurb', lib.blurb));
-      card.appendChild(el('div', 'lib-meta', 'the road stays free'));
+      /* WHAT IS ACTUALLY IN THERE. This line used to read "the road stays
+       * free" on every card, which the section intro already says once, six
+       * lines above all of them — so it spent the only free line on each card
+       * repeating a reassurance instead of giving a reason to tap.
+       *
+       * Measured 2026-08-06 over 8 days: 94 sessions saw this shelf and 1
+       * tapped it. The price deliberately stays on the detail screen (see the
+       * note under openLibrary — it has to earn the price with topics and real
+       * samples), so this shows the size instead, which is the same
+       * "locked door you can see through" idea one level earlier. */
+      var nq = (lib.questions || []).length, nt = (lib.topics || []).length;
+      card.appendChild(el('div', 'lib-meta',
+        nq && nt ? nq + ' questions · ' + nt + ' topics' : 'the road stays free'));
       card.appendChild(el('span', 'lib-open', 'See inside →'));
       card.addEventListener('click', function () { onLibraryTap(lib); });
       host.appendChild(card);
