@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "always_an_even_number",
    "title": "Always an even number",
-   "ts": "2026-08-06T08:01:44+00:00",
+   "ts": "2026-08-06T08:06:17+00:00",
    "date": "6 Aug 2026",
    "topic": "graphs",
    "q": null,
