@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "million_billion_seconds",
    "title": "A million seconds against a billion",
-   "ts": "2026-08-06T09:29:30+00:00",
+   "ts": "2026-08-06T09:32:15+00:00",
    "date": "6 Aug 2026",
    "topic": "everyday",
    "q": null,
