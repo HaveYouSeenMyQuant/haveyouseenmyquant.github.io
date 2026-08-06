@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "six_friends_or_strangers",
    "title": "Six people, three friends or three strangers",
-   "ts": "2026-08-06T00:48:18+00:00",
+   "ts": "2026-08-06T00:50:31+00:00",
    "date": "6 Aug 2026",
    "topic": "puzzles",
    "q": null,
