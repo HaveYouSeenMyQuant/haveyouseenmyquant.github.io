@@ -16,8 +16,72 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 177,
+ "count": 178,
  "entries": [
+  {
+   "slug": "twenty_books_one_shelf",
+   "title": "Twenty books, more orders than seconds since the Big Bang",
+   "ts": "2026-08-06T16:04:27+00:00",
+   "date": "6 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "20 books can be shelved in 2,432,902,008,176,640,000 orders. The universe is 435,391,266,744,000,000 seconds old. The shelf wins by about five and a half times.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Where the number comes from: 20 choices for the first slot, 19 for the next, 18 for the one after, all the way down. That is 20 factorial."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The universe figure is 13.797 billion years x 365.2425 days x 86,400 seconds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The point is not either number. It is how FAST factorials climb, and it is worth seeing where the crossover sits:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  10 books   3,628,800                       about six weeks",
+      "  15 books   1,307,674,368,000               about 41,000 years",
+      "  19 books   121,645,100,408,832,000         a third of the universe's age",
+      "  20 books   2,432,902,008,176,640,000       five and a half times it"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One extra book multiplies the count by 20. Nothing in ordinary experience behaves like that — adding one more item does not usually multiply everything by the number of items you now have. Doubling does, and doubling already feels fast; factorials leave doubling far behind. 2^20 is about a million, and 20! is more than a million million million."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it matters beyond the trivia: this is the wall every brute-force search runs into. Trying all orders of anything — routes for a delivery van, orderings of a schedule, seatings at a table — is 20! for twenty items, and no computer will ever enumerate that. It is the whole reason the travelling salesman problem is hard, and the reason algorithm design is about avoiding enumeration rather than speeding it up."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It also puts the shuffled deck in perspective. 52! is about 8 x 10^67, which is why a properly shuffled deck has, with near certainty, never been in that order before in the history of the world. Twenty books already beat the universe's seconds; fifty-two cards beat the atoms in the galaxy."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "eight_is_not_the_answer",
    "title": "Eight is not the answer",
