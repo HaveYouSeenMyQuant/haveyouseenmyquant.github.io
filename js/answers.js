@@ -16,8 +16,97 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 170,
+ "count": 171,
  "entries": [
+  {
+   "slug": "always_an_even_number",
+   "title": "Always an even number",
+   "ts": "2026-08-06T08:01:44+00:00",
+   "date": "6 Aug 2026",
+   "topic": "graphs",
+   "q": null,
+   "a": "Because every handshake adds one to exactly two people's counts. Add up everybody's count and you get twice the number of handshakes - an even number - and an even total cannot be made from an odd number of odd pieces.",
+   "why": [
+    {
+     "h": "THE ONE-LINE PROOF",
+     "t": "p",
+     "lines": [
+      "Let each person's count be their number of handshakes. Add all the counts together. Every handshake involves two people, so it contributes 2 to that total:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    sum of everyone's count = 2 x (number of handshakes)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The right-hand side is even, so the left-hand side is even."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now split the left side into the people with even counts and the people with odd counts. The even ones contribute an even amount, whatever they are. So the odd ones must ALSO contribute an even amount between them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A sum of odd numbers is even exactly when there is an even number of them. So the number of odd-count people is even. That is the whole argument."
+     ]
+    },
+    {
+     "h": "WATCHING IT HAPPEN",
+     "t": "p",
+     "lines": [
+      "There is a second way to see it, and it is the one in the video. Start with nobody having shaken hands: zero people have an odd count, and zero is even."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now add one handshake. It changes exactly two people's counts, flipping each from even to odd or odd to even. So the odd tally goes up by 2, down by 2, or stays put - one goes up while the other comes down."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Starting at zero and only ever moving in steps of 2, it can never reach an odd number. No matter how many handshakes happen, in any order."
+     ]
+    },
+    {
+     "h": "WHERE ELSE THIS SHOWS UP",
+     "t": "p",
+     "lines": [
+      "This is the handshake lemma, and it is the reason a graph cannot have exactly one vertex of odd degree. It is also why the Konigsberg bridges have no solution: a walk that uses every bridge once needs at most two places with an odd number of bridges, and that city had four."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same parity trick settles a surprising number of \"is this arrangement possible\" questions. If a quantity changes only in steps of 2, anything with the wrong parity is unreachable, and you never have to search."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When asked whether some configuration is possible, look for a quantity that every legal move changes by a fixed even amount. Its parity is then fixed forever by the starting position, and every state with the other parity is ruled out without checking a single case."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "sample_spread_runs_small",
    "title": "The sample's spread runs small",
