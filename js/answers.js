@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "it_circles_but_never_turns",
    "title": "It circles, but never turns",
-   "ts": "2026-08-06T11:28:20+00:00",
+   "ts": "2026-08-06T11:33:42+00:00",
    "date": "6 Aug 2026",
    "topic": "calculus",
    "q": null,
