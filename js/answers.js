@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "two_crowds_wearing_one_face",
    "title": "Two crowds wearing one face",
-   "ts": "2026-08-06T12:38:20+00:00",
+   "ts": "2026-08-06T12:42:57+00:00",
    "date": "6 Aug 2026",
    "topic": "graphs",
    "q": null,
