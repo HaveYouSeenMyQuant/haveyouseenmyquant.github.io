@@ -16,8 +16,97 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 163,
+ "count": 164,
  "entries": [
+  {
+   "slug": "six_friends_or_strangers",
+   "title": "Six people, three friends or three strangers",
+   "ts": "2026-08-06T00:48:18+00:00",
+   "date": "6 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "It is impossible. With six people there must always be three mutual friends or three mutual strangers, however you arrange it — and with five people it is easy to avoid.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The argument is short enough to do in your head, and it needs no case-bashing at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Pick any one person; call her A. The other five each either know A or do not. Five people sorted into two boxes means one box holds at least three of them — that is the pigeonhole principle, and it is the only clever step in the whole proof."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Say the crowded box is \"knows A\", and take three of them: B, C, D."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now look at the three pairs among B, C, D."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  If any one of those pairs know each other — say B and C — then A, B and C are three mutual friends, because B and C both know A and they know each other. Done."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  If none of those pairs know each other, then B, C and D are three mutual strangers. Done."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Either way you have your trio. And if the crowded box had been \"does not know A\", the identical argument runs with the words swapped: any pair of strangers among the three gives three mutual strangers with A, and if all three pairs know each other, those three are mutual friends."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is no arrangement to be clever about, which is why trying to construct a counterexample gets nowhere."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Five is genuinely different, and it is worth seeing why the proof stops working. With four other people, the two boxes can split two and two, so you are never handed three people in one box, and the argument has nothing to bite on. And it is not just that the proof fails — an arrangement really does exist. Seat five people in a circle and let each know exactly their two neighbours. Any three of them include a pair that is adjacent and a pair that is not, so no trio is all-friends and no trio is all-strangers."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In the language of graphs, this is the statement that the Ramsey number R(3,3) is 6: six is the smallest number of vertices that forces a monochromatic triangle when you two-colour the edges. Ramsey numbers grow so fast that only a handful are known — R(4,4) is 18, and R(5,5) has resisted everyone so far, with the answer known only to lie between 43 and 46."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The transferable idea is the first move. Faced with a claim about every arrangement, do not enumerate arrangements — fix one object, sort everything else by its relationship to that object, and let the pigeonhole principle hand you the crowd you need."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "half_in_cash_wins",
    "title": "Half in cash wins",
