@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "no_arms_may_cross",
    "title": "No arms may cross",
-   "ts": "2026-08-06T02:38:18+00:00",
+   "ts": "2026-08-06T02:40:30+00:00",
    "date": "6 Aug 2026",
    "topic": "combinatorics",
    "q": null,
