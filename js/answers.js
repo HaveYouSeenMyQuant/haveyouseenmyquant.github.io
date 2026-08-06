@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "ancestors_dont_add_up",
    "title": "A trillion ancestors that never existed",
-   "ts": "2026-08-06T05:03:18+00:00",
+   "ts": "2026-08-06T05:05:05+00:00",
    "date": "6 Aug 2026",
    "topic": "everyday",
    "q": null,
