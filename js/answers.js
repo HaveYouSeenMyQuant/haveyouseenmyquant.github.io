@@ -16,8 +16,90 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 164,
+ "count": 165,
  "entries": [
+  {
+   "slug": "no_arms_may_cross",
+   "title": "No arms may cross",
+   "ts": "2026-08-06T02:38:18+00:00",
+   "date": "6 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "Because of who the first person can reach. Their arm cuts the table in two, and both halves have to be even — that single constraint is the whole answer, and it gives 42.",
+   "why": [
+    {
+     "h": "THE CUT",
+     "t": "p",
+     "lines": [
+      "Number the seats 1 to 10 around the table and look at person 1. Whoever they shake, the arm between them splits the remaining eight people into two arcs: the people on one side of the arm, and the people on the other."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nobody on one side can ever reach anybody on the other, because their arm would have to cross person 1's. So the two arcs must each pair up entirely among themselves — and that is only possible if each arc holds an EVEN number of people."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So person 1 cannot shake just anyone. They can only reach seats 2, 4, 6, 8 or 10, leaving splits of 0 and 8, 2 and 6, 4 and 4, 6 and 2, or 8 and 0."
+     ]
+    },
+    {
+     "h": "THE RECURRENCE",
+     "t": "p",
+     "lines": [
+      "Each arc is now the same problem on fewer people. Writing C(k) for the number of ways to pair up 2k people with no crossings:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "C(5) = C(0)C(4) + C(1)C(3) + C(2)C(2) + C(3)C(1) + C(4)C(0)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "With C(0)=1, C(1)=1, C(2)=2, C(3)=5, C(4)=14 that is 14 + 5 + 4 + 5 + 14 = 42."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same rule run from the bottom gives the whole sequence: 1, 1, 2, 5, 14, 42, 132, 429. These are the Catalan numbers, and they appear far outside this puzzle — the ways to bracket a product, the paths that never dip below a line, the ways to cut a polygon into triangles. All of them are the same \"the cut must leave two valid halves\" argument in different clothes."
+     ]
+    },
+    {
+     "h": "WHY THE DROP IS SO STEEP",
+     "t": "p",
+     "lines": [
+      "With crossings allowed the count is 9 x 7 x 5 x 3 x 1 = 945: person 1 has 9 choices, then the lowest unpaired person has 7, and so on. So the no-crossing rule keeps 42 of 945, about one in 22."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That ratio gets worse fast. At 20 people it is 4,862 out of 654,729,075 — roughly one in 135,000. The crossing-allowed count grows like a factorial while the non-crossing count grows only like 4^n, so the gap widens without limit."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a structure forbids crossings, find the object that CUTS it and ask what the cut leaves behind. Here one arm splits the table into two independent halves, which turns a hard global condition into the same problem twice and hands you the recurrence for free. Non-crossing conditions almost always factor this way, which is exactly why the same numbers keep reappearing."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "six_friends_or_strangers",
    "title": "Six people, three friends or three strangers",
