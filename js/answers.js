@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "always_the_wrong_way",
    "title": "Always the wrong way",
-   "ts": "2026-08-06T22:04:08+00:00",
+   "ts": "2026-08-06T22:05:55+00:00",
    "date": "6 Aug 2026",
    "topic": "everyday",
    "q": null,
