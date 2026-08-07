@@ -16,12 +16,102 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 197,
+ "count": 198,
  "entries": [
+  {
+   "slug": "the_planets_never_twinkle",
+   "title": "The planets never twinkle",
+   "ts": "2026-08-07T08:42:31+00:00",
+   "date": "7 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because a planet is not a point of light and a star is. Twinkling is not something stars do - it is something the air does, to everything - and a planet is simply too wide on the sky for it to work.",
+   "why": [
+    {
+     "h": "THE NUMBER THAT DECIDES IT",
+     "t": "p",
+     "lines": [
+      "Angular size is just diameter over distance. Sirius is about 1.71 solar radii across and 8.6 light years away:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2 x 1.19e9 m / 8.14e16 m  =  6.0 milli-arcseconds"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Jupiter is 139,822 km across and, at opposition, about 4.2 astronomical units away:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    45.9 arcseconds"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Jupiter is 7,598 times wider on the sky. Both are far too small for your eye to resolve as a disc - which is why the difference is invisible to you and decisive to the physics."
+     ]
+    },
+    {
+     "h": "WHAT THE AIR IS DOING",
+     "t": "p",
+     "lines": [
+      "The atmosphere is not uniform. It contains parcels of slightly different temperature and therefore slightly different refractive index, and each acts as a weak, wandering lens. Their characteristic width - \"the seeing\" - is around one arcsecond."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now compare:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Sirius    0.006 of one cell    ->  a single cell steers ALL its light",
+      "    Jupiter   46 cells across      ->  each cell steers a different part"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For the star, one wandering lens moves the entire beam, so all of its light arrives or misses together and the brightness jumps. For the planet, dozens of independent cells each nudge a different patch of the disc, and the wobbles cancel by averaging. The planet's light is the SUM of many independent flickers, and a sum of many independent flickers is steady."
+     ]
+    },
+    {
+     "h": "THE PREDICTIONS THIS MAKES",
+     "t": "p",
+     "lines": [
+      "Near the horizon you look through far more air, the cells get worse, and planets do begin to shimmer. Above the atmosphere nothing twinkles at all, which is one of the reasons for putting a telescope in orbit. And a big enough telescope resolves the star into cells too, turning twinkling into a boiling speckle pattern rather than a simple flicker."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "The question sounds like it is about stars and is actually about the ratio between two lengths - the source and the disturbance. Whenever noise seems to affect one thing and not another, look for the scale of the noise and compare it with the scale of each object, rather than looking for a property of the objects themselves."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "closer_to_the_fire_and_colder",
    "title": "Closer to the fire, and colder",
-   "ts": "2026-08-07T08:07:30+00:00",
+   "ts": "2026-08-07T08:10:10+00:00",
    "date": "7 Aug 2026",
    "topic": "everyday",
    "q": null,
