@@ -16,8 +16,596 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 187,
+ "count": 194,
  "entries": [
+  {
+   "slug": "rank_times_count_stays_put",
+   "title": "Rank times count stays put",
+   "ts": "2026-08-07T03:51:17+00:00",
+   "date": "7 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "Because the frequency of a word falls off as one over its rank. The second most common word appears about half as often as the first, the tenth about a tenth as often - so rank multiplied by count stays roughly the same all the way down.",
+   "why": [
+    {
+     "h": "MEASURED ON THIS PROJECT'S OWN WRITING",
+     "t": "p",
+     "lines": [
+      "Every answer this account had published when this was written - about 140 of them, roughly 45,000 words. The corpus grows with every video, so the exact counts below drift; the pattern does not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    rank  word    count    rank x count",
+      "       1  the      3828        3828",
+      "       2  is       1933        3866",
+      "       3  and      1395        4185",
+      "       4  a        1363        5452",
+      "       5  it       1014        5070"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That last column is the point. It wanders between roughly 3,800 and 5,500, while the counts themselves fall by a factor of nearly four across those five rows."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Fitting a straight line to log count against log rank over the top 200 words gives a slope of -0.927 with an R-squared of 0.998. The law predicts -1."
+     ]
+    },
+    {
+     "h": "WHY THE CORPUS MATTERS",
+     "t": "p",
+     "lines": [
+      "The usual objection to any demonstration of this is that the text was chosen because it fits. This one is our own back catalogue - written for other reasons entirely, by someone not thinking about word frequencies - and it was not swapped for a better-behaved one."
+     ]
+    },
+    {
+     "h": "WHERE ELSE IT TURNS UP",
+     "t": "p",
+     "lines": [
+      "City populations by rank. Company revenues. Website traffic. Wealth. The distribution is scale-free: there is no typical value, no meaningful average, and the tail carries a large share of the total. That last property is why an average is often the wrong summary of anything shaped like this."
+     ]
+    },
+    {
+     "h": "WHY IT HAPPENS - HONESTLY, NOBODY IS SURE",
+     "t": "p",
+     "lines": [
+      "There are good mechanisms that PRODUCE it. Preferential attachment, where the already-common gets used more, generates it naturally. So does optimising a trade-off between the speaker's effort and the listener's. Random text with a space character produces something similar, which suggests parts of it need no explanation from language at all. Which of these accounts for real language is not settled, and anyone telling you it is has skipped a literature."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When you meet a ranked list, plot count against rank on log axes before doing anything else. A straight line means no typical value exists, and every instinct calibrated on bell curves - averages, standard deviations, \"outliers\" - will mislead you."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "chameleons_never_agree",
+   "title": "Chameleons never agree",
+   "ts": "2026-08-07T03:06:55+00:00",
+   "date": "7 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "No. They can never all become one colour, and no amount of searching is needed to know it.",
+   "why": [
+    {
+     "h": "THE INVARIANT",
+     "t": "p",
+     "lines": [
+      "A meeting takes one chameleon from each of two colours and adds two to the third. In counts, it is always"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  (-1, -1, +2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "in some order. Now look at the DIFFERENCE between any two counts. Say red and green meet: red goes down 1, green goes down 1, so red - green is unchanged. What about red - blue? Red goes down 1 and blue goes up 2, so red - blue drops by 3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every pairwise difference therefore changes by either 0 or 3. Modulo 3, no difference EVER changes. That is the invariant."
+     ]
+    },
+    {
+     "h": "WHY THAT SETTLES IT",
+     "t": "p",
+     "lines": [
+      "All-one-colour means two of the counts are 0, so those two differ by 0, so they are congruent mod 3. Reduce the start:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  13 = 1 (mod 3)",
+      "  15 = 0 (mod 3)",
+      "  17 = 2 (mod 3)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "All three residues are different. Since no difference can change mod 3, no two counts can ever become congruent, so no two counts can ever both be zero. Impossible — from this start, forever, in any order, with any number of meetings."
+     ]
+    },
+    {
+     "h": "THE GENERAL RULE",
+     "t": "p",
+     "lines": [
+      "It is possible exactly when at least two of the three starting counts are congruent mod 3. Change the 17 to an 18 and the residues become 1, 0, 0 — two match, and it can be done. That is the whole criterion, and it is worth checking the negative case too: 14, 15, 16 gives residues 2, 0, 1, all different, so that fails as well. Being consecutive has nothing to do with it; the residues do all the work."
+     ]
+    },
+    {
+     "h": "WHY THIS IS THE RIGHT KIND OF ARGUMENT",
+     "t": "p",
+     "lines": [
+      "The state space here is small enough to search — 360 reachable states — so a computer settles it in a moment. But searching tells you THAT it fails, not WHY, and it does not generalise: change the numbers and you search again. The invariant answers every version of the question at once, including the ones with a billion chameleons."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The move is the transferable part. When you are asked whether some position is reachable, do not look for a route. Look for a quantity the rules cannot change, and check whether the start and the target disagree on it. Colouring arguments, parity arguments and conservation laws are all this same move. The mutilated chessboard is this move with two colours; this is it with three."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And note what the invariant does NOT tell you: it proves impossibility, and it says nothing about which arrangements ARE reachable when the residues do line up. Invariants are one-directional evidence, and reading them as both directions is the standard mistake."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "why_the_corners_are_round",
+   "title": "Why the corners are round",
+   "ts": "2026-08-07T03:00:47+00:00",
+   "date": "7 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "It responds to how sharply the boundary turns - the radius of curvature at the tip - and to nothing else about the hole's size.",
+   "why": [
+    {
+     "h": "THE FORMULA",
+     "t": "p",
+     "lines": [
+      "For an elliptical hole in a stretched sheet, Inglis worked this out in 1913:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    peak stress = far-field stress x (1 + 2 sqrt(a / r))"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "where a is the hole's half-width across the pull, and r is the radius of curvature at the sharpest point."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now put a circle in it. A circle has a = r, so:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 + 2 sqrt(1) = 3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Exactly three, and the size cancelled. A pinhole and a hole a metre across both triple the stress beside them. That is the part people find hard to believe, and it is why \"just make the window smaller\" does not help."
+     ]
+    },
+    {
+     "h": "WHAT DOES HELP",
+     "t": "p",
+     "lines": [
+      "Only the corner radius, and it is inside a square root, so you pay dearly for sharpness. For a 300 mm window:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    corner radius   1 mm  ->  25.5 x",
+      "    corner radius   5 mm  ->  12.0 x",
+      "    corner radius  25 mm  ->   5.9 x",
+      "    corner radius  75 mm  ->   3.8 x"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "As r goes to zero the formula goes to infinity. A perfectly sharp corner is a crack, and that is not a figure of speech - it is the same equation. A crack is simply a hole whose tip radius is atomic."
+     ]
+    },
+    {
+     "h": "WHY IT KILLS RATHER THAN JUST BENDS",
+     "t": "p",
+     "lines": [
+      "Aircraft skin is not loaded once. It is pressurised and depressurised every flight, and metal fails under repeated loading far below the stress that would break it in one go. Fatigue life falls steeply with peak stress - roughly with its cube or worse for aluminium alloys - so cutting peak stress by a factor of three can buy well over an order of magnitude more flights. The corner is where every cycle concentrates, so the corner is where the crack starts, and once started it runs."
+     ]
+    },
+    {
+     "h": "THE HISTORY, CAREFULLY",
+     "t": "p",
+     "lines": [
+      "The de Havilland Comet lost two aircraft in 1954 to explosive decompression, and the investigation found fatigue cracking originating at a square-cornered opening in the pressurised fuselage. The neat version of the story - \"the passenger windows were square\" - is not quite what the evidence showed, and which aperture initiated which failure is still argued. What is not in dispute is the mechanism, and that generously rounded openings became standard practice afterwards. Look along any cabin today and every window and every door has a radius on it."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a system fails, look for where the load concentrates, not where it is largest on average. Stress, current, attention, traffic and blame all pile up at discontinuities, and the fix is almost never to reduce the total - it is to round the corner. This is the same instinct behind smoothing a step change in a control system, easing a schedule instead of a hard cutover, and rate-limiting with a ramp rather than a cliff."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "nine_cards_before_the_ace",
+   "title": "Nine cards before the ace",
+   "ts": "2026-08-07T01:11:29+00:00",
+   "date": "7 Aug 2026",
+   "topic": "expectation_tricks",
+   "q": null,
+   "a": "Because four aces cut the rest of the deck into FIVE pieces, not four. 48 other cards shared among five gaps is 9.6 each.",
+   "why": [
+    {
+     "h": "THE MOVE",
+     "t": "p",
+     "lines": [
+      "Stop thinking about the aces and look at the 48 cards that are not aces. Lay the four aces down and they create five regions: before the first ace, between the first and second, between the second and third, between the third and fourth, and after the fourth."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every one of the 48 non-aces falls into exactly one of those five gaps."
+     ]
+    },
+    {
+     "h": "WHY THE GAPS ARE EQUAL",
+     "t": "p",
+     "lines": [
+      "By symmetry. Take any particular non-ace card - the seven of clubs, say. Where is it relative to the four aces? A shuffle is equally likely to put it in any of the five gaps, because relabelling the aces cannot change anything: there is no property distinguishing \"before all four aces\" from \"between the second and third\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So each non-ace lands in the first gap with probability 1/5, and by linearity of expectation the expected size of the first gap is 48 x 1/5 = 9.6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole argument. No conditioning, no sum over positions, no integral - one symmetry and one application of linearity."
+     ]
+    },
+    {
+     "h": "WHERE 13 COMES FROM, AND WHY IT IS WRONG",
+     "t": "p",
+     "lines": [
+      "13 is 52/4, which answers a different question: the average spacing if you counted the aces themselves as part of the gaps and went all the way round. The first ace is not the average ace, it is the EARLIEST of four, and earliest-of-several is always sooner than you expect."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The first ace sits at position 10.6 on average: 9.6 cards before it, then the ace itself."
+     ]
+    },
+    {
+     "h": "WHAT ELSE IT GIVES YOU FREE",
+     "t": "p",
+     "lines": [
+      "The same argument answers every version at once. Cards after the LAST ace: also 9.6. Between the second and third: 9.6. Cards before the first KING when you only care about kings: also 9.6. And with k special cards among n, the expected count before the first is (n-k)/(k+1)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two special cards in a deck of 52 gives 50/3, about 16.7. One special card gives 51/2 = 25.5 - exactly half, which is the sanity check that the formula behaves."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something is hard to locate, count the things AROUND it instead and use symmetry to say they are interchangeable. Linearity of expectation then adds them up with no independence needed - which is what makes it work here, since the gaps are very much not independent."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "one_percent_halves_the_pile",
+   "title": "One percent halves the pile",
+   "ts": "2026-08-07T00:36:23+00:00",
+   "date": "7 Aug 2026",
+   "topic": "paradox",
+   "q": null,
+   "a": "Because the water is not the thing that stays fixed - the potato is. And measured against the potato, 1% and 2% are not one point apart, they are a factor of two apart.",
+   "why": [
+    {
+     "h": "WHAT NEVER CHANGES",
+     "t": "p",
+     "lines": [
+      "100 kg of potatoes at 99% water contains 99 kg of water and 1 kg of actual potato. Drying removes water. It does not remove potato, so that 1 kg is the same before and after."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now read the target the other way round. \"98% water\" is the same statement as \"2% solid\". The solid is 1 kg and it must be 2% of the new pile, so the new pile is 1 / 0.02 = 50 kg."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Half the mass, and 49 of the 99 kg of water is gone."
+     ]
+    },
+    {
+     "h": "WHY THE INTUITION FAILS",
+     "t": "p",
+     "lines": [
+      "The mind tracks the number that is being talked about, and that number moved by one point. But the constraint lives on the OTHER component, and there the move is enormous: the dry fraction went from 1% to 2%. It doubled."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Whenever one part of a mixture is held fixed, use that part as the unit. Percentages of the whole are treacherous precisely because the whole is the thing that is changing."
+     ]
+    },
+    {
+     "h": "THE GENERAL RULE",
+     "t": "p",
+     "lines": [
+      "Starting at water fraction w0 and drying to w1, the pile ends at"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    final = start x (1 - w0) / (1 - w1)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The numerator is what is really conserved. At 99% to 98% that is 0.01/0.02 = one half. The same one-point step lower down the scale is almost free: 51% to 50% multiplies by 0.49/0.50, a loss of 2%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the effect is not about \"one percent\" at all. It is about how close the water fraction is to 100%, where the dry part is a small denominator and small denominators are where the leverage lives."
+     ]
+    },
+    {
+     "h": "WHAT IT LOOKS LIKE IN OTHER CLOTHES",
+     "t": "p",
+     "lines": [
+      "The same shape turns up whenever a small residual is the real constraint - a 1% failure rate becoming 2%, a 99% pure sample refined to 99.9% (which removes 90% of the impurity, not 0.9% of anything). Read the small side, not the large one."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a proportion changes, ask what is conserved and re-express everything in units of that. The conserved quantity turns a confusing statement about the whole into an arithmetic statement about a part, and the paradox usually evaporates in one line."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "the_bottom_never_moves",
+   "title": "The bottom never moves",
+   "ts": "2026-08-07T00:01:14+00:00",
+   "date": "7 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Because the bottom has not been told yet. Nothing that happens at the top can affect the bottom faster than a wave can travel down the spring, and for a slinky that wave is slower than the collapse itself.",
+   "why": [
+    {
+     "h": "WHAT THE BOTTOM COIL ACTUALLY FEELS",
+     "t": "p",
+     "lines": [
+      "Look at the forces on the lowest coil while the slinky hangs. Its own weight pulls it down. The spring immediately above it pulls it up by exactly the same amount - that is what equilibrium means."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now release the top. The bottom coil's weight has not changed. The spring above it has not yet changed length, because the change is still travelling down. So the forces on it are still in exact balance, and a body in balance does not accelerate."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is not that gravity switched off. It is that the upward pull which was already cancelling gravity is still there, and will keep cancelling it until news of the release arrives."
+     ]
+    },
+    {
+     "h": "THE CHECK THAT MATTERS",
+     "t": "p",
+     "lines": [
+      "If one end is stationary and the object is in free fall, where does the falling go? Into the centre of mass, which must obey g t squared over two exactly, because spring tensions are internal forces and internal forces cannot move a centre of mass."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Simulated over the whole 224 ms collapse, the centre of mass tracks free fall to within 2.2 microns. So the top is not falling at g - it is falling FASTER than g, fast enough that the average is exactly g while one end contributes nothing. The top covers 98 cm in the time free fall would cover 24.7."
+     ]
+    },
+    {
+     "h": "WHY A SLINKY AND NOT A ROPE",
+     "t": "p",
+     "lines": [
+      "The wave speed is the square root of tension over mass per length. A slinky is deliberately floppy: tiny stiffness, so a very slow wave - slow enough that the signal loses the race to the falling top. In a steel rod the same wave travels at kilometres per second and the whole rod starts falling together, to any accuracy you could measure."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So this is not a special law about slinkies. It is the ordinary fact that no object is rigid, made visible by a spring soft enough to see it happen."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something seems to react instantly, ask what carries the news and how fast. Rigid bodies are a convenient fiction; every real object is a medium with a signal speed, and the surprises live in the gap between the event and its arrival."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "four_shuffles_is_nothing",
+   "title": "Four shuffles is nothing",
+   "ts": "2026-08-06T23:08:49+00:00",
+   "date": "6 Aug 2026",
+   "topic": "markov_chains",
+   "q": null,
+   "a": "Because a riffle shuffle can only cut the deck in so many places, and until that number passes the deck size the order is still visible. The change is sudden because the limit doubles every shuffle.",
+   "why": [
+    {
+     "h": "WHAT SURVIVES A SHUFFLE",
+     "t": "p",
+     "lines": [
+      "Look at a deck and find its RISING SEQUENCES: maximal runs of cards whose values increase as you read through the deck. A brand-new deck is one single rising sequence, 1 through 52 in order."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Riffle it once. You cut it into two packets and interleave them, so the deck is now exactly two rising sequences shuffled together - each packet kept its internal order, because interleaving never reorders within a packet."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole argument. One shuffle at most doubles the count:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    after 1 shuffle:  at most 2",
+      "    after 2:          at most 4",
+      "    after 3:          at most 8",
+      "    after 4:          at most 16",
+      "    after 7:          at most 128"
+     ]
+    },
+    {
+     "h": "WHY 26.5 IS THE NUMBER THAT MATTERS",
+     "t": "p",
+     "lines": [
+      "A genuinely random deck of 52 has, on average, 26.5 rising sequences - the count is 1 plus the number of values whose successor sits earlier in the deck, and each of those 51 comparisons is a coin flip."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So after four shuffles the deck has at most 16 rising sequences when a random one should have about 26.5. Count them and you know the deck is not random. That is what \"distance 1.0000\" means: an adversary who counts wins essentially every time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "By seven shuffles the ceiling is 128, far above 52, and it constrains nothing. The obstruction has simply stopped existing."
+     ]
+    },
+    {
+     "h": "WHY THE DROP IS A CLIFF, NOT A SLOPE",
+     "t": "p",
+     "lines": [
+      "The ceiling doubles while the deck size stays put, so the ceiling sweeps past 52 in the space of about one shuffle. Nothing gradual happens: the deck is fully detectable, then it is not. This is the cutoff phenomenon, and it is typical of shuffling rather than special to it - many random walks stay far from random and then mix almost all at once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The exact distances, computed rather than quoted: 1.0000, 1.0000, 1.0000, 1.0000, 0.9237, 0.6135, 0.3341, 0.1672. After the cliff each further shuffle roughly halves what is left."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "To show something is NOT random, do not look for a pattern - find a quantity the process cannot change fast enough, and measure it. Rising sequences can at most double per shuffle, so they lag behind, and one count settles the question. Invariants that grow slowly are the cheapest randomness tests there are."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "always_the_wrong_way",
    "title": "Always the wrong way",
