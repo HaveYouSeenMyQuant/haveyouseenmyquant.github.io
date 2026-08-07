@@ -16,8 +16,161 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 214,
+ "count": 217,
  "entries": [
+  {
+   "slug": "the_smaller_salary_keeps_less",
+   "title": "the smaller salary keeps less",
+   "ts": "2026-08-07T22:09:30+00:00",
+   "date": "7 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Less. GBP 530 against GBP 380 — the GBP 100,000 earner keeps least.",
+   "why": [
+    {
+     "h": "WHY THE LOWER SALARY IS PUNISHED HARDER",
+     "t": "p",
+     "lines": [
+      "The tax-free allowance is withdrawn above GBP 100,000, at GBP 1 for every GBP 2 earned. So a GBP 1,000 rise there does not add GBP 1,000 to taxable income. It adds GBP 1,500: the rise itself, plus the GBP 500 of allowance that stops being tax-free. All of it lands in the 40% band."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    GBP 100,000   keeps GBP 380 of 1,000   (62% gone)",
+      "    GBP 150,000   keeps GBP 530 of 1,000   (47% gone)"
+     ]
+    },
+    {
+     "h": "WHY IT STOPS",
+     "t": "p",
+     "lines": [
+      "By GBP 125,140 the allowance has been withdrawn completely. There is nothing left to take away, so the extra bite disappears and the rate falls back to the headline 45% plus 2% National Insurance. The punishing zone is a band with a top and a bottom, not a slope that keeps getting worse."
+     ]
+    },
+    {
+     "h": "WHAT IT IS NOT",
+     "t": "p",
+     "lines": [
+      "It is not a mistake and it is not a secret. It is what withdrawing a benefit gradually always does: the withdrawal is itself a tax, and it stacks on top of the tax already there. Every means test in the system has this shape somewhere."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever something is taken away as you earn more, add the rate of withdrawal to the tax rate before deciding what a rise is worth. The headline band is never the whole story."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "paid_more_than_you_owed",
+   "title": "paid more than you owed",
+   "ts": "2026-08-07T22:00:16+00:00",
+   "date": "7 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "25 years, and GBP 3,259 of interest on a GBP 2,000 debt.",
+   "why": [
+    {
+     "h": "WHAT GOES WRONG",
+     "t": "p",
+     "lines": [
+      "The minimum payment is not a fixed sum. It is this month's interest plus 1% of what you still owe. So the moment the balance falls, the payment falls with it, and the balance shrinks by the same 1% every month for ever. That is a curve that approaches zero without reaching it, which is why the cash floor of GBP 5 is the only reason it ever finishes at all."
+     ]
+    },
+    {
+     "h": "THE FIVE-YEAR MARK",
+     "t": "p",
+     "lines": [
+      "After 60 months of never missing a payment you have handed over GBP 2,475 -- more than you borrowed -- and you still owe GBP 1,094."
+     ]
+    },
+    {
+     "h": "THE CONTROL, WHICH IS THE WHOLE POINT",
+     "t": "p",
+     "lines": [
+      "Take the very first minimum, GBP 54.66, and just keep paying that exact figure every month. Not a penny more, and it is a sum you have already proved you can afford, because you paid it in month one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    minimum, as billed     24.8 years    GBP 3,259 interest",
+      "    that same first sum     4.9 years    GBP 1,199 interest"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same debt, same rate, same opening payment. 5 times as long, and 2.7 times the interest, purely because one payment shrinks and the other does not."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a payment is set as a percentage of what is left, it is engineered never to finish. Fix the amount and the maths changes shape entirely."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "one_percent_for_forty_years",
+   "title": "one percent for forty years",
+   "ts": "2026-08-07T21:50:43+00:00",
+   "date": "7 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "31% of it. Not 1%, and not the 40% most people work out either.",
+   "why": [
+    {
+     "h": "WHY IT IS NOT 1%",
+     "t": "p",
+     "lines": [
+      "The fee is not charged on what you put in. It is charged on the whole pot, every year, including on growth you never contributed. After 40 years at 7% gross, a 1% charge leaves you with 68.7% of the pot you would otherwise have had."
+     ]
+    },
+    {
+     "h": "THE COMPARISON THAT SHOWS THE MECHANISM",
+     "t": "p",
+     "lines": [
+      "Take that same 1% once, at the start, and never again. It costs you exactly 1%. The same headline number, charged repeatedly instead of once, does 31 times the damage. The size of the fee is not what is doing this. Repetition is."
+     ]
+    },
+    {
+     "h": "THE PART THAT GOES THE OTHER WAY",
+     "t": "p",
+     "lines": [
+      "The obvious sum is 1% x 40 = 40%, and people usually assume the real answer must be worse, because compounding is supposed to make things worse. It is better: 31%. Each year's fee is taken from a pot that all the previous fees already shrank, so the losses compound downwards, not upwards. Being wrong in the unexpected direction is worth more than being roughly right."
+     ]
+    },
+    {
+     "h": "WHAT THE SHAPE LOOKS LIKE",
+     "t": "pre",
+     "lines": [
+      "    after  1 year     0.93% gone",
+      "    after 10 years    8.96% gone",
+      "    after 20 years    17.12% gone",
+      "    after 40 years    31.31% gone"
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Any percentage charged on a balance rather than on a payment should be multiplied by the number of times it will be charged before you judge whether it is small."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "eight_digits_beat_the_list",
    "title": "Eight digits beat the whole list",
@@ -10718,7 +10871,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-07-30T19:21:26+00:00",
    "date": "30 Jul 2026",
    "topic": "puzzles",
-   "q": "Four people, one torch, a bridge that holds two. They cross in 1, 2, 5 and 10 minutes. Get all four over in 17.",
+   "q": null,
    "a": "Send the two slow ones across TOGETHER.",
    "why": [
     {
