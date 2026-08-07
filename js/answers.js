@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "eight_calls_everyone_knows",
    "title": "Eight calls, everyone knows",
-   "ts": "2026-08-07T22:26:39+00:00",
+   "ts": "2026-08-07T22:29:29+00:00",
    "date": "7 Aug 2026",
    "topic": "puzzles",
    "q": null,
