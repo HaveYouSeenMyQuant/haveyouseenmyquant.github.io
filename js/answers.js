@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_water_never_puts_it_out",
    "title": "The water never puts it out",
-   "ts": "2026-08-07T11:48:07+00:00",
+   "ts": "2026-08-07T11:49:42+00:00",
    "date": "7 Aug 2026",
    "topic": "everyday",
    "q": null,
