@@ -16,8 +16,57 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 219,
+ "count": 220,
  "entries": [
+  {
+   "slug": "the_same_fee_twice",
+   "title": "the same fee twice",
+   "ts": "2026-08-07T22:52:44+00:00",
+   "date": "7 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "448%. The same GBP 15, on the same GBP 100, is 15% over a year.",
+   "why": [
+    {
+     "h": "WHY ONE FEE HAS TWO RATES",
+     "t": "p",
+     "lines": [
+      "An annual rate answers \"what if this carried on for a year?\". Held for 365 days, the GBP 15 happens once: 15%. Held for 30 days it happens about twelve times, each time on a balance the previous fee already grew -- so it compounds, and lands at 448%. Same money, 30 times the rate, and the only thing that changed is the calendar."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    held   30 days     APR    448%",
+      "    held  90 days     APR     76%",
+      "    held 365 days     APR     15%"
+     ]
+    },
+    {
+     "h": "THE HONEST OTHER HALF",
+     "t": "p",
+     "lines": [
+      "If you borrow GBP 100 for 30 days and repay it on time, it costs you GBP 15. Not GBP 448. The 448% is what it would cost if you kept re-borrowing all year, which is exactly the thing that makes short borrowing dangerous -- but the headline rate is a statement about repetition, not about the pounds leaving your account this month."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the number is neither a lie nor the whole story. It is a rate, and a rate needs a period attached before it means anything."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever a percentage is quoted, ask what period it is per. A fee is a number; a rate is a number divided by a time, and comparing two rates over different times is not comparing anything."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "two_stickers_one_price",
    "title": "two stickers one price",
