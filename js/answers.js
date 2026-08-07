@@ -16,8 +16,57 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 218,
+ "count": 219,
  "entries": [
+  {
+   "slug": "two_stickers_one_price",
+   "title": "two stickers one price",
+   "ts": "2026-08-07T22:39:47+00:00",
+   "date": "7 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "GBP 32, not GBP 24. The two stickers come to 60% off, never 70%.",
+   "why": [
+    {
+     "h": "WHERE THE GBP 8 GOES",
+     "t": "p",
+     "lines": [
+      "The second sticker is not 20% of the price on the label. It is 20% of what is left after the first one. Half of GBP 80 is GBP 40, so the second discount is worth GBP 8 — not the GBP 16 it looks like on the ticket."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    label                 GBP    80",
+      "    after 50%             GBP    40",
+      "    after 20% of THAT     GBP    32"
+     ]
+    },
+    {
+     "h": "THE RULE, IN GENERAL",
+     "t": "p",
+     "lines": [
+      "Two discounts of a and b together take off a + b - ab, never a + b. The missing piece is always exactly a x b — here 50% x 20% = 10% of the original, which is the GBP 8. It is why \"an extra 20% off our sale prices\" is worth so much less than a straight 70% sale, and it is not a trick: it is what multiplying does."
+     ]
+    },
+    {
+     "h": "THE PART THAT SURPRISES PEOPLE THE OTHER WAY",
+     "t": "p",
+     "lines": [
+      "The order makes no difference at all. Take the 20% first and the 50% second and it is still GBP 32. The shop is not sequencing them cleverly — there is no sequence that helps or hurts."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Percentages of different things never add. Before adding two, check they are percentages OF the same number. Here the second is a percentage of a number the first one already changed."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "eight_calls_everyone_knows",
    "title": "Eight calls, everyone knows",
