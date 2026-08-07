@@ -16,12 +16,80 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 213,
+ "count": 214,
  "entries": [
+  {
+   "slug": "eight_digits_beat_the_list",
+   "title": "Eight digits beat the whole list",
+   "ts": "2026-08-07T21:24:47+00:00",
+   "date": "7 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Read down the diagonal — the 1st digit of row 1, the 2nd digit of row 2, the 3rd of row 3, and so on — then flip every one of them.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is eight digits read and eight digits flipped, and the string you get cannot be anywhere on the list."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it cannot: your new string differs from row 1 in position 1, because you flipped exactly that digit. It differs from row 2 in position 2. From row k in position k. To be equal to row k it would have to agree in every position, and it disagrees in position k by construction. So it is not row 1, not row 2, not any of the eight — and you never even looked at the other 56 digits."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It works for any list of any length, and this is where it stops being a party trick. Suppose someone claims to have listed EVERY infinite string of 0s and 1s — a first, a second, a third, forever. Run the same construction down the infinite diagonal and flip. The result is an infinite string of 0s and 1s that differs from the n-th listed string in the n-th place, for every n. So it is on no line of the list, and the list was not complete after all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is no repair. Add the new string at the top and the argument runs again on the new list and produces another one. Any list you offer is missing something, which means the infinite binary strings cannot be put in a list at all — there are strictly more of them than there are counting numbers. That is Cantor's diagonal argument, and it is the reason \"infinite\" is not a single size."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same shape of move appears twice more, and both times it looks like a magic trick until you see it is this:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The halting problem. Suppose a program H could decide, for any program and input, whether it halts. Build D, which asks H about D itself and then does the opposite. D halts exactly when it does not — the diagonal, with \"flip\" being \"do the opposite\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Gödel's first incompleteness theorem. Number every proof, then construct a statement that asserts its own unprovability. It differs from every entry in the list of provable statements in exactly the place that entry would settle it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What all three share is the trick worth keeping: when something claims to enumerate everything of a kind, use the enumeration itself as the raw material for a counterexample. The list hands you the list's own gap."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "eight_queens_how_many",
    "title": "Eight queens, none attacking",
-   "ts": "2026-08-07T20:45:13+00:00",
+   "ts": "2026-08-07T20:48:59+00:00",
    "date": "7 Aug 2026",
    "topic": "puzzles",
    "q": null,
