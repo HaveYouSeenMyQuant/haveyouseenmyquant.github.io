@@ -16,8 +16,95 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 217,
+ "count": 218,
  "entries": [
+  {
+   "slug": "eight_calls_everyone_knows",
+   "title": "Eight calls, everyone knows",
+   "ts": "2026-08-07T22:26:39+00:00",
+   "date": "7 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "2n - 4 calls, which is 8 for six people. And the reason the formula has that shape is that the job splits cleanly into two halves.",
+   "why": [
+    {
+     "h": "THE CONSTRUCTION",
+     "t": "p",
+     "lines": [
+      "Pick four people to be the core: call them A, B, C, D. Everyone else is an outsider."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  1. Each outsider phones a core member. For n people that is n - 4 calls, and",
+      "     now the four core members between them hold every piece of news.",
+      "  2. The core pools completely in FOUR calls: A-B, C-D, then A-C, B-D. After",
+      "     the first two, A and B share one half of the news and C and D the other;",
+      "     after the second two, all four know everything.",
+      "  3. Each outsider phones back to collect. Another n - 4 calls."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Total: (n - 4) + 4 + (n - 4) = 2n - 4."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For n = 6 that is 2 + 4 + 2 = 8. The exhaustive search agrees: 8 is not just achievable, it is the minimum."
+     ]
+    },
+    {
+     "h": "WHY THE TWO OBVIOUS ANSWERS ARE WRONG",
+     "t": "p",
+     "lines": [
+      "Fifteen is every pair talking once, and it is enormously wasteful — by the end most calls are telling people things they already know."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Five feels right because a chain of n - 1 calls does spread one person's news to everyone. But it does not finish the job: after a chain, the LAST person knows everything and the first knows almost nothing. Gathering is not the same as broadcasting, and this problem needs both."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is exactly why the answer has two n-terms in it. One n - 4 for gathering, one for spreading, and a fixed cost of 4 in the middle that never grows however large the group gets."
+     ]
+    },
+    {
+     "h": "WHY ADDING A PERSON COSTS ONLY TWO",
+     "t": "p",
+     "lines": [
+      "Because the core is always four people. A new arrival makes one call in and receives one call back; the expensive part — the four calls that pool the core — is paid once and never again. That is the whole reason the formula is linear rather than quadratic."
+     ]
+    },
+    {
+     "h": "THE LOWER BOUND",
+     "t": "p",
+     "lines": [
+      "Showing 2n - 4 is ACHIEVABLE is the easy half; showing nothing beats it is the real theorem, proved in the early 1970s and harder than it looks. The exhaustive search here settles it for n up to 6 by checking every reachable state, which is honest evidence for those sizes and not a proof for all n."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a task needs information to travel both ways, count the two directions separately. Gather-then-broadcast is a pattern that shows up everywhere — MapReduce, all-reduce in distributed training, tournament brackets — and the useful instinct is that the shared middle stage is a fixed cost you pay once, while the edges scale with the crowd."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_smaller_salary_keeps_less",
    "title": "the smaller salary keeps less",
