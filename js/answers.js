@@ -16,8 +16,57 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 221,
+ "count": 222,
  "entries": [
+  {
+   "slug": "the_charge_before_you_use_anything",
+   "title": "the charge before you use anything",
+   "ts": "2026-08-07T23:24:03+00:00",
+   "date": "7 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Neither. It flips at 2,433 units a year, which is an ordinary amount to use.",
+   "why": [
+    {
+     "h": "WHY THE UNIT RATE CANNOT SETTLE IT",
+     "t": "p",
+     "lines": [
+      "A bill has two parts: a standing charge you pay whether or not you switch anything on, and a rate per unit. Tariff A charges 60p a day before you use anything -- GBP 219 a year -- and then undercuts B by 6p a unit."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So A starts GBP 146 behind and claws back 6p per unit used. It draws level once you have used GBP 146 / 6p = 2,433 units, and wins after that."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1,500 units    A GBP 579    B GBP 523    B cheaper",
+      "    2,433 units    A GBP 803    B GBP 803    level",
+      "    2,700 units    A GBP 867    B GBP 883    A cheaper"
+     ]
+    },
+    {
+     "h": "WHY THAT NUMBER MATTERS",
+     "t": "p",
+     "lines": [
+      "A typical British home uses somewhere around 2,700 units of electricity a year, and plenty of flats use well under 1,500. The crossover sits between them. That is what makes this worth knowing rather than a curiosity: the same two tariffs really do swap places between one household and the next."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Any price with a fixed part and a per-unit part has a crossover, and the headline per-unit number never tells you which side of it you are on. Find the fixed difference, divide by the per-unit difference, and compare that to what you actually use. Phone plans, gym memberships, card processing and delivery subscriptions are all the same sum."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "most_are_below_average",
    "title": "Most are below average",
