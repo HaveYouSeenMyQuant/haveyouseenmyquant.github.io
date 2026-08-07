@@ -16,8 +16,85 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 207,
+ "count": 208,
  "entries": [
+  {
+   "slug": "dominoes_count_like_rabbits",
+   "title": "Dominoes count like rabbits",
+   "ts": "2026-08-07T17:37:58+00:00",
+   "date": "7 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Because the last column can only be finished two ways, and each way leaves a smaller copy of the same problem.",
+   "why": [
+    {
+     "h": "THE RECURRENCE",
+     "t": "p",
+     "lines": [
+      "Look at the right-hand end of the strip. Whatever the tiling is, that final column is covered in exactly one of two ways:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "ONE VERTICAL domino standing in it. What is left is a 2 x (n-1) strip.",
+      "TWO HORIZONTAL dominoes lying across it, stacked. They must cover the last"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    TWO columns, because a horizontal domino sticking out alone would leave a",
+      "    single uncovered square with no partner. What is left is a 2 x (n-2) strip."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is no third option, and the two cases cannot overlap — the last column either has a vertical domino in it or it does not. So"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  T(n) = T(n-1) + T(n-2),   T(1) = 1,  T(2) = 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which is the Fibonacci rule. With those starting values T(n) = F(n+1), so a 2x10 strip has F(11) = 89 tilings."
+     ]
+    },
+    {
+     "h": "WHY IT LOOKS LIKE IT COMES FROM NOWHERE",
+     "t": "p",
+     "lines": [
+      "Fibonacci is usually introduced with rabbits, which makes it feel like a fact about breeding rather than about counting. It is neither. Any structure that is built left to right, where the last step has exactly two sizes, obeys the same recurrence: stair-climbing one or two at a time, binary strings with no two consecutive 1s, and this. The rabbits are a story attached to the arithmetic, not its source."
+     ]
+    },
+    {
+     "h": "THE PART WORTH CHECKING YOURSELF",
+     "t": "p",
+     "lines": [
+      "The horizontal case is where people go wrong. It is tempting to say \"one horizontal domino in the last column\", but a single horizontal domino leaves the square above or below it stranded — its partner has nowhere to go. Horizontal dominoes in a 2-row strip always come in stacked PAIRS, which is why the second case removes two columns rather than one, and why the recurrence looks back two steps rather than one."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Condition on the last thing. \"How does this end?\" splits a count into disjoint cases, each a smaller version of the same count, and that is a recurrence. The same single move handles the Bell numbers (which group is the last person in?), Hanoi (when does the big disc move?) and this. When a count resists a formula, stop counting the whole thing and ask only what the final step could have been."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_bubbles_go_down",
    "title": "The bubbles go down",
