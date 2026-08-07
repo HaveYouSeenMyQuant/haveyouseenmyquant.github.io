@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A checker that can lie yes, but never lie no — have you seen my quant</title>
+<meta name="description" content="A checker that can lie &quot;yes&quot;, but can never lie &quot;no&quot;.  You want to know whether something is in a set of fifty million things, without storing the set">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+body{background:#0d1117;color:#e6edf3;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0}
+main{max-width:44rem;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+a{color:#58a6ff} h1{font-size:1.9rem;line-height:1.25;margin:.2rem 0 .4rem}
+.meta{color:#8b949e;font-size:.9rem;margin-bottom:1.8rem}
+.q{font-size:1.12rem} .q p{margin:0 0 1.05rem}
+.gate{margin-top:2.4rem;padding:1.15rem 1.25rem;border:1px solid #30363d;border-radius:10px;background:#111820}
+.gate h2{margin:0 0 .45rem;font-size:1.02rem}
+.topic{display:inline-block;padding:.12rem .5rem;border:1px solid #30363d;border-radius:999px;
+        font-size:.78rem;color:#8b949e;margin-right:.4rem}
+ul.idx{list-style:none;padding:0} ul.idx li{padding:.42rem 0;border-bottom:1px solid #1b2029}
+nav{margin-bottom:1.6rem;font-size:.92rem}
+</style></head><body><main>
+<nav><a href="../index.html">have you seen my quant</a> ·
+<a href="../questions/index.html">all questions</a></nav>
+<h1>A checker that can lie yes, but never lie no</h1><p class=meta><span class=topic>cs_systems</span>posted 2 Aug 2026</p><div class=q><p>A checker that can lie &quot;yes&quot;, but can never lie &quot;no&quot;.</p><p>You want to know whether something is in a set of fifty million things, without storing the set.</p><p>So you don&#x27;t. You keep one row of bits, all dark. To add an item, run its name through a handful of scramblers — each one turns the name into a position — and light those positions. To ask whether something is in there, scramble it the same way and look at the positions it points to.</p><p>If any of them is dark, it is definitely not in the set. Nothing could have lit that bit except the item itself, and it never did.</p><p>If all of them are lit, it is probably in the set — but only probably. Other items may have lit those exact positions between them, and the row cannot tell you who lit what. So the honest answer is &quot;maybe&quot;.</p><p>That asymmetry is the whole design, and it is why the thing is useful: you put it in front of an expensive lookup, and you only pay for the maybes. Every &quot;no&quot; is free and certain.</p><p>The interview question is the sizing. Given how many items you have and the false-maybe rate you can live with, how long does the row need to be — and how many scramblers should you use?</p><p>Both have clean closed forms, and both are more surprising than people expect. The optimal number of scramblers doesn&#x27;t depend on how many items you have. Neither does the bits-per-item. And &quot;use as many scramblers as you can afford&quot; is wrong — more scramblers catch more missing items, but they also fill the row faster, so past a point you are making false maybes more likely, not less.</p><p>Everything in the video is measured, not asserted: a real bit array, real hashing, 140,000 queries for things that were never inserted. Predicted false-maybe rate 1.004%, measured 1.031%, standard error 0.027%. False negatives across the whole run: zero, as promised.</p><p>Full derivation, the sizing rule and the optimal count — free, takes an email. Link in bio.</p></div><div class=gate><h2>The worked answer</h2><p>Every answer is on the road, free. It takes an email so I know where to send it.</p><p><a href="../index.html#maybe_never_no">Open the answer &rarr;</a></p></div><p style="margin-top:3rem;color:#8b949e;font-size:.85rem">
+<a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a></p>
+</main></body></html>

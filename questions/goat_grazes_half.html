@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A goat tied to the fence of a round field — how long a rope eats exactly half? — have you seen my quant</title>
+<meta name="description" content="A goat is tied to a post on the fence of a round field. How long a rope lets it eat exactly half the grass?  Not a post in the middle. On the fence. T">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+body{background:#0d1117;color:#e6edf3;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0}
+main{max-width:44rem;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+a{color:#58a6ff} h1{font-size:1.9rem;line-height:1.25;margin:.2rem 0 .4rem}
+.meta{color:#8b949e;font-size:.9rem;margin-bottom:1.8rem}
+.q{font-size:1.12rem} .q p{margin:0 0 1.05rem}
+.gate{margin-top:2.4rem;padding:1.15rem 1.25rem;border:1px solid #30363d;border-radius:10px;background:#111820}
+.gate h2{margin:0 0 .45rem;font-size:1.02rem}
+.topic{display:inline-block;padding:.12rem .5rem;border:1px solid #30363d;border-radius:999px;
+        font-size:.78rem;color:#8b949e;margin-right:.4rem}
+ul.idx{list-style:none;padding:0} ul.idx li{padding:.42rem 0;border-bottom:1px solid #1b2029}
+nav{margin-bottom:1.6rem;font-size:.92rem}
+</style></head><body><main>
+<nav><a href="../index.html">have you seen my quant</a> ·
+<a href="../questions/index.html">all questions</a></nav>
+<h1>A goat tied to the fence of a round field — how long a rope eats exactly half?</h1><p class=meta><span class=topic>geometry</span>posted 2 Aug 2026</p><div class=q><p>A goat is tied to a post on the fence of a round field. How long a rope lets it eat exactly half the grass?</p><p>Not a post in the middle. On the fence. That is the whole trick.</p><p>Call the field&#x27;s radius 1. Give the goat a rope of 1 and it clears 39.1% of the grass — nowhere near half. Give it a rope of 2, the full width across, and it clears the lot. So the answer sits somewhere in between, and it is not where you think.</p><p>Here is the shape it eats. The goat reaches every point that is inside the field AND within one rope&#x27;s length of the post — the overlap of two circles. Put the post at the bottom, write both circles down, and subtract one from the other. Every squared term cancels and you are left with a single horizontal line: the two circles cross at two points that sit at exactly the same height.</p><p>That line splits the eaten patch in two. Below it, the edge is the FENCE. Above it, the edge is the ROPE. Each piece is a circle cut off by a straight line, and each has an area you can write down. Add them, and the grass the goat eats is</p><p>arccos(1 − r²/2) + r²·arccos(r/2) − (r/2)·√(4 − r²)</p><p>and you want that to equal half the field, π/2.</p><p>Now try to solve it for r. You can&#x27;t. The unknown is stuck inside two inverse cosines and multiplied outside them at the same time, and no rearrangement frees it. No root, no fraction, no combination of the usual functions gives you r. The only way to the answer is to close in on it numerically.</p><p>That is the shock. A question a child can ask, about a goat in a field, with no answer you can write down.</p><p>Every number in the video is measured off the shape actually on screen — the percentage is the real area of the real patch, not a caption typed over a picture.</p><p>Have a go before you look. The length to ten decimal places, the proof there is only one, and the check against five million random points are on the site. Free, takes an email: link in bio.</p><p>📤 Send this to whoever says &quot;obviously the radius&quot;.</p></div><div class=gate><h2>The worked answer</h2><p>Every answer is on the road, free. It takes an email so I know where to send it.</p><p><a href="../index.html#goat_grazes_half">Open the answer &rarr;</a></p></div><p style="margin-top:3rem;color:#8b949e;font-size:.85rem">
+<a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a></p>
+</main></body></html>

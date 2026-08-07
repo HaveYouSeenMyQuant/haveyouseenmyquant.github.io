@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Finding one name in a million without searching — have you seen my quant</title>
+<meta name="description" content="Finding one name in a million doesn&#x27;t mean searching through a million. You can jump straight to it.  Here&#x27;s the trick, shown with 10 slots instead of">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+body{background:#0d1117;color:#e6edf3;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0}
+main{max-width:44rem;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+a{color:#58a6ff} h1{font-size:1.9rem;line-height:1.25;margin:.2rem 0 .4rem}
+.meta{color:#8b949e;font-size:.9rem;margin-bottom:1.8rem}
+.q{font-size:1.12rem} .q p{margin:0 0 1.05rem}
+.gate{margin-top:2.4rem;padding:1.15rem 1.25rem;border:1px solid #30363d;border-radius:10px;background:#111820}
+.gate h2{margin:0 0 .45rem;font-size:1.02rem}
+.topic{display:inline-block;padding:.12rem .5rem;border:1px solid #30363d;border-radius:999px;
+        font-size:.78rem;color:#8b949e;margin-right:.4rem}
+ul.idx{list-style:none;padding:0} ul.idx li{padding:.42rem 0;border-bottom:1px solid #1b2029}
+nav{margin-bottom:1.6rem;font-size:.92rem}
+</style></head><body><main>
+<nav><a href="../index.html">have you seen my quant</a> ·
+<a href="../questions/index.html">all questions</a></nav>
+<h1>Finding one name in a million without searching</h1><p class=meta><span class=topic>cs_systems</span>posted 30 Jul 2026</p><div class=q><p>Finding one name in a million doesn&#x27;t mean searching through a million. You can jump straight to it.</p><p>Here&#x27;s the trick, shown with 10 slots instead of a million.</p><p>Take a name and add up its letters, A is 1, B is 2, all the way to Z is 26. MAYA is 13+1+25+1 = 40. Take the last digit of that total — 0 — and that&#x27;s the slot the name lives in. Drop it in.</p><p>LEO 32 → slot 2 · SAM 33 → slot 3 · RAY 44 → slot 4 · IVY 56 → slot 6 · LUCA 37 → slot 7 · NOAH 38 → slot 8</p><p>Want LUCA back later? Add its letters again, get 37, go to slot 7. It&#x27;s sitting there. You never looked at a single other name.</p><p>Then THEO: 20+8+5+15 = 48, last digit 8 — and NOAH is already in slot 8. Two names, one slot. That&#x27;s a collision, and collisions are the normal case, not a rare accident: 8 names dropped into 10 slots average about 3 colliding pairs. It costs you almost nothing — both names hang in slot 8, and to find one you check just those two.</p><p>The part that actually matters is what happens as the pile grows. Give a million names a million slots and each slot still holds about one name, so a lookup touches roughly 1.5 names — at ten names, at a million, at a billion. The work doesn&#x27;t grow with the pile. Checking one at a time would average half a million comparisons.</p><p>That&#x27;s a hash table. It&#x27;s how your phone finds a contact the instant you type it.</p><p>Which surprised you more — that it works, or that collisions are normal? 👇</p><p>Follow for one clean maths idea a day.</p></div><div class=gate><h2>The worked answer</h2><p>Every answer is on the road, free. It takes an email so I know where to send it.</p><p><a href="../index.html#hash_one_step_lookup">Open the answer &rarr;</a></p></div><p style="margin-top:3rem;color:#8b949e;font-size:.85rem">
+<a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a></p>
+</main></body></html>
