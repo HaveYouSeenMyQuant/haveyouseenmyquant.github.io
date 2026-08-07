@@ -16,12 +16,97 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 203,
+ "count": 204,
  "entries": [
+  {
+   "slug": "the_cheaper_pump_costs_more",
+   "title": "The cheaper pump costs more",
+   "ts": "2026-08-07T13:21:57+00:00",
+   "date": "7 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Your time. The drive costs about half an hour, and at almost any value you put on an hour that term is larger than the saving and the fuel put together.",
+   "why": [
+    {
+     "h": "THE SUMS",
+     "t": "pre",
+     "lines": [
+      "    saving      50 L tank x 5p            = £2.50",
+      "    fuel        19.3 km at 7 L/100km      = £1.89",
+      "    net so far                            = +£0.61"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which is why people go. Now add the drive itself: 19.3 km through town at 40 km/h is 29 minutes. At £12 an hour that is £5.79 — more than twice the saving, and three times the fuel."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    net, honestly                         = -£5.18"
+     ]
+    },
+    {
+     "h": "BREAK-EVEN, BOTH WAYS",
+     "t": "p",
+     "lines": [
+      "Solve for the distance where the trip is exactly worth it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    ignoring your time      12.8 km each way    (about 8 miles)",
+      "    counting it              3.1 km each way    (about 2 miles)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The eight-mile figure is the one people carry around, and it is wrong by a factor of four."
+     ]
+    },
+    {
+     "h": "THE CEILING NOBODY NOTICES",
+     "t": "p",
+     "lines": [
+      "The saving is capped by the tank. Fifty litres at 5p can never yield more than £2.50 no matter how far you drive — while the cost grows without limit. So there is always a distance beyond which NO price gap justifies the trip, and for a normal tank it is not far."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Doubling the gap to 10p only doubles the break-even distance. It does not change the shape of the problem."
+     ]
+    },
+    {
+     "h": "WHEN IT DOES PAY",
+     "t": "p",
+     "lines": [
+      "If the cheaper station is already on your route, the extra distance is zero and the extra time is zero, so it always pays. The whole question is about the DETOUR, not about the price. That is also why the discount stations that survive are the ones on main roads."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a decision has a cost you do not pay in money, price it anyway and put it in the same column. A term left out of the sum is not a term worth zero — it is a term you have decided to value at zero without saying so."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_queue_or_five",
    "title": "One queue or five",
-   "ts": "2026-08-07T12:46:57+00:00",
+   "ts": "2026-08-07T12:48:28+00:00",
    "date": "7 Aug 2026",
    "topic": "everyday",
    "q": null,
