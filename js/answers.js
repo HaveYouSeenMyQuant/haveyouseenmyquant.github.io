@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "it_breaks_before_it_lands",
    "title": "It breaks before it lands",
-   "ts": "2026-08-07T11:07:24+00:00",
+   "ts": "2026-08-07T11:09:21+00:00",
    "date": "7 Aug 2026",
    "topic": "everyday",
    "q": null,
