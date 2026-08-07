@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_planets_never_twinkle",
    "title": "The planets never twinkle",
-   "ts": "2026-08-07T08:42:31+00:00",
+   "ts": "2026-08-07T08:44:27+00:00",
    "date": "7 Aug 2026",
    "topic": "everyday",
    "q": null,
