@@ -16,8 +16,102 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 220,
+ "count": 221,
  "entries": [
+  {
+   "slug": "most_are_below_average",
+   "title": "Most are below average",
+   "ts": "2026-08-07T23:14:51+00:00",
+   "date": "7 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "Because income is not symmetric. There is a floor at zero and no ceiling, so the far right of the distribution stretches a long way and pulls the mean with it — while the median, which only counts heads, does not move.",
+   "why": [
+    {
+     "h": "THE SHAPE",
+     "t": "p",
+     "lines": [
+      "Model incomes as lognormal, which fits real ones tolerably well. Then:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    median = e^mu",
+      "    mean   = e^(mu + sigma^2/2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The mean is bigger by a factor of e^(sigma^2/2), always, for any spread above zero. And the share of households below the mean is exactly"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Phi(sigma / 2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At a realistic spread (sigma = 0.7) that is 64%. Not half. Roughly two in three."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    sigma   mean/median   below the mean",
+      "     0.4       1.08            58%",
+      "     0.7       1.28            64%",
+      "     0.9       1.50            67%",
+      "     1.2       2.05            73%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "More inequality does not just raise the gap between mean and median — it raises the SHARE of people below the mean."
+     ]
+    },
+    {
+     "h": "THE VERSION THAT MAKES IT OBVIOUS",
+     "t": "p",
+     "lines": [
+      "Put 99 people earning 30,000 in a room with one earning 100 million. The mean income in that room is just over a million. Ninety-nine per cent of the room earns below average, and every step of the arithmetic is right."
+     ]
+    },
+    {
+     "h": "WHY THIS MATTERS MORE THAN IT LOOKS",
+     "t": "p",
+     "lines": [
+      "\"Average earnings rose\" is compatible with almost everyone earning less, if the rise happened at the top. The mean is the right tool for totals — you cannot budget a country on medians, because means are what add up — and the wrong tool for describing a typical person."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which is why serious statistics agencies publish both, and why the two moving in opposite directions is a real and common event rather than an error."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before quoting a mean, ask whether the thing has a floor and no ceiling. Income, wealth, city size, file size, response latency, time to failure, wealth of your customers, damage from a storm — all bounded below and unbounded above, all skewed, all badly described by their mean. Reach for the median unless you specifically need a quantity that sums."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_same_fee_twice",
    "title": "the same fee twice",
