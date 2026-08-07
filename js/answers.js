@@ -16,12 +16,94 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 199,
+ "count": 200,
  "entries": [
+  {
+   "slug": "slower_than_a_snail",
+   "title": "Slower than a snail",
+   "ts": "2026-08-07T09:53:42+00:00",
+   "date": "7 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because what travels down the wire is not the electrons. They crawl at about half a millimetre a second - an electron leaving your switch takes over half an hour to reach the far end of a one-metre cable. What arrives in nanoseconds is the electromagnetic field that tells electrons ALREADY sitting in the filament to start moving.",
+   "why": [
+    {
+     "h": "THE CRAWL, COMPUTED",
+     "t": "p",
+     "lines": [
+      "Current is charge per second, and charge is carriers times charge each:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    I  =  n · A · v · q"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "with n the free electrons per cubic metre, A the wire's cross-section, v the drift speed and q the electron charge. Rearranged for a 10 A load in ordinary 1.5 mm^2 copper:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    v  =  10 / (8.5e28 × 1.5e-6 × 1.602e-19)  =  0.00049 m/s"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is 0.49 millimetres a second. A garden snail manages about 1 mm/s, so the electrons are roughly twice as slow. Crossing one metre of cable takes 2,043 seconds - thirty-four minutes."
+     ]
+    },
+    {
+     "h": "WHY THE BULB IS ALREADY LIT",
+     "t": "p",
+     "lines": [
+      "The wire is not empty and waiting to be filled. It is already packed with free electrons, everywhere along its length, including inside the filament. Closing the switch does not send electrons to the bulb; it establishes a field along the conductor, and that field propagates at a large fraction of light speed - about two thirds of it in typical cable, so roughly 51 nanoseconds across a ten-metre room."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every electron in the circuit starts drifting almost simultaneously, the ones in the filament included. The bulb lights because ITS OWN electrons started moving, not because anything arrived from the switch."
+     ]
+    },
+    {
+     "h": "THE ANALOGY THAT ACTUALLY WORKS",
+     "t": "p",
+     "lines": [
+      "A pipe already full of water. Push at one end and water comes out of the far end immediately - not the water you pushed, which is still near your hand, but the water that was already there. The push travels at the speed of sound in water; the water itself barely moves."
+     ]
+    },
+    {
+     "h": "A SANITY CHECK YOU CAN DO",
+     "t": "p",
+     "lines": [
+      "Alternating current reverses fifty times a second, so those electrons never travel anywhere at all - they jiggle back and forth by well under a millimetre and end each cycle where they began. Energy still reaches the bulb perfectly well, which is only possible if the energy was never being carried by electrons making the journey."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something arrives faster than its parts could possibly travel, the thing arriving is a disturbance, not the material. Sound in air, a traffic jam moving backwards up a motorway, a wave crossing a stadium: the medium stays put and the pattern moves."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_clear_things_make_a_cloud",
    "title": "Two clear things make a cloud",
-   "ts": "2026-08-07T09:17:30+00:00",
+   "ts": "2026-08-07T09:21:19+00:00",
    "date": "7 Aug 2026",
    "topic": "everyday",
    "q": null,
