@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_small_one_empties",
    "title": "The small one empties",
-   "ts": "2026-08-07T05:39:49+00:00",
+   "ts": "2026-08-07T05:41:30+00:00",
    "date": "7 Aug 2026",
    "topic": "everyday",
    "q": null,
