@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "most_are_below_average",
    "title": "Most are below average",
-   "ts": "2026-08-07T23:14:51+00:00",
+   "ts": "2026-08-07T23:16:49+00:00",
    "date": "7 Aug 2026",
    "topic": "statistics",
    "q": null,
