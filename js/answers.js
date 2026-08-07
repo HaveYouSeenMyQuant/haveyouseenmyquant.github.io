@@ -16,8 +16,101 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 202,
+ "count": 203,
  "entries": [
+  {
+   "slug": "one_queue_or_five",
+   "title": "One queue or five",
+   "ts": "2026-08-07T12:46:57+00:00",
+   "date": "7 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because a separate queue can be empty while the one next to it is stuck, and a single queue can never waste a till that way.",
+   "why": [
+    {
+     "h": "WHAT GOES WRONG WITH FIVE QUEUES",
+     "t": "p",
+     "lines": [
+      "Every queue is its own little system. Join one and your wait depends entirely on that line - on whether the person in front has a trolley of shopping or a single pint of milk. Meanwhile the till two along may go idle with people still waiting three metres away, and nothing moves them across."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That idle till is the whole loss. The work is there and the server is free, and the arrangement keeps them apart."
+     ]
+    },
+    {
+     "h": "THE NUMBERS",
+     "t": "p",
+     "lines": [
+      "Erlang C, five tills, each busy 80% of the time:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    five separate queues   average wait  4.00 service times",
+      "    one queue, five tills  average wait  0.55"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Seven times better, for moving a rope."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And the advantage GROWS with the number of tills:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2 tills   2.2x",
+      "    3 tills   3.7x",
+      "    5 tills   7.2x",
+      "    8 tills  14.0x"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "With more tills there are more chances for one of them to be idle while somebody waits, so there is more for pooling to recover."
+     ]
+    },
+    {
+     "h": "WHY IT FEELS WRONG",
+     "t": "p",
+     "lines": [
+      "The single queue looks longer. It is longer - it contains everybody. But it also moves five times faster, because five tills are pulling from it instead of one. People judge a queue by its length and not by the rate it is served at, which is why the arrangement that is obviously better looks obviously worse."
+     ]
+    },
+    {
+     "h": "WHERE IT DOES NOT APPLY",
+     "t": "p",
+     "lines": [
+      "If customers can switch queues freely and instantly, five queues approximate one - real shoppers do jockey, which recovers some of the loss. And a single queue costs floor space and needs somebody to direct people, which is why small shops do not bother and airports always do."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Pooling beats partitioning whenever demand is uneven and capacity cannot move to meet it. It is the same reason one thread pool beats one queue per worker, one shared cash reserve beats one per department, and hospital beds are managed centrally rather than ward by ward. Ask whether your servers can go idle while work waits somewhere they cannot reach."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_water_never_puts_it_out",
    "title": "The water never puts it out",
