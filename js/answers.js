@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 210,
+ "count": 211,
  "entries": [
+  {
+   "slug": "telling_them_nothing",
+   "title": "Telling them nothing",
+   "ts": "2026-08-07T19:19:20+00:00",
+   "date": "7 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Because everyone knew it, but not everyone knew that everyone knew it. The announcement did not add a fact - it added a fact that is now known to be known, all the way down, and that is a different thing.",
+   "why": [
+    {
+     "h": "THE SMALL CASES, WHICH ARE THE WHOLE ARGUMENT",
+     "t": "p",
+     "lines": [
+      "One blue-eyed islander. She sees nobody with blue eyes. The announcement tells her there is at least one, so it must be her. She leaves on night 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two. Each sees one other blue-eyed person, so the announcement tells them nothing new. But each thinks: \"if I am not blue, she is the only one, and she will leave tonight.\" Nobody leaves on night 1. That silence is information: it rules out there being only one. So both leave on night 2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three. Each sees two, and each thinks \"if I am not blue, those two are in the two-person case and will leave on night 2.\" Night 2 passes in silence, which rules that out, so all three leave on night 3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The pattern continues exactly: n blue-eyed islanders all leave on night n. The engine is not the announcement, it is the SILENCE - every night that passes without anyone leaving destroys one more hypothesis."
+     ]
+    },
+    {
+     "h": "WHAT THE ANNOUNCEMENT ACTUALLY ADDED",
+     "t": "p",
+     "lines": [
+      "With 100 people, everyone sees 99 blue-eyed islanders, so \"at least one\" was known to all. But consider what person A knows about what B knows about what C knows... At depth 100 that chain bottoms out in a hypothetical islander who sees nobody blue, and before the announcement nothing ruled that person out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Knowledge shared by everyone is MUTUAL knowledge. Knowledge that everyone knows that everyone knows, without limit, is COMMON knowledge. The visitor converted the first into the second, and the countdown needs the second."
+     ]
+    },
+    {
+     "h": "WHY THE SILENCE IS DOING THE WORK",
+     "t": "p",
+     "lines": [
+      "Nothing happens for 99 nights and it is easy to read that as nothing happening. Each of those nights is a real deduction: night k passing without departures proves there are more than k blue-eyed islanders. The information arrives at exactly one bit-of-a-kind per night, which is why it takes exactly 100 of them."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a fact is already known to everyone and announcing it still changes behaviour, the announcement was never about the fact. Ask what became known ABOUT the others' knowledge. The same move explains why a public promise binds harder than a private one, and why coordination can hinge on a signal that carries no new information at all."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "four_copies_of_itself",
    "title": "Four copies of itself",
