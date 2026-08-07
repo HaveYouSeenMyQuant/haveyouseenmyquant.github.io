@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "telling_them_nothing",
    "title": "Telling them nothing",
-   "ts": "2026-08-07T19:19:20+00:00",
+   "ts": "2026-08-07T19:20:52+00:00",
    "date": "7 Aug 2026",
    "topic": "puzzles",
    "q": null,
