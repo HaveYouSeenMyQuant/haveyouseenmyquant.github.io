@@ -16,8 +16,94 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 211,
+ "count": 212,
  "entries": [
+  {
+   "slug": "one_lap_how_many_turns",
+   "title": "One lap, how many turns",
+   "ts": "2026-08-07T19:54:20+00:00",
+   "date": "7 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Two. The coin comes back upright twice, not once, and the reason is that the turning is set by where the CENTRE goes, not by where the two rims touch.",
+   "why": [
+    {
+     "h": "THE ONE LINE",
+     "t": "p",
+     "lines": [
+      "Rolling without slipping locks the contact point: it covers the same distance on both surfaces. So people reason that the rolling coin's rim covers a distance equal to the fixed coin's circumference, one circumference is one turn, answer one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But watch the centre. It does not travel around the fixed coin's rim. It travels around a circle of radius R + r - one full radius further out - and that circle is longer:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    distance travelled by the centre = 2 pi (R + r)",
+      "    one turn of the rolling coin     = 2 pi r",
+      "    turns = (R + r) / r = R/r + 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For two coins of the same size, R = r, so the answer is 1 + 1 = 2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE +1 IS THE WHOLE PUZZLE"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Split the motion in two. Relative to the line joining the two centres, the coin really does turn exactly R/r times - that is the answer everyone gives, and it is not wrong, it is just answering a different question. But that line is itself sweeping once around the fixed coin, carrying the rolling coin with it. Add the two and you get R/r + 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is the same +1 that makes a solar day and a sidereal day differ: the Earth turns 366.25 times on its axis per year, but we count 365.25 days, because one turn is eaten by the orbit itself. Same effect, same sign, much bigger circle."
+     ]
+    },
+    {
+     "h": "CHECK IT ON OTHER SIZES",
+     "t": "pre",
+     "lines": [
+      "    rolling coin the same size as the fixed one  ->  2 turns",
+      "    fixed coin 3x the rolling coin               ->  4 turns",
+      "    fixed coin the same size, rolled INSIDE      ->  0 turns"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That last one is the sanity check: rolling around the inside gives R/r - 1, and for equal coins that is zero - the coin slides around without ever turning at all."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something rotates while also being carried around, there are always two frames and they disagree by exactly one revolution per lap. Ask which frame the question is asked in before answering. The mistake here is not an arithmetic slip - it is answering confidently in the rotating frame a question that was posed in the fixed one, which is the same error behind sidereal vs solar time, the extra day in a circumnavigation, and the sign confusion in anything geosynchronous."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "telling_them_nothing",
    "title": "Telling them nothing",
