@@ -16,12 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 209,
+ "count": 210,
  "entries": [
+  {
+   "slug": "four_copies_of_itself",
+   "title": "Four copies of itself",
+   "ts": "2026-08-07T18:44:20+00:00",
+   "date": "7 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "There is exactly one way, and the shape has a name: it is a rep-tile.",
+   "why": [
+    {
+     "h": "THE CUT",
+     "t": "p",
+     "lines": [
+      "Set the L on a grid, 4 wide and 4 tall with the top-right 2x2 missing, so twelve unit squares. The four pieces are:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  bottom-left   (0,0) (1,0) (0,1)",
+      "  bottom-right  (2,0) (3,0) (3,1)",
+      "  top-left      (0,2) (0,3) (1,3)",
+      "  centre        (1,1) (2,1) (1,2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each is an L of three squares — the original shape at half scale — and each sits at a different rotation. Three of them occupy the three corners of the big L; the fourth fills the hollow between them. An exhaustive search over every legal placement finds this dissection and no other."
+     ]
+    },
+    {
+     "h": "WHY FOUR AND NOT SOME OTHER NUMBER",
+     "t": "p",
+     "lines": [
+      "Halving the side lengths quarters the area, so a shape that tiles a copy of itself at half scale needs exactly four pieces. That is forced by area alone, before any geometry: 12 squares into pieces of 3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "More generally a rep-tile of order k tiles a copy scaled by sqrt(k). Order 4 means scale 2, which is why this one looks so tidy."
+     ]
+    },
+    {
+     "h": "WHAT MAKES IT SURPRISING",
+     "t": "p",
+     "lines": [
+      "Almost no shapes do this. A square does trivially, and a 2x1 rectangle does. But take a plus sign, or a T, or a U, and it fails. The L-tromino is the smallest genuinely interesting rep-tile, and the fact that its own awkward corner is what makes room for the fourth piece is the part worth noticing — the notch is not an obstacle, it is the mechanism."
+     ]
+    },
+    {
+     "h": "THE CONSEQUENCE PEOPLE MISS",
+     "t": "p",
+     "lines": [
+      "Because the cut works once, it works forever. Split the L into four L's, then split each of those into four, and so on without end. One shape generates an infinitely deep tiling of itself, which is why rep-tiles turn up in fractal constructions and in tilings of the plane that never repeat."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a dissection puzzle resists, count areas first. It costs nothing and it fixes the number of pieces before you draw a single line — here it says four immediately, and knowing you are looking for four rather than three or six is most of the search."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "not_bad_luck_just_height",
    "title": "Not bad luck, just height",
-   "ts": "2026-08-07T18:09:20+00:00",
+   "ts": "2026-08-07T18:10:55+00:00",
    "date": "7 Aug 2026",
    "topic": "everyday",
    "q": null,
