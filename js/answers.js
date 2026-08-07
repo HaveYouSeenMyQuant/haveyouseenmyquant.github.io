@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "four_copies_of_itself",
    "title": "Four copies of itself",
-   "ts": "2026-08-07T18:44:20+00:00",
+   "ts": "2026-08-07T18:45:31+00:00",
    "date": "7 Aug 2026",
    "topic": "puzzles",
    "q": null,
