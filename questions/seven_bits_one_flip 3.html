@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seven bits, one flips, and the block says which — have you seen my quant</title>
+<meta name="description" content="Seven bits go down a wire, one of them flips, and the message can still tell you exactly which one.  No resend. No second copy to compare against. The">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+body{background:#0d1117;color:#e6edf3;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0}
+main{max-width:44rem;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+a{color:#58a6ff} h1{font-size:1.9rem;line-height:1.25;margin:.2rem 0 .4rem}
+.meta{color:#8b949e;font-size:.9rem;margin-bottom:1.8rem}
+.q{font-size:1.12rem} .q p{margin:0 0 1.05rem}
+.gate{margin-top:2.4rem;padding:1.15rem 1.25rem;border:1px solid #30363d;border-radius:10px;background:#111820}
+.gate h2{margin:0 0 .45rem;font-size:1.02rem}
+.topic{display:inline-block;padding:.12rem .5rem;border:1px solid #30363d;border-radius:999px;
+        font-size:.78rem;color:#8b949e;margin-right:.4rem}
+ul.idx{list-style:none;padding:0} ul.idx li{padding:.42rem 0;border-bottom:1px solid #1b2029}
+nav{margin-bottom:1.6rem;font-size:.92rem}
+</style></head><body><main>
+<nav><a href="../index.html">have you seen my quant</a> ·
+<a href="../questions/index.html">all questions</a></nav>
+<h1>Seven bits, one flips, and the block says which</h1><p class=meta><span class=topic>information_theory</span>posted 2 Aug 2026</p><div class=q><p>Seven bits go down a wire, one of them flips, and the message can still tell you exactly which one.</p><p>No resend. No second copy to compare against. The receiver has never seen what was actually sent — and it can still point straight at the broken bit and fix it.</p><p>Here is the whole trick, and it fits in a picture. Draw three overlapping circles over the seven positions. Three circles carve the plane into exactly seven regions, so every position gets its own region and therefore its own combination of circles. Before the block leaves, three of the seven bits are set so that every circle holds an even number of ones.</p><p>Flip one bit and every circle it lives in goes odd. The circles that go odd overlap in exactly one place. That place is the broken bit.</p><p>In the video, two circles have gone odd and one is still even. That is enough to name the position, and I stop there.</p><p>So: which of the seven broke? Have a go — the frame in the video is enough to work it out, and the first comment has the observation that unlocks it without finishing it.</p><p>The full worked answer, the construction, and the exhaustive check — all 16 messages against all 8 error scenarios, 128 cases — are on the site. Free, takes an email: link in bio.</p><p>The honest limit, which almost nobody mentions: two flips break it, and not gracefully. The decoder does not shrug — it confidently blames a third, innocent bit and hands back a wrong message with no complaint. All 336 double-flip cases come out wrong. That is what a minimum distance of 3 buys you: one error findable, two errors indistinguishable.</p><p>This is Hamming&#x27;s code from 1950, and a version of it is running in the memory of the machine you are reading this on.</p><p>Send this to whoever thinks error correction is magic.</p><p>Stop reading maths and start playing it — first unit is free, no signup, no account: link in bio.</p></div><div class=gate><h2>The worked answer</h2><p>Every answer is on the road, free. It takes an email so I know where to send it.</p><p><a href="../index.html#seven_bits_one_flip">Open the answer &rarr;</a></p></div><p style="margin-top:3rem;color:#8b949e;font-size:.85rem">
+<a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a></p>
+</main></body></html>
