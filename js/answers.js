@@ -16,8 +16,129 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 201,
+ "count": 202,
  "entries": [
+  {
+   "slug": "the_water_never_puts_it_out",
+   "title": "The water never puts it out",
+   "ts": "2026-08-07T11:48:07+00:00",
+   "date": "7 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because the candle rises as it burns, and it rises by exactly the right amount to keep its tip above the water.",
+   "why": [
+    {
+     "h": "THE ONE RATIO",
+     "t": "p",
+     "lines": [
+      "Archimedes: a floating object sinks until it displaces its own weight. So the submerged fraction of the candle is just the ratio of the densities:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    submerged fraction = density of wax / density of water = 0.90 / 1.00 = 0.90"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Ten per cent of its length stands proud of the surface. And that is true of ANY length, because the fraction has no length in it. Burn the candle to half its length and 10% of the half is still above water. Burn it to a tenth and 10% of the tenth is above water."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    20 cm long  ->  2.0 cm above the surface",
+      "    10 cm       ->  1.0 cm",
+      "     2 cm       ->  0.2 cm",
+      "     0.2 cm     ->  0.02 cm"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The exposed stub shrinks in proportion and never reaches zero. Every time wax burns off the top, the candle floats a little higher, and the flame is presented with fresh wax to burn. It is a self-feeding arrangement."
+     ]
+    },
+    {
+     "h": "WHY IT LOOKS LIKE IT SHOULD FAIL",
+     "t": "p",
+     "lines": [
+      "Because the flame really is getting closer to the water in absolute terms. It goes from 2 cm above to 0.2 cm above. Your eye tracks that gap closing and predicts it hits zero, and it does not — it approaches zero the way half-distances do."
+     ]
+    },
+    {
+     "h": "WHERE THIS ACTUALLY BREAKS",
+     "t": "p",
+     "lines": [
+      "It is not magic and it does not run forever."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "The candle must stay UPRIGHT. A plain candle is unstable in water and"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      will roll over; the demonstration uses a nail or a weight in the base,",
+      "      which changes the effective density and the maths above with it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "Near the end there is too little wax left to hold a flame at all, and it"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      drowns in its own melt pool rather than being put out by the bowl."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "Wax that has melted and run off changes the mass without changing the"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      length, which the clean ratio ignores."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the honest claim is that the water does not extinguish it, not that a candle burns forever."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something consumes itself and the consumption changes the geometry, look for the quantity that is invariant under the change. Here the absolute height above water falls steadily while the FRACTION does not move at all, and the fraction is what decides the outcome. The same reasoning explains why a rope over a pulley does not care how much has passed, and why a proportional controller settles where an absolute one hunts."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "it_breaks_before_it_lands",
    "title": "It breaks before it lands",
