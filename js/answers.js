@@ -16,8 +16,84 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 208,
+ "count": 209,
  "entries": [
+  {
+   "slug": "not_bad_luck_just_height",
+   "title": "Not bad luck, just height",
+   "ts": "2026-08-07T18:09:20+00:00",
+   "date": "7 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because a table is about the right height for HALF a turn, and half a turn is upside down.",
+   "why": [
+    {
+     "h": "WHAT THE TOAST ACTUALLY DOES",
+     "t": "p",
+     "lines": [
+      "It does not tumble. It rotates once, slowly, and the fall is over before it gets round."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It starts flat, butter up. Pushed past the edge it begins to tip, and it grips until gravity along the slice beats friction — at 14 degrees for a coefficient of 0.25. Pivoting about the edge, all the energy it has dropped is rotation:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    m g (L/2) sin(th) = (1/2) (m L^2 / 3) w^2",
+      "    w = sqrt(3 g sin(th) / L) = 8.4 rad/s"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then it is in free fall, turning at that rate and no faster. From 0.75 m the fall lasts 0.391 s, so it turns"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    8.4 x 0.391 = 3.30 rad = 189 degrees"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Half a turn. Butter down."
+     ]
+    },
+    {
+     "h": "THE PART THAT MAKES IT A MODEL AND NOT A STORY",
+     "t": "p",
+     "lines": [
+      "Ask what height would give a FULL turn and land it clean: 2.71 m. The figure published for this problem is 2.5-3.0 m, so this is not a story fitted to the answer — it predicts a number nobody put in."
+     ]
+    },
+    {
+     "h": "WHY EVERY TABLE IS THE WRONG HEIGHT",
+     "t": "p",
+     "lines": [
+      "Table height is set by the length of human legs, and the toast needs about three times that to get round. There is no kitchen where this comes out right. Catching it is worse than useless too: sweeping it off the edge faster gives it LESS time to rotate, not more."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something goes wrong reliably, stop looking for a reason it is against you and find the quantity that fixes the outcome. Here it is a length you could measure with a ruler."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "dominoes_count_like_rabbits",
    "title": "Dominoes count like rabbits",
