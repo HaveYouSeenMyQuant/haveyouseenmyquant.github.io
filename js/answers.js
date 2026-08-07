@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "six_cuts_twenty_two_pieces",
    "title": "Six cuts, twenty-two pieces",
-   "ts": "2026-08-07T16:18:04+00:00",
+   "ts": "2026-08-07T16:21:49+00:00",
    "date": "7 Aug 2026",
    "topic": "puzzles",
    "q": null,
