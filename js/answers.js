@@ -16,12 +16,102 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 204,
+ "count": 205,
  "entries": [
+  {
+   "slug": "half_the_boards_impossible",
+   "title": "Half the boards are impossible",
+   "ts": "2026-08-07T14:21:22+00:00",
+   "date": "7 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "The two halves are told apart by a parity, and no legal move can change it.",
+   "why": [
+    {
+     "h": "THE INVARIANT",
+     "t": "p",
+     "lines": [
+      "Ignore the blank for a moment and read the tiles in order, left to right, top to bottom. Count the INVERSIONS: pairs of tiles that appear in the wrong relative order. The solved board has 0. Swapping two tiles changes that count by an odd number, so the swapped board has odd inversions."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now add the blank back. A horizontal slide moves a tile past nothing at all, so inversions are unchanged. A vertical slide jumps a tile over exactly two others, so inversions change by 0 or +/-2 — always an EVEN amount. Meanwhile the blank changes row."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "On a 3x3 board that is the whole story: the number of inversions is unchanged modulo 2 by every legal move, so its parity is fixed forever. The solved board has 0 inversions, the swapped board has an odd number, and therefore no sequence of slides connects them."
+     ]
+    },
+    {
+     "h": "A WIDTH-DEPENDENT DETAIL WORTH GETTING RIGHT",
+     "t": "p",
+     "lines": [
+      "The rule usually quoted is \"inversions plus the blank's row from the bottom\", and on a 3x3 that version is WRONG — the row term changes by 1 on every vertical slide and breaks the very thing it is supposed to preserve."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is needed on EVEN-width boards. On the 4x4 \"15 puzzle\" a vertical slide jumps a tile over three others, an odd change to the inversions, and the blank's row shifting by one is exactly what cancels it. So:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  odd width  (3x3):  inversions alone",
+      "  even width (4x4):  inversions + blank row from the bottom"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same idea, two arithmetics, and quoting the wrong one for the board in front of you gives the wrong answer half the time."
+     ]
+    },
+    {
+     "h": "THE COUNT",
+     "t": "p",
+     "lines": [
+      "For the 3x3 board this splits the 9! = 362,880 arrangements into two classes of exactly 181,440. You can reach every board in your own class and none in the other — which is why the puzzle feels solvable when it is, and utterly impossible when it is not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is nothing special about 3x3. The same argument works for the 4x4 \"15 puzzle\", which is where the trick became famous: in the 1880s a puzzle-seller offered a large prize for solving a board with two tiles swapped. It was safe money."
+     ]
+    },
+    {
+     "h": "WHY SEARCHING WOULD NEVER HAVE TOLD YOU",
+     "t": "p",
+     "lines": [
+      "You could slide for a lifetime and only ever learn that you had not succeeded yet. The invariant settles all 181,440 failures at once, and it is a two-line argument. That asymmetry is the point: to prove something IS possible you exhibit it, but to prove something is NOT you must find a quantity that the rules cannot touch."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a puzzle resists, stop looking for a route and look for something conserved. Ask what every legal move leaves alone. Colouring arguments, parity arguments and conservation laws are all the same instinct, and they convert an infinite search into one line of arithmetic — the chameleons puzzle is this move with mod 3, and this is it with mod 2."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_cheaper_pump_costs_more",
    "title": "The cheaper pump costs more",
-   "ts": "2026-08-07T13:21:57+00:00",
+   "ts": "2026-08-07T13:23:35+00:00",
    "date": "7 Aug 2026",
    "topic": "everyday",
    "q": null,
