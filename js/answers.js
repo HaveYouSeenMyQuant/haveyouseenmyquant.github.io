@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 206,
+ "count": 207,
  "entries": [
+  {
+   "slug": "the_bubbles_go_down",
+   "title": "The bubbles go down",
+   "ts": "2026-08-07T17:20:25+00:00",
+   "date": "7 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "The bubbles going up the middle drag the drink with them, and it comes back down the outside.",
+   "why": [
+    {
+     "h": "WHY THERE IS A DOWNWARD FLOW AT ALL",
+     "t": "p",
+     "lines": [
+      "Bubbles rise fastest up the centre, where there are most of them. They pull drink upwards with them. That drink has nowhere to go but down again, and it comes down where there are fewest bubbles — against the glass. Measured, that downward drift is around 15 mm/s."
+     ]
+    },
+    {
+     "h": "WHY THE BUBBLES LOSE THE RACE",
+     "t": "p",
+     "lines": [
+      "A bubble at the wall is climbing through drink that is descending. Whether it wins depends on its own rise speed, and for a small bubble that is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    v = rho g d^2 / (18 mu)        -- proportional to d SQUARED"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    stout, 60 um       0.98 mm/s      loses",
+      "    lager, 1000 um     121 mm/s      wins easily"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The break-even diameter is 235 um. A stout's nitrogen bubbles are comfortably under it; a lager's carbon dioxide bubbles are several times over. Ten times the width is a hundred times the climbing speed, and that is the whole difference between a drink that appears to pour downwards and one that does not."
+     ]
+    },
+    {
+     "h": "A CHECK THAT MATTERS",
+     "t": "p",
+     "lines": [
+      "Stokes only applies while the flow round the bubble is smooth — Reynolds number well under 1. For the stout bubble it is 0.029, which is fine. For a 1000 um bubble Stokes would give 272 mm/s at a Reynolds number of 136, which is nonsense — the drag law is wrong there. Redone properly it comes out at about 121 mm/s, still 8 times the downward drift, so the conclusion survives the correction that the arithmetic did not deserve."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a formula gives you the answer you wanted, check you were allowed to use it. Here it did not matter. Often it does."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "six_cuts_twenty_two_pieces",
    "title": "Six cuts, twenty-two pieces",
