@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "slower_than_a_snail",
    "title": "Slower than a snail",
-   "ts": "2026-08-07T09:53:42+00:00",
+   "ts": "2026-08-07T09:54:55+00:00",
    "date": "7 Aug 2026",
    "topic": "everyday",
    "q": null,
