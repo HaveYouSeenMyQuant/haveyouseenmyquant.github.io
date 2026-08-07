@@ -16,8 +16,107 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 198,
+ "count": 199,
  "entries": [
+  {
+   "slug": "two_clear_things_make_a_cloud",
+   "title": "Two clear things make a cloud",
+   "ts": "2026-08-07T09:17:30+00:00",
+   "date": "7 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because how much water air can hold is a CURVED function of temperature, bending upward - and when you mix two parcels of air, the temperature averages along a straight line while the capacity does not.",
+   "why": [
+    {
+     "h": "THE SETUP, IN NUMBERS",
+     "t": "p",
+     "lines": [
+      "Your breath leaves at about 35 C and is saturated - roughly 56 hPa of water vapour. On a cold day the outside air is -5 C at, say, 60% humidity, which is only 2.5 hPa. Neither is foggy. Your breath is clear and the air is clear."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Mix them half and half. Both temperature and vapour content average linearly:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    temperature -> 15 C",
+      "    vapour      -> 29.4 hPa"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But 15 C air can only hold 17.0 hPa. The mixture is carrying 73% more water than it can keep, so the excess condenses into droplets, and droplets scatter light. That is the cloud."
+     ]
+    },
+    {
+     "h": "WHY THE WARM DAY IS DIFFERENT",
+     "t": "p",
+     "lines": [
+      "Same breath, outside air now 20 C at 60% (14.0 hPa):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    temperature -> 27.5 C",
+      "    vapour      -> 35.2 hPa",
+      "    capacity    -> 36.7 hPa"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Just under. No fog - and only just, which is why a mild day still fogs: at 10 C outside the mixture is still 17% over."
+     ]
+    },
+    {
+     "h": "WHAT IS ACTUALLY DOING THE WORK",
+     "t": "p",
+     "lines": [
+      "Capacity roughly doubles for every 10 C, so the curve bends upward - it is convex. Mixing moves you along the straight CHORD between the two parcels, and for a convex curve the chord lies ABOVE the curve. So the mixture can carry more water than a parcel at that temperature is able to hold, even though both originals were comfortably under."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is Jensen's inequality, and this is it happening in the street:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    average of the capacities  >  capacity at the average temperature"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The cold day works not because cold air condenses water, but because a bigger temperature gap means a longer chord, and a longer chord sits further above the curve."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever you average inputs and then evaluate a curved function, ask which way it bends, because f(average) and average-of-f are not the same number and the gap grows with the spread. Convex: the average outcome beats the outcome of the average. Concave: the reverse. This is why a portfolio of volatile things is not the same as a portfolio at average volatility, why average latency understates the pain of a fat tail, and why \"we sized it on the mean case\" is usually the sentence just before the problem."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_planets_never_twinkle",
    "title": "The planets never twinkle",
