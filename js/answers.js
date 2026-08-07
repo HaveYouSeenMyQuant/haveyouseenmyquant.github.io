@@ -16,12 +16,85 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 205,
+ "count": 206,
  "entries": [
+  {
+   "slug": "six_cuts_twenty_two_pieces",
+   "title": "Six cuts, twenty-two pieces",
+   "ts": "2026-08-07T16:18:04+00:00",
+   "date": "7 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Each new cut adds one more piece than the cut before it, so the totals are 1, 2, 4, 7, 11, 16, 22 — and the formula is n(n+1)/2 + 1.",
+   "why": [
+    {
+     "h": "WHY THE INCREMENTS GROW",
+     "t": "p",
+     "lines": [
+      "Think about making the k-th cut. It is a straight line, and it can cross each of the k-1 cuts already there — at most once each, since two straight lines meet at most once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Those k-1 crossings chop the new cut into k segments. And every segment of the new cut passes through the middle of exactly one existing piece, slicing that piece in two."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the k-th cut creates exactly k new pieces. Not one, not two: k."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  cut 1 adds 1  ->  2",
+      "  cut 2 adds 2  ->  4",
+      "  cut 3 adds 3  ->  7",
+      "  cut 4 adds 4  -> 11",
+      "  cut 5 adds 5  -> 16",
+      "  cut 6 adds 6  -> 22"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Total = 1 + (1 + 2 + ... + n) = n(n+1)/2 + 1."
+     ]
+    },
+    {
+     "h": "WHY DOUBLING IS WRONG",
+     "t": "p",
+     "lines": [
+      "The guess of 2, 4, 8, 16 comes from the first two steps looking like doubling. They are not — 1 and 2 are the first two increments of an arithmetic sequence, and they happen to coincide with doubling for exactly one step. By the third cut the two answers disagree: 7 against 8, and the gap widens forever after. Two data points cannot tell an arithmetic sequence from a geometric one, which is precisely why two data points are never enough."
+     ]
+    },
+    {
+     "h": "THE CONDITION EVERYONE FORGETS",
+     "t": "p",
+     "lines": [
+      "22 is the MAXIMUM, not the automatic result. It needs every pair of cuts to actually cross, and no three cuts to meet at a single point. Stack all six cuts parallel and you get 7 pieces. Run them all through the centre and you get 12 — which is where the intuitive \"12\" comes from, and it is the answer to a different question: six cuts through one point give 12 slices, and that is the pizza people actually eat."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Count the INCREMENT, not the total. \"How much does the next one add, and why?\" turns a hard counting problem into an easy one over and over — it is the same move behind handshakes, regions of a plane, and most sequences with a clean closed form. And when a sequence starts 1, 2, 4, resist the urge to name it: check the third term."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "half_the_boards_impossible",
    "title": "Half the boards are impossible",
-   "ts": "2026-08-07T14:21:22+00:00",
+   "ts": "2026-08-07T14:23:11+00:00",
    "date": "7 Aug 2026",
    "topic": "puzzles",
    "q": null,
@@ -12187,5 +12260,5 @@ window.QQ_ANSWERS = {
    "src": "module"
   }
  ],
- "featured": "monk_same_time_twice"
+ "featured": "half_in_cash_wins"
 };
