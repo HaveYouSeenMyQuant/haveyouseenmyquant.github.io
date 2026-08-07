@@ -16,8 +16,112 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 200,
+ "count": 201,
  "entries": [
+  {
+   "slug": "it_breaks_before_it_lands",
+   "title": "It breaks before it lands",
+   "ts": "2026-08-07T11:07:24+00:00",
+   "date": "7 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because the top of the chimney has to fall FASTER than gravity can make it fall, and brick cannot pull.",
+   "why": [
+    {
+     "h": "THE SETUP",
+     "t": "p",
+     "lines": [
+      "A toppling chimney is a rigid tower turning about its base, not a free-falling object. Everything on it swings on the same arc, so a point at height r has downward acceleration set by the rotation:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    angular acceleration:  a = (3g / 2L) cos(theta)",
+      "    acceleration at r:     a x r"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Compare that with free fall, which is g cos(theta) everywhere. They are equal at"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    r = 2L / 3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Below two-thirds height, the tower is falling SLOWER than free fall and gravity is pushing it round. Above two-thirds, it must fall FASTER than gravity alone can manage — and the only thing that can accelerate it is the masonry beneath, pulling down on it."
+     ]
+    },
+    {
+     "h": "WHY IT BREAKS",
+     "t": "p",
+     "lines": [
+      "Brick and mortar take compression happily and pull hardly at all. So the tower tries to drag its own top down, the joints go into tension, and it tears."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Where it tears is not the crossover point. Work out the bending moment — the accumulated torque the section at height x must transmit to the whole tower above it — and integrate:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    M(x) = INTEGRAL from x to L of  (a r - g cos theta) (r - x) dm"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That peaks at x = L/3. Not at two-thirds, where the sign flips, but at one third, where the accumulated demand is greatest. Run it at any fall angle and the peak does not move — the cos(theta) is a common factor and divides out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So: one third of the way up, every time, regardless of how far it has fallen."
+     ]
+    },
+    {
+     "h": "WHAT THIS IS NOT",
+     "t": "p",
+     "lines": [
+      "Not impact damage. The break happens in the air, often when the chimney is only 30 or 40 degrees over. Not an explosive charge either — demolition crews cut a notch at the base and let it fall; the mid-air break is the chimney doing it to itself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Tall thin ones break in two, sometimes three. A squat one may not break at all, because the demand scales with length and there is not enough of it."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a rigid thing rotates, different parts of it require different accelerations, and something has to supply the difference. Ask what is providing it and whether that thing can. It is why a long spanner twists, why a falling ladder is more dangerous at the top than the middle, and why the failure point of a rotating structure is rarely where the load looks largest — it is where the accumulated demand peaks."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "slower_than_a_snail",
    "title": "Slower than a snail",
