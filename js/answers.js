@@ -16,12 +16,80 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 196,
+ "count": 197,
  "entries": [
+  {
+   "slug": "closer_to_the_fire_and_colder",
+   "title": "Closer to the fire, and colder",
+   "ts": "2026-08-07T08:07:30+00:00",
+   "date": "7 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because getting closer to the Sun is not what changes. Climbing the highest mountain closes about six hundredths of a millionth of the distance to it, and buys you roughly EIGHT MILLIONTHS of a degree of extra warmth. The summit is about 57 degrees colder. The intuition is not slightly wrong - it is wrong by seven orders of magnitude.",
+   "why": [
+    {
+     "h": "THE NUMBER NOBODY CHECKS",
+     "t": "p",
+     "lines": [
+      "The Sun is 149,597,871 km away. The summit is 8.848 km up. The fraction of the journey you have completed is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    8.848 / 149,597,871  =  0.0000000591"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sunlight falls off as one over distance squared, so the intensity rises by about 0.000012 percent. Temperature goes as the fourth root of intensity, so that is worth around 0.0000085 degrees. You would need an instrument to find it."
+     ]
+    },
+    {
+     "h": "WHAT ACTUALLY MAKES IT COLD",
+     "t": "p",
+     "lines": [
+      "Air is not heated much by sunlight passing through it. It is heated from BELOW, by the ground, and then it moves. When a parcel of air rises it meets lower pressure, expands, and does work pushing the surrounding air out of the way. That work costs energy, the parcel has no time to draw heat back in, and its temperature falls. The rate follows from two constants:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    lapse rate  =  g / cp  =  9.81 / 1005  =  9.8 degrees per kilometre"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "for dry air. Real air carries water, which releases heat as it condenses and partly offsets the cooling, so the observed average is nearer 6.5 degrees per kilometre. Over 8.848 km that is about 57 degrees - which is the number you actually feel."
+     ]
+    },
+    {
+     "h": "THE CHECK THAT SETTLES IT",
+     "t": "p",
+     "lines": [
+      "If height near the Sun were the point, the whole Earth would be warmest in January, when it is 5 million km closer to the Sun than in July - a distance change 570,000 times larger than climbing the mountain. It is not. Seasons come from axial tilt, and even that 5-million-km swing is a minor term."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a plausible cause is available, check its SIZE before accepting it. \"Closer to the Sun\" is real, directional and correct in sign - and seven million times too small to matter. An explanation being true is not the same as it being the explanation."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_balloon_leans_the_wrong_way",
    "title": "The balloon leans the wrong way",
-   "ts": "2026-08-07T06:20:00+00:00",
+   "ts": "2026-08-07T06:21:40+00:00",
    "date": "7 Aug 2026",
    "topic": "everyday",
    "q": null,
