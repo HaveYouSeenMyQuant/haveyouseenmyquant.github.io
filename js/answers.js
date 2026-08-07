@@ -16,8 +16,98 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 195,
+ "count": 196,
  "entries": [
+  {
+   "slug": "the_balloon_leans_the_wrong_way",
+   "title": "The balloon leans the wrong way",
+   "ts": "2026-08-07T06:20:00+00:00",
+   "date": "7 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Backwards. Everything else in the car is thrown forward and the helium balloon leans back, by exactly the angle a pendulum would swing forward.",
+   "why": [
+    {
+     "h": "THE FRAME",
+     "t": "p",
+     "lines": [
+      "Work inside the car. Braking means the car's acceleration A points backwards, so in the car's frame everything feels a pseudo-force forwards. Combine it with gravity and you get an effective gravity"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    g_eff  =  g - A"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "pointing down AND forwards. That single vector is the whole answer: the car now behaves exactly like a car parked on a slope, tilted by"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    theta  =  arctan(a / g)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For a firm brake at half a g, that is 26.6 degrees."
+     ]
+    },
+    {
+     "h": "WHY THE BALLOON GOES THE OTHER WAY",
+     "t": "p",
+     "lines": [
+      "Air is a fluid sitting in that field. It piles up along g_eff, just as the atmosphere piles up at the bottom under ordinary gravity - so the air in the cabin is denser and at higher pressure at the FRONT while you brake. A pressure difference pushes from high toward low, which is backwards."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every object feels both the pseudo-force and that pressure gradient. Which one wins is decided by one comparison:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    denser than air   ->  the pseudo-force wins   ->  it goes forwards",
+      "    lighter than air  ->  the pressure wins       ->  it goes backwards"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Your coffee, your phone and you are all denser than air, so you go forwards. Helium is not, so it goes back. It is the same rule that makes a balloon rise while a stone falls, rotated into the horizontal."
+     ]
+    },
+    {
+     "h": "THE CLEANEST STATEMENT",
+     "t": "p",
+     "lines": [
+      "Hang a pendulum from the roof and tie a balloon to the floor. Brake, and the two tilt by the SAME angle in OPPOSITE directions - both simply lining themselves up with g_eff, one along it and one against it."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "The question feels like it is about balloons and turns out to be about which way \"down\" is. When an answer seems to depend on the specific objects, look for the field they are all sitting in: usually one vector explains every object at once, and the objects only decide which end of it they go to."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_small_one_empties",
    "title": "The small one empties",
