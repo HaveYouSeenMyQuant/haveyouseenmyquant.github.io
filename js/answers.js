@@ -16,12 +16,82 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 212,
+ "count": 213,
  "entries": [
+  {
+   "slug": "eight_queens_how_many",
+   "title": "Eight queens, none attacking",
+   "ts": "2026-08-07T20:45:13+00:00",
+   "date": "7 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "92.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Out of 4,426,165,368 ways to drop eight queens onto sixty-four squares, exactly 92 leave no queen attacking another. That is roughly one arrangement in forty-eight million."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The 92 are not really 92 different ideas. The board has eight symmetries — four rotations, each with a mirror — and applying them to a solution gives you another solution. Group the 92 into families and only 12 remain. Eleven of those families have all eight symmetric copies distinct; one is special, having a symmetry of its own, so it produces only four. 11 x 8 + 1 x 4 = 92."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "How the count is actually found: not by a formula, because none is known. You place one queen per column left to right, and the moment a partial placement is illegal you abandon the whole branch rather than completing it. That is backtracking, and it turns 4.4 billion into about 15,000 partial arrangements examined."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The counts for smaller boards are worth seeing, because they are so irregular:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  1x1    1",
+      "  2x2    0        two queens on four squares always see each other",
+      "  3x3    0",
+      "  4x4    2",
+      "  5x5    10",
+      "  6x6    4        FEWER than the 5x5",
+      "  7x7    40",
+      "  8x8    92",
+      "  9x9    352",
+      "  10x10  724"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The 6x6 dropping below the 5x5 is the giveaway that no simple formula is coming. The sequence has been computed to 27x27 by very large parallel searches, and nobody has found a closed form or expects one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason this puzzle is a fixture of interviews is the pruning, not the answer. The naive approach — generate all 4.4 billion placements and test each — is unusable, and the fix is not a faster computer. It is noticing that two queens in the same column can never be repaired by anything you add later, so you place one per column and never generate the rest. Ruling out whole branches before exploring them is the entire technique, and it is the same instinct behind alpha-beta pruning, branch and bound, and constraint propagation."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_lap_how_many_turns",
    "title": "One lap, how many turns",
-   "ts": "2026-08-07T19:54:20+00:00",
+   "ts": "2026-08-07T19:55:34+00:00",
    "date": "7 Aug 2026",
    "topic": "puzzles",
    "q": null,
