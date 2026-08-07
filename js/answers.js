@@ -16,8 +16,92 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 194,
+ "count": 195,
  "entries": [
+  {
+   "slug": "the_small_one_empties",
+   "title": "The small one empties",
+   "ts": "2026-08-07T05:39:49+00:00",
+   "date": "7 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Because a bubble's internal pressure goes UP as it gets smaller, so the small one is the high-pressure side - and emptying makes it smaller still, which raises its pressure further. It is a runaway, not a balance.",
+   "why": [
+    {
+     "h": "THE PRESSURE",
+     "t": "p",
+     "lines": [
+      "A soap film pulls inward. To hold a bubble open, the air inside must push back harder than the air outside, and Laplace's law says by how much. A soap bubble has TWO surfaces, inner and outer, so:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    excess pressure = 4 x surface tension / radius"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Radius is in the denominator. Halve the bubble and you double the pressure inside it. For soapy water:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    radius  0.5 cm  ->  20 Pa above atmospheric",
+      "    radius    1 cm  ->  10 Pa",
+      "    radius    5 cm  ->   2 Pa"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The 1 cm bubble is at five times the excess pressure of the 5 cm one. Open a tube between them and air goes where the pressure is lower: from small to large."
+     ]
+    },
+    {
+     "h": "WHY IT RUNS AWAY",
+     "t": "p",
+     "lines": [
+      "As the small bubble loses air its radius drops, and the formula says its pressure RISES. The pressure difference driving the flow gets bigger as the flow proceeds. Nothing stops it until the small bubble is a nearly flat cap on the end of the tube, which has an enormous radius of curvature and therefore almost no excess pressure at all. That is the only stable end state."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the intuition - \"they will even out\" - is not slightly wrong, it is backwards. Equal sizes is an equilibrium, but an UNSTABLE one: nudge either bubble a hair smaller and it collapses into the other."
+     ]
+    },
+    {
+     "h": "THE SIZE OF IT",
+     "t": "p",
+     "lines": [
+      "These pressures are tiny. Ten pascals is one ten-thousandth of atmospheric pressure. The effect is unmissable anyway, because it is the DIFFERENCE that drives the flow and there is nothing else pushing back."
+     ]
+    },
+    {
+     "h": "BALLOONS ARE NOT THE SAME",
+     "t": "p",
+     "lines": [
+      "The identical demonstration with rubber balloons is famous and much messier. Rubber's tension is not constant - it stiffens, then yields, then stiffens again - so the pressure-radius curve is not a simple 1/r and balloons can genuinely reach a stable pair. Soap films have constant surface tension, which is what makes the bubble version clean and the balloon version an argument."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Look for where the restoring force has the wrong sign. Systems that concentrate rather than even out are everywhere - cities, wealth, market share, the biggest crack in a stressed plate - and they all share this shape: the leader's advantage grows because it leads. Averaging is the exception, not the rule, and assuming things tend toward the middle is a habit, not a law."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "rank_times_count_stays_put",
    "title": "Rank times count stays put",
