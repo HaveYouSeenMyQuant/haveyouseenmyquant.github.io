@@ -16,12 +16,97 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 227,
+ "count": 228,
  "entries": [
+  {
+   "slug": "ninety_gives_you_forty_five",
+   "title": "Ninety gives you forty-five",
+   "ts": "2026-08-08T03:55:18+00:00",
+   "date": "8 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "No speed works. Not ninety, not nine hundred, not nine million - the trip is already over budget before you turn around, and the reason is that you cannot average a rate over distance the way you average it over time.",
+   "why": [
+    {
+     "h": "THE ONE LINE",
+     "t": "p",
+     "lines": [
+      "Sixty miles an hour over two miles is a statement about the CLOCK: two miles at sixty takes two minutes. That is the entire budget for the round trip."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The first mile, at thirty, takes 1/30 of an hour - two minutes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The budget is spent. There is no time left to drive the second mile in, and the second mile is still a mile long. You would have to cover it in zero time."
+     ]
+    },
+    {
+     "h": "WHY NINETY FEELS RIGHT",
+     "t": "p",
+     "lines": [
+      "Thirty and ninety average to sixty - as numbers. But you do not spend equal TIME at the two speeds. You spend three times as long at thirty as you would at ninety, so the slow leg dominates the average far more than a halfway point suggests. The honest average is the harmonic mean:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2 / (1/30 + 1/90) = 45 mph"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Not sixty. Forty-five."
+     ]
+    },
+    {
+     "h": "WATCHING IT FAIL",
+     "t": "pre",
+     "lines": [
+      "    return at    90 mph  ->  45.0 average",
+      "    return at   300 mph  ->  54.5",
+      "    return at 1,000 mph  ->  58.3",
+      "    return at 1,000,000  ->  59.998"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It climbs toward sixty and never arrives. Sixty is the limit as the return speed goes to infinity, which is a precise way of saying: impossible."
+     ]
+    },
+    {
+     "h": "THE GENERAL RULE",
+     "t": "p",
+     "lines": [
+      "Average speed is total distance over total time - always, no exceptions. When each leg is a fixed DISTANCE, the correct average of the speeds is the harmonic mean, which is always less than or equal to the ordinary one. Equal only when the speeds are equal."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever you are asked to average rates, ask what is held constant. Fixed distance gives the harmonic mean; fixed time gives the ordinary mean. The same trap sets prices in currency conversion, average cost per share when you buy fixed dollar amounts rather than fixed share counts, and the average of ratios in any report where the denominators differ. Averaging the ratios instead of taking the ratio of the totals is the single most common quantitative error in business reporting, and this puzzle is the smallest possible instance of it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_edge_that_isnt_straight",
    "title": "The edge that isn't straight",
-   "ts": "2026-08-08T03:07:49+00:00",
+   "ts": "2026-08-08T03:18:00+00:00",
    "date": "8 Aug 2026",
    "topic": "illusions",
    "q": null,
