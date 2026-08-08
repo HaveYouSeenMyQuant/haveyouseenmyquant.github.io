@@ -16,8 +16,102 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 222,
+ "count": 223,
  "entries": [
+  {
+   "slug": "most_of_a_ball_is_skin",
+   "title": "Most of a high-dimensional ball is skin",
+   "ts": "2026-08-08T00:02:16+00:00",
+   "date": "8 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "About 63% of it. In a hundred dimensions, the outermost 1% of the radius holds nearly two thirds of the volume.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The share of a d-dimensional ball lying inside radius r is r^d, because volume scales as the d-th power of length. So the fraction OUTSIDE 0.99 is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  1 - 0.99^d"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put d = 100 and 0.99^100 is about 0.366, so roughly 63.4% of the ball is in that 1% skin."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  d = 2      2.0%",
+      "  d = 3      3.0%",
+      "  d = 10     9.6%",
+      "  d = 69    50.0%   (the first dimension where the skin holds more than the core)",
+      "  d = 100   63.4%",
+      "  d = 1000  99.996%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "By a thousand dimensions, essentially every point in the ball is within 1% of the surface. There is nothing in the middle. Not \"little\" — nothing worth speaking of."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason is easier than it looks. Volume scales like length to the power d. Shrinking a ball's radius by 1% shrinks its volume by a factor of 0.99^d, and any number below 1 raised to a large power collapses. The core does not slowly lose ground as dimensions are added; it vanishes geometrically."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why this is not a curiosity — it is the curse of dimensionality, and it breaks things people rely on:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nearest neighbours stop being near. If almost all points sit at nearly the same distance from the surface, then distances between random points concentrate: the nearest and the furthest neighbour end up almost equally far away, and \"find the closest example\" stops carrying information."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sampling a neighbourhood stops representing it. In low dimensions a small ball around a point is a fair local sample. In high dimensions the ball is all boundary, so what you gather is the rim, not the region."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And it defeats grid search completely. Covering a d-dimensional cube at any fixed resolution needs a number of points exponential in d, which is the same fact wearing different clothes — and why random search and gradient methods win in high dimensions while exhaustive search does not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The transferable instinct: in high dimensions, ask where the VOLUME is, not where the space is. The two answers stop agreeing, and the volume is what your data actually lives in."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_charge_before_you_use_anything",
    "title": "the charge before you use anything",
@@ -13319,5 +13413,5 @@ window.QQ_ANSWERS = {
    "src": "module"
   }
  ],
- "featured": "half_in_cash_wins"
+ "featured": "chameleons_never_agree"
 };
