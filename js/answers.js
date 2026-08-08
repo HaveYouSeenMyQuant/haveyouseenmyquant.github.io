@@ -16,8 +16,72 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 240,
+ "count": 241,
  "entries": [
+  {
+   "slug": "which_voucher_first",
+   "title": "which voucher first",
+   "ts": "2026-08-08T15:20:39+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "GBP 70 one way, GBP 72 the other. The 20% voucher first is the cheaper order, by GBP 2.",
+   "why": [
+    {
+     "h": "THE TWO ORDERS",
+     "t": "pre",
+     "lines": [
+      "    20% first    GBP 100 -> GBP 80 -> GBP 70",
+      "    GBP 10 first   GBP 100 -> GBP 90 -> GBP 72"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A percentage takes a share of whatever number is in front of it. Put it first and it acts on the bigger number, so it takes more off. The GBP 10 takes GBP 10 whatever it is applied to."
+     ]
+    },
+    {
+     "h": "THE GAP DOES NOT DEPEND ON THE PRICE",
+     "t": "pre",
+     "lines": [
+      "    gap  =  GBP 10 x 20%  =  GBP 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The coat's price cancels out entirely. Same two vouchers on a GBP 500 coat: still exactly GBP 2 apart. On a GBP 40 coat: still GBP 2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    GBP  40 coat   GBP 22 or GBP 24",
+      "    GBP 100 coat   GBP 70 or GBP 72",
+      "    GBP 500 coat   GBP 390 or GBP 392"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every row is GBP 2 apart. That is why the rule is worth keeping rather than the example."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "\"Take 20% off\" and \"take GBP 10 off\" are different KINDS of operation, and different kinds of operation rarely commute. Whenever a proportion and a fixed amount are applied one after the other -- discounts, fees, taxes, tips -- the order is a real question with a real answer, and the answer is always to let the proportion act on the larger number."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "one_each_and_a_third_empty",
    "title": "One each, and a third empty",
