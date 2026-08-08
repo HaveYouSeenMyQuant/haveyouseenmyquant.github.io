@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 252,
+ "count": 253,
  "entries": [
+  {
+   "slug": "spending_more_to_save_the_delivery",
+   "title": "spending more to save the delivery",
+   "ts": "2026-08-08T21:27:30+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/#answers/spending_more_to_save_the_delivery",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: put the two totals next to each other. One total is the basket plus the charge for bringing it to your door. The other is the basket plus the extra thing. Do not count the extra thing as a saving unless you truly wanted it."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "two_metres_of_blood",
    "title": "Two metres of blood",
