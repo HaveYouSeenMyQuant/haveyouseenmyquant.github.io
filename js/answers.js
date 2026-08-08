@@ -19,65 +19,76 @@ window.QQ_ANSWERS = {
  "count": 239,
  "entries": [
   {
-   "slug": "one_each_and_a_third_empty",
-   "title": "One each, and a third empty",
-   "ts": "2026-08-08T14:33:30+00:00",
+   "slug": "two_percent_to_three_percent",
+   "title": "two percent to three percent",
+   "ts": "2026-08-08T14:34:50+00:00",
    "date": "8 Aug 2026",
-   "topic": "probability",
+   "topic": "money",
    "q": null,
-   "a": "Because \"one per bin on average\" is a statement about the total, and says nothing about how the total is shared out. Throwing at random guarantees the sharing is uneven, and the unevenness is large: about 37 bins in 100 get nothing while the busiest gets four or five.",
+   "a": "50% more. GBP 4,000 a year becomes GBP 6,000 -- an extra GBP 2,000, from a rate that moved by \"one percent\".",
    "why": [
     {
-     "h": "WHY 37 ARE EMPTY",
+     "h": "TWO TRUE STATEMENTS, TWO DIFFERENT NUMBERS",
+     "t": "pre",
+     "lines": [
+      "    the rate rose by   1 percentage point   (2% -> 3%)",
+      "    the bill rose by   50%                 (0.03 / 0.02 = 1.5)"
+     ]
+    },
+    {
+     "h": null,
      "t": "p",
      "lines": [
-      "A given bin is missed by one ball with probability 99/100. It is missed by all hundred with probability"
+      "Both are correct. They are answers to different questions, and the words that separate them are \"percentage point\" versus \"per cent\"."
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    (1 - 1/100)^100  =  0.366"
+      "    at 2%   GBP 200,000 x 0.02  =  GBP 4,000 a year",
+      "    at 3%   GBP 200,000 x 0.03  =  GBP 6,000 a year"
+     ]
+    },
+    {
+     "h": "THE SIZE OF THE LOAN IS IRRELEVANT",
+     "t": "p",
+     "lines": [
+      "The 50% is a fact about 2% and 3%, not about GBP 200,000. Borrow a tenth as much and the bill still rises by half -- only the pounds shrink. That is why the ratio is the part worth remembering."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2% -> 3%   is +50%",
+      "    3% -> 4%   is +33%",
+      "    4% -> 5%   is +25%"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "and as the numbers grow that expression heads for 1/e = 0.3679. So a bit over a third of the bins stay empty no matter how large you make the experiment, provided the number of balls matches the number of bins. Measured over 400 trials: 36.5% at n=100 and 36.8% at n=1000."
-     ]
-    },
-    {
-     "h": "WHY THE FULLEST IS SO FULL",
-     "t": "p",
-     "lines": [
-      "Each bin's count is essentially Poisson with mean 1, so the chance of a specific bin getting 4 or more is small - about 1.9%. But you are not asking about a specific bin. With a hundred bins, the chance that NONE of them reaches 4 is small, so the maximum lands at 4 or 5 routinely. Taking a maximum over many tries finds the tail, which is why maxima behave so differently from averages."
-     ]
-    },
-    {
-     "h": "THE FORMULA, AND WHY IT IS NOT THE ANSWER HERE",
-     "t": "p",
-     "lines": [
-      "The standard result for maximum load is about ln n / ln ln n. At n=100 that is 3.02 and the measured median is 4; at n=1000 it is 3.57 against a measured 5. The expression is asymptotic - correct in the limit, and visibly low at the sizes anyone would actually simulate. Quoting it as the prediction for a hundred bins would be wrong, which is why the simulation is what this rests on."
-     ]
-    },
-    {
-     "h": "WHERE IT BITES",
-     "t": "p",
-     "lines": [
-      "Hash tables, load balancers, shard assignment, servers picking a queue at random: all of them are balls into bins, and all of them are much more uneven than the average suggests. The standard fix is startlingly cheap - pick TWO bins at random and use the emptier one, and the maximum load drops from about ln n / ln ln n to about ln ln n. Two choices instead of one turns a maximum of five into a maximum of two or three."
+      "Each further point hurts less in proportion, because the base it is measured against keeps growing. The first point is the expensive one."
      ]
     },
     {
      "h": "THE TRANSFERABLE MOVE",
      "t": "p",
      "lines": [
-      "Whenever you are handed an average, ask what the maximum looks like. Systems fail at their busiest point, not at their mean, and random assignment produces far more spread than intuition allows for."
+      "When the thing that changes is itself a percentage, \"up one percent\" is ambiguous and the ambiguity is worth pounds. Ask which of the two it is: a point added, or a proportion of what was already there."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "(Interest only, to keep it to one idea -- a repayment mortgage moves less because the balance falls, but the direction is the same.)"
      ]
     }
    ],
-   "src": "answer"
+   "src": "comment"
   },
   {
    "slug": "corners_edges_faces",
