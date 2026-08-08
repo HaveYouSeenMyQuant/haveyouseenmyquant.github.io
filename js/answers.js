@@ -16,8 +16,86 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 249,
+ "count": 250,
  "entries": [
+  {
+   "slug": "the_leaves_go_the_wrong_way",
+   "title": "The leaves go the wrong way",
+   "ts": "2026-08-08T20:02:00+00:00",
+   "date": "8 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "They go to the middle because the tea touching the bottom of the cup is running SLOWER than the tea above it, while the inward squeeze the spin sets up has not slowed down with it.",
+   "why": [
+    {
+     "h": "WHAT THE SPINNING TEA IS DOING",
+     "t": "p",
+     "lines": [
+      "Stir it and the tea piles up against the wall of the cup — you can watch it, the surface stands about 13 mm higher at the rim than in the middle at two turns a second. That slope is what holds the tea in a circle, and out in the fast-moving body of the cup it is exactly the right size:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    inward squeeze          = rho x omega^2 x r",
+      "    what the bulk needs     = the same thing"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "They cancel. Nothing drifts."
+     ]
+    },
+    {
+     "h": "WHERE IT STOPS CANCELLING",
+     "t": "p",
+     "lines": [
+      "The cup drags on the tea touching it, so the bottom millimetre runs at maybe half speed. It needs only a quarter as much force to keep turning — and the squeeze pressing it inward is set by the whole cup and has not changed:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    inward   5,053 N/m3",
+      "    needed   1,263 N/m3",
+      "    net      3,790 N/m3 inward"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the bottom layer creeps inward, rises in the middle, spreads out across the top and sinks at the rim. The leaves are sitting in the one layer that is heading inward, so inward is where they go, and they stop when they meet."
+     ]
+    },
+    {
+     "h": "WHY BEING HEAVY IS NOT THE ANSWER",
+     "t": "p",
+     "lines": [
+      "Heavy is only why they are on the bottom, which is where the inward current happens to be. A spinning cup really does push a heavy leaf outward — at 1,263 N/m3 here — but the leftover inward push is 3 times bigger, so inward wins. Something LIGHT and floating rides the return current across the surface and goes the other way, to the rim."
+     ]
+    },
+    {
+     "h": "THE CHECK THAT NAMES THE CAUSE",
+     "t": "p",
+     "lines": [
+      "Take the slowing away — a base that does not hold the tea back at all — and the imbalance is exactly zero at every stirring speed, from half a turn a second to forty. The spinning was never the cause. The cup's grip on the tea is."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a balance is set globally but the resistance to it varies locally, the places that resist least will drift — and they drift against what the bulk motion suggests. Einstein used exactly this argument to explain why rivers meander."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "six_pounds_on_thirty",
    "title": "six pounds on thirty",
