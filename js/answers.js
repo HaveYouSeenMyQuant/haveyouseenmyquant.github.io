@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "how_many_triangles",
    "title": "How many triangles",
-   "ts": "2026-08-08T05:44:31+00:00",
+   "ts": "2026-08-08T05:46:50+00:00",
    "date": "8 Aug 2026",
    "topic": "puzzles",
    "q": null,
