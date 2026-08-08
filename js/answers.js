@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 244,
+ "count": 245,
  "entries": [
+  {
+   "slug": "the_house_went_up_five",
+   "title": "the house went up five",
+   "ts": "2026-08-08T17:29:34+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "+50%. The house moved 5%; your share of it moved ten times that -- and it does the same on the way down.",
+   "why": [
+    {
+     "h": "THE MORTGAGE DOES NOT MOVE",
+     "t": "pre",
+     "lines": [
+      "    house   GBP 200,000  ->  GBP 210,000     (+5%)",
+      "    loan    GBP 180,000  ->  GBP 180,000     (unchanged)",
+      "    yours   GBP 20,000  ->  GBP 30,000     (+50%)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The whole rise lands on your side of the balance sheet, because the debt is a fixed number of pounds and not a share of the house."
+     ]
+    },
+    {
+     "h": "THE MULTIPLIER IS ONE OVER YOUR DEPOSIT",
+     "t": "pre",
+     "lines": [
+      "    deposit  10%   ->  multiplier 10x",
+      "    deposit  25%   ->  multiplier 4x",
+      "    deposit  50%   ->  multiplier 2x",
+      "    deposit 100%   ->  multiplier 1x   (nothing borrowed, no amplification)"
+     ]
+    },
+    {
+     "h": "THE HALF NOBODY PUTS ON THE POSTER",
+     "t": "p",
+     "lines": [
+      "The same house falling 5% takes your GBP 20,000 to GBP 10,000. Down 50%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    house -5%   ->  yours GBP 10,000",
+      "    house  0%    ->  yours GBP 20,000",
+      "    house +5%   ->  yours GBP 30,000"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A 10% fall would wipe the deposit out entirely. Leverage does not make a move bigger in your favour; it makes the SAME move matter ten times as much, whichever way it goes."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "A return only means something once you say what it is a return ON. The house returned 5%. Your money returned 50%. Both are true, and they are answers to different questions -- and borrowing is what pulls them apart."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "three_for_two_or_a_third_off",
    "title": "three for two or a third off",
