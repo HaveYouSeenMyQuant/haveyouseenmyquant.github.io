@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "three_lengths_one_total",
    "title": "Three lengths, one total",
-   "ts": "2026-08-08T00:42:25+00:00",
+   "ts": "2026-08-08T00:44:35+00:00",
    "date": "8 Aug 2026",
    "topic": "geometry",
    "q": null,
