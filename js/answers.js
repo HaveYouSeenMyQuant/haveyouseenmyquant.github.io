@@ -16,8 +16,112 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 224,
+ "count": 225,
  "entries": [
+  {
+   "slug": "three_lengths_one_total",
+   "title": "Three lengths, one total",
+   "ts": "2026-08-08T00:42:25+00:00",
+   "date": "8 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Because the three little triangles you have just cut the shape into must add back up to the whole shape - and on an equilateral triangle they all share the same base.",
+   "why": [
+    {
+     "h": "THE ONE-LINE PROOF",
+     "t": "p",
+     "lines": [
+      "Join your dot to the three corners. That splits the triangle into three smaller triangles, one sitting on each side."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The area of each small triangle is half its base times its height. Its base is a side of the big triangle, and its height is exactly the distance from your dot to that side - the length you measured."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So, writing s for the side length and d1, d2, d3 for the three distances:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    total area = (s x d1)/2 + (s x d2)/2 + (s x d3)/2",
+      "               = (s/2) x (d1 + d2 + d3)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But the total area is fixed - it is just the area of the triangle, which is (s x h)/2 where h is the height. Setting those equal and cancelling s/2:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    d1 + d2 + d3 = h"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The sum is the height of the triangle, always, wherever the dot is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE \"EQUILATERAL\" IS ACTUALLY USED"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In one place only: factoring out s. All three bases had to be the SAME length for the sum to collapse into a single bracket. On a scalene triangle the identity becomes"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    a x d1 + b x d2 + c x d3 = 2 x area"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which is still true and still exact - but it is a weighted sum, so the plain unweighted total d1+d2+d3 wanders as the dot moves. That is precisely what the check in verify() sees."
+     ]
+    },
+    {
+     "h": "WHAT ELSE THIS UNLOCKS",
+     "t": "p",
+     "lines": [
+      "The same cut-into-pieces argument generalises: in any regular polygon with n sides, the sum of distances from an interior point to all n sides is constant, equal to n times the apothem. And in three dimensions, the distances from a point inside a regular tetrahedron to its four faces sum to the tetrahedron's height."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something is mysteriously conserved, look for a quantity that is OBVIOUSLY conserved and see whether your quantity is a disguised version of it. Here the obvious conserved thing is area - it cannot change, because the triangle is not moving - and the three distances turned out to be that area wearing different clothes."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_same_years_shuffled",
    "title": "the same years shuffled",
