@@ -16,8 +16,67 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 246,
+ "count": 248,
  "entries": [
+  {
+   "slug": "the_free_exchange_costs_more",
+   "title": "the free exchange costs more",
+   "ts": "2026-08-08T19:06:07+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_free_exchange_costs_more",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: stop comparing the two booths to each other. Compare each one to what GBP 500 is actually worth in euros at 1.20, and every booth turns into a single percentage you can read straight off -- fee and rate together, in one number. One of the two comes out nowhere near the figure on its window."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "the_tide_lifts_the_ladder",
+   "title": "A rope ladder, and the tide coming in",
+   "ts": "2026-08-08T18:29:09+00:00",
+   "date": "8 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "The answer is three — the same three that were under before.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The boat floats. A floating hull settles until the water it pushes aside weighs exactly what the boat weighs, and nothing about the boat's weight changes when the tide comes in. So the hull always sits the same depth in the water, its deck is always the same height above the surface, and the ladder bolted to that deck goes up with it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The water rises sixty centimetres. The ladder rises sixty centimetres. The gap between them never changes, so the same three rungs are wet."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The marks on the harbour wall really did drown, and that is the point of showing them: the tide is genuinely rising. The wall is bolted to the seabed. The ladder is not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Bolt the same ladder to the wall instead and the naive answer becomes the right one: sixty centimetres is exactly two rungs, so five would be under. The puzzle is not about arithmetic. It is about which frame you measure in."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_fee_that_pays_for_itself",
    "title": "the fee that pays for itself",
