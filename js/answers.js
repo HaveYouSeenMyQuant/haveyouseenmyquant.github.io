@@ -16,12 +16,97 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 230,
+ "count": 231,
  "entries": [
+  {
+   "slug": "hanoi_sixty_four_discs",
+   "title": "Sixty-four discs",
+   "ts": "2026-08-08T08:19:11+00:00",
+   "date": "8 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "It takes 2^64 - 1 = 18,446,744,073,709,551,615 moves, and no method can do it in fewer.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY 2^n - 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Call T(n) the fewest moves for n discs. To move n discs from peg A to peg C you have no choice about the shape of the solution:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  1. the biggest disc must reach C, and it can only move when it is alone on its peg and C is empty",
+      "  2. so first the other n-1 discs must ALL be somewhere else — necessarily stacked on B",
+      "  3. then the big disc moves A -> C, one move",
+      "  4. then those n-1 discs must come from B onto C"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Steps 2 and 4 are each the same problem one size smaller. So"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  T(n) = T(n-1) + 1 + T(n-1) = 2 T(n-1) + 1,  and T(1) = 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Unroll it: 1, 3, 7, 15, 31, ... which is 2^n - 1. Proof by induction: if T(n-1) = 2^(n-1) - 1 then T(n) = 2(2^(n-1) - 1) + 1 = 2^n - 1."
+     ]
+    },
+    {
+     "h": "WHY NOTHING BEATS IT",
+     "t": "p",
+     "lines": [
+      "The argument above is not a description of one good strategy — it is a proof that EVERY solution has that shape, and that is the part people skip. The biggest disc has to move at least once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Consider the last time it moves: at that instant it must be alone on its peg, and its destination must be empty. Both of those require all n-1 smaller discs to be on the single remaining peg. Getting them there is a full (n-1)-disc transfer, and clearing them onto the target afterwards is another. So ANY solution contains two complete (n-1)-transfers plus at least one move of the big disc. That gives T(n) >= 2T(n-1) + 1, which is the same recurrence — so the count is not just achievable, it is forced. The lower bound and the upper bound meet."
+     ]
+    },
+    {
+     "h": "THE NUMBER",
+     "t": "p",
+     "lines": [
+      "2^64 - 1 = 18,446,744,073,709,551,615 moves. At one move per second that is 584,554,049,254 years — about 585 billion. For scale, the Sun has roughly 5 billion years of hydrogen left, so this outlasts the Sun about 117 times over. The legend that attaches to this puzzle says the world ends when the priests finish, and the arithmetic is the reassuring part."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Doubling is the thing to notice, not the size of the answer. T(n) = 2T(n-1) + 1 says the cost doubles for every unit of input, and anything with that shape is unusable past about n = 50 no matter how fast your machine is. Recognising a recurrence that doubles — rather than one that, say, halves the problem and recurses once — is most of what separates a feasible algorithm from an impossible one. The same reading tells you why merge sort is fine and why brute-forcing a 64-bit key is not."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "cube_positions_count",
    "title": "Forty-three quintillion cube positions",
-   "ts": "2026-08-08T06:29:42+00:00",
+   "ts": "2026-08-08T06:32:00+00:00",
    "date": "8 Aug 2026",
    "topic": "puzzles",
    "q": null,
