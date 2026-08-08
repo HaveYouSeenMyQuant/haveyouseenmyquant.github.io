@@ -16,12 +16,123 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 234,
+ "count": 236,
  "entries": [
+  {
+   "slug": "eight_people_over_the_limit",
+   "title": "Eight people, over the limit",
+   "ts": "2026-08-08T11:29:29+00:00",
+   "date": "8 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "Because the rating is set at the AVERAGE load, and half of all loads are above average. It is not a safety margin at all.",
+   "why": [
+    {
+     "h": "THE ARITHMETIC",
+     "t": "p",
+     "lines": [
+      "630 kg for 8 persons is 78.75 kg per person. The average adult weighs about 78 kg. The lift's limit is therefore pitched almost exactly at the mean of what 8 adults actually weigh — so the load lands above it roughly half the time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    8 adults, mean 78, sd 16 each",
+      "    total: mean 8 x 78 = 624 kg, sd 16 x sqrt(8) = 45 kg",
+      "    P(total > 630) = P(Z > 0.13) = about 45%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A lognormal Monte Carlo, which respects the real right skew of human weight, gives the same answer."
+     ]
+    },
+    {
+     "h": "THE PART THAT SURPRISES PEOPLE",
+     "t": "p",
+     "lines": [
+      "A bigger lift barely helps. If a plate is set exactly ON the mean load, the answer is 50% for every n — 4 persons or 500 — because the limit and the load grow together at the same rate. The real plate clears the mean by 0.75 kg a head, so it does improve, but only as sqrt(n): 46% at 4 persons, 45% at 8, 42% at 20, 37% at 50. Ten times the lift, and it is still a near coin flip."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "To make it a 1-in-100 event you would have to rate 8 persons at about 730 kg — 91 kg each, not 79."
+     ]
+    },
+    {
+     "h": "WHY IT IS STILL SAFE",
+     "t": "p",
+     "lines": [
+      "Two things save you, and neither is the rating. Lifts are built with a substantial safety factor above the plate figure, and they carry an overload sensor that refuses to close the doors. \"Over the rating\" means the doors beep, not that anything is about to break. The plate is a service figure, not a breaking strain."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Never size a capacity from an average. The load you must survive is a quantile of the total, and a sum has a spread of its own that the average throws away. The same mistake sizes call centres from mean call volume, servers from mean traffic, and budgets from mean cost — each one designed to be wrong half the time."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "which_box_is_cheaper",
+   "title": "which box is cheaper",
+   "ts": "2026-08-08T10:05:26+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "The small one. 40p per 100g against 45p -- the big box is 12.5% dearer per gram, not cheaper.",
+   "why": [
+    {
+     "h": "DO THE DIVISION",
+     "t": "pre",
+     "lines": [
+      "    small   GBP 2.00 / 500g    =  40p per 100g",
+      "    large   GBP 5.40 / 1200g   =  45p per 100g"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At the small box's rate, 1200g would cost GBP 4.80. It is GBP 5.40. The extra GBP 0.60 buys nothing except a bigger box."
+     ]
+    },
+    {
+     "h": "WHY IT CATCHES PEOPLE",
+     "t": "p",
+     "lines": [
+      "\"Bigger is cheaper per unit\" is a real tendency and a useful rule of thumb, and that is exactly what makes it worth pricing against. A rule everyone applies without checking is a rule you can be charged for. Surveys of supermarket shelves keep finding the same thing: the larger size is usually better value, and often enough it is not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The heuristic is doing the job the arithmetic should do. The arithmetic is one division, and the shelf ticket has already done it for you -- the unit price is printed in small type under the big one, and it is the only number on the ticket that compares two packs of different sizes."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever two things come in different sizes, the headline price cannot compare them and the unit price is the only figure that can. Any time a quantity changes between two options, divide before you decide."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "three_houses_three_pipes",
    "title": "Three houses, three pipes",
-   "ts": "2026-08-08T09:39:28+00:00",
+   "ts": "2026-08-08T09:42:43+00:00",
    "date": "8 Aug 2026",
    "topic": "puzzles",
    "q": null,
