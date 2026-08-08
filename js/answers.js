@@ -16,8 +16,64 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 223,
+ "count": 224,
  "entries": [
+  {
+   "slug": "the_same_years_shuffled",
+   "title": "the same years shuffled",
+   "ts": "2026-08-08T00:25:45+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "No. GBP 335,872 one way, GBP 202,528 the other — GBP 133,344 apart.",
+   "why": [
+    {
+     "h": "WHY ORDER CAN MATTER AT ALL",
+     "t": "p",
+     "lines": [
+      "Multiplying does not care about order, so if the pot were left alone the answer would be the same either way. It is: GBP 480,480 both ways, to the pound. Check that first, because it is the thing that tells you the returns are not the culprit."
+     ]
+    },
+    {
+     "h": "WHAT THE WITHDRAWALS DO",
+     "t": "p",
+     "lines": [
+      "Taking GBP 40,000 out during a bad year means selling when the pot is small, so those units are gone and cannot take part in the recovery. Do the bad years first and you spend five years shrinking a pot that then has less to grow. Do them last and the good years have already done their work."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    good years first    GBP   335,872",
+      "    bad years first     GBP   202,528",
+      "    no withdrawals      GBP   480,480  (either order)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The average return is +2% a year in every case. An average is a summary that has thrown the order away, and once money is moving in or out, the order is the part that mattered."
+     ]
+    },
+    {
+     "h": "WHY IT IS WORTH KNOWING",
+     "t": "p",
+     "lines": [
+      "It is the reason two people who retire a year apart, into the same fund, with the same plan, can end up in very different places. Nothing about the fund differs. The sequence they happened to meet does."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever a quantity is being added to or taken from while it also grows, the average rate stops being enough to predict the end. Ask what the ORDER was."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "most_of_a_ball_is_skin",
    "title": "Most of a high-dimensional ball is skin",
