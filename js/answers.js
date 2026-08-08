@@ -16,8 +16,114 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 248,
+ "count": 249,
  "entries": [
+  {
+   "slug": "six_pounds_on_thirty",
+   "title": "six pounds on thirty",
+   "ts": "2026-08-08T19:45:40+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "520% a year, simple. Compounded, about 11,348%.",
+   "why": [
+    {
+     "h": "WHAT THE FEE IS CHARGED ON",
+     "t": "p",
+     "lines": [
+      "Not the GBP 120 you spent. The GBP 30 you were late with."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    GBP 6 / GBP 30  =  20%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That 20% is the whole cost of the loan, and the loan was 14 days long."
+     ]
+    },
+    {
+     "h": "FROM A FORTNIGHT TO A YEAR",
+     "t": "p",
+     "lines": [
+      "There are 26 two-week stretches in a year, so charging 20% once a fortnight, without compounding, is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    20% x 26  =  520% a year"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Let it compound -- each fee charged on the balance the last one grew -- and GBP 30 becomes GBP 3,434 in a year:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1.20 ^ 26  =  114x   ->  about 11,348%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "520% is the honest headline; 11,348% is what it becomes if the fee keeps landing on the fee."
+     ]
+    },
+    {
+     "h": "WHY IT IS SO LARGE",
+     "t": "p",
+     "lines": [
+      "A rate is pounds per pound per year. This fee had a small denominator twice over: a small amount of money, and a small amount of time. A flat fee is a rate DIVIDED BY TIME, so the shorter the borrowing, the bigger the rate -- and the fee itself never changes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same GBP 6 on the same GBP 30, held for different lengths:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    a year          20%",
+      "    a month         260%",
+      "    two weeks       520%",
+      "    one day         7,280%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nothing in that column is a different fee. It is the same GBP 6 divided by less and less time."
+     ]
+    },
+    {
+     "h": "THE ROUNDING IS IN THE CONSERVATIVE DIRECTION",
+     "t": "p",
+     "lines": [
+      "26 x 14 days is 364, one day short of a year, so 26 periods slightly UNDERSTATES it. On a 365-day year the simple rate is 521%."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_free_exchange_costs_more",
    "title": "the free exchange costs more",
