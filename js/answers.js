@@ -16,8 +16,98 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 229,
+ "count": 230,
  "entries": [
+  {
+   "slug": "cube_positions_count",
+   "title": "Forty-three quintillion cube positions",
+   "ts": "2026-08-08T06:29:42+00:00",
+   "date": "8 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "43,252,003,274,489,856,000 — and the obvious count is exactly twelve times too big.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Count the pieces first. A cube has 8 corner pieces and 12 edge pieces, and the centres never move relative to each other. So:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  corners: 8! ways to arrange them, and 3 orientations each — 8! x 3^8",
+      "  edges:  12! ways to arrange them, and 2 orientations each — 12! x 2^12"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Multiply: 519,024,039,293,878,272,000. That is the number of ways to physically assemble a cube if you are allowed to prise the pieces off and put them back however you like."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But turning the faces cannot reach all of them. Three separate constraints each cut the count in half, and 2 x 2 x 3 = 12:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  Corner twist. Give each corner a value 0, 1 or 2 for how far it is rotated. Every face turn leaves the TOTAL, modulo 3, unchanged. So only a third of corner-twist patterns are reachable — divide by 3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  Edge flip. Label each edge 0 or 1 for flipped or not. Every face turn preserves the total modulo 2. Half of the flip patterns are unreachable — divide by 2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  Permutation parity. A single face turn is a 4-cycle on corners and a 4-cycle on edges, and a 4-cycle is an odd permutation. So each turn flips the parity of BOTH at once, and their parities can never differ. Half the arrangements have them differing — divide by 2 again."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "519,024,039,293,878,272,000 / 12 = 43,252,003,274,489,856,000."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The consequence people find hardest to believe: take a solved cube apart and reassemble it at random, and there is only a 1 in 12 chance you have built a cube that can be solved at all. Swap exactly two edges on a solved cube and you have made one of the eleven-twelfths — a cube that looks nearly finished and cannot be finished, ever, by anyone."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The transferable idea is invariants. Each constraint is a quantity that no legal move can change: total corner twist mod 3, total edge flip mod 2, combined permutation parity. Finding a quantity a process preserves is how you prove something is IMPOSSIBLE rather than merely hard — you never have to search. The same move settles the mutilated chessboard, the 15-puzzle, and most \"can this ever reach that\" questions worth asking."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For scale, since the number means nothing on its own: 43 quintillion cubes laid side by side would cover the Earth about 250 times over. And every one of them can be solved in 20 moves or fewer — that is God's number, proved in 2010, and the gap between the size of the space and the shortness of the solution is the genuinely remarkable part."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_many_triangles",
    "title": "How many triangles",
