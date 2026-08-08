@@ -16,8 +16,80 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 250,
+ "count": 251,
  "entries": [
+  {
+   "slug": "five_percent_on_a_slice",
+   "title": "five percent on a slice",
+   "ts": "2026-08-08T20:25:15+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "1.8% on five thousand, and 1.4% on ten thousand. Never 5%.",
+   "why": [
+    {
+     "h": "WHAT YOU ACTUALLY EARN",
+     "t": "pre",
+     "lines": [
+      "    GBP  5,000   1,000 at 5% = 50  +  4,000 at 1% = 40  =  GBP  90",
+      "    GBP 10,000   1,000 at 5% = 50  +  9,000 at 1% = 90  =  GBP 140"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Turn each one back into a rate by dividing what you received by what you put in:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    90 / 5,000  =  1.8%",
+      "    140 / 10,000 =  1.4%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "5% of 5,000 would have been GBP 250. You get GBP 90."
+     ]
+    },
+    {
+     "h": "WHY IT FALLS WHEN YOU SAVE MORE",
+     "t": "p",
+     "lines": [
+      "The rate you receive is the weighted AVERAGE of the two tiers, and the weights are the shares of your money sitting in each."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    GBP  5,000    a fifth of it earns 5%      ->  1.80%",
+      "    GBP 10,000    a tenth of it earns 5%      ->  1.40%",
+      "    GBP 50,000    a fiftieth earns 5%       ->  1.08%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every extra pound goes into the 1% tier, so the average is dragged towards 1%. It gets closer for ever and never arrives, and it never turns back up."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "A headline rate attached to a SLICE is an upper bound, not a rate. It is the number you receive only if your whole balance sits inside the slice. Divide what you actually got by what you actually put in, and compare those numbers instead."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_leaves_go_the_wrong_way",
    "title": "The leaves go the wrong way",
