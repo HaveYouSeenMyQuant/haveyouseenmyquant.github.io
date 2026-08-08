@@ -16,8 +16,221 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 231,
+ "count": 234,
  "entries": [
+  {
+   "slug": "three_houses_three_pipes",
+   "title": "Three houses, three pipes",
+   "ts": "2026-08-08T09:39:28+00:00",
+   "date": "8 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "It is impossible, and the cleanest reason is a count rather than a search.",
+   "why": [
+    {
+     "h": "THE COUNT",
+     "t": "p",
+     "lines": [
+      "Suppose you could draw it flat with no crossings. Euler's formula says a connected planar drawing satisfies"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  V - E + F = 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "with V vertices, E edges and F faces (counting the outside as one face). Here V = 6 and E = 9, so F = 5."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now count edge-sides. Every face is bounded by at least three edges, and every edge borders exactly two faces, so 2E >= 3F. But this graph is BIPARTITE — houses only ever join utilities — so it has no triangles at all, and every face needs at least FOUR edges. That gives"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  2E >= 4F   ->   2(9) >= 4(5)   ->   18 >= 20"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which is false. So no crossing-free drawing exists. Rearranged, the bound is E <= 2V - 4 = 8: eight connections is the ceiling, and you need nine."
+     ]
+    },
+    {
+     "h": "THE SAME THING, AS A PICTURE",
+     "t": "p",
+     "lines": [
+      "Walk the six nodes alternately: house, utility, house, utility, house, utility. The six steps of that walk ARE six of the nine connections, and a hexagon has no crossings. The three left over are the long diagonals."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Any two long diagonals of a hexagon interleave — each one separates the other's endpoints — so two of them cannot both go inside, and cannot both go outside either. One inside, one outside, and the third has nowhere left. Six plus two is eight."
+     ]
+    },
+    {
+     "h": "WHY IT MATTERS BEYOND THE PUZZLE",
+     "t": "p",
+     "lines": [
+      "This graph has a name, K3,3, and Kuratowski's theorem says it is one of only TWO obstructions to planarity: a graph can be drawn flat if and only if it contains no K3,3 and no K5, however tangled it looks. Two forbidden patterns account for every non-planar graph there is, which is a startlingly small answer to a question that sounds infinite."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is also why circuit boards need layers, and why \"just route it more cleverly\" is sometimes not advice but a request for something that does not exist."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a construction keeps failing, stop trying to build it and count something instead. A quantity that must hold for ANY solution — here, faces against edges — settles every attempt at once, including the ones you have not thought of. Searching can only ever tell you that you have not found it yet; counting tells you why you never will."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "four_weeks_is_not_a_month",
+   "title": "four weeks is not a month",
+   "ts": "2026-08-08T09:22:43+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "GBP 1,083.33 a month. Not GBP 1,000 -- and the gap comes to four extra weeks of rent every year.",
+   "why": [
+    {
+     "h": "WHY FOUR IS THE WRONG NUMBER",
+     "t": "p",
+     "lines": [
+      "Four weeks is 28 days. Only February is ever 28 days. Multiply by four and you are quietly pricing a 336-day year."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    a year        52 weeks  /  12 months",
+      "    so a month    52/12 = 4.3333 weeks, not 4"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    GBP 250 x 4          =  GBP 1,000    <- what people read",
+      "    GBP 250 x 4.3333     =  GBP 1,083.33 <- what it costs"
+     ]
+    },
+    {
+     "h": "THE MISSING MONTH",
+     "t": "pre",
+     "lines": [
+      "    by the week   GBP 250 x 52  =  GBP 13,000",
+      "    by the month  GBP 1,000 x 12  =  GBP 12,000",
+      "                              difference  GBP 1,000"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That GBP 1,000 is exactly four weeks of rent -- because twelve months of \"four weeks\" is 48 weeks, and the year is 52. The four weeks you never counted are the four weeks you still pay for."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When two units are both familiar, nobody checks the conversion. Weeks and months are the worst pair for it: they feel like they nest, and they do not. Same trap in a salary paid every four weeks -- that is 13 payments a year, not 12."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "half_gone_half_back",
+   "title": "half gone half back",
+   "ts": "2026-08-08T08:42:34+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "+100%. Not +50% -- you have to double what is left.",
+   "why": [
+    {
+     "h": "WHY HALF BACK IS NOT ALL BACK",
+     "t": "p",
+     "lines": [
+      "The two percentages are taken of different amounts. That is the whole thing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    fall  50% of GBP 100  =  GBP 50   ->  GBP 50",
+      "    rise  50% of GBP 50   =  GBP 25   ->  GBP 75"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same 50%, half as much money underneath it, so half as many pounds come back. You land at GBP 75, GBP 25 short."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "To return to GBP 100 you need GBP 50 of gain on a base of GBP 50 -- which is +100%. The gain is measured against what you have left, not against what you had."
+     ]
+    },
+    {
+     "h": "HOW FAST IT RUNS AWAY",
+     "t": "pre",
+     "lines": [
+      "    lose 10%  ->  need  +11%",
+      "    lose 20%  ->  need  +25%",
+      "    lose 50%  ->  need +100%",
+      "    lose 80%  ->  need +400%",
+      "    lose 90%  ->  need +900%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A loss of L needs a gain of L/(1-L). Doubling the loss much more than doubles the climb back, because the base you are climbing from is shrinking at the same time as the distance is growing."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "A percentage is not a quantity, it is an instruction to multiply -- so it means nothing until you know what it is a percentage OF. Two equal percentages in opposite directions do not cancel, they multiply: 0.5 x 1.5 = 0.75, and it is 0.75 whichever order you do them in."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "hanoi_sixty_four_discs",
    "title": "Sixty-four discs",
