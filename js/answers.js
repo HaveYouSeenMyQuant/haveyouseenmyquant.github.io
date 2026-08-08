@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_obvious_way_loses",
    "title": "The obvious way loses",
-   "ts": "2026-08-08T01:17:25+00:00",
+   "ts": "2026-08-08T01:22:36+00:00",
    "date": "8 Aug 2026",
    "topic": "optimization",
    "q": null,
