@@ -16,8 +16,85 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 236,
+ "count": 237,
  "entries": [
+  {
+   "slug": "random_directions_perpendicular",
+   "title": "Random directions are perpendicular",
+   "ts": "2026-08-08T12:08:49+00:00",
+   "date": "8 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Two random directions in d dimensions have an angle whose density is proportional to sin(theta)^(d-2), and that exponent is the whole story.",
+   "why": [
+    {
+     "h": "WHERE THE DENSITY COMES FROM",
+     "t": "p",
+     "lines": [
+      "Fix the first direction; by symmetry it may as well be the north pole. The second is a uniform point on the unit sphere in R^d. The set of points at angle theta from the pole is a (d-2)-sphere of radius sin(theta), so the amount of surface sitting at angle theta scales as sin(theta)^(d-2). That is the density, up to a constant."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In two dimensions the exponent is 0 — the density is flat, and the angle is uniform on 0..180. Every angle equally likely, exactly as intuition says."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Raise d and sin(theta)^(d-2) becomes brutal. sin is at most 1, achieved only at 90 degrees, and any value below 1 raised to a large power collapses. At theta = 80 degrees, sin = 0.985, and 0.985^998 is about 3 x 10^-7. So almost all the surface area of a high-dimensional sphere lies in a thin band around the equator — and \"the equator\" here means perpendicular to whichever direction you picked first."
+     ]
+    },
+    {
+     "h": "HOW WIDE IS THE BAND",
+     "t": "p",
+     "lines": [
+      "Write theta = 90 + e. Then sin(theta) = cos(e) ~ 1 - e^2/2, so the density behaves like exp(-(d-2) e^2 / 2): a Gaussian in e with standard deviation 1/sqrt(d). In degrees that is about 57.3/sqrt(d)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  d = 100    ~5.7 degrees",
+      "  d = 1000   ~1.8 degrees",
+      "  d = 10000  ~0.57 degrees"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At d = 1000 the 5-degree window is nearly three standard deviations wide, which is why 99% of pairs land inside it. Notice the shape of the answer: the spread shrinks like 1/sqrt(d), so this is not a threshold that suddenly switches on — it tightens smoothly, and it has already started at d = 10."
+     ]
+    },
+    {
+     "h": "WHY IT MATTERS",
+     "t": "p",
+     "lines": [
+      "This is the geometry that makes embeddings work. If you want to store many concepts as directions and keep them distinguishable, you need them close to mutually perpendicular — and in high dimensions you get that FOR FREE from random vectors. You do not have to construct them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Better still, because \"perpendicular\" only has to hold approximately, the number of nearly-orthogonal directions available in d dimensions grows EXPONENTIALLY in d, not linearly. A space with room for d exactly-orthogonal axes has room for vastly more almost-orthogonal ones, which is why a few thousand dimensions can hold far more than a few thousand distinct concepts."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Intuition trained in two and three dimensions is not merely imprecise in high dimensions, it is systematically wrong, and always in the same direction: volume and area flee to the boundary and to the equator. Most of a ball is skin; most of a sphere is equator; two random things are perpendicular. When a high-dimensional argument surprises you, check whether concentration of measure is doing it, because it usually is."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "eight_people_over_the_limit",
    "title": "Eight people, over the limit",
