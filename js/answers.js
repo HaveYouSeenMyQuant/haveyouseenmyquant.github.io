@@ -16,8 +16,90 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 225,
+ "count": 226,
  "entries": [
+  {
+   "slug": "the_obvious_way_loses",
+   "title": "The obvious way loses",
+   "ts": "2026-08-08T01:17:25+00:00",
+   "date": "8 Aug 2026",
+   "topic": "optimization",
+   "q": null,
+   "a": "Because taking the biggest coin first quietly assumes that using a big coin never forces you into a worse remainder. With 1, 3 and 4 it does exactly that: the 4 leaves you needing 2, and 2 is the one amount these coins are bad at.",
+   "why": [
+    {
+     "h": "WHAT GOES WRONG AT SIX",
+     "t": "p",
+     "lines": [
+      "Greedy takes 4, leaving 2. There is no 2 and no 3 fits, so it pays two 1s. Total three coins."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The alternative never touches the 4 at all: 3 + 3. Two coins."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The 4 is not a bad coin. It is a bad FIRST coin, and greedy can only ever look one step ahead, so it cannot see that."
+     ]
+    },
+    {
+     "h": "HOW OFTEN IT MATTERS",
+     "t": "p",
+     "lines": [
+      "Over the amounts 1 to 100, greedy is beaten on 24 of them - 6, 10, 14, 18 and so on, every four apart, which is the 4-coin repeatedly poisoning the remainder in the same way."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So this is not a knife-edge counterexample. Roughly a quarter of all small amounts are handled badly."
+     ]
+    },
+    {
+     "h": "WHY REAL MONEY IS SAFE",
+     "t": "p",
+     "lines": [
+      "Run the identical comparison on 1, 2, 5, 10, 20, 50, 100, 200 - actual coins - across every amount from 1 to 1000, and greedy loses ZERO times."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is not luck. Coin systems where greedy is always optimal are called canonical, and real currencies are designed to be canonical precisely so that people and cash registers can use the obvious method safely. The 1-2-5 pattern repeating by tens is what buys that guarantee."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the intuition \"take the biggest first\" is not wrong because it is naive. It is right for every coin system anyone has ever handed you, which is exactly why it feels like a law rather than a property."
+     ]
+    },
+    {
+     "h": "HOW YOU WOULD ACTUALLY SOLVE IT",
+     "t": "p",
+     "lines": [
+      "Work upward. The fewest coins for amount n is one more than the best of the fewest coins for n minus each coin. Each answer is built from smaller answers already computed, so the whole table to 100 costs a few hundred additions - and unlike greedy it cannot be fooled, because it considers every first coin rather than assuming one."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a rule has always worked, find out what it is ASSUMING rather than how often it has held. Greedy assumes a local choice never damages the rest of the problem. That assumption is a property of the input, not of the method, and the moment somebody hands you a non-standard input it stops being true without warning."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_lengths_one_total",
    "title": "Three lengths, one total",
