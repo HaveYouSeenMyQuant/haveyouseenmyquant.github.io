@@ -16,12 +16,129 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 228,
+ "count": 229,
  "entries": [
+  {
+   "slug": "how_many_triangles",
+   "title": "How many triangles",
+   "ts": "2026-08-08T05:44:31+00:00",
+   "date": "8 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "27.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sixteen small ones, and eleven more that most people never count."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Count by size and orientation, and it becomes bookkeeping rather than hunting."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "UPWARD triangles, side k, in a figure with 4 rows:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  k=1   10",
+      "  k=2    6",
+      "  k=3    3",
+      "  k=4    1",
+      "        20"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The count for size k is the number of positions its apex can sit in, which is 1 + 2 + ... + (n-k+1), or (n-k+1)(n-k+2)/2 with n = 4."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "DOWNWARD triangles — the ones pointing the other way, and the ones people miss:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  k=1    6",
+      "  k=2    1",
+      "         7"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A downward triangle of side k needs k rows of room below its apex AND k rows above, so it only fits when n is at least 2k. That is why there is exactly one of side 2 and none of side 3 or 4."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "20 + 7 = 27."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general formulas, for a triangle with n rows:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  upward:   sum over k of (n-k+1)(n-k+2)/2",
+      "  downward: sum over k of (n-2k+1)(n-2k+2)/2, for k up to n/2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which together give the closed form n(n+2)(2n+1)/8, rounded down. For n = 4 that is 4 x 6 x 9 / 8 = 27. For n = 5 it is 48, for n = 6, 78."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it is hard by eye is worth naming, because the difficulty is not the arithmetic. Hunting for triangles means searching an unstructured space and trying to remember what you have already found — that is where the errors come from, and they are errors of bookkeeping, not of geometry. Sorting the objects into classes first, counting each class, then adding, replaces memory with arithmetic. The same move is what makes counting problems tractable in general: impose an order on what you are counting so that \"have I already had this one?\" stops being a question you need to answer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And the downward triangles are the ones that get missed for a reason: people search for the shape they were shown. The figure is presented as an upward triangle, so the eye looks for upward triangles, and the eleven extra hide in plain sight."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ninety_gives_you_forty_five",
    "title": "Ninety gives you forty-five",
-   "ts": "2026-08-08T03:55:18+00:00",
+   "ts": "2026-08-08T03:57:38+00:00",
    "date": "8 Aug 2026",
    "topic": "puzzles",
    "q": null,
