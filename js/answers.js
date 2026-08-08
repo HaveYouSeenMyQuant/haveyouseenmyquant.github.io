@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_leaves_go_the_wrong_way",
    "title": "The leaves go the wrong way",
-   "ts": "2026-08-08T20:02:00+00:00",
+   "ts": "2026-08-08T20:03:23+00:00",
    "date": "8 Aug 2026",
    "topic": "physics",
    "q": null,
