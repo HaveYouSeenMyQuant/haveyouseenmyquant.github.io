@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "piles_always_settle",
    "title": "The piles always settle",
-   "ts": "2026-08-08T16:26:51+00:00",
+   "ts": "2026-08-08T16:28:23+00:00",
    "date": "8 Aug 2026",
    "topic": "puzzles",
    "q": null,
