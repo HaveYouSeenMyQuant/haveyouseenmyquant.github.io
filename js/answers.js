@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "corners_edges_faces",
    "title": "Corners, edges, faces — what never changes",
-   "ts": "2026-08-08T13:54:29+00:00",
+   "ts": "2026-08-08T13:56:15+00:00",
    "date": "8 Aug 2026",
    "topic": "geometry",
    "q": null,
