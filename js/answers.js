@@ -16,12 +16,89 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 226,
+ "count": 227,
  "entries": [
+  {
+   "slug": "the_edge_that_isnt_straight",
+   "title": "The edge that isn't straight",
+   "ts": "2026-08-08T03:07:49+00:00",
+   "date": "8 Aug 2026",
+   "topic": "illusions",
+   "q": null,
+   "a": "Because 3/8 and 2/5 are not the same number, so the two triangles do not share a slope and the \"hypotenuse\" is a shallow V rather than a line. Everything else follows from that.",
+   "why": [
+    {
+     "h": "THE TWO SLOPES",
+     "t": "p",
+     "lines": [
+      "The big triangle rises 3 over a run of 8: slope 0.375. The small one rises 2 over a run of 5: slope 0.400."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put the big one first and the edge climbs too slowly, then too quickly - it sags below the true straight line. The deepest sag is at the join: the true line passes through 3.077 there and the bent edge through 3, a gap of 0.077 on a shape thirteen units wide. That is about one part in 170 of the width. Nobody sees it, which is the entire trick."
+     ]
+    },
+    {
+     "h": "WHERE THE SQUARE COMES FROM",
+     "t": "p",
+     "lines": [
+      "Measure the outlines exactly, by their corner coordinates:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    big triangle first   (0,0) (13,0) (13,5) (8,3)   area 32",
+      "    small triangle first (0,0) (13,0) (13,5) (5,2)   area 33",
+      "    a TRUE 13x5 triangle                             area 32.5"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The pieces themselves total 32 in both arrangements - nothing is added or removed, they are the same four pieces."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the first arrangement is slightly CONCAVE and quietly hides half a unit. The second is slightly CONVEX and quietly invents half a unit. The difference between them is 33 - 32 = 1, and that one unit has to appear somewhere. It appears as a one-by-one hole, which everybody notices, because a hole in the middle of a shape is exactly the kind of thing eyes are good at."
+     ]
+    },
+    {
+     "h": "WHY 8, 5, 3, 2 AND NOT OTHER NUMBERS",
+     "t": "p",
+     "lines": [
+      "They are consecutive Fibonacci numbers, and that is not decoration. Consecutive Fibonacci numbers satisfy F(n-1)F(n+1) - F(n)^2 = plus or minus 1, so 3x13 - 5x8 = 39 - 40 = -1. That identity is precisely the one-unit discrepancy, which is why the trick works with 2,3,5,8,13 and would work again with 3,5,8,13,21 - and why the error is always exactly one square, never two."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It also explains why the illusion is so convincing: consecutive Fibonacci ratios converge on the golden ratio, so the two slopes get closer together the further up the sequence you go, and the kink gets harder to see while the missing square stays the same size."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a picture proves something surprising, stop looking at the picture and compute the coordinates. A drawing cannot show you a difference of 0.077 in 13, and any argument that depends on your eye resolving that difference is not an argument."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_obvious_way_loses",
    "title": "The obvious way loses",
-   "ts": "2026-08-08T01:22:36+00:00",
+   "ts": "2026-08-08T01:24:47+00:00",
    "date": "8 Aug 2026",
    "topic": "optimization",
    "q": null,
