@@ -16,8 +16,75 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 243,
+ "count": 244,
  "entries": [
+  {
+   "slug": "three_for_two_or_a_third_off",
+   "title": "three for two or a third off",
+   "ts": "2026-08-08T16:49:11+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Neither, at three items -- GBP 18 both ways. At every other number, \"a third off\" wins.",
+   "why": [
+    {
+     "h": "AT THREE THEY ARE THE SAME",
+     "t": "pre",
+     "lines": [
+      "    3 for 2       pay for 2 of 3   =  GBP 18",
+      "    a third off   27 - a third    =  GBP 18"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT \"3 FOR 2\" IS REALLY WORTH"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    buy 1    3-for-2    0%     a third off   33%",
+      "    buy 2    3-for-2    0%     a third off   33%",
+      "    buy 3    3-for-2   33%     a third off   33%",
+      "    buy 4    3-for-2   25%     a third off   33%",
+      "    buy 5    3-for-2   20%     a third off   33%",
+      "    buy 6    3-for-2   33%     a third off   33%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It sawtooths. The free item arrives in whole shirts, but the money you hand over does not, so the discount only climbs back to a third at 3, 6, 9 and so on, and sags in between. Buy two and the offer is worth nothing at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "\"A third off\" is a RATE -- it applies to whatever you spend. \"3 for 2\" is a rate only at every third item."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Across every basket size from 1 to 60, \"a third off\" is never once dearer, and is strictly cheaper except at multiples of three."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "An offer priced in ITEMS and an offer priced in PER CENT cannot be compared by how generous they sound. Convert the item offer into a percentage at the number you are actually buying -- not at the number that makes it look best."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "piles_always_settle",
    "title": "The piles always settle",
