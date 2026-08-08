@@ -16,8 +16,91 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 241,
+ "count": 242,
  "entries": [
+  {
+   "slug": "who_pays_for_the_taxi",
+   "title": "who pays for the taxi",
+   "ts": "2026-08-08T16:05:22+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "GBP 5 and GBP 15. Half each has Anna paying GBP 5 towards miles she was not in the car for.",
+   "why": [
+    {
+     "h": "PRICE EACH MILE BY WHO IS IN THE CAR",
+     "t": "pre",
+     "lines": [
+      "    miles 0-5    both aboard    GBP 10, split two ways   GBP 5 each",
+      "    miles 5-10   Ben alone      GBP 10, all his"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Anna  GBP 5      Ben  GBP 15      meter  GBP 20"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Anna is in the car for half the distance but pays a quarter of the fare -- because for the part she IS there, she is sharing it, and for the part she is not, she owes nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "\"HALF EACH\" IS A RULE ABOUT PEOPLE, NOT ABOUT MILES"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It charges Anna for Ben's second leg. Reverse it and the unfairness is obvious: if Anna got out after one mile she would still be paying GBP 10."
+     ]
+    },
+    {
+     "h": "THE HONEST COMPLICATION",
+     "t": "p",
+     "lines": [
+      "\"Fair\" is not a definition, and a different rule gives a different answer. Splitting in proportion to distance travelled:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Anna 5/15 of GBP 20 = GBP 6.67      Ben GBP 13.33"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is also defensible. It differs because it ignores that the first 5 miles were SHARED -- it treats a mile with two people in the car as costing twice what a mile with one person costs, and the meter does not agree."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The leg-by-leg answer is the one economists call the Shapley value, and it is the only split where nobody can point at a mile and say \"I was not on that one\"."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a cost is shared unevenly, split the COST ITEM by item, not the total by head. Ask of every pound: who was there when it was spent?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "which_voucher_first",
    "title": "which voucher first",
