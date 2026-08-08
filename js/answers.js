@@ -16,8 +16,81 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 245,
+ "count": 246,
  "entries": [
+  {
+   "slug": "the_fee_that_pays_for_itself",
+   "title": "the fee that pays for itself",
+   "ts": "2026-08-08T18:25:15+00:00",
+   "date": "8 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "GBP 2,000 of spending a year, which is about GBP 167 a month.",
+   "why": [
+    {
+     "h": "WHAT EACH CARD ACTUALLY GIVES YOU",
+     "t": "p",
+     "lines": [
+      "Cashback is a share of what you spend, handed back. So over a year:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    free card       0.5% of what you spend",
+      "    GBP 30 card    2% of what you spend, minus the GBP 30 fee"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two straight lines. One leaves the origin. The other starts GBP 30 BELOW zero, because the fee is charged before you have earned anything, and climbs 4 times as steeply."
+     ]
+    },
+    {
+     "h": "WHERE THEY MEET",
+     "t": "pre",
+     "lines": [
+      "    0.005 x  =  0.02 x - 30",
+      "    0.015 x  =  30",
+      "          x  =  GBP 2,000"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    spend GBP  1,000    free GBP     5    paid GBP   -10    free ahead",
+      "    spend GBP  2,000    free GBP    10    paid GBP    10    level",
+      "    spend GBP 10,000    free GBP    50    paid GBP   170    paid ahead by 120"
+     ]
+    },
+    {
+     "h": "WHY THE WORSE-LOOKING DEAL WINS IN THE END",
+     "t": "p",
+     "lines": [
+      "The fee is FIXED. It does not grow when the spending does, so as a share of the spending it shrinks away to nothing, while the extra 1.5% a pound keeps arriving. A fixed cost spreads out; a proportional gain does not."
+     ]
+    },
+    {
+     "h": "THE PART WORTH KEEPING",
+     "t": "pre",
+     "lines": [
+      "    crossing  =  the fee  /  the gap in the rates"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The fee is the smaller half of that. Halve the rate gap and the crossing doubles. The same GBP 30 against a 1.5% gap needs GBP 2,000; against a 0.50% gap it needs GBP 6,000. So the question is never \"is there a fee\" -- it is how far apart the two rates are, and how much goes through."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_house_went_up_five",
    "title": "the house went up five",
