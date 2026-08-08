@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "hanoi_sixty_four_discs",
    "title": "Sixty-four discs",
-   "ts": "2026-08-08T08:19:11+00:00",
+   "ts": "2026-08-08T08:24:01+00:00",
    "date": "8 Aug 2026",
    "topic": "puzzles",
    "q": null,
