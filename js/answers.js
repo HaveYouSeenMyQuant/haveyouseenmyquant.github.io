@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "eight_people_over_the_limit",
    "title": "Eight people, over the limit",
-   "ts": "2026-08-08T11:29:29+00:00",
+   "ts": "2026-08-08T11:30:33+00:00",
    "date": "8 Aug 2026",
    "topic": "statistics",
    "q": null,
