@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 242,
+ "count": 243,
  "entries": [
+  {
+   "slug": "piles_always_settle",
+   "title": "The piles always settle",
+   "ts": "2026-08-08T16:26:51+00:00",
+   "date": "8 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "It always settles, from every start, and the reason is a picture rather than a calculation.",
+   "why": [
+    {
+     "h": "THE MOVE, DRAWN",
+     "t": "p",
+     "lines": [
+      "Write the piles as a Young diagram: one row per pile, sorted longest first, a square per card. Taking one card from every pile removes the whole FIRST COLUMN. Making those cards into a new pile puts that column back as a new ROW."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the move is: delete column 1, add it as a row. That is all it is."
+     ]
+    },
+    {
+     "h": "WHY IT CANNOT WANDER FOREVER",
+     "t": "p",
+     "lines": [
+      "There are finitely many arrangements — 176 of them for fifteen cards — so any run must eventually repeat and fall into a cycle. The whole question is which cycles exist."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "When the number of cards is TRIANGULAR, n = k(k+1)/2, there is exactly one, and it is a fixed point: the staircase k, k-1, ..., 2, 1. Removing its first column takes one card off every row, leaving k-1, k-2, ..., 1, and adding the column back as a row of length k restores the staircase exactly. It maps to itself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Showing it is the ONLY cycle is the real content. The standard argument tracks how far each pile is from where the staircase wants it and shows that this disagreement can never increase, and must strictly decrease unless you are already there. That gives convergence and a bound at once."
+     ]
+    },
+    {
+     "h": "THE BOUND IS SHARP",
+     "t": "p",
+     "lines": [
+      "For n = 15, no start takes more than 20 moves, and some take exactly 20. That is k^2 - k = 25 - 5, which is the known bound — and it is attained, so it cannot be improved."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT HAPPENS WHEN n IS NOT TRIANGULAR"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Everything changes. With 16 cards there is no staircase to reach, and runs settle into genuine CYCLES instead of a fixed point. So \"it always settles to one arrangement\" is not a fact about this shuffling rule in general — it is a fact about triangular numbers, and the shape of the answer is the shape of the number."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a process looks chaotic, ask what it does to a picture rather than to the numbers. \"Delete a column, add it as a row\" is obvious in a Young diagram and invisible in a list of pile sizes. Choosing the representation IS most of the work — the same rule that looks like arbitrary churn in one encoding is a single geometric operation in another."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "who_pays_for_the_taxi",
    "title": "who pays for the taxi",
