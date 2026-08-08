@@ -16,8 +16,121 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 251,
+ "count": 252,
  "entries": [
+  {
+   "slug": "two_metres_of_blood",
+   "title": "Two metres of blood",
+   "ts": "2026-08-08T21:06:03+00:00",
+   "date": "8 Aug 2026",
+   "topic": "biology",
+   "q": null,
+   "a": "About twice as hard, and the number comes from the height alone.",
+   "why": [
+    {
+     "h": "THE COST OF THE HEIGHT",
+     "t": "p",
+     "lines": [
+      "Raising any liquid costs rho x g x h, and blood is a liquid:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    giraffe, 2.0 m    1,060 x 9.81 x 2.0 = 20,797 Pa = 156 mmHg",
+      "    human,  0.35 m    27 mmHg"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "156 mmHg is spent before the brain has received anything at all — and a healthy human's whole pumping pressure is about 120."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It depends on the HEIGHT and not on the width of the vessel: weigh a column of blood of any cross-section and divide by that cross-section, and the area cancels out. A wider artery costs exactly the same."
+     ]
+    },
+    {
+     "h": "THE PREDICTION",
+     "t": "p",
+     "lines": [
+      "The brain still needs roughly 70 mmHg once the blood arrives, so"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    156 + 70 = 226 mmHg"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Measured in real giraffes: 250 to 280 mmHg. The column model comes out about 10% low, which is the right direction — it ignores the resistance of the vessels themselves and assumes the neck is straight up."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same sum on a human gives 27 + 70 = 97, comfortably inside what a healthy person actually runs at. That is the check that the model is not tuned to giraffes."
+     ]
+    },
+    {
+     "h": "WHAT THAT FORCES",
+     "t": "p",
+     "lines": [
+      "A heart that can do this is not ours scaled up. A giraffe's left ventricle wall is roughly twice as thick relative to its size, and the animal needs three more things a tall column creates:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "Valves in the neck veins, so blood does not simply fall back down.",
+      "Very tight skin on the legs, acting like a pressure suit, or fluid would"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  pool in the feet under the same rho g h working downwards."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "A web of fine vessels at the base of the brain that damps the surge when"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  the head goes down to drink — otherwise lowering the head adds the whole",
+      "  156 mmHg to the brain instead of subtracting it."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Some numbers in biology are not biological. Work out the physical cost first and it tells you what the organism is obliged to have solved."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "five_percent_on_a_slice",
    "title": "five percent on a slice",
