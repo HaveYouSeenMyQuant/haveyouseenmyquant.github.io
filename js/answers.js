@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "most_of_a_ball_is_skin",
    "title": "Most of a high-dimensional ball is skin",
-   "ts": "2026-08-08T00:02:16+00:00",
+   "ts": "2026-08-08T00:03:47+00:00",
    "date": "8 Aug 2026",
    "topic": "ml_fundamentals",
    "q": null,
