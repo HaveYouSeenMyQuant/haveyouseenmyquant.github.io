@@ -16,12 +16,85 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 237,
+ "count": 238,
  "entries": [
+  {
+   "slug": "corners_edges_faces",
+   "title": "Corners, edges, faces — what never changes",
+   "ts": "2026-08-08T13:54:29+00:00",
+   "date": "8 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Corners minus edges plus faces is always 2.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  tetrahedron    4 - 6 + 4 = 2",
+      "  cube           8 - 12 + 6 = 2",
+      "  octahedron     6 - 12 + 8 = 2",
+      "  square pyramid 5 - 8 + 5 = 2",
+      "  football      60 - 90 + 32 = 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is Euler's formula, V - E + F = 2, and it holds for every convex solid — and for a great many non-convex ones too. It does not care about lengths, angles, whether the faces are regular, or how you draw it. Only about how the pieces are connected."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it is true, in the cleanest way to see it: flatten the solid. Remove one face and stretch the hole open until the whole thing lies flat as a network of dots and lines — the removed face becomes the outside. Now V - E + F counts the same things, with the outer region standing in for the face you removed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then simplify the flat network, one step at a time. Every step leaves V - E + F unchanged:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  A face with a spare edge on its boundary: delete the edge. Faces drop by 1, edges drop by 1, and the two changes cancel.",
+      "  A corner with only one edge attached: delete both. Corners drop by 1, edges drop by 1, and again they cancel."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Keep going and you end up with a single dot: V = 1, E = 0, F = 1 counting the outside. That is 1 - 0 + 1 = 2, and since nothing along the way changed the total, it was 2 at the start."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What the hypothesis is actually doing. Take two separate tetrahedra sitting side by side: 8 corners, 12 edges, 8 faces, giving 8 - 12 + 8 = 4, not 2. The formula needs ONE connected solid. And a solid with a hole through it — a picture frame, a doughnut — gives 0 instead of 2. That is not a failure of the formula but the point of it: the number counts the holes. In general V - E + F = 2 - 2g, where g is the number of holes, so the invariant tells you the SHAPE of the thing rather than its measurements."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is what makes it topology rather than geometry, and it is the reason the same result does real work elsewhere: it forces there to be exactly five Platonic solids, constrains which circuits can be laid out flat without crossings, and sits underneath the four-colour theorem."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "random_directions_perpendicular",
    "title": "Random directions are perpendicular",
-   "ts": "2026-08-08T12:08:49+00:00",
+   "ts": "2026-08-08T12:10:36+00:00",
    "date": "8 Aug 2026",
    "topic": "ml_fundamentals",
    "q": null,
