@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 280,
+ "count": 281,
  "entries": [
+  {
+   "slug": "up_to_half_price",
+   "title": "up to half price",
+   "ts": "2026-08-09T14:41:50+00:00",
+   "date": "9 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/up_to_half_price",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: add up everything that comes off, then share it out over all twelve things on the shelf."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_bottom_of_the_wheel_stands_still",
    "title": "The bottom of the wheel stands still",
