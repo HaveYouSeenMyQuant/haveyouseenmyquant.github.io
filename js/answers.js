@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 282,
+ "count": 283,
  "entries": [
+  {
+   "slug": "the_same_fee_paid_faster",
+   "title": "the same fee paid faster",
+   "ts": "2026-08-09T15:34:51+00:00",
+   "date": "9 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/the_same_fee_paid_faster",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: the fee is the same both times. Work out how many YEARS each person actually had the money for, then share the fee out over those years."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "ten_metres_is_the_limit",
    "title": "Ten metres is the limit",
