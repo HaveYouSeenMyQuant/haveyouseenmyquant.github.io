@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 270,
+ "count": 271,
  "entries": [
+  {
+   "slug": "paying_monthly_is_a_loan",
+   "title": "paying monthly is a loan",
+   "ts": "2026-08-09T08:04:25+00:00",
+   "date": "9 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/paying_monthly_is_a_loan",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: do not divide the extra GBP 60 by the starting GBP 600 and stop there. Draw the money still owed after each monthly payment. The cost is being charged while that owed line is shrinking, and that is why the real yearly cost comes out much higher than the headline gap."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "count_the_heads_in_front",
    "title": "Count the heads in front",
