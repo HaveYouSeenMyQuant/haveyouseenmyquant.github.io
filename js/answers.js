@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 258,
+ "count": 259,
  "entries": [
+  {
+   "slug": "the_free_year_that_was_not",
+   "title": "the free year that was not",
+   "ts": "2026-08-09T02:44:18+00:00",
+   "date": "9 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_free_year_that_was_not",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: do not start with the last GBP 100. Start with the date. If the date is missed, ask whether the shop charges the tiny late bit, or whether it looks back to the original sofa price from day one. Those two readings are nowhere near each other."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_reactive_one_survives",
    "title": "The reactive one survives",
