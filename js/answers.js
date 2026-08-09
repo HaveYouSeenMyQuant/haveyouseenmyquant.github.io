@@ -16,8 +16,85 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 259,
+ "count": 260,
  "entries": [
+  {
+   "slug": "the_second_opinion_that_is_not_one",
+   "title": "The second opinion that is not one",
+   "ts": "2026-08-09T02:49:37+00:00",
+   "date": "9 Aug 2026",
+   "topic": "bayes_stats",
+   "q": null,
+   "a": "Whether the two tests are looking at the same thing. That single question decides whether the second one is worth everything or nothing, and it is almost never asked.",
+   "why": [
+    {
+     "h": "THE NUMBERS",
+     "t": "p",
+     "lines": [
+      "An illness 1% of people have, a test that catches 90% of cases and wrongly flags 10% of healthy people. One positive puts you at"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    8.3%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which already surprises people. Now a second positive:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    genuinely independent      45.0%",
+      "    half echoing the first     13.6%",
+      "    the same test twice        8.3%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The last line is exactly the one-test number, to the digit. A test that always agrees with the first cannot tell you anything the first did not."
+     ]
+    },
+    {
+     "h": "THE PART THAT MATTERS",
+     "t": "p",
+     "lines": [
+      "The value does not fade gently. At HALF dependence you keep only 14% of the gain a real second opinion would have given you — and the effect is sharpest exactly where second opinions get asked for: 10% of the value at a 0.1% illness, 14% at 1%, but 40% at a common 20% one. Most of the worth of a confirmation is destroyed by quite modest amounts of shared method — the same scan reviewed twice, two doctors trained in the same place, two models fitted on the same data."
+     ]
+    },
+    {
+     "h": "WHAT TO ASK",
+     "t": "p",
+     "lines": [
+      "Not \"did it agree\" but \"could it have disagreed, for reasons the first one would not have found\". A second opinion on the same X-ray is barely a second opinion. A different test on a different sample is."
+     ]
+    },
+    {
+     "h": "WHERE ELSE IT BITES",
+     "t": "p",
+     "lines": [
+      "Two forecasters who read the same feed. Two credit models trained on the same history. Two references from the same office. In every case the count of confirmations is doing the persuading while the shared source is quietly doing the deciding."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Confirmations do not add up unless they could independently have failed. Before counting agreement as evidence, ask what would have had to be true for the second source to disagree — and if the answer is \"nothing the first would not also have caught\", you have one piece of evidence, not two."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_free_year_that_was_not",
    "title": "the free year that was not",
