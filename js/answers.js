@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 263,
+ "count": 264,
  "entries": [
+  {
+   "slug": "the_nineteen_pound_flight",
+   "title": "the nineteen pound flight",
+   "ts": "2026-08-09T04:33:59+00:00",
+   "date": "9 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_nineteen_pound_flight",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: add the parts to the poster price before you compare two flights. The move is not to ask whether each extra is optional. The move is to ask which version of the product you are actually going to use."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "five_to_three_is_the_wrong_split",
    "title": "Five to three is the wrong split",
