@@ -16,8 +16,57 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 257,
+ "count": 258,
  "entries": [
+  {
+   "slug": "the_reactive_one_survives",
+   "title": "The reactive one survives",
+   "ts": "2026-08-09T02:02:31+00:00",
+   "date": "9 Aug 2026",
+   "topic": "chemistry",
+   "q": null,
+   "a": "Aluminium is the more eager metal, but eagerness only says how fast the fight starts.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The thing that saves it is a skin you cannot see. In air or rain, aluminium turns its outside into aluminium oxide, meaning aluminium joined to oxygen. That skin is thin, hard and unbroken, so water and air cannot reach the fresh metal underneath. Scratch it, and the skin grows back almost at once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Iron also makes an oxide. We call that rust. The rust takes up too much room for the iron it replaces, so it buckles and flakes away. Each flake opens a new patch of fresh iron. Rain reaches that new patch, makes more rust, and the bar keeps losing itself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The size check is computable:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    magnesium   0.81    too small to cover",
+      "    aluminium   1.29    between 1 and 2, so it covers and sticks",
+      "    iron        2.15    too large, so it breaks away"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is why the metal that starts changing faster is the one that stays whole."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_hob_will_not_help",
    "title": "The hob will not help",
