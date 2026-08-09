@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 254,
+ "count": 255,
  "entries": [
+  {
+   "slug": "stopped_it_and_it_started_again",
+   "title": "Stopped it, and it started again",
+   "ts": "2026-08-09T00:43:49+00:00",
+   "date": "9 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "The one that started turning again is the RAW one, so the boiled egg is the one you never touched.",
+   "why": [
+    {
+     "h": "WHAT YOUR FINGER ACTUALLY TOUCHED",
+     "t": "p",
+     "lines": [
+      "Only the shell. In a boiled egg that is enough, because the whole thing is one solid body — stop the outside and you have stopped everything, and it stays stopped. In a raw one the white and yolk are a liquid that the shell has been dragging round, and they carry on turning when the shell is held."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Let go and that angular momentum is shared back out."
+     ]
+    },
+    {
+     "h": "WHY IT COMES BACK SO STRONGLY",
+     "t": "p",
+     "lines": [
+      "The contents are 89% of the mass. Treating the shell as a thin sphere (2/3 m r squared) and the inside as a solid one (2/5 m r squared):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    shell     1.94 x 10^-6 kg m^2",
+      "    contents  9.42 x 10^-6 kg m^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The recovered spin is the contents' share of the total, which is 83%. So it does not creep back — it comes back at nearly the speed it had. That is the exact ratio the animation is drawn at, if you want to count the pencil mark round."
+     ]
+    },
+    {
+     "h": "THE TEST THAT IS BETTER THAN SPINNING",
+     "t": "p",
+     "lines": [
+      "Just spinning both tells you something: the raw one spins sluggishly, because the liquid has to be dragged up to speed and it never quite gets there. But that is a judgement about how fast is fast. The stop-and-release test gives a yes or no, and needs no second egg to compare against."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a system responds to being disturbed in a way its outside alone cannot explain, something inside is storing what you took away. The size of the comeback tells you how much of the mass is doing it."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "paid_in_sixty_days",
    "title": "paid in sixty days",
