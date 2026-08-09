@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 265,
+ "count": 266,
  "entries": [
+  {
+   "slug": "the_tip_on_the_tip",
+   "title": "the tip on the tip",
+   "ts": "2026-08-09T05:29:16+00:00",
+   "date": "9 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_tip_on_the_tip",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: split the machine's tip into two pieces. One piece is taken from the food. The small extra piece is taken from the service line that was already added."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "ten_times_longer_twice_the_time",
    "title": "Ten times longer, three times the time",
