@@ -16,8 +16,99 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 269,
+ "count": 270,
  "entries": [
+  {
+   "slug": "count_the_heads_in_front",
+   "title": "Count the heads in front",
+   "ts": "2026-08-09T07:24:15+00:00",
+   "date": "9 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Because the number of people in a queue is forced to equal how fast they arrive multiplied by how long each one stays. Twenty people, five an hour, four hours. It is an accounting identity, not a model.",
+   "why": [
+    {
+     "h": "WHY IT CANNOT FAIL",
+     "t": "p",
+     "lines": [
+      "Draw a graph of how many people are present against time. Now measure the area under it over a long stretch, two ways."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sweep it VERTICALLY: at each instant count the heads and add up. That is the average number present, times the elapsed time — L x T."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sweep it HORIZONTALLY: every person contributes a strip as wide as their own stay. Adding those gives the total of everyone's waits — the number of people, times the average wait, or (lambda T) x W."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same area, cut two ways:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L x T = lambda x T x W        ->        L = lambda x W"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nothing has been assumed about anything. That is why no distribution appears anywhere in it."
+     ]
+    },
+    {
+     "h": "WHAT YOU DO NOT NEED TO KNOW",
+     "t": "p",
+     "lines": [
+      "Not how many staff are working. Not how long a person takes. Not whether arrivals are steady or come in bursts. Not the order people are served in — serve the queue backwards and individual waits change enormously while the average does not move at all."
+     ]
+    },
+    {
+     "h": "THE ONE CONDITION",
+     "t": "p",
+     "lines": [
+      "The queue must be stable: what goes in must come out over the long run. Watch a queue that is still growing and the identity does not hold, because people who arrived have not left yet and their strips are unfinished. That is the only assumption, and it is the one worth checking before you use it."
+     ]
+    },
+    {
+     "h": "USING IT BACKWARDS",
+     "t": "pre",
+     "lines": [
+      "    W = L / lambda      how long will I wait",
+      "    L = lambda x W      how many chairs does the waiting room need",
+      "    lambda = L / W      how busy is this place really"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Any two give you the third, which is why the same identity sizes A&E waiting rooms, hospital beds, work-in-progress on a factory floor, and the number of orders resting in a matching engine."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before modelling a system, look for a quantity you can measure two different ways. The equation you get by setting them equal costs nothing, assumes nothing, and is usually more robust than the model you were about to build."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_deposit_you_never_get_back",
    "title": "the deposit you never get back",
