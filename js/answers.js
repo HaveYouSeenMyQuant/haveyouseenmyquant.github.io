@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 277,
+ "count": 278,
  "entries": [
+  {
+   "slug": "it_bursts_where_the_ice_is_not",
+   "title": "It bursts where the ice is not",
+   "ts": "2026-08-09T12:31:47+00:00",
+   "date": "9 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Tip: look for the closed tap. If the water can leave, the same ice is much less dangerous.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Full checked answer - free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/it_bursts_where_the_ice_is_not"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "forty_tonnes_stops_the_same",
    "title": "Forty tonnes stops in the same distance",
