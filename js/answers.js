@@ -16,8 +16,91 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 264,
+ "count": 265,
  "entries": [
+  {
+   "slug": "ten_times_longer_twice_the_time",
+   "title": "Ten times longer, three times the time",
+   "ts": "2026-08-09T05:10:31+00:00",
+   "date": "9 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Because a toppling rod's timescale grows with the square root of its length. Ten times longer gives you about three times as long to react, not ten, and a pencil's small fraction of a second is inside your reaction time.",
+   "why": [
+    {
+     "h": "THE EQUATION",
+     "t": "p",
+     "lines": [
+      "A uniform rod balanced on its end, tipped by a small angle:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    I x angular acceleration = m g (L/2) x angle,     I = m L^2 / 3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    -> angle grows like cosh(t / tau),   tau = sqrt( 2L / 3g )"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The mass cancels. A heavier pencil is no easier. Only the length matters, and only through a square root."
+     ]
+    },
+    {
+     "h": "THE NUMBERS",
+     "t": "p",
+     "lines": [
+      "Starting a couple of degrees off vertical, time until it is past saving:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    broom   1.5 m     tau = 0.32 s     1.09 s to react",
+      "    pencil  0.15 m    tau = 0.10 s     0.34 s to react"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Ten times the length, 3.2 times the time. Human visual-motor reaction is about 0.25 s, and you need at least a couple of those to correct rather than overcorrect."
+     ]
+    },
+    {
+     "h": "THE SHORTEST STICK YOU CAN BALANCE",
+     "t": "p",
+     "lines": [
+      "Set the fall time equal to two reaction times and solve back:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L = 3 g tau^2 / 2 ~ 32 cm"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which is about right: a 30 cm ruler sits on the boundary, a pencil is far past it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_nineteen_pound_flight",
    "title": "the nineteen pound flight",
