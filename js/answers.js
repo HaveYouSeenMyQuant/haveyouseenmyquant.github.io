@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 286,
+ "count": 287,
  "entries": [
+  {
+   "slug": "the_bracket_goes_first",
+   "title": "the bracket goes first",
+   "ts": "2026-08-09T17:34:04+00:00",
+   "date": "9 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/the_bracket_goes_first",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "divide_before_you_multiply",
    "title": "divide before you multiply",
