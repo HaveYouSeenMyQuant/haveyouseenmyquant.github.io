@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 294,
+ "count": 295,
  "entries": [
+  {
+   "slug": "three_pieces_one_triangle",
+   "title": "Three pieces, one triangle",
+   "ts": "2026-08-09T21:06:59+00:00",
+   "date": "9 Aug 2026",
+   "topic": "quant_teaser",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/three_pieces_one_triangle",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: three lengths close into a triangle exactly when no one of them is longer than the other two put together. Now ask how often that happens."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "a_hundred_over_a_product",
    "title": "a hundred over a product",
