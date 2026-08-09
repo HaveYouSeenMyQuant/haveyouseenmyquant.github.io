@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 281,
+ "count": 282,
  "entries": [
+  {
+   "slug": "ten_metres_is_the_limit",
+   "title": "Ten metres is the limit",
+   "ts": "2026-08-09T15:02:27+00:00",
+   "date": "9 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/ten_metres_is_the_limit",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: the pump is not lifting anything. Work out what IS pushing the water up the pipe, then ask whether a tree has any of it."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "up_to_half_price",
    "title": "up to half price",
