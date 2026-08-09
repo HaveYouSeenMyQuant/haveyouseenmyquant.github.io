@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 278,
+ "count": 279,
  "entries": [
+  {
+   "slug": "the_cheaper_one_you_threw_away",
+   "title": "the cheaper one you threw away",
+   "ts": "2026-08-09T13:37:55+00:00",
+   "date": "9 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/the_cheaper_one_you_threw_away",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: use the price paid, then divide by the kilos eaten. Do not count the spinach that went in the bin."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "it_bursts_where_the_ice_is_not",
    "title": "It bursts where the ice is not",
