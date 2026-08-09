@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 272,
+ "count": 273,
  "entries": [
+  {
+   "slug": "the_price_of_each_visit",
+   "title": "the price of each visit",
+   "ts": "2026-08-09T09:18:27+00:00",
+   "date": "9 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_price_of_each_visit",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: put both choices on one month. The membership total stays still. The door total only grows on days you actually go. Look for the visit where those two monthly totals meet, then check the counts on either side."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_last_bean_is_decided",
    "title": "The last bean is decided",
