@@ -16,8 +16,107 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 266,
+ "count": 267,
  "entries": [
+  {
+   "slug": "everything_jumps_the_same_height",
+   "title": "Everything jumps the same height",
+   "ts": "2026-08-09T05:55:45+00:00",
+   "date": "9 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Because the mass cancels. A bigger animal has more muscle to push with AND more weight to lift, in nearly the same proportion, so the height it reaches barely changes.",
+   "why": [
+    {
+     "h": "THE ONE LINE",
+     "t": "p",
+     "lines": [
+      "Work done by the legs lifts the body:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E = m g h        ->        h = E / (m g)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now, how much work can an animal's legs do? Muscle delivers a roughly fixed amount of energy per kilogram of muscle, and muscle is a roughly fixed fraction of body mass. So E is proportional to m:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E = e x f x m        ->        h = e x f / g"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The m divides out. Jump height depends on the quality of muscle, not on the size of the animal."
+     ]
+    },
+    {
+     "h": "DOES IT SURVIVE CONTACT WITH ANIMALS",
+     "t": "pre",
+     "lines": [
+      "    flea      0.0005 g     0.20 m       about 133 body lengths",
+      "    locust        2 g      0.30 m       about 6",
+      "    frog         10 g      0.35 m       about 4",
+      "    human    70,000 g      0.50 m       about 0.3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Mass spans a factor of 140 million. Height spans a factor of 2.5."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE \"A HUNDRED TIMES ITS BODY LENGTH\" COMES FROM"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nowhere impressive. Divide a fixed height by a small body and you get a big number; divide it by a large body and you get a small one. The flea is not stronger for its size — it is the same, and shorter. Quoting jumps in body lengths measures the animal's length, not its legs."
+     ]
+    },
+    {
+     "h": "THE TWO ENDS WHERE IT BREAKS",
+     "t": "p",
+     "lines": [
+      "Very small: air resistance is enormous relative to a flea's momentum, so it loses a large share of its launch energy to drag and falls short of the model."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Very large: an elephant cannot jump at all. Muscle force grows with cross-sectional area while weight grows with volume, so past a certain size the legs cannot even produce a take-off — and bone would fail on landing."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before comparing two things of different sizes, check whether your yardstick scales with the thing being measured. \"Per body length\", \"per capita\", \"as a share of revenue\" — each one silently divides by the very quantity you are trying to compare, and can invert the ranking on its own."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_tip_on_the_tip",
    "title": "the tip on the tip",
