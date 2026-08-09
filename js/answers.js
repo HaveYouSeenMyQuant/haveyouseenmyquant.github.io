@@ -16,8 +16,98 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 291,
+ "count": 292,
  "entries": [
+  {
+   "slug": "fair_from_unfair_coin",
+   "title": "A fair decision from an unfair coin",
+   "ts": "2026-08-09T20:06:21+00:00",
+   "date": "9 Aug 2026",
+   "topic": "quant_teaser",
+   "q": null,
+   "a": "Flip it TWICE and read only the mixed results. Heads-then-tails counts as heads; tails-then-heads counts as tails. If both flips match — two heads or two tails — throw the pair away and start again.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is exactly fair, for any bias, and you never need to know what the bias is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it works, in one line: if the coin comes up heads with probability p, then"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  P(heads then tails) = p(1-p)",
+      "  P(tails then heads) = (1-p)p"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Those are the same two numbers multiplied in the other order, so they are equal — whatever p is. Given that you got one of the two mixed pairs, each is equally likely, so you have a genuine half. The bias cancels; it is never estimated."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Notice what the argument does NOT need. It does not need p to be 0.8, or to be known, or even to be stable between pairs — only that it is the same within a pair, and that it is not 0 or 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why the obvious fixes do not work:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Flipping once and taking heads gives p, which is 0.8 here, not a half."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Flipping many times and taking the majority is worse, not better. With a coin that favours heads, the majority is heads more and more reliably the longer you flip — you are converging on \"heads\" with probability approaching 1, which is the opposite of fair."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Trying to estimate p and correct for it gives you a half only as accurately as your estimate, and never exactly. This procedure is exact after the very first accepted pair."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The cost is patience. A pair is usable only when the two flips differ, which happens with probability 2p(1-p) — for p = 0.8 that is 0.32, so you expect about 6.25 flips per decision. At p = 0.5 it is 4. The more biased the coin, the longer you wait, but the answer is never less fair."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The idea generalises well beyond coins, and that is why it gets asked. When you need something exact out of a source you do not trust, look for two events the unknown parameter affects IDENTICALLY, and condition on one of them happening. You have then extracted a clean bit from a dirty source without measuring the dirt — which is the whole of randomness extraction, and the same instinct behind pairing and differencing tricks in estimation."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "thirty_take_a_double_bracket",
    "title": "thirty take a double bracket",
