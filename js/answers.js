@@ -16,8 +16,34 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 279,
+ "count": 280,
  "entries": [
+  {
+   "slug": "the_bottom_of_the_wheel_stands_still",
+   "title": "The bottom of the wheel stands still",
+   "ts": "2026-08-09T14:25:22+00:00",
+   "date": "9 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "The reel leaves the number to you.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A rolling wheel is doing two things at the same time: the whole bike moves forward, and the wheel spins about its own centre. Add those two motions at the top of the wheel and they point the same way. Add them at the bottom, at the exact bit touching the road, and they point opposite ways."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is why a photograph of a moving car has a sharp bottom edge to the tyre and a smeared top, and it is why tyres wear away by scrubbing rather than by sliding."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_cheaper_one_you_threw_away",
    "title": "the cheaper one you threw away",
