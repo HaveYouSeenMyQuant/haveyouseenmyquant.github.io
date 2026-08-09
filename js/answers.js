@@ -16,8 +16,93 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 261,
+ "count": 262,
  "entries": [
+  {
+   "slug": "nothing_can_live_in_it",
+   "title": "Nothing can live in it",
+   "ts": "2026-08-09T03:52:29+00:00",
+   "date": "9 Aug 2026",
+   "topic": "chemistry",
+   "q": null,
+   "a": "There is plenty of water in it. Almost none of it is free to leave.",
+   "why": [
+    {
+     "h": "THE NUMBER THAT MATTERS",
+     "t": "p",
+     "lines": [
+      "Not how much water is present — 18% — but how much of it can escape. That is the water activity, and for an ideal solution it is just the mole fraction of water:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    sugar 82 g / 180.2 = 0.455 mol",
+      "    water 18 g / 18.02 = 0.999 mol",
+      "    a_w = 0.999 / (0.999 + 0.455) = 0.687"
+     ]
+    },
+    {
+     "h": "WHERE THAT ESTIMATE IS WRONG",
+     "t": "p",
+     "lines": [
+      "Measured honey comes out at 0.55-0.65, LOWER than this. An 82% sugar solution is nowhere near ideal, so Raoult overestimates. Worth saying rather than hiding: the simple calculation gets the size right and the direction of its own error is knowable."
+     ]
+    },
+    {
+     "h": "WHAT THAT DOES TO A CELL",
+     "t": "p",
+     "lines": [
+      "Osmotic pressure across a membrane is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P = -(R T / V) ln(a_w)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    at the ideal 0.687     510 atmospheres",
+      "    at the measured 0.60   694 atmospheres"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hundreds of atmospheres, pulling outward on anything with a membrane. Honey does not poison bacteria. It empties them."
+     ]
+    },
+    {
+     "h": "WHY THE SPORES DO NOT MATTER",
+     "t": "p",
+     "lines": [
+      "Honey genuinely contains botulism spores — which is why it is kept from infants — but a spore is not alive in any sense that can be dehydrated. It simply waits, and in honey it waits forever."
+     ]
+    },
+    {
+     "h": "HOW MUCH WATER WOULD FIX IT",
+     "t": "p",
+     "lines": [
+      "Raise the activity to 0.91 and ordinary bacteria can grow. That needs about 83 g of water per 100 g of honey, roughly five times what is in there. Dilute honey and it ferments within days — which is exactly how mead is made."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Ask whether the quantity you are measuring is the one that acts. Total water is easy to measure and does not do anything. Available water does."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_sale_price_was_the_plan",
    "title": "the sale price was the plan",
@@ -15932,5 +16017,5 @@ window.QQ_ANSWERS = {
    "src": "module"
   }
  ],
- "featured": "one_lap_how_many_turns"
+ "featured": "ninety_gives_you_forty_five"
 };
