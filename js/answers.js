@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 274,
+ "count": 275,
  "entries": [
+  {
+   "slug": "the_same_cover_two_prices",
+   "title": "the same cover two prices",
+   "ts": "2026-08-09T10:36:02+00:00",
+   "date": "9 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_same_cover_two_prices",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: use the price shown to someone new as the base. Then ask what one repeat of the space between the two prices is worth, and ask what happens if the same space repeats for several years. If the two quotes are equal, every answer in the working should collapse to zero."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "napkin_ring_same_volume",
    "title": "Two napkin rings, same height",
