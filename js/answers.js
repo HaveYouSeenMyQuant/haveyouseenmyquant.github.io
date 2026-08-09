@@ -16,8 +16,104 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 267,
+ "count": 268,
  "entries": [
+  {
+   "slug": "two_opposite_points_agree",
+   "title": "Two opposite points agree",
+   "ts": "2026-08-09T06:33:13+00:00",
+   "date": "9 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Yes. Always, right now - and you need to know nothing about the weather to be sure of it.",
+   "why": [
+    {
+     "h": "THE SET-UP",
+     "t": "p",
+     "lines": [
+      "Walk around the equator and let T(x) be the temperature at the point you are standing on, with x the angle you have turned through. Now look at the pair {x, x + 180}: you and your antipode. Define"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    g(x) = T(x) - T(x + 180)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "the difference between the two readings. A matching pair is a place where g(x) = 0."
+     ]
+    },
+    {
+     "h": "THE ONE MOVE",
+     "t": "p",
+     "lines": [
+      "Ask what g does after half a turn:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    g(x + 180) = T(x + 180) - T(x + 360) = T(x + 180) - T(x) = -g(x)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "because going all the way round brings you back to where you started. So g(180) = -g(0). The pair has simply swapped ends, so the difference has to come back negated."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If g(0) happens to be zero you already have your matching pair. Otherwise g starts positive and ends negative, or the reverse. Temperature does not teleport, so g is continuous - and a continuous quantity cannot get from +18 to -18 without passing through 0. That is the intermediate value theorem, and the whole proof."
+     ]
+    },
+    {
+     "h": "WHAT IT DOES NOT NEED",
+     "t": "p",
+     "lines": [
+      "Nothing about weather. No symmetry, no smoothness, no assumption the tropics are warmer. Any continuous T works, which is why it holds at every instant rather than usually."
+     ]
+    },
+    {
+     "h": "TWO, NOT ONE",
+     "t": "p",
+     "lines": [
+      "If x is a solution then so is x + 180 - the same pair, read from the other end. Between any two of those, g must turn round again, so the crossings come in pairs and there are always at least two distinct matching pairs."
+     ]
+    },
+    {
+     "h": "WHERE IT BREAKS",
+     "t": "p",
+     "lines": [
+      "Allow a jump in T and it genuinely fails: g can step straight over zero without ever equalling it. Continuity is doing the real work here, not the geometry."
+     ]
+    },
+    {
+     "h": "THE BIG BROTHER",
+     "t": "p",
+     "lines": [
+      "On the whole sphere, the same idea (the Borsuk-Ulam theorem) gives something stronger: there is always a pair of opposite points that match in temperature AND pressure at the same time. Two conditions, two dimensions, one pair."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When you want to prove something exists but cannot construct it, build a quantity that must change sign, and let continuity find the zero for you. That trick is behind the ham-sandwich theorem, fixed-point results, and half the \"prove there exists\" questions in an interview."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "everything_jumps_the_same_height",
    "title": "Everything jumps the same height",
