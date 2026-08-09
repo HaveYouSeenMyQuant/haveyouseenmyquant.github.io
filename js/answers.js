@@ -16,8 +16,64 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 271,
+ "count": 272,
  "entries": [
+  {
+   "slug": "the_last_bean_is_decided",
+   "title": "The last bean is decided",
+   "ts": "2026-08-09T08:30:25+00:00",
+   "date": "9 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "The last bean is white.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The count that matters is the number of white beans."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Check the three possible moves:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "two black beans -> put black back -> white count changes by 0",
+      "two white beans -> put black back -> white count changes by 2",
+      "one black and one white -> put white back -> white count changes by 0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the white count never changes by one. It stays odd or stays even all the way down."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This jar starts with five white beans, which is odd. At the end, one white bean is odd and zero white beans is even. So this run has to end with a white bean."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If a jar starts with an even number of white beans, the last bean is black. The black bean count is a distraction."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "paying_monthly_is_a_loan",
    "title": "paying monthly is a loan",
