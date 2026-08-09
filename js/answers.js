@@ -349,7 +349,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: do not divide the extra GBP 60 by the starting GBP 600 and stop there. Draw the money still owed after each monthly payment. The cost is being charged while that owed line is shrinking, and that is why the real yearly cost comes out much higher than the headline gap."
+      "TIP: do not divide the extra £60 by the starting £600 and stop there. Draw the money still owed after each monthly payment. The cost is being charged while that owed line is shrinking, and that is why the real yearly cost comes out much higher than the headline gap."
      ]
     }
    ],
@@ -1044,7 +1044,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: do not start with the last GBP 100. Start with the date. If the date is missed, ask whether the shop charges the tiny late bit, or whether it looks back to the original sofa price from day one. Those two readings are nowhere near each other."
+      "TIP: do not start with the last £100. Start with the date. If the date is missed, ask whether the shop charges the tiny late bit, or whether it looks back to the original sofa price from day one. Those two readings are nowhere near each other."
      ]
     }
    ],
@@ -1419,8 +1419,8 @@ window.QQ_ANSWERS = {
      "h": "WHAT YOU ACTUALLY EARN",
      "t": "pre",
      "lines": [
-      "    GBP  5,000   1,000 at 5% = 50  +  4,000 at 1% = 40  =  GBP  90",
-      "    GBP 10,000   1,000 at 5% = 50  +  9,000 at 1% = 90  =  GBP 140"
+      "    £5,000   1,000 at 5% = 50  +  4,000 at 1% = 40  =  £90",
+      "    £10,000   1,000 at 5% = 50  +  9,000 at 1% = 90  =  £140"
      ]
     },
     {
@@ -1442,7 +1442,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "5% of 5,000 would have been GBP 250. You get GBP 90."
+      "5% of 5,000 would have been £250. You get £90."
      ]
     },
     {
@@ -1456,9 +1456,9 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "pre",
      "lines": [
-      "    GBP  5,000    a fifth of it earns 5%      ->  1.80%",
-      "    GBP 10,000    a tenth of it earns 5%      ->  1.40%",
-      "    GBP 50,000    a fiftieth earns 5%       ->  1.08%"
+      "    £5,000    a fifth of it earns 5%      ->  1.80%",
+      "    £10,000    a tenth of it earns 5%      ->  1.40%",
+      "    £50,000    a fiftieth earns 5%       ->  1.08%"
      ]
     },
     {
@@ -1569,14 +1569,14 @@ window.QQ_ANSWERS = {
      "h": "WHAT THE FEE IS CHARGED ON",
      "t": "p",
      "lines": [
-      "Not the GBP 120 you spent. The GBP 30 you were late with."
+      "Not the £120 you spent. The £30 you were late with."
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    GBP 6 / GBP 30  =  20%"
+      "    £6 / £30  =  20%"
      ]
     },
     {
@@ -1604,7 +1604,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "Let it compound -- each fee charged on the balance the last one grew -- and GBP 30 becomes GBP 3,434 in a year:"
+      "Let it compound -- each fee charged on the balance the last one grew -- and £30 becomes £3,434 in a year:"
      ]
     },
     {
@@ -1632,7 +1632,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "Same GBP 6 on the same GBP 30, held for different lengths:"
+      "Same £6 on the same £30, held for different lengths:"
      ]
     },
     {
@@ -1649,7 +1649,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "Nothing in that column is a different fee. It is the same GBP 6 divided by less and less time."
+      "Nothing in that column is a different fee. It is the same £6 divided by less and less time."
      ]
     },
     {
@@ -1675,7 +1675,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: stop comparing the two booths to each other. Compare each one to what GBP 500 is actually worth in euros at 1.20, and every booth turns into a single percentage you can read straight off -- fee and rate together, in one number. One of the two comes out nowhere near the figure on its window."
+      "TIP: stop comparing the two booths to each other. Compare each one to what £500 is actually worth in euros at 1.20, and every booth turns into a single percentage you can read straight off -- fee and rate together, in one number. One of the two comes out nowhere near the figure on its window."
      ]
     }
    ],
@@ -1728,7 +1728,7 @@ window.QQ_ANSWERS = {
    "date": "8 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "GBP 2,000 of spending a year, which is about GBP 167 a month.",
+   "a": "£2,000 of spending a year, which is about £167 a month.",
    "why": [
     {
      "h": "WHAT EACH CARD ACTUALLY GIVES YOU",
@@ -1742,14 +1742,14 @@ window.QQ_ANSWERS = {
      "t": "pre",
      "lines": [
       "    free card       0.5% of what you spend",
-      "    GBP 30 card    2% of what you spend, minus the GBP 30 fee"
+      "    £30 card    2% of what you spend, minus the £30 fee"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Two straight lines. One leaves the origin. The other starts GBP 30 BELOW zero, because the fee is charged before you have earned anything, and climbs 4 times as steeply."
+      "Two straight lines. One leaves the origin. The other starts £30 BELOW zero, because the fee is charged before you have earned anything, and climbs 4 times as steeply."
      ]
     },
     {
@@ -1758,16 +1758,16 @@ window.QQ_ANSWERS = {
      "lines": [
       "    0.005 x  =  0.02 x - 30",
       "    0.015 x  =  30",
-      "          x  =  GBP 2,000"
+      "          x  =  £2,000"
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    spend GBP  1,000    free GBP     5    paid GBP   -10    free ahead",
-      "    spend GBP  2,000    free GBP    10    paid GBP    10    level",
-      "    spend GBP 10,000    free GBP    50    paid GBP   170    paid ahead by 120"
+      "    spend £1,000    free £5    paid -£10    free ahead",
+      "    spend £2,000    free £10    paid £10    level",
+      "    spend £10,000    free £50    paid £170    paid ahead by 120"
      ]
     },
     {
@@ -1788,7 +1788,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "The fee is the smaller half of that. Halve the rate gap and the crossing doubles. The same GBP 30 against a 1.5% gap needs GBP 2,000; against a 0.50% gap it needs GBP 6,000. So the question is never \"is there a fee\" -- it is how far apart the two rates are, and how much goes through."
+      "The fee is the smaller half of that. Halve the rate gap and the crossing doubles. The same £30 against a 1.5% gap needs £2,000; against a 0.50% gap it needs £6,000. So the question is never \"is there a fee\" -- it is how far apart the two rates are, and how much goes through."
      ]
     }
    ],
@@ -1807,9 +1807,9 @@ window.QQ_ANSWERS = {
      "h": "THE MORTGAGE DOES NOT MOVE",
      "t": "pre",
      "lines": [
-      "    house   GBP 200,000  ->  GBP 210,000     (+5%)",
-      "    loan    GBP 180,000  ->  GBP 180,000     (unchanged)",
-      "    yours   GBP 20,000  ->  GBP 30,000     (+50%)"
+      "    house   £200,000  ->  £210,000     (+5%)",
+      "    loan    £180,000  ->  £180,000     (unchanged)",
+      "    yours   £20,000  ->  £30,000     (+50%)"
      ]
     },
     {
@@ -1833,16 +1833,16 @@ window.QQ_ANSWERS = {
      "h": "THE HALF NOBODY PUTS ON THE POSTER",
      "t": "p",
      "lines": [
-      "The same house falling 5% takes your GBP 20,000 to GBP 10,000. Down 50%."
+      "The same house falling 5% takes your £20,000 to £10,000. Down 50%."
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    house -5%   ->  yours GBP 10,000",
-      "    house  0%    ->  yours GBP 20,000",
-      "    house +5%   ->  yours GBP 30,000"
+      "    house -5%   ->  yours £10,000",
+      "    house  0%    ->  yours £20,000",
+      "    house +5%   ->  yours £30,000"
      ]
     },
     {
@@ -1869,14 +1869,14 @@ window.QQ_ANSWERS = {
    "date": "8 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Neither, at three items -- GBP 18 both ways. At every other number, \"a third off\" wins.",
+   "a": "Neither, at three items -- £18 both ways. At every other number, \"a third off\" wins.",
    "why": [
     {
      "h": "AT THREE THEY ARE THE SAME",
      "t": "pre",
      "lines": [
-      "    3 for 2       pay for 2 of 3   =  GBP 18",
-      "    a third off   27 - a third    =  GBP 18"
+      "    3 for 2       pay for 2 of 3   =  £18",
+      "    a third off   27 - a third    =  £18"
      ]
     },
     {
@@ -2011,21 +2011,21 @@ window.QQ_ANSWERS = {
    "date": "8 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "GBP 5 and GBP 15. Half each has Anna paying GBP 5 towards miles she was not in the car for.",
+   "a": "£5 and £15. Half each has Anna paying £5 towards miles she was not in the car for.",
    "why": [
     {
      "h": "PRICE EACH MILE BY WHO IS IN THE CAR",
      "t": "pre",
      "lines": [
-      "    miles 0-5    both aboard    GBP 10, split two ways   GBP 5 each",
-      "    miles 5-10   Ben alone      GBP 10, all his"
+      "    miles 0-5    both aboard    £10, split two ways   £5 each",
+      "    miles 5-10   Ben alone      £10, all his"
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    Anna  GBP 5      Ben  GBP 15      meter  GBP 20"
+      "    Anna  £5      Ben  £15      meter  £20"
      ]
     },
     {
@@ -2046,7 +2046,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "It charges Anna for Ben's second leg. Reverse it and the unfairness is obvious: if Anna got out after one mile she would still be paying GBP 10."
+      "It charges Anna for Ben's second leg. Reverse it and the unfairness is obvious: if Anna got out after one mile she would still be paying £10."
      ]
     },
     {
@@ -2060,7 +2060,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "pre",
      "lines": [
-      "    Anna 5/15 of GBP 20 = GBP 6.67      Ben GBP 13.33"
+      "    Anna 5/15 of £20 = £6.67      Ben £13.33"
      ]
     },
     {
@@ -2094,58 +2094,58 @@ window.QQ_ANSWERS = {
    "date": "8 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "GBP 70 one way, GBP 72 the other. The 20% voucher first is the cheaper order, by GBP 2.",
+   "a": "£70 one way, £72 the other. The 20% voucher first is the cheaper order, by £2.",
    "why": [
     {
      "h": "THE TWO ORDERS",
      "t": "pre",
      "lines": [
-      "    20% first    GBP 100 -> GBP 80 -> GBP 70",
-      "    GBP 10 first   GBP 100 -> GBP 90 -> GBP 72"
+      "    20% first    £100 -> £80 -> £70",
+      "    £10 first   £100 -> £90 -> £72"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "A percentage takes a share of whatever number is in front of it. Put it first and it acts on the bigger number, so it takes more off. The GBP 10 takes GBP 10 whatever it is applied to."
+      "A percentage takes a share of whatever number is in front of it. Put it first and it acts on the bigger number, so it takes more off. The £10 takes £10 whatever it is applied to."
      ]
     },
     {
      "h": "THE GAP DOES NOT DEPEND ON THE PRICE",
      "t": "pre",
      "lines": [
-      "    gap  =  GBP 10 x 20%  =  GBP 2"
+      "    gap  =  £10 x 20%  =  £2"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The coat's price cancels out entirely. Same two vouchers on a GBP 500 coat: still exactly GBP 2 apart. On a GBP 40 coat: still GBP 2."
+      "The coat's price cancels out entirely. Same two vouchers on a £500 coat: still exactly £2 apart. On a £40 coat: still £2."
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    GBP  40 coat   GBP 22 or GBP 24",
-      "    GBP 100 coat   GBP 70 or GBP 72",
-      "    GBP 500 coat   GBP 390 or GBP 392"
+      "    £40 coat   £22 or £24",
+      "    £100 coat   £70 or £72",
+      "    £500 coat   £390 or £392"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Every row is GBP 2 apart. That is why the rule is worth keeping rather than the example."
+      "Every row is £2 apart. That is why the rule is worth keeping rather than the example."
      ]
     },
     {
      "h": "THE TRANSFERABLE MOVE",
      "t": "p",
      "lines": [
-      "\"Take 20% off\" and \"take GBP 10 off\" are different KINDS of operation, and different kinds of operation rarely commute. Whenever a proportion and a fixed amount are applied one after the other -- discounts, fees, taxes, tips -- the order is a real question with a real answer, and the answer is always to let the proportion act on the larger number."
+      "\"Take 20% off\" and \"take £10 off\" are different KINDS of operation, and different kinds of operation rarely commute. Whenever a proportion and a fixed amount are applied one after the other -- discounts, fees, taxes, tips -- the order is a real question with a real answer, and the answer is always to let the proportion act on the larger number."
      ]
     }
    ],
@@ -2219,7 +2219,7 @@ window.QQ_ANSWERS = {
    "date": "8 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "50% more. GBP 4,000 a year becomes GBP 6,000 -- an extra GBP 2,000, from a rate that moved by \"one percent\".",
+   "a": "50% more. £4,000 a year becomes £6,000 -- an extra £2,000, from a rate that moved by \"one percent\".",
    "why": [
     {
      "h": "TWO TRUE STATEMENTS, TWO DIFFERENT NUMBERS",
@@ -2240,15 +2240,15 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "pre",
      "lines": [
-      "    at 2%   GBP 200,000 x 0.02  =  GBP 4,000 a year",
-      "    at 3%   GBP 200,000 x 0.03  =  GBP 6,000 a year"
+      "    at 2%   £200,000 x 0.02  =  £4,000 a year",
+      "    at 3%   £200,000 x 0.03  =  £6,000 a year"
      ]
     },
     {
      "h": "THE SIZE OF THE LOAN IS IRRELEVANT",
      "t": "p",
      "lines": [
-      "The 50% is a fact about 2% and 3%, not about GBP 200,000. Borrow a tenth as much and the bill still rises by half -- only the pounds shrink. That is why the ratio is the part worth remembering."
+      "The 50% is a fact about 2% and 3%, not about £200,000. Borrow a tenth as much and the bill still rises by half -- only the pounds shrink. That is why the ratio is the part worth remembering."
      ]
     },
     {
@@ -2510,15 +2510,15 @@ window.QQ_ANSWERS = {
      "h": "DO THE DIVISION",
      "t": "pre",
      "lines": [
-      "    small   GBP 2.00 / 500g    =  40p per 100g",
-      "    large   GBP 5.40 / 1200g   =  45p per 100g"
+      "    small   £2.00 / 500g    =  40p per 100g",
+      "    large   £5.40 / 1200g   =  45p per 100g"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "At the small box's rate, 1200g would cost GBP 4.80. It is GBP 5.40. The extra GBP 0.60 buys nothing except a bigger box."
+      "At the small box's rate, 1200g would cost £4.80. It is £5.40. The extra £0.60 buys nothing except a bigger box."
      ]
     },
     {
@@ -2641,7 +2641,7 @@ window.QQ_ANSWERS = {
    "date": "8 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "GBP 1,083.33 a month. Not GBP 1,000 -- and the gap comes to four extra weeks of rent every year.",
+   "a": "£1,083.33 a month. Not £1,000 -- and the gap comes to four extra weeks of rent every year.",
    "why": [
     {
      "h": "WHY FOUR IS THE WRONG NUMBER",
@@ -2662,24 +2662,24 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "pre",
      "lines": [
-      "    GBP 250 x 4          =  GBP 1,000    <- what people read",
-      "    GBP 250 x 4.3333     =  GBP 1,083.33 <- what it costs"
+      "    £250 x 4          =  £1,000    <- what people read",
+      "    £250 x 4.3333     =  £1,083.33 <- what it costs"
      ]
     },
     {
      "h": "THE MISSING MONTH",
      "t": "pre",
      "lines": [
-      "    by the week   GBP 250 x 52  =  GBP 13,000",
-      "    by the month  GBP 1,000 x 12  =  GBP 12,000",
-      "                              difference  GBP 1,000"
+      "    by the week   £250 x 52  =  £13,000",
+      "    by the month  £1,000 x 12  =  £12,000",
+      "                              difference  £1,000"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "That GBP 1,000 is exactly four weeks of rent -- because twelve months of \"four weeks\" is 48 weeks, and the year is 52. The four weeks you never counted are the four weeks you still pay for."
+      "That £1,000 is exactly four weeks of rent -- because twelve months of \"four weeks\" is 48 weeks, and the year is 52. The four weeks you never counted are the four weeks you still pay for."
      ]
     },
     {
@@ -2712,22 +2712,22 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "pre",
      "lines": [
-      "    fall  50% of GBP 100  =  GBP 50   ->  GBP 50",
-      "    rise  50% of GBP 50   =  GBP 25   ->  GBP 75"
+      "    fall  50% of £100  =  £50   ->  £50",
+      "    rise  50% of £50   =  £25   ->  £75"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Same 50%, half as much money underneath it, so half as many pounds come back. You land at GBP 75, GBP 25 short."
+      "Same 50%, half as much money underneath it, so half as many pounds come back. You land at £75, £25 short."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "To return to GBP 100 you need GBP 50 of gain on a base of GBP 50 -- which is +100%. The gain is measured against what you have left, not against what you had."
+      "To return to £100 you need £50 of gain on a base of £50 -- which is +100%. The gain is measured against what you have left, not against what you had."
      ]
     },
     {
@@ -3405,29 +3405,29 @@ window.QQ_ANSWERS = {
    "date": "8 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "No. GBP 335,872 one way, GBP 202,528 the other — GBP 133,344 apart.",
+   "a": "No. £335,872 one way, £202,528 the other — £133,344 apart.",
    "why": [
     {
      "h": "WHY ORDER CAN MATTER AT ALL",
      "t": "p",
      "lines": [
-      "Multiplying does not care about order, so if the pot were left alone the answer would be the same either way. It is: GBP 480,480 both ways, to the pound. Check that first, because it is the thing that tells you the returns are not the culprit."
+      "Multiplying does not care about order, so if the pot were left alone the answer would be the same either way. It is: £480,480 both ways, to the pound. Check that first, because it is the thing that tells you the returns are not the culprit."
      ]
     },
     {
      "h": "WHAT THE WITHDRAWALS DO",
      "t": "p",
      "lines": [
-      "Taking GBP 40,000 out during a bad year means selling when the pot is small, so those units are gone and cannot take part in the recovery. Do the bad years first and you spend five years shrinking a pot that then has less to grow. Do them last and the good years have already done their work."
+      "Taking £40,000 out during a bad year means selling when the pot is small, so those units are gone and cannot take part in the recovery. Do the bad years first and you spend five years shrinking a pot that then has less to grow. Do them last and the good years have already done their work."
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    good years first    GBP   335,872",
-      "    bad years first     GBP   202,528",
-      "    no withdrawals      GBP   480,480  (either order)"
+      "    good years first    £335,872",
+      "    bad years first     £202,528",
+      "    no withdrawals      £480,480  (either order)"
      ]
     },
     {
@@ -3561,23 +3561,23 @@ window.QQ_ANSWERS = {
      "h": "WHY THE UNIT RATE CANNOT SETTLE IT",
      "t": "p",
      "lines": [
-      "A bill has two parts: a standing charge you pay whether or not you switch anything on, and a rate per unit. Tariff A charges 60p a day before you use anything -- GBP 219 a year -- and then undercuts B by 6p a unit."
+      "A bill has two parts: a standing charge you pay whether or not you switch anything on, and a rate per unit. Tariff A charges 60p a day before you use anything -- £219 a year -- and then undercuts B by 6p a unit."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "So A starts GBP 146 behind and claws back 6p per unit used. It draws level once you have used GBP 146 / 6p = 2,433 units, and wins after that."
+      "So A starts £146 behind and claws back 6p per unit used. It draws level once you have used £146 / 6p = 2,433 units, and wins after that."
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    1,500 units    A GBP 579    B GBP 523    B cheaper",
-      "    2,433 units    A GBP 803    B GBP 803    level",
-      "    2,700 units    A GBP 867    B GBP 883    A cheaper"
+      "    1,500 units    A £579    B £523    B cheaper",
+      "    2,433 units    A £803    B £803    level",
+      "    2,700 units    A £867    B £883    A cheaper"
      ]
     },
     {
@@ -3698,13 +3698,13 @@ window.QQ_ANSWERS = {
    "date": "7 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "448%. The same GBP 15, on the same GBP 100, is 15% over a year.",
+   "a": "448%. The same £15, on the same £100, is 15% over a year.",
    "why": [
     {
      "h": "WHY ONE FEE HAS TWO RATES",
      "t": "p",
      "lines": [
-      "An annual rate answers \"what if this carried on for a year?\". Held for 365 days, the GBP 15 happens once: 15%. Held for 30 days it happens about twelve times, each time on a balance the previous fee already grew -- so it compounds, and lands at 448%. Same money, 30 times the rate, and the only thing that changed is the calendar."
+      "An annual rate answers \"what if this carried on for a year?\". Held for 365 days, the £15 happens once: 15%. Held for 30 days it happens about twelve times, each time on a balance the previous fee already grew -- so it compounds, and lands at 448%. Same money, 30 times the rate, and the only thing that changed is the calendar."
      ]
     },
     {
@@ -3720,7 +3720,7 @@ window.QQ_ANSWERS = {
      "h": "THE HONEST OTHER HALF",
      "t": "p",
      "lines": [
-      "If you borrow GBP 100 for 30 days and repay it on time, it costs you GBP 15. Not GBP 448. The 448% is what it would cost if you kept re-borrowing all year, which is exactly the thing that makes short borrowing dangerous -- but the headline rate is a statement about repetition, not about the pounds leaving your account this month."
+      "If you borrow £100 for 30 days and repay it on time, it costs you £15. Not £448. The 448% is what it would cost if you kept re-borrowing all year, which is exactly the thing that makes short borrowing dangerous -- but the headline rate is a statement about repetition, not about the pounds leaving your account this month."
      ]
     },
     {
@@ -3747,36 +3747,43 @@ window.QQ_ANSWERS = {
    "date": "7 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "GBP 32, not GBP 24. The two stickers come to 60% off, never 70%.",
+   "a": "£32, not £24. The two stickers come to 60% off, never 70%.",
    "why": [
     {
-     "h": "WHERE THE GBP 8 GOES",
+     "h": null,
      "t": "p",
      "lines": [
-      "The second sticker is not 20% of the price on the label. It is 20% of what is left after the first one. Half of GBP 80 is GBP 40, so the second discount is worth GBP 8 — not the GBP 16 it looks like on the ticket."
+      "WHERE THE £8 GOES"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The second sticker is not 20% of the price on the label. It is 20% of what is left after the first one. Half of £80 is £40, so the second discount is worth £8 — not the £16 it looks like on the ticket."
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    label                 GBP    80",
-      "    after 50%             GBP    40",
-      "    after 20% of THAT     GBP    32"
+      "    label                 £80",
+      "    after 50%             £40",
+      "    after 20% of THAT     £32"
      ]
     },
     {
      "h": "THE RULE, IN GENERAL",
      "t": "p",
      "lines": [
-      "Two discounts of a and b together take off a + b - ab, never a + b. The missing piece is always exactly a x b — here 50% x 20% = 10% of the original, which is the GBP 8. It is why \"an extra 20% off our sale prices\" is worth so much less than a straight 70% sale, and it is not a trick: it is what multiplying does."
+      "Two discounts of a and b together take off a + b - ab, never a + b. The missing piece is always exactly a x b — here 50% x 20% = 10% of the original, which is the £8. It is why \"an extra 20% off our sale prices\" is worth so much less than a straight 70% sale, and it is not a trick: it is what multiplying does."
      ]
     },
     {
      "h": "THE PART THAT SURPRISES PEOPLE THE OTHER WAY",
      "t": "p",
      "lines": [
-      "The order makes no difference at all. Take the 20% first and the 50% second and it is still GBP 32. The shop is not sequencing them cleverly — there is no sequence that helps or hurts."
+      "The order makes no difference at all. Take the 20% first and the 50% second and it is still £32. The shop is not sequencing them cleverly — there is no sequence that helps or hurts."
      ]
     },
     {
@@ -3883,28 +3890,28 @@ window.QQ_ANSWERS = {
    "date": "7 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Less. GBP 530 against GBP 380 — the GBP 100,000 earner keeps least.",
+   "a": "Less. £530 against £380 — the £100,000 earner keeps least.",
    "why": [
     {
      "h": "WHY THE LOWER SALARY IS PUNISHED HARDER",
      "t": "p",
      "lines": [
-      "The tax-free allowance is withdrawn above GBP 100,000, at GBP 1 for every GBP 2 earned. So a GBP 1,000 rise there does not add GBP 1,000 to taxable income. It adds GBP 1,500: the rise itself, plus the GBP 500 of allowance that stops being tax-free. All of it lands in the 40% band."
+      "The tax-free allowance is withdrawn above £100,000, at £1 for every £2 earned. So a £1,000 rise there does not add £1,000 to taxable income. It adds £1,500: the rise itself, plus the £500 of allowance that stops being tax-free. All of it lands in the 40% band."
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    GBP 100,000   keeps GBP 380 of 1,000   (62% gone)",
-      "    GBP 150,000   keeps GBP 530 of 1,000   (47% gone)"
+      "    £100,000   keeps £380 of 1,000   (62% gone)",
+      "    £150,000   keeps £530 of 1,000   (47% gone)"
      ]
     },
     {
      "h": "WHY IT STOPS",
      "t": "p",
      "lines": [
-      "By GBP 125,140 the allowance has been withdrawn completely. There is nothing left to take away, so the extra bite disappears and the rate falls back to the headline 45% plus 2% National Insurance. The punishing zone is a band with a top and a bottom, not a slope that keeps getting worse."
+      "By £125,140 the allowance has been withdrawn completely. There is nothing left to take away, so the extra bite disappears and the rate falls back to the headline 45% plus 2% National Insurance. The punishing zone is a band with a top and a bottom, not a slope that keeps getting worse."
      ]
     },
     {
@@ -3931,35 +3938,35 @@ window.QQ_ANSWERS = {
    "date": "7 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "25 years, and GBP 3,259 of interest on a GBP 2,000 debt.",
+   "a": "25 years, and £3,259 of interest on a £2,000 debt.",
    "why": [
     {
      "h": "WHAT GOES WRONG",
      "t": "p",
      "lines": [
-      "The minimum payment is not a fixed sum. It is this month's interest plus 1% of what you still owe. So the moment the balance falls, the payment falls with it, and the balance shrinks by the same 1% every month for ever. That is a curve that approaches zero without reaching it, which is why the cash floor of GBP 5 is the only reason it ever finishes at all."
+      "The minimum payment is not a fixed sum. It is this month's interest plus 1% of what you still owe. So the moment the balance falls, the payment falls with it, and the balance shrinks by the same 1% every month for ever. That is a curve that approaches zero without reaching it, which is why the cash floor of £5 is the only reason it ever finishes at all."
      ]
     },
     {
      "h": "THE FIVE-YEAR MARK",
      "t": "p",
      "lines": [
-      "After 60 months of never missing a payment you have handed over GBP 2,475 -- more than you borrowed -- and you still owe GBP 1,094."
+      "After 60 months of never missing a payment you have handed over £2,475 -- more than you borrowed -- and you still owe £1,094."
      ]
     },
     {
      "h": "THE CONTROL, WHICH IS THE WHOLE POINT",
      "t": "p",
      "lines": [
-      "Take the very first minimum, GBP 54.66, and just keep paying that exact figure every month. Not a penny more, and it is a sum you have already proved you can afford, because you paid it in month one."
+      "Take the very first minimum, £54.66, and just keep paying that exact figure every month. Not a penny more, and it is a sum you have already proved you can afford, because you paid it in month one."
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    minimum, as billed     24.8 years    GBP 3,259 interest",
-      "    that same first sum     4.9 years    GBP 1,199 interest"
+      "    minimum, as billed     24.8 years    £3,259 interest",
+      "    that same first sum     4.9 years    £1,199 interest"
      ]
     },
     {
