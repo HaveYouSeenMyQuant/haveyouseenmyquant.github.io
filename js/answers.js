@@ -16,8 +16,77 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 262,
+ "count": 263,
  "entries": [
+  {
+   "slug": "five_to_three_is_the_wrong_split",
+   "title": "Five to three is the wrong split",
+   "ts": "2026-08-09T04:30:58+00:00",
+   "date": "9 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "Because the score is already spent. What each player is owed is the chance he would have gone on to WIN, and that depends only on how many points each player still NEEDED.",
+   "why": [
+    {
+     "h": "THE SITUATION",
+     "t": "p",
+     "lines": [
+      "First to 7, and both players put in the same money. It stands at 5-3, so the leader needs 2 more points and the other player needs 4. At most 5 points can still be played, because after 5 of them somebody must have got to seven."
+     ]
+    },
+    {
+     "h": "PLAY THEM ALL OUT",
+     "t": "p",
+     "lines": [
+      "Imagine they play all 5 points anyway, even the dead ones. Each point is a coin toss, so there are 2^5 = 32 equally likely stories. The leader wins whenever at least 2 of the 5 go his way, and that happens in 26 of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    fair share to the leader   13/16 = 81.25%",
+      "    splitting by the score     5/8 = 62.50%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So 18.75% of the money goes to the wrong player if you divide it 5 to 3."
+     ]
+    },
+    {
+     "h": "WHY THE SCORE IS THE WRONG THING TO LOOK AT",
+     "t": "p",
+     "lines": [
+      "5-3 in a race to 7 and 1-1 in a race to 3 and 98-96 in a race to 100 are the SAME position: 2 needed against 4. All three split 13/16. The points already scored are gone; only what is still needed can matter."
+     ]
+    },
+    {
+     "h": "THE SANITY CHECK",
+     "t": "p",
+     "lines": [
+      "Level on points still needed is always half and half, at any score at all — 6-6 in a race to 7, or 49-49 in a race to 50. And if the leader is genuinely better, say he takes each point 3 times in 5, the same position pays him 91.30% instead. The arrangement of the remaining points has not changed; the chances have, and the split follows the chances."
+     ]
+    },
+    {
+     "h": "WHERE THIS COMES FROM",
+     "t": "p",
+     "lines": [
+      "Pascal and Fermat argued this out in letters in 1654 and could not at first agree. It is usually taken as the birth of probability as a subject, and the move — value a stopped position by what it would have become — is the same one behind every option price on every screen in finance."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something stops early, do not divide by what has happened. Divide by what was still going to happen."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "nothing_can_live_in_it",
    "title": "Nothing can live in it",
