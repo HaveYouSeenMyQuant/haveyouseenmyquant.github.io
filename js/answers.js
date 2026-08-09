@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 253,
+ "count": 254,
  "entries": [
+  {
+   "slug": "paid_in_sixty_days",
+   "title": "paid in sixty days",
+   "ts": "2026-08-09T00:37:37+00:00",
+   "date": "9 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/paid_in_sixty_days",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: do not add the months up. Keep two separate totals -- what you have EARNED, and what is still sitting in envelopes nobody has opened -- and take the second away from the first. That gap sticks at two bills' worth from month two onward, which is why doing more work makes it wider, not narrower."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "spending_more_to_save_the_delivery",
    "title": "spending more to save the delivery",
