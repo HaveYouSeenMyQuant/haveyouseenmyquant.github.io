@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 275,
+ "count": 276,
  "entries": [
+  {
+   "slug": "the_phone_was_paid_off_a_year_ago",
+   "title": "the phone was paid off a year ago",
+   "ts": "2026-08-09T11:50:58+00:00",
+   "date": "9 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Answer (one email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_phone_was_paid_off_a_year_ago",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: after month 24, do not count the whole payment as extra. The calls and data still cost something. Only the part above the calls-and-data price is the extra, and only after the phone has already been paid for."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_same_cover_two_prices",
    "title": "the same cover two prices",
