@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 288,
+ "count": 289,
  "entries": [
+  {
+   "slug": "keep_it_or_roll_again",
+   "title": "Keep it, or roll again",
+   "ts": "2026-08-09T18:30:12+00:00",
+   "date": "9 Aug 2026",
+   "topic": "quant_teaser",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/keep_it_or_roll_again",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: work out what a fresh roll is worth first. Then you know exactly which first rolls are worth keeping."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "fifteen_take_away_a_bracket",
    "title": "fifteen take away a bracket",
