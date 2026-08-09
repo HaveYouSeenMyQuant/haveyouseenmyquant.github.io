@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 260,
+ "count": 261,
  "entries": [
+  {
+   "slug": "the_sale_price_was_the_plan",
+   "title": "the sale price was the plan",
+   "ts": "2026-08-09T03:25:20+00:00",
+   "date": "9 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_sale_price_was_the_plan",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: do not start with the red sign. Track the ticket before the shop changed it, then track the ticket after the shop changed it. The percentage only tells you what happens to the second ticket."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_second_opinion_that_is_not_one",
    "title": "The second opinion that is not one",
@@ -15913,5 +15932,5 @@ window.QQ_ANSWERS = {
    "src": "module"
   }
  ],
- "featured": "chameleons_never_agree"
+ "featured": "one_lap_how_many_turns"
 };
