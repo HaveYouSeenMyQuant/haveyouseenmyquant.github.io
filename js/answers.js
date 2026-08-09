@@ -16,8 +16,96 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 276,
+ "count": 277,
  "entries": [
+  {
+   "slug": "forty_tonnes_stops_the_same",
+   "title": "Forty tonnes stops in the same distance",
+   "ts": "2026-08-09T11:54:35+00:00",
+   "date": "9 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Neither. They stop in the same distance, and mass is not in the answer.",
+   "why": [
+    {
+     "h": "WHY IT CANCELS",
+     "t": "p",
+     "lines": [
+      "The grip a tyre can give is proportional to the load pressing it down:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    grip = mu * m * g"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and the thing you have to stop is that same m. So"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    a = grip / m = mu * g          -> the m cancels",
+      "    d = v^2 / (2 * mu * g)         -> no mass anywhere"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At 60 mph on dry tarmac with mu = 0.8, that is 45.8 m for the car and 45.8 m for the forty-tonne lorry. Not close — identical, and identical for any mass you put in."
+     ]
+    },
+    {
+     "h": "THE HIGHWAY CODE AGREES",
+     "t": "p",
+     "lines": [
+      "Its braking distances were measured, not derived. Fit each one to d = v^2/(2*mu*g) and read off the mu it implies:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    20 mph      6 m    mu = 0.679",
+      "    30 mph     14 m    mu = 0.655",
+      "    40 mph     24 m    mu = 0.679",
+      "    50 mph     38 m    mu = 0.670",
+      "    60 mph     55 m    mu = 0.667",
+      "    70 mph     75 m    mu = 0.665"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One coefficient, 0.65 to 0.68, across the whole table. The published figures are that formula."
+     ]
+    },
+    {
+     "h": "SO WHY ARE LORRIES TOLD TO LEAVE MORE ROOM",
+     "t": "p",
+     "lines": [
+      "Because the real world is not one clean coefficient. A heavily loaded tyre grips slightly less per newton than a lightly loaded one; brakes on forty tonnes have far more heat to get rid of and fade; air brakes take about half a second to build pressure that hydraulics build instantly; and the load can shift. None of these is in the derivation, and all of them push the same way."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a quantity appears on both sides of a ratio, check whether it cancels before assuming it matters. Here the intuition that heavy things are harder to stop is right about the force and wrong about the distance."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_phone_was_paid_off_a_year_ago",
    "title": "the phone was paid off a year ago",
