@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 255,
+ "count": 256,
  "entries": [
+  {
+   "slug": "what_a_mile_actually_costs",
+   "title": "what a mile actually costs",
+   "ts": "2026-08-09T01:22:17+00:00",
+   "date": "9 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/what_a_mile_actually_costs",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: before you divide, sort the five costs into the ones that would still turn up if the car never left the driveway, and the one that would not. Do that and the same year gives you TWO different right answers to \"what does a mile cost\" -- and the gap between them is bigger than the petrol bill."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "stopped_it_and_it_started_again",
    "title": "Stopped it, and it started again",
