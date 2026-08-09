@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 284,
+ "count": 285,
  "entries": [
+  {
+   "slug": "the_wider_swing_runs_slow",
+   "title": "The wider swing runs slow",
+   "ts": "2026-08-09T16:35:24+00:00",
+   "date": "9 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/the_wider_swing_runs_slow",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: the pull that brings it back goes as the sine of the angle, and the sine of an angle is always smaller than the angle itself."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "four_ways_to_get_this_wrong",
    "title": "four ways to get this wrong",
