@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 283,
+ "count": 284,
  "entries": [
+  {
+   "slug": "four_ways_to_get_this_wrong",
+   "title": "four ways to get this wrong",
+   "ts": "2026-08-09T16:14:28+00:00",
+   "date": "9 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/four_ways_to_get_this_wrong",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Brackets first, then the multiply, then the subtract. Three of the four options are what you get if you take those in a different order."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_same_fee_paid_faster",
    "title": "the same fee paid faster",
