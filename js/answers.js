@@ -16,8 +16,106 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 273,
+ "count": 274,
  "entries": [
+  {
+   "slug": "napkin_ring_same_volume",
+   "title": "Two napkin rings, same height",
+   "ts": "2026-08-09T09:48:23+00:00",
+   "date": "9 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "They contain exactly the same amount of material. The volume of the ring depends only on its height, not on the sphere it was cut from.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A ring 6 cm tall drilled through a marble and a ring 6 cm tall drilled through the Earth have the same volume."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The volume is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  V = pi h^3 / 6"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "where h is the height of the ring."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it happens:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Let the sphere have radius R and let the hole have radius a. For the ring to have height h, the edge of the hole reaches the sphere at h/2 above and below the middle, so"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  a^2 = R^2 - (h/2)^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now slice the ring like a loaf of bread. At height y, the outside circle from the sphere has area pi(R^2 - y^2). The drilled hole removes pi a^2. The slice left behind is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  pi(R^2 - y^2) - pi a^2",
+      "  = pi(R^2 - y^2) - pi(R^2 - h^2/4)",
+      "  = pi(h^2/4 - y^2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The R has vanished before we add the slices up. Every slice of the big ring has the same area as the matching slice of the small ring. The big ring is wider, but it is also thinner through the wall by exactly the right amount."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Adding all those slices gives pi h^3 / 6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is also a very fast shortcut. If the answer only depends on h, use the smallest possible sphere: the one where the drilled hole has shrunk to nothing. Then the \"ring\" is just a whole sphere of diameter h, and its volume is (4/3)pi(h/2)^3 = pi h^3 / 6."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_price_of_each_visit",
    "title": "the price of each visit",
