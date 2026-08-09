@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 256,
+ "count": 257,
  "entries": [
+  {
+   "slug": "the_hob_will_not_help",
+   "title": "The hob will not help",
+   "ts": "2026-08-09T01:24:45+00:00",
+   "date": "9 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Because boiling is not a temperature you reach. It is the point where water's own vapour pressure matches the air pressing down on it — and once boiling starts, extra heat makes it boil FASTER, never hotter.",
+   "why": [
+    {
+     "h": "WHY THE MOUNTAIN IS COLDER",
+     "t": "p",
+     "lines": [
+      "At 2,000 m the air pressure is about 79 kPa, roughly 78% of sea level. Water reaches that vapour pressure at 93.4 C, so that is where it boils and that is the hottest the food ever gets. The pan cannot exceed it while liquid water is present, no matter what the hob is doing."
+     ]
+    },
+    {
+     "h": "WHAT IT COSTS YOU",
+     "t": "p",
+     "lines": [
+      "Cooking chemistry roughly doubles in rate per 10 C. Losing 6.6 C means"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2^(-6.6/10) = 0.63x the rate  ->  about 1.6x the time"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At 3500 m, water boils at 88.4 C and the same egg takes over twice as long."
+     ]
+    },
+    {
+     "h": "THE SAME MECHANISM, RUN BACKWARDS",
+     "t": "p",
+     "lines": [
+      "If this is really about pressure, then RAISING the pressure must do the opposite. Seal the pan: at 2 atmospheres water boils at 120.5 C, and the same rule gives about 4x faster. That is a pressure cooker, and it is the identical relationship read the other way."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "An explanation that only ever explains the slow case is not an explanation. This one has to predict the fast case too, and it does."
+     ]
+    },
+    {
+     "h": "WHY THE HOB IS THE ONE USELESS KNOB",
+     "t": "p",
+     "lines": [
+      "Turn it up and you deliver more energy per second. All of it goes into converting water to steam — the latent heat — at the same temperature. You boil the pan dry sooner and cook the food no faster. To cook faster up a mountain you need pressure, not power."
+     ]
+    },
+    {
+     "h": "A CAVEAT",
+     "t": "p",
+     "lines": [
+      "The doubling-per-10-C rule is a rough guide, not a law; different reactions in food have different sensitivities. The direction and rough size are solid, the exact multiplier is not."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a system is pinned at a boundary, adding more of the obvious input does nothing to the thing you care about — it just moves you along the boundary faster. Ask what actually SETS the limit. It is rarely the knob you are holding."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "what_a_mile_actually_costs",
    "title": "what a mile actually costs",
