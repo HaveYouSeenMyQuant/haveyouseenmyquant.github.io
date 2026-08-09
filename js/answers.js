@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 268,
+ "count": 269,
  "entries": [
+  {
+   "slug": "the_deposit_you_never_get_back",
+   "title": "the deposit you never get back",
+   "ts": "2026-08-09T06:43:41+00:00",
+   "date": "9 Aug 2026",
+   "topic": "money",
+   "q": null,
+   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_deposit_you_never_get_back",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: do not add the deposit itself to the rent. You get it back at the end if nothing is broken. The missing piece is only what that same money could have earned while you could not use it."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "two_opposite_points_agree",
    "title": "Two opposite points agree",
