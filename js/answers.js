@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 302,
+ "count": 303,
  "entries": [
+  {
+   "slug": "ten_envelopes_one_choice",
+   "title": "Ten envelopes, one choice",
+   "ts": "2026-08-10T02:04:09+00:00",
+   "date": "10 Aug 2026",
+   "topic": "quant_teaser",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/ten_envelopes_one_choice",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: you cannot judge an amount without something to judge it against. So the first few envelopes are worth something to you even though you refuse them."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "two_bets_same_hits",
    "title": "Two bets, the same hits",
