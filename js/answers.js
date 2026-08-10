@@ -16,8 +16,58 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 299,
+ "count": 300,
  "entries": [
+  {
+   "slug": "best_of_seven_settles_little",
+   "title": "Best of seven settles little",
+   "ts": "2026-08-10T00:45:40+00:00",
+   "date": "10 Aug 2026",
+   "topic": "quant_teaser",
+   "q": null,
+   "a": "71%. The worse team takes it 29% of the time — nearly three series in ten.",
+   "why": [
+    {
+     "h": "WHAT 60% A GAME IS WORTH",
+     "t": "p",
+     "lines": [
+      "A side that wins 60% of individual games is not marginally better; over a season that is a runaway. Across seven games it converts to only 71%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    best of 1     60%",
+      "    best of 3     65%",
+      "    best of 7     71%",
+      "    best of 15    79%"
+     ]
+    },
+    {
+     "h": "WHY LENGTHENING IT HARDLY HELPS",
+     "t": "p",
+     "lines": [
+      "Confidence grows with the square root of the number of games, so buying certainty gets expensive fast. To be 95% sure the better side wins you would need a best of 67 — longer than most regular seasons, for one round."
+     ]
+    },
+    {
+     "h": "WHAT A PLAYOFF ACTUALLY IS",
+     "t": "p",
+     "lines": [
+      "Not a measurement. A seven-game series is a weighted coin, and a weighted coin is what the drama is made of. The knockout format is popular BECAUSE it does not settle the question — a competition that reliably returned the better team would have no upsets in it, and nobody would watch."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before treating a result as a verdict, ask how many trials produced it. Most things called decisive are one short series with a lot at stake."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "nine_lots_then_take_twelve",
    "title": "nine lots then take twelve",
