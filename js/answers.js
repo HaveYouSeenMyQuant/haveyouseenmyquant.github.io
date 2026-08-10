@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 301,
+ "count": 302,
  "entries": [
+  {
+   "slug": "two_bets_same_hits",
+   "title": "Two bets, the same hits",
+   "ts": "2026-08-10T01:27:17+00:00",
+   "date": "10 Aug 2026",
+   "topic": "quant_teaser",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/two_bets_same_hits",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: do not count the hits. Work out the chance of getting NO hits at all in each bet, and take it from there."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "sixty_take_a_bracket_of_five",
    "title": "sixty take a bracket of five",
