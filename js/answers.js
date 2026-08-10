@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 305,
+ "count": 306,
  "entries": [
+  {
+   "slug": "sixty_there_thirty_back",
+   "title": "sixty there thirty back",
+   "ts": "2026-08-10T03:26:52+00:00",
+   "date": "10 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/sixty_there_thirty_back",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You spend twice as long on the slow leg, so it counts for more than half the trip. That is why averaging the two speeds is not the same thing."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "three_pounds_against_ten",
    "title": "Three pounds against ten",
