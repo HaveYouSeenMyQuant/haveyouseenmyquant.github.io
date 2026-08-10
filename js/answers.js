@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 303,
+ "count": 304,
  "entries": [
+  {
+   "slug": "twenty_off_then_ten_off",
+   "title": "twenty off then ten off",
+   "ts": "2026-08-10T02:45:56+00:00",
+   "date": "10 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/twenty_off_then_ten_off",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The second discount comes off the price after the first one, not off the original. Three of the four options are what you get by forgetting that."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "ten_envelopes_one_choice",
    "title": "Ten envelopes, one choice",
