@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 304,
+ "count": 305,
  "entries": [
+  {
+   "slug": "three_pounds_against_ten",
+   "title": "Three pounds against ten",
+   "ts": "2026-08-10T02:51:11+00:00",
+   "date": "10 Aug 2026",
+   "topic": "quant_teaser",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/three_pounds_against_ten",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: with a fair coin, what you hold does not drift up or down on average. Now ask what that has to mean at the moment the game stops."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "twenty_off_then_ten_off",
    "title": "twenty off then ten off",
