@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 298,
+ "count": 299,
  "entries": [
+  {
+   "slug": "nine_lots_then_take_twelve",
+   "title": "nine lots then take twelve",
+   "ts": "2026-08-10T00:39:41+00:00",
+   "date": "10 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/nine_lots_then_take_twelve",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "twenty_five_take_three_lots",
    "title": "twenty five take three lots",
