@@ -16,8 +16,72 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 317,
+ "count": 318,
  "entries": [
+  {
+   "slug": "the_middle_hardly_matters",
+   "title": "The middle hardly matters",
+   "ts": "2026-08-13T23:11:33+00:00",
+   "date": "13 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Almost nothing is lost. What survives is very nearly a unique key.",
+   "why": [
+    {
+     "h": "WHAT THE SCRAMBLE DESTROYS",
+     "t": "p",
+     "lines": [
+      "The order of the middle letters, and nothing else. A 9-letter word like \"according\" has 5,040 arrangements of its middle, which sounds like a great deal of destruction."
+     ]
+    },
+    {
+     "h": "WHAT IT LEAVES",
+     "t": "p",
+     "lines": [
+      "Three things: the first letter, the last letter, and WHICH letters are in between. Take the system dictionary — 195,575 English words of 4 to 12 letters — and count how many share all three:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    distinct words                195,575",
+      "    distinct first/last/letters   193,323",
+      "    share it with nobody          98.87%",
+      "    average words per key         1.012"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So 98.9% of the time the surviving information already names exactly one English word. The reader is not decoding an anagram; there is only one candidate and they recognise it."
+     ]
+    },
+    {
+     "h": "THE ONES THAT DO COLLIDE",
+     "t": "p",
+     "lines": [
+      "They exist and they are lovely: caliver, caviler, claiver, clavier. Those are the words a scramble genuinely could hide — and in a sentence, context settles them instantly."
+     ]
+    },
+    {
+     "h": "WHY THE FACTORIAL MISLEADS",
+     "t": "p",
+     "lines": [
+      "5,040 arrangements is the size of the search space, not the amount of uncertainty. Almost all of those arrangements are not words at all, so they were never live possibilities. Counting arrangements is not counting doubt."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something looks destroyed, ask what is still constrained rather than how many ways it could have been rearranged. The first is usually far smaller than the second."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "share_sixty_in_two_to_three",
    "title": "share sixty in two to three",
