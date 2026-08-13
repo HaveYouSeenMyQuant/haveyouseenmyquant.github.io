@@ -16,8 +16,90 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 315,
+ "count": 316,
  "entries": [
+  {
+   "slug": "four_thousand_bits_no_click",
+   "title": "Four thousand bits, no click",
+   "ts": "2026-08-13T22:34:56+00:00",
+   "date": "13 Aug 2026",
+   "topic": "information_theory",
+   "q": null,
+   "a": "Because the samples either side of the scratch were never stored next to each other.",
+   "why": [
+    {
+     "h": "THE PROBLEM",
+     "t": "p",
+     "lines": [
+      "A Reed-Solomon block on a CD carries 32 symbols and can repair 2 of them. A 2.5mm gouge destroys about 4000 bits in a row. Written in the obvious order that is roughly a hundred whole blocks erased, each one far past what the code can repair. The code alone is useless here."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE MOVE: DO NOT STORE THEM IN ORDER"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Before writing, lay the codewords out as rows of a grid and write the disc down the COLUMNS instead. Now neighbours on the disc belong to different codewords."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A burst of B consecutive symbols on the disc still destroys B symbols. But with D codewords interleaved, it can touch at most"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    ceil(B / D)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "symbols of any single codeword. Set D = 100 and a 200-symbol burst leaves every codeword with exactly 2 errors — precisely what the code repairs. Reading back, the gouge has become confetti: one bad symbol here, one there, each surrounded by enough intact neighbours to be reconstructed."
+     ]
+    },
+    {
+     "h": "THE HONEST PART",
+     "t": "p",
+     "lines": [
+      "Interleaving does not fix anything and does not remove a single error. Both layouts lose exactly the same 200 symbols. It only changes WHERE they land, converting one impossible problem into hundreds of easy ones. The error correction still does all the repairing."
+     ]
+    },
+    {
+     "h": "WHERE IT GIVES OUT",
+     "t": "p",
+     "lines": [
+      "The protection is finite, not magic. At B = 201 some codeword receives a 3rd error and the audio genuinely breaks. Burst tolerance is t x D — the code's strength multiplied by the interleaving depth — so on a real disc it is the depth, not the code, that sets how big a scratch you survive."
+     ]
+    },
+    {
+     "h": "THE COST",
+     "t": "p",
+     "lines": [
+      "Latency and memory. You cannot decode a codeword until every column carrying it has arrived, so the player buffers the whole interleaving depth before a single note comes out."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When failures arrive in clumps and your defence only handles them spread out, do not strengthen the defence — rearrange things so the clump gets spread out. That is the same reasoning behind striping data across disks, spreading a portfolio across uncorrelated bets, and staggering shifts so absences never land on one team."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "fifty_five_take_7_lots_of_a_bracket",
    "title": "fifty five take 7 lots of a bracket",
