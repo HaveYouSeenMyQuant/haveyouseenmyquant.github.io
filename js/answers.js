@@ -16,8 +16,65 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 306,
+ "count": 309,
  "entries": [
+  {
+   "slug": "eight_inch_against_sixteen",
+   "title": "eight inch against sixteen",
+   "ts": "2026-08-13T20:10:46+00:00",
+   "date": "13 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/eight_inch_against_sixteen",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Doubling the width doubles it in both directions at once. Three of the four options are what you get from a different guess about how size works."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "the_host_knows_which_door",
+   "title": "The host knows which door",
+   "ts": "2026-08-13T20:08:01+00:00",
+   "date": "13 Aug 2026",
+   "topic": "quant_teaser",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/the_host_knows_which_door",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: how often was your very first pick right? Then ask what the host opening a door did to that number."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "six_people_one_room",
+   "title": "Six people, one room",
+   "ts": "2026-08-10T03:53:33+00:00",
+   "date": "10 Aug 2026",
+   "topic": "quant_teaser",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/six_people_one_room",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: ask how many times each person gets counted when all six people work out their own friends' average."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "sixty_there_thirty_back",
    "title": "sixty there thirty back",
@@ -17497,5 +17554,5 @@ window.QQ_ANSWERS = {
    "src": "module"
   }
  ],
- "featured": "ninety_gives_you_forty_five"
+ "featured": "count_the_heads_in_front"
 };
