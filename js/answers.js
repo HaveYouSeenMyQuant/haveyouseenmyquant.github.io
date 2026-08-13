@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 313,
+ "count": 314,
  "entries": [
+  {
+   "slug": "fifty_and_fifty_is_not_a_hundred",
+   "title": "Fifty and fifty is not a hundred",
+   "ts": "2026-08-13T21:58:51+00:00",
+   "date": "13 Aug 2026",
+   "topic": "chemistry",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/fifty_and_fifty_is_not_a_hundred",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: weigh it instead of measuring it. Every gram that was on the bench is still there — so ask what volume actually is, and whether it has to add up."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "five_plus_two_times_three_squared",
    "title": "five plus two times three squared",
