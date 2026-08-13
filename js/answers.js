@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 310,
+ "count": 311,
  "entries": [
+  {
+   "slug": "six_take_minus_four_times_three",
+   "title": "six take minus four times three",
+   "ts": "2026-08-13T20:50:19+00:00",
+   "date": "13 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/six_take_minus_four_times_three",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do the multiply first, then deal with the two minus signs. Taking away a negative adds — three of the four options come from mishandling that."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "one_in_ten_thousand_tested",
    "title": "One in ten thousand, tested",
