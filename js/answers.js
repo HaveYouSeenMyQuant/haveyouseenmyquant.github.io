@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 311,
+ "count": 312,
  "entries": [
+  {
+   "slug": "you_can_see_it_is_wrong",
+   "title": "You can see it is wrong",
+   "ts": "2026-08-13T21:22:18+00:00",
+   "date": "13 Aug 2026",
+   "topic": "optimization",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/you_can_see_it_is_wrong",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: look at the shape of the route itself. There is one thing a shortest round trip can never do, and you can spot it without measuring anything."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "six_take_minus_four_times_three",
    "title": "six take minus four times three",
@@ -17592,5 +17611,5 @@ window.QQ_ANSWERS = {
    "src": "module"
   }
  ],
- "featured": "count_the_heads_in_front"
+ "featured": null
 };
