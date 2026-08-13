@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 316,
+ "count": 317,
  "entries": [
+  {
+   "slug": "share_sixty_in_two_to_three",
+   "title": "share sixty in two to three",
+   "ts": "2026-08-13T23:05:59+00:00",
+   "date": "13 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/share_sixty_in_two_to_three",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Count the parts before you divide anything. 2 : 3 is not two parts or three parts — three of the four options come from dividing by the wrong number."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "four_thousand_bits_no_click",
    "title": "Four thousand bits, no click",
