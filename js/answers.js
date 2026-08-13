@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 312,
+ "count": 313,
  "entries": [
+  {
+   "slug": "five_plus_two_times_three_squared",
+   "title": "five plus two times three squared",
+   "ts": "2026-08-13T21:30:02+00:00",
+   "date": "13 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/five_plus_two_times_three_squared",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The power belongs to the 3 alone — not to the 2 next to it, and not to the whole term. Three of the four options come from attaching it somewhere else."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "you_can_see_it_is_wrong",
    "title": "You can see it is wrong",
