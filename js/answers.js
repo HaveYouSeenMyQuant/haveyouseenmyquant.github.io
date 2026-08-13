@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 309,
+ "count": 310,
  "entries": [
+  {
+   "slug": "one_in_ten_thousand_tested",
+   "title": "One in ten thousand, tested",
+   "ts": "2026-08-13T20:45:24+00:00",
+   "date": "13 Aug 2026",
+   "topic": "quant_teaser",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/one_in_ten_thousand_tested",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Hint: forget yourself for a moment. Test the whole town, and count how many people get told they have it."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "eight_inch_against_sixteen",
    "title": "eight inch against sixteen",
