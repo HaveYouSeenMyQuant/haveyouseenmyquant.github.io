@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 318,
+ "count": 319,
  "entries": [
+  {
+   "slug": "two_point_five_hours_in_minutes",
+   "title": "two point five hours in minutes",
+   "ts": "2026-08-13T23:45:31+00:00",
+   "date": "13 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/two_point_five_hours_in_minutes",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Ask what half an hour actually is before you do any multiplying. Three of the four options come from letting the decimal point pretend the clock counts in tens."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_middle_hardly_matters",
    "title": "The middle hardly matters",
