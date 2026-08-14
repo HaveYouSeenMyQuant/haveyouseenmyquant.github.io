@@ -16,8 +16,77 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 328,
+ "count": 329,
  "entries": [
+  {
+   "slug": "two_noons_sixteen_minutes",
+   "title": "Two noons, sixteen minutes apart",
+   "ts": "2026-08-14T02:52:12+00:00",
+   "date": "14 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Clock noon is an average. Solar noon is the real thing, and it wanders.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A day is defined as the average time from one solar noon to the next. Averages have to be averages OF something, and the individual days are not equal."
+     ]
+    },
+    {
+     "h": "TWO SEPARATE CAUSES",
+     "t": "p",
+     "lines": [
+      "1. The orbit is an ellipse. The earth moves fastest near the sun, in early January, so it must turn further to face the sun again — a longer day. This runs through ONE cycle a year, amplitude 7.7 minutes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. The axis is tilted. The sun's daily motion is along the ecliptic, but a clock measures rotation about the equator, and the projection of one onto the other is uneven. This runs through TWO cycles a year, amplitude 9.9 minutes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Neither alone reaches the extreme. Added, with different periods, they give"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    widest early:  +16.4 min, around 2 November",
+      "    widest late:   -14.2 min, around 10 February"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "a spread of 31 minutes between the two worst days of the year."
+     ]
+    },
+    {
+     "h": "THE FIGURE OF EIGHT",
+     "t": "p",
+     "lines": [
+      "Photograph the sun at clock noon every week for a year and it traces a slender figure of eight in the sky — the analemma. Its width is this correction; its height is the tilt moving the sun north and south. It is on old globes for exactly this reason."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a measurement disagrees with a definition, check which one is the average. The sundial is not wrong and the clock is not wrong — one of them is reporting the thing, and the other is reporting its mean."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "forty_take_3_lots_of_a_bracket",
    "title": "forty take 3 lots of a bracket",
