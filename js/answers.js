@@ -16,8 +16,84 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 324,
+ "count": 325,
  "entries": [
+  {
+   "slug": "it_reads_it_sideways",
+   "title": "It reads it sideways",
+   "ts": "2026-08-14T01:38:32+00:00",
+   "date": "14 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "It never measures a width. It measures each width against the others, and a tilt multiplies all of them equally.",
+   "why": [
+    {
+     "h": "WHAT THE TILT ACTUALLY DOES",
+     "t": "p",
+     "lines": [
+      "Cross the code along a line at angle theta and every bar you pass through is longer than its true width by exactly 1/cos(theta) — the same factor for all of them. At 60 degrees that is 2.0x. Every single bar is 2.0 times too wide."
+     ]
+    },
+    {
+     "h": "WHY THAT DOES NOT MATTER",
+     "t": "p",
+     "lines": [
+      "A digit in EAN-13 is always 7 modules across. So the decoder does not need to be told the module size — it works it out from what it just measured:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    module = (total width of the digit) / 7"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and then reads every bar in modules. The 2.0x is in the total as well as in each bar, so it divides straight back out. Digit 5 is 0110001, which a scanner sees as runs of"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    straight on   1, 2, 3, 1",
+      "    at 60 degrees  2, 4, 6, 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Different numbers. Same answer."
+     ]
+    },
+    {
+     "h": "DISTANCE IS THE SAME TRICK",
+     "t": "p",
+     "lines": [
+      "Holding it further away shrinks every bar by one factor too, so the scanner does not care about that either. One mechanism, two problems solved."
+     ]
+    },
+    {
+     "h": "WHAT WOULD BREAK IT",
+     "t": "p",
+     "lines": [
+      "A tilt that is not uniform — a code printed on something curved, or badly crumpled — stretches different parts by different amounts, and then there is no single factor to divide out. That is exactly when scanners fail, and it is the visible signature of this being the mechanism."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "If a nuisance multiplies everything you measure, measure things against each other and it disappears. It is worth checking whether the quantity you care about can be written as a ratio before you fight the nuisance."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "two_classes_one_average",
    "title": "two classes one average",
