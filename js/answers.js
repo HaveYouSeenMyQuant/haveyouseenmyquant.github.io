@@ -16,8 +16,95 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 322,
+ "count": 324,
  "entries": [
+  {
+   "slug": "two_classes_one_average",
+   "title": "two classes one average",
+   "ts": "2026-08-14T01:05:09+00:00",
+   "date": "14 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/two_classes_one_average",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add up the marks rather than the averages, then divide by how many students there are altogether. Three of the four options ignore the group sizes."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "random_does_not_feel_random",
+   "title": "Random does not feel random",
+   "ts": "2026-08-14T01:01:38+00:00",
+   "date": "14 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "It is not broken. A real shuffle does not spread things out — it just does not care.",
+   "why": [
+    {
+     "h": "THE EXACT ANSWER",
+     "t": "p",
+     "lines": [
+      "Take any two neighbouring slots in the list. Whatever song landed in the first, 4 of the other 99 songs are by the same artist, so"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    chance that pair repeats = 4 / 99"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There are 99 such pairs, and adding a chance over every pair is allowed even though the pairs overlap. So the expected number of back-to-back repeats is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    99 x 4/99 = 4"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The 99 cancels. **The length of the playlist is not in the answer.** Twenty artists or a hundred, fifty songs or five hundred: if each artist has 5 songs, you get 4 back-to-back repeats on average. Simulated over 40,000 shuffles it comes out at 4.01."
+     ]
+    },
+    {
+     "h": "HOW OFTEN IT HAPPENS AT ALL",
+     "t": "p",
+     "lines": [
+      "98.3% of shuffles contain at least one. It is not the unusual case; it is very nearly all of them."
+     ]
+    },
+    {
+     "h": "WHY IT FEELS WRONG",
+     "t": "p",
+     "lines": [
+      "People do not expect randomness, they expect ANTI-clustering — an even spread. A genuinely even spread is not random, it is a pattern, and it would take deliberate work to produce. Spotify eventually rewrote its shuffle to be less random for exactly this reason: the honest one generated complaints."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Clumping is what randomness looks like. When a random process produces no clusters at all, that is the thing worth investigating."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "fifty_take_5_lots_of_a_bracket",
    "title": "fifty take 5 lots of a bracket",
