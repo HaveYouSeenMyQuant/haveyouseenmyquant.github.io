@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 348,
+ "count": 349,
  "entries": [
+  {
+   "slug": "six_percent_to_four_percent",
+   "title": "six percent to four percent",
+   "ts": "2026-08-14T10:51:51+00:00",
+   "date": "14 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/six_percent_to_four_percent",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Ask what the fall is a percentage OF — and note that it is not the mirror of the rise. One of these options is the answer to going the other way."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "four_percent_to_six_percent",
    "title": "four percent to six percent",
