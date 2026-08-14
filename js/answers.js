@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 351,
+ "count": 352,
  "entries": [
+  {
+   "slug": "one_three_two_over_2_plus_9_times_6",
+   "title": "one three two over 2 plus 9 times 6",
+   "ts": "2026-08-14T12:51:05+00:00",
+   "date": "14 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/one_three_two_over_2_plus_9_times_6",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "one_twenty_over_3_plus_2_times_6",
    "title": "one twenty over 3 plus 2 times 6",
