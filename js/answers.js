@@ -16,8 +16,102 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 343,
+ "count": 345,
  "entries": [
+  {
+   "slug": "ninety_six_over_3_plus_5_times_3",
+   "title": "ninety six over 3 plus 5 times 3",
+   "ts": "2026-08-14T08:11:21+00:00",
+   "date": "14 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/ninety_six_over_3_plus_5_times_3",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "area_by_counting_dots",
+   "title": "Area by counting dots",
+   "ts": "2026-08-14T07:52:56+00:00",
+   "date": "14 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Area = I + B/2 - 1, where I is the number of dots strictly inside and B is the number of dots on the boundary.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For the polygon in the video: 18 inside, 14 on the edge, so the area is 18 + 7 - 1 = 24 squares. Exactly 24 — not approximately."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is Pick's theorem, and it holds for ANY simple polygon whose corners sit on grid points. Convex, non-convex, spiralling, full of thin spikes: it does not matter, as long as the outline does not cross itself and every corner is on a crossing point."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why the two counts enter differently is the whole content."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Think of giving every dot a share of the area around it. A dot strictly inside is surrounded by the polygon on all sides, so it contributes a full unit. A dot on an edge is only half-surrounded — the polygon lies on one side of the edge and not the other — so it contributes half. That accounts for I + B/2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The -1 is the correction for going all the way round. Walking the boundary once, the interior angles at the corners sum to a full turn less than the flat case, and that discrepancy is worth exactly one unit of area no matter how many corners there are or where they sit. It is the same 1 that appears in Euler's formula V - E + F = 2 when you triangulate the polygon and count faces — the two results are the same statement in different clothes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A quick sanity check you can do in your head: the unit square. Four corners on the grid, no dots inside, four dots on the boundary. I + B/2 - 1 = 0 + 2 - 1 = 1. Correct."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And a triangle with corners (0,0), (1,0), (0,1): no interior dots, three boundary dots, giving 0 + 1.5 - 1 = 0.5. Correct again, and note that the answer is not a whole number — the formula produces halves exactly when it should."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What makes it genuinely useful rather than a curiosity: it turns a measurement problem into a counting problem, and counting is exact. Every practical method for the area of an awkward polygon — decomposing into triangles, the shoelace formula, numerical integration — either needs the coordinates or accumulates error. This needs neither. It is also the cleanest example of a discrete quantity pinning down a continuous one exactly, which is the instinct behind lattice-point methods throughout number theory."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The catch, and it is worth knowing: the polygon must be SIMPLE. If the outline crosses itself, or if there is a hole in the middle, the formula changes — a polygon with h holes obeys I + B/2 + h - 1."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "thirty_take_3_lots_of_a_bracket",
    "title": "thirty take 3 lots of a bracket",
