@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 363,
+ "count": 364,
  "entries": [
+  {
+   "slug": "six_panels_how_many_posts",
+   "title": "Six panels, how many posts",
+   "ts": "2026-08-14T23:48:43+00:00",
+   "date": "14 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "D. 7.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Lay it out: post, panel, post, panel, post... Every panel needs a post at each end, and neighbouring panels share one. Six panels have five shared posts in the middle, plus one at each end of the fence. That is 5 + 2 = 7."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      6   counted the panels and gave that",
+      "      5   took one away, which is the rule for CUTS",
+      "     12   gave every panel its own two posts and forgot they share"
+     ]
+    },
+    {
+     "h": "WHY THIS IS THE OTHER HALF OF A PAIR",
+     "t": "p",
+     "lines": [
+      "A companion video asks how many cuts make six pieces from one log. The answer there is five — one FEWER than the pieces. Here the answer is seven, one MORE than the panels. Same six, same off-by-one, opposite direction."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The direction is not arbitrary and it is not something to memorise. Cuts sit BETWEEN pieces, so there is one fewer of them. Posts sit at the ENDS of panels, and the fence has two ends, so there is one more."
+     ]
+    },
+    {
+     "h": "THE ONLY RULE WORTH KEEPING",
+     "t": "p",
+     "lines": [
+      "Do not learn \"subtract one\". Learn to ask whether the thing you are counting sits between the others or at their ends, then draw three of them and count. Three panels is enough to see it: post, panel, post, panel, post, panel, post — four posts for three panels, and the pattern is settled."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every off-by-one in a calendar, a spreadsheet or a loop is this question answered without being asked."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "it_leans_in_when_you_shower",
    "title": "It leans in when you shower",
