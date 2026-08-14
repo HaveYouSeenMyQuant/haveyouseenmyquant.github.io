@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 339,
+ "count": 340,
  "entries": [
+  {
+   "slug": "random_dots_make_a_pattern",
+   "title": "Random dots make a pattern",
+   "ts": "2026-08-14T06:38:40+00:00",
+   "date": "14 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Because the rule cannot ever reach the middle, and \"everywhere except the middles\" is exactly what the Sierpinski triangle is.",
+   "why": [
+    {
+     "h": "WHERE THE HOLES COME FROM",
+     "t": "p",
+     "lines": [
+      "Split the big triangle into four half-size ones: three at the corners and one inverted in the centre. Now ask where a point can land after one step."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Stepping halfway to a corner shrinks the whole triangle by a factor of two towards that corner. So whatever the previous point was, the new one lands inside one of the THREE corner copies. Never the middle one — no starting position and no random choice can put it there."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That kills the central triangle forever. But the argument then applies again inside each corner copy, and inside each of their corner copies, and so on without end. Every central triangle at every scale is unreachable, and what remains is the Sierpinski triangle."
+     ]
+    },
+    {
+     "h": "WHY THE STARTING POINT DOES NOT MATTER",
+     "t": "p",
+     "lines": [
+      "Each step halves the distance between where you are and where you would have been had you started somewhere else, because both points move halfway to the SAME corner. After n steps any two starting points are 2^-n apart. Twenty steps and the difference is a millionth of the triangle. That is why the picture is the same every time, and why the first fifty points are thrown away before drawing — they are the only ones that remember where you began."
+     ]
+    },
+    {
+     "h": "WHY IT IS NOT A CONTRADICTION",
+     "t": "p",
+     "lines": [
+      "Nothing here is at odds with the randomness. The SEQUENCE of dots is genuinely unpredictable: knowing the first thousand tells you nothing about the next one. What is fixed is the SET they are dense in. Random process, deterministic attractor — those are different objects, and the surprise comes from expecting a random process to produce a shapeless result. Shapelessness was never guaranteed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A useful check on the intuition: change the rule to move one THIRD of the way instead of half and the picture changes — the copies no longer meet, and the holes get bigger. Use four corners of a square with the halfway rule and the attractor fills the square solidly, with no pattern at all. The fractal is not a property of \"randomness\"; it is a property of that particular contraction."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a random process has a fixed rule applied over and over, ask what the rule does to a REGION rather than to a point. A point's path is unpredictable; a region's image is not, and the region usually tells you the answer immediately. Here \"the triangle maps into three copies of itself\" settles the whole thing in one line."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "root_of_nine_plus_sixteen",
    "title": "root of nine plus sixteen",
