@@ -16,8 +16,90 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 358,
+ "count": 359,
  "entries": [
+  {
+   "slug": "always_equilateral",
+   "title": "Always equilateral",
+   "ts": "2026-08-14T22:01:14+00:00",
+   "date": "14 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Because the three inner points are forced into place by angles that always add to sixty degrees, whatever the outer triangle does. Trisection is what makes them add to sixty; nothing else does.",
+   "why": [
+    {
+     "h": "WHERE THE SIXTY COMES FROM",
+     "t": "p",
+     "lines": [
+      "Call the angles of the outer triangle 3a, 3b and 3c, so that a, b and c are exactly what one trisector cuts off. Since the angles of a triangle add to 180:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    3a + 3b + 3c = 180,  so  a + b + c = 60"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That 60 is the whole theorem in one line. Every angle chase in the proof ends up leaning on it, and it is the reason the answer is sixty degrees rather than something depending on the shape."
+     ]
+    },
+    {
+     "h": "WHY BISECTORS DO NOT WORK",
+     "t": "p",
+     "lines": [
+      "Halve the angles instead and the same sum gives a + b + c = 90, which is not the angle an equilateral triangle needs. And the construction does not merely go wrong, it collapses entirely: each corner has only ONE bisector, all three are concurrent, and the three points you were going to mark turn out to be a single point - the incenter. There is no inner triangle at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So this is not \"any clever construction gives an equilateral\". It is specifically thirds, because only thirds turn 180 into 60."
+     ]
+    },
+    {
+     "h": "WHAT THE INNER TRIANGLE ACTUALLY MEASURES",
+     "t": "p",
+     "lines": [
+      "Its side length is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    8 R sin(a) sin(b) sin(c)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "where R is the radius of the outer triangle's circumscribed circle. Everything on the right depends on the outer triangle, so the inner triangle changes SIZE as you deform the outer one - it just never stops being equilateral. That is the thing worth watching: the shape is rigid while the scale is not."
+     ]
+    },
+    {
+     "h": "WHY IT WAS MISSED FOR SO LONG",
+     "t": "p",
+     "lines": [
+      "Angle trisection cannot be done with straightedge and compass, so for two thousand years this configuration was not constructible and essentially nobody drew it. The theorem was only found in 1899. It is a good reminder that \"what has been looked at\" is shaped by \"what was easy to draw\", and that changes when the tools do."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a result is suspiciously clean, look for the conserved sum that forces it. Here 180 degrees divided by three is 60, and 60 is exactly the number an equilateral triangle needs. Most invariants are a conservation law wearing a costume."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_big_bottle_costs_more",
    "title": "500ml at £1 against 2L at £4.20",
