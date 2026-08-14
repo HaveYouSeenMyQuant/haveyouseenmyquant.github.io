@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 356,
+ "count": 357,
  "entries": [
+  {
+   "slug": "four_dots_one_line",
+   "title": "Three dots a line can always split. Four?",
+   "ts": "2026-08-14T21:24:36+00:00",
+   "date": "14 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "No. With four dots there is always a colouring a single straight line cannot split — and it is the same shape of colouring every time: the two diagonally opposite dots one colour, the other two the other.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three dots, not in a line: all 8 colourings work. Four dots: only 14 of the 16 do. The two that fail are the diagonal pairs."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why those two fail. Take four dots at the corners of a square and colour opposite corners the same. Any straight line divides the plane into two halves. To succeed it would have to put both blue corners on one side and both white corners on the other — but the segment joining the two blues crosses the segment joining the two whites, and a straight line cannot separate two crossing segments. Whichever side of the line the crossing point falls on, one dot of each colour is stuck there with it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It does not depend on the square. Any four dots are in one of two situations. Either one of them lies inside the triangle formed by the other three — colour the inner one differently from the outer three and no line can get it out. Or all four form a convex quadrilateral, and then the diagonals cross, which is the case above. There is no fourth arrangement, so there is no escape."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is the statement that the VC dimension of a straight line in the plane is exactly 3: three points can be \"shattered\" — every labelling achieved — and no four can be."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why anyone cares, and it is not about lines. VC dimension is what makes \"it fits the training data\" mean something or mean nothing. If a model can produce ANY labelling of your n examples, then fitting them perfectly tells you precisely nothing about unseen data — the fit was guaranteed before you looked. Generalisation bounds are built on the gap between the number of examples and the dimension: roughly, you need substantially more data than the VC dimension before training accuracy starts predicting test accuracy."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which is also why a straight line is such a useful thing to teach on. It fails on four points in the plane, and a model that fails is a model that is saying something."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The counting generalises neatly: in d dimensions a hyperplane through the origin shatters d points and no more, and an affine hyperplane shatters d+1. A line in the plane is the case d = 2, giving 3."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_hundred_at_ten_percent_twice",
    "title": "£100 at 10% for two years",
