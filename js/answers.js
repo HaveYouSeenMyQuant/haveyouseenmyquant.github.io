@@ -16,8 +16,106 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 333,
+ "count": 335,
  "entries": [
+  {
+   "slug": "ninety_over_3_plus_2_times_6",
+   "title": "ninety over 3 plus 2 times 6",
+   "ts": "2026-08-14T04:49:59+00:00",
+   "date": "14 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/ninety_over_3_plus_2_times_6",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "a_tide_on_the_far_side",
+   "title": "A tide on the far side",
+   "ts": "2026-08-14T04:48:00+00:00",
+   "date": "14 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Because what shapes the ocean is not how hard the Moon pulls, but how much that pull CHANGES across the width of the Earth.",
+   "why": [
+    {
+     "h": "THE SET-UP",
+     "t": "p",
+     "lines": [
+      "The whole Earth is falling toward the Moon. What matters to the water is its pull compared with the pull on the Earth's centre — because the centre is what the water is being dragged along with."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    near face   pulled HARDER than the centre  ->  lags forward, toward the Moon",
+      "    centre      the reference",
+      "    far face    pulled WEAKER than the centre  ->  gets left behind, away from the Moon"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Water on the far side is not pushed outward. It is pulled toward the Moon LESS than the ground beneath it, so it falls behind and piles up. Two bulges, and the Earth turns through both of them, so you get two high tides."
+     ]
+    },
+    {
+     "h": "THE NUMBERS",
+     "t": "pre",
+     "lines": [
+      "    Moon's pull at the near face   3.4289e-5 m/s^2",
+      "    at the centre                  3.3161e-5",
+      "    at the far face                3.2089e-5"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The differences are about 1.1e-6 either way — roughly a thirtieth of the pull itself. The near residual is very slightly the larger, which is why the two daily tides are not exactly equal."
+     ]
+    },
+    {
+     "h": "THE CHECK THAT SETTLES IT",
+     "t": "p",
+     "lines": [
+      "The Sun pulls on the Earth about 180 times harder than the Moon does. If tides came from the strength of the pull, solar tides would swamp lunar ones. They are less than half as big."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Because the change in a 1/r^2 pull across a fixed width falls off as 1/r^3, and the Sun is 390 times further away. Move something twice as far and its pull drops to a quarter, but the tide it raises drops to an eighth."
+     ]
+    },
+    {
+     "h": "WHY NOT EXACTLY TWELVE HOURS",
+     "t": "p",
+     "lines": [
+      "The Moon moves on while the Earth turns, so a point has to rotate a little past where it started to face it again. The lunar day is 24 h 50 min, putting high tides about 12 h 25 min apart."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something responds to a field, ask whether it feels the field or the GRADIENT of it. Anything in free fall cannot feel a uniform pull at all — only the way it varies. The same distinction explains why astronauts float in orbit while gravity is still nearly full strength."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "somewhere_the_wind_is_still",
    "title": "Somewhere the wind is still",
