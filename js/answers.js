@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 361,
+ "count": 362,
  "entries": [
+  {
+   "slug": "nine_on_twenty_one_on_a_million",
+   "title": "Nine on £20k, one on £1m",
+   "ts": "2026-08-14T23:08:02+00:00",
+   "date": "14 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "D. 118.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add all ten salaries: nine lots of £20,000 is £180,000, plus £1,000,000 makes £1,180,000. Divide by ten people and the mean is £118,000."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      20   gave the MEDIAN — the middle salary — instead of the mean",
+      "     510   averaged the two figures rather than the ten people",
+      "     100   shared the million between ten and forgot the £20k salaries"
+     ]
+    },
+    {
+     "h": "THE POINT",
+     "t": "p",
+     "lines": [
+      "£118,000 is larger than nine of the ten salaries in the room. It is not what anybody earns, not what a typical person earns, and not close to either. One value was big enough to drag it there on its own."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The median — line everybody up and take the middle — is £20,000, and that number does describe nine of the ten. Neither figure is wrong; they answer different questions, and only one of them survives a single unusual person."
+     ]
+    },
+    {
+     "h": "WHERE THIS BITES",
+     "t": "p",
+     "lines": [
+      "Whenever an average is quoted for something with a long tail — salaries, house prices, time on a website, damages awarded — ask which average it is. \"Mean household wealth\" and \"median household wealth\" differ by a factor in most countries, and the gap between them IS the inequality, not a rounding disagreement."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rule of thumb: if one member of the group could plausibly be a hundred times the others, the mean is a fact about that member and not about the group."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "every_shot_finds_the_focus",
    "title": "Every shot finds the focus",
