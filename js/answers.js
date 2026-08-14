@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 338,
+ "count": 339,
  "entries": [
+  {
+   "slug": "root_of_nine_plus_sixteen",
+   "title": "root of nine plus sixteen",
+   "ts": "2026-08-14T06:10:35+00:00",
+   "date": "14 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/root_of_nine_plus_sixteen",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Finish what is inside the bracket before you touch the root. Three of the four options come from splitting the root across a plus sign, which is a rule that only works for times."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "both_played_it_perfectly",
    "title": "Both played it perfectly",
