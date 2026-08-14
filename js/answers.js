@@ -16,8 +16,78 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 337,
+ "count": 338,
  "entries": [
+  {
+   "slug": "both_played_it_perfectly",
+   "title": "Both played it perfectly",
+   "ts": "2026-08-14T06:01:42+00:00",
+   "date": "14 Aug 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "Because each of you is answering a different question from the one that decides how well you do. \"What is my best move?\" has a clean answer here, and following it takes you both to the worst outcome you could jointly have reached.",
+   "why": [
+    {
+     "h": "THE FOUR NUMBERS",
+     "t": "p",
+     "lines": [
+      "Write your payoff first, theirs second:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "              they pick A      they pick B",
+      "    you A       3 , 3            0 , 5",
+      "    you B       5 , 0            1 , 1"
+     ]
+    },
+    {
+     "h": "CHECK B COLUMN BY COLUMN",
+     "t": "p",
+     "lines": [
+      "If they pick A: A gives you 3, B gives you 5. B is better. If they pick B: A gives you 0, B gives you 1. B is better."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So B is better whatever they do - it does not merely usually win, it wins in every case. There is no belief you could hold about them that makes A the right answer. The same is true for them, by symmetry."
+     ]
+    },
+    {
+     "h": "WHERE THAT LEAVES YOU",
+     "t": "p",
+     "lines": [
+      "Both pick B and you get 1 each. Had you both picked A you would have had 3 each. Not a trade-off - strictly better for BOTH of you, at the same time. And neither of you can get there alone: if you switch to A while they stay on B, you drop from 1 to 0."
+     ]
+    },
+    {
+     "h": "NOBODY MADE A MISTAKE",
+     "t": "p",
+     "lines": [
+      "That is the whole point, and the usual telling buries it under a story about suspects and interrogation rooms. Each player reasoned correctly, chose the option that pays more under every possible belief about the other, and arrived somewhere both would leave if they could. The outcome is not evidence of stupidity or bad faith; it is what individually perfect play produces."
+     ]
+    },
+    {
+     "h": "WHAT ACTUALLY CHANGES IT",
+     "t": "p",
+     "lines": [
+      "Not better reasoning - the reasoning is already right. What changes it is the game: repeat it enough times with no known end and cooperation can be sustained, because today's choice affects tomorrow's. Or let players make binding commitments. Contracts, reputations, regulators and repeat business are all machinery for turning this game into a different one."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a group keeps reaching an outcome nobody wants, check the payoffs before blaming the people. If the structure rewards defection, exhortation will not fix it and finding better people will not either - only changing what the moves are worth."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "sixty_after_a_quarter_off",
    "title": "sixty after a quarter off",
