@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 345,
+ "count": 346,
  "entries": [
+  {
+   "slug": "at_least_one_six_in_two_rolls",
+   "title": "at least one six in two rolls",
+   "ts": "2026-08-14T08:51:18+00:00",
+   "date": "14 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/at_least_one_six_in_two_rolls",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Try counting the outcomes with NO six instead, then take that away from 36. Three of the four options come from adding two lists that overlap."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "ninety_six_over_3_plus_5_times_3",
    "title": "ninety six over 3 plus 5 times 3",
