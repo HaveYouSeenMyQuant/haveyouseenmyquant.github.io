@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 353,
+ "count": 354,
  "entries": [
+  {
+   "slug": "ninety_nine_percent_accurate",
+   "title": "ninety nine percent accurate",
+   "ts": "2026-08-14T20:12:13+00:00",
+   "date": "14 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/ninety_nine_percent_accurate",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Imagine testing 100,000 people and count how many positives there are altogether. The number that decides this is not in the question."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "fermat_fifth_number",
    "title": "The sixth Fermat number",
