@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 331,
+ "count": 332,
  "entries": [
+  {
+   "slug": "forty_eight_over_3_plus_5_times_3",
+   "title": "forty eight over 3 plus 5 times 3",
+   "ts": "2026-08-14T04:04:58+00:00",
+   "date": "14 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/forty_eight_over_3_plus_5_times_3",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "where_did_the_gigabytes_go",
    "title": "Where did the gigabytes go",
