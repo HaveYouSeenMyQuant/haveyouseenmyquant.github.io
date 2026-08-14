@@ -16,8 +16,109 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 352,
+ "count": 353,
  "entries": [
+  {
+   "slug": "fermat_fifth_number",
+   "title": "The sixth Fermat number",
+   "ts": "2026-08-14T20:10:13+00:00",
+   "date": "14 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "4,294,967,297 = 641 x 6,700,417. It is not prime, and Euler found that factor in 1732.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Fermat's conjecture — that 2^(2^n) + 1 is prime for every n — held for exactly five cases and then failed, and no sixth Fermat prime has ever been found. Every one from n=5 to n=32 that has been checked is composite. It is now suspected that 3, 5, 17, 257 and 65537 are the ONLY ones."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The interesting part is not the factor, it is how Euler found it without a computer, because trial division was hopeless: he would have needed every prime up to 65,536, which is 6,542 of them, each a long division on a ten-digit number."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "He did not divide. He narrowed the search first."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Any prime factor p of 2^(2^n) + 1 must satisfy a congruence condition — for n ≥ 2, every such p is of the form k x 2^(n+2) + 1. For n = 5 that means p = 128k + 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the candidates are not \"all primes up to 65,536\". They are 129, 257, 385, 513, 641, ... and only the prime ones count. Euler reached 641 as the FIFTH candidate worth trying:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  129 = 3 x 43   not prime",
+      "  257 prime, does not divide",
+      "  385 = 5 x 7 x 11  not prime",
+      "  513 = 27 x 19  not prime",
+      "  641 prime — and it divides"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Five trials instead of six and a half thousand. That is the entire lesson: he replaced searching with a constraint that eliminated 99.9% of the candidates before any arithmetic happened."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is also a beautiful direct proof that 641 divides it, needing no division at all. Note two facts about 641:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  641 = 640 + 1 = 5 x 2^7 + 1",
+      "  641 = 625 + 16 = 5^4 + 2^4"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "From the first, 5 x 2^7 ≡ -1 (mod 641), so raising to the fourth power gives 5^4 x 2^28 ≡ 1. From the second, 5^4 ≡ -2^4, so -2^4 x 2^28 ≡ 1, which is -2^32 ≡ 1, so 2^32 ≡ -1, and therefore 2^32 + 1 ≡ 0. Done, in two lines, with no long division anywhere."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why this matters beyond the anecdote: it is the cleanest example of the difference between searching and thinking. The naive approach is not wrong, just unusable, and the fix is not a faster machine — it is a theorem that shrinks the search space first. That is the same instinct as pruning in tree search, constraint propagation in solvers, and every \"brute force plus one clever restriction\" algorithm that actually runs."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Fermat numbers turn out to matter elsewhere too: Gauss proved that a regular polygon with a prime number of sides is constructible with compass and straightedge exactly when that prime is a Fermat prime. Which is why you can construct a 17-sided polygon and cannot construct a 7-sided one."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_three_two_over_2_plus_9_times_6",
    "title": "one three two over 2 plus 9 times 6",
@@ -61,7 +162,7 @@ window.QQ_ANSWERS = {
    "title": "pick two from five",
    "ts": "2026-08-14T11:32:00+00:00",
    "date": "14 Aug 2026",
-   "topic": "",
+   "topic": "quiz",
    "q": null,
    "a": "Https://haveyouseenmyquant.github.io/#answers/pick_two_from_five",
    "why": [
@@ -80,7 +181,7 @@ window.QQ_ANSWERS = {
    "title": "six percent to four percent",
    "ts": "2026-08-14T10:51:51+00:00",
    "date": "14 Aug 2026",
-   "topic": "",
+   "topic": "quiz",
    "q": null,
    "a": "Https://haveyouseenmyquant.github.io/#answers/six_percent_to_four_percent",
    "why": [
@@ -99,7 +200,7 @@ window.QQ_ANSWERS = {
    "title": "four percent to six percent",
    "ts": "2026-08-14T10:11:15+00:00",
    "date": "14 Aug 2026",
-   "topic": "",
+   "topic": "quiz",
    "q": null,
    "a": "Https://haveyouseenmyquant.github.io/#answers/four_percent_to_six_percent",
    "why": [
@@ -137,7 +238,7 @@ window.QQ_ANSWERS = {
    "title": "at least one six in two rolls",
    "ts": "2026-08-14T08:51:18+00:00",
    "date": "14 Aug 2026",
-   "topic": "",
+   "topic": "quiz",
    "q": null,
    "a": "Https://haveyouseenmyquant.github.io/#answers/at_least_one_six_in_two_rolls",
    "why": [
@@ -412,7 +513,7 @@ window.QQ_ANSWERS = {
    "title": "root of nine plus sixteen",
    "ts": "2026-08-14T06:10:35+00:00",
    "date": "14 Aug 2026",
-   "topic": "",
+   "topic": "quiz",
    "q": null,
    "a": "Https://haveyouseenmyquant.github.io/#answers/root_of_nine_plus_sixteen",
    "why": [
@@ -501,7 +602,7 @@ window.QQ_ANSWERS = {
    "title": "sixty after a quarter off",
    "ts": "2026-08-14T05:30:15+00:00",
    "date": "14 Aug 2026",
-   "topic": "",
+   "topic": "quiz",
    "q": null,
    "a": "Https://haveyouseenmyquant.github.io/#answers/sixty_after_a_quarter_off",
    "why": [
