@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 355,
+ "count": 356,
  "entries": [
+  {
+   "slug": "a_hundred_at_ten_percent_twice",
+   "title": "£100 at 10% for two years",
+   "ts": "2026-08-14T21:03:20+00:00",
+   "date": "14 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "B. £121.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Year one: 10% of 100 is 10, so you have 110. Year two: 10% of ONE HUNDRED AND TEN is 11, not 10. So 110 + 11 = 121."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     120   charged the second year's 10% on the original £100",
+      "     110   stopped after one year",
+      "     133   ran it for three years instead of two"
+     ]
+    },
+    {
+     "h": "THE POINT, AND WHY ONE POUND MATTERS",
+     "t": "p",
+     "lines": [
+      "The extra pound is the 10% earned on the previous year's 10%. That is the whole of compounding, and at two years it looks like a rounding error."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Leave it running and the rounding error becomes the entire story. At ten years simple interest gives £200 and compounding gives £259. At forty years simple gives £500 and compounding gives £4,526 — nine times more, from the same rate on the same pound."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason is that simple interest adds a fixed amount each year while compounding multiplies, and anything that multiplies eventually outruns anything that adds. Nothing about 10% being large causes it; 1% does the same thing more slowly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is also why fees hurt so much more than their headline suggests: a 1% annual fee is not 1% of your money, it is 1% of every year's balance, taken before the multiplying happens."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "cubes_add_to_a_square",
    "title": "Cubes add to a square",
