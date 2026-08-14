@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 332,
+ "count": 333,
  "entries": [
+  {
+   "slug": "somewhere_the_wind_is_still",
+   "title": "Somewhere the wind is still",
+   "ts": "2026-08-14T04:10:54+00:00",
+   "date": "14 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "The ball has a number attached to it, and that number is 2.",
+   "why": [
+    {
+     "h": "WHAT THE NUMBER COUNTS",
+     "t": "p",
+     "lines": [
+      "Comb a surface and look at the places where the hair cannot decide — the partings, whorls and cowlicks. Give each one an index: how many full turns the hair makes as you walk once round it. A whorl counts +1, a saddle-shaped parting counts -1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The theorem is that whatever combing you choose, those indices always add to the same total, and the total depends only on the shape:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    sphere    total = 2",
+      "    torus     total = 0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A combing with no partings anywhere would have nothing to add up, so its total would be 0. On the torus that is allowed, and you can write the combing down: send every hair the long way round the tube. It never turns, never stops, and never has to decide."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "On a sphere it is not allowed. Total 2 cannot be reached with an empty list, so there must be at least one place where the hair stops. You can move it, split it into two whorls of +1 each, push it to the poles or hide it in a crease. You cannot delete it."
+     ]
+    },
+    {
+     "h": "THE WIND",
+     "t": "p",
+     "lines": [
+      "Horizontal wind at the earth's surface is exactly such a combing. So at every moment there is at least one point where the horizontal wind is precisely zero — and if it is a single point, it is a whorl of index 2 or two whorls of index 1. This is why there is always a cyclone somewhere."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Some impossibilities are not about effort or cleverness. There is a quantity that cannot change, and what you are attempting would change it. Find the invariant and you stop searching."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "forty_eight_over_3_plus_5_times_3",
    "title": "forty eight over 3 plus 5 times 3",
