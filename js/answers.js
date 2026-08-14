@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 359,
+ "count": 360,
  "entries": [
+  {
+   "slug": "six_pieces_how_many_cuts",
+   "title": "Six pieces, how many cuts",
+   "ts": "2026-08-14T22:27:54+00:00",
+   "date": "14 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "C. 5.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Lay the log out and mark where the pieces meet. Six pieces sit side by side, so there are five places where one ends and the next begins — and each of those is one cut."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Or count up: one cut gives 2 pieces, two cuts give 3, three give 4. Every cut adds exactly one piece to what you had, and you started with one whole log. So to reach 6 pieces you need 5 cuts."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      6   counted the pieces and gave that",
+      "      7   added one instead of taking one away",
+      "      3   halved it"
+     ]
+    },
+    {
+     "h": "WHY THIS ONE IS EASY TO GET WRONG AND HARD TO NOTICE",
+     "t": "p",
+     "lines": [
+      "Five and six are both sensible-looking answers. Nothing about the question warns you that the number should come out smaller, and if you answer six nothing about six looks wrong. That is what separates this from most counting mistakes, where the wrong answer is obviously too big."
+     ]
+    },
+    {
+     "h": "THE SAME GAP, EVERYWHERE",
+     "t": "p",
+     "lines": [
+      "A fence with 6 panels needs 7 posts, because the posts are the ends and there is one more end than there are gaps. A week from Monday to Saturday is 6 days apart but 7 days named. A ladder with 6 rungs has 5 spaces between them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rule: decide whether you are counting THINGS or the GAPS BETWEEN THINGS, because there is always exactly one more thing than gap. Almost every off-by-one in a spreadsheet, a schedule or a program is this same question answered without being asked."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "always_equilateral",
    "title": "Always equilateral",
