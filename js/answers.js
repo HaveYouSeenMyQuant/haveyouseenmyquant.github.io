@@ -16,8 +16,90 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 360,
+ "count": 361,
  "entries": [
+  {
+   "slug": "every_shot_finds_the_focus",
+   "title": "Every shot finds the focus",
+   "ts": "2026-08-14T22:38:17+00:00",
+   "date": "14 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Because every point on an ellipse is defined by the two foci, and that definition forces the reflection.",
+   "why": [
+    {
+     "h": "THE DEFINING PROPERTY",
+     "t": "p",
+     "lines": [
+      "An ellipse is the set of points P where the two distances add to a constant:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  |F1 P| + |P F2| = 2a,  the same value for every P on the curve."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is not a fact ABOUT the ellipse, it is what an ellipse IS — the string-and-two-pins construction is exactly this."
+     ]
+    },
+    {
+     "h": "WHY THE BOUNCE WORKS",
+     "t": "p",
+     "lines": [
+      "Take a point P on the curve and ask which path from F1 to F2 via the wall is SHORTEST. For a straight wall the answer is the classic reflection: the shortest path is the one where the angle in equals the angle out. That is Heron's problem, and it is why light reflects the way it does."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now here is the trick. On an ellipse, EVERY point of the curve gives the same total distance 2a. So no point is shorter than any other — the path length is constant along the whole wall. A quantity that is constant along a curve has zero derivative along it, and \"zero derivative\" is precisely the condition that the angles match."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the tangent line at P must bisect the angle between PF1 and PF2 externally: the angle from PF1 to the tangent equals the angle from the tangent to PF2. That is the reflection law, holding at every single point of the curve at once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The ball has no choice. Fired from F1 in any direction, it hits the wall somewhere, and wherever that is, the wall is tilted exactly right to send it to F2."
+     ]
+    },
+    {
+     "h": "WHERE YOU HAVE MET THIS",
+     "t": "p",
+     "lines": [
+      "Whispering galleries — St Paul's, the Mormon Tabernacle, the old US Capitol — are elliptical rooms where a whisper at one focus is audible at the other and nowhere in between. Lithotripsy machines break kidney stones by putting a shock-wave source at one focus and the stone at the other. Some solar collectors and laser cavities use the same geometry."
+     ]
+    },
+    {
+     "h": "WHAT IT DOES NOT SAY",
+     "t": "p",
+     "lines": [
+      "It does not say the ball arrives at the same TIME whatever direction you fire it — the paths all have the same length 2a, so with constant speed it does, which is a rarer and stronger statement than the reflection alone. And it says nothing about the second bounce: after passing through F2 the ball hits the wall again and returns to F1, and the sequence of chords converges towards the major axis rather than repeating."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a shape is DEFINED by a distance property, the reflection law usually falls out of it for free, because reflection is a statement about shortest paths and shortest paths are a statement about distances. Parabolas focus parallel rays to a point for the same reason, one definition later. If a geometric fact feels miraculous, look for the definition it is hiding in."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "six_pieces_how_many_cuts",
    "title": "Six pieces, how many cuts",
