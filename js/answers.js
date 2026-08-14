@@ -20,22 +20,74 @@ window.QQ_ANSWERS = {
  "entries": [
   {
    "slug": "ninety_nine_percent_accurate",
-   "title": "ninety nine percent accurate",
+   "title": "A 99% accurate test",
    "ts": "2026-08-14T20:12:13+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/ninety_nine_percent_accurate",
+   "a": "B. 9.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Imagine testing 100,000 people and count how many positives there are altogether. The number that decides this is not in the question."
+      "Take 100,000 people. One in a thousand has the disease, so 100 are ill and 99,900 are not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Test everybody. Of the 100 who are ill, the test catches 99. Of the 99,900 who are not, it wrongly flags 1% — and 1% of 99,900 is 999 people."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So 1,098 people test positive, and only 99 of them are ill. That is 99 / 1,098, which is about 9%."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     99   answered with the test's accuracy",
+      "     50   treated it as a coin flip",
+      "      1   gave the test's error rate — it is wrong 1% of the time, so",
+      "          surely there is a 1% chance"
+     ]
+    },
+    {
+     "h": "THE POINT",
+     "t": "p",
+     "lines": [
+      "There are 999 healthy people carrying a positive result and only 99 ill ones. The false alarms outnumber the real cases ten to one, and they do it because there are a thousand times more healthy people for the test to be wrong about."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A 99% accurate test is 99% accurate. It is just being asked about a population where being wrong 1% of the time still produces far more wrong answers than right ones."
+     ]
+    },
+    {
+     "h": "WHAT TO ASK NEXT TIME",
+     "t": "p",
+     "lines": [
+      "The question gives you one number and invites you to answer with it. The number that decides the answer — how common the thing is — is not in the question at all. Whenever a test, a screen or an alert is described only by its accuracy, that is the missing figure, and without it the accuracy alone tells you almost nothing."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "fermat_fifth_number",
@@ -140,155 +192,399 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "one_three_two_over_2_plus_9_times_6",
-   "title": "one three two over 2 plus 9 times 6",
+   "title": "132 / (2 + 9) x 6",
    "ts": "2026-08-14T12:51:05+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/one_three_two_over_2_plus_9_times_6",
+   "a": "B. 72.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 2 + 9 = 11. Then left to right: 132 / 11 = 12, then 12 x 6 = 72."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       2   multiplied before dividing",
+      "     120   dropped the brackets",
+      "     450   worked straight across"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "one_twenty_over_3_plus_2_times_6",
-   "title": "one twenty over 3 plus 2 times 6",
+   "title": "120 / (3 + 2) x 6",
    "ts": "2026-08-14T12:11:37+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/one_twenty_over_3_plus_2_times_6",
+   "a": "A. 144.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 3 + 2 = 5. Then left to right: 120 / 5 = 24, then 24 x 6 = 144."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       4   multiplied before dividing",
+      "      52   dropped the brackets",
+      "     252   worked straight across"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "pick_two_from_five",
-   "title": "pick two from five",
+   "title": "Pick two from five",
    "ts": "2026-08-14T11:32:00+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/pick_two_from_five",
+   "a": "D. 10.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Ask whether picking A then B is different from picking B then A. One of the four options belongs to that other question."
+      "Line the five up. The first person can be paired with any of the other four, the second with any of the remaining three, and so on: 4 + 3 + 2 + 1 = 10."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     20   counted each pair twice — once as Alice-then-Bob and once as",
+      "          Bob-then-Alice",
+      "     25   multiplied 5 by 5, which counts pairing people with themselves",
+      "      7   added the 5 and the 2"
+     ]
+    },
+    {
+     "h": "WHY 20 IS THE INTERESTING WRONG ANSWER",
+     "t": "p",
+     "lines": [
+      "It is not careless. There are genuinely 20 ways to pick two people IN ORDER: five choices for the first, four left for the second. 5 x 4 = 20. That is the correct answer to a question one word away from this one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A pair has no order. Alice and Bob are the same pair however you name them, so every one of the 10 pairs was counted exactly twice, and 20 / 2 = 10."
+     ]
+    },
+    {
+     "h": "WHERE THE SAME HALVING TURNS UP",
+     "t": "p",
+     "lines": [
+      "Five people in a room, everyone shakes hands once: 10 handshakes, not 20, because a handshake has two people and no direction. Five teams playing each other once: 10 fixtures. Five dots joined by every possible line: 10 lines."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The question to ask, every time, is whether swapping the two things over gives you something different. If it does not, you have counted everything twice."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "six_percent_to_four_percent",
-   "title": "six percent to four percent",
+   "title": "6% down to 4%",
    "ts": "2026-08-14T10:51:51+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/six_percent_to_four_percent",
+   "a": "C. 33.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Ask what the fall is a percentage OF — and note that it is not the mirror of the rise. One of these options is the answer to going the other way."
+      "The fall is 6 - 4 = 2. As a percentage OF WHAT IT WAS, that is 2 / 6 = 0.333, so about 33%."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      2   the fall in percentage POINTS, true but a different question",
+      "     50   divided the fall by the NEW figure (2/4) instead of the old one",
+      "     66   worked out 4 as a percentage of 6 and stopped there, instead of",
+      "          taking it away from 100"
+     ]
+    },
+    {
+     "h": "THE POINT, AND IT IS NOT THE SAME AS THE RISE",
+     "t": "p",
+     "lines": [
+      "Going 4% up to 6% is a 50% rise. Coming back 6% down to 4% is a 33% fall. Same two numbers, same two points of movement, and the percentages do not match."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is not a quirk of these figures. A percentage change is always measured against WHERE YOU STARTED, and the two journeys start from different places: the rise divides by 4, the fall divides by 6. Anything that goes up by x% and then down by x% does not come back to where it began, and the same asymmetry is why a portfolio that falls 50% needs 100% to recover."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So \"it went up 50% and then fell 50%, so we are level\" is wrong twice over, and the second half is where the money goes."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "four_percent_to_six_percent",
-   "title": "four percent to six percent",
+   "title": "4% to 6%",
    "ts": "2026-08-14T10:11:15+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/four_percent_to_six_percent",
+   "a": "B. 50.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Ask what the rise is a percentage OF. Two of the four options are true statements about this change; only one of them answers the question asked."
+      "The rise is 6 - 4 = 2. As a percentage OF WHAT IT WAS, that is 2 / 4 = 0.5, which is 50%."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      2   the rise in percentage POINTS, which is true but answers a",
+      "          different question",
+      "     33   divided the rise by the NEW figure (2/6) instead of the old one",
+      "    150   worked out 6 as a percentage of 4 and forgot to subtract the",
+      "          original 100%"
+     ]
+    },
+    {
+     "h": "THE POINT",
+     "t": "p",
+     "lines": [
+      "Both 2 and 50 are correct statements about the same change. \"Up two points\" and \"up fifty per cent\" describe one event. They are not interchangeable, and the gap between them is not small: one sounds like a rounding error and the other sounds like a crisis."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is exactly why you see both in the wild. A rate moving from 4% to 6% will be reported as \"a two point rise\" by whoever wants it to sound minor and \"a fifty per cent increase\" by whoever wants it to sound severe. Neither is lying."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The habit worth keeping: when a percentage changes, ask whether the number quoted is a percentage of the ORIGINAL QUANTITY or a difference between two percentages. If it is the second, the word is POINTS, and anyone who drops that word is either being careless or making a case."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "one_oh_four_over_8_plus_5_times_2",
-   "title": "one oh four over 8 plus 5 times 2",
+   "title": "104 / (8 + 5) x 2",
    "ts": "2026-08-14T09:31:36+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/one_oh_four_over_8_plus_5_times_2",
+   "a": "D. 16.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 8 + 5 = 13. Then left to right: 104 / 13 = 8, then 8 x 2 = 16."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       4   multiplied before dividing",
+      "      23   dropped the brackets",
+      "      36   worked straight across"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "at_least_one_six_in_two_rolls",
-   "title": "at least one six in two rolls",
+   "title": "At least one six in two rolls",
    "ts": "2026-08-14T08:51:18+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/at_least_one_six_in_two_rolls",
+   "a": "A. 11.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Try counting the outcomes with NO six instead, then take that away from 36. Three of the four options come from adding two lists that overlap."
+      "Roll a die twice and there are 6 x 6 = 36 equally likely outcomes. Six of them have a six on the first die. Six have a six on the second. But that is not twelve, because DOUBLE SIX is in both lists and has been counted twice. So 6 + 6 - 1 = 11."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     12   added the two sixes and never noticed the overlap",
+      "      6   counted only the rolls where the FIRST die is a six",
+      "     25   counted the outcomes with no six at all"
+     ]
+    },
+    {
+     "h": "THE CHECK THAT IS EASIER THAN THE COUNT",
+     "t": "p",
+     "lines": [
+      "Go the other way round. For no six at all, each die has 5 safe faces, so there are 5 x 5 = 25 such outcomes. Everything else has at least one six: 36 - 25 = 11. Same answer, and no overlap to worry about — which is why \"at least one\" problems are almost always easier from the opposite side."
+     ]
+    },
+    {
+     "h": "WHERE THIS BITES",
+     "t": "p",
+     "lines": [
+      "The instinct that two chances of one-in-six make a two-in-six is the same instinct that says two chances of one-in-two make a certainty. It does not: two coin flips give a head 3 times in 4, not 4 times in 4. Whenever you find yourself adding the ways something can happen, ask whether any of them can happen together."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "ninety_six_over_3_plus_5_times_3",
-   "title": "ninety six over 3 plus 5 times 3",
+   "title": "96 / (3 + 5) x 3",
    "ts": "2026-08-14T08:11:21+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/ninety_six_over_3_plus_5_times_3",
+   "a": "B. 36.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 3 + 5 = 8. Then left to right: 96 / 8 = 12, then 12 x 3 = 36."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       4   multiplied before dividing",
+      "      47   dropped the brackets",
+      "     111   worked straight across"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "area_by_counting_dots",
@@ -367,22 +663,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "thirty_take_3_lots_of_a_bracket",
-   "title": "thirty take 3 lots of a bracket",
+   "title": "30 - 3 x (4 + 2)",
    "ts": "2026-08-14T07:31:29+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/thirty_take_3_lots_of_a_bracket",
+   "a": "B. 12.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 4 + 2 = 6. Then the multiply: 3 x 6 = 18. Then 30 - 18 = 12."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     162   worked straight across",
+      "      20   dropped the brackets",
+      "      16   multiplied inside first"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "coat_check",
@@ -449,22 +768,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "one_three_two_over_2_plus_9_times_2",
-   "title": "one three two over 2 plus 9 times 2",
+   "title": "132 / (2 + 9) x 2",
    "ts": "2026-08-14T06:50:53+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/one_three_two_over_2_plus_9_times_2",
+   "a": "C. 24.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 2 + 9 = 11. Then left to right: 132 / 11 = 12, then 12 x 2 = 24."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       6   multiplied before dividing",
+      "      84   dropped the brackets",
+      "     150   worked straight across"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "random_dots_make_a_pattern",
@@ -529,22 +871,59 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "root_of_nine_plus_sixteen",
-   "title": "root of nine plus sixteen",
+   "title": "The root of 9 + 16",
    "ts": "2026-08-14T06:10:35+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/root_of_nine_plus_sixteen",
+   "a": "C. 5.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Finish what is inside the bracket before you touch the root. Three of the four options come from splitting the root across a plus sign, which is a rule that only works for times."
+      "Do what is inside the bracket first. 9 + 16 = 25, and the square root of 25 is 5."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      7   took the root of each number separately: 3 + 4",
+      "     12   multiplied under the root instead of adding: root of 144",
+      "     25   added correctly and then forgot to take the root"
+     ]
+    },
+    {
+     "h": "THE POINT",
+     "t": "p",
+     "lines": [
+      "The tempting answer is 7, and it is tempting for a good reason: the rule it uses is true for multiplication. The root of 9 x 16 really is the root of 9 times the root of 16 — that is 3 x 4 = 12, and it is exactly right. So the habit of splitting a root across the numbers inside works, right up until the sign between them is a plus."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Roots do not distribute over addition. Neither do squares: (3 + 4)² is 49, not 9 + 16. Nor do most things you would want to — 1/(a+b) is not 1/a + 1/b either."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is a picture behind it. Root 9 and root 16 are the sides of a right angle, 3 and 4, and root (9+16) is the hypotenuse, 5. Walking 3 across and 4 up takes you 7 steps but leaves you only 5 from where you started. The gap between 5 and 7 is not an arithmetic slip; it is the whole reason the diagonal is shorter than going round."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "both_played_it_perfectly",
@@ -618,22 +997,52 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "sixty_after_a_quarter_off",
-   "title": "sixty after a quarter off",
+   "title": "£60 after 25% off",
    "ts": "2026-08-14T05:30:15+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/sixty_after_a_quarter_off",
+   "a": "D. £80.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Ask what the £60 is a percentage OF before you do anything to it. Three of the four options come from adding a percentage back to the wrong number."
+      "£60 is what is LEFT after a quarter came off, so £60 is 75% of the full price. Divide, do not add: 60 / 0.75 = 80. Check it forwards — a quarter of 80 is 20, and 80 - 20 = 60."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      75   added 25% back on to the sale price",
+      "      48   divided by 1.25 instead of by 0.75",
+      "     240   read the £60 as the discount rather than the price paid"
+     ]
+    },
+    {
+     "h": "THE POINT",
+     "t": "p",
+     "lines": [
+      "Adding 25% back does not undo taking 25% off, and the reason is that the two percentages are charged on different bases. The quarter that came off was a quarter of £80 — that is £20. The quarter you would add back is a quarter of £60 — that is only £15. You end at £75 and you are £5 short, permanently."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is the same arithmetic behind a pay cut that is later \"restored\" by the same percentage, and behind why a portfolio that falls 25% needs to rise 33% to break even. The percentage that takes something away is always measured against the larger number, and the percentage that gives it back against the smaller one. That gap is not a rounding detail. It is the whole effect."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "same_note_nothing_alike",
@@ -706,22 +1115,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "ninety_over_3_plus_2_times_6",
-   "title": "ninety over 3 plus 2 times 6",
+   "title": "90 / (3 + 2) x 6",
    "ts": "2026-08-14T04:49:59+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/ninety_over_3_plus_2_times_6",
+   "a": "C. 108.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 3 + 2 = 5. Then left to right: 90 / 5 = 18, then 18 x 6 = 108."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       3   multiplied before dividing",
+      "      42   dropped the brackets",
+      "     192   worked straight across"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "a_tide_on_the_far_side",
@@ -866,22 +1298,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "forty_eight_over_3_plus_5_times_3",
-   "title": "forty eight over 3 plus 5 times 3",
+   "title": "48 / (3 + 5) x 3",
    "ts": "2026-08-14T04:04:58+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/forty_eight_over_3_plus_5_times_3",
+   "a": "A. 18.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 3 + 5 = 8. Then left to right: 48 / 8 = 6, then 6 x 3 = 18."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       2   multiplied before dividing",
+      "      31   dropped the brackets",
+      "      63   worked straight across"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "where_did_the_gigabytes_go",
@@ -964,22 +1419,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "fifty_six_over_2_plus_5_times_4",
-   "title": "fifty six over 2 plus 5 times 4",
+   "title": "56 / (2 + 5) x 4",
    "ts": "2026-08-14T03:19:59+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/fifty_six_over_2_plus_5_times_4",
+   "a": "D. 32.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 2 + 5 = 7. Then left to right: 56 / 7 = 8, then 8 x 4 = 32."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       2   multiplied before dividing",
+      "      48   dropped the brackets",
+      "     132   worked straight across"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "two_noons_sixteen_minutes",
@@ -1052,22 +1530,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "forty_take_3_lots_of_a_bracket",
-   "title": "forty take 3 lots of a bracket",
+   "title": "40 - 3 x (5 + 4)",
    "ts": "2026-08-14T02:36:02+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/forty_take_3_lots_of_a_bracket",
+   "a": "A. 13.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 5 + 4 = 9. Then the multiply: 3 x 9 = 27. Then 40 - 27 = 13."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     333   worked straight across",
+      "      29   dropped the brackets",
+      "      21   multiplied inside first"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_same_six_digits",
@@ -1158,22 +1659,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "forty_five_take_7_lots_of_a_bracket",
-   "title": "forty five take 7 lots of a bracket",
+   "title": "45 - 7 x (3 + 2)",
    "ts": "2026-08-14T01:45:03+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/forty_five_take_7_lots_of_a_bracket",
+   "a": "D. 10.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 3 + 2 = 5. Then the multiply: 7 x 5 = 35. Then 45 - 35 = 10."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     190   worked straight across",
+      "      26   dropped the brackets",
+      "      22   multiplied inside first"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "it_reads_it_sideways",
@@ -1253,22 +1777,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "two_classes_one_average",
-   "title": "two classes one average",
+   "title": "Ten average 60, thirty average 80",
    "ts": "2026-08-14T01:05:09+00:00",
    "date": "14 Aug 2026",
    "topic": "",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/two_classes_one_average",
+   "a": "D. 75.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Add up the marks rather than the averages, then divide by how many students there are altogether. Three of the four options ignore the group sizes."
+      "Count the marks, not the averages. Ten students at 60 is 600 marks. Thirty students at 80 is 2,400 marks. That is 3,000 marks between 40 students, so 3,000 / 40 = 75."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      70   averaged the two averages",
+      "      65   weighted them the wrong way round",
+      "     140   added the averages"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "75 sits closer to 80 than to 60 because there are three times as many students in the second group. The average of two averages is only right when the groups are the same size — and the cases where this matters are exactly the cases where they are not."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "random_does_not_feel_random",
@@ -1340,22 +1887,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "fifty_take_5_lots_of_a_bracket",
-   "title": "fifty take 5 lots of a bracket",
+   "title": "50 - 5 x (2 + 4)",
    "ts": "2026-08-14T00:25:29+00:00",
    "date": "14 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/fifty_take_5_lots_of_a_bracket",
+   "a": "C. 20.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 2 + 4 = 6. Then the multiply: 5 x 6 = 30. Then 50 - 30 = 20."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     270   worked straight across",
+      "      44   dropped the brackets",
+      "      36   multiplied inside first"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "one_digit_that_says_nothing",
@@ -1483,22 +2053,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "two_point_five_hours_in_minutes",
-   "title": "two point five hours in minutes",
+   "title": "2.5 hours in minutes",
    "ts": "2026-08-13T23:45:31+00:00",
    "date": "13 Aug 2026",
    "topic": "",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/two_point_five_hours_in_minutes",
+   "a": "C. 150.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Ask what half an hour actually is before you do any multiplying. Three of the four options come from letting the decimal point pretend the clock counts in tens."
+      "Half an hour is 30 minutes, not 50. So 2.5 hours is 120 + 30 = 150."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     170   read the point five as fifty minutes",
+      "     250   multiplied by a hundred instead of sixty",
+      "     120   dropped the half altogether"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trap is that \"2.5 hours\" and \"2 hours 50\" look almost identical written down and are twenty minutes apart. Decimals count in tens; clocks count in sixties. A decimal point in front of a unit that is not base ten is one of the few places where careful people still get caught."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_middle_hardly_matters",
@@ -1566,22 +2159,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "share_sixty_in_two_to_three",
-   "title": "share sixty in two to three",
+   "title": "Share 60 in the ratio 2:3",
    "ts": "2026-08-13T23:05:59+00:00",
    "date": "13 Aug 2026",
    "topic": "",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/share_sixty_in_two_to_three",
+   "a": "B. 24.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Count the parts before you divide anything. 2 : 3 is not two parts or three parts — three of the four options come from dividing by the wrong number."
+      "The ratio 2 : 3 makes FIVE parts, not two. One part is 60 / 5 = 12. The smaller share is 2 parts, so 2 x 12 = 24, and the larger is 3 x 12 = 36. They add back to 60, which is the check."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      30   split it down the middle and ignored the ratio",
+      "      20   divided by the 3 instead of by the total number of parts",
+      "      40   gave away two thirds instead of two fifths"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every one comes from dividing by a number in the ratio rather than by their sum. Count the parts first and the rest is arithmetic."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "four_thousand_bits_no_click",
@@ -1667,22 +2283,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "fifty_five_take_7_lots_of_a_bracket",
-   "title": "fifty five take 7 lots of a bracket",
+   "title": "55 - 7 x (2 + 3)",
    "ts": "2026-08-13T22:10:24+00:00",
    "date": "13 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/fifty_five_take_7_lots_of_a_bracket",
+   "a": "A. 20.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 2 + 3 = 5. Then the multiply: 7 x 5 = 35. Then 55 - 35 = 20."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     240   worked straight across",
+      "      44   dropped the brackets",
+      "      38   multiplied inside first"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "fifty_and_fifty_is_not_a_hundred",
@@ -1705,22 +2344,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "five_plus_two_times_three_squared",
-   "title": "five plus two times three squared",
+   "title": "5 + 2 x 3 squared",
    "ts": "2026-08-13T21:30:02+00:00",
    "date": "13 Aug 2026",
    "topic": "",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/five_plus_two_times_three_squared",
+   "a": "A. 23.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The power belongs to the 3 alone — not to the 2 next to it, and not to the whole term. Three of the four options come from attaching it somewhere else."
+      "The power goes first: 3² = 9. Then the multiply: 2 x 9 = 18. Then the add: 5 + 18 = 23."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      41   squared the product: 5 + (2 x 3)²",
+      "      17   read the little 2 as another multiply: 5 + 2 x 3 x 2",
+      "      63   worked straight across: (5 + 2) x 3²"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The power is attached to the 3 and to nothing else. It is not sitting over the whole term, and it is not an instruction to multiply by two."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "you_can_see_it_is_wrong",
@@ -1743,22 +2405,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "six_take_minus_four_times_three",
-   "title": "six take minus four times three",
+   "title": "6 - (-4) x 3",
    "ts": "2026-08-13T20:50:19+00:00",
    "date": "13 Aug 2026",
    "topic": "",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/six_take_minus_four_times_three",
+   "a": "D. 18.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the multiply first, then deal with the two minus signs. Taking away a negative adds — three of the four options come from mishandling that."
+      "Multiply before you subtract: (-4) x 3 = -12. Then 6 - (-12), and subtracting a negative adds, so 6 + 12 = 18."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      30   worked straight across: (6 + 4) x 3",
+      "      -6   read it as plain subtraction: 6 - 4 x 3",
+      "     -18   negated the whole thing"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The sign is the trap, not the order. Take away a debt of twelve and you are twelve better off — that is all \"minus a negative\" means."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "one_in_ten_thousand_tested",
@@ -1781,22 +2466,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "eight_inch_against_sixteen",
-   "title": "eight inch against sixteen",
+   "title": "8 inch against 16 inch",
    "ts": "2026-08-13T20:10:46+00:00",
    "date": "13 Aug 2026",
    "topic": "",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/eight_inch_against_sixteen",
+   "a": "B. Four times.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Doubling the width doubles it in both directions at once. Three of the four options are what you get from a different guess about how size works."
+      "Double the width and you double it in BOTH directions, so the area goes up by two times two. A 16 inch pizza is four 8 inch pizzas."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       2   twice as wide, so twice as much",
+      "       8   cubed it, as if it were a volume",
+      "      16   squared the four instead of the width"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is worth money. Two 8 inch pizzas are HALF a 16 inch one, so if the large costs less than double the small, the large is the better buy — and it almost always does."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_host_knows_which_door",
@@ -1838,22 +2546,52 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "sixty_there_thirty_back",
-   "title": "sixty there thirty back",
+   "title": "60 mph there, 30 mph back",
    "ts": "2026-08-10T03:26:52+00:00",
    "date": "10 Aug 2026",
    "topic": "",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/sixty_there_thirty_back",
+   "a": "A. 40 mph.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "You spend twice as long on the slow leg, so it counts for more than half the trip. That is why averaging the two speeds is not the same thing."
+      "Say the leg is 60 miles. Out takes 1 hour, back takes 2 hours. That is 120 miles in 3 hours, which is 40 mph."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      45   averaged the two speeds",
+      "      90   added them",
+      "      30   took the slower leg"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Speeds do not average like ordinary numbers, because you spend TWICE AS LONG on the slow leg. Half the distance is at 30, not half the time — so the slow leg gets more of the trip than the fast one, and pulls the answer below 45."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And it does not matter how far it is. Try 10 miles or 1,000: it is always 40."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "three_pounds_against_ten",
@@ -1876,22 +2614,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "twenty_off_then_ten_off",
-   "title": "twenty off then ten off",
+   "title": "200, -20%, -10%",
    "ts": "2026-08-10T02:45:56+00:00",
    "date": "10 Aug 2026",
    "topic": "",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/twenty_off_then_ten_off",
+   "a": "C. 144.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The second discount comes off the price after the first one, not off the original. Three of the four options are what you get by forgetting that."
+      "Twenty per cent off 200 leaves 160. Ten per cent off 160 is 16, so you pay 144."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     140   added the percentages and took 30% off",
+      "     160   took the 20% and forgot the second cut",
+      "     170   took off 20 pounds and 10 pounds instead of per cent"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The second cut is ten per cent of the NEW price, not the old one. Adding the two percentages is the one that catches nearly everybody, because 30% off feels like it must be the same thing."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "ten_envelopes_one_choice",
@@ -1933,22 +2694,45 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "sixty_take_a_bracket_of_five",
-   "title": "sixty take a bracket of five",
+   "title": "Sixty, take a bracket of five",
    "ts": "2026-08-10T01:25:12+00:00",
    "date": "10 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/sixty_take_a_bracket_of_five",
+   "a": "C. 10.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 8 + 2 = 10. Then the multiply: 10 x 5 = 50. Then 60 - 50 = 10."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     250   worked straight across: (60 - (8 + 2)) * 5",
+      "      62   dropped the brackets: 60 - 8 + 2 * 5",
+      "      42   multiplied inside first: 60 - (8 + 2 * 5)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "best_of_seven_settles_little",
@@ -2002,79 +2786,171 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "nine_lots_then_take_twelve",
-   "title": "nine lots then take twelve",
+   "title": "Nine lots, then take twelve",
    "ts": "2026-08-10T00:39:41+00:00",
    "date": "10 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/nine_lots_then_take_twelve",
+   "a": "A. 15.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 7 - 4 = 3. Then the multiply: 9 x 3 = 27. Then 27 - 12 = 15."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      47   dropped the brackets: 9 * 7 - 4 - 12",
+      "     -81   swept the twelve inside: 9 * (7 - 4 - 12)",
+      "     135   moved the minus inside: 9 * (7 - (4 - 12))"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "twenty_five_take_three_lots",
-   "title": "twenty five take three lots",
+   "title": "Twenty-five, take three lots",
    "ts": "2026-08-09T22:54:22+00:00",
    "date": "9 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/twenty_five_take_three_lots",
+   "a": "B. 4.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 2 + 5 = 7. Then the multiply: 3 x 7 = 21. Then 25 - 21 = 4."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     154   worked straight across: (25 - 3) * (2 + 5)",
+      "      24   dropped the brackets: 25 - 3 * 2 + 5",
+      "      14   multiplied inside first: 25 - (3 * 2 + 5)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "seventy_two_over_a_gap",
-   "title": "seventy two over a gap",
+   "title": "Seventy-two over a gap",
    "ts": "2026-08-09T22:14:00+00:00",
    "date": "9 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/seventy_two_over_a_gap",
+   "a": "C. 24.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 9 - 3 = 6. Then left to right: 72 / 6 = 12, then 12 x 2 = 24."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       6   multiplied before dividing: 72 / ((9 - 3) * 2)",
+      "       2   dropped the brackets: 72 / 9 - 3 * 2",
+      "      10   worked straight across: (72 / 9 - 3) * 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "fifty_take_six_lots",
-   "title": "fifty take six lots",
+   "title": "Fifty, take six lots",
    "ts": "2026-08-09T21:33:42+00:00",
    "date": "9 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/fifty_take_six_lots",
+   "a": "D. 8.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 4 + 3 = 7. Then the multiply: 6 x 7 = 42. Then 50 - 42 = 8."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     308   worked straight across: (50 - 6) * (4 + 3)",
+      "      29   dropped the brackets: 50 - 6 * 4 + 3",
+      "      23   multiplied inside first: 50 - (6 * 4 + 3)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "three_pieces_one_triangle",
@@ -2097,41 +2973,87 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "a_hundred_over_a_product",
-   "title": "a hundred over a product",
+   "title": "A hundred over a product",
    "ts": "2026-08-09T20:51:51+00:00",
    "date": "9 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/a_hundred_over_a_product",
+   "a": "A. 20.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 2 x 5 = 10. Then 100 / 10 = 10. Then 10 + 10 = 20."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     260   worked straight across: 100 / 2 * 5 + 10",
+      "       5   added inside first: 100 / (2 * 5 + 10)",
+      "     750   brackets round the wrong pair: 100 / 2 * (5 + 10)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "seven_lots_of_a_bracket",
-   "title": "seven lots of a bracket",
+   "title": "Seven lots of a bracket",
    "ts": "2026-08-09T20:12:43+00:00",
    "date": "9 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/seven_lots_of_a_bracket",
+   "a": "B. 20.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 9 - 5 = 4. Then the multiply: 7 x 4 = 28. Then 28 - 8 = 20."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      50   dropped the brackets: 7 * 9 - 5 - 8",
+      "     -28   subtracted inside first: 7 * (9 - 5 - 8)",
+      "      84   moved the minus inside: 7 * (9 - (5 - 8))"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "fair_from_unfair_coin",
@@ -2225,41 +3147,87 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "thirty_take_a_double_bracket",
-   "title": "thirty take a double bracket",
+   "title": "Thirty, take a double bracket",
    "ts": "2026-08-09T19:32:49+00:00",
    "date": "9 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/thirty_take_a_double_bracket",
+   "a": "D. 10.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 5 + 5 = 10. Then the multiply: 10 x 2 = 20. Then 30 - 20 = 10."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      40   worked straight across: (30 - (5 + 5)) * 2",
+      "      35   dropped the brackets: 30 - 5 + 5 * 2",
+      "      15   multiplied inside first: 30 - (5 + 5 * 2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "forty_over_a_bracket",
-   "title": "forty over a bracket",
+   "title": "Forty over a bracket",
    "ts": "2026-08-09T18:52:56+00:00",
    "date": "9 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/forty_over_a_bracket",
+   "a": "C. 16.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 4 + 1 = 5. Then left to right: 40 / 5 = 8, then 8 x 2 = 16."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       4   multiplied before dividing: 40 / ((4 + 1) * 2)",
+      "      12   dropped the brackets: 40 / 4 + 1 * 2",
+      "      22   worked straight across: (40 / 4 + 1) * 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "keep_it_or_roll_again",
@@ -2282,60 +3250,129 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "fifteen_take_away_a_bracket",
-   "title": "fifteen take away a bracket",
+   "title": "Fifteen take away a bracket",
    "ts": "2026-08-09T18:12:49+00:00",
    "date": "9 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/fifteen_take_away_a_bracket",
+   "a": "A. 9.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 6 - 3 = 3. Then the multiply: 2 x 3 = 6. Then 15 - 6 = 9."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      39   worked straight across: (15 - 2) * (6 - 3)",
+      "       0   dropped the brackets: 15 - 2 * 6 - 3",
+      "       6   multiplied inside first: 15 - (2 * 6 - 3)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_bracket_goes_first",
-   "title": "the bracket goes first",
+   "title": "The bracket goes first",
    "ts": "2026-08-09T17:34:04+00:00",
    "date": "9 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/the_bracket_goes_first",
+   "a": "D. 2.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 8 - 3 = 5. Then the multiply: 5 x 2 = 10. Then 12 - 10 = 2."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      14   worked straight across: (12 - (8 - 3)) * 2",
+      "      -2   dropped the brackets: 12 - 8 - 3 * 2",
+      "      10   multiplied inside first: 12 - (8 - 3 * 2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "divide_before_you_multiply",
-   "title": "divide before you multiply",
+   "title": "Divide before you multiply",
    "ts": "2026-08-09T16:55:06+00:00",
    "date": "9 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/divide_before_you_multiply",
+   "a": "B. 8.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+      "Brackets first: 2 + 4 = 6. Then left to right: 24 / 6 = 4, then 4 x 2 = 8."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       2   multiplied before dividing: 24 / ((2 + 4) * 2)",
+      "      20   dropped the brackets: 24 / 2 + 4 * 2",
+      "      32   worked straight across: (24 / 2 + 4) * 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_wider_swing_runs_slow",
@@ -2358,7 +3395,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "four_ways_to_get_this_wrong",
-   "title": "four ways to get this wrong",
+   "title": "Four ways to get this wrong",
    "ts": "2026-08-09T16:14:28+00:00",
    "date": "9 Aug 2026",
    "topic": "quiz",
@@ -2377,7 +3414,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_same_fee_paid_faster",
-   "title": "the same fee paid faster",
+   "title": "The same fee, paid faster",
    "ts": "2026-08-09T15:34:51+00:00",
    "date": "9 Aug 2026",
    "topic": "money",
@@ -2415,22 +3452,29 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "up_to_half_price",
-   "title": "up to half price",
+   "title": "Up to half price",
    "ts": "2026-08-09T14:41:50+00:00",
    "date": "9 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/up_to_half_price",
+   "a": "The reel leaves the average to you.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: add up everything that comes off, then share it out over all twelve things on the shelf."
+      "Add up what comes off all twelve, then share it out over twelve. That is all an average is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The sign is not lying, and that is the point worth taking away. \"Up to\" quotes the best case on the shelf, and the best case can be one item out of twelve. A maximum tells you nothing at all about the typical."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_bottom_of_the_wheel_stands_still",
@@ -2460,22 +3504,29 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_cheaper_one_you_threw_away",
-   "title": "the cheaper one you threw away",
+   "title": "The cheaper one you threw away",
    "ts": "2026-08-09T13:37:55+00:00",
    "date": "9 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/the_cheaper_one_you_threw_away",
+   "a": "The reel leaves the last divide to you.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: use the price paid, then divide by the kilos eaten. Do not count the spinach that went in the bin."
+      "Use the price paid for the big bag. Divide it by the kilos that were actually eaten. The bin does not count as eaten food."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole trick: the shelf ticket priced the kilos bought, but the question asks for the kilos eaten."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "it_bursts_where_the_ice_is_not",
@@ -2586,7 +3637,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_phone_was_paid_off_a_year_ago",
-   "title": "the phone was paid off a year ago",
+   "title": "The phone was paid off a year ago",
    "ts": "2026-08-09T11:50:58+00:00",
    "date": "9 Aug 2026",
    "topic": "",
@@ -2605,7 +3656,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_same_cover_two_prices",
-   "title": "the same cover two prices",
+   "title": "The same cover, two prices",
    "ts": "2026-08-09T10:36:02+00:00",
    "date": "9 Aug 2026",
    "topic": "money",
@@ -2722,7 +3773,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_price_of_each_visit",
-   "title": "the price of each visit",
+   "title": "The price of each visit",
    "ts": "2026-08-09T09:18:27+00:00",
    "date": "9 Aug 2026",
    "topic": "money",
@@ -2797,7 +3848,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "paying_monthly_is_a_loan",
-   "title": "paying monthly is a loan",
+   "title": "Paying monthly is a loan",
    "ts": "2026-08-09T08:04:25+00:00",
    "date": "9 Aug 2026",
    "topic": "money",
@@ -2907,7 +3958,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_deposit_you_never_get_back",
-   "title": "the deposit you never get back",
+   "title": "The deposit you never get back",
    "ts": "2026-08-09T06:43:41+00:00",
    "date": "9 Aug 2026",
    "topic": "money",
@@ -3121,7 +4172,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_tip_on_the_tip",
-   "title": "the tip on the tip",
+   "title": "The tip on the tip",
    "ts": "2026-08-09T05:29:16+00:00",
    "date": "9 Aug 2026",
    "topic": "money",
@@ -3223,7 +4274,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_nineteen_pound_flight",
-   "title": "the nineteen pound flight",
+   "title": "The £19 flight is not the flight you pay for",
    "ts": "2026-08-09T04:33:59+00:00",
    "date": "9 Aug 2026",
    "topic": "money",
@@ -3396,7 +4447,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_sale_price_was_the_plan",
-   "title": "the sale price was the plan",
+   "title": "The sale price was the plan",
    "ts": "2026-08-09T03:25:20+00:00",
    "date": "9 Aug 2026",
    "topic": "money",
@@ -3492,7 +4543,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_free_year_that_was_not",
-   "title": "the free year that was not",
+   "title": "The free sofa year that was not free",
    "ts": "2026-08-09T02:44:18+00:00",
    "date": "9 Aug 2026",
    "topic": "",
@@ -3635,7 +4686,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "what_a_mile_actually_costs",
-   "title": "what a mile actually costs",
+   "title": "Five things cost money in a car's year, and petrol is not the big one",
    "ts": "2026-08-09T01:22:17+00:00",
    "date": "9 Aug 2026",
    "topic": "money",
@@ -3716,7 +4767,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "paid_in_sixty_days",
-   "title": "paid in sixty days",
+   "title": "The tin is empty and the work was all done",
    "ts": "2026-08-09T00:37:37+00:00",
    "date": "9 Aug 2026",
    "topic": "money",
@@ -3735,7 +4786,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "spending_more_to_save_the_delivery",
-   "title": "spending more to save the delivery",
+   "title": "Spending more to save the delivery",
    "ts": "2026-08-08T21:27:30+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -3867,7 +4918,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "five_percent_on_a_slice",
-   "title": "five percent on a slice",
+   "title": "5%, but only on the first £1,000",
    "ts": "2026-08-08T20:25:15+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -4017,7 +5068,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "six_pounds_on_thirty",
-   "title": "six pounds on thirty",
+   "title": "A six pound late fee, and the rate it really is",
    "ts": "2026-08-08T19:45:40+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -4123,7 +5174,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_free_exchange_costs_more",
-   "title": "the free exchange costs more",
+   "title": "The 0% commission booth is the expensive one",
    "ts": "2026-08-08T19:06:07+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -4182,7 +5233,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_fee_that_pays_for_itself",
-   "title": "the fee that pays for itself",
+   "title": "The card with a fee, and the free one, and where they cross",
    "ts": "2026-08-08T18:25:15+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -4255,7 +5306,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_house_went_up_five",
-   "title": "the house went up five",
+   "title": "The house rises 5% - what happens to your deposit",
    "ts": "2026-08-08T17:29:34+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -4323,7 +5374,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "three_for_two_or_a_third_off",
-   "title": "three for two or a third off",
+   "title": "Three for two, or a third off - which is the better offer",
    "ts": "2026-08-08T16:49:11+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -4465,7 +5516,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "who_pays_for_the_taxi",
-   "title": "who pays for the taxi",
+   "title": "Two share a taxi, one gets out early - who pays what",
    "ts": "2026-08-08T16:05:22+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -4548,7 +5599,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "which_voucher_first",
-   "title": "which voucher first",
+   "title": "Two vouchers, and the order changes the price",
    "ts": "2026-08-08T15:20:39+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -4673,7 +5724,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "two_percent_to_three_percent",
-   "title": "two percent to three percent",
+   "title": "One percent more on the rate, half again on the bill",
    "ts": "2026-08-08T14:34:50+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -4958,7 +6009,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "which_box_is_cheaper",
-   "title": "which box is cheaper",
+   "title": "The big box holds more and is worse value per gram",
    "ts": "2026-08-08T10:05:26+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -5095,7 +6146,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "four_weeks_is_not_a_month",
-   "title": "four weeks is not a month",
+   "title": "Rent per week times four is a month short every year",
    "ts": "2026-08-08T09:22:43+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -5153,7 +6204,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "half_gone_half_back",
-   "title": "half gone half back",
+   "title": "Lose half, gain half back, still down a quarter",
    "ts": "2026-08-08T08:42:34+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -5859,7 +6910,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_same_years_shuffled",
-   "title": "the same years shuffled",
+   "title": "The same five years, shuffled",
    "ts": "2026-08-08T00:25:45+00:00",
    "date": "8 Aug 2026",
    "topic": "money",
@@ -6009,7 +7060,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_charge_before_you_use_anything",
-   "title": "the charge before you use anything",
+   "title": "The charge before you use anything",
    "ts": "2026-08-07T23:24:03+00:00",
    "date": "7 Aug 2026",
    "topic": "money",
@@ -6152,7 +7203,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_same_fee_twice",
-   "title": "the same fee twice",
+   "title": "The same fee, on the same money, twice",
    "ts": "2026-08-07T22:52:44+00:00",
    "date": "7 Aug 2026",
    "topic": "money",
@@ -6201,7 +7252,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "two_stickers_one_price",
-   "title": "two stickers one price",
+   "title": "Two stickers, one price",
    "ts": "2026-08-07T22:39:47+00:00",
    "date": "7 Aug 2026",
    "topic": "money",
@@ -6344,7 +7395,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "the_smaller_salary_keeps_less",
-   "title": "the smaller salary keeps less",
+   "title": "The same rise, and the smaller salary keeps less",
    "ts": "2026-08-07T22:09:30+00:00",
    "date": "7 Aug 2026",
    "topic": "money",
@@ -6392,7 +7443,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "paid_more_than_you_owed",
-   "title": "paid more than you owed",
+   "title": "Paid more than you owed, still owing",
    "ts": "2026-08-07T22:00:16+00:00",
    "date": "7 Aug 2026",
    "topic": "money",
@@ -6447,7 +7498,7 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "one_percent_for_forty_years",
-   "title": "one percent for forty years",
+   "title": "One percent a year, for forty years",
    "ts": "2026-08-07T21:50:43+00:00",
    "date": "7 Aug 2026",
    "topic": "money",
