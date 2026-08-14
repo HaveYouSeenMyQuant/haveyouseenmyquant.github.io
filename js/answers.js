@@ -16,8 +16,78 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 357,
+ "count": 358,
  "entries": [
+  {
+   "slug": "the_big_bottle_costs_more",
+   "title": "500ml at £1 against 2L at £4.20",
+   "ts": "2026-08-14T21:48:06+00:00",
+   "date": "14 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "B. 200.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The small bottle: 500ml for 100p is 200p per litre. The big bottle: 2,000ml for 420p is 210p per litre."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The small one is cheaper, by 10p a litre."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    210   assumed the big bottle was better value and gave its rate",
+      "    420   gave the big bottle's total price",
+      "    100   gave the small bottle's total price"
+     ]
+    },
+    {
+     "h": "WHY THIS ONE IS DIFFERENT FROM THE REST",
+     "t": "p",
+     "lines": [
+      "Every other question on this page is a mistake in the arithmetic. This is a mistake made before any arithmetic happens: the answer comes from a rule of thumb — bigger pack, better value — and the division never gets done."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rule of thumb is usually right, which is the whole problem. If bulk were dearer half the time everyone would check. Because it is cheaper most of the time, the exceptions are invisible, and shelf pricing is designed by people who know that."
+     ]
+    },
+    {
+     "h": "WHAT TO DO IN A SHOP",
+     "t": "p",
+     "lines": [
+      "Divide once. Price divided by size, both packs, same units. It takes about four seconds and it is the only way to see a 5% difference, because 500ml at £1 and 2L at £4.20 look like obviously different deals and are not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Supermarket shelf labels in the UK carry a unit price for exactly this reason. It is usually in small grey print underneath, and it is the only number on the label that lets you compare two things."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "four_dots_one_line",
    "title": "Three dots a line can always split. Four?",
