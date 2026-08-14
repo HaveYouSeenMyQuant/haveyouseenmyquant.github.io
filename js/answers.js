@@ -16,8 +16,87 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 330,
+ "count": 331,
  "entries": [
+  {
+   "slug": "where_did_the_gigabytes_go",
+   "title": "Where did the gigabytes go",
+   "ts": "2026-08-14T03:33:46+00:00",
+   "date": "14 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Nowhere. Every byte is on the drive. Two different quantities are wearing the same three letters.",
+   "why": [
+    {
+     "h": "NOTHING IS MISSING",
+     "t": "p",
+     "lines": [
+      "The drive holds 1,000,000,000,000 bytes, exactly as sold. Count them and they are all there. This is not a rounding, a format overhead or a hidden partition."
+     ]
+    },
+    {
+     "h": "THE TWO DEFINITIONS",
+     "t": "p",
+     "lines": [
+      "The manufacturer uses the prefixes as they have always meant: kilo is a thousand, mega a million, tera a million million. The operating system counts in 1024s, because that is what is natural for an address, but prints the same letters."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 TB sold      = 1,000,000,000,000 bytes",
+      "    1 TiB in the OS = 1,099,511,627,776 bytes"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the drive is 0.9095 of what the computer calls a terabyte, or 931.32 of what it calls a gigabyte. Against the 1000 you expected, that feels 6.87% short."
+     ]
+    },
+    {
+     "h": "IT COMPOUNDS",
+     "t": "p",
+     "lines": [
+      "The two definitions differ by 1024/1000 = 1.024, and that factor applies once per prefix. So the bigger the drive, the worse the gap:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    at kB   2.34% short",
+      "    at MB   4.63% short",
+      "    at GB   6.87% short",
+      "    at TB   9.05% short"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A floppy disk lost you 2.3%. A terabyte drive loses 9.1%. Nothing changed except the number of times the discrepancy multiplied."
+     ]
+    },
+    {
+     "h": "WHOSE FAULT",
+     "t": "p",
+     "lines": [
+      "Not the manufacturer's — kilo means a thousand everywhere else in science. The correct names for the OS's units exist and are kibibyte, mebibyte and gibibyte, defined in 1998 precisely to end this. Most operating systems still print \"GB\" for a gibibyte. macOS switched to the honest thousands in 2009, which is why the same drive reads differently on a Mac and a PC."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before deciding a quantity is wrong, check that both sides are using the same definition of the units. A disagreement about labels looks exactly like a disagreement about facts."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "fifty_six_over_2_plus_5_times_4",
    "title": "fifty six over 2 plus 5 times 4",
