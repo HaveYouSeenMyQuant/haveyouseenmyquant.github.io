@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 341,
+ "count": 342,
  "entries": [
+  {
+   "slug": "coat_check",
+   "title": "5 coats, 0 tickets — can anyone get theirs back?",
+   "ts": "2026-08-14T07:15:55+00:00",
+   "date": "14 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "11/30, or about 36.7%. Not \"almost never\" — closer to one time in three.",
+   "why": [
+    {
+     "h": "COUNT THE HAND-BACKS WHERE NOBODY IS LUCKY",
+     "t": "p",
+     "lines": [
+      "There are 5! = 120 orders the coats can come back in, all equally likely. The ones where NOT ONE person gets their own coat are called derangements, and for five items there are 44 of them. So the chance is 44/120 = 11/30 = 0.3667."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You can count the 44 by inclusion-exclusion — subtract the orders where at least one person is lucky, add back the ones double-counted, and so on:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    120 - 5x4! + 10x3! - 10x2! + 5x1! - 1x0!",
+      "    = 120 - 120 + 60 - 20 + 5 - 1",
+      "    = 44"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY \"ALMOST NEVER\" FEELS RIGHT AND IS WRONG"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each individual person has only a 1 in 5 chance of getting their own coat, so it feels as though someone is bound to be lucky. But those five events overlap heavily — if person 1 gets their coat, that changes the odds for everyone else — and the overlaps very nearly cancel the sum."
+     ]
+    },
+    {
+     "h": "THE PART THAT SURPRISES PEOPLE MORE",
+     "t": "p",
+     "lines": [
+      "The answer barely depends on five. With 10 coats it is 0.36788, with 100 coats 0.36788, and it converges to 1/e = 0.367879... almost immediately. Ten people or ten thousand, it is always about 37%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is because the count of derangements is the nearest whole number to n!/e. The alternating sum above is exactly the first few terms of the series for 1/e, which is why the extra terms stop mattering so fast."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_three_two_over_2_plus_9_times_2",
    "title": "one three two over 2 plus 9 times 2",
