@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 336,
+ "count": 337,
  "entries": [
+  {
+   "slug": "sixty_after_a_quarter_off",
+   "title": "sixty after a quarter off",
+   "ts": "2026-08-14T05:30:15+00:00",
+   "date": "14 Aug 2026",
+   "topic": "",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/sixty_after_a_quarter_off",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Ask what the £60 is a percentage OF before you do anything to it. Three of the four options come from adding a percentage back to the wrong number."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "same_note_nothing_alike",
    "title": "Same note, nothing alike",
