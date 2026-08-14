@@ -16,8 +16,108 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 354,
+ "count": 355,
  "entries": [
+  {
+   "slug": "cubes_add_to_a_square",
+   "title": "Cubes add to a square",
+   "ts": "2026-08-14T20:47:08+00:00",
+   "date": "14 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "Because the sum of the first n cubes IS the square of the sum of the first n numbers:",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  1^3 + 2^3 + ... + n^3  =  (1 + 2 + ... + n)^2  =  (n(n+1)/2)^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For n = 100 the inner sum is 5,050, so the cubes add to 5,050^2 = 25,502,500."
+     ]
+    },
+    {
+     "h": "THE PICTURE THAT MAKES IT OBVIOUS",
+     "t": "p",
+     "lines": [
+      "Draw a square of side T = 1 + 2 + ... + n. Its area is T^2. Now cut it into n L-shaped shells, working outwards: the first is a 1x1 corner, the second is the L you add to grow the square from side 1 to side 3, the third grows it from 3 to 6, and so on. The k-th shell grows the side from T(k-1) to T(k), an increase of exactly k."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The area of that k-th shell is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  T(k)^2 - T(k-1)^2 = (T(k) + T(k-1)) (T(k) - T(k-1)) = (k^2) (k) = k^3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "using T(k) + T(k-1) = k^2, which is worth checking on its own: 1+0=1, 3+1=4, 6+3=9, 10+6=16. Consecutive triangular numbers add to a square."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the square of side T splits into n pieces of areas 1^3, 2^3, ..., n^3. The sum of the cubes IS the square. No algebra required."
+     ]
+    },
+    {
+     "h": "THE INDUCTION, IF YOU PREFER",
+     "t": "p",
+     "lines": [
+      "Suppose the first n-1 cubes add to T(n-1)^2. Add n^3:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  T(n-1)^2 + n^3 = T(n-1)^2 + n^2 x n",
+      "                 = T(n-1)^2 + n^2 (T(n) - T(n-1))",
+      "                 = T(n-1)^2 + (T(n) + T(n-1))(T(n) - T(n-1))",
+      "                 = T(n-1)^2 + T(n)^2 - T(n-1)^2",
+      "                 = T(n)^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same identity, same two facts doing the work: T(n) - T(n-1) = n and T(n) + T(n-1) = n^2."
+     ]
+    },
+    {
+     "h": "WHY IT IS WORTH KNOWING",
+     "t": "p",
+     "lines": [
+      "The dissection is the more useful of the two arguments, and not because it is shorter. Induction verifies a formula you already guessed; it never tells you where the formula came from, and it cannot be run backwards to find one. The dissection produces the answer — you are cutting up a square and reading off what the pieces weigh."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the transferable move: when a sum has a suspiciously clean closed form, look for an object whose parts are the terms. Sums of odd numbers are squares because the odd numbers are exactly the L-shells of a square. Sums of cubes are squares for the same reason, one level up. A pattern that holds for the first four cases is a coincidence until you find the object; once you have the object, it holds for all of them at once and you can see why."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ninety_nine_percent_accurate",
    "title": "A 99% accurate test",
@@ -1294,7 +1394,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "forty_eight_over_3_plus_5_times_3",
@@ -1415,7 +1515,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "fifty_six_over_2_plus_5_times_4",
@@ -1526,7 +1626,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "forty_take_3_lots_of_a_bracket",
@@ -1773,7 +1873,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "two_classes_one_average",
@@ -1883,7 +1983,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "fifty_take_5_lots_of_a_bracket",
@@ -1993,7 +2093,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_crack_has_a_speed_limit",
@@ -2049,7 +2149,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "two_point_five_hours_in_minutes",
@@ -2155,7 +2255,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "share_sixty_in_two_to_three",
@@ -2330,17 +2430,46 @@ window.QQ_ANSWERS = {
    "date": "13 Aug 2026",
    "topic": "chemistry",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/fifty_and_fifty_is_not_a_hundred",
+   "a": "96.2 mL. Nothing leaked, nothing evaporated, and nothing reacted.",
    "why": [
     {
-     "h": null,
+     "h": "WHAT DID NOT CHANGE",
      "t": "p",
      "lines": [
-      "Hint: weigh it instead of measuring it. Every gram that was on the bench is still there — so ask what volume actually is, and whether it has to add up."
+      "The mass. 50 mL of ethanol is 39.47 g and 50 mL of water is 49.91 g, so there are 89.38 g on the bench before you pour and 89.38 g after. Every molecule that went in is still there."
+     ]
+    },
+    {
+     "h": "WHAT DID",
+     "t": "p",
+     "lines": [
+      "The volume. Volume is not a conserved quantity — it is a consequence of how things pack, and ethanol and water pack better together than either does with itself. Water's hydrogen-bonded network is open, with gaps, and an ethanol molecule's hydroxyl end fits into them. The mixture is denser than a simple average of the two:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    volume-weighted average   0.8938 g/mL",
+      "    measured mixture          0.9286 g/mL"
+     ]
+    },
+    {
+     "h": "WHY THAT IS THE WHOLE STORY",
+     "t": "p",
+     "lines": [
+      "Had the mixture come out at 0.8938 the total would have been exactly 100.0 mL. The entire 3.8 mL of shrinkage is that density difference and nothing else, which is a satisfying thing to be able to check rather than assert."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Ask which quantities are actually conserved. Mass and count are; volume, brightness, loudness and \"amount of stuff\" are not, and adding them up as if they were is where a lot of confident arithmetic goes wrong."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "five_plus_two_times_three_squared",
@@ -2391,17 +2520,87 @@ window.QQ_ANSWERS = {
    "date": "13 Aug 2026",
    "topic": "optimization",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/you_can_see_it_is_wrong",
+   "a": "Because a shortest tour can never cross itself, and a crossing is something you can see without measuring anything.",
    "why": [
+    {
+     "h": "THE TWO-LINE PROOF",
+     "t": "p",
+     "lines": [
+      "Suppose two legs of the tour cross at a point X. Call them A-B and C-D. Then"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    |AB| + |CD| = (|AX| + |XB|) + (|CX| + |XD|)"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: look at the shape of the route itself. There is one thing a shortest round trip can never do, and you can spot it without measuring anything."
+      "Regroup the same four pieces:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "                = (|AX| + |XC|) + (|BX| + |XD|)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and each bracket is a path from A to C, or B to D, that goes via X. A straight line is shorter than any detour, so"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    |AC| + |BD| < |AB| + |CD|"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Reconnect the tour as A-C and B-D — reversing the stretch in between, which visits exactly the same towns — and it is strictly shorter. So any tour with a crossing is beatable, and the best one has none."
+     ]
+    },
+    {
+     "h": "WHY THIS IS WORTH SOMETHING",
+     "t": "p",
+     "lines": [
+      "Finding the shortest tour is famously hard: 9 towns already give 20,160 distinct tours, and 20 towns give more than 10^16. No fast method is known and most people expect none exists."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Recognising a bad one costs a glance. Checking is easy where solving is hard, and that gap is the whole shape of this class of problem — it is also exactly what \"P versus NP\" is asking about."
+     ]
+    },
+    {
+     "h": "WHERE IT STOPS BEING TRUE",
+     "t": "p",
+     "lines": [
+      "The proof uses one fact: a straight line is the shortest route between two points. Take that away and it collapses. On a real road network, with one-way streets, tolls or traffic, the cheapest round can cross itself perfectly happily — because the map's distances are no longer straight-line distances."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a problem is too hard to solve, look for a property the answer MUST have. You will not find the answer that way, but you will throw away candidates cheaply — and knowing what a solution has to look like is often the practical half of the job."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "six_take_minus_four_times_three",
@@ -2452,17 +2651,48 @@ window.QQ_ANSWERS = {
    "date": "13 Aug 2026",
    "topic": "quant_teaser",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/one_in_ten_thousand_tested",
+   "a": "About one in a hundred — 0.98%.",
    "why": [
+    {
+     "h": "THE COUNT THAT MAKES IT OBVIOUS",
+     "t": "p",
+     "lines": [
+      "Take the whole town of 10,000 people and test every one of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    people who have it, and are told so       0.99",
+      "    people who do NOT have it, told they do   99.99"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: forget yourself for a moment. Test the whole town, and count how many people get told they have it."
+      "About a hundred people are told they have it, and only one of them does. Being told is almost no evidence, because there are so many more healthy people to get wrong than ill people to get right."
+     ]
+    },
+    {
+     "h": "WHY IT IS NOT A TRICK ABOUT BAD TESTS",
+     "t": "pre",
+     "lines": [
+      "    rare 1 in 10,000, test right 99 in 100     0.0098",
+      "    make it 1 in 100 instead                     0.5000",
+      "    keep it rare, test right 9,999 in 10,000     0.5000"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both of those come out at exactly a half. A ninety-nine per cent test is not a bad test — it is simply being asked to find something rarer than its own mistakes."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "eight_inch_against_sixteen",
@@ -2513,17 +2743,39 @@ window.QQ_ANSWERS = {
    "date": "13 Aug 2026",
    "topic": "quant_teaser",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/the_host_knows_which_door",
+   "a": "Two times in three.",
    "why": [
+    {
+     "h": "WHY",
+     "t": "p",
+     "lines": [
+      "Your first pick is right one time in three, and that never changes — the host opening a door tells you nothing about the door you already chose. So the other two doors together hold the car two times in three, and after the host has opened one of them, that whole two thirds sits on the single door left."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    stay      0.3333",
+      "    swap      0.6667"
+     ]
+    },
+    {
+     "h": "THE PART EVERY SHORT EXPLANATION LEAVES OUT",
+     "t": "p",
+     "lines": [
+      "It only works because the host KNOWS. He is not opening a door and getting lucky — he is choosing a goat on purpose, every time, and that is what carries the information."
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: how often was your very first pick right? Then ask what the host opening a door did to that number."
+      "If instead he opened a door at random and it happened to be a goat, swapping would be worth 0.5000 — exactly nothing over staying. Same three doors, same goat revealed, completely different answer, because the thing that changed is what the host knew."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "six_people_one_room",
@@ -2532,17 +2784,44 @@ window.QQ_ANSWERS = {
    "date": "10 Aug 2026",
    "topic": "quant_teaser",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/six_people_one_room",
+   "a": "Five of the six.",
    "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    person   friends   their friends have, on average",
+      "    Ana         5                1.80      not fewer",
+      "    Ben         2                3.50      fewer",
+      "    Cara        2                3.50      fewer",
+      "    Dan         2                3.50      fewer",
+      "    Eve         2                3.50      fewer",
+      "    Finn        1                5.00      fewer"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: ask how many times each person gets counted when all six people work out their own friends' average."
+      "The average person in this room has 2.33 friends. The average FRIEND has 3.47."
+     ]
+    },
+    {
+     "h": "WHY",
+     "t": "p",
+     "lines": [
+      "Nothing about friendship causes it. A person with five friends appears in five people's lists; a person with one friend appears in one. So popular people are counted again and again when everybody works out their own friends' average, and unpopular people are counted barely at all."
+     ]
+    },
+    {
+     "h": "THE CONTROL",
+     "t": "p",
+     "lines": [
+      "Put the same six people in a ring, so everyone has exactly two friends, and the count drops to ZERO of six. The effect is not about friendship. It is about the SPREAD — and the same argument applies to anything counted through the thing it is attached to."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "sixty_there_thirty_back",
@@ -2600,17 +2879,41 @@ window.QQ_ANSWERS = {
    "date": "10 Aug 2026",
    "topic": "quant_teaser",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/three_pounds_against_ten",
+   "a": "Three tenths.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: with a fair coin, what you hold does not drift up or down on average. Now ask what that has to mean at the moment the game stops."
+      "Your chance of reaching £10 before you run out is simply your stake over the target: 3 over 10."
+     ]
+    },
+    {
+     "h": "WHY SO SIMPLE",
+     "t": "p",
+     "lines": [
+      "A fair coin means the money you hold does not drift up or down on average, and that has to stay true right to the end. At the end you hold either £10 or nothing. So the chance of finishing at £10, times £10, has to come back to the £3 you started with — which fixes the chance at 3/10."
+     ]
+    },
+    {
+     "h": "IT IS A FACT ABOUT A FAIR COIN, NOT ABOUT WALKS",
+     "t": "pre",
+     "lines": [
+      "    fair coin, 3 against 10   0.3000",
+      "    doubled, 6 against 20                 0.3000",
+      "    a 51% coin                            0.3430",
+      "    a 49% coin                            0.2592"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Doubling both the stake and the target changes nothing. Moving the coin by two points in a hundred moves the answer by eight. A house edge that looks like rounding error is not one."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "twenty_off_then_ten_off",
@@ -2661,17 +2964,40 @@ window.QQ_ANSWERS = {
    "date": "10 Aug 2026",
    "topic": "quant_teaser",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/ten_envelopes_one_choice",
+   "a": "About 40% of the time.",
    "why": [
+    {
+     "h": "THE RULE",
+     "t": "p",
+     "lines": [
+      "Let a fixed number go by without taking any of them, remembering the best you saw. Then take the first one after that which beats everything you have seen. For ten envelopes the number to let go is 3, and that gives 0.3987."
+     ]
+    },
+    {
+     "h": "WHY IT BARELY MOVES",
+     "t": "pre",
+     "lines": [
+      "    ten envelopes      let 3 go     0.3987",
+      "    a hundred          let 37 go           0.3710",
+      "    the limit                              1/e = 0.3679"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: you cannot judge an amount without something to judge it against. So the first few envelopes are worth something to you even though you refuse them."
+      "A hundred envelopes and you still walk away with the very best one more than a third of the time. The share you let go settles at about 37 in a hundred, and so does the chance of winning — both of them are 1/e, which is why this question gets asked."
+     ]
+    },
+    {
+     "h": "WHAT IT BEATS",
+     "t": "p",
+     "lines": [
+      "Picking one at random is 1 in 10. Always taking the last is also 1 in 10. Playing it properly is worth about 4 times either."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "two_bets_same_hits",
@@ -2680,17 +3006,61 @@ window.QQ_ANSWERS = {
    "date": "10 Aug 2026",
    "topic": "quant_teaser",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/two_bets_same_hits",
+   "a": "Bet one, and only just.",
    "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    one die, four rolls        1 - (5/6)^4    = 0.5177",
+      "    two dice, twenty-four      1 - (35/36)^24 = 0.4914"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: do not count the hits. Work out the chance of getting NO hits at all in each bet, and take it from there."
+      "One sits just above even, the other just below, and the gap between them is about 0.026."
+     ]
+    },
+    {
+     "h": "WHY THEY FEEL IDENTICAL",
+     "t": "p",
+     "lines": [
+      "Because on one measure they ARE identical. The expected number of hits is the same for both:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    4 x 1/6   = 0.6667",
+      "    24 x 1/36 = 0.6667"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Expecting the same number of hits is not the same as being equally likely to get at least one. The bet with more rolls has more ways to score twice and waste a hit, so it converts its two thirds of a hit into \"at least one\" less often."
+     ]
+    },
+    {
+     "h": "HOW CLOSE IT IS",
+     "t": "p",
+     "lines": [
+      "Give bet two a twenty-fifth roll and it climbs to 0.5055 — above even, though still behind bet one. It takes a twenty-sixth (0.5193) to overtake it. The whole puzzle sits inside two throws."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is the question that started the subject: a gambler put it to Pascal in 1654 after losing money being sure the two bets were the same."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "sixty_take_a_bracket_of_five",
@@ -2782,7 +3152,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "nine_lots_then_take_twelve",
@@ -2959,17 +3329,31 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "quant_teaser",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/three_pieces_one_triangle",
+   "a": "One in four.",
    "why": [
     {
-     "h": null,
+     "h": "THE RULE",
      "t": "p",
      "lines": [
-      "Hint: three lengths close into a triangle exactly when no one of them is longer than the other two put together. Now ask how often that happens."
+      "Three lengths close into a triangle exactly when no single one of them is longer than the other two put together. For three pieces of one stick that is the same as saying: no piece is longer than half the stick."
+     ]
+    },
+    {
+     "h": "WHY A QUARTER",
+     "t": "p",
+     "lines": [
+      "Call the two cut points x and y, each anywhere along the stick, so every possible cut is a dot spread evenly over a square. The cuts that leave no piece over half are two small triangles inside that square, each an eighth of it. Two eighths is 0.25."
+     ]
+    },
+    {
+     "h": "THE PART WORTH KNOWING",
+     "t": "p",
+     "lines": [
+      "The answer is about the PROCEDURE, not about sticks. Snap the stick once, then snap whichever piece came out longer, and the chance becomes ln4 - 1, about 0.386. Same stick, same triangle rule, a different way of choosing where to cut, and a different answer. Anyone who tells you the broken-stick answer without saying how the stick was broken has not finished the question."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "a_hundred_over_a_product",
@@ -3236,17 +3620,39 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "quant_teaser",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/keep_it_or_roll_again",
+   "a": "4.25.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: work out what a fresh roll is worth first. Then you know exactly which first rolls are worth keeping."
+      "A fresh die is worth 3.5 on average. So a first roll is worth keeping only if it beats 3.5 — that is a 4, a 5 or a 6 — and worth throwing away otherwise."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    keep a 4, 5 or 6      happens half the time, and those average 5",
+      "    reroll a 1, 2 or 3     happens half the time, worth 3.5"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    half of 5, plus half of 3.5, is 4.25"
+     ]
+    },
+    {
+     "h": "WHY BOTH OBVIOUS ANSWERS ARE 3.5",
+     "t": "p",
+     "lines": [
+      "Always keeping is a die, so it is 3.5. Always rerolling is also just a die, so it is 3.5 too. Every bit of the difference comes from being allowed to LOOK before you decide. The value of the option is 0.75, and it is the whole point of the question."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "fifteen_take_away_a_bracket",
@@ -3381,17 +3787,45 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "physics",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/the_wider_swing_runs_slow",
+   "a": "105 minutes a day slow — nearly two hours, from the swing alone.",
    "why": [
+    {
+     "h": "WHAT SCHOOL LEAVES OUT",
+     "t": "p",
+     "lines": [
+      "\"A pendulum's period does not depend on amplitude\" is true in the LIMIT, not in general. The exact period is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    T = 4 sqrt(L/g) K(sin(theta/2))"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: the pull that brings it back goes as the sine of the angle, and the sine of an angle is always smaller than the angle itself."
+      "where K is the complete elliptic integral of the first kind. Against the small-swing period that is a ratio of (2/pi) K(sin(theta/2)), which is 1.0732 at sixty degrees: the clock runs 7.3% slow, so it loses 105 minutes a day."
+     ]
+    },
+    {
+     "h": "WHY IT IS SLOW AND NOT FAST",
+     "t": "p",
+     "lines": [
+      "Gravity's pull along the arc is proportional to sin(theta), and sin(theta) is always LESS than theta. The further it swings, the weaker the restoring pull is compared with the simple straight-line version, so every wide swing takes a little longer than the small-angle formula promises. The error only ever goes one way."
+     ]
+    },
+    {
+     "h": "THE CONTROL",
+     "t": "p",
+     "lines": [
+      "At two degrees the same clock loses 6.6 seconds a day. That is the same pendulum, the same rod and the same gravity — so the effect is about how far it swings and nothing else."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "four_ways_to_get_this_wrong",
@@ -3400,17 +3834,40 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "quiz",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/four_ways_to_get_this_wrong",
+   "a": "C. 0.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Brackets first, then the multiply, then the subtract. Three of the four options are what you get if you take those in a different order."
+      "Brackets first: 3 + 2 = 5. Then the multiply: 4 x 5 = 20. Then the subtract: 20 - 20 = 0."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    80   worked straight across, left to right: (20 - 4) x (3 + 2)",
+      "    10   dropped the brackets: 20 - 4 x 3 + 2",
+      "    6    multiplied inside the bracket before adding: 20 - (4 x 3 + 2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_same_fee_paid_faster",
@@ -3419,17 +3876,39 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/the_same_fee_paid_faster",
+   "a": "The one who cleared it in six months paid 4 times as much for each year they borrowed.",
    "why": [
+    {
+     "h": "WHY",
+     "t": "p",
+     "lines": [
+      "The fee is £120 either way — 3% of £4,000, charged once, at the start. What changes is how long that one payment is spread over."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    over 24 months   £120 / 2 years = £60 a year",
+      "    over 6 months    £120 / 0.5 years = £240 a year"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: the fee is the same both times. Work out how many YEARS each person actually had the money for, then share the fee out over those years."
+      "A fee is a price. A price only becomes a RATE once you say how long for, and paying early shortens the \"how long for\" without reducing the price."
+     ]
+    },
+    {
+     "h": "WHAT THIS IS NOT",
+     "t": "p",
+     "lines": [
+      "It is not an argument for staying in debt. Clearing a card early is usually the right thing to do, and if the card charged interest the early payer would win easily. It is an argument about how to compare a one-off fee with a rate: they are not the same kind of number, and the only way to put them side by side is to say how long the money was borrowed for."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "ten_metres_is_the_limit",
@@ -3438,17 +3917,38 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "physics",
    "q": null,
-   "a": "Https://haveyouseenmyquant.github.io/#answers/ten_metres_is_the_limit",
+   "a": "It does not suck. It pulls — and the water at the top is at a pressure below absolute zero.",
    "why": [
+    {
+     "h": "WHY TEN METRES",
+     "t": "p",
+     "lines": [
+      "A pump does not lift water. The atmosphere pushes it up, and a pump only gets out of the way. The best any pump can do is remove everything above, so the most the atmosphere can support is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    h = P_atm / (rho g) = 101,325 / (1,000 x 9.81) = 10.33 m"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Hint: the pump is not lifting anything. Work out what IS pushing the water up the pipe, then ask whether a tree has any of it."
+      "That is a hard ceiling. A perfect vacuum, a bigger pump and a wider pipe all give the same 10.3 m. Every well deeper than this has to push from the bottom, not pull from the top."
+     ]
+    },
+    {
+     "h": "WHAT THE TREE IS DOING INSTEAD",
+     "t": "p",
+     "lines": [
+      "Hyperion, a coast redwood, is 115.92 m — 11.2 times that ceiling. The water gets up by being PULLED: evaporation at the leaves puts the whole column under tension, and the column holds because water molecules grip each other hard enough not to come apart. At the top the absolute pressure is about -1.04 MPa — that is -10.2 atmospheres, a genuinely negative pressure, roughly 1.04 MPa of tension in the water itself."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "up_to_half_price",
@@ -3535,17 +4035,54 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "physics",
    "q": null,
-   "a": "Tip: look for the closed tap. If the water can leave, the same ice is much less dangerous.",
+   "a": "Because the ice is not pushing the pipe apart at the split. It is pushing the water.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Full checked answer - free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/it_bursts_where_the_ice_is_not"
+      "The pipe is full of water. The tap is shut. When ice grows across the pipe it acts like a plug, so the water between that plug and the tap is sealed in. More freezing then pushes the plug along the pipe, and that squeezes the sealed water."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Water hardly shrinks when you squeeze it. Its bulk modulus is 2.2 GPa, so a sealed squeeze of f makes about 2.2 GPa x f of pressure:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    squeezed by 0.05%       1.1 MPa",
+      "    squeezed by 0.50%      11.0 MPa",
+      "    squeezed by 9%         198 MPa"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A copper pipe can let go around 15 MPa. That needs only 0.68% of squeeze, about a 13th of the room the ice is trying to make."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is why the split can appear in the clear water section, not at the ice. The ice made the seal. The water carried the push."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "An open or dripping tap changes the whole problem. With somewhere to go, the same freezing gives a pressure rise of 0 Pa."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "forty_tonnes_stops_the_same",
@@ -3633,7 +4170,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_phone_was_paid_off_a_year_ago",
@@ -3642,17 +4179,129 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "",
    "q": null,
-   "a": "Answer (one email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_phone_was_paid_off_a_year_ago",
+   "a": "£30 a month, £360 a year, and £720 over two years of not noticing.",
    "why": [
+    {
+     "h": "WHAT THE FIRST TWO YEARS WERE DOING",
+     "t": "p",
+     "lines": [
+      "The made-up phone deal is £45 a month. The same calls and data, bought on their own, are £15 a month."
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: after month 24, do not count the whole payment as extra. The calls and data still cost something. Only the part above the calls-and-data price is the extra, and only after the phone has already been paid for."
+      "So the part paying for the phone is:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £45 - £15 = £30 a month"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Over the first 24 months:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £30 x 24 = £720"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the phone being paid for."
+     ]
+    },
+    {
+     "h": "WHAT CHANGES AFTER MONTH 24",
+     "t": "p",
+     "lines": [
+      "The phone is now yours. The calls still cost £15 a month. If the payment stays at £45, the part above the calls-only price is still:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £45 - £15 = £30 each month"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So one unnoticed year is:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £30 x 12 = £360"
+     ]
+    },
+    {
+     "h": "THE SAME YEARLY NUMBER A SECOND WAY",
+     "t": "p",
+     "lines": [
+      "List the months after the phone is paid:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    months 25 to 36 = 12 later payments"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each later payment is £45. Each month of calls and data is £15. Summing the twelve differences gives:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    12 lots of (£45 - £15) = £360"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two years of not noticing is:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £360 x 2 = £720"
+     ]
+    },
+    {
+     "h": "THE CONTROL",
+     "t": "p",
+     "lines": [
+      "If the payment drops to £15 at month 25, the extra at month 25, month 26, and every later month is exactly £0. That is the check that proves the extra is not \"having a phone plan\". It is only the amount above the calls-and-data price after the phone has already been paid for."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_same_cover_two_prices",
@@ -3661,17 +4310,89 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_same_cover_two_prices",
+   "a": "£75.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: use the price shown to someone new as the base. Then ask what one repeat of the space between the two prices is worth, and ask what happens if the same space repeats for several years. If the two quotes are equal, every answer in the working should collapse to zero."
+      "The renewal is £260. The new-customer quote is £185."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £260 - £185 = £75"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "As a share of the price shown to someone new:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £75 / £185 = 40.5%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the renewal is 40.5% higher than the new-customer price, for the same car, same driver and same cover."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If that same gap came back every year for 5 years and was never checked:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    5 x £75 = £375"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same total a second way:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    5 x £260 = £1300",
+      "    5 x £185 = £925",
+      "    £1300 - £925 = £375"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The control is important. If both quotes were £185, the gap would be exactly £0, the percentage gap would be exactly 0%, and the five-year total would be exactly £0 by both routes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is all this video is doing. It is arithmetic, not advice. Staying put can be worth real time and hassle. The arithmetic only asks what the gap is."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "napkin_ring_same_volume",
@@ -3778,17 +4499,38 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_price_of_each_visit",
+   "a": "The break-even is 5 visits in a month.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: put both choices on one month. The membership total stays still. The door total only grows on days you actually go. Look for the visit where those two monthly totals meet, then check the counts on either side."
+      "At 5 visits, paying at the door costs 5 x £8.00 = £40.00. The membership also costs £40.00. Same total, to the penny."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Below that count, paying at the door is cheaper because the days you stay home cost nothing. Above that count, the membership is cheaper because it stays at £40.00."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A second way to get the same count is to divide the monthly membership by the door price: £40.00 / £8.00 = 5."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The transferable move: a fixed price has no cost per use until you say how often you use it. That divisor is the number most people forget to check."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_last_bean_is_decided",
@@ -3853,17 +4595,89 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/paying_monthly_is_a_loan",
+   "a": "The headline difference is 10%, but the annual rate is about 19.5% if the twelve £55 payments start one month after the cover begins.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: do not divide the extra £60 by the starting £600 and stop there. Draw the money still owed after each monthly payment. The cost is being charged while that owed line is shrinking, and that is why the real yearly cost comes out much higher than the headline gap."
+      "The totals are simple:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    paying it all at once:        £600",
+      "    paying a bit each month:      12 x £55 = £660",
+      "    extra paid for spreading it:  £60"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "£60 is 10% of £600. That is the tempting shortcut."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But the shortcut measures the cost against the starting £600. The amount still owed is falling every month."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Solve the actual loan:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £600 = £55/(1+r) + £55/(1+r)^2 + ... + £55/(1+r)^12"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The monthly rate is 1.498%, which makes the annual rate 19.5%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A second route gets the same number without the present-value formula. Start with £600 owed. Each month add r, then take off £55. The r that lands the final balance exactly on zero is again 1.498% a month, or 19.5% a year."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If the first £55 is paid today, the financed amount after that first payment is £545, repaid by eleven more £55 payments. That timing gives about 23.6% a year."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Control check: if the monthly price were exactly £50, the twelve payments would add to £600 and the solved rate would be exactly zero."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The transferable move: spreading a payment is borrowing. The price of borrowing is measured against the money you still owe, not against the money you started with."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "count_the_heads_in_front",
@@ -3963,17 +4777,78 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_deposit_you_never_get_back",
+   "a": "You get it back at the end if nothing is broken. The cost is the money it could have earned while you could not use it.",
    "why": [
+    {
+     "h": "SETUP",
+     "t": "pre",
+     "lines": [
+      "    advertised rent     £1,200 a month",
+      "    deposit locked up   £1,385",
+      "    time in the flat    24 months",
+      "    savings rate        4% a year"
+     ]
+    },
+    {
+     "h": "WHAT THE DEPOSIT COULD HAVE EARNED",
+     "t": "pre",
+     "lines": [
+      "    £1,385 x ((1 + 0.04) ** 2 - 1)",
+      "    = £113.02"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: do not add the deposit itself to the rent. You get it back at the end if nothing is broken. The missing piece is only what that same money could have earned while you could not use it."
+      "That is not extra rent paid to anyone else. It is the price of having your own money locked away instead of sitting in savings."
+     ]
+    },
+    {
+     "h": "WHAT THAT ADDS TO EACH MONTH",
+     "t": "pre",
+     "lines": [
+      "    £113.02 / 24 months",
+      "    = £4.71 per month"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the flat advertised at £1,200 a month really costs £1,204.71 per month on this arithmetic."
+     ]
+    },
+    {
+     "h": "THE SAME NUMBER, A SECOND WAY",
+     "t": "p",
+     "lines": [
+      "Use the monthly rate that gives the same four per cent year:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    monthly rate = (1 + 0.04) ** (1 / 12) - 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Apply it for 24 months to £1,385. The final savings pot is the same as the two-year calculation, so the earned amount and the monthly add-on are the same."
+     ]
+    },
+    {
+     "h": "CONTROL",
+     "t": "p",
+     "lines": [
+      "Set the savings rate to zero. Then the deposit earns £0.00, the monthly add-on is £0.00, and the real monthly cost is exactly the advertised £1,200. That is the check that this is arithmetic, not a complaint."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "two_opposite_points_agree",
@@ -4177,17 +5052,59 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_tip_on_the_tip",
+   "a": "The two tips are £10 and £9.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: split the machine's tip into two pieces. One piece is taken from the food. The small extra piece is taken from the service line that was already added."
+      "The food and drink were £80. Service at 12.5% adds £10, so the bill becomes £90. The machine then takes 10% of £90, which is £9."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the total tip is £19 on £80 of food:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £19 / £80 = 23.75%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The overlap is £1. That is the part of the machine tip taken from the service line itself, because 10% of the £10 service charge is £1."
+     ]
+    },
+    {
+     "h": "THE SAME NUMBER A SECOND WAY",
+     "t": "p",
+     "lines": [
+      "The bill first gets multiplied by 1 + 12.5%. The card machine then multiplies that new number by 1 + 10%. The total lift above the original food price is:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1 + 0.125) x (1 + 0.10) - 1 = 23.75%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the same 23.75%. A percentage taken from a total that already contains a percentage charges you twice on the same money. It is the same reason two discounts do not simply add when one is taken after the other."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "ten_times_longer_twice_the_time",
@@ -4279,17 +5196,100 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_nineteen_pound_flight",
+   "a": "The poster price is £19.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: add the parts to the poster price before you compare two flights. The move is not to ask whether each extra is optional. The move is to ask which version of the product you are actually going to use."
+      "With a cabin bag and a picked seat, one person is at:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £19 + £25 + £12",
+      "    = £56"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is 2.95 times the poster price. The poster price is 33.9% of that total."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If the airport check-in fee is added too, the desk total is:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £19 + £25 + £12 + £55",
+      "    = £111"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is 5.84 times the poster price. The poster price is only 17.1% of that final total."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same multiple a second way:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    final multiple = final total / poster price",
+      "                   = 111 / 19",
+      "                   = 5.84"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    poster share   = poster price / final total",
+      "                   = 19 / 111",
+      "                   = 17.1%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 / poster share = 5.84"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the poster price and the reciprocal of its share give the same multiple."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The mechanism: the price on the poster is for a thing without the parts you need, so the comparison you make between airlines is not a comparison of what you will actually spend."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "five_to_three_is_the_wrong_split",
@@ -4358,7 +5358,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "nothing_can_live_in_it",
@@ -4443,7 +5443,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_sale_price_was_the_plan",
@@ -4452,17 +5452,105 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_sale_price_was_the_plan",
+   "a": "The coat was advertised as 50% off, but the real saving was 30%.",
    "why": [
+    {
+     "h": "THE NUMBER ON THE TICKET MOVED",
+     "t": "pre",
+     "lines": [
+      "    the price for months       £100",
+      "    the new ticket             £140",
+      "    advertised discount        50%",
+      "    shopper pays               £140 x 50% = £70"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: do not start with the red sign. Track the ticket before the shop changed it, then track the ticket after the shop changed it. The percentage only tells you what happens to the second ticket."
+      "So against the price it had been for months:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £100 - £70 = £30",
+      "    £30 / £100 = 30%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the real saving: 30%, not 50%."
+     ]
+    },
+    {
+     "h": "THE SAME NUMBER, A SECOND WAY",
+     "t": "p",
+     "lines": [
+      "The shop first moved the ticket from £100 to £140, which multiplies it by 1.4. Then it took half off, which multiplies by 0.5."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1.4 x 0.5 = 0.7"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The shopper pays 70% of the old price, so the real saving is 30%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "CONTROL: NO TICKET MOVE"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If the ticket had stayed at £100, 50% off would be exactly:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £100 x 50% = £50"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That saves exactly £50, which is exactly 50%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Because the shop moved the ticket first, the shopper paid £70 instead of £50. The moved ticket cost £20 while the sign shouted the bigger discount."
+     ]
+    },
+    {
+     "h": "TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a sign says a percentage off, ask: off what? The percentage is not the whole deal. The number it is taken from is part of the deal too."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_second_opinion_that_is_not_one",
@@ -4539,7 +5627,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_free_year_that_was_not",
@@ -4548,17 +5636,67 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "",
    "q": null,
-   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_free_year_that_was_not",
+   "a": "£298.80.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: do not start with the last £100. Start with the date. If the date is missed, ask whether the shop charges the tiny late bit, or whether it looks back to the original sofa price from day one. Those two readings are nowhere near each other."
+      "The last payment was only £100, and it was only a week late. If the shop had charged only that small late bit for seven days, the charge would be about £0.43."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is not what this deadline does. Once the sofa money is not finished inside the twelve months, the charge is worked on the original £1,200 from day one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Using a 24.9% effective annual rate:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £1,200 x 24.9% = £298.80"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same number a second way:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    daily rate = (1 + 0.249)^(1/365) - 1",
+      "    £1,200 x ((1 + daily rate)^365 - 1) = £298.80"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So missing the date by one day costs the same full-year charge as missing it by a week. Paying £1,100 on time does not shrink that charge, because the lost 0% deal looks back to the original sofa price."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The transferable move: a \"free\" year can be a deadline, not a discount. Ask what happens if you miss the finish date by one day, and ask whether the charge looks back to the original price or only to the money still unpaid."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_reactive_one_survives",
@@ -4607,7 +5745,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_hob_will_not_help",
@@ -4682,7 +5820,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "what_a_mile_actually_costs",
@@ -4691,17 +5829,82 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/what_a_mile_actually_costs",
+   "a": "About 15p for the mile, and about 49p a mile for the car. Both are right.",
    "why": [
+    {
+     "h": "THE YEAR, ADDED UP",
+     "t": "pre",
+     "lines": [
+      "    worth less     £ 1,500   (12,000 to 4,500 over 5 years)",
+      "    insurance      £   600",
+      "    road tax       £   190",
+      "    servicing      £   450",
+      "    petrol         £ 1,172   (8,000 miles at 45 mpg, 1.45/litre)",
+      "                   ----------",
+      "                   £ 3,912  over 8,000 miles  =  49p a mile"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: before you divide, sort the five costs into the ones that would still turn up if the car never left the driveway, and the one that would not. Do that and the same year gives you TWO different right answers to \"what does a mile cost\" -- and the gap between them is bigger than the petrol bill."
+      "Petrol is only 30% of it. The thing most people call \"the cost of driving\" is the smallest line but one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "ONE MORE MILE IS NOT 49p"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Drive an extra mile tomorrow and the lost value, the insurance and the tax do not move -- they already happened. Only the petrol changes: about 15p."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    the car, per mile        49p     <- the average",
+      "    one more mile            15p     <- the extra"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "They differ by 3.3x, and each is the wrong answer to the other's question. Cost a trip at 49p and you will talk yourself out of journeys worth making. Judge whether to own the car at 15p and you will miss £2,740 a year that turns up whether you drive or not."
+     ]
+    },
+    {
+     "h": "WHY ONE MOVES AND THE OTHER DOES NOT",
+     "t": "pre",
+     "lines": [
+      "    4,000 miles a year   83p a mile",
+      "    8,000 miles a year   49p a mile",
+      "   16,000 miles a year   32p a mile"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The costs that turn up anyway are spread over more miles, so the average falls. The cost of one more mile sits at 15p throughout, because it never contained them."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before dividing a total by a quantity, ask which of the costs would still be there if the quantity were zero. Those belong to the DECISION TO OWN, not to the decision to use."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "stopped_it_and_it_started_again",
@@ -4763,7 +5966,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "paid_in_sixty_days",
@@ -4772,17 +5975,63 @@ window.QQ_ANSWERS = {
    "date": "9 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/paid_in_sixty_days",
+   "a": "£2,500 is in the tin. You put £3,000 in and you are £500 DOWN, after three months in which you earned £7,500.",
    "why": [
+    {
+     "h": "MONTH BY MONTH",
+     "t": "pre",
+     "lines": [
+      "    month 1   bill 4,000 sent, pay 1,500    tin  1,500   earned  2,500",
+      "    month 2   bill 4,000 sent, pay 1,500    tin      0   earned  5,000",
+      "    month 3   month 1's bill is paid    tin  2,500   earned  7,500"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: do not add the months up. Keep two separate totals -- what you have EARNED, and what is still sitting in envelopes nobody has opened -- and take the second away from the first. That gap sticks at two bills' worth from month two onward, which is why doing more work makes it wider, not narrower."
+      "The costs leave on the day they arrive. The money comes back sixty days after the work. For the first two months money only goes one way, and the tin hits exactly zero at the end of month two."
+     ]
+    },
+    {
+     "h": "TWO DIFFERENT CLOCKS",
+     "t": "p",
+     "lines": [
+      "What you EARNED counts the work when it is done. What is IN THE TIN counts money when it moves. Both are correct and they answer different questions."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    earned after 3 months     £7,500",
+      "    still owed to you         £8,000",
+      "    so in the tin             £3,000 + 7,500 - 8,000  =  £2,500"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole of it: what you have = what you started with + what you earned - what you are owed. Two bills are always in flight, so £8,000 of it is permanently somewhere else."
+     ]
+    },
+    {
+     "h": "IT DOES NOT FIX ITSELF BY GROWING",
+     "t": "p",
+     "lines": [
+      "Win more work and the gap gets WIDER, because every new bill adds sixty days of costs before it adds any money."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When money is owed to you, ask two separate questions: how much, and WHEN. An amount without a date is not an amount you can spend."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "spending_more_to_save_the_delivery",
@@ -4791,17 +6040,45 @@ window.QQ_ANSWERS = {
    "date": "8 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/#answers/spending_more_to_save_the_delivery",
+   "a": "You spent £7.01 more.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: put the two totals next to each other. One total is the basket plus the charge for bringing it to your door. The other is the basket plus the extra thing. Do not count the extra thing as a saving unless you truly wanted it."
+      "The basket started at £38.00. The shop would bring it to your door for £4.99, so paying now was £42.99."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The shop drew its line at £50.00. The extra candle was £12.00, so the basket crossed the line and became £50.00."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That removed £4.99, but it added £12.00. The extra thing cost £7.01 more than the charge it removed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you truly wanted the candle anyway, the maths flips. Then you are comparing £50.00 now with £54.99 for the same two things later, and the shop really did remove £4.99 from something you wanted."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The move is simple: ask what changed in the basket. If crossing the shop's line makes you add a thing you did not want, that thing is the price of the \"saving\"."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "two_metres_of_blood",
@@ -4914,7 +6191,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "five_percent_on_a_slice",
@@ -4986,7 +6263,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_leaves_go_the_wrong_way",
@@ -5064,7 +6341,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "six_pounds_on_thirty",
@@ -5170,7 +6447,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_free_exchange_costs_more",
@@ -5179,17 +6456,69 @@ window.QQ_ANSWERS = {
    "date": "8 Aug 2026",
    "topic": "money",
    "q": null,
-   "a": "Answer (costs an email): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_free_exchange_costs_more",
+   "a": "The booth advertising 0% commission charged you 15%. The one advertising 3% charged you 3%.",
    "why": [
+    {
+     "h": "WHAT EACH BOOTH ACTUALLY HANDS OVER",
+     "t": "pre",
+     "lines": [
+      "    booth A   0% off the top, so all £500 is changed",
+      "              500 x 1.02  =  EUR 510"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    booth B   3% off the top leaves £485",
+      "              485 x 1.20  =  EUR 582"
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: stop comparing the two booths to each other. Compare each one to what £500 is actually worth in euros at 1.20, and every booth turns into a single percentage you can read straight off -- fee and rate together, in one number. One of the two comes out nowhere near the figure on its window."
+      "EUR 72 apart, on the same £500, and the free one is the smaller pile."
+     ]
+    },
+    {
+     "h": "NOW PUT THEM ON THE SAME FOOTING",
+     "t": "p",
+     "lines": [
+      "At the real rate of 1.20, £500 is worth EUR 600."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    booth A keeps  EUR 90   =  15%",
+      "    booth B keeps  EUR 18   =  3%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Booth B's charge is exactly the number on its window. Booth A's is five times what its window says, because its window says nothing."
+     ]
+    },
+    {
+     "h": "THE SAME NUMBER, A SECOND WAY",
+     "t": "p",
+     "lines": [
+      "Ask what commission a booth AT THE REAL RATE would have to charge to hand over EUR 510. Solve 500 x (1 - c) x 1.20 = 510 and c comes out at 15%. So \"0% commission at 1.02\" and \"15% commission at 1.20\" are the same offer wearing different words."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "A fee is quoted and a rate is not, so a price can always be moved out of the fee and into the rate. Two charges applied together come to c + s - c x s, not c + s -- so compare the ONE number that survives both: what you hand over, against what you get back."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_tide_lifts_the_ladder",
@@ -5275,9 +6604,9 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "pre",
      "lines": [
-      "    spend £1,000    free £5    paid -£10    free ahead",
-      "    spend £2,000    free £10    paid £10    level",
-      "    spend £10,000    free £50    paid £170    paid ahead by 120"
+      "    spend £1,000    free £    5    paid £  -10    free ahead",
+      "    spend £2,000    free £   10    paid £   10    level",
+      "    spend £10,000    free £   50    paid £  170    paid ahead by 120"
      ]
     },
     {
@@ -5302,7 +6631,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_house_went_up_five",
@@ -5370,7 +6699,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "three_for_two_or_a_third_off",
@@ -5437,7 +6766,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "piles_always_settle",
@@ -5595,7 +6924,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "which_voucher_first",
@@ -5659,7 +6988,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "one_each_and_a_third_empty",
@@ -5792,7 +7121,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "corners_edges_faces",
@@ -6053,7 +7382,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "three_houses_three_pipes",
@@ -6200,7 +7529,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "half_gone_half_back",
@@ -6266,7 +7595,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "hanoi_sixty_four_discs",
@@ -6935,9 +8264,9 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "pre",
      "lines": [
-      "    good years first    £335,872",
-      "    bad years first     £202,528",
-      "    no withdrawals      £480,480  (either order)"
+      "    good years first    £  335,872",
+      "    bad years first     £  202,528",
+      "    no withdrawals      £  480,480  (either order)"
      ]
     },
     {
@@ -6962,7 +8291,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "most_of_a_ball_is_skin",
@@ -7105,7 +8434,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "most_are_below_average",
@@ -7248,7 +8577,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "two_stickers_one_price",
@@ -7277,9 +8606,9 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "pre",
      "lines": [
-      "    label                 £80",
-      "    after 50%             £40",
-      "    after 20% of THAT     £32"
+      "    label                 £   80",
+      "    after 50%             £   40",
+      "    after 20% of THAT     £   32"
      ]
     },
     {
@@ -7304,7 +8633,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "eight_calls_everyone_knows",
@@ -7439,7 +8768,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "paid_more_than_you_owed",
@@ -7494,7 +8823,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "one_percent_for_forty_years",
@@ -7544,7 +8873,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "eight_digits_beat_the_list",
@@ -7983,7 +9312,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "dominoes_count_like_rabbits",
@@ -8122,7 +9451,7 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "six_cuts_twenty_two_pieces",
