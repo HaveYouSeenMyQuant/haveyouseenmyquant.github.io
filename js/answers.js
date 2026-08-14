@@ -16,8 +16,95 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 326,
+ "count": 327,
  "entries": [
+  {
+   "slug": "the_same_six_digits",
+   "title": "The same six digits",
+   "ts": "2026-08-14T02:15:14+00:00",
+   "date": "14 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "Because those six digits ARE one seventh, and multiplying by 2, 3, 4, 5 or 6 just asks where in the same endless loop you start reading.",
+   "why": [
+    {
+     "h": "WHERE THE DIGITS COME FROM",
+     "t": "p",
+     "lines": [
+      "Do the long division for 1/7 and watch the remainders: 1, 3, 2, 6, 4, 5, and then 1 again. Six different remainders before it repeats, which is the most you can possibly get with a denominator of 7 - the remainders can only be 1 to 6, and hitting all of them means the decimal has the longest cycle available."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole trick. Since every one of 1 to 6 appears as a remainder, every one of the fractions 1/7, 2/7, 3/7 ... 6/7 is somewhere in that SAME loop, just entered at a different point:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1/7 = 0.142857...",
+      "    2/7 = 0.285714...",
+      "    3/7 = 0.428571...",
+      "    4/7 = 0.571428...",
+      "    5/7 = 0.714285...",
+      "    6/7 = 0.857142..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One loop, six starting points. Multiplying 142857 by k is reading the loop from where k/7 begins - so the digits cannot change, only rotate."
+     ]
+    },
+    {
+     "h": "WHY 7 BREAKS IT",
+     "t": "p",
+     "lines": [
+      "7/7 is not a new place in the loop. It is 1, exactly, and the decimal 0.999... is exactly 1 as well. Multiply the six digits by 7 and you get 999999 - which is the same statement, cleared of its decimal point."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is also why 142857 x 7 = 999999 is not a coincidence but a definition: 142857 = 999999 / 7."
+     ]
+    },
+    {
+     "h": "THE CONDITION, IN GENERAL",
+     "t": "p",
+     "lines": [
+      "This works for a prime p exactly when 10 is a primitive root modulo p - when the powers of 10 run through every non-zero remainder before returning to 1. For 7 they do. The next primes where it happens are 17, 19, 23, 29, 47, 59, 61, 97, each giving a cyclic number with p-1 digits. 1/17 gives a 16-digit one that behaves identically."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For a prime where 10 is NOT a primitive root - 11, 13, 31, 37 - the cycle is shorter and the trick fails. 1/13 repeats every 6 digits rather than 12, so its digits fall into two separate loops instead of one."
+     ]
+    },
+    {
+     "h": "THE PARTY TRICKS THAT FOLLOW",
+     "t": "p",
+     "lines": [
+      "Split it in half and add: 142 + 857 = 999. In thirds: 14 + 28 + 57 = 99. Both are the same fact about 999999 wearing different clothes."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something looks like a coincidence in the digits, look at the remainders instead. Digits are an artefact of writing numbers in base ten; remainders are the actual structure, and almost every \"magic number\" trick in base ten is a plain statement about a cycle of remainders that only looks magical once written down."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "forty_five_take_7_lots_of_a_bracket",
    "title": "forty five take 7 lots of a bracket",
@@ -18177,5 +18264,5 @@ window.QQ_ANSWERS = {
    "src": "module"
   }
  ],
- "featured": null
+ "featured": "one_in_ten_thousand_tested"
 };
