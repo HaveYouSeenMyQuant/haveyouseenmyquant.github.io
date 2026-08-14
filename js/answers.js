@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 346,
+ "count": 347,
  "entries": [
+  {
+   "slug": "one_oh_four_over_8_plus_5_times_2",
+   "title": "one oh four over 8 plus 5 times 2",
+   "ts": "2026-08-14T09:31:36+00:00",
+   "date": "14 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/one_oh_four_over_8_plus_5_times_2",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "at_least_one_six_in_two_rolls",
    "title": "at least one six in two rolls",
