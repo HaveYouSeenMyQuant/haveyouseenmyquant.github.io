@@ -16,8 +16,77 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 335,
+ "count": 336,
  "entries": [
+  {
+   "slug": "same_note_nothing_alike",
+   "title": "Same note, nothing alike",
+   "ts": "2026-08-14T05:24:57+00:00",
+   "date": "14 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Because pitch is only the RATE the wave repeats at, and both repeat 220 times a second. Everything else about the wave is still free, and that freedom is the instrument.",
+   "why": [
+    {
+     "h": "WHAT IS ACTUALLY FIXED",
+     "t": "p",
+     "lines": [
+      "A note at 220 Hz means the waveform repeats every 1/220 of a second. That is one constraint. It says nothing about the SHAPE inside each repeat."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Any wave repeating at 220 Hz can be written as a sum of sine waves at 220, 440, 660, 880 ... — the fundamental and its harmonics. Every one of those repeats a whole number of times per cycle, so every combination of them still repeats at 220. The pitch is locked. The mix is not."
+     ]
+    },
+    {
+     "h": "WHERE THE ENERGY SITS",
+     "t": "pre",
+     "lines": [
+      "    piano-like    23% of the energy above the fundamental",
+      "    violin-like   89%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That single difference is most of what your ear calls \"bright\" or \"mellow\". Strings bowed continuously keep feeding the upper harmonics; a struck string does not."
+     ]
+    },
+    {
+     "h": "THE CHECK THAT PROVES IT",
+     "t": "p",
+     "lines": [
+      "Delete the 220 Hz component altogether — leave only 440, 660, 880 and up. The wave STILL repeats every 1/220 second, because those all fit a whole number of times into that cycle. And it still sounds like A. This is the missing fundamental, and it is why a phone speaker too small to move air at 60 Hz can still play a convincing bass line: your ear reconstructs the pitch from the spacing of the harmonics."
+     ]
+    },
+    {
+     "h": "A HONEST CAVEAT",
+     "t": "p",
+     "lines": [
+      "Waveform shape is not quite the same thing as timbre. Shifting the harmonics in time changes the shape on screen dramatically while barely changing what you hear — the ear is largely deaf to phase. It is the AMPLITUDES that carry the instrument, not the picture."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And harmonics are not the whole story either: the first tenth of a second matters enormously. Cut the attack off a recorded piano and a recorded violin and listeners find them surprisingly hard to tell apart."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When one measurement pins down a quantity, ask what it leaves free. \"220 Hz\" fixes a repeat rate and nothing else, and everything that distinguishes the two instruments lives in what the number did not constrain. The same question is worth asking of any summary statistic."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ninety_over_3_plus_2_times_6",
    "title": "ninety over 3 plus 2 times 6",
