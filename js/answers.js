@@ -16,8 +16,97 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 362,
+ "count": 363,
  "entries": [
+  {
+   "slug": "it_leans_in_when_you_shower",
+   "title": "It leans in when you shower",
+   "ts": "2026-08-14T23:14:53+00:00",
+   "date": "14 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Because the falling water drags air down with it, and air that is moving sits at slightly lower pressure than the still air in the bathroom. The curtain is simply pushed in from the outside.",
+   "why": [
+    {
+     "h": "THE TEMPTING WRONG ANSWER",
+     "t": "p",
+     "lines": [
+      "Hot shower, warm air rises, the curtain follows. It sounds right and it is testable: run the shower stone cold. The curtain still swings in. Whatever is doing this does not care about heat, so buoyancy cannot be the main cause."
+     ]
+    },
+    {
+     "h": "THE NUMBERS",
+     "t": "p",
+     "lines": [
+      "Air dragged along at roughly 2 m/s sits below room pressure by"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    dp = 0.5 x rho x v^2 = 0.5 x 1.2 x 4 = 2.4 Pa"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Across a 1.5 m^2 curtain that is about 3.6 N of sideways push."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the other side of the ledger. A 250 g curtain hanging from a rail needs only"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    m x g x tan(20 degrees) = 0.25 x 9.81 x 0.364 = 0.89 N"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "to hang 20 degrees off vertical. The push available is about four times what the job needs."
+     ]
+    },
+    {
+     "h": "WHY THIS IS THE SURPRISING PART",
+     "t": "p",
+     "lines": [
+      "2.4 Pa is one part in roughly 42,000 of atmospheric pressure — a difference far too small to feel on your skin, or to hear, or to notice in any way at all. It moves the curtain because a curtain has almost no weight to resist with. The force is not large; the thing it is pushing is just very easy to push."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Run it backwards and the effect switches on at about 1 m/s of air movement, which is a gentle draught."
+     ]
+    },
+    {
+     "h": "THE HONEST CAVEAT",
+     "t": "p",
+     "lines": [
+      "The full picture is messier than a single streamline: careful modelling of a real shower finds the flow rolls into a horizontal vortex, and the low pressure at its core does much of the pulling. That refines where the low pressure sits. It does not change the accounting above."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When two explanations both predict the observed effect, do not argue about which sounds better — find the condition where they DISAGREE and test that. Here it is one tap: warm-air-rises predicts nothing happens with cold water, and something happens with cold water. One observation, one dead hypothesis."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "nine_on_twenty_one_on_a_million",
    "title": "Nine on £20k, one on £1m",
