@@ -16,8 +16,151 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 319,
+ "count": 322,
  "entries": [
+  {
+   "slug": "fifty_take_5_lots_of_a_bracket",
+   "title": "fifty take 5 lots of a bracket",
+   "ts": "2026-08-14T00:25:29+00:00",
+   "date": "14 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "Https://haveyouseenmyquant.github.io/#answers/fifty_take_5_lots_of_a_bracket",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do the brackets first, then the multiply and divide, then the plus and minus. Three of the four options are what you get by taking those in another order."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "one_digit_that_says_nothing",
+   "title": "One digit that says nothing",
+   "ts": "2026-08-14T00:24:59+00:00",
+   "date": "14 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Because the last digit is not part of your account number. It is chosen so that a particular sum over the whole number always comes out to a round figure — and almost anything you get wrong breaks that.",
+   "why": [
+    {
+     "h": "THE RULE",
+     "t": "p",
+     "lines": [
+      "Double every second digit counting from the right, subtracting 9 whenever doubling takes you past 9. Add everything up. A valid number always totals a multiple of 10."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    4000000000000002   total 10   -> valid"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Change any one digit and the total moves by between 1 and 9, never by 10, so it can never land back on a multiple of 10. Every single-digit typo is caught. Not most — all of them."
+     ]
+    },
+    {
+     "h": "WHY THE DOUBLING IS THERE",
+     "t": "p",
+     "lines": [
+      "Here is the version most people would invent: just add the digits. That also catches every single-digit typo, and it catches NO swaps at all, ever. Swap two neighbours and a plain sum adds up the same numbers in a different order, so it cannot possibly notice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Doubling alternate positions means a digit's contribution depends on WHERE it sits. Move it and its contribution changes. That one change is what buys the swaps."
+     ]
+    },
+    {
+     "h": "WHERE IT STILL FAILS",
+     "t": "p",
+     "lines": [
+      "Swapping neighbouring 0 and 9 slips through — 0 doubles to 0 and 9 doubles to 18 then 9, so the pair contributes the same either way. That is the only adjacent swap it misses, and it is a known, accepted hole."
+     ]
+    },
+    {
+     "h": "THE PRICE",
+     "t": "p",
+     "lines": [
+      "One digit in 16, about 6% of the number, spent on catching mistakes instead of identifying you. That buys every single-digit error and all but one family of neighbour swaps, with no lookup and no network."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Spending capacity on redundancy is not waste, and the design question is never \"shall we add a check\" but \"which errors do we expect\". The obvious check and the good one cost exactly the same and catch very different things — the difference is entirely in whether position is allowed to matter."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
+  {
+   "slug": "the_crack_has_a_speed_limit",
+   "title": "The crack has a speed limit",
+   "ts": "2026-08-13T23:48:19+00:00",
+   "date": "13 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Nothing can tell the glass ahead of the crack what is happening any faster.",
+   "why": [
+    {
+     "h": "WHAT ACTUALLY MOVES",
+     "t": "p",
+     "lines": [
+      "A crack does not travel; it is a place where the material has just come apart. It can only advance into glass that has already been told to take up the load, and that news travels as a wave along the free surface the crack itself is creating. So the crack is chasing its own signal and can never catch it."
+     ]
+    },
+    {
+     "h": "THE CEILING",
+     "t": "p",
+     "lines": [
+      "Surface wave speed follows from stiffness and density alone:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    shear         3,388 m/s",
+      "    longitudinal  5,654 m/s",
+      "    surface       3,090 m/s   <- the ceiling"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is 11,124 km/h, about 3.4 times a rifle bullet. Notice what is NOT in that calculation: how hard you hit it. Force decides whether a crack starts and how much energy it has; it cannot buy speed the material is unable to deliver."
+     ]
+    },
+    {
+     "h": "WHY REAL CRACKS ARE SLOWER STILL",
+     "t": "p",
+     "lines": [
+      "Measured cracks in this glass top out near 1,500 m/s — about 49% of the ceiling. Past roughly that speed a crack stops going faster and starts going WIDER: it splits, branches, and roughens, spending the extra energy on making more surface instead. That is why a smashed windscreen has a spray of cracks from the impact rather than one long clean one, and why fracture surfaces are mirror-smooth near the start and misty further along."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something refuses to go faster however hard you push, look for what carries the information. The limit is usually a signal speed, not a strength."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "two_point_five_hours_in_minutes",
    "title": "two point five hours in minutes",
