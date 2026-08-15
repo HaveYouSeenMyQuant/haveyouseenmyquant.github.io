@@ -16,8 +16,384 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 379,
+ "count": 384,
  "entries": [
+  {
+   "slug": "forty_take_2_lots_of_a_bracket",
+   "title": "40 - 2 x (8 + 2)",
+   "ts": "2026-08-15T08:54:56+00:00",
+   "date": "15 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "B. 20.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Brackets first: 8 + 2 = 10. Then the multiply: 2 x 10 = 20. Then 40 - 20 = 20."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     380   worked straight across",
+      "      26   dropped the brackets",
+      "      22   multiplied inside first"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If you picked one of those, you can see exactly which step did it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "secretary_problem",
+   "title": "The secretary problem — pick the best",
+   "ts": "2026-08-15T08:54:08+00:00",
+   "date": "15 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "About 37% — one over e, and the strategy is \"look, then leap\".",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Reject the first 37% of candidates no matter how good they are, remembering only the best score you have seen. Then hire the first candidate who beats all of them. If nobody does, you are stuck with the last one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That rule catches the single best candidate about 36.8% of the time."
+     ]
+    },
+    {
+     "h": "WHY REJECTING GOOD PEOPLE ON PURPOSE IS OPTIMAL",
+     "t": "p",
+     "lines": [
+      "The look phase buys you a benchmark. Without one you have no idea whether the person in front of you is exceptional or merely fine, so you either grab the first decent candidate (and usually miss the best) or hold out too long (and get whoever is left)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Look too little and your benchmark is weak — an early candidate clears a low bar and you commit too soon. Look too long and the best person is probably already behind you, rejected. The optimum trades those two failures off exactly."
+     ]
+    },
+    {
+     "h": "THE ARITHMETIC",
+     "t": "p",
+     "lines": [
+      "Suppose you look at a fraction x of the candidates. You win when the best overall sits somewhere after the cutoff AND no candidate between the cutoff and the best beat the look-phase record. Adding that up across positions gives"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(x) = -x ln x"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Differentiate and set to zero: -ln x - 1 = 0, so x = 1/e ≈ 0.368. Put that back in and P = 1/e as well. The optimal fraction to skip and the probability of success are the SAME number, which is a coincidence worth enjoying rather than reading anything into."
+     ]
+    },
+    {
+     "h": "WHAT MAKES IT USEFUL",
+     "t": "p",
+     "lines": [
+      "The answer barely moves with n. Ten candidates or ten thousand, you skip about 37% and you win about 37% of the time. Almost nothing else in probability is that indifferent to scale."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And note what \"winning\" means here: landing the exact best. If you would settle for one of the top few, the odds get much better, and the optimal look phase gets shorter. The 37% rule is the answer to a deliberately harsh question — all or nothing — which is exactly why it is a good interview question and a bad life rule."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "uniform_sum_exceed_one",
+   "title": "How many draws until the sum passes 1?",
+   "ts": "2026-08-15T07:52:46+00:00",
+   "date": "15 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "E — about 2.718 draws on average.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Not two, not three, and not any round number: the answer is Euler's number, out of a question with no circles and no exponentials anywhere in it."
+     ]
+    },
+    {
+     "h": "WHY",
+     "t": "p",
+     "lines": [
+      "Two steps, and the first is the one worth remembering."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STEP 1. For a count that starts at 1, the expectation is the sum of its tail probabilities:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E[N] = P(N > 0) + P(N > 1) + P(N > 2) + ..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STEP 2. Now read P(N > n) literally. You need MORE than n draws exactly when the first n of them have not got you there yet — when they still sum to at most 1. So"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(N > n) = P(X1 + X2 + ... + Xn <= 1)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and that probability is the volume of the region of the n-dimensional unit cube lying under the plane that sums to 1. That region is a simplex, and its volume is 1/n!."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You can see it for n = 2 without any geometry: the pairs (X1, X2) fill a unit square, the ones summing to at most 1 are the triangle under the diagonal, and a triangle is half the square. 1/2! = 1/2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put the two together:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E[N] = 1/0! + 1/1! + 1/2! + 1/3! + ...",
+      "         = 1 + 1 + 0.5 + 0.1667 + 0.0417 + ...",
+      "         = e"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That series IS the definition of e, so the answer is exact, not approximate."
+     ]
+    },
+    {
+     "h": "THE THING WORTH NOTICING",
+     "t": "p",
+     "lines": [
+      "No run ever takes 2.718 draws. Every single run takes 1, 2, 3 or more — a whole number, always. The average is a number that never happens."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Roughly 1 run in 2 takes exactly 2 draws, about 1 in 3 takes 3, and a run needing more than 10 turns up about once in three million. The mean sits at 2.718 because of the long thin tail, not because it describes a typical run."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That gap between \"the average\" and \"what usually happens\" is the same gap that makes average house prices, average salaries and average wait times so easy to quote and so hard to act on."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "forty_five_after_forty_off",
+   "title": "£45 after 40% off",
+   "ts": "2026-08-15T07:22:03+00:00",
+   "date": "15 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "A. £75.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "£45 is what is LEFT after 40% came off, so £45 is 60% of the full price. Divide, do not add: 45 / 0.6 = 75. Check it forwards — 40% of 75 is 30, and 75 - 30 = 45."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      62   added 40% back on to the sale price",
+      "      32   divided by 1.4 instead of by 0.6",
+      "     112   read the £45 as the discount rather than the price paid"
+     ]
+    },
+    {
+     "h": "AND THE GAP GROWS WITH THE DISCOUNT",
+     "t": "p",
+     "lines": [
+      "Adding the same percentage back never undoes taking it off, because the two are charged on different amounts. At 25% off the round trip lands about 6% short. At 40% off it lands 17% short — £62 against £75."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason is exactly this: taking p% off multiplies by (1-p), and adding p% back multiplies by (1+p). Do both and you have multiplied by 1 - p², which is always less than 1 and gets worse fast as p grows. At 40% that is 1 - 0.16, so you keep only 84% of what you started with."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is why a 50% fall needs a 100% rise to recover, and why \"we cut it 40% and put it back\" is never true."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "gamblers_ruin",
+   "title": "Gambler's Ruin — reach the target before broke?",
+   "ts": "2026-08-15T07:15:17+00:00",
+   "date": "15 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "0.3 — three tenths. Your stake divided by your target.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Start on £3, aim for £10, bet £1 at a time on a fair coin, and you reach £10 before you hit £0 exactly 3 times in 10."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS JUST i / N"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The coin is fair, so on any single flip your balance is as likely to rise as to fall. That means your balance has no drift: whatever happens next, your EXPECTED balance stays where it is. It is a martingale."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Play until the game stops, and that property survives to the end. So your average final balance equals your starting balance:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    average final balance = £3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the trick. The game can only ever end in two places, £0 or £10 — those are the only ways it stops. So if p is the chance of finishing at £10:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £0 x (1 - p)  +  £10 x p  =  £3",
+      "                        10p  =  3",
+      "                          p  =  3/10"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "No sum over paths, no counting, no series. The whole answer falls out of \"a fair game does not drift\", applied once."
+     ]
+    },
+    {
+     "h": "WHY IT MATTERS MORE THAN IT LOOKS",
+     "t": "p",
+     "lines": [
+      "Read i/N again: the only thing that decides your chances is your stake as a FRACTION of your target. £3 chasing £10 and £3,000 chasing £10,000 are the same game."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now let the other side have far more money than you — a casino, or a market that can stay liquid longer than you can stay solvent. Then N is effectively infinite next to i, and i/N goes to zero. You are ruined with probability 1, playing a FAIR game, purely because you run out of money first."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the real lesson. A fair bet is not a safe bet, and the edge that finishes you is not in the odds — it is in the bankroll."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "at_least_one_head_in_three_flips",
    "title": "At least one head in three flips",
@@ -23339,19 +23715,77 @@ window.QQ_ANSWERS = {
    "title": "The drunk always finds home. The lost drone never does.",
    "ts": "2026-07-26T19:54:06+00:00",
    "date": "26 Jul 2026",
-   "topic": "random_walk",
+   "topic": "statistics",
    "q": null,
-   "a": "The drunk always finds home. The lost drone never does.",
+   "a": "In 2D you always get home. In 3D you only get home about 34% of the time.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The direct sequel to the drunkard's walk. A symmetric random walk on a flat grid (2D) returns to its start with probability 1 — it is RECURRENT. Lift the same random walk into 3D space and it becomes TRANSIENT: it comes home only with probability ~0.3405, escaping forever about two thirds of the time. That is Polya's theorem. The intuition: the chance of being back at the origin after 2n steps decays like 1/n^{d/2}; summed over all time that diverges in 1D and 2D (certain return) but converges in 3D (escape)."
+      "Same rule, same randomness, one extra dimension — and the answer changes from \"certain\" to \"usually not\"."
+     ]
+    },
+    {
+     "h": "WHY DIMENSION DECIDES IT",
+     "t": "p",
+     "lines": [
+      "Ask how likely you are to be standing exactly on the origin after 2n steps. In d dimensions that chance falls off like"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 / n^(d/2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now count how many times you expect to be home across all time: add that up over every n. Whether the walk returns for certain comes down to whether that sum is infinite."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1D    sum of 1/sqrt(n)     diverges     you return, with certainty",
+      "    2D    sum of 1/n           diverges     you return, with certainty",
+      "    3D    sum of 1/n^(3/2)     converges    you may never return"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The 2D case is the knife edge. The harmonic series 1 + 1/2 + 1/3 + ... diverges, but only barely — and that \"barely\" is the whole difference between always coming home and not."
+     ]
+    },
+    {
+     "h": "WHY 34% AND NOT SOMETHING ROUNDER",
+     "t": "p",
+     "lines": [
+      "For 3D the exact return probability is about 0.3405. It has no neat closed form: it is an integral over the lattice, and the number is simply what it is. Do not go looking for a tidy fraction — this is one of the places where the answer is genuinely just a number."
+     ]
+    },
+    {
+     "h": "WHAT IT MEANS",
+     "t": "p",
+     "lines": [
+      "In two dimensions a random walk visits every point eventually, given long enough. In three it visits only a vanishing fraction of space and drifts off. That is not a statement about drunks; it is why diffusion, polymer chains and search algorithms all behave differently in 3D than on a surface."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Kakutani put it best: a drunk man will find his way home, but a drunk bird may be lost forever."
      ]
     }
    ],
-   "src": "module"
+   "src": "answer"
   },
   {
    "slug": "birthday_problem",
@@ -23435,7 +23869,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "A coin game: flip a fair coin until the first heads. If the first heads lands on flip k, you win 2^k dollars. The expected payout is"
+      "A coin game: flip a fair coin until the first heads. If the first heads lands on flip k, you win 2^k pounds. The expected payout is"
      ]
     },
     {
@@ -23449,7 +23883,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "Every term is worth exactly one dollar because the prize doubles (2^k) exactly as fast as its probability halves (1/2^k), so the sum diverges. Yet almost nobody would pay even $20 to play."
+      "Every term is worth exactly one pound because the prize doubles (2^k) exactly as fast as its probability halves (1/2^k), so the sum diverges. Yet almost nobody would pay even $20 to play."
      ]
     },
     {
@@ -23470,7 +23904,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "so the certainty-equivalent is e^{ln 4} = $4. Infinite expected dollars, but only a few dollars of expected utility."
+      "so the certainty-equivalent is e^{ln 4} = $4. Infinite expected pounds, but only a few pounds of expected utility."
      ]
     }
    ],
