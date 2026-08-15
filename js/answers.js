@@ -16,8 +16,258 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 364,
+ "count": 367,
  "entries": [
+  {
+   "slug": "up_ten_then_down_ten",
+   "title": "£100 up 10%, then down 10%",
+   "ts": "2026-08-15T00:30:24+00:00",
+   "date": "15 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "C. £99.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Up 10%: 100 becomes 110. Down 10%: ten per cent OF £110 is £11, not £10. So 110 - 11 = 99."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    100   assumed a rise and an equal fall cancel out",
+      "    110   stopped after the rise",
+      "     90   applied only the fall"
+     ]
+    },
+    {
+     "h": "WHY IT IS ALWAYS A LOSS",
+     "t": "p",
+     "lines": [
+      "The percentages are charged on different amounts. The 10% that went on was a tenth of £100. The 10% that came off was a tenth of £110 — a bigger number — so more left than arrived."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Write it out and the whole thing collapses to one line. Going up by p and then down by p multiplies your money by"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1 + p) x (1 - p)  =  1 - p²"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and p² is positive for every p that is not zero, so 1 - p² is always less than 1. You lose every time, whatever the percentage, and the order makes no difference: down first then up gives £99 too."
+     ]
+    },
+    {
+     "h": "HOW BIG THE LOSS GETS",
+     "t": "p",
+     "lines": [
+      "At 10% it is 1%. At 20% it is 4%. At 50% it is 25% — a portfolio that halves and then doubles is back where it started, but one that rises 50% and then falls 50% has lost a quarter."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That last case is why \"it fell 50% but then rose 50%, so we recovered\" is wrong by a wide margin, and why recovery is always quoted as a bigger percentage than the fall it undoes."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "the_right_answer_loses",
+   "title": "The right answer loses",
+   "ts": "2026-08-15T00:29:19+00:00",
+   "date": "15 Aug 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "Zero is the equilibrium and zero loses, because the chain of reasoning answers a question nobody asked. It tells you what to do if everyone reasons forever. Winning requires knowing how far people actually go, and the answer is: about two steps.",
+   "why": [
+    {
+     "h": "THE CASCADE, AND WHY IT IS CORRECT",
+     "t": "p",
+     "lines": [
+      "If guesses were random the average would be 50, so 2/3 of it is 33. But everyone can see that, so nobody should guess above 33 - which makes the average 33 and the target 22. Then 15, 10, 7, 4, and so on down. Every step is valid. The limit is 0, and 0 is the unique Nash equilibrium: if everyone plays 0, no single player can do better by moving."
+     ]
+    },
+    {
+     "h": "WHY IT LOSES ANYWAY",
+     "t": "p",
+     "lines": [
+      "Suppose the other players average m. Your best guess g must equal 2/3 of the average INCLUDING you:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    g = (2/3) x (S + g) / n     where S = (n-1) m",
+      "    g = 2S / (3n - 2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For n = 100 that gives:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    others average 50  ->  play 33.2",
+      "    others average 35  ->  play 23.3",
+      "    others average 30  ->  play 19.9",
+      "    others average 10  ->  play  6.6",
+      "    others average  0  ->  play  0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Zero is your best move in exactly one situation: when every other player has already played zero. Against any population with a positive average - which is every real population ever recorded - zero is beaten by every guess strictly between zero and twice the target, which for a crowd averaging 30 means anything from just above 0 up to about 40 beats it."
+     ]
+    },
+    {
+     "h": "WHAT ACTUALLY HAPPENS",
+     "t": "p",
+     "lines": [
+      "Run this on real people and guesses cluster in the twenties and thirties, and the winning number typically lands somewhere around twenty. That is roughly level 2 of the cascade: people do the first step, do the second, and mostly stop. Large public runs of the game have produced winners in that region repeatedly. Treat those as approximate - the exact figures vary by crowd and are not the point."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The point is that the crowd's depth is an empirical quantity, not a deducible one, and no amount of further reasoning on your part changes it."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "There are two different questions hiding here: what is rational, and what will happen. The cascade answers the first perfectly and the second not at all. Any model that assumes everyone is infinitely rational is making an empirical claim about people, usually without checking it - which is the whole quarrel between classical and behavioural economics, and the reason a trade can be correct on the fundamentals and still lose money for longer than you can fund it. Solve for what the other side will actually do, not for what they should."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "every_number_falls_to_6174",
+   "title": "Every number falls to 6174",
+   "ts": "2026-08-14T23:51:45+00:00",
+   "date": "14 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "Because the operation can only ever produce a handful of digit patterns, and every one of those paths runs downhill into 6174. It is a trap with no way out and nowhere else to settle.",
+   "why": [
+    {
+     "h": "WHAT THE STEP ACTUALLY DOES",
+     "t": "p",
+     "lines": [
+      "Write the four digits in descending order as a >= b >= c >= d. Then the subtraction is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1000a + 100b + 10c + d) - (1000d + 100c + 10b + a)",
+      "    = 999(a - d) + 90(b - c)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the result depends on only TWO numbers: the spread of the outer digits (a-d) and the spread of the inner pair (b-c). Everything else about the starting number is irrelevant, which is why 9,990 different starts collapse so quickly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "a-d can be 1 to 9 and b-c can be 0 to 9, but they are not independent - b and c sit between a and d. Counting the genuinely possible pairs leaves 54 distinct spread pairs, and one step takes all 9,990 starting numbers down to just 54 values. The problem has already almost solved itself."
+     ]
+    },
+    {
+     "h": "WHY IT IS A FIXED POINT",
+     "t": "p",
+     "lines": [
+      "Check 6174 directly: descending is 7641, ascending is 1467, and 7641 - 1467 = 6174. It maps to itself, so once you arrive you never leave."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The remaining work is showing nothing ELSE is a fixed point and there are no cycles. With only 54 candidates that is a finite check, and it is exactly what verify() does by brute force over every starting number."
+     ]
+    },
+    {
+     "h": "WHY SEVEN STEPS",
+     "t": "p",
+     "lines": [
+      "Seven is the ceiling, and it is not a rare edge case. Counting the 9,989 starts other than 6174 itself, the number of steps needed breaks down as:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 step   383      5 steps  1518",
+      "    2 steps  576      6 steps  1656",
+      "    3 steps  2400     7 steps  2184",
+      "    4 steps  1272"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three steps is the most common outcome, but seven is the SECOND most common - 22% of all starting numbers take the full route. So the bound is tight and it is reached often, rather than being an obscure worst case."
+     ]
+    },
+    {
+     "h": "WHAT MAKES 6174 SPECIAL AND WHAT DOES NOT",
+     "t": "p",
+     "lines": [
+      "Nothing about base ten mysticism. It is the unique non-zero fixed point of this particular map on four digits, and the analogous constant for three digits is 495. For two digits there is no fixed point at all - you fall into a cycle instead. For five digits there is no single constant either; you land in one of several cycles. Four digits and three digits are the lucky cases, and \"lucky\" is the whole content of it."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When an operation looks like it depends on a lot of input, write out what it computes and see what actually survives. Here 9,990 starting numbers turned out to matter only through two differences, and the moment the state space collapsed to 54 the result stopped being surprising and became checkable."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "six_panels_how_many_posts",
    "title": "Six panels, how many posts",
