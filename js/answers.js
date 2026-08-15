@@ -16,8 +16,161 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 371,
+ "count": 373,
  "entries": [
+  {
+   "slug": "ninety_five_percent_one_in_a_hundred",
+   "title": "95% accurate, 1 in 100",
+   "ts": "2026-08-15T03:32:22+00:00",
+   "date": "15 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "A. 16.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Take 10,000 people. One in a hundred has it, so 100 are ill and 9,900 are not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Of the 100 who are ill, a 95% accurate test catches 95. Of the 9,900 who are not, it wrongly flags 5% — and 5% of 9,900 is 495 people."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So 590 people test positive and only 95 of them are ill. That is 95 / 590, about 16%."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     95   answered with the test's accuracy",
+      "     50   treated it as a coin flip",
+      "      5   gave the test's error rate"
+     ]
+    },
+    {
+     "h": "WHY THIS IS THE MORE ALARMING VERSION",
+     "t": "p",
+     "lines": [
+      "A companion video uses a 99% test on a 1-in-1,000 disease and gets 9%. It is tempting to file that away as a quirk of very rare things."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This one is ten times more common and the test is only slightly worse, and a positive result still leaves you five times more likely to be well than ill. There are 495 healthy people holding a positive result against 95 ill ones."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason is the same in both: the healthy group is so much larger that even a small error rate applied to it produces more wrong answers than the test produces right ones. 5% of 9,900 will beat 95% of 100 every time, and no improvement in accuracy short of perfection changes which of those two numbers is bigger."
+     ]
+    },
+    {
+     "h": "WHAT TO DO WITH THIS",
+     "t": "p",
+     "lines": [
+      "Nothing about it says a positive result is meaningless — it moved you from 1 in 100 to about 1 in 6, which is a sixteenfold rise and worth acting on. It says the result is a reason to test again, not a diagnosis, and that is exactly why screening programmes are built around a second test rather than a first one."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "the_average_pound_must_lose",
+   "title": "The average pound must lose",
+   "ts": "2026-08-15T03:27:10+00:00",
+   "date": "15 Aug 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "Because everything not held passively is held actively. Add the active managers together and they own the market itself — so their gross return IS the market return, exactly, and fees can only take it from there.",
+   "why": [
+    {
+     "h": "THE ARGUMENT",
+     "t": "p",
+     "lines": [
+      "Every share is owned by somebody. Passive money holds the market in market proportions, by construction. Remove those holdings and what is left is still the market in market proportions. So the active money, in aggregate, holds the market portfolio too."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    aggregate active gross return = market return        (exactly)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now subtract what each side charges:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    average passive net = market - 0.1%",
+      "    average active net  = market - 0.7%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The average active pound trails the average passive pound by the fee gap and by nothing else. No data was consulted. It cannot come out otherwise next year either."
+     ]
+    },
+    {
+     "h": "WHAT THIS DOES NOT SAY",
+     "t": "p",
+     "lines": [
+      "It does NOT say no manager can beat the index. Plenty do, and by wide margins. It says they can only do so by taking it from other active managers — the winners are funded by the losers, not by the market."
+     ]
+    },
+    {
+     "h": "AND THE PART USUALLY GOT WRONG",
+     "t": "p",
+     "lines": [
+      "The claim is about the average POUND, not the average FUND. Those are different averages. Weight every fund equally rather than by size and the average fund CAN beat the market, because small funds are numerous and their errors do not cancel the same way. Sharpe's argument needs value weighting, and quoting it about equally weighted fund tables is a misuse of it."
+     ]
+    },
+    {
+     "h": "WHY IT STILL BINDS",
+     "t": "p",
+     "lines": [
+      "Costs are near-certain and edge is not. The fee gap arrives every year, whether or not the manager is skilled, which is why it dominates over long horizons even where genuine skill exists."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a population is exhaustively partitioned, the aggregate of one part is pinned by the aggregate of the rest — no modelling required. Ask what has to be true of the whole before you argue about the pieces. It settles more questions than it looks like it should."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "half_the_class_a_third_of_those",
    "title": "Half the class, a third of those",
