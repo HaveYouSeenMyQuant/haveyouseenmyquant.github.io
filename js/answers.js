@@ -16,8 +16,178 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 373,
+ "count": 375,
  "entries": [
+  {
+   "slug": "how_long_to_double_at_six",
+   "title": "6% a year — how long to double",
+   "ts": "2026-08-15T04:13:00+00:00",
+   "date": "15 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "B. 12 years.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Divide 72 by the interest rate. 72 / 6 = 12."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    72   the rule's own number, quoted as if it were the answer",
+      "    17   assumed simple interest — 100 / 6, no compounding",
+      "     6   gave the rate back"
+     ]
+    },
+    {
+     "h": "WHY 72 AND NOT 100",
+     "t": "p",
+     "lines": [
+      "If interest were simple — 6% of the ORIGINAL amount every year, never on the interest — you would need the full 100%, so 100 / 6, about 17 years. But the interest earns interest, and that pulls the answer in to 12."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "72 is not magic and it is not exact. It is a number that happens to divide well: 72 has factors 2, 3, 4, 6, 8, 9 and 12, so the sum is usually one you can do without paper. That is the whole reason it is 72 and not 70 or 69.3."
+     ]
+    },
+    {
+     "h": "HOW GOOD IS IT",
+     "t": "p",
+     "lines": [
+      "Counting whole years of compounding, against what the rule predicts:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     3%   24 years   rule says 24",
+      "     4%   18 years   rule says 18",
+      "     6%   12 years   rule says 12",
+      "     8%   10 years   rule says 9",
+      "    12%    7 years   rule says 6"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Exact or one year out across every rate people actually meet, and it only ever errs low — because your money passes double partway through a year and you have to wait for the year to finish."
+     ]
+    },
+    {
+     "h": "WHY THIS IS THE MOST USEFUL SUM ON THIS PAGE",
+     "t": "p",
+     "lines": [
+      "It runs both ways. 3% growth doubles your money in 24 years. 3% inflation halves it in 24 years. A 6% fund and a 1% fee is really 5%, and 72/5 is about 14 years rather than 12 — that fee did not cost you 1%, it cost you two years of doubling."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Any time you are told a percentage per year, divide 72 by it. The answer tells you what that rate actually means in a human lifetime."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "inspection_paradox_bus",
+   "title": "Why the bus is always late",
+   "ts": "2026-08-15T04:04:56+00:00",
+   "date": "15 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "Ten minutes. The full average gap, not half of it.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The naive answer is five: buses average ten minutes apart, you land somewhere in a gap, so you wait half a gap. Every step of that is wrong in the same place."
+     ]
+    },
+    {
+     "h": "YOU DO NOT LAND IN AN AVERAGE GAP",
+     "t": "p",
+     "lines": [
+      "You land in a gap chosen by where you happened to arrive, and a long gap covers more of the timeline than a short one. So a random arrival is more likely to fall inside a long gap — in exact proportion to how long it is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Take the six gaps in the video: 3, 15, 4, 22, 5, 11 minutes. They average ten. But three of them beat the average, and between them those three cover 48 of the 60 minutes — eighty per cent of the clock. Arrive at random and eighty per cent of the time you are standing inside one of the long ones."
+     ]
+    },
+    {
+     "h": "THE ARITHMETIC",
+     "t": "p",
+     "lines": [
+      "A gap of length L is sampled with probability proportional to L, so the gap you land in averages"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E[L squared] / E[L]"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "rather than E[L]. For exponential gaps with mean 10, E[L squared] is 200, so the gap you land in averages 20 minutes — double the headline figure. You land at a random point inside it, so you wait half of 20. Ten."
+     ]
+    },
+    {
+     "h": "THE SECOND WAY TO SEE IT",
+     "t": "p",
+     "lines": [
+      "A Poisson process is memoryless. However long you have already been standing at the stop, the wait still to come is unchanged: still a full ten minutes. Waiting does not use up your wait. In the simulation in the video, riders who had already waited under two minutes went on to wait 10.06 more; riders who had already waited over twelve minutes went on to wait 10.03 more."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the part that feels unfair, and it is the part that is true."
+     ]
+    },
+    {
+     "h": "WHERE ELSE THIS BITES",
+     "t": "p",
+     "lines": [
+      "The same bias is why your classes feel bigger than the university's average class size, why the queue you join feels slower than the others, and why your friends have more friends than you do. In each case you are not sampling the things — you are sampling the things weighted by how much room they take up. Big classes contain more students to ask, slow queues contain more people waiting in them, popular people appear in more friendship lists."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Ask what is doing the sampling. If it is time, or people, or space, the big ones are over-represented, and the average you were quoted is not the average you experience."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ninety_five_percent_one_in_a_hundred",
    "title": "95% accurate, 1 in 100",
