@@ -16,8 +16,142 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 367,
+ "count": 369,
  "entries": [
+  {
+   "slug": "doubles_your_risk_from_one",
+   "title": "It doubles your risk",
+   "ts": "2026-08-15T02:12:25+00:00",
+   "date": "15 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "D. 1.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Before: 1 person in 10,000. After: 2 people in 10,000. The difference is one extra person."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "        2   gave the new total rather than the increase",
+      "      100   read \"doubles\" as a hundredfold rise",
+      "    5,000   took doubling to mean a fifty per cent risk"
+     ]
+    },
+    {
+     "h": "WHY THIS IS THE MOST USEFUL SENTENCE IN A HEALTH HEADLINE",
+     "t": "p",
+     "lines": [
+      "\"Doubles your risk\" is a ratio. It describes how the number changed and says nothing whatsoever about how big it was. The identical phrase covers a risk going from 1 in 10,000 to 2 in 10,000, and a risk going from 1 in 3 to 2 in 3. One of those is one extra person in a small town. The other is 3,333 extra people in the same town."
+     ]
+    },
+    {
+     "h": "THE QUESTION TO ASK",
+     "t": "p",
+     "lines": [
+      "Whenever something doubles, triples or rises by 40%, ask what it was. The ratio is the part that makes a headline; the starting number is the part that decides whether it matters. A paper that reports only the relative change has published the half that cannot be acted on."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is not an argument that ratios are dishonest — a doubling IS the right measure if you want to compare two studies of different sizes. It is that the absolute figure is the one that tells a person what to do, and it is the one that usually goes missing."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "greenland_is_not_that_big",
+   "title": "Greenland is not that big",
+   "ts": "2026-08-15T02:11:44+00:00",
+   "date": "15 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Because the map stretches everything far from the equator, and it stretches AREA by the square of how much it stretches length. At Greenland's latitude that is a factor of 10.5.",
+   "why": [
+    {
+     "h": "THE NUMBERS",
+     "t": "pre",
+     "lines": [
+      "    Greenland   2.17 million km2 real   x10.5   -> looks like 22.7",
+      "    Africa      30.37 million km2 real  x1.00  -> looks like 30.4"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Africa is really 14 times the size of Greenland. On the map it looks about 1.3 times. The picture overstates Greenland by a factor of 10.5."
+     ]
+    },
+    {
+     "h": "WHY THE MAP DOES IT",
+     "t": "p",
+     "lines": [
+      "Mercator is CONFORMAL: at every point it stretches north-south by exactly as much as east-west. Shapes stay right locally, and angles are preserved exactly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is not an accident — it is the whole purpose. If angles survive, a straight line drawn on the chart is a course of constant compass bearing, and a navigator can sail it without recomputing anything. For four centuries that was worth more than area."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The cost is forced. Stretch both directions by sec(lat) and area necessarily goes as sec squared:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    at 60 degrees     length x2      area x4",
+      "    at 72 degrees     length x3.2    area x10.5",
+      "    at 80 degrees     length x5.8    area x33"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At the pole it is infinite, which is why the poles are not on the map at all — not omitted for tidiness, but genuinely off the edge of the projection."
+     ]
+    },
+    {
+     "h": "WHAT TO TAKE FROM IT",
+     "t": "p",
+     "lines": [
+      "The map is not wrong. It answers a different question well and the question you asked badly. Any flat map of a sphere must distort something; this one chose to keep angles and pay in area, and if you read areas off it you are reading the part it sold."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Every representation is optimised for something. Before trusting a quantity you read off one, ask what it was built to preserve — because whatever that is, everything else was available to be traded away for it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "up_ten_then_down_ten",
    "title": "£100 up 10%, then down 10%",
