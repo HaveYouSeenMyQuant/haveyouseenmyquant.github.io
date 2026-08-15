@@ -16,8 +16,99 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 384,
+ "count": 385,
  "entries": [
+  {
+   "slug": "a_two_pound_ticket_worth_less",
+   "title": "A £2 ticket, one in ten wins £15",
+   "ts": "2026-08-15T09:55:05+00:00",
+   "date": "15 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "A. 150p — that is £1.50, for a ticket that costs £2.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Ten tickets are sold. One of them is worth £15 and nine are worth nothing. So across all ten tickets, £15 is shared out:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1500p / 10 tickets = 150p a ticket"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You are paying 200p for something worth 150p. Every ticket loses 50p on average, and the raffle keeps £5 of the £20 it takes."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1500   gave the prize",
+      "     200   gave the price printed on the ticket",
+      "    1300   gave the profit you make IF you win"
+     ]
+    },
+    {
+     "h": "WHY BOTH OBVIOUS NUMBERS ARE WRONG",
+     "t": "p",
+     "lines": [
+      "The question hands you two numbers, £2 and £15, and neither is the answer. One is what you pay and the other is what you might win, and the value of the ticket is neither: it is what you get on average, which is a number that appears nowhere in the question."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is what an expected value is. Write down every outcome, weight each by how often it happens, and add them up:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1/10) x 1500p  +  (9/10) x 0p  =  150p"
+     ]
+    },
+    {
+     "h": "WHERE THIS ACTUALLY MATTERS",
+     "t": "p",
+     "lines": [
+      "Every raffle, lottery, extended warranty and insurance policy is this sum. The seller knows the expected value and prices above it — that gap is the whole business."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which does not automatically make them bad deals. Insurance is worth MORE than its expected value to most people, because losing your house is not ten times worse than losing a tenth of it. A raffle is not: the prize is money, so the value of winning scales exactly with the amount, and paying 200p for 150p is simply paying 200p for 150p."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The test is whether the thing you might win is worth more to you than its face value. For money, it never is."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "forty_take_2_lots_of_a_bracket",
    "title": "40 - 2 x (8 + 2)",
@@ -23861,7 +23952,7 @@ window.QQ_ANSWERS = {
    "title": "The St. Petersburg paradox",
    "ts": "2026-07-26T14:10:26+00:00",
    "date": "26 Jul 2026",
-   "topic": "paradox",
+   "topic": "puzzles",
    "q": "Flip a fair coin until the first heads. If it lands on flip k you win $2^k. What is the game worth?",
    "a": "The expected payout is infinite — every term is worth exactly $1 and there are infinitely many — yet almost nobody would pay even $20 to play.",
    "why": [
@@ -23869,46 +23960,95 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "A coin game: flip a fair coin until the first heads. If the first heads lands on flip k, you win 2^k pounds. The expected payout is"
+      "Both of those are true at once, and that is the paradox."
+     ]
+    },
+    {
+     "h": "WHY THE EXPECTATION IS INFINITE",
+     "t": "p",
+     "lines": [
+      "You win £2^k if the first heads lands on flip k, and the chance of that is 1/2^k. So the contribution of flip k to the average is"
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    E = sum_{k=1}^inf (1/2^k)(2^k) = 1 + 1 + 1 + ... = infinity."
+      "    (1/2^k) x 2^k  =  £1"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Every term is worth exactly one pound because the prize doubles (2^k) exactly as fast as its probability halves (1/2^k), so the sum diverges. Yet almost nobody would pay even $20 to play."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "The resolution is diminishing marginal value: value the LOG of the payout, not the payout. Under log utility"
+      "Every single k contributes exactly one pound. The prize doubles precisely as fast as the chance of reaching it halves, so the terms never shrink:"
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    E[ln X] = sum (1/2^k) ln 2^k = ln2 * sum k/2^k = 2 ln2 = ln 4,"
+      "    E = 1 + 1 + 1 + 1 + ...  =  infinity"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "so the certainty-equivalent is e^{ln 4} = $4. Infinite expected pounds, but only a few pounds of expected utility."
+      "There is no trick in that sum. The expectation really is unbounded."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "SO WHY WOULD NOBODY PAY £50?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Because the infinity lives entirely in outcomes you will never see. To win more than £1,000 you need 10 tails in a row — about one play in a thousand. To win more than a million you need 20 — one play in a million. The average is dragged up by prizes whose probability is essentially zero, and it is dragged up without limit."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Simulate it and you can watch this happen: the running average climbs in jumps and never settles anywhere, because each new record payout resets it. An average that never converges is not describing anything you can expect to receive."
+     ]
+    },
+    {
+     "h": "THE RESOLUTION",
+     "t": "p",
+     "lines": [
+      "Daniel Bernoulli's answer, from 1738, is that people do not value money linearly. A second million matters less than the first. If you value the LOG of your winnings:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E[ln X] = sum (1/2^k) x ln(2^k) = ln2 x sum k/2^k = 2 ln 2 = ln 4"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That sum converges. Undo the log and the certainty-equivalent is e^(ln 4) = £4. A finite, sane price, from the same game."
+     ]
+    },
+    {
+     "h": "WHAT TO TAKE FROM IT",
+     "t": "p",
+     "lines": [
+      "An expectation is only useful if the tail that produces it is a tail you could actually live through. When a mean is driven by outcomes with vanishing probability and unbounded size, it stops being a decision rule — which is why practitioners look at medians, quantiles and utility rather than trusting an average that no single play can ever deliver."
      ]
     }
    ],
-   "src": "module"
+   "src": "answer"
   }
  ],
  "featured": "random_dots_make_a_pattern"
