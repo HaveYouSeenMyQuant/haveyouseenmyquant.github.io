@@ -16,8 +16,159 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 369,
+ "count": 371,
  "entries": [
+  {
+   "slug": "half_the_class_a_third_of_those",
+   "title": "Half the class, a third of those",
+   "ts": "2026-08-15T02:52:35+00:00",
+   "date": "15 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "A. 5.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Half of 30 is 15 girls. A third of those 15 is 5. The two fractions multiply: one half times one third is one sixth, and a sixth of 30 is 5."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     15   stopped after finding the girls",
+      "     10   took a third of the whole class instead of a third of the girls",
+      "     25   added a half of the class to a third of the class"
+     ]
+    },
+    {
+     "h": "WHY 25 IS THE ONE TO WATCH",
+     "t": "p",
+     "lines": [
+      "Fifteen girls and ten pupils-who-are-a-third do not add. The ten are not a separate group standing next to the fifteen — most of them ARE some of the fifteen. Adding two overlapping fractions of the same thirty people gives 25, a number larger than either group, when the answer has to be smaller than both."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the tell: **a fraction of a fraction is always smaller than either fraction on its own.** Any answer bigger than 15 was going the wrong way before the arithmetic started, and noticing that is faster than checking the sum."
+     ]
+    },
+    {
+     "h": "WHERE IT TURNS UP",
+     "t": "p",
+     "lines": [
+      "\"Sixty per cent of households have a car, and a quarter of those have two\" is 15% of households, not 85%. Discounts stack the same way — 20% off then 10% off is 28% off, not 30% — and so does anything described as a proportion of a proportion, which is most survey results quoted in a headline."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "nines_all_the_way",
+   "title": "Nines all the way",
+   "ts": "2026-08-15T02:48:59+00:00",
+   "date": "15 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "They are the same number. Not nearly the same, not the same for practical purposes - the same, in the way that 2/4 and 1/2 are the same. Two different strings of symbols, one number.",
+   "why": [
+    {
+     "h": "THE OBJECTION, TAKEN SERIOUSLY",
+     "t": "p",
+     "lines": [
+      "Almost everyone answers \"there's an infinitely small gap\". So name it. Call the gap g and suppose g is bigger than zero."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Stop after n nines and the gap really is positive:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 - 0.9      = 1/10",
+      "    1 - 0.99     = 1/100",
+      "    1 - 0.999    = 1/1000",
+      "    1 - 0.9...9  = 1/10^n"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But 0.999... is not any of those. It is the number the whole endless string names, so its gap must be SMALLER than every one of those - smaller than 1/10, smaller than 1/1000, smaller than 1/10^n for every n you can write."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is no positive real number with that property. Whatever positive g you propose, take n big enough that 1/10^n is less than g, and g has failed the test. The only survivor is g = 0."
+     ]
+    },
+    {
+     "h": "THE ONE-LINE VERSION",
+     "t": "p",
+     "lines": [
+      "If two real numbers are different, there is a number strictly between them - their average, for one. So: what is halfway between 0.999... and 1? Anyone who says they differ has to answer that, and there is no answer."
+     ]
+    },
+    {
+     "h": "THE ALGEBRA EVERYONE SEES FIRST",
+     "t": "pre",
+     "lines": [
+      "    x  = 0.999...",
+      "    10x = 9.999...",
+      "    10x - x = 9",
+      "    x = 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is correct, but it is not really a proof - it assumes the arithmetic of infinite decimals behaves, which is the thing in question. The gap argument above is what actually settles it. Same for 1/3 = 0.333..., multiplied by 3: fine as persuasion, circular as proof."
+     ]
+    },
+    {
+     "h": "WHAT IS ACTUALLY GOING ON",
+     "t": "p",
+     "lines": [
+      "Decimal notation is a naming scheme, and it is not one-to-one. Every terminating decimal has exactly two names: 1 and 0.999..., 0.5 and 0.4999..., 7.28 and 7.27999.... That is a wart in the notation, not a fact about numbers, and it is the price of writing every real number as a string of digits."
+     ]
+    },
+    {
+     "h": "WHERE IT IS NOT TRUE",
+     "t": "p",
+     "lines": [
+      "In the surreal numbers, or the hyperreals, there ARE infinitesimals - positive quantities smaller than every 1/n. In those systems the objection is correct and the numbers differ. So the honest statement is: in the real numbers, which is what \"0.999...\" means unless you say otherwise, they are equal."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When an argument rests on a quantity being \"infinitely small\" or \"essentially zero\", make it name the quantity and say which system it lives in. Most of the time the phrase is doing the work of a definition nobody has written down - and the same evasion sits underneath a surprising number of arguments about limits, rounding, and risk that is called negligible without being bounded."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "doubles_your_risk_from_one",
    "title": "It doubles your risk",
