@@ -16,8 +16,275 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 385,
+ "count": 388,
  "entries": [
+  {
+   "slug": "twenty_percent_off_three_years",
+   "title": "£20,000 losing 20% a year for three years",
+   "ts": "2026-08-15T22:08:34+00:00",
+   "date": "15 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "D. £10,240.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Take it one year at a time, because that is how the car loses value:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    year 1    20% of £20,000 = £4,000    ->  £16,000",
+      "    year 2    20% of £16,000 = £3,200    ->  £12,800",
+      "    year 3    20% of £12,800 = £2,560    ->  £10,240"
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    8,000   added the percentages: 3 x 20% = 60% off",
+      "   16,000   took one year off and stopped",
+      "    5,000   halved it twice"
+     ]
+    },
+    {
+     "h": "WHY ADDING THE PERCENTAGES IS WRONG",
+     "t": "p",
+     "lines": [
+      "Three years at 20% is not 60% off, because the second year's 20% is charged on a smaller car. £4,000 comes off in year one, but only £3,200 in year two and £2,560 in year three. The amounts shrink because the thing they are a percentage OF is shrinking."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add those up and you have lost £9,760 — not the £12,000 that 60% would take."
+     ]
+    },
+    {
+     "h": "THE SHORT WAY",
+     "t": "p",
+     "lines": [
+      "Each year multiplies by 0.8, so three years multiplies by"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    0.8 x 0.8 x 0.8 = 0.512"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and 0.512 x £20,000 = £10,240. Just over half, after losing \"60%\"."
+     ]
+    },
+    {
+     "h": "THE PART WORTH KEEPING",
+     "t": "p",
+     "lines": [
+      "Repeated percentage loss never reaches zero. Ten years of this leaves £2,147. Twenty leaves £231. It always gets smaller and it never arrives, because you keep taking a fraction of what remains rather than a fixed amount."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is why a car depreciating 20% a year is still worth something at ten years old, and why \"it loses half its value in three years\" and \"it loses 20% a year\" describe roughly the same car — the second one just sounds worse."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "benfords_law",
+   "title": "The law that catches fake numbers",
+   "ts": "2026-08-15T22:05:14+00:00",
+   "date": "15 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "Not 11% each. A leading 1 turns up about 30% of the time.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There are nine possible first digits, so an even split would give each about 11%. Real-world data does not do that at all:"
+     ]
+    },
+    {
+     "h": "1   30.1%        4    9.7%        7    5.8%",
+     "t": "pre",
+     "lines": [
+      "    2   17.6%        5    7.9%        8    5.1%",
+      "    3   12.5%        6    6.7%        9    4.6%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A 1 is roughly six and a half times as common as a 9."
+     ]
+    },
+    {
+     "h": "THE RULE",
+     "t": "pre",
+     "lines": [
+      "    P(first digit is d) = log10(1 + 1/d)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So P(1) = log10(2) = 0.301, and P(9) = log10(10/9) = 0.046."
+     ]
+    },
+    {
+     "h": "WHY IT HAPPENS",
+     "t": "p",
+     "lines": [
+      "The key idea is scale invariance. If a law about first digits is going to hold for a set of numbers at all, it has to survive changing the units — the same prices in pounds, euros or yen are the same data, and any rule that changed would be a rule about the currency rather than the numbers."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The log law is the ONLY distribution with that property, which is why it turns up wherever it turns up."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The intuition underneath it: think about something growing at a steady rate. To climb from 100 to 200 it must gain 100%, but to go from 900 to 1000 only 11%. It therefore spends far longer in the stretch that starts with a 1 than in the stretch that starts with a 9 — and \"how long it spends there\" is exactly what a leading-digit frequency measures."
+     ]
+    },
+    {
+     "h": "WHERE IT DOES NOT APPLY",
+     "t": "p",
+     "lines": [
+      "Benford needs data that spans several orders of magnitude and is not pinned to a scale. Human heights in centimetres do not obey it — they all start with 1 or 2. Nor do lottery numbers, phone numbers, or anything with a floor and a ceiling close together."
+     ]
+    },
+    {
+     "h": "WHY AUDITORS CARE",
+     "t": "p",
+     "lines": [
+      "People inventing numbers spread their first digits far too evenly, because \"random\" feels like \"uniform\". That mismatch is measurable, and it is used on company books, tax returns and election tallies."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is a red flag and never a proof. Real data can deviate for innocent reasons, and a competent forger can match the curve. What it does is tell you where to look."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "one_percent_costs_everything",
+   "title": "One percent costs everything",
+   "ts": "2026-08-15T10:24:55+00:00",
+   "date": "15 Aug 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "Because the fee does not just take money, it takes that money's future. Only £21,848 was ever charged. The other £30,678 is the growth those charges would have earned if they had stayed.",
+   "why": [
+    {
+     "h": "WHAT THE ACCOUNT ACTUALLY DOES",
+     "t": "p",
+     "lines": [
+      "Pay in £1,000 a year for forty years at 7% a year:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    no fee            £213,610",
+      "    with a 1% fee     £161,083",
+      "    the gap           £52,526"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You contributed £40,000 in total, so the gap is 1.31 times everything you ever paid in. It is also 24.6% of the fee-free pot - roughly a quarter, from a number small enough to appear in a footnote."
+     ]
+    },
+    {
+     "h": "WHERE THE GAP COMES FROM",
+     "t": "p",
+     "lines": [
+      "Add up the 1% charges themselves across all forty years and they come to £21,848. That is only 42% of the damage. The remaining £30,678 - the majority - is money that was never charged to you at all. It is the return the charged pounds would have made had they remained invested."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is why fee drag feels disproportionate. A charge in year 3 does not cost you 1% of year 3, it costs you 1% of year 3 compounded for thirty-seven more years. The early charges are the expensive ones, and they are the ones nobody notices because the balance is still small."
+     ]
+    },
+    {
+     "h": "WHY THE PERCENTAGE BARELY MOVES",
+     "t": "p",
+     "lines": [
+      "The fraction lost does not depend on the return AT ALL, and that is exact rather than approximate. If the fee is charged on the balance, one year multiplies the pot by (1+g)(1-f), so after n years the fee-free pot has been multiplied by (1-f)^n whatever g is. The g cancels."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Over forty years at 1% that is 1 - 0.99^40 = 33.1% of a lump sum, identical at 5%, 6% or 7% gross."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So \"we'll make it back with better performance\" has the causality backwards. Better performance raises both pots and leaves the ratio between them exactly untouched."
+     ]
+    },
+    {
+     "h": "THE RULE THAT ACTUALLY FOLLOWS",
+     "t": "p",
+     "lines": [
+      "Over n years a fee f costs exactly 1 - (1-f)^n of the final value - exactly, not approximately, and whatever the return is. At 1% for 40 years that is 33.1%. The fee is not an annual expense, it is a fraction of the ENDING pot, which is the number worth comparing between two funds."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something small is applied repeatedly to a compounding quantity, do not add up the small things - work out what each one would have become. The cost of a recurring drag is dominated by its earliest instances, which is the same reason a small constant delay early in a process outweighs a large one at the end."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_two_pound_ticket_worth_less",
    "title": "A £2 ticket, one in ten wins £15",
@@ -23780,7 +24047,7 @@ window.QQ_ANSWERS = {
    "title": "100 prisoners, 100 boxes — the 31% miracle",
    "ts": "2026-07-26T20:47:25+00:00",
    "date": "26 Jul 2026",
-   "topic": "",
+   "topic": "puzzles",
    "q": "100 prisoners must each find their own number among 100 boxes, opening at most 50 each, and every one of them has to succeed. What are the odds?",
    "a": "About 31%. Following the loop — open your own number, then the box matching the number you find — beats random guessing's (1/2)^100.",
    "why": [
@@ -23788,18 +24055,88 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "100 prisoners must each find their own number among 100 boxes; each may open at most 50 boxes, and EVERY prisoner must succeed or all are executed. Random guessing gives survival (1/2)^100 ≈ 0. Yet the \"follow the loop\" strategy — open your own number's box, then the box matching the number you find, chaining along a cycle — gives survival ≈ 31%."
+      "Random guessing gives (1/2)^100, a number so small it may as well be zero. The loop strategy gives 0.31, and it is the same prisoners, the same boxes and the same fifty openings each."
+     ]
+    },
+    {
+     "h": "THE STRATEGY",
+     "t": "p",
+     "lines": [
+      "Every prisoner starts at the box carrying their OWN number, reads the slip inside, opens the box that slip names, and repeats."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The trick: label the box you open by its position and the slip inside by its number, and the boxes decompose into cycles of a random permutation. A prisoner following his loop returns to his own number in exactly (cycle length) steps, so he succeeds iff his cycle is ≤ 50 long. EVERYONE succeeds iff the permutation has NO cycle longer than 50. Since a permutation of 100 has at most one cycle longer than 50, P(some cycle > 50) = sum_{k=51}^{100} 1/k ≈ ln 2 ≈ 0.69, so survival ≈ 1 - 0.69 ≈ 0.31."
+      "That is the whole rule. No signalling, no cleverness during the search."
+     ]
+    },
+    {
+     "h": "WHY IT WORKS",
+     "t": "p",
+     "lines": [
+      "The slips form a permutation, and every permutation breaks into loops. Starting at your own number puts you on the loop that contains your slip — and walking it brings you back to your own number in exactly as many steps as that loop is long."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So a prisoner succeeds precisely when their loop has fifty or fewer boxes in it. And here is the part that does the work:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    EVERY prisoner succeeds if and only if the longest loop is at most 50."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The individual searches are no longer independent. They all live or die on one shared fact about the room. That is what turns a hundred coin flips into a single question."
+     ]
+    },
+    {
+     "h": "THE ARITHMETIC",
+     "t": "p",
+     "lines": [
+      "A permutation of 100 can hold at most ONE loop longer than 50 — two would need more than 100 boxes. The chance a loop of length k > 50 exists works out to exactly 1/k, so"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(some loop > 50) = 1/51 + 1/52 + ... + 1/100 ~= ln 2 ~= 0.69"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and survival is 1 - 0.69, about 0.31."
+     ]
+    },
+    {
+     "h": "WHY IT BARELY MOVES WITH THE NUMBERS",
+     "t": "p",
+     "lines": [
+      "The same sum for 1,000 prisoners opening 500 boxes is still about ln 2. Ten thousand, a million — still 31%. The answer is essentially independent of how many prisoners there are, which is stranger than the 31% itself."
+     ]
+    },
+    {
+     "h": "WHAT TO TAKE FROM IT",
+     "t": "p",
+     "lines": [
+      "The prisoners cannot change their individual odds; each still opens half the boxes and still finds their number half the time. What the strategy changes is the CORRELATION between their outcomes — it makes them succeed together or fail together, and when you need everyone to win, correlation is worth more than probability."
      ]
     }
    ],
-   "src": "module"
+   "src": "answer"
   },
   {
    "slug": "polya_recurrence",
