@@ -16,8 +16,232 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 388,
+ "count": 391,
  "entries": [
+  {
+   "slug": "a_tin_twice_as_big",
+   "title": "A tin twice as tall and twice as wide",
+   "ts": "2026-08-15T23:26:55+00:00",
+   "date": "15 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "C. 8 times as much.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Stack the old tins inside the new one and count: 2 along, 2 across, 2 high. That is 2 x 2 x 2 = 8."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2   doubled once, as if the tin were a length",
+      "    4   squared it, which is the answer for a flat shape",
+      "    6   added the three dimensions instead of multiplying them"
+     ]
+    },
+    {
+     "h": "WHY IT IS THE CUBE",
+     "t": "p",
+     "lines": [
+      "\"Twice as big\" is a sentence about ONE direction, and a tin has three. Each doubling multiplies the contents by two, and they compound:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    twice as tall           2x the soup",
+      "    and twice as wide       4x",
+      "    and twice as deep       8x"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Triple every dimension and it is 27 times. Ten times the size is a THOUSAND times the volume. The rule is scale cubed, and it climbs frighteningly quickly."
+     ]
+    },
+    {
+     "h": "WHERE YOU MEET IT",
+     "t": "p",
+     "lines": [
+      "The big tub of ice cream is rarely twice the price of the small one, and it is almost never twice the size — measure it and you often find the \"twice as big\" tub holds four or six times as much. That is why bulk looks like such a bargain on the shelf, and why the small one is so often better value per gram than its price suggests."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It also runs the other way, which is the part worth keeping. A pizza with half the diameter has a QUARTER of the food. A parcel with sides 20% smaller holds half of what it did. Small reductions in size are large reductions in what fits, and everyone under-estimates them, in both directions."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "skill_that_was_never_there",
+   "title": "Skill that was never there",
+   "ts": "2026-08-15T23:20:01+00:00",
+   "date": "15 Aug 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "It did not come from anywhere. Every one of those funds had exactly zero skill - the returns were drawn from a distribution with mean zero - and the eight per cent belongs to the RULE that closed the losers, not to the funds that remain.",
+   "why": [
+    {
+     "h": "THE SETUP",
+     "t": "p",
+     "lines": [
+      "A thousand funds. Each year every surviving fund draws a return from a distribution with mean 0 and a 15% spread. No skill, no edge, no information. At the end of each year the worst fifth are closed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "After ten years, 105 funds remain. Their average annual return over their lives is +8.0%, and the best of them averaged +16.6% a year for a decade."
+     ]
+    },
+    {
+     "h": "WHY IT HAPPENS",
+     "t": "p",
+     "lines": [
+      "Selection runs on the same numbers that luck produced. A fund survives to year ten precisely BECAUSE its coin flips came up well, so conditioning on survival is conditioning on good luck. The average of the survivors is not an estimate of the average fund - it is an estimate of the average LUCKY fund, and nothing in the data marks the difference."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The closed funds do not appear anywhere in the final table. They are not weighted down or discounted; they are absent. Any average computed from what remains has already had the bad half deleted before the arithmetic starts."
+     ]
+    },
+    {
+     "h": "WHAT MAKES IT DANGEROUS",
+     "t": "p",
+     "lines": [
+      "The surviving track records are real. Every number in them actually happened. There is no error to find in the accounting, and no test applied to the survivors alone can detect the problem, because the information needed - who else started, and what became of them - is not in the sample."
+     ]
+    },
+    {
+     "h": "HOW TO SEE IT",
+     "t": "p",
+     "lines": [
+      "Ask what would have to be true for the data to exist. If a dataset is a list of things that made it, then something decided what \"making it\" meant, and that rule is a variable in every number you compute. Fund returns, backtests on companies currently in an index, \"habits of successful people\", the strength of aircraft that returned from a mission - all the same shape."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before analysing a sample, ask how it was assembled. A sample selected on an outcome cannot be used to estimate that outcome, and no amount of care with the arithmetic afterwards repairs it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "sorted_is_the_worst_case",
+   "title": "Sorted is the worst case",
+   "ts": "2026-08-15T22:42:38+00:00",
+   "date": "15 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Because the pivot is chosen badly, and on sorted data \"badly\" means every single time.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Textbook quicksort picks the first element as its pivot, then splits the rest into \"smaller\" and \"larger\". On shuffled data that lands somewhere near the middle, both halves are roughly n/2, and the problem halves about log n times."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "On sorted data the first element is the SMALLEST element. Nothing is smaller than it. So the split is:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    left  = 0 items",
+      "    right = n - 1 items"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It has done a full pass over n items to remove exactly one. Then it does it again on n-1, and n-2, and so on:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    n + (n-1) + (n-2) + ... = n(n-1)/2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Quadratic, and the recursion goes n deep instead of log n deep - which in most languages is a stack overflow long before it is a slow answer."
+     ]
+    },
+    {
+     "h": "THE COUNTS, MEASURED",
+     "t": "pre",
+     "lines": [
+      "    n = 10,000 shuffled:          164,917 comparisons",
+      "    n = 10,000 already sorted: 50,004,999 comparisons"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three hundred times the work, on the same ten thousand numbers."
+     ]
+    },
+    {
+     "h": "WHAT ACTUALLY WENT WRONG",
+     "t": "p",
+     "lines": [
+      "Not the data - the data got simpler. The algorithm carries an unstated assumption: that the first element is a typical value. That assumption holds for shuffled input and fails completely for sorted input, and sorted input is not some exotic adversarial case. It is the single most likely non-random order real data arrives in. Database exports, log files, ids, timestamps, anything already indexed."
+     ]
+    },
+    {
+     "h": "THE FIXES, AND WHAT THEY COST",
+     "t": "p",
+     "lines": [
+      "Choose the pivot at random, and no input is reliably bad - an adversary would have to guess your random numbers. Or take the median of the first, middle and last elements, which is cheap and handles sorted and reverse-sorted input, though a crafted input can still defeat it. Real libraries do more: introsort watches the recursion depth and switches to heapsort if it goes too deep, which caps the worst case at n log n while keeping quicksort's speed in the common case."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something is fast on average, ask what it is averaging over. Quicksort's n log n is an average across random orderings, and your inputs are not a random sample of orderings - they are whatever your system produces, which is usually sorted, nearly sorted, or grouped. Average-case guarantees are claims about an input distribution, and the distribution is an assumption you are making, not a property of the algorithm. That is the same error behind hash tables that degrade on structured keys, caches sized for a uniform access pattern, and any backtest whose sample is not the future."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "twenty_percent_off_three_years",
    "title": "£20,000 losing 20% a year for three years",
