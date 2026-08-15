@@ -16,8 +16,130 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 377,
+ "count": 379,
  "entries": [
+  {
+   "slug": "at_least_one_head_in_three_flips",
+   "title": "At least one head in three flips",
+   "ts": "2026-08-15T05:54:59+00:00",
+   "date": "15 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "C. 7.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three flips give 2 x 2 x 2 = 8 equally likely outcomes. Exactly one of them — tails, tails, tails — has no head in it at all. So every other outcome has at least one head: 8 - 1 = 7."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     12   counted four outcomes with a head on the first flip, four on the",
+      "          second, four on the third, and added them",
+      "      4   took half of the eight",
+      "      1   counted only the outcome that is all heads"
+     ]
+    },
+    {
+     "h": "WHY 12 IS THE INSTRUCTIVE ONE",
+     "t": "p",
+     "lines": [
+      "There are genuinely four outcomes with a head on the first flip. Four with a head on the second. Four with a head on the third. Adding those gives twelve — out of eight possible outcomes. Twelve of eight is impossible, and that impossibility is the whole point: the three groups overlap heavily, and anything counted in two of them has been counted twice."
+     ]
+    },
+    {
+     "h": "THE MOVE WORTH KEEPING",
+     "t": "p",
+     "lines": [
+      "For \"at least one\", count the outcomes with NONE and take them away. Here that is one line: only TTT has no head, so the answer is 8 - 1. On two dice rolls the same move gives 36 - 25 = 11. It works every time and there is no overlap to think about, because \"none of them\" is a single condition rather than a union of several."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "twice_the_work_a_hundred_times_the_wait",
+   "title": "Twice the work, a hundred times the wait",
+   "ts": "2026-08-15T05:54:54+00:00",
+   "date": "15 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Because waiting does not scale with load, it scales with the SPARE CAPACITY that is left. The mean queueing time is",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    W  =  rho / (1 - rho)      service times"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "where rho is the fraction of the time the server is busy. The load is on the top of that fraction and the idle time is on the bottom, so as rho approaches 1 the denominator goes to zero and the wait runs away."
+     ]
+    },
+    {
+     "h": "THE NUMBERS",
+     "t": "pre",
+     "lines": [
+      "    50% busy   ->   1 job's wait",
+      "    80%        ->   4",
+      "    90%        ->   9",
+      "    95%        ->  19",
+      "    99%        ->  99"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Doubling the load from 50% to 99% multiplies the wait by ninety-nine. Going from 90% to 95% - five percentage points, and you still have spare capacity - doubles it."
+     ]
+    },
+    {
+     "h": "WHY RANDOMNESS IS THE WHOLE STORY",
+     "t": "p",
+     "lines": [
+      "If jobs arrived on a perfect timetable, a server busy 99% of the time would have no queue at all: each job finishes just before the next arrives. The queue exists because arrivals CLUSTER. Two jobs turn up close together, the second waits, and at high utilisation there is no idle time left in which to catch up. The bigger the variability, the worse it gets - which is why the same formula with more variable service times is worse still."
+     ]
+    },
+    {
+     "h": "CHECKED, NOT QUOTED",
+     "t": "p",
+     "lines": [
+      "Simulating four hundred thousand arrivals reproduces the curve: 1.02 against a predicted 1.00 at 50%, 4.03 against 4.00 at 80%, 9.32 against 9.00 at 90%. At 99% the simulation reads about 117 against a predicted 99 - it runs HIGH, because a finite run cannot average a distribution with a tail that long. That gap is itself the point: at high utilisation even the measurement is unstable."
+     ]
+    },
+    {
+     "h": "WHAT IT MEANS IN PRACTICE",
+     "t": "p",
+     "lines": [
+      "Systems do not degrade smoothly and then break. They are fine, and fine, and then at some unremarkable-looking utilisation the queue explodes. \"We are only at 85%\" is not the reassurance it sounds like, and the standard engineering answer - keep utilisation well below capacity, and reduce variability rather than adding throughput - falls straight out of the formula."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a quantity has the thing you control on the top of a fraction and the headroom on the bottom, expect a cliff and not a slope. Look for 1/(1-x) shapes: they are everywhere - queues, leverage, error propagation - and human intuition reads every one of them as linear."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "five_percent_a_month",
    "title": "5% a month — what is that a year",
