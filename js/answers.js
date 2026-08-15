@@ -16,8 +16,174 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 375,
+ "count": 377,
  "entries": [
+  {
+   "slug": "five_percent_a_month",
+   "title": "5% a month — what is that a year",
+   "ts": "2026-08-15T04:53:14+00:00",
+   "date": "15 Aug 2026",
+   "topic": "quiz",
+   "q": null,
+   "a": "C. 80%.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each month charges 5% on what is owed at the time, and what is owed now includes last month's interest. So the debt is multiplied by 1.05 twelve times:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1.05 to the power of 12  =  1.796"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "£100 becomes £179.59, which is a rise of about 80%, not 60%."
+     ]
+    },
+    {
+     "h": "WHY THE OTHER THREE ARE THERE",
+     "t": "p",
+     "lines": [
+      "Each one is a real mistake, not a random number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     60   multiplied 5 by 12 — the answer if interest never compounded",
+      "    100   assumed a rate that steep must double the debt in a year",
+      "      5   gave the monthly rate back"
+     ]
+    },
+    {
+     "h": "WHY MULTIPLYING IS WRONG",
+     "t": "p",
+     "lines": [
+      "5 x 12 = 60 would be right if every month's interest were charged on the ORIGINAL £100 and then set aside. It is not. Month two charges 5% of £105, month three 5% of £110.25, and the gap widens all year. Twenty of those eighty percentage points are interest charged on interest."
+     ]
+    },
+    {
+     "h": "IT DOES NOT QUITE DOUBLE",
+     "t": "p",
+     "lines": [
+      "100% is the intuitive answer for a rate that high, and it is close but wrong: the debt reaches 1.796 times, not 2. To actually double inside a year you need 6% a month — one percentage point more, which tells you how sharply this curve climbs near the top."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And 6% is worth remembering, because it doubles twice over. 6% a MONTH doubles a debt in twelve months. 6% a YEAR doubles savings in twelve years. Same rate, same twelve, two completely different speeds — the only thing that changed is how often the interest is charged."
+     ]
+    },
+    {
+     "h": "WHERE YOU MEET THIS",
+     "t": "p",
+     "lines": [
+      "Anywhere a rate is quoted over a short period: monthly credit, weekly rent-to- own, daily overdraft charges. The advertised figure is always the small one, and the annual equivalent is always worse than twelve times it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The law knows this, which is why lenders must publish an APR — a single yearly number that has already done this compounding for you. When a headline rate and an APR disagree, the APR is the honest one, and the size of the gap between them is a measure of how short the quoted period was."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "every_file_one_bit",
+   "title": "Every file, one bit",
+   "ts": "2026-08-15T04:42:15+00:00",
+   "date": "15 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "It cannot exist. Not \"no one has managed it yet\" - it is ruled out by counting, and the shrinking-forever argument in the video is the short proof: if every file gets smaller, then feeding the output back in repeatedly drives everything to a single bit, and a single bit cannot be unpacked into the billions of files that arrived there.",
+   "why": [
+    {
+     "h": "THE COUNTING VERSION",
+     "t": "p",
+     "lines": [
+      "Take every file of exactly n bits. There are 2^n of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now count every file SHORTER than n bits - all lengths from 0 to n-1 together:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 + 2 + 4 + ... + 2^(n-1) = 2^n - 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One fewer target than there are inputs. A compressor must be reversible, so it must send different files to different outputs - and 2^n things cannot fit injectively into 2^n - 1 slots. At least one n-bit file does not get smaller. This holds for every n, so no compressor shrinks everything."
+     ]
+    },
+    {
+     "h": "THE PART THE SLOGAN LEAVES OUT",
+     "t": "p",
+     "lines": [
+      "\"Some files must grow\" is true and useless. The useful question is how many can shrink a lot, and the same count answers it. To shrink a file by k bits or more, its output must have length at most n-k, and there are fewer than 2^(n-k+1) such strings. So:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    fraction of n-bit files that can shrink by k bits  <  2^(1-k)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Shrink by 1 bit: all but one of them, in principle. By 10 bits: at most about 1 in 500. By 20 bits: about 1 in a million. The bound bites hard the moment you ask for a real saving."
+     ]
+    },
+    {
+     "h": "WHY COMPRESSION WORKS ANYWAY",
+     "t": "p",
+     "lines": [
+      "Because you never compress random files. Real data - text, images, logs, audio - occupies a vanishingly thin sliver of the space of all possible files, and a compressor is a bet that its input comes from that sliver. It buys big wins there and pays for them by expanding the files nobody has. A zip of random bytes comes out slightly LARGER, and that is the bill arriving."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is why \"compresses everything by 90%\" claims recur and always fail, and why every compressor is a model of its expected input in disguise. Choosing a compressor is choosing a prior."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something is claimed to improve every case with no cost, count the cases. Reversibility means the map is injective, injective maps cannot shrink a finite set, and the argument needs no knowledge of the mechanism - it rules out every present and future algorithm at once. The same counting kills perfect hashing without collisions, lossless deduplication of arbitrary data, and any scheme that promises strictly more information out than in."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_long_to_double_at_six",
    "title": "6% a year — how long to double",
