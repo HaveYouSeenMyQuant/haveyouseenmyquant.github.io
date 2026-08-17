@@ -535,3 +535,44 @@ grant execute on function public.redeem_license(text)      to authenticated;
 grant execute on function public.verify_membership()       to authenticated;
 -- gumroad_verify and gumroad_state stay callable only by the two above and by
 -- the owner. They are the plumbing, and neither checks who is asking.
+
+-- ---------------------------------------------------------------- waitlist
+-- Early-access list for the vitals app (the second page's market-fit search,
+-- see program.md 2026-08-16). Deliberately NOT tied to auth.users: this is a
+-- cold email capture from a landing page, and asking someone to create an
+-- account before they have seen the product is how you lose them.
+--
+-- RLS is insert-only for anonymous visitors and readable by nobody through the
+-- publishable key. The list is read from the local machine with the secret key.
+-- Anyone who views source can therefore ADD a row and can never read one, which
+-- is exactly the exposure a public landing page should have.
+create table if not exists public.waitlist (
+  id            bigint generated always as identity primary key,
+  email         text not null,
+  created_at    timestamptz not null default now(),
+  -- which reel/framing sent them, so market-fit search can attribute signups
+  source        text,
+  -- the free-text answer to "what would you want it to tell you?" -- the whole
+  -- point of the exercise; the email is secondary to this
+  wants         text,
+  -- how often they say they would use it, from a fixed set
+  cadence       text
+);
+
+create index if not exists waitlist_created_idx on public.waitlist (created_at desc);
+
+alter table public.waitlist enable row level security;
+
+-- Insert only. No select policy at all, so the publishable key cannot read the
+-- list back -- deny-by-default means the absence of a policy IS the denial.
+drop policy if exists "anyone may join the waitlist" on public.waitlist;
+create policy "anyone may join the waitlist"
+  on public.waitlist for insert to anon, authenticated
+  with check (
+    email is not null
+    and length(email) between 5 and 254
+    and email like '%_@_%._%'
+    and (wants is null or length(wants) <= 2000)
+    and (source is null or length(source) <= 120)
+    and (cadence is null or length(cadence) <= 40)
+  );

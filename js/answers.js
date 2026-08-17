@@ -16,8 +16,179 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 391,
+ "count": 393,
  "entries": [
+  {
+   "slug": "a_trillion_years_or_five_thousand",
+   "title": "A trillion years, or five thousand",
+   "ts": "2026-08-16T01:11:59+00:00",
+   "date": "16 Aug 2026",
+   "topic": "optimization",
+   "q": null,
+   "a": "By keeping the best attempt so far and varying it, instead of starting fresh every time. That one change takes the search from 42,000,000,000,000,000,000,000,000,000 attempts to about five thousand six hundred.",
+   "why": [
+    {
+     "h": "THE TWO SEARCHES",
+     "t": "p",
+     "lines": [
+      "The target is twenty characters from an alphabet of twenty-seven (A-Z and a space)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "BLIND. Generate a random twenty-character string and check it. The chance of hitting the target is one in"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    27^20  =  4.24 x 10^28"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At a billion guesses a second that is 1.3 trillion years - roughly a hundred times the age of the universe."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "CUMULATIVE. Start from one random string. Each round, make a hundred copies with each character having a 5% chance of being replaced at random, score every copy by how many positions match, and keep the best one if it is at least as good as what you had. Repeat."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Measured over twenty runs: a median of 56 rounds, so about 5,600 strings examined. Not 10^28. A few thousand."
+     ]
+    },
+    {
+     "h": "WHY THE DIFFERENCE IS SO ENORMOUS",
+     "t": "p",
+     "lines": [
+      "Blind search treats every attempt as independent - a near-miss with nineteen of twenty characters right is thrown away exactly like a string that matches nothing. Cumulative selection keeps partial progress, so each round only has to improve on what is already held. The problem stops being \"find one string in 10^28\" and becomes twenty nearly-independent easy problems that can be solved in parallel and never un-solved."
+     ]
+    },
+    {
+     "h": "WHAT IT NEEDS, AND WHAT IT DOES NOT",
+     "t": "p",
+     "lines": [
+      "It needs a score that gets better gradually - \"how many characters match\" does. It does NOT need any knowledge of the target beyond that score, no gradient, and no model of the problem. That is why the same skeleton - keep the best, vary it, repeat - turns up as genetic algorithms, simulated annealing, and evolutionary strategies."
+     ]
+    },
+    {
+     "h": "WHERE IT FAILS",
+     "t": "p",
+     "lines": [
+      "Give it a score that is flat everywhere except at the answer - \"correct or not\" with no partial credit - and it degrades exactly to blind search, because there is no longer any signal telling it which variation was better. The algorithm is not doing the work; the shape of the scoring function is."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before attacking a huge search space, ask whether partial progress can be kept. If it can, the size of the space stops being the relevant number. If it cannot, no clever search will save you."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "it_should_never_have_arrived",
+   "title": "It should never have arrived",
+   "ts": "2026-08-15T23:57:14+00:00",
+   "date": "15 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Because the two microseconds are measured on ITS clock, and the fifteen kilometres on ours. Nothing about the particle changes; the relationship between the two frames does. Time dilation is not a correction applied to the answer - it is the reason the naive answer is asking the wrong question.",
+   "why": [
+    {
+     "h": "THE NAIVE SUM",
+     "t": "p",
+     "lines": [
+      "The particle is created about 15 km up and travels at 0.995c, so in our frame the trip takes"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    15,000 / (0.995 x 299,792,458)  =  50.3 microseconds"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Its lifetime is 2.197 microseconds, so that is 22.9 lifetimes. Survival is exp(-22.9):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    about 1 in 10,000,000,000"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Essentially none should arrive. About one in ten does."
+     ]
+    },
+    {
+     "h": "WHAT IS ACTUALLY GOING ON",
+     "t": "p",
+     "lines": [
+      "At 0.995c the Lorentz factor is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    gamma  =  1 / sqrt(1 - 0.995^2)  =  10.01"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The 50.3 microseconds is OUR measurement. On the particle's own clock only 50.3 / 10.01 = 5.02 microseconds pass - 2.29 lifetimes, and exp(-2.29) is about 0.10. One in ten. Which is what is observed."
+     ]
+    },
+    {
+     "h": "THE SAME FACT FROM THE OTHER SEAT",
+     "t": "p",
+     "lines": [
+      "Ask the particle and it will deny that its clock is slow; from its point of view it lives the usual 2.197 microseconds. What it disagrees about is the DISTANCE: the atmosphere is rushing past at 0.995c and is contracted to 15 / 10.01 = 1.5 km, which it crosses comfortably in 5 microseconds. Both accounts give the same survival fraction because they are one fact described from two frames, and verify() checks they agree rather than taking it on trust."
+     ]
+    },
+    {
+     "h": "WHY THIS IS THE GOOD EVIDENCE",
+     "t": "p",
+     "lines": [
+      "Twins and spaceships are thought experiments and can be waved away as clever. This was measured in 1941, by counting particles at the top of a mountain and again at sea level, and the count at the bottom was far too high for any non-relativistic account. The effect is not subtle either - it is a factor of about 900 million."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a calculation gives an answer that is out by orders of magnitude rather than by a bit, suspect the QUESTION rather than the arithmetic. Something in it is being measured in a frame where it does not belong, and that class of error does not produce small discrepancies."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_tin_twice_as_big",
    "title": "A tin twice as tall and twice as wide",
@@ -24612,5 +24783,5 @@ window.QQ_ANSWERS = {
    "src": "answer"
   }
  ],
- "featured": "random_dots_make_a_pattern"
+ "featured": null
 };

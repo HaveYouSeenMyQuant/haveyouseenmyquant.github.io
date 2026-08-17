@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Early access — daily vitals from your phone</title>
+<meta name="description" content="A phone app that reads your resting heart rate and breathing rate from the microphone and motion sensor. Join the early access list.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="icon-1024.png">
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --fg:#e6edf3; --muted:#8b949e;
+    --accent:#4a9eff; --good:#3fb950; --line:#30363d;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-text-size-adjust:100%}
+  .wrap{max-width:620px;margin:0 auto;padding:32px 20px 72px}
+  h1{font-size:30px;line-height:1.2;margin:0 0 12px;letter-spacing:-.4px}
+  h2{font-size:18px;margin:34px 0 10px;letter-spacing:-.2px}
+  p{margin:0 0 14px}
+  .lede{font-size:18px;color:var(--fg)}
+  .muted{color:var(--muted)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:18px;margin:22px 0}
+  label{display:block;font-weight:600;margin:16px 0 6px;font-size:15px}
+  input[type=email],textarea,select{
+    width:100%;padding:12px 13px;background:#0b0f14;color:var(--fg);
+    border:1px solid var(--line);border-radius:10px;font:inherit}
+  input[type=email]:focus,textarea:focus,select:focus{
+    outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+  textarea{min-height:96px;resize:vertical}
+  button{width:100%;margin-top:20px;padding:14px 16px;border:0;border-radius:10px;
+    background:var(--accent);color:#04121f;font:inherit;font-weight:700;font-size:17px;
+    cursor:pointer}
+  button:disabled{opacity:.55;cursor:default}
+  .ok{display:none;border-color:var(--good)}
+  .ok h2{margin-top:0;color:var(--good)}
+  .err{color:#f85149;margin-top:12px;display:none}
+  ul{margin:0 0 14px 20px;padding:0}
+  li{margin:0 0 7px}
+  .fine{font-size:13px;line-height:1.55;color:var(--muted);margin-top:26px;
+    border-top:1px solid var(--line);padding-top:16px}
+  .fine strong{color:var(--fg)}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Step on the scales for your heart</h1>
+
+  <p class="lede">An app that reads your <strong>resting heart rate</strong> and
+  <strong>breathing rate</strong> from your phone's microphone and motion
+  sensor. Sixty seconds, phone on your chest, once a day.</p>
+
+  <p class="muted">No watch, no strap, no subscription to something you already
+  own a sensor for.</p>
+
+  <div class="card">
+    <h2 style="margin-top:0">What it is honestly</h2>
+    <ul>
+      <li>Your phone's accelerometer can feel your chest move. Its microphone
+          can hear you breathe.</li>
+      <li>From those it estimates a <strong>resting heart rate</strong> and a
+          <strong>breathing rate</strong>, and shows you how they drift over
+          weeks.</li>
+      <li>It is a <strong>wellness tool for spotting your own trends</strong>.
+          It is not a medical device, it does not diagnose anything, and it is
+          not a substitute for a clinician.</li>
+    </ul>
+  </div>
+
+  <h2>It does not exist yet</h2>
+  <p>This is the stage where I find out whether it should. If you would use it,
+  put your email below — and more usefully, tell me what you would actually
+  want it to tell you. That second box is the reason this page exists.</p>
+
+  <form id="f" class="card" novalidate>
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" autocomplete="email"
+           inputmode="email" placeholder="you@example.com" required>
+
+    <label for="wants">What would you want it to tell you?</label>
+    <textarea id="wants" name="wants"
+      placeholder="e.g. whether I'm getting ill before I feel it, whether my training is too hard, how my sleep is going, something else entirely"></textarea>
+
+    <label for="cadence">How often would you realistically use it?</label>
+    <select id="cadence" name="cadence">
+      <option value="">Pick one</option>
+      <option>Every morning</option>
+      <option>A few times a week</option>
+      <option>Only when I feel off</option>
+      <option>Around training or illness</option>
+      <option>Honestly, probably never</option>
+    </select>
+
+    <button id="go" type="submit">Join the early access list</button>
+    <div class="err" id="err"></div>
+  </form>
+
+  <div class="card ok" id="ok">
+    <h2>You're on the list.</h2>
+    <p>You'll get a message when there's something to try. If you wrote
+    something in that middle box — thank you, that is the part I'll actually
+    read.</p>
+    <p class="muted">Want to say more? Reply to the post you came from, or DM
+    the account. I read every one.</p>
+  </div>
+
+  <p class="fine">
+    <strong>Not a medical device.</strong> This app is intended for general
+    wellness and self-tracking only. It does not detect, diagnose, screen for
+    or treat any medical condition, and no reading it gives you should be used
+    to make a medical decision. If you are worried about your health, speak to
+    a doctor.<br><br>
+    Your email is stored so I can tell you when early access opens, and is not
+    sold or shared. Ask and I'll delete it.
+    <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>
+  </p>
+
+</div>
+
+<script src="js/supabase-config.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('f');
+  var okCard = document.getElementById('ok');
+  var errBox = document.getElementById('err');
+  var btn = document.getElementById('go');
+
+  // ?s=<slug> lets each reel carry its own tag, so a signup can be attributed
+  // to the framing that produced it. That attribution IS the market-fit
+  // search; without it every signup is anonymous evidence about nothing.
+  function source() {
+    try {
+      var m = /[?&]s=([a-z0-9_\-]{1,120})/i.exec(window.location.search || '');
+      return m ? m[1] : 'direct';
+    } catch (e) { return 'direct'; }
+  }
+
+  function fail(msg) {
+    errBox.textContent = msg;
+    errBox.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Join the early access list';
+  }
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    errBox.style.display = 'none';
+
+    var email = (document.getElementById('email').value || '').trim();
+    // Same shape the RLS policy enforces, checked here so the user gets a
+    // sentence instead of a 400.
+    if (email.length < 5 || email.length > 254 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      return fail('That email does not look right — have another look.');
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Joining…';
+
+    var cfg = window.SUPABASE_CONFIG;
+    fetch(cfg.url + '/rest/v1/waitlist', {
+      method: 'POST',
+      headers: {
+        'apikey': cfg.publishableKey,
+        'Authorization': 'Bearer ' + cfg.publishableKey,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        email: email,
+        wants: (document.getElementById('wants').value || '').trim().slice(0, 2000) || null,
+        cadence: document.getElementById('cadence').value || null,
+        source: source()
+      })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      form.style.display = 'none';
+      okCard.style.display = 'block';
+      okCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }).catch(function () {
+      // NEVER dead-end a signup. Someone who watched a reel, tapped a bio link
+      // and typed their address is the most expensive visitor this page will
+      // ever get, and "try again later" spends them for nothing. If the write
+      // fails for any reason — table missing, network, outage — hand them a
+      // route that does not depend on my infrastructure working.
+      errBox.innerHTML = 'Something broke at my end, and I am not going to ' +
+        'lose you over it. Email <a href="mailto:haveyouseenmyquant@gmail.com' +
+        '?subject=Early%20access&body=What%20I%27d%20want%20it%20to%20tell%20' +
+        'me%3A%20">haveyouseenmyquant@gmail.com</a> and you are on the list.';
+      errBox.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Try again';
+    });
+  });
+})();
+</script>
+</body>
+</html>
