@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 395,
+ "count": 396,
  "entries": [
+  {
+   "slug": "three_doors_one_car",
+   "title": "Three doors, one car",
+   "ts": "2026-08-17T20:55:03+00:00",
+   "date": "17 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/three_doors_one_car",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Fix your attention on the door you first pointed at, and ask what its chance was BEFORE the host did anything. The host only ever opens an empty door he was free to choose — so opening one cannot change the odds on the door you already locked in."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "snap_the_stick_make_a_triangle",
    "title": "Snap the stick, make a triangle",
