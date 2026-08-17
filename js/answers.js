@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 393,
+ "count": 394,
  "entries": [
+  {
+   "slug": "the_drunkard_on_the_cliff",
+   "title": "The drunkard on the cliff",
+   "ts": "2026-08-17T19:38:56+00:00",
+   "date": "17 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_drunkard_on_the_cliff",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: His steps are fair, so on average he drifts nowhere — that is the trap in the question, not the answer to it. Ask instead: on an endless line, can a fair wanderer dodge a single fixed point forever, or is every point one he must eventually revisit?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "a_trillion_years_or_five_thousand",
    "title": "A trillion years, or five thousand",
