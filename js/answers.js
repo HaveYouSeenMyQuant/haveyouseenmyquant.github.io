@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 397,
+ "count": 398,
  "entries": [
+  {
+   "slug": "which_way_will_the_lift_come",
+   "title": "Which way will the lift come?",
+   "ts": "2026-08-17T22:15:03+00:00",
+   "date": "17 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/which_way_will_the_lift_come",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't picture the arrival — picture where the lift IS when you walk up to wait. Near the top, almost the whole shaft is below you, so it's almost always below your floor. Now ask: a lift below you can only reach you by travelling which way?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "collect_all_six_toys",
    "title": "Collect all six toys",
