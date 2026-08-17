@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 398,
+ "count": 399,
  "entries": [
+  {
+   "slug": "two_share_a_birthday",
+   "title": "Two share a birthday",
+   "ts": "2026-08-17T23:07:07+00:00",
+   "date": "17 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/two_share_a_birthday",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: You're not matching yourself against the room — you're counting PAIRS of people, since any two could clash. Work out how many pairs a small crowd already makes, and the answer stops feeling impossible."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "which_way_will_the_lift_come",
    "title": "Which way will the lift come?",
