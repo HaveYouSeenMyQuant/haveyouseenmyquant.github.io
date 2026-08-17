@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 396,
+ "count": 397,
  "entries": [
+  {
+   "slug": "collect_all_six_toys",
+   "title": "Collect all six toys",
+   "ts": "2026-08-17T21:34:24+00:00",
+   "date": "17 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/collect_all_six_toys",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't count the boxes all at once — count how long you wait for EACH new toy on its own. When you already hold some toys, a fresh box only sometimes brings a new one, and the rarer that gets, the longer the wait. Add those separate waits."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "three_doors_one_car",
    "title": "Three doors, one car",
