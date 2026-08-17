@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 394,
+ "count": 395,
  "entries": [
+  {
+   "slug": "snap_the_stick_make_a_triangle",
+   "title": "Snap the stick, make a triangle",
+   "ts": "2026-08-17T20:17:36+00:00",
+   "date": "17 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/snap_the_stick_make_a_triangle",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: A triangle needs every piece shorter than the other two combined. With three pieces from one stick, that reduces to a single clean condition on the longest piece — find it, then ask how often two random breaks satisfy it."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_drunkard_on_the_cliff",
    "title": "The drunkard on the cliff",
