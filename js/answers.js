@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 407,
+ "count": 408,
  "entries": [
+  {
+   "slug": "how_many_cards_come_home",
+   "title": "How many cards come home?",
+   "ts": "2026-08-18T21:22:40+00:00",
+   "date": "18 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/how_many_cards_come_home",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't try to track all the cards at once. Look at ONE card, work out its chance of landing back in its own spot, then remember that averages simply add up across all the cards — even when the cards depend on each other."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_man_who_solved_the_market",
    "title": "The man who solved the market",
