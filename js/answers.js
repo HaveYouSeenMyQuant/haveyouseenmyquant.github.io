@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 402,
+ "count": 403,
  "entries": [
+  {
+   "slug": "one_extra_metre_of_rope",
+   "title": "One extra metre of rope",
+   "ts": "2026-08-18T08:38:55+00:00",
+   "date": "18 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_extra_metre_of_rope",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't think about spreading the extra metre along the rope. A circle's length is a fixed multiple of its radius, so ask how much the RADIUS has to grow to make the rope one metre longer — and notice the starting size never enters that sum."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "one_coin_around_another",
    "title": "One coin around another",
