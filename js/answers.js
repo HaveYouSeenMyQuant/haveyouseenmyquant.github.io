@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 403,
+ "count": 404,
  "entries": [
+  {
+   "slug": "where_do_the_balls_pile_up",
+   "title": "Where do the balls pile up?",
+   "ts": "2026-08-18T10:55:43+00:00",
+   "date": "18 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/where_do_the_balls_pile_up",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Ask how many different bounce-sequences land a ball in each slot. To reach an edge, every bounce must go the same way — one lonely path. To reach the middle, lefts and rights in any order all work — a great many paths. Count the paths."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "one_extra_metre_of_rope",
    "title": "One extra metre of rope",
