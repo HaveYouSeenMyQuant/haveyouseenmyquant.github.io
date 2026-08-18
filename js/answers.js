@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 399,
+ "count": 400,
  "entries": [
+  {
+   "slug": "one_job_no_take_backs",
+   "title": "One job, no take-backs",
+   "ts": "2026-08-18T05:34:11+00:00",
+   "date": "18 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_job_no_take_backs",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: The first stretch of interviews isn't for hiring — it's for learning what 'good' even looks like, so you can set a bar. Reject that whole first group on purpose, remember the best of them, then take the next person who beats it."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "two_share_a_birthday",
    "title": "Two share a birthday",
@@ -24897,5 +24916,5 @@ window.QQ_ANSWERS = {
    "src": "answer"
   }
  ],
- "featured": null
+ "featured": "which_way_will_the_lift_come"
 };
