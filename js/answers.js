@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 401,
+ "count": 402,
  "entries": [
+  {
+   "slug": "one_coin_around_another",
+   "title": "One coin around another",
+   "ts": "2026-08-18T07:24:53+00:00",
+   "date": "18 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_coin_around_another",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't follow the edge — follow the CENTRE of the rolling coin. Ask what size circle its centre traces as it goes around, and compare that circle's length to the coin's own circumference. The edge-length answer misses one whole trip."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "take_the_last_coin",
    "title": "Take the last coin",
