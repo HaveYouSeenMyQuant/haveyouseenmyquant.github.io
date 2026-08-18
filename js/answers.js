@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 405,
+ "count": 406,
  "entries": [
+  {
+   "slug": "turn_the_wobbly_table",
+   "title": "Turn the wobbly table",
+   "ts": "2026-08-18T17:32:22+00:00",
+   "date": "18 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/turn_the_wobbly_table",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Think about what a quarter turn does to the two diagonals of feet — it swaps them. If some 'imbalance' between the diagonals is positive now and becomes its own negative a quarter turn later, a smooth quantity has to pass through zero on the way. Zero imbalance is the table sitting flat."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "how_far_does_the_ball_bounce",
    "title": "How far does the ball bounce?",
