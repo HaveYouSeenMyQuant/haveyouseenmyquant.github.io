@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 400,
+ "count": 401,
  "entries": [
+  {
+   "slug": "take_the_last_coin",
+   "title": "Take the last coin",
+   "ts": "2026-08-18T06:27:18+00:00",
+   "date": "18 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/take_the_last_coin",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Think about the number you HAND your friend, not the number you take. Since you can always take 1, 2, or 3, you can always undo their move back to a fixed step size. Find the pile size they can never escape, and steer them onto it."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "one_job_no_take_backs",
    "title": "One job, no take-backs",
