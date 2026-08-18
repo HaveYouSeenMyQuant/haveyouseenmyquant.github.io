@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 406,
+ "count": 407,
  "entries": [
+  {
+   "slug": "the_man_who_solved_the_market",
+   "title": "The man who solved the market",
+   "ts": "2026-08-18T18:12:37+00:00",
+   "date": "18 Aug 2026",
+   "topic": "history",
+   "q": null,
+   "a": "Full story + the number (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_man_who_solved_the_market",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: The lesson isn't 'find a magic formula.' It's that thousands of tiny edges, each barely better than a coin flip, compound into something huge when you find them in data and repeat them without emotion. Discipline beats hunches."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "turn_the_wobbly_table",
    "title": "Turn the wobbly table",
