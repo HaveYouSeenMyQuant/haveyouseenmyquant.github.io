@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 408,
+ "count": 409,
  "entries": [
+  {
+   "slug": "a_pair_in_your_hand",
+   "title": "A pair in your hand",
+   "ts": "2026-08-18T22:21:14+00:00",
+   "date": "18 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/a_pair_in_your_hand",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't count the matching hands directly. Count the OPPOSITE — hands where all five values differ — and subtract from 1. Pick 5 of the 13 values, then a suit for each, over all C(52,5) hands. The 'at least one' trick turns a mess into one line."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "how_many_cards_come_home",
    "title": "How many cards come home?",
