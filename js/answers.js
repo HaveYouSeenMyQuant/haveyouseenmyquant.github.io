@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 404,
+ "count": 405,
  "entries": [
+  {
+   "slug": "how_far_does_the_ball_bounce",
+   "title": "How far does the ball bounce?",
+   "ts": "2026-08-18T16:29:47+00:00",
+   "date": "18 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/how_far_does_the_ball_bounce",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't total the bounces one at a time — group each bounce as an up-and-down PAIR, and notice every pair is the same fraction of the one before. A run of numbers that keeps shrinking by a fixed factor adds up to a finite total."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "where_do_the_balls_pile_up",
    "title": "Where do the balls pile up?",
