@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 409,
+ "count": 410,
  "entries": [
+  {
+   "slug": "two_aces_side_by_side",
+   "title": "Two aces side by side",
+   "ts": "2026-08-18T23:16:13+00:00",
+   "date": "18 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/two_aces_side_by_side",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't count the touching arrangements. Count the OPPOSITE — arrangements where every ace is kept apart — using the GAPS between the 48 other cards, then subtract from 1. Turning 'at least one' into 'none' is the whole trick."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "a_pair_in_your_hand",
    "title": "A pair in your hand",
