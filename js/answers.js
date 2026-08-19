@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 420,
+ "count": 421,
  "entries": [
+  {
+   "slug": "why_the_night_is_dark",
+   "title": "Why the night is dark",
+   "ts": "2026-08-19T18:31:02+00:00",
+   "date": "19 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/why_the_night_is_dark",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Slice space into thin shells around you. A shell farther out has fainter stars (brightness ~ 1/distance^2) but MORE of them (~ distance^2). Those cancel, so every shell adds the same light. What would infinitely many equal shells sum to — and what could possibly stop the sum?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_ball_that_bends",
    "title": "The ball that bends",
