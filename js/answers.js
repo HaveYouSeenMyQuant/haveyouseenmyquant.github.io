@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 419,
+ "count": 420,
  "entries": [
+  {
+   "slug": "the_ball_that_bends",
+   "title": "The ball that bends",
+   "ts": "2026-08-19T17:15:21+00:00",
+   "date": "19 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_ball_that_bends",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Look at the two sides of the ball as it flies. One side's surface spins BACKWARD relative to the flight (moving the same way as the oncoming air), the other forward. Air moves faster past the backward-spinning side, so the pressure there is lower. Which way does a ball get pushed — toward higher pressure or lower?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_same_odds_stranger_dice",
    "title": "The same odds, stranger dice",
