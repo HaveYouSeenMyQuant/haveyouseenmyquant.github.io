@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 412,
+ "count": 413,
  "entries": [
+  {
+   "slug": "the_full_infinite_hotel",
+   "title": "The full infinite hotel",
+   "ts": "2026-08-19T06:25:26+00:00",
+   "date": "19 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_full_infinite_hotel",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't look for an empty room — MAKE one. Ask every guest to shift along by one room and watch what opens up at the start. The reason it works is that there's no 'last' room to fall off the end, which is what makes infinity so strange."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "sure_of_a_pair",
    "title": "Sure of a pair",
@@ -21242,36 +21261,22 @@ window.QQ_ANSWERS = {
   },
   {
    "slug": "no_best_die",
-   "title": "Four dice, each beating the next 2 rolls in 3",
+   "title": "No best die",
    "ts": "2026-08-01T11:25:47+00:00",
    "date": "1 Aug 2026",
-   "topic": "paradox",
+   "topic": "puzzles",
    "q": null,
-   "a": "Four dice. Whichever one you pick, I can pick one that beats you 2 rolls in 3.",
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/no_best_die",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "Look at the faces. The first beats the second. The second beats the third. The third beats the fourth. And the fourth beats the first — every one of those exactly 2 in 3, counted over all 36 outcomes, with no ties possible."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "So \"better than\" does not have to line up, and there is no best die. Let the other person choose first."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Play this instead of reading it → link in bio. No signup."
+      "TIP: Don't rank the dice — compare them in PAIRS. Line up each die's three values against another's, count the nine matchups, and see who wins more. Do all three pairs and watch whether the winners line up in order... or run in a circle."
      ]
     }
    ],
-   "src": "caption"
+   "src": "comment"
   },
   {
    "slug": "snowflake_infinite_edge",
