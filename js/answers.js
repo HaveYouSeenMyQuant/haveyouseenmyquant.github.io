@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 421,
+ "count": 422,
  "entries": [
+  {
+   "slug": "a_hole_you_can_step_through",
+   "title": "A hole you can step through",
+   "ts": "2026-08-19T21:49:02+00:00",
+   "date": "19 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/a_hole_you_can_step_through",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Stop thinking about the card's AREA (fixed and small) and think about the PERIMETER of the hole. A boundary can be made as long as you like without adding area — so how could you cut a short rectangle into one very long loop of paper?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "why_the_night_is_dark",
    "title": "Why the night is dark",
