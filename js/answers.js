@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 414,
+ "count": 415,
  "entries": [
+  {
+   "slug": "cut_the_mobius_strip",
+   "title": "Cut the Mobius strip",
+   "ts": "2026-08-19T09:38:11+00:00",
+   "date": "19 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/cut_the_mobius_strip",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't picture the paper — follow the CUT. Trace the scissors down the middle and see where they come back to the start. A half-twist means one edge and one side, so ask yourself what's left for a second loop to be made of."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_monkey_and_shakespeare",
    "title": "The monkey and Shakespeare",
