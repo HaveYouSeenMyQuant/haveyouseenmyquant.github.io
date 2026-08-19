@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 418,
+ "count": 419,
  "entries": [
+  {
+   "slug": "the_same_odds_stranger_dice",
+   "title": "The same odds, stranger dice",
+   "ts": "2026-08-19T14:57:18.929337+00:00",
+   "date": "19 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_same_odds_stranger_dice",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Write each die as a polynomial with one term per face (a normal die is x+x^2+...+x^6). Rolling two dice and adding = MULTIPLYING the two polynomials. So ask: can you factor that product into two DIFFERENT polynomials that still have positive whole-number faces?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "which_spin_flips_the_phone",
    "title": "Which spin flips the phone",
