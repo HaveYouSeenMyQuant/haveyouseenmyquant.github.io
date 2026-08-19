@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 415,
+ "count": 416,
  "entries": [
+  {
+   "slug": "three_rings_hold_together",
+   "title": "Three rings hold together",
+   "ts": "2026-08-19T10:38:28+00:00",
+   "date": "19 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/three_rings_hold_together",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Ignore all three at once and just look at ONE PAIR. Trace where that pair crosses: does one ring go over-then-under the other, or over-both-times? Over-then- under means those two, by themselves, aren't really linked at all. Then ask what the third ring is doing."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "cut_the_mobius_strip",
    "title": "Cut the Mobius strip",
