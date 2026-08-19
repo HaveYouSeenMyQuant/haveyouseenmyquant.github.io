@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 410,
+ "count": 411,
  "entries": [
+  {
+   "slug": "a_perfect_rainbow",
+   "title": "A perfect rainbow",
+   "ts": "2026-08-19T00:14:05+00:00",
+   "date": "19 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/a_perfect_rainbow",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Build the hand one card at a time and force each new card to be a NEW suit: 39/51, then 26/50, then 13/49. Multiply. Watching the winning fraction shrink card by card is the whole story of why a rainbow is rarer than it feels."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "two_aces_side_by_side",
    "title": "Two aces side by side",
