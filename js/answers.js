@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 411,
+ "count": 412,
  "entries": [
+  {
+   "slug": "sure_of_a_pair",
+   "title": "Sure of a pair",
+   "ts": "2026-08-19T01:16:49+00:00",
+   "date": "19 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/sure_of_a_pair",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Count the 'boxes,' not the cards. How many different VALUES can a card have? Once you have one card in every box, the next card must double up. That's the pigeonhole principle, and suits never matter."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "a_perfect_rainbow",
    "title": "A perfect rainbow",
