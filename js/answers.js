@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 413,
+ "count": 414,
  "entries": [
+  {
+   "slug": "the_monkey_and_shakespeare",
+   "title": "The monkey and Shakespeare",
+   "ts": "2026-08-19T07:23:12+00:00",
+   "date": "19 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_monkey_and_shakespeare",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Chop the endless output into blocks the length of your target phrase. Each block has a tiny fixed chance of being an exact match, so the chance of missing on ALL of infinitely many blocks multiplies down to zero. The catch is how long the average wait is."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_full_infinite_hotel",
    "title": "The full infinite hotel",
