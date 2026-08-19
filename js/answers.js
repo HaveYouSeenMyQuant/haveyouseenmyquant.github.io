@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 416,
+ "count": 417,
  "entries": [
+  {
+   "slug": "one_cut_halves_both",
+   "title": "One cut halves both",
+   "ts": "2026-08-19T11:37:53+00:00",
+   "date": "19 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_cut_halves_both",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Fix a direction and there's exactly one line of that direction that halves the FIRST pancake. Now rotate the direction slowly and watch the second pancake's left-right imbalance: it flips sign over half a turn, so it must cross zero. That crossing is your cut."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "three_rings_hold_together",
    "title": "Three rings hold together",
