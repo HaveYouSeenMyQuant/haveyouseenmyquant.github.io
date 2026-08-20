@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 426,
+ "count": 427,
  "entries": [
+  {
+   "slug": "one_block_three_holes",
+   "title": "One block, three holes",
+   "ts": "2026-08-20T07:58:31+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_block_three_holes",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: One solid can look totally different from different directions. Ask what you'd see looking straight DOWN at the block, then from the FRONT, then from the SIDE. Could those three views be a circle, a square, and a triangle? Start from a round rod and think about what two flat knife cuts would do to its side view."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_square_wheel_rides_level",
    "title": "A square wheel that rides level",
@@ -25396,5 +25415,5 @@ window.QQ_ANSWERS = {
    "src": "answer"
   }
  ],
- "featured": "one_coin_around_another"
+ "featured": "where_do_the_balls_pile_up"
 };
