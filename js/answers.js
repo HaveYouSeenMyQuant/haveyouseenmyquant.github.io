@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 435,
+ "count": 436,
  "entries": [
+  {
+   "slug": "whose_pattern_comes_first",
+   "title": "Whose pattern comes first",
+   "ts": "2026-08-20T18:25:59+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/whose_pattern_comes_first",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't ask which sequence is \"best\" on its own -- ask what has to happen in the few flips JUST BEFORE your sequence finishes. Those lead-in flips can already spell out someone else's sequence. Whoever controls that overlap controls the race. Think about picking your sequence AFTER seeing the other one."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "when_to_cash_out",
    "title": "When to cash out",
