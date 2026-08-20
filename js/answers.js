@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 433,
+ "count": 434,
  "entries": [
+  {
+   "slug": "six_glasses_one_move",
+   "title": "Six glasses, one move",
+   "ts": "2026-08-20T16:20:34+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/six_glasses_one_move",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: You're allowed to handle one glass -- but nothing says you can only slide it to a new spot. What ELSE can you do with a glass you've picked up, especially a full one sitting near empty ones? Think about changing what's INSIDE a glass, not just where it stands. One action can fix two positions at once."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "solid_or_hollow_down_the_ramp",
    "title": "Solid or hollow down the ramp",
