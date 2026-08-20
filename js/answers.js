@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 430,
+ "count": 431,
  "entries": [
+  {
+   "slug": "shake_the_jar_of_nuts",
+   "title": "Shake the jar of nuts",
+   "ts": "2026-08-20T12:51:05+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/shake_the_jar_of_nuts",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Stop thinking about the big nut's weight and watch the SMALL ones. When you shake, tiny gaps open for a split second -- and small nuts are just the right size to trickle into them, while the big nut is too wide to fall through. A few small nuts slip underneath on every shake. Where does that leave the big nut over many shakes?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "flip_the_coin_triangle",
    "title": "Flip the coin triangle",
