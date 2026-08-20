@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 431,
+ "count": 432,
  "entries": [
+  {
+   "slug": "the_stone_that_spins_back",
+   "title": "The stone that spins back",
+   "ts": "2026-08-20T14:00:19+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_stone_that_spins_back",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: The trick is a tiny lopsidedness. The stone's curved keel and its heavy direction are twisted a few degrees apart, so it has a handedness -- its mirror image isn't the same stone. That makes the two spin directions genuinely different: one stays smooth, the other leaks into a rocking wobble. Ask where that rocking energy goes once the spin dies."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "shake_the_jar_of_nuts",
    "title": "Shake the jar of nuts",
