@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 429,
+ "count": 430,
  "entries": [
+  {
+   "slug": "flip_the_coin_triangle",
+   "title": "Flip the coin triangle",
+   "ts": "2026-08-20T11:33:06+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/flip_the_coin_triangle",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Stop thinking about which coins to MOVE and think about which can STAY. Imagine lifting the whole triangle and giving it a half-turn, then setting it back down over the coins already there. How many coins land exactly where one already sits? Those never move -- only the leftover tips do."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_soap_film_between_two_rings",
    "title": "The soap film between two rings",
