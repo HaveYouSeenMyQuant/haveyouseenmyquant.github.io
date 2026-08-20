@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 437,
+ "count": 438,
  "entries": [
+  {
+   "slug": "the_three_dice_bet",
+   "title": "The three-dice bet",
+   "ts": "2026-08-20T20:48:17+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_three_dice_bet",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: The \"three chances\" story is a trap -- it double-counts the rolls where two or three dice show your number. Work out the chance of exactly zero, one, two and three matches (think three dice, each a one-in-six hit), then weigh what you win in each case against the dollar you lose when nothing matches. Average it out."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "how_many_noodle_loops",
    "title": "How many noodle loops",
