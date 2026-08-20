@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 438,
+ "count": 439,
  "entries": [
+  {
+   "slug": "higher_of_two_dice",
+   "title": "Higher of two dice",
+   "ts": "2026-08-20T22:05:45+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/higher_of_two_dice",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: There are 36 equally likely pairs of two dice. For \"keep the higher\", count how many pairs give a top number of exactly 1, of 2, of 3, up to 6 -- you'll get a tidy run of odd numbers, and the big scores dominate. Weight each score by its count and average. Then notice: the higher plus the lower of any pair is just the two dice added together."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_three_dice_bet",
    "title": "The three-dice bet",
