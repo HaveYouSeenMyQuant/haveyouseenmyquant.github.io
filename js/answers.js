@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 425,
+ "count": 426,
  "entries": [
+  {
+   "slug": "the_square_wheel_rides_level",
+   "title": "A square wheel that rides level",
+   "ts": "2026-08-20T06:50:15+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_square_wheel_rides_level",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't touch the wheel -- change the ROAD. Track the axle's height as the square pivots: it climbs when the wheel balances on a corner and falls when a flat side lands. You want a road where the ground dips by exactly the right amount at every moment to cancel that climb, so the axle traces a straight, level line. What curve does each bump have to be?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "six_sticks_four_triangles",
    "title": "Six matchsticks, four triangles",
