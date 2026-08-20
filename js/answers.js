@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 428,
+ "count": 429,
  "entries": [
+  {
+   "slug": "the_soap_film_between_two_rings",
+   "title": "The soap film between two rings",
+   "ts": "2026-08-20T10:20:57+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_soap_film_between_two_rings",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: A soap film settles into the SMALLEST possible area for its edges. Ask whether a straight tube is really the smallest surface joining two rings, or whether squeezing the middle inward trims more from the sides than it adds. Then think about pulling the rings so far apart that no thin waist can survive -- what must the film do at that point?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "two_tunnels_through_the_earth",
    "title": "Two tunnels through the Earth",
@@ -25434,5 +25453,5 @@ window.QQ_ANSWERS = {
    "src": "answer"
   }
  ],
- "featured": "where_do_the_balls_pile_up"
+ "featured": "one_cut_halves_both"
 };
