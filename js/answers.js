@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 424,
+ "count": 425,
  "entries": [
+  {
+   "slug": "six_sticks_four_triangles",
+   "title": "Six matchsticks, four triangles",
+   "ts": "2026-08-20T05:39:56+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/six_sticks_four_triangles",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Count carefully. Four triangles have twelve sides, but you have only six sticks -- so every stick must be a side of TWO triangles at once. On a flat table you can't share them all that way. Ask what arrangement WOULD let all six sticks be shared."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "one_cut_any_shape",
    "title": "One cut, any shape",
