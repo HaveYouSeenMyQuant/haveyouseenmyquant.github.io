@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 439,
+ "count": 440,
  "entries": [
+  {
+   "slug": "two_boxes_one_white",
+   "title": "Two boxes, one white",
+   "ts": "2026-08-20T23:21:27+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/two_boxes_one_white",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Your friend picks a whole BOX first, 50-50, and only then a ball. So think about making ONE box a near-sure white, and ask how much that hurts the other box. Moving just a few white balls out of a big mixed pile barely changes its colour -- but it can turn a whole box into a guaranteed win. Where's the sweet spot?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "higher_of_two_dice",
    "title": "Higher of two dice",
