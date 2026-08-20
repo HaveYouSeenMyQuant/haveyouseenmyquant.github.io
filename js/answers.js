@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 434,
+ "count": 435,
  "entries": [
+  {
+   "slug": "when_to_cash_out",
+   "title": "When to cash out",
+   "ts": "2026-08-20T17:12:01+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/when_to_cash_out",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Each roll, weigh two things against each other -- how many points you gain on average from a safe roll, versus how much of your pot you'd lose if the 1 shows up. When your pot is small the gain wins and you should roll; as the pot grows, the risk catches up. There is an exact tipping point where they balance -- find where the average gain from one more roll drops to zero."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "six_glasses_one_move",
    "title": "Six glasses, one move",
