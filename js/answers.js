@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 427,
+ "count": 428,
  "entries": [
+  {
+   "slug": "two_tunnels_through_the_earth",
+   "title": "Two tunnels through the Earth",
+   "ts": "2026-08-20T09:08:07+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/two_tunnels_through_the_earth",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't just compare the distances. On the slanted tunnel only PART of gravity pushes the ball along the tunnel -- the rest presses into the wall -- so it accelerates more gently. Write the along-the-tunnel pull as the ball moves, and you'll find every straight tunnel behaves like the same mass-on-a-spring. What does equal springiness say about the travel times?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "one_block_three_holes",
    "title": "One block, three holes",
