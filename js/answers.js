@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 423,
+ "count": 424,
  "entries": [
+  {
+   "slug": "one_cut_any_shape",
+   "title": "One cut, any shape",
+   "ts": "2026-08-20T04:26:42+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_cut_any_shape",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't cut the star's outline edge by edge. Think about FOLDING so that all of its edges land on top of each other first. A star has mirror symmetry — fold along those mirror lines and ask what happens to its ten edges. How many cuts do you need once they're all stacked?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "knot_a_strip_of_paper",
    "title": "Knot a strip of paper",
