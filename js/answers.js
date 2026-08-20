@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 422,
+ "count": 423,
  "entries": [
+  {
+   "slug": "knot_a_strip_of_paper",
+   "title": "Knot a strip of paper",
+   "ts": "2026-08-20T02:11:39+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/knot_a_strip_of_paper",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Count the straight runs of the strip as it threads through the flattened knot, and remember that any closed flat path turns through 360 degrees in all. If those turns are shared equally among the folds, how big is each turn — and what regular shape has corners of that size?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "a_hole_you_can_step_through",
    "title": "A hole you can step through",
@@ -25320,5 +25339,5 @@ window.QQ_ANSWERS = {
    "src": "answer"
   }
  ],
- "featured": "which_way_will_the_lift_come"
+ "featured": "one_coin_around_another"
 };
