@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 432,
+ "count": 433,
  "entries": [
+  {
+   "slug": "solid_or_hollow_down_the_ramp",
+   "title": "Solid or hollow down the ramp",
+   "ts": "2026-08-20T15:09:23+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/solid_or_hollow_down_the_ramp",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Same weight, so gravity pulls them the same -- the difference is WHERE the mass sits. A rolling cylinder splits gravity's energy between moving down and spinning up. In the hollow pipe the mass is all out at the rim, which is stubborn to spin; in the solid one it sits closer to the centre. Which one wastes more energy just spinning up, leaving less for the race down?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_stone_that_spins_back",
    "title": "The stone that spins back",
@@ -25510,5 +25529,5 @@ window.QQ_ANSWERS = {
    "src": "answer"
   }
  ],
- "featured": "one_cut_halves_both"
+ "featured": "two_tunnels_through_the_earth"
 };
