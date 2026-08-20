@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 436,
+ "count": 437,
  "entries": [
+  {
+   "slug": "how_many_noodle_loops",
+   "title": "How many noodle loops",
+   "ts": "2026-08-20T19:38:12+00:00",
+   "date": "20 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/how_many_noodle_loops",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't try to picture the whole tangle. Tie the ends ONE knot at a time and ask a single question each time: what's the chance THIS knot ties an end to the other end of its OWN noodle, closing a loop? Count 12 ends, then 10, then 8... add up those loop-closing chances and you have the average."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "whose_pattern_comes_first",
    "title": "Whose pattern comes first",
