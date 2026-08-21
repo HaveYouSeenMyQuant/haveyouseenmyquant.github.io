@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 441,
+ "count": 442,
  "entries": [
+  {
+   "slug": "do_the_marbles_match",
+   "title": "Do the marbles match",
+   "ts": "2026-08-21T02:38:29+00:00",
+   "date": "21 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/do_the_marbles_match",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't count pairs -- pull ONE marble first and look at what's left. If it's red, the jar now has 5 red and 4 blue for the second pick; if it's blue, 6 red and 3 blue. In each case, how many of the remaining 9 marbles share the first one's colour? Compare that to 9, and you'll see which way to bet."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "six_rolls_how_many_faces",
    "title": "Six rolls, how many faces",
