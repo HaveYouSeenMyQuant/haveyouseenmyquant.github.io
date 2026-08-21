@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 445,
+ "count": 446,
  "entries": [
+  {
+   "slug": "two_heads_touching",
+   "title": "Two heads touching",
+   "ts": "2026-08-21T23:44:45+00:00",
+   "date": "21 Aug 2026",
+   "topic": "expectation_tricks",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/two_heads_touching",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Do not try to describe the whole line -- that road is enormous. Count PLACES instead. How many places are there where two coins touch, if there are a hundred coins? What is the chance that one particular place shows two heads? Then ask the question people get stuck on: neighbouring places share a coin, so does adding them up still work?"
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "eleven_coins_against_ten",
    "title": "Eleven coins against ten",
