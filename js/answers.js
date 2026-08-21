@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 444,
+ "count": 445,
  "entries": [
+  {
+   "slug": "eleven_coins_against_ten",
+   "title": "Eleven coins against ten",
+   "ts": "2026-08-21T22:46:35+00:00",
+   "date": "21 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/eleven_coins_against_ten",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't start adding up binomial terms -- there is a one-line way in. A coin does not know which face we chose to call heads, so anything you can say about heads you can also say about tails. Ask yourself: on a single throw, can Ada beat Ben on heads AND on tails at the same time? Can she fail at both? Answer those two, and the number falls out."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "blindfold_coins_split",
    "title": "Blindfold coins split",
