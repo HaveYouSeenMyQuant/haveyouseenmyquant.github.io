@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 443,
+ "count": 444,
  "entries": [
+  {
+   "slug": "blindfold_coins_split",
+   "title": "Blindfold coins split",
+   "ts": "2026-08-21T05:47:50+00:00",
+   "date": "21 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/blindfold_coins_split",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Stop trying to find the heads -- you can't, blindfolded. Instead lean on one fact: flipping a coin swaps a head for a tail and a tail for a head. If you set aside a small group and flip it, its number of tails becomes its number of heads. Ask what the OTHER group's head-count must be, and how flipping could make the two match."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "at_least_one_six",
    "title": "At least one six",
