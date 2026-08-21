@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 442,
+ "count": 443,
  "entries": [
+  {
+   "slug": "at_least_one_six",
+   "title": "At least one six",
+   "ts": "2026-08-21T04:16:34+00:00",
+   "date": "21 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/at_least_one_six",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Two dice have 36 equally likely outcomes. Cross out every pair with no six at all, and carefully list the ones that DO have at least one six (watch out -- don't double-count double-six). Then ask what fraction of those survivors are double-six. The clue \"at least one\" is weaker than \"a specific one,\" which is exactly why the gut answer is too big."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "do_the_marbles_match",
    "title": "Do the marbles match",
