@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 440,
+ "count": 441,
  "entries": [
+  {
+   "slug": "six_rolls_how_many_faces",
+   "title": "Six rolls, how many faces",
+   "ts": "2026-08-21T00:33:03+00:00",
+   "date": "21 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/six_rolls_how_many_faces",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't count distinct faces head-on. Pick ONE face, say the 3, and find the chance it shows up at least once in six rolls -- easiest by first finding the chance it NEVER shows (each roll misses it with chance 5/6). Then add that same chance across all six faces. That sum IS the average number of different faces."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "two_boxes_one_white",
    "title": "Two boxes, one white",
