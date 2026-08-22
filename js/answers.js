@@ -14358,7 +14358,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "busiest_slot",
+    "lesson": "u10l2",
+    "unit": 10,
+    "prompt": "A hundred parcels are dropped into a hundred pigeonholes, each parcel landing in a hole picked at random — how full is the fullest hole likely to end up?"
+   }
   },
   {
    "slug": "two_percent_to_three_percent",
@@ -21961,7 +21967,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "coin_spread",
+    "lesson": "u2l1",
+    "unit": 3,
+    "prompt": "Flip a fair coin 1000 times. You almost certainly won't get exactly 500 heads. Typically, how far off will you be?"
+   }
   },
   {
    "slug": "four_from_three_and_five",
