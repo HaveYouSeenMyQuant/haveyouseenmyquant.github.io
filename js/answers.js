@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 454,
+ "count": 455,
  "entries": [
+  {
+   "slug": "rectangles_on_the_board",
+   "title": "Rectangles on the board",
+   "ts": "2026-08-22T05:17:20+00:00",
+   "date": "22 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/rectangles_on_the_board",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Counting rectangles by size works but it is a slog. Try this instead: forget the rectangles and look at the LINES of the board. How many vertical lines are there, and how many horizontal? Now ask what exactly you have to choose in order to pin down one particular rectangle — and how many ways there are to make that choice."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_last_amoeba",
    "title": "The last amoeba",
