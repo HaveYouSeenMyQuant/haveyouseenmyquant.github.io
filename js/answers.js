@@ -10043,7 +10043,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "pizza_size",
+    "lesson": "u3l1",
+    "unit": 5,
+    "prompt": "One 12-inch pizza, or two 8-inch pizzas, for the same money. Which gives you more pizza?"
+   }
   },
   {
    "slug": "the_host_knows_which_door",
@@ -19839,7 +19845,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "odd_handshakes",
+    "lesson": "u9l1",
+    "unit": 9,
+    "prompt": "People at a party shake hands, some a lot, some not at all, and at the end you count how many people shook an odd number of hands."
+   }
   },
   {
    "slug": "sample_spread_runs_small",
