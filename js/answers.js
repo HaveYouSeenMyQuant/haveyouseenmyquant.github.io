@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 470,
+ "count": 471,
  "entries": [
+  {
+   "slug": "two_metres_looks_like",
+   "title": "Two metres of water",
+   "ts": "2026-08-22T14:54:33+00:00",
+   "date": "22 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "About one and a half metres. Three quarters of the real depth -- the pool looks a full half-metre shallower than it is.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rule is short: looking straight down, the apparent depth is the real depth divided by the refractive index of water."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2 m / 1.333  =  1.50 m"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Light from the coin leaves the water and bends AWAY from the vertical as it goes into the air, because it speeds up. Your eye does not know that. It assumes light travelled in a straight line, and traces the ray it receives back along that straight line -- which crosses the vertical higher up than the coin actually is. So the coin appears raised, and the whole floor with it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nothing about the water is doing anything unusual. The mistake is entirely in the assumption your visual system makes, and cannot help making."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT IT MEANS IN PRACTICE, which is the part worth carrying. A pool that looks comfortably chest-deep is a third deeper again than it looks. That is not a curiosity: it is why \"it looked shallow\" appears in diving-accident reports, and why pool depths are painted on the side in numbers rather than left to the eye."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same factor explains a straw looking snapped at the waterline, a spear-fisher aiming below the fish, and why a river always looks easier to wade than it is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Checked by ray tracing rather than quoted: sending a ray from the coin at one degree off vertical, refracting it with Snell's law and back-projecting the emerging ray puts the image at 1.5002 m. The agreement loosens as the angle opens -- 1.4821 m at ten degrees -- which is exactly what \"looking straight down\" is doing in the question."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "heard_but_not_seen",
    "title": "Heard but not seen",
