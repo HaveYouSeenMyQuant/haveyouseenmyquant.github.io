@@ -2017,6 +2017,22 @@
      * anything is drawn. js/answers_ui.js reads these two rather than working
      * it out again — one rule, in one place, so the analytics and the screen
      * can never disagree about what happened. */
+    /* Show the paid shelf from outside the road. The libraries render into
+     * #libraryList, which lives on the PATH screen and nowhere else, so until
+     * this existed the only way to reach them was to already be on the road --
+     * where 3% of visitors go. See P6 in monetization/EXPERIMENTS.md. */
+    showLibraries: function (from) {
+      try { go('path'); } catch (e) {}
+      try { renderLibraries(); } catch (e) {}
+      QQA.track('library_shelf_opened', { from: from || 'unknown' });
+      setTimeout(function () {
+        var host = document.getElementById('libraryList');
+        if (!host) return;
+        try { host.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+        catch (e) { try { host.scrollIntoView(); } catch (e2) {} }
+      }, 60);
+    },
+
     entryPath: function () { return entryPathTaken; },
     landsOnAnswers: landsOnAnswers,
 
