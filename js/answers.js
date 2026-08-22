@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 455,
+ "count": 456,
  "entries": [
+  {
+   "slug": "the_jar_before_last",
+   "title": "The jar before last",
+   "ts": "2026-08-22T05:54:08+00:00",
+   "date": "22 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_jar_before_last",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Whatever time you answered, check it against the rule instead of against your instinct — take your time, work out how much would be in the jar then, and see whether the minutes that are left can really finish the job. Then, for a shock worth more than the answer itself, work out roughly how full the jar looked at half past twelve. Most people have the size of that number wrong by a factor of millions."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "rectangles_on_the_board",
    "title": "Rectangles on the board",
