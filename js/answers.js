@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 450,
+ "count": 451,
  "entries": [
+  {
+   "slug": "the_seventh_key",
+   "title": "The seventh key",
+   "ts": "2026-08-22T02:49:53+00:00",
+   "date": "22 Aug 2026",
+   "topic": "paradox",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_seventh_key",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Two different questions hide in this one, and picking the wrong one is the whole trap. Question A: before you start, which key will turn out to be the winner? Question B: you have already failed six times, will this next one work? Those have different answers, and only one of them is what was asked. Work out A by imagining the ten keys laid in a line before you touch any of them."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "odd_flip_or_even_flip",
    "title": "Odd flip or even flip",
