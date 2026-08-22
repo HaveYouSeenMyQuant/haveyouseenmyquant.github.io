@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 467,
+ "count": 468,
  "entries": [
+  {
+   "slug": "fill_it_but_never_paint_it",
+   "title": "Fill it but never paint it",
+   "ts": "2026-08-22T11:11:09+00:00",
+   "date": "22 Aug 2026",
+   "topic": "calculus",
+   "q": null,
+   "a": "You can FILL it, and you can never PAINT it. The horn holds exactly pi cubic units of paint, and its inside surface is infinite.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is Gabriel's horn, and the two calculations sit side by side."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE VOLUME. Slice the horn into discs. At position x the disc has radius 1/x, so its area is pi/x^2, and the volume out to a cut at b is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    pi * integral_1^b  dx/x^2   =   pi [ -1/x ]_1^b   =   pi ( 1 - 1/b )"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Let the cut run off to infinity and that settles on exactly pi. Finite. A tin of paint holding pi cubic units fills the whole endless horn."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SURFACE. The same slices give bands of area 2*pi*(1/x)*sqrt(1 + 1/x^4) dx. Throw away the square root -- it is always at least 1 -- and what is left is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2 * pi * integral_1^b  dx/x   =   2 * pi * ln(b)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which grows without limit. So the surface is bigger than something that goes to infinity, and is therefore infinite. No amount of paint covers it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY BOTH CAN BE TRUE, which is the part worth having. The volume adds up 1/x^2 and the surface adds up 1/x. Those two behave completely differently: the squares converge, the plain reciprocals do not. The horn narrows fast enough that the space inside runs out, and slowly enough that the skin never does."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE PARADOX DISSOLVES if you push it. \"Fill it, and the paint touches the whole inside surface, so you have painted it.\" True -- but only with a coat that gets thinner and thinner as the horn narrows, without limit. Real paint has a thickness, and a coat of constant thickness on an infinite surface needs infinite paint. The contradiction was never between the two integrals; it was in quietly assuming the coat had a fixed depth."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "golf_balls_fill_a_bus",
    "title": "Golf balls fill a bus",
