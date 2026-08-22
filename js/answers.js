@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 451,
+ "count": 452,
  "entries": [
+  {
+   "slug": "the_bag_that_never_settles",
+   "title": "The bag that never settles",
+   "ts": "2026-08-22T03:26:42+00:00",
+   "date": "22 Aug 2026",
+   "topic": "random_walk",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_bag_that_never_settles",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Do not guess — work out the small cases by hand and the pattern jumps out. After ONE pull the jar is either 2 red 1 blue or 1 red 2 blue: how likely is each? Now do two pulls and list every way to reach 3-1, 2-2 and 1-3. Write the chances down and look at them side by side before you decide what a thousand pulls does."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_seventh_key",
    "title": "The seventh key",
