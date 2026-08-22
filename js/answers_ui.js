@@ -275,9 +275,31 @@
    *   - once per visit, sharing roadOfferDone, so the two exits can never
    *     both appear.
    */
+  /* WHY THE EXIT SLOT WAS EMPTY (2026-08-22).
+   *
+   * answer_unlocked ran 22 times in 7 days and answers_road_question_shown ran
+   * 0 times. Something between the two always stops, and the ledger cannot say
+   * what: "offerRoad returned early" and "offerRoad was never called" produce
+   * an identical zero, and they need opposite fixes.
+   *
+   * So every exit from this path now names itself once per page load. This is
+   * one event on a path that currently fires none -- it cannot spam anything
+   * that is not already silent. */
+  var exitReported = false;
+  function exitEmpty(why, extra) {
+    if (exitReported) return;
+    exitReported = true;
+    var p = { reason: why, gated: locked(), utm: utm() };
+    if (extra) for (var k in extra) {
+      if (Object.prototype.hasOwnProperty.call(extra, k)) p[k] = extra[k];
+    }
+    try { QQA.track('answers_exit_slot_empty', p); } catch (e) {}
+  }
+
   function offerLibrary(art, entry, trigger, why) {
-    if (roadOfferDone || !art || !art.parentNode) return;
-    if (locked()) return;          /* never to someone still behind the gate */
+    if (roadOfferDone) { exitEmpty('lib_offer_done'); return; }
+    if (!art || !art.parentNode) { exitEmpty('lib_no_anchor'); return; }
+    if (locked()) { exitEmpty('lib_still_gated'); return; }          /* never to someone still behind the gate */
     var libs = [];
     /* window.QQ_DATA, NOT QQData. The first version referenced a global
      * that does not exist; the try/catch swallowed the ReferenceError,
@@ -289,7 +311,7 @@
     for (var i = 0; i < libs.length; i++) {
       if (libs[i] && libs[i].status !== 'soon') { lib = libs[i]; break; }
     }
-    if (!lib) return;              /* nothing sellable -- say nothing */
+    if (!lib) { exitEmpty('lib_none_sellable', { count: libs.length }); return; }
 
     roadOfferDone = true;
     var shownAt = Date.now();
@@ -344,7 +366,8 @@
   }
 
   function offerRoad(art, entry, trigger) {
-    if (roadOfferDone || !art || !art.parentNode) return;
+    if (roadOfferDone) { exitEmpty('road_offer_done'); return; }
+    if (!art || !art.parentNode) { exitEmpty('road_no_anchor'); return; }
     var next = null;
     try { next = QQApp.nextRoadQuestion(); } catch (e) { next = null; }
     /* Never offer a lesson that would answer back with a wall or a sheet.
@@ -445,6 +468,10 @@
      * the last line of the working arriving. `body.parentNode` is read at fire
      * time, not now: card() fills the body before putting it in the article. */
     function reached() {
+      /* fires before the 700ms beat, so 'the observer never fired' and
+       * 'the offer returned early' stop looking the same in the data */
+      try { QQA.track('answers_read_end_reached', { slug: entry ? entry.slug : null }); }
+      catch (e) {}
       setTimeout(function () { offerRoad(body.parentNode, entry, 'read_end'); }, 700);
     }
 
