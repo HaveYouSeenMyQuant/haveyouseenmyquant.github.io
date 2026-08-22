@@ -372,3 +372,19 @@ Both are recorded because each looked like a lever we control, and neither is.
 
 SO: no lever in our control was found on this path. The email objective is
 still bounded by the DM destination, which lives in the OpenReply app.
+
+## The road offer is not broken (checked live 2026-08-22)
+
+`site_metrics.py` prints "the road question was never offered in this window —
+either nobody opened and left an answer, or the transition is not firing".
+Checked the second half in a browser against the live site rather than guessing:
+
+    QQApp.nextRoadQuestion()  ->  {lessonId: "u1l0", questionId: "best_spinner",
+                                   lock: null, hasPrompt: true}
+
+`offerRoad` skips only when that returns null or a locked lesson. It returns an
+unlocked question with a prompt for a fresh visitor, so the guard passes and the
+offer fires. The line is explained by traffic, not a bug: the window held 7
+arrivals in total, and the offer only appears when a reader LEAVES an answer.
+
+Do not spend time debugging that path on the strength of that message alone.

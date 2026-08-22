@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 449,
+ "count": 450,
  "entries": [
+  {
+   "slug": "odd_flip_or_even_flip",
+   "title": "Odd flip or even flip",
+   "ts": "2026-08-22T02:13:25+00:00",
+   "date": "22 Aug 2026",
+   "topic": "gamblers",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/odd_flip_or_even_flip",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't add up an endless list of chances if you don't want to. Ask instead what happens after TWO tails: whose turn is it, and how does the game look compared with the very start? If the position repeats, you can write one person's chance in terms of itself and solve a single line. And before any of that — ask who gets the very first flip, and how often that flip alone ends everything."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_stall_pays_the_square",
    "title": "The stall pays the square",
