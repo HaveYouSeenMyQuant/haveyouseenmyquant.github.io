@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 456,
+ "count": 457,
  "entries": [
+  {
+   "slug": "closer_to_the_middle",
+   "title": "Closer to the middle",
+   "ts": "2026-08-22T06:30:34+00:00",
+   "date": "22 Aug 2026",
+   "topic": "geometry_prob",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/closer_to_the_middle",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Stop thinking about one grain and start thinking about WHERE the winning grains are. Shade in every spot on the tile that is nearer the middle than any edge — what shape is that patch, and how much of the tile does it cover? To find its boundary, write both distances down and set them equal. Squaring both sides is the step that reveals what the boundary really is, and it is not the circle most people draw."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_jar_before_last",
    "title": "The jar before last",
