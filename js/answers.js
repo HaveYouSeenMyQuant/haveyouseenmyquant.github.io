@@ -16,8 +16,66 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 461,
+ "count": 462,
  "entries": [
+  {
+   "slug": "fifteen_from_seven_and_eleven",
+   "title": "Fifteen from a seven and an eleven",
+   "ts": "2026-08-22T09:01:53+00:00",
+   "date": "22 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Start them both together. Then:",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    at 7 minutes    the seven runs out. FLIP THE SEVEN.",
+      "    at 11 minutes   the eleven runs out. The seven has been running four minutes,",
+      "                    so there are four minutes of sand sitting in its bottom.",
+      "                    FLIP THE SEVEN AGAIN -- it now runs for exactly four minutes.",
+      "    at 15 minutes   it runs out. Stop."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You never touch the eleven again after starting it. Both flips are of the seven."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The idea worth taking away. Most people try to build 15 out of 7s and 11s by adding and subtracting whole runs -- 7 + 7 = 14, 11 + 7 = 18, 11 - 7 = 4 -- and get stuck, because 15 is not a tidy combination of full glasses. The move that unlocks it is flipping a glass that is PART WAY THROUGH. A glass that has run for four minutes is, once you turn it over, a four-minute timer. The sand that has already fallen is the measurement."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole trick, and it is why \"you cannot stop one halfway\" is in the question: without it you could simply pause a glass and the puzzle would collapse."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A detail that catches people. Fourteen minutes is reachable BEFORE fifteen -- just flip the seven at 7 and let it run out again. So \"stop at the first moment you can\" is not the answer; you have to go past a perfectly good stopping point to get the one you were asked for."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Checked by exhaustive search rather than by memory: over every reachable state, trying every combination of flips at every moment a glass empties, 15 first appears at t = 15 after three events, by the route above. The reachable times begin 0, 7, 11, 14, 15, 17, 18, 21, 22, 25..."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_rolling_rectangles_trail",
    "title": "A rolling rectangle's trail",
@@ -25,9 +83,77 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "geometry",
    "q": null,
-   "a": "Full answer (free): the four sectors, why one of them has radius zero, and why the leftover wedges make exactly one rectangle and not two -- it is on the site, link in bio.",
-   "why": [],
-   "src": "comment"
+   "a": "For a rectangle with sides a and b, the area under one full revolution of the marked corner is",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (pi/2)(a^2 + b^2)  +  ab"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and for the 4 by 5 that is 20.5*pi + 20, which is about 84.40 square units."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Where it comes from. Every tip is a quarter turn about whichever corner is touching the line, so the marked corner sweeps a quarter circle. Its radius is simply how far the marked corner is from the corner being pivoted on, and over one revolution those four distances are:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    the diagonal   sqrt(a^2 + b^2)     -> quarter circle of radius sqrt(41)",
+      "    one side       a                   -> radius 4",
+      "    ZERO                               -> the tip where the marked corner IS the pivot,",
+      "                                          so it does not move at all",
+      "    the other side b                   -> radius 5"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Adding the four quarter-circle sectors:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (pi/4)(a^2 + b^2)  +  (pi/4)a^2  +  0  +  (pi/4)b^2  =  (pi/2)(a^2 + b^2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which for a=4, b=5 is (pi/2)(41) = 20.5*pi."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then the wedges. Between consecutive arcs, the region down to the line is made of triangles that are copies of the rectangle's own halves, and they reassemble into exactly ONE rectangle -- area ab = 20. Not two, which is the guess most people make, and it is the part worth checking rather than believing. Simulating the roll and integrating under the traced points gives 84.4026; the sectors alone give 64.4026; the difference is 20.0000 on the nose."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The zero-radius tip is the nice part. One of the four tips does not move the marked corner at all -- it is the pivot itself -- so a rectangle's trail has only THREE arches per revolution, not four."
+     ]
+    }
+   ],
+   "src": "answer"
   },
   {
    "slug": "split_the_milk_in_two",
@@ -36,9 +162,58 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): the seven pours in order, why the small jug is a shuttle and never a destination, and the one wasteful-looking move everybody skips -- it is on the site, link in bio.",
-   "why": [],
-   "src": "comment"
+   "a": "SEVEN pours, and there is no way to do it in six.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Write the amounts as (churn, five-jug, three-jug), starting at (8, 0, 0):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1.  churn -> five        (3, 5, 0)",
+      "    2.  five  -> three       (3, 2, 3)",
+      "    3.  three -> churn       (6, 2, 0)",
+      "    4.  five  -> three       (6, 0, 2)",
+      "    5.  churn -> five        (1, 5, 2)",
+      "    6.  five  -> three       (1, 4, 3)",
+      "    7.  three -> churn       (4, 4, 0)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and there is your four in the churn and four in the five-jug."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The one idea worth taking away. The three-litre jug is never where the answer ends up -- it cannot be, since it does not hold four. It is a SHUTTLE. Its whole job is to carry awkward amounts out of the five-jug so the five-jug can be refilled, and it is the step at 4 above -- moving 2 litres for no visible gain -- that people skip when they get stuck. That move looks like it wastes a pour. It is the one that makes the rest work."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why seven is the floor, rather than just the best anyone found: the puzzle has only SIXTEEN reachable states in total, so a computer can check every route exhaustively. Breadth-first search reaches (4, 4, 0) first at depth seven, and depth-first-found routes of eight or nine pours are common, which is why \"I found a way\" and \"I found the shortest way\" are different claims here."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One more thing that falls out of the search: (4, 0, 4) is impossible. The three-litre jug can never hold four, so the two equal halves MUST finish in the churn and the five."
+     ]
+    }
+   ],
+   "src": "answer"
   },
   {
    "slug": "beat_the_coin_flip",
@@ -47,9 +222,112 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "quant_teaser",
    "q": null,
-   "a": "Full answer (free): the working, the reason it beats a coin flip, and why the edge can be made tiny but never zero -- it is on the site, link in bio.",
-   "why": [],
-   "src": "comment"
+   "a": "YES -- and you can do it no matter how the two numbers are chosen, even by someone who knows your method and is trying to stop you.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the whole trick. BEFORE you turn anything over, pick a number of your own at random -- call it T -- in a way that could land anywhere on the number line. A normal bell-curve draw does the job. Now turn a slip over and see x."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    if x is BIGGER than your T, say the other slip is SMALLER",
+      "    if x is SMALLER than your T, say the other slip is BIGGER"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it works. Let the two hidden numbers be a and b with a < b. Your T lands in one of three places:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "T below both. Then you answer \"smaller\" only when you turned over b, and \"bigger\""
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    only when you turned over a -- so you are right exactly when you happened to turn over",
+      "    b. That is a coin flip: 1/2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "T above both. By the same reasoning you are right exactly when you turned over a."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Again 1/2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "T BETWEEN a and b. Now look: if you turned over a, then a < T, so you say \"bigger\" --"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    and the other slip is b, which IS bigger. Right. If you turned over b, then b > T, so",
+      "    you say \"smaller\" -- and the other slip is a, which IS smaller. Right. You win with",
+      "    CERTAINTY, whichever slip you turned over."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So, writing p for the chance your T lands strictly between the two hidden numbers,"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(win)  =  1/2 x (1 - p)  +  1 x p  =  1/2 + p/2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and because your T can land anywhere, p is strictly greater than zero for ANY two distinct numbers. So you always beat the coin flip."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The honest caveat, and it is the interesting part: p can be tiny. If the two numbers sit a millionth apart, a standard bell-curve draw lands between them about 4 times in ten million, so you win about 50.00002% of the time. Push them out to 10.0 and 10.5 and the edge falls below what a computer can even store as a number -- real, but past the point of being useful. You cannot make the edge BIG against an opponent who chooses well. You can always make it POSITIVE, and \"strictly better than a half\" is the whole claim."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is Thomas Cover's problem, from 1987."
+     ]
+    }
+   ],
+   "src": "answer"
   },
   {
    "slug": "one_suit_in_five_cards",
@@ -58,17 +336,76 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "combinatorics",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_suit_in_five_cards",
+   "a": "33/16660 — about 1 in 505, or roughly two hands in every thousand.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Do not try to pick a suit first. Deal the first card and notice it cannot fail — whatever it is, its suit becomes the target. Now ask what has to happen for the SECOND card, given what is left in the pack, and keep going. Four fractions multiplied together is the whole job. If you want to check yourself, count whole hands instead and see that you land on the same number."
+      "The quickest way there is to stop thinking about the first card at all. Whatever it is, it has SOME suit, and that suit is now the one you need. So deal it and ask only what has to happen next."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "After the first card there are 51 left, and 12 of them match its suit:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    second card   12 in 51",
+      "    third card    11 in 50",
+      "    fourth card   10 in 49",
+      "    fifth card     9 in 48"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Multiply those four together and you get 11880 / 5997600 = 33/16660 = 0.00198. About 1 in 505."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The counting route gets the identical fraction and is worth seeing because it generalises. There are C(52,5) = 2,598,960 different five-card hands. A hand of one suit means choosing a suit (4 ways) and then choosing five of that suit's thirteen cards, C(13,5) = 1,287 ways:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    4 x 1287 / 2598960  =  5148 / 2598960  =  33/16660"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two completely different计算 landing on the same fraction is the point — if you can only do it one way, you cannot check yourself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Where intuition goes wrong: people anchor on \"four suits, so about one in four\" and then adjust downward far too little, or they think of the FIRST card as needing to be special. It does not. The work is done entirely by the four cards after it, and each one is fighting a pack that is emptying of its suit while staying full of the other three."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it gets asked: it takes twenty seconds, it has two clean routes, and an interviewer learns immediately whether you reach for the sequential story or the counting one — and whether you noticed that the first card is free."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "closer_to_the_middle",
@@ -77,17 +414,81 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "geometry_prob",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/closer_to_the_middle",
+   "a": "The EDGE, and it is not close: only about 22 grains in every 100 land nearer the middle than they do to an edge. Exactly, the middle's share of the tile is",
    "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (4 x sqrt(2) - 5) / 3  =  0.21895..."
+     ]
+    },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Stop thinking about one grain and start thinking about WHERE the winning grains are. Shade in every spot on the tile that is nearer the middle than any edge — what shape is that patch, and how much of the tile does it cover? To find its boundary, write both distances down and set them equal. Squaring both sides is the step that reveals what the boundary really is, and it is not the circle most people draw."
+      "so nearly four grains in five are closer to an edge."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is why the middle loses so badly, and it is worth seeing before the algebra. \"Closer to the middle\" is a region, and that region is a small blob around the centre. Everything outside it — the whole frame of the tile, including all four corners — is closer to an edge. A tile is mostly frame."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the working. Put the middle of the tile at 0 and let the tile run from -1/2 to 1/2 in both directions. By symmetry, look only at the eighth of the tile where x is the biggest of the two distances from the middle, so the nearest edge is the one at x = 1/2. Then"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    distance to the middle  = sqrt(x^2 + y^2)",
+      "    distance to that edge   = 1/2 - x"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "\"Closer to the middle\" means sqrt(x^2 + y^2) < 1/2 - x. Both sides are positive here, so square them:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    x^2 + y^2 < 1/4 - x + x^2      ->      y^2 < 1/4 - x      ->      x < 1/4 - y^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is a PARABOLA, not a circle — the boundary of the middle region is four parabolic arcs, one per edge, meeting at four points. That surprises people who expect a disc, and it is the reason the answer is not something tidy like pi/4."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The strip runs while 1/4 - y^2 stays above the line x = y, which holds up to y = (sqrt(2) - 1)/2. Integrating the width across that range and multiplying by the eight symmetric pieces gives (4 sqrt(2) - 5)/3 = 0.21895."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why interviewers like it: the question sounds balanced — middle versus edge, two things, surely near enough even — and it is nowhere near. The skill is turning a comparison of two distances into a region, then noticing the region is bounded by a parabola because squaring both sides kills the square root. Anyone who guesses \"about half\" has not asked how much tile is near the edge, and the answer to THAT question is: nearly all of it."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_jar_before_last",
@@ -96,17 +497,63 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "everyday",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_jar_before_last",
+   "a": "One minute before one o'clock. Not half past twelve — one minute before the end.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Whatever time you answered, check it against the rule instead of against your instinct — take your time, work out how much would be in the jar then, and see whether the minutes that are left can really finish the job. Then, for a shock worth more than the answer itself, work out roughly how full the jar looked at half past twelve. Most people have the size of that number wrong by a factor of millions."
+      "The reason is the rule itself, run backwards. Every minute the jar goes from however much it holds to twice that. So go back one minute from full and you have half full, because that half is exactly what turned into the whole. The last doubling is the one that fills the jar, and it happens in the final minute."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Half past twelve is the answer everyone reaches for, and it is spectacularly wrong. At half past, thirty of the sixty minutes have passed, so the jar holds 2^30 specks out of the 2^60 it ends with. That is one part in 2^30 — about ONE BILLIONTH of the jar. Half an hour in, the jar looks completely empty. You would swear nothing was happening."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole lesson, and it is why the question gets asked. Anything that doubles spends almost all of its life looking like nothing, and then finishes in a rush:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    half past twelve   a billionth full — looks empty",
+      "    ten to one         a thousandth full — still looks empty",
+      "    five to one        one thirty-second full",
+      "    one minute to one  HALF full",
+      "    one o'clock        full"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nothing about the first fifty minutes warns you about the last ten. The jar was never \"filling steadily\"; it was always doubling, and doubling only becomes visible at the end."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same shape, with the same surprise, runs underneath compound interest, viral spread, resource depletion and any capacity that fills by doubling. If your server load doubles every month and you are at 3% of capacity, you are not comfortable — you are about five months from full, and four of those months will look fine."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Worth noticing: the answer does not depend on the hour at all. Whatever time the jar becomes full, it was half full one minute earlier. Change it to a jar that fills in a day, or a year, and the answer is still \"one minute before\"."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "rectangles_on_the_board",
@@ -115,17 +562,66 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "combinatorics",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/rectangles_on_the_board",
+   "a": "1296 — and the way to get there takes one idea, not a long count.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Counting rectangles by size works but it is a slog. Try this instead: forget the rectangles and look at the LINES of the board. How many vertical lines are there, and how many horizontal? Now ask what exactly you have to choose in order to pin down one particular rectangle — and how many ways there are to make that choice."
+      "Stop thinking about rectangles and think about LINES. A chessboard has nine vertical lines running down it (eight columns need nine lines to fence them) and nine horizontal lines running across."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now here is the whole trick: every rectangle on the board is decided completely by choosing two of those vertical lines for its left and right edges, and two of the horizontal lines for its top and bottom. Pick any two verticals and any two horizontals and you have named exactly one rectangle. Pick a different pair and you get a different one. Nothing is missed and nothing is counted twice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So how many ways are there to pick 2 lines out of 9? That is 9 x 8 / 2 = 36 — the halving is because picking line 3 then line 7 gives the same pair as picking 7 then 3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two independent choices, 36 each:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    36 x 36 = 1296"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the answer, and the same reasoning handles any board instantly. On an n by n board it is [n(n+1)/2] squared. A 3x3 gives 36, a 10x10 gives 3025."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Careful — this is NOT the count of SQUARES. Squares are the special rectangles whose width equals their height, and there are only 204 of those on a chessboard (64 of size 1, 49 of size 2, 36 of size 3, and so on down to 1 of size 8 — the square numbers, added up). 204 and 1296 answer two different questions about the same board, and mixing them up is the commonest error here."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why an interviewer asks it: the naive route is to count rectangles by size — 1x1, 1x2, 1x3 — and it works, but it is a long slog with many chances to slip. The line-choosing route turns a counting problem into two independent choices, which is the single most useful move in combinatorics. They are watching for whether you look for the choice structure or start enumerating."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_last_amoeba",
@@ -134,17 +630,104 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "random_walk",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_last_amoeba",
+   "a": "About 0.414 — the square root of two, minus one. Slightly less than a coin flip, so the pond is a little more likely to live forever than to die out.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: \"Forever\" sounds impossible to handle, so shrink it. Call the chance one amoeba's line dies out p. Now look only at the FIRST minute: for each of the four things that can happen, what has to happen afterwards for the line still to die out? The two-split case is the one worth pausing on — both new lines have to die, and they do not affect each other. Write that down and you get one equation in p."
+      "Here is the whole idea in one move. Call p the chance that ONE amoeba's family line eventually dies out completely. Now look at what that one amoeba does in its first minute, and notice that whatever it produces, each new amoeba starts its own line that behaves exactly like the original — same rules, same chances, and none of them affects the others."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    it dies              chance 1/4    the line is over            -> dies out",
+      "    it stays             chance 1/4    one amoeba, same problem    -> chance p",
+      "    it splits into two   chance 1/4    TWO lines, both must die    -> chance p x p",
+      "    it splits into three chance 1/4    THREE lines, all must die   -> p x p x p"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add those up, and p has to satisfy"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    p = 1/4 + (1/4)p + (1/4)p^2 + (1/4)p^3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Multiply both sides by 4 and tidy up:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    p^3 + p^2 - 3p + 1 = 0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now, p = 1 is always a root of one of these — \"everything dies out eventually\" always satisfies the equation — and it is always the wrong root to take. Divide it out:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (p - 1)(p^2 + 2p - 1) = 0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the interesting root solves p^2 + 2p - 1 = 0, which gives p = -1 + sqrt(2). The other solution is negative and a chance cannot be negative, so"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    p = sqrt(2) - 1 = 0.41421..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rule that picks between p = 1 and p = 0.414 is worth remembering: the extinction chance is always the SMALLEST non-negative root, never the largest."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sanity check without any algebra: on average one amoeba turns into (0 + 1 + 2 + 3)/4 = 1.5 amoebas per minute. Anything that multiplies by more than 1 on average has a real chance of running away forever — which is why the answer is under a half rather than over it. If the average had been 1 or less, the pond would empty with certainty, every time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it gets asked: the trick is spotting that each child starts an identical, independent copy of the same problem, which turns \"forever\" into a single equation in one unknown. That self-similarity move is the whole of branching processes, and it is how people model epidemics, nuclear chain reactions, surname survival and viral shares."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_bat_and_the_ball",
@@ -153,17 +736,45 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "everyday",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_bat_and_the_ball",
+   "a": "Five pence. Almost everybody says ten, and the beautiful thing about this question is that you can prove ten wrong in one line without any algebra at all.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Whatever answer arrived first, spend four seconds testing it before you commit. Take your ball price, add a pound to get the bat, and add the two together — do you land back on one pound ten? If not, you have just disproved it yourself. Then try this: take the one pound difference out of the total FIRST, and ask what is left and who it belongs to."
+      "Try it. If the ball were ten pence, the bat costs a pound more, so the bat is one pound ten. Add them up: one pound ten plus ten pence is one pound twenty. But the pair was supposed to cost one pound ten. So ten pence cannot be right."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the fix. The two prices differ by exactly one pound, and together they make one pound ten. Take that one pound difference out of the total first: one pound ten minus one pound leaves ten pence, and THAT ten pence is what is shared equally between the two — five pence each. So the ball is five pence and the bat is five pence plus a pound, which is one pound five. Check it: five plus one hundred and five is one hundred and ten. Correct, and the gap between them really is one pound."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why nearly everyone says ten. The number \"one pound ten\" splits so naturally into \"one pound\" and \"ten pence\" that the brain hands you the split before you have asked for it. It is not a maths failure — the arithmetic is trivial once you do it. It is a failure to CHECK, and the checking step takes about four seconds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is exactly why it gets asked. This is the most famous item of the Cognitive Reflection Test, and interviewers use it as a ten-second probe of one specific habit: do you hand over the first answer that arrives, or do you test it before you speak? On a trading desk the first number that arrives is very often the plausible-but-wrong one, and the person who reflexively substitutes an easy question for the hard one will do it again with real money. Nobody cares whether you can subtract. They care whether you check."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general shape: when a problem gives you a TOTAL and a DIFFERENCE, take the difference out of the total first, then split what is left. Half of (total minus difference) is the smaller item, every time."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_bag_that_never_settles",
@@ -172,17 +783,52 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "random_walk",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_bag_that_never_settles",
+   "a": "Anything at all — and that is the honest answer, not a dodge. Every share is exactly as likely as every other. Nearly all red, nearly all blue, half and half, one ball in ten red: all the same chance. The jar never settles.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Do not guess — work out the small cases by hand and the pattern jumps out. After ONE pull the jar is either 2 red 1 blue or 1 red 2 blue: how likely is each? Now do two pulls and list every way to reach 3-1, 2-2 and 1-3. Write the chances down and look at them side by side before you decide what a thousand pulls does."
+      "That is worth sitting with, because it is the opposite of what a thousand repetitions normally does. Flip a fair coin a thousand times and you get close to half heads, near enough every time. Here, a thousand pulls tells you almost nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it behaves like this. The rule rewards whatever is already ahead. Pull red, and red gets MORE likely next time. Early luck does not wash out — it compounds. The first few pulls quietly choose a direction, and the growing jar then defends it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But — and this is the part that surprises even people who expect the compounding — it does not run away to all-red or all-blue either. The pull that is most likely to happen is whichever colour leads, but as the jar grows, each new ball moves the mix by less and less. The two effects balance so exactly that no share is favoured over any other."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The exact statement, which you can check by hand for small cases. After n pulls the jar holds n + 2 balls, of which somewhere between 1 and n + 1 are red. Every one of those counts has chance exactly 1 / (n + 1). Try n = 1: the jar ends up 2 red 1 blue or 1 red 2 blue, and each happens half the time. Try n = 2: 3-1, 2-2, 1-3, each exactly a third. Flat, at every single stage, forever."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That flatness is the whole result. In the limit, the share of red is uniform on 0 to 1 — \"pick a number between nought and one at random\" describes the outcome exactly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why an interviewer asks: it is a clean example of a process with no law of averages. Reinforcement — success making success likelier — is everywhere real: a stock that rises attracting buyers, a queue that lengthens because people join the longest one, a paper that gets cited because it has citations, a market maker whose fills move the price. Assuming \"it will average out over enough trials\" is a habit, and this is the counterexample that shows the habit needs a licence, not just optimism."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_seventh_key",
@@ -191,17 +837,67 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "paradox",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_seventh_key",
+   "a": "Exactly the same. The seventh key has a 1 in 10 chance, and so did the first, and so does every other one. Six failures have not improved your position at all, and they have not damaged it either.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Two different questions hide in this one, and picking the wrong one is the whole trap. Question A: before you start, which key will turn out to be the winner? Question B: you have already failed six times, will this next one work? Those have different answers, and only one of them is what was asked. Work out A by imagining the ten keys laid in a line before you touch any of them."
+      "The clean way to see it. Mixing the ring up is the same as laying the ten keys in a line in a random order. The key that opens the door is somewhere in that line, and it is no more likely to be seventh than first — there is nothing about the seventh place that attracts it. So each place holds the working key 1 time in 10. That is the entire argument, and it does not need a single fraction."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For anyone who does not trust that, here is the calculation people actually reach for. To be the seventh key, the first six must all fail and then the seventh must work:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    9/10 x 8/9 x 7/8 x 6/7 x 5/6 x 4/5  x  1/4  =  1/10"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Look at what happens: every numerator cancels the denominator after it, and the whole chain collapses. It comes out 1/10 no matter which position you ask about — try it for the third key or the tenth and the same cancellation happens. That is what \"the order does not matter\" looks like when you write it out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the interesting part, because there IS something that changes as you go. Your chance *given that you have already failed six times* is not 1/10 — it is 1/4, because only four keys remain and one of them works. Both statements are true and they answer different questions:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Before you start, which key will turn out to be the one?   1 in 10, every position.",
+      "    You have failed six. Will THIS one work?                   1 in 4."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Almost everyone who gets this wrong has silently swapped the second question for the first. The question asked was the first one — how likely the seventh key is to be the winner, judged from the start, and compared with the first key judged the same way."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it gets asked: mixing up \"the chance of a thing\" with \"the chance of a thing given what I now know\" is the single most expensive error in applied probability. It is the same confusion behind the gambler who thinks red is due, the trader who reprices after news without updating the base rate, and the test result that seems damning until you ask how common the condition is."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "odd_flip_or_even_flip",
@@ -210,17 +906,73 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "gamblers",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/odd_flip_or_even_flip",
+   "a": "Ada, and it is not close: Ada washes up two thirds of the time, Ben one third. The instinct that odd and even should split it evenly is wrong, and one observation kills it.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't add up an endless list of chances if you don't want to. Ask instead what happens after TWO tails: whose turn is it, and how does the game look compared with the very start? If the position repeats, you can write one person's chance in terms of itself and solve a single line. And before any of that — ask who gets the very first flip, and how often that flip alone ends everything."
+      "Flip one is an odd flip, and it ends the game half the time all by itself. Ada is already at 1/2 before Ben has had a single chance. Everything after that is fighting over the remaining half."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add it up properly. Ben wins if the first head is on flip 2, or 4, or 6, and so on. For the head to be on flip 2, flip 1 must be a tail and flip 2 a head: that is 1/2 x 1/2 = 1/4. For flip 4: three tails then a head, 1/16. For flip 6: 1/64. So"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Ben  =  1/4 + 1/16 + 1/64 + ..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each term is a quarter of the one before it. A run like that adds up to the first term divided by (1 - the ratio): (1/4) / (1 - 1/4) = (1/4) / (3/4) = 1/3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So Ben is 1/3 and Ada is 2/3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The one-line way, which is what an interviewer wants to see. Let A be Ada's chance. Flip one is a head half the time, and Ada wins on the spot. Otherwise — a tail, then a tail, which happens a quarter of the time — the game is back exactly where it started, with Ada to \"go first\" again. So"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    A = 1/2 + (1/4) A     ->     (3/4) A = 1/2     ->     A = 2/3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "No series, no algebra beyond one line. The trick is spotting that two tails restores the original position, which lets you write the answer in terms of itself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it is asked: going first is worth a great deal in any first-to-succeed race, and people systematically underrate it. The same shape decides who wins a first-to-roll-a-six game, which of two patterns shows up first, and who has the edge in a penalty shootout format. If you ever find yourself assuming two alternating players are even, check whether one of them gets to swing first."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_stall_pays_the_square",
@@ -229,17 +981,59 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "finance",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_stall_pays_the_square",
+   "a": "Yes, thirteen pounds is a good price. One roll is worth 15 pounds 17 -- exactly 91/6 = 15.1666... -- so you are paying 13 for something worth a bit over 15. Play all day.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Careful with the order you do things in. There are two tempting routes: work out what a typical roll is and then multiply THAT by itself, or work out all six payouts and combine those. They give different numbers, and only one of them is the price of this bet. Ask yourself which one describes a die that could actually exist."
+      "The calculation is the easy part. The six payouts are 1, 4, 9, 16, 25 and 36 pounds, and each is just as likely as the others, so what a roll is worth is simply their average:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1 + 4 + 9 + 16 + 25 + 36) / 6  =  91 / 6  =  15.1666..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the trap, which is the whole reason this gets asked. Most people reach for the die first: \"a roll is 3.5 on average, and 3.5 times 3.5 is 12.25, so thirteen pounds is a rip-off.\" That is wrong, and it is wrong in a way that costs money."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Averaging first and multiplying second is NOT the same as multiplying first and averaging second. Look at what each one does. The true answer takes the six payouts and averages THEM. The trap averages the six ROLLS and then squares that one number -- which is the payout for a die that always shows 3.5, a die that does not exist."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The gap is exactly 91/6 - 49/4 = 35/12 = 2.9166..., and that number is not random: it is precisely how spread out the die is. Squaring rewards the big rolls far more than it punishes the small ones. Going from 5 to 6 adds 11 pounds; going from 2 to 1 costs only 3. A payout that bends upwards like that is always worth MORE than the payout at the average roll, and the extra is the spread. That is the whole content of what mathematicians call Jensen's inequality, and you have just derived it with a die."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why an interviewer cares: this is not a puzzle, it is a job hazard. Price an option by plugging in the average share price and you get the wrong number, always too low. Estimate a bonus pool, a delivery time, a loss, or a repair cost by feeding in the average input, and if the thing you are computing bends, your answer is wrong in a direction you could have predicted. The question is a ten-second test of whether you know that."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One more thing worth noticing: if the stall charged sixteen pounds it would be a bad bet, and the trap answer of 12.25 would have told you to walk away from a good one at thirteen. The mistake does not just make you inaccurate; it makes you decline free money."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "land_on_the_last_square",
@@ -248,17 +1042,52 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "expectation_tricks",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/land_on_the_last_square",
+   "a": "About 2 in 7 — near enough 0.2857. Not a half, and not \"it depends on where you start\": by the time you are anywhere near a hundred, the chance has settled to the same number, and that number is 2/7.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't try to track every route to the square — there are far too many. Ask instead how much ground ONE roll covers, and what that means for how densely your token's landings are spread along the board in the long run. If your token visits one square out of every so many it travels past, that ratio IS the answer. Then ask yourself why it stops mattering where you started."
+      "The one-line way to see it, and the reason an interviewer asks it: think about how much ground one roll covers. A die shows 1, 2, 3, 4, 5 or 6, and those come up equally often, so a roll moves you 3.5 squares on average. Your token is therefore visiting, in the long run, one square out of every 3.5 it travels past. One in three and a half IS two in seven. That is the whole argument: the chance of landing on any particular faraway square is one over the average size of a step."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The careful version, which is what the exact calculation does. Write h(n) for the chance your running total ever equals exactly n. You reach n only by being on one of the six squares behind it and then rolling the right number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    h(n) = [ h(n-1) + h(n-2) + h(n-3) + h(n-4) + h(n-5) + h(n-6) ] / 6"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "starting from h(0) = 1 (you begin on zero) and treating anything below zero as impossible. The early values wobble: h(1) = 1/6, h(2) = 7/36, h(3) = 49/216 — each one a bit bigger than the last, because there are more ways to arrive. But the wobble dies out fast, and by n = 100 the value has settled onto 2/7 to more decimal places than anybody needs."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things worth taking away. First, the answer does not depend on 100 being the target — ask for 1000 or 57 and you get the same 2/7, because \"far away\" is all that matters. Second, the wobble at the start is real: h(1) is 1/6, which is a long way from 2/7. The settling is what makes the shortcut legal, and an interviewer may well ask you why it settles rather than just what it settles to."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it works: this is a renewal argument. Your token lands on a run of squares spaced 3.5 apart on average, and the long-run density of \"landed-on\" squares has to be one per 3.5 squares of ground covered. It generalises with no extra work — a coin that moves you 1 or 2 squares gives an average step of 1.5, so the answer becomes 1/1.5 = 2/3."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_hands_land_together",
@@ -267,17 +1096,67 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "real_world",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_hands_land_together",
+   "a": "22 times. Almost everyone says 24, and the gap between those two numbers is the whole question.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Stop counting occasions and count LAPS. In twelve hours, how many laps does the long hand complete, and how many does the short one complete? The long hand passes the short one exactly once for every whole lap it GAINS. Work that out and the number falls straight out -- and then check whether your answer double-counts the midnight you started on."
+      "Here is the clean way to see it. Forget clock times and watch the RACE. The minute hand goes round the face once every hour. The hour hand goes round once every twelve hours. So in twelve hours the minute hand completes 12 laps and the hour hand completes 1 lap."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The minute hand therefore GAINS exactly 12 - 1 = 11 laps on the hour hand every twelve hours. And here is the link that finishes it: the minute hand passes over the hour hand exactly once for each whole lap it gains. Gain 11 laps, pass it 11 times. So 11 meetings in twelve hours, and 22 in a day."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why the instinct says 24: people count \"once an hour, twenty-four hours\". But there is no meeting in the hour between eleven o'clock and twelve o'clock -- the minute hand does not catch the hour hand until they arrive at twelve together. Eleven hours, eleven catches, and the twelfth is the one you already counted at the start."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You can watch it drift. The meetings are spaced 12/11 of an hour apart -- one hour and five and five-elevenths minutes, so about 65 minutes and 27 seconds:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    12:00:00, 1:05:27, 2:10:54, 3:16:21, 4:21:49, 5:27:16,",
+      "    6:32:43, 7:38:10, 8:43:38, 9:49:05, 10:54:32, then 12:00:00 again"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Count them: eleven meetings before you are back at twelve. Each one lands a little later in its hour than the last, until one whole hour has no meeting in it at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Counting a whole DAY needs one more piece of care, and it is the part that separates 22 from 23. Midnight at the start and midnight at the end are the same position of the clock face, so counting both would count one meeting twice. A day is a loop, not a line: 11 + 11 = 22."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why an interviewer likes it: it takes ten seconds to ask, the wrong answer arrives instantly and confidently, and the fix is to stop counting occasions and start counting laps gained. That switch -- from \"how often does it happen\" to \"how much does one thing gain on the other\" -- is the same move behind relative speed, closing prices, and every overtaking problem you will ever be handed."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "two_heads_touching",
@@ -286,17 +1165,59 @@ window.QQ_ANSWERS = {
    "date": "21 Aug 2026",
    "topic": "expectation_tricks",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/two_heads_touching",
+   "a": "24.75 prizes on a normal day -- and the fact that it is not a whole number is the point, because no single game ever pays you three quarters of a prize.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Do not try to describe the whole line -- that road is enormous. Count PLACES instead. How many places are there where two coins touch, if there are a hundred coins? What is the chance that one particular place shows two heads? Then ask the question people get stuck on: neighbouring places share a coin, so does adding them up still work?"
+      "The trap first. Almost everyone starts by trying to describe the whole line: how likely is THIS arrangement of a hundred heads and tails, how many arrangements pay four prizes, five, six. That road is real but it is enormous, and no interviewer wants to watch you walk down it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The move is to stop looking at arrangements and start looking at PLACES. Lay the hundred coins out and count the places where two coins touch: between coin 1 and coin 2, between 2 and 3, and so on up to between 99 and 100. That is 99 places -- one fewer than the number of coins, which is the same reason a fence with 100 posts has 99 gaps."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now take one place on its own. It pays a prize when the left coin is heads AND the right coin is heads. Each coin lands heads half the time, and the two coins do not care about each other, so both being heads happens a quarter of the time. So a single place pays, on average, a quarter of a prize."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add up the places: 99 places, each worth a quarter of a prize on average, is 99/4 = 24.75."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The objection worth taking seriously: those places OVERLAP. The place holding coins 5 and 6 shares coin 6 with the place holding coins 6 and 7, so the two places are not independent -- knowing one paid makes the other likelier. Does the shortcut still work? Yes, and this is the whole reason the question is asked. Averages always add, whether or not the things being added are independent. If A is what one place pays and B is what the next pays, the average of A + B is the average of A plus the average of B, full stop. That is not an approximation and it needs no assumption. (What overlap DOES change is how much the total bounces around from game to game -- the spread -- but not the average.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So: 24.75. The number tells you what a long run of days averages out to. Any single day pays you a whole number of prizes; the quarter only ever shows up in the long-run average. Some days pay 19, some pay 31."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general shape is worth carrying out of this: when you are asked for the average count of something, chop the something into the smallest events you can, work out the chance of each tiny event, and add. Overlap, dependence, and awkward structure all wash out."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "eleven_coins_against_ten",
@@ -305,17 +1226,53 @@ window.QQ_ANSWERS = {
    "date": "21 Aug 2026",
    "topic": "probability",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/eleven_coins_against_ten",
+   "a": "Exactly one half. Ada's eleventh coin buys her nothing at all -- the game is dead even, and it stays dead even whatever the two numbers are, as long as Ada has exactly one coin more than Ben.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't start adding up binomial terms -- there is a one-line way in. A coin does not know which face we chose to call heads, so anything you can say about heads you can also say about tails. Ask yourself: on a single throw, can Ada beat Ben on heads AND on tails at the same time? Can she fail at both? Answer those two, and the number falls out."
+      "Here is the cleanest way to see it. Look at the whole throw at once and ask two questions about it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1) Did Ada get more HEADS than Ben?",
+      "    (2) Did Ada get more TAILS than Ben?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Exactly one of those two things happens. Never both, never neither. Why? Ada throws 11 coins and Ben throws 10. Suppose Ada's heads do NOT beat Ben's heads, so Ada's head-count is at most Ben's head-count. Ada's tails are 11 minus her heads, and Ben's tails are 10 minus his heads. Since Ada started with one more coin and did not win on heads, her tails must beat his tails, and by at least one. Run the same argument the other way: if Ada's heads DO beat Ben's heads (by at least one), then Ada's tails cannot also beat Ben's tails. So the two events split every possible throw between them, cleanly, with no overlap and nothing left over."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the second half of the argument: heads and tails are interchangeable. A fair coin has no idea which side we decided to call heads. So the chance of \"Ada gets more heads\" and the chance of \"Ada gets more tails\" must be the same number. Two chances that are equal, and that add to one, are each one half."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the chance Ada beats Ben on heads is exactly 1/2, and the chance Ben survives (ties included) is exactly 1/2 too. The extra coin buys exactly the amount of edge the tie rule takes away, and the two cancel to the last decimal place, for 11 against 10, for 101 against 100, for any n+1 against n."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trap: the extra coin feels like free upside, because it can only ADD heads. It does -- but Ada is not being handed the ties, and ties are common. The interviewer is watching for whether you reach for a giant binomial sum (which does work, and does give 1/2 after a lot of algebra) or spot that swapping the words \"heads\" and \"tails\" turns the question into its own complement. That swap is the whole solution, and it takes one line."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "blindfold_coins_split",
@@ -324,17 +1281,38 @@ window.QQ_ANSWERS = {
    "date": "21 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/blindfold_coins_split",
+   "a": "Yes -- and you never need to know where a single head is. Separate ANY three coins into their own group, leaving the other seven in the second group. Then simply flip all three of those coins over. The two groups now hold the same number of heads, every single time, guaranteed.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Stop trying to find the heads -- you can't, blindfolded. Instead lean on one fact: flipping a coin swaps a head for a tail and a tail for a head. If you set aside a small group and flip it, its number of tails becomes its number of heads. Ask what the OTHER group's head-count must be, and how flipping could make the two match."
+      "It sounds like magic, so here is exactly why it works. Say the three coins you pulled aside happen to include h heads, where h is 0, 1, 2, or 3 -- you don't know which, and it doesn't matter. Since there are 3 heads in total, the OTHER group (the seven) must hold the remaining 3 - h heads. That's the key link: whatever heads you scooped into your small group, the big group is left with 3 - h."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now flip your three coins. Flipping turns every head into a tail and every tail into a head. Your small group had h heads and 3 - h tails; after flipping it has h tails and 3 - h HEADS. So your small group now shows 3 - h heads -- and the big group already had 3 - h heads. They match. It works for h = 0, 1, 2, or 3, so it is a guarantee, not a gamble."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trick is that you don't fight your blindness -- you use it. You can't count the heads in your little pile, but flipping \"complements\" it: it swaps the head-count for the tail-count, and the tail-count is exactly what the other pile's head-count has to be. Two unknowns cancel."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it's a favourite interview puzzle: people burn energy trying to FIND the heads, which is impossible blindfolded. The move is to stop needing that information -- to build a guarantee out of a symmetry (heads-become-tails) rather than out of knowledge. That reframing, \"make the unknown cancel instead of measuring it,\" is exactly the instinct a good trader or engineer reaches for."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "at_least_one_six",
@@ -343,17 +1321,38 @@ window.QQ_ANSWERS = {
    "date": "21 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/at_least_one_six",
+   "a": "One in eleven -- not the one-in-six that almost everyone blurts out. The honest clue \"at least one is a six\" is sneakier than it looks, and it drags the answer well below your gut feeling.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Two dice have 36 equally likely outcomes. Cross out every pair with no six at all, and carefully list the ones that DO have at least one six (watch out -- don't double-count double-six). Then ask what fraction of those survivors are double-six. The clue \"at least one\" is weaker than \"a specific one,\" which is exactly why the gut answer is too big."
+      "Here is the clean way to see it. Before any clue, two dice can land in 36 equally likely ways -- the first die is 1 to 6, and for each of those the second die is 1 to 6. Now the clue rules out every pair with NO six at all. Which pairs survive? List them: the first die is a six and the second is anything (6 pairs), OR the second die is a six and the first is anything (6 pairs). That looks like twelve, but (6,6) got counted in both lists, so there are really ELEVEN pairs with at least one six."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Of those eleven survivors, how many are double-sixes? Exactly one: (6,6). So the chance both dice are sixes is 1 out of 11."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why the gut says one-in-six -- and why it's wrong. People silently rewrite the clue as \"THIS particular die is a six; what about the OTHER one?\" If you're told a specific, named die is a six, then yes, the other die is a six with chance one-in-six. But \"at least one of the two is a six\" does NOT point at a particular die. It's a weaker, blurrier clue that leaves a mix of possibilities -- lots of them with a six paired next to a non-six -- so double-six is rarer than the one-in-six shortcut suggests."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This gap between \"a specific one is a six\" and \"at least one is a six\" is a classic interview trap, the same trick hiding in the famous two-children puzzle. Whenever a clue is about \"at least one,\" stop and list the outcomes it actually leaves standing -- never assume it fingers a particular one."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "do_the_marbles_match",
@@ -362,17 +1361,46 @@ window.QQ_ANSWERS = {
    "date": "21 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/do_the_marbles_match",
+   "a": "Different is more likely. Two marbles pulled from this jar come out the SAME colour only 7 times in 15 -- just under half -- so a mismatched pair, one red and one blue, is the safer bet. It feels like \"matching\" should be the natural outcome; it isn't.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't count pairs -- pull ONE marble first and look at what's left. If it's red, the jar now has 5 red and 4 blue for the second pick; if it's blue, 6 red and 3 blue. In each case, how many of the remaining 9 marbles share the first one's colour? Compare that to 9, and you'll see which way to bet."
+      "Count the pairs. There are 45 equally likely ways to choose 2 marbles from 10 (that is \"10 choose 2\"). Now count the matches:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "both red: choosing 2 of the 6 reds is 15 ways.",
+      "both blue: choosing 2 of the 4 blues is 6 ways."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is 15 + 6 = 21 matching pairs, out of 45. So the chance of a match is 21/45 = 7/15, about 0.467 -- less than half. The other 24 pairs are one-red-one-blue, giving a different-colour chance of 24/45 = 8/15, about 0.533."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A slicker way, no big counting. Pull the first marble and just look at what is LEFT for the second. If your first marble is red, 9 marbles remain -- 5 red and 4 blue -- so the second matches (red) with chance 5/9, under half. If your first is blue, 9 remain -- 6 red and 3 blue -- so the second matches (blue) with chance only 3/9. Either way, fewer than half of the leftovers share the first marble's colour, so a match is the underdog. Blend the two cases by how often each colour comes first, 6/10 and 4/10, and you land back on 7/15."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: \"match\" sounds like the default, and with two colours people vaguely feel it's a coin flip. But once one marble is out, the jar is slightly emptier of that colour, so the second marble leans toward the OTHER colour. The pull-one-then-look trick is the quant's friend here -- it turns a fiddly pair-counting problem into a single easy fraction, and it is exactly how you'd reason about drawing cards, sampling without replacement, or any \"grab a handful\" question on a trading desk."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "six_rolls_how_many_faces",
@@ -381,17 +1409,52 @@ window.QQ_ANSWERS = {
    "date": "21 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/six_rolls_how_many_faces",
+   "a": "About four. Roll a die six times and, on average, only about 3.99 different faces show up -- so a typical six-roll streak is missing two of the six faces entirely. It feels like six rolls should sweep up most of the six faces; they don't, because the rolls keep landing on numbers you already have.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't count distinct faces head-on. Pick ONE face, say the 3, and find the chance it shows up at least once in six rolls -- easiest by first finding the chance it NEVER shows (each roll misses it with chance 5/6). Then add that same chance across all six faces. That sum IS the average number of different faces."
+      "The clean way to see it uses a trick called linearity: instead of wrestling with \"how many distinct faces,\" ask a simpler question about ONE face -- say, the number 3 -- and add up."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What is the chance the face 3 appears AT LEAST once in six rolls? Easier to ask when it NEVER appears: each roll dodges the 3 with chance 5/6, so all six rolls dodge it with chance (5/6) multiplied by itself six times, which is about 0.335. So the 3 DOES appear at least once with chance about 0.665 -- roughly two times in three."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the magic step. The average number of distinct faces is just the chance-of-appearing added up over all six faces, because each face contributes one to the count exactly when it shows. By symmetry every face has the same 0.665 chance, so:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    6 x (1 - (5/6)^6)  =  6 x 0.665  ~  3.99."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You can even add the fractions exactly: it comes to 31031/7776, which is 3.99 and a whisker."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: six rolls and six faces feels like a fair fight to collect them all, but collisions pile up fast -- the same reason a room of just 23 people is more likely than not to share a birthday. Overlap is always sneakier than our intuition expects, and \"count the distinct things\" problems almost always crack open the same way: turn a hard joint count into six easy one-face questions and add."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "two_boxes_one_white",
@@ -400,17 +1463,73 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/two_boxes_one_white",
+   "a": "Put a SINGLE white ball, all by itself, in one box -- and pour every one of the other 99 balls (the 49 remaining whites and all 50 blacks) into the second box. That lonely white ball pushes your chance of drawing white up to 74 out of 99, just under three-quarters. From a game that looks stuck at fifty-fifty, you have built almost a 3-in-4 win.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Your friend picks a whole BOX first, 50-50, and only then a ball. So think about making ONE box a near-sure white, and ask how much that hurts the other box. Moving just a few white balls out of a big mixed pile barely changes its colour -- but it can turn a whole box into a guaranteed win. Where's the sweet spot?"
+      "Here is why it works. Your friend first picks a box, each with a one-half chance. Then they draw from whatever is inside."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "If they pick the box with the single white ball, they are CERTAIN to draw white. That"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  is a guaranteed win, happening half the time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "If they pick the big box, it holds 49 whites among 99 balls, so white comes out"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  49-in-99 of the time -- almost half."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Average the two halves:  1/2 x 1  +  1/2 x (49/99)  =  74/99  ~  0.747."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trick is that the lone-white box is a \"sure thing\" that costs you almost nothing on the other side: moving one white ball out of a 100-ball mix barely changes that mix (it goes from 50-in-100 to 49-in-99, still nearly half), but it converts a whole box -- half of all your outcomes -- into a guaranteed win."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You cannot do better than this. Any fuller \"good\" box waters down its own near-certainty faster than it helps; the single lucky ball is the sweet spot, and 74/99 is the ceiling."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: the balls are split evenly overall, so instinct says the draw must be fifty-fifty no matter what. But the friend chooses a BOX before a ball, and that extra layer of choice is a lever. Rig one box to be a sure thing and you tilt the whole game -- the same reason clever framing of a two-stage choice shows up all over trading and statistics."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "higher_of_two_dice",
@@ -419,17 +1538,52 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/higher_of_two_dice",
+   "a": "Keeping the higher of two dice averages about 4.47, and keeping the lower averages about 2.53. The gap between them is about 1.94 -- and, beautifully, the two averages add up to exactly 7.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: There are 36 equally likely pairs of two dice. For \"keep the higher\", count how many pairs give a top number of exactly 1, of 2, of 3, up to 6 -- you'll get a tidy run of odd numbers, and the big scores dominate. Weight each score by its count and average. Then notice: the higher plus the lower of any pair is just the two dice added together."
+      "Here is the clean way to get there. Roll two dice and there are 36 equally likely outcomes. For the \"keep the higher\" score, ask how many of those 36 give a top number of exactly m. The answer is 2m - 1: one way to get a top of 1 (both dice show 1), three ways to top out at 2, five ways for 3, and so on -- 1, 3, 5, 7, 9, 11, which correctly add to 36. So the big numbers really do dominate: an 11-in-36 chance the higher die is a 6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Multiply each score by its number of ways, add up, and divide by 36:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1x1 + 2x3 + 3x5 + 4x7 + 5x9 + 6x11) / 36  =  161 / 36  ~  4.47."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The \"keep the lower\" score is the mirror image: the counts run 11, 9, 7, 5, 3, 1, and the average is 91/36, about 2.53."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the elegant shortcut. For ANY two dice, the higher number plus the lower number is just the sum of the two dice. Averages add, so (average higher) + (average lower) = average of the sum of two dice = 7. That single fact ties everything together: the higher sits as far ABOVE a single die's 3.5 as the lower sits BELOW it, each by about 0.97, so the gap is twice that, about 1.94."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it is a good interview question: the naive guess is that keeping the higher gains you \"about half a point\" over a normal die. It is actually nearly a full point, because taking the better of two independent tries pulls the average up hard toward the top of the range -- the same reason \"best of several attempts\" is so powerful everywhere from hiring to hard drives."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_three_dice_bet",
@@ -438,17 +1592,55 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_three_dice_bet",
+   "a": "The house wins. It looks fair, even generous, but on average you lose about 8 cents for every dollar you bet -- so over a long night, you drift steadily downhill.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: The \"three chances\" story is a trap -- it double-counts the rolls where two or three dice show your number. Work out the chance of exactly zero, one, two and three matches (think three dice, each a one-in-six hit), then weigh what you win in each case against the dollar you lose when nothing matches. Average it out."
+      "The trap is the \"three dice, three chances\" feeling. It whispers that your chance of hitting your number is three times one-in-six, which is one-half -- a coin flip, break even. That is wrong, because it double-counts the times two or three dice show your number at once. Your real chance of getting AT LEAST one match is not one-half; it is 91 out of 216, a bit under 42 percent. Most of the time, all three dice miss."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now price the bet properly. Out of every 216 rolls, on average:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "125 times no die matches -- you lose your dollar.",
+      "75 times exactly one die matches -- you win one dollar.",
+      "15 times two dice match -- you win two dollars.",
+      "1 time all three match -- you win three dollars."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add up the winnings and losses: minus 125, plus 75, plus 30, plus 3, which comes to minus 17. Spread over 216 rolls that is minus 17 over 216 per dollar, about minus 8 cents. Every dollar you bet is really worth about 92 cents the moment you put it down."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it feels fair: the extra payouts for two or three matches look like they should make up for the frequent losses, and the \"three chances\" story sounds like even odds. Neither is enough. The rare double and triple wins are too rare, and the single-match win only pays even money. The small, steady leak is exactly the house edge -- the same quiet math behind every casino and carnival stall."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The lesson quants take from it: never trust a \"number of chances\" argument. Write out the chances of every outcome and weigh each against its payoff. The average is the only honest scoreboard, and here it reads below zero."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "how_many_noodle_loops",
@@ -457,17 +1649,52 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/how_many_noodle_loops",
+   "a": "On average, about 1.88 loops -- and the truly surprising part is how little that number grows if you add far more noodles.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't try to picture the whole tangle. Tie the ends ONE knot at a time and ask a single question each time: what's the chance THIS knot ties an end to the other end of its OWN noodle, closing a loop? Count 12 ends, then 10, then 8... add up those loop-closing chances and you have the average."
+      "Here is the clean way to count it. Forget the whole tangle and tie the ends ONE knot at a time. Pick up any loose end. There are 12 ends in total, so 11 other ends it could be tied to. Exactly ONE of those 11 is the other end of the SAME noodle -- and tying an end to its own partner closes a little loop. The other 10 choices tie two different noodles into one longer strand."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the very first knot has a 1-in-11 chance of closing a loop. Whatever happens, you are left with a simpler bowl: either one fewer noodle (a loop finished) or one fewer strand (two joined into one). Either way you now effectively have 5 strands, 10 ends -- and the next knot closes a loop with chance 1-in-9. Then 1-in-7, then 1-in-5, 1-in-3, and finally the last knot is forced to close a loop, chance 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add up the chance of \"a loop closes\" at each step and you get the average number of loops:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1/11 + 1/9 + 1/7 + 1/5 + 1/3 + 1  ~  1.88."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The pattern for N noodles is 1 + 1/3 + 1/5 + ... + 1/(2N-1) -- the sum of reciprocals of the odd numbers. That sum creeps upward incredibly slowly: 6 noodles give about 1.88, a hundred noodles average only about 3.3 loops, and a million noodles only about 8. Doubling the noodles adds barely a sliver."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: with six separate noodles you might picture six loops, or fear one giant tangle. The maths lands in between and stays there -- randomness quietly prefers a small handful of loops almost no matter how much spaghetti you start with."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "whose_pattern_comes_first",
@@ -476,17 +1703,38 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/whose_pattern_comes_first",
+   "a": "No -- the game is not fair, and it is not close. Whatever three-flip sequence you choose, I can always choose one that beats yours more often than not, usually winning about two times out of three. Going SECOND, with no coin tricks at all, is a huge advantage.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't ask which sequence is \"best\" on its own -- ask what has to happen in the few flips JUST BEFORE your sequence finishes. Those lead-in flips can already spell out someone else's sequence. Whoever controls that overlap controls the race. Think about picking your sequence AFTER seeing the other one."
+      "The reason is that these sequences don't line up in a simple \"better than\" order. You might think there's one best sequence to pick, so picking first would be the advantage. Instead they form a loop, like rock-paper-scissors: for every sequence there is another that beats it. So once you've committed to yours, I just pick the one that beats it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the rule I use. Take your three flips. I look at your SECOND flip, flip it to the opposite face, and put that in front of your first two flips -- and that is my sequence. If you pick heads-heads-tails, I pick tails-heads-heads. Now watch why it works: for my tails-heads-heads to lose, your heads-heads-tails would have to appear first -- but almost every time your sequence is about to complete, MY sequence has already sneaked in just before it, because the flips leading into yours are exactly the tail end of mine."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The deep point is that \"appears first in a stream\" is not the same as \"is more likely on its own.\" Overlaps between the sequences decide the race, and overlaps are not symmetric. This is Penney's game, and it is a favourite interview question precisely because the first, natural instinct -- that choosing first must be good, and that the sequences can be ranked -- is wrong on both counts."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Play it with a friend and a coin. Let them pick first every time, apply the rule, and you will win the clear majority of games -- with the maths, not luck, on your side."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "when_to_cash_out",
@@ -495,17 +1743,45 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/when_to_cash_out",
+   "a": "Keep rolling while your pot is below 20 points, and cash out the moment it reaches 20 or more. That single number -- 20 -- is the whole answer, and it comes out of one clean comparison you can redo in your head.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Each roll, weigh two things against each other -- how many points you gain on average from a safe roll, versus how much of your pot you'd lose if the 1 shows up. When your pot is small the gain wins and you should roll; as the pot grows, the risk catches up. There is an exact tipping point where they balance -- find where the average gain from one more roll drops to zero."
+      "Ask what one more roll is worth when your pot currently holds p points. Five of the six faces (2, 3, 4, 5, 6) are safe and add points; their average is 4. One face, the 1, wipes out everything you have. So rolling once more gains you 4 points five-sixths of the time and costs you your whole pot p one-sixth of the time. The average change from one roll is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (5/6) x 4  -  (1/6) x p  =  (20 - p) / 6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Read that off: as long as p is less than 20, the number is positive -- one more roll adds to your pot on average, so you should roll. Once p reaches 20 it turns zero or negative -- the danger of losing 20+ points finally outweighs the small expected gain -- so you stop. The break-even pot is exactly 20."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Notice what does NOT matter: how you got there. The rule only looks at your current pot, not your history or how many rolls you've made. This is the flavour of a whole family of \"optimal stopping\" problems that quant desks love: reduce a scary sequential gamble to a single threshold by asking \"is the next step worth it, right now?\""
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: people either cash out timidly at 8 or 10, or get greedy and blow past 30. The maths picks a precise, unemotional line -- 20 -- and sitting exactly on it is what maximises your long-run winnings."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "six_glasses_one_move",
@@ -514,17 +1790,31 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/six_glasses_one_move",
+   "a": "Pour, don't rearrange. Pick up the SECOND glass, tip its juice into the FIFTH glass, and set the second glass back down empty. You have handled exactly one glass, and the whole row now reads full, empty, full, empty, full, empty.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: You're allowed to handle one glass -- but nothing says you can only slide it to a new spot. What ELSE can you do with a glass you've picked up, especially a full one sitting near empty ones? Think about changing what's INSIDE a glass, not just where it stands. One action can fix two positions at once."
+      "Watch what one pour does. Before: the row is full, full, full, empty, empty, empty. Emptying glass 2 turns its \"full\" into \"empty,\" and filling glass 5 turns its \"empty\" into \"full.\" Those are the only two glasses that were wrong for an alternating pattern, and a single pour fixes both at once -- position 2 becomes empty as it should be, and position 5 becomes full as it should be. Everything else was already in the right state."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it feels impossible: the words \"handle only one glass\" push you to think about MOVING glasses to new spots -- sliding them left and right -- and no amount of sliding one glass gives an alternating row. The trick is to change what a glass CONTAINS rather than where it stands. \"Move one glass\" quietly becomes \"pour one glass,\" and pouring is the one action that changes two positions in a single touch."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is a tiny lesson in re-reading a puzzle's rules: we assume \"one move\" means one kind of move -- a slide -- when the rule never actually said that. Loosen that hidden assumption and the six glasses fall into line in a single, satisfying tip of the wrist."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "solid_or_hollow_down_the_ramp",
@@ -533,17 +1823,38 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/solid_or_hollow_down_the_ramp",
+   "a": "The solid one wins -- always, and by a clear margin. And here is the part that catches people: it does not matter how heavy the cylinders are or how big they are. A solid disc beats a hollow pipe of the same shape every single time, whether they weigh a gram or a tonne.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Same weight, so gravity pulls them the same -- the difference is WHERE the mass sits. A rolling cylinder splits gravity's energy between moving down and spinning up. In the hollow pipe the mass is all out at the rim, which is stubborn to spin; in the solid one it sits closer to the centre. Which one wastes more energy just spinning up, leaving less for the race down?"
+      "The key is that a rolling cylinder is doing two things at once with gravity's energy: moving DOWN the ramp, and spinning UP. Every bit of energy that goes into spinning is energy that is NOT going into speed down the slope. So whichever cylinder is easier to spin up gets to keep more energy for racing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now, where the mass sits decides how hard something is to spin. In the hollow pipe, all the metal is way out at the rim, as far from the centre as possible -- the worst place, because mass far from the axis is stubborn to get turning. In the solid cylinder the mass is spread inward toward the middle, close to the axis, so it spins up easily. Same weight, but the solid one is \"lighter\" to rotate."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put numbers on it and a cylinder's acceleration down the ramp is g*sin(theta) divided by (1 + c), where c measures how far out the mass sits: c = 1/2 for a solid disc and c = 1 for a thin hollow pipe. So the solid rolls at about 0.67 of g*sin theta and the hollow at 0.50 -- the solid is a third quicker to accelerate. Crucially the mass and the radius cancel out completely, which is why weight and size make no difference."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: we expect heavier or bigger to matter, or for two same-weight cans to tie. Neither is true. Rolling is a contest of where your mass hides, not how much you have -- and the solid one, keeping its mass close to home, wins the race down."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_stone_that_spins_back",
@@ -552,17 +1863,31 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_stone_that_spins_back",
+   "a": "It stops -- and then, all by itself, starts spinning the OTHER way. The rattleback has a preferred direction of spin, and if you send it the wrong way it refuses: it slows, rattles, rocks end over end for a moment, and then reverses, coming back to life spinning its favourite way. It looks almost alive, and there are no motors, magnets or tricks inside -- just its shape.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: The trick is a tiny lopsidedness. The stone's curved keel and its heavy direction are twisted a few degrees apart, so it has a handedness -- its mirror image isn't the same stone. That makes the two spin directions genuinely different: one stays smooth, the other leaks into a rocking wobble. Ask where that rocking energy goes once the spin dies."
+      "The secret is a subtle lopsidedness. Two things about the stone are slightly out of alignment. Its smooth curved bottom has a long \"keel\" direction, and its weight is distributed with its own heavy direction -- and those two directions are twisted a few degrees apart from each other, rather than lining up. That twist gives the stone a handedness, like a left or right hand: its mirror image is not the same object."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Because of that handedness, the two spin directions are genuinely different. Spin it the favoured way and it just spins. Spin it the wrong way and the rotation leaks into a rocking motion -- a see-saw pitching along its length. That rocking is not wasted: the same lopsided coupling that created it now feeds the rocking energy BACK into spin, but in the opposite, favoured direction. So the wrong-way spin dies, the rocking flares up, and the rocking is reborn as right-way spin."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: a spinning top just slows down and stops; nothing in everyday experience un-stops itself and turns the other way. The rattleback seems to break that, and even to violate the sense that angular momentum can't just flip -- but it doesn't. The tabletop and friction quietly supply what's needed, and the stone's tiny built-in twist does the steering. Carve the twist the other way and it prefers the other direction; carve it perfectly symmetric and the magic vanishes -- it spins both ways alike."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "shake_the_jar_of_nuts",
@@ -571,17 +1896,38 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/shake_the_jar_of_nuts",
+   "a": "The big nut rises. Keep shaking and the single biggest nut works its way all the way up and sits on top -- which is why the Brazil nuts always end up at the top of a tin of mixed nuts, and why it has a name: the Brazil nut effect.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Stop thinking about the big nut's weight and watch the SMALL ones. When you shake, tiny gaps open for a split second -- and small nuts are just the right size to trickle into them, while the big nut is too wide to fall through. A few small nuts slip underneath on every shake. Where does that leave the big nut over many shakes?"
+      "It sounds backwards, because the big nut is usually the heaviest single piece, and heavy things are \"supposed\" to sink. Two things beat that intuition, and both are about the small nuts, not the big one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "First, percolation. Every time you shake, the whole pile lifts and briefly opens up tiny gaps. A small nut is narrow enough to trickle sideways and downward into a gap; the big nut is too wide to fit through the same gaps. So on each shake a few small nuts slip UNDER the big one, and it can never fall back through them. Grain by grain, the small ones ratchet the big one upward -- a one-way trip."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Second, convection. Shaking sets the whole bed of nuts slowly circulating: up through the middle, then down along the walls in thin streams. The big nut rides up the middle, but when it reaches the top it is too wide to squeeze into the thin down-flow at the walls, so it is stranded at the surface while the small nuts keep cycling underneath it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: we reason about the big nut's weight and forget that \"sinking\" needs somewhere to sink INTO. The gaps that open only fit the small pieces, so gravity ends up sorting by SIZE, not weight -- and the biggest thing is carried to the top. Mix a jar of nuts, or gravel and sand, and you can watch it happen."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "flip_the_coin_triangle",
@@ -590,17 +1936,38 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/flip_the_coin_triangle",
+   "a": "Just three. You only have to move three of the ten coins to turn the whole triangle upside down -- and most people guess far more.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Stop thinking about which coins to MOVE and think about which can STAY. Imagine lifting the whole triangle and giving it a half-turn, then setting it back down over the coins already there. How many coins land exactly where one already sits? Those never move -- only the leftover tips do."
+      "Here is the clean way to see it. Forget sliding coins for a moment and just imagine picking the entire triangle up and rotating it by a half-turn, so up becomes down. Now lay that rotated triangle back down on top of where the coins already are, lined up at the centre."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Seven of the coins land exactly where a coin already sits. The reason is symmetry: strip away the three corner coins -- the single one at the top and the two at the ends of the bottom row -- and the seven that remain form a little hexagon-shaped cluster that looks identical after a half-turn. Those seven never need to move."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That leaves only the three corners. Slide the top coin down to become the new bottom tip, and slide the two bottom-corner coins up to become the two new top corners. Three moves, and the triangle now points down. You can check that no arrangement does it in fewer: the three corner coins are precisely the ones NOT covered by the rotated copy, so at least three must move, and three is enough."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: the triangle looks like it would need a wholesale rearrangement, so \"three\" feels impossibly small. The trick is to stop thinking about moving coins and start thinking about what stays still -- the symmetric core does the work for free. The same idea scales: a triangle of any size hides a large symmetric core, and only the thin rind of corner coins ever has to move."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_soap_film_between_two_rings",
@@ -609,17 +1976,38 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_soap_film_between_two_rings",
+   "a": "It does NOT stay a straight tube. The film pulls its middle inward into a graceful waist, and if you pull the rings too far apart it suddenly snaps -- collapsing into two flat discs, one capping each ring.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: A soap film settles into the SMALLEST possible area for its edges. Ask whether a straight tube is really the smallest surface joining two rings, or whether squeezing the middle inward trims more from the sides than it adds. Then think about pulling the rings so far apart that no thin waist can survive -- what must the film do at that point?"
+      "Soap films are lazy in a precise way: a film has surface tension, so it always settles into the shape with the least possible area for the edges it is pinned to. Between two rings, a straight cylinder looks natural, but it is NOT the smallest surface. Squeezing the waist inward a little removes more area from the sides than it adds around the pinch, so the film keeps necking in until it finds the true minimum."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That minimum shape has a name: a catenoid. Take the curve a chain or necklace makes hanging between two hands -- a catenary -- and spin it around. The surface you sweep out is the catenoid, and it is exactly the shape the soap film chooses between two rings. So the film is the spun version of a hanging chain."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the snap. As you widen the gap, the waist has to pinch in harder and harder to keep spanning both rings. There is a limit: once the half-gap grows past about 0.66 times the ring radius, there is NO catenoid that can connect the two rings at all. The film can no longer find any spanning surface smaller than simply capping each ring separately, so it gives up, snaps, and flashes into two flat discs. Physicists can predict the exact gap where it lets go."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: \"a tube between two rings\" is the obvious mental picture, so a curved waist -- and a sudden snap at a precise distance -- feels like the film is doing something clever. It isn't; it is just relentlessly minimising area, and geometry does the rest."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "two_tunnels_through_the_earth",
@@ -628,17 +2016,38 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/two_tunnels_through_the_earth",
+   "a": "It is a dead heat. Both balls pop out the far side at exactly the same moment -- about 42 minutes later -- and, astonishingly, EVERY straight tunnel through the Earth takes the same 42 minutes, whether it runs pole to pole through the centre or is a short chord between two nearby cities.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't just compare the distances. On the slanted tunnel only PART of gravity pushes the ball along the tunnel -- the rest presses into the wall -- so it accelerates more gently. Write the along-the-tunnel pull as the ball moves, and you'll find every straight tunnel behaves like the same mass-on-a-spring. What does equal springiness say about the travel times?"
+      "Here is why. Pretend the Earth has the same density throughout. Then the gravity you feel at distance r from the centre points straight at the centre and is proportional to r: at the surface it is full strength, halfway down it is half strength, at the very centre it is zero."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now put a ball in a straight tunnel. Only the part of gravity pointing ALONG the tunnel actually pushes the ball; the rest presses harmlessly into the tunnel wall. Work out that along-the-tunnel pull and a small miracle happens: it comes out proportional to how far the ball is from the tunnel's midpoint, and pointing back toward that midpoint. That is exactly the rule a mass on a spring obeys -- simple harmonic motion. The ball oscillates back and forth through the tunnel like a pendulum."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The punchline is what sets the timing. The \"spring stiffness\" per unit mass works out to g/R -- the surface gravity divided by the Earth's radius -- with NO mention of the tunnel at all. So every straight tunnel is a pendulum with the same period, and half a period (surface to surface) is always about 42 minutes and 12 seconds. The short shortcut has less distance to cover, but the pull along it is gentler by exactly the right amount to cancel the advantage."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: distance and speed feel like they should trade off differently for a short cut versus the long way. They don't -- geometry arranges a perfect cancellation. Engineers really have proposed such \"gravity trains\"; the maths is a favourite because the tunnel length vanishes from the answer."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "one_block_three_holes",
@@ -647,17 +2056,38 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_block_three_holes",
+   "a": "Yes -- one solid block really can pass snugly through all three holes, and it is a real object you can whittle and hold.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: One solid can look totally different from different directions. Ask what you'd see looking straight DOWN at the block, then from the FRONT, then from the SIDE. Could those three views be a circle, a square, and a triangle? Start from a round rod and think about what two flat knife cuts would do to its side view."
+      "The trick is that a single solid can look like three completely different shapes from three different directions. So you want one block whose outline is a circle seen from one side, a square from another, and a triangle from a third."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Start with a plain cylinder -- a disc-shaped rod, like a short length of broom handle -- made exactly as tall as it is wide. Look straight down its axis and you see its circular end: that is the circle. Look at it side-on and you see a rectangle as tall as it is wide -- a square. So a simple cylinder already fits the round hole AND the square hole. Two down."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the triangle. Take a knife and shave two flat slopes off the top: start each cut at the far ends of the circular top face and slice straight down to a single straight edge at the bottom. From the third direction, those two slopes now read as the two sides of a triangle rising to a point, with the flat bottom as its base. The block still shows a circle from below and a square from the front, but now a triangle from the side. One solid, three holes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: we imagine the block as \"really\" one shape -- if it fits the round hole it IS round, so it cannot also be square. But a shape is only a shadow of a solid, and one solid can cast three different shadows. Machinists know the object well; it is the classic three-way \"plug\" puzzle carved from a single piece of wood."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_square_wheel_rides_level",
@@ -666,17 +2096,38 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_square_wheel_rides_level",
+   "a": "Yes -- there is a road that carries square wheels with the axle perfectly level, and it is a real thing you can build and ride.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't touch the wheel -- change the ROAD. Track the axle's height as the square pivots: it climbs when the wheel balances on a corner and falls when a flat side lands. You want a road where the ground dips by exactly the right amount at every moment to cancel that climb, so the axle traces a straight, level line. What curve does each bump have to be?"
+      "Start with WHY flat ground fails. A square wheel pivots about whichever bottom corner is touching the road. As it tips, the axle swings up and over that corner, rising to its highest when the square balances on the corner and dropping again when the next flat side slaps down. The axle bobs, and so does everything the cart is carrying."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The fix is to give the ground a matching set of bumps. Each bump has the shape of a hanging chain turned upside down -- the curve a loose chain or necklace makes dangling between two hands, flipped over into an arch. A whole road of these identical arches, side by side, is exactly the shape a square wheel wants: as the wheel rolls, the flat side settles perfectly into each arch, the contact point slides along the curve, and the axle glides in a dead straight, level line. No bouncing at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The bump size is tuned to the wheel: the width of one arch matches the length of one side of the square. Get that right and the ride is as smooth as a round wheel on a flat floor. Science museums build these -- a square-wheeled tricycle on a bumpy track that rolls like glass."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it surprises: \"square wheels are stupid\" is baked in so deeply that we never ask whether the ROAD is the thing to change. The wheel was never the problem on its own; it was the wheel AND the road together. Fix the road to fit the wheel and the impossible-looking pairing turns out to ride beautifully."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "six_sticks_four_triangles",
@@ -685,17 +2136,31 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/six_sticks_four_triangles",
+   "a": "Yes -- and the secret is to stop keeping the sticks flat on the table.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Count carefully. Four triangles have twelve sides, but you have only six sticks -- so every stick must be a side of TWO triangles at once. On a flat table you can't share them all that way. Ask what arrangement WOULD let all six sticks be shared."
+      "Count first. Four triangles have twelve sides in total, but you only have six sticks. Twelve sides from six sticks means every single stick has to be a side of TWO triangles at once. On a flat table you can only share so many sticks that way, which is why you stall at two triangles."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The arrangement where all six sticks are each shared by two triangles is a triangular pyramid -- a regular tetrahedron. Lift three of the sticks off the table into a small pyramid: a triangular base of three sticks, and three more rising to meet at a single point above. Now look at its faces. The base is one triangle, and each of the three slanted sides is another -- four equilateral triangles in all, six sticks, every side a whole matchstick. It checks out exactly: 4 faces, 6 edges, 4 corners, and 4 - 6 + 4 = 2, the rule every solid obeys."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it feels impossible: we hunt for the answer on the flat tabletop, and on a plane four equal triangles from six equal sticks genuinely cannot be done. The whole puzzle is a nudge to leave the plane -- the moment you allow the third dimension, the pieces you already have snap together. Almost everyone stays stuck in two dimensions, which is exactly why the answer surprises."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "one_cut_any_shape",
@@ -704,17 +2169,31 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_cut_any_shape",
+   "a": "Yes — and not just a star. The fold-and-cut theorem says that ANY shape whose outline is made of straight lines — a five-pointed star, a swan, the letters of your name, a whole row of shapes at once — can be cut out with a SINGLE straight scissor cut, as long as you fold the paper flat the right way first. Harry Houdini and Betsy Ross both reportedly did the five-pointed star trick; the full theorem was proved in 1999.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't cut the star's outline edge by edge. Think about FOLDING so that all of its edges land on top of each other first. A star has mirror symmetry — fold along those mirror lines and ask what happens to its ten edges. How many cuts do you need once they're all stacked?"
+      "For the star, the folding is guided by its symmetry. A regular five-pointed star has five lines of mirror symmetry, and it looks identical after a 72-degree turn. Fold the paper along those five symmetry lines and every edge of the star lands exactly on top of every other edge — the entire zig-zag outline collapses onto one straight line. One straight cut along that line slices through all the layers at once; unfold, and the star falls out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general trick is the same idea pushed further. You crease the paper along a special pattern (built from the shape's \"straight skeleton\" — think of the creases a lawn sprinkler would trace shrinking the outline inward) plus perpendicular folds, which piles the ENTIRE outline of any straight-edged drawing onto a single line. Cut the line, unfold, and out comes the shape, however jagged."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it feels impossible: we picture cutting the outline stroke by stroke, so a star's ten edges \"need\" ten cuts. Folding cheats that — it stacks all ten edges into one, so one snip does the work of ten. It's the same move as the strip that knots into a pentagon or the card that opens into a huge loop: a clever fold hides a lot of length in a small, simple cut."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "knot_a_strip_of_paper",
@@ -723,17 +2202,24 @@ window.QQ_ANSWERS = {
    "date": "20 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/knot_a_strip_of_paper",
+   "a": "A perfect regular PENTAGON — the five-sided shape, with all sides equal and every corner the same 108 degrees. Tie an overhand knot in a strip of paper, snug it up, flatten it, and hold it to the light: you're holding a neat little pentagon. (It's a lovely party trick, and it's exact, not approximate.)",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Count the straight runs of the strip as it threads through the flattened knot, and remember that any closed flat path turns through 360 degrees in all. If those turns are shared equally among the folds, how big is each turn — and what regular shape has corners of that size?"
+      "Why a pentagon? Trace the strip through the flat knot. It runs straight, then folds and changes direction, runs straight again, folds again — and it turns out to make exactly five straight runs before it closes up on itself, one for each side. Each fold is a crease where the strip reflects off itself, and because the strip has a constant width, the geometry forces every fold to turn the strip through the same angle. A closed, flat path always turns through 360 degrees in total (walk a loop and you spin around once); split that evenly across five equal folds and each turn is 360 / 5 = 72 degrees. A 72-degree turn leaves a 180 - 72 = 108-degree interior angle at every corner — and five equal 108-degree corners with equal sides is the definition of a regular pentagon."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The deeper reason the turns come out equal is the constant width of the strip: folding a fixed-width band back on itself is a reflection, and to weave a closed overhand knot the reflections have to be symmetric. Pentagons and the number five show up here for the same reason they show up in a five-pointed star drawn in one stroke — the knot is secretly tracing the geometry of 72-degree angles. Try it with a till receipt or a strip of A4; the pentagon comes out crisp every time."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "a_hole_you_can_step_through",
@@ -742,17 +2228,31 @@ window.QQ_ANSWERS = {
    "date": "19 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/a_hole_you_can_step_through",
+   "a": "Yes — easily, and you can make the hole as big as you like. The card stays the same tiny size; the trick is HOW you cut it, so that a small rectangle opens up into one enormous loop of paper.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Stop thinking about the card's AREA (fixed and small) and think about the PERIMETER of the hole. A boundary can be made as long as you like without adding area — so how could you cut a short rectangle into one very long loop of paper?"
+      "Here's the cut. Fold the card in half the long way. Now make a row of parallel cuts across the fold, coming in from the folded edge but stopping short of the open side — then, between them, a matching row of cuts coming in from the OPEN side, stopping short of the fold. They interleave like the teeth of a comb, or a paper snowflake. Finally, cut along the folded spine itself, but only the segments BETWEEN the first and last cut (leave the two ends joined)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Unfold it and the card springs open into a single continuous zig-zag band — one big loop of paper. Its hole is bounded by all that cutting, and the more cuts you make, the longer the loop and the bigger the hole. With, say, a dozen or two cuts on an index card, the loop opens to well over a metre around — plenty to step through and stand inside."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why can a hole beat the paper it came from? Because a hole's SIZE is about its perimeter, not the paper's area. Area is fixed and small, but the boundary length can be as large as you please: each cut you add lengthens the loop without using up any more card. It's the same reason a coastline can be enormously long around a small country, or why lungs pack the area of a tennis court into your chest — crinkle a boundary finely enough and its length runs away while the area it encloses barely changes. A pocket-sized card hides an arbitrarily large loop; you just have to cut it free."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "why_the_night_is_dark",
@@ -761,17 +2261,24 @@ window.QQ_ANSWERS = {
    "date": "19 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/why_the_night_is_dark",
+   "a": "Because the universe is not eternal — it had a beginning. Light travels at a finite speed, so when you look far out into space you are looking far back in TIME, and you can only see stars whose light has had time to reach you. There has only been about 13.8 billion years for that to happen, so you see out to a finite \"look-back\" distance and no further. Beyond it, there may be endless stars, but their light simply hasn't arrived yet. The dark gaps between the stars are the parts of the sky where no star's light has reached us. (This is Olbers' paradox.)",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Slice space into thin shells around you. A shell farther out has fainter stars (brightness ~ 1/distance^2) but MORE of them (~ distance^2). Those cancel, so every shell adds the same light. What would infinitely many equal shells sum to — and what could possibly stop the sum?"
+      "Why the paradox is so forceful is worth seeing. Imagine the stars spread evenly and slice space into thin shells around you, like the layers of an onion. A shell twice as far away has stars that each look four times fainter (brightness falls as 1/distance^2) — but that shell also has four times as many stars (its area grows as distance^2). The two effects cancel exactly: EVERY shell adds the same amount of light. Stack up infinitely many identical contributions and the total is infinite — the sky should be uniformly, blindingly bright, the surface brightness of a star in every direction. An eternal, infinite starry universe simply cannot have a dark night sky."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So a dark sky is a clue about the cosmos. Two things rescue us: the finite age of the universe caps how many shells we can actually see, and the expansion of space stretches (redshifts) the light of the most distant sources until it slides out of the visible range entirely. The darkness overhead is quietly telling you the universe is not infinitely old — that it began."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_ball_that_bends",
@@ -780,17 +2287,31 @@ window.QQ_ANSWERS = {
    "date": "19 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_ball_that_bends",
+   "a": "It curves toward the side of the ball whose surface is spinning BACKWARD relative to its flight — the same way the oncoming air is moving. Take a ball travelling forward and spinning counter-clockwise as seen from above: its RIGHT side is turning forward (against the oncoming air) and its LEFT side backward (with the air). The ball swerves to the LEFT. Flip the spin and it swerves right. This is the Magnus effect.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Look at the two sides of the ball as it flies. One side's surface spins BACKWARD relative to the flight (moving the same way as the oncoming air), the other forward. Air moves faster past the backward-spinning side, so the pressure there is lower. Which way does a ball get pushed — toward higher pressure or lower?"
+      "Why that side? As the ball flies, air streams past it from the front. On the side spinning BACKWARD (moving the same way as that oncoming air), the surface drags the air along and speeds it up; on the forward-spinning side, the surface fights the air and slows it down. Faster-moving air has lower pressure (Bernoulli), so there's lower pressure on the backward-spinning side and higher pressure on the other — and the ball gets pushed from high pressure toward low. It bends toward the backward-spinning side (its left, here)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There's a tidy formula for the push: the sideways force points along omega x v (spin crossed with velocity). For a vertical spin axis that force is purely horizontal — a clean left-or-right swerve, no lift. Tilt the spin and you change the direction: TOPSPIN (top of the ball rotating forward) points the force downward, so the ball dips and drops fast — how players hit heavy topspin to keep a shot in. BACKSPIN points it upward, giving lift and float — a well-struck backspin pass hangs in the air. Sidespin bends it around the wall."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same physics curves a table-tennis loop, a swinging cricket ball, a slicing golf shot, and lets a spinning cylinder or a rotor sail pull a boat along. Spin plus a moving fluid equals a sideways shove — reliable enough to bend a free kick past a wall of defenders and into the top corner."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_same_odds_stranger_dice",
@@ -799,17 +2320,31 @@ window.QQ_ANSWERS = {
    "date": "19 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_same_odds_stranger_dice",
+   "a": "The faces are {1, 2, 2, 3, 3, 4} on one die and {1, 3, 4, 5, 6, 8} on the other. Roll these two \"Sicherman dice\" and every total from 2 to 12 has exactly the same chance as with two normal dice — same 1/6 for a seven, same 1/36 for snake eyes, the whole triangle identical. And this is the ONLY other pair of dice with positive whole-number faces that pulls it off.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Write each die as a polynomial with one term per face (a normal die is x+x^2+...+x^6). Rolling two dice and adding = MULTIPLYING the two polynomials. So ask: can you factor that product into two DIFFERENT polynomials that still have positive whole-number faces?"
+      "Where does it come from? Write each die as a little polynomial, one term per face: a normal die is x + x^2 + x^3 + x^4 + x^5 + x^6. When you roll two dice and add, the distribution of totals is exactly the PRODUCT of the two polynomials (multiplying picks one face from each and adds the exponents — that's the sum). So the question becomes: can you FACTOR that product a different way, into two polynomials that still have whole-number faces?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The normal product factors into pieces built from x, (x+1), (x^2+x+1) and (x^2-x+1). The standard dice split those factors one way. Re-deal the very same factors into two new groups — keeping every coefficient a positive whole number, so it's still a real die — and out pop x + 2x^2 + 2x^3 + ... wait, out pop the faces {1,2,2,3,3,4} and {1,3,4,5,6,8}. Same product, so the same totals with the same odds; different faces, so different-looking dice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It's a lovely lesson: \"the distribution of a sum is the product of the pieces,\" and a product can often be factored in more than one way. The Sicherman dice are what that ambiguity looks like when you roll it across a table."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "which_spin_flips_the_phone",
@@ -818,17 +2353,31 @@ window.QQ_ANSWERS = {
    "date": "19 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/which_spin_flips_the_phone",
+   "a": "The MIDDLE axis — the \"intermediate\" one, neither the longest nor the shortest way through the phone. Spin a phone about its long axis (like a drum majorette's baton) and it's steady. Spin it about the short axis (flat, like a frisbee) and it's steady. But flip it about the in-between axis — the one running side to side through the screen, so it tumbles top-over-bottom — and it will not hold: it flips completely over, pauses, flips back, over and over. This is the tennis-racket theorem, also called the Dzhanibekov effect after the cosmonaut who noticed a spinning wingnut doing it in orbit.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Rank the three axes by how hard the phone is to spin around each — call them small, medium and large. Two of those three are stable and one is a knife-edge. Ask which one sits \"in between,\" and test it over your bed."
+      "Why only the middle one? Every solid has three \"moments of inertia,\" one for each axis — a measure of how hard it is to spin that way. Call them small, medium and large. Spinning about the smallest or the largest is stable: nudge the phone and it just wobbles a little and carries on. Spinning about the MIDDLE one is unstable: the tiniest wobble feeds on itself and grows until the phone has flipped right over."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You can see why from the equations of rotation (Euler's equations). Write the spin as mostly about one axis with two tiny wobbles on the other two. For the small or large axis, the wobbles just circulate — they stay small. For the middle axis, the maths gives exponential growth instead of circulation: e^(t), not sin(t). Small becomes large; the phone tumbles. It's the same reason a balanced pencil on its tip won't stay — the middle axis sits at a saddle, stable one way and unstable the other, and rotation forces it through the unstable direction."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Try it with your phone over a soft bed: baton-spin and frisbee-spin stay clean; the third flips every time."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "one_cut_halves_both",
@@ -837,17 +2386,31 @@ window.QQ_ANSWERS = {
    "date": "19 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_cut_halves_both",
+   "a": "Yes — always. No matter the sizes of the two pancakes or where they sit on the plate (touching, overlapping, or far apart), there is guaranteed to be one straight line that cuts BOTH into equal halves at once. This is the two-dimensional \"pancake\" version of the famous ham-sandwich theorem.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Fix a direction and there's exactly one line of that direction that halves the FIRST pancake. Now rotate the direction slowly and watch the second pancake's left-right imbalance: it flips sign over half a turn, so it must cross zero. That crossing is your cut."
+      "Here's the idea, and it's the same trick that fixes a wobbly table. Pick any direction and slide a straight line of that direction across the plate. There's exactly one position where it splits pancake A into equal halves — push it until the areas match. So for every direction, you get a line that already halves A."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now watch what that A-halving line does to pancake B. It leaves more of B on one side than the other; call that imbalance g. As you slowly rotate the direction all the way around by half a turn, the line's two sides swap over, so the imbalance g smoothly flips from one sign to the opposite sign. A smooth quantity that goes from positive to negative must pass through zero somewhere in between — that's the intermediate-value theorem. At that direction, B is halved too, while A was halved the whole time. One cut, both pancakes split evenly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The full ham-sandwich theorem says the same thing one dimension up: any three solid blobs in space — say the two slices of bread and the ham — can all be bisected by a single flat cut. And in n dimensions, n blobs. \"Fair sharing always exists\" turns out to be a theorem, not just wishful thinking."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "three_rings_hold_together",
@@ -856,17 +2419,31 @@ window.QQ_ANSWERS = {
    "date": "19 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/three_rings_hold_together",
+   "a": "They fall completely apart. Remove any one of the three rings and the other two are not linked at all — they simply come free of each other. The whole thing only ever held together as a trio. This shape is called the Borromean rings, and it's the classic example of a \"Brunnian\" link: linked as a group, yet no two pieces are linked on their own.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Ignore all three at once and just look at ONE PAIR. Trace where that pair crosses: does one ring go over-then-under the other, or over-both-times? Over-then- under means those two, by themselves, aren't really linked at all. Then ask what the third ring is doing."
+      "How can three rings be locked together when no two of them are? Look at how they weave. Follow any pair on their own and you'll see one ring passes OVER the other at one crossing and UNDER it at the next. Those two crossings cancel out — that's exactly what \"not linked\" means, and it's why either ring of the pair could slide free of the other if the third weren't in the way."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The magic is the third ring. It threads through both crossings of the other pair in just the right over-under way to jam them in place. Take it out and the trap springs open; the remaining two, never truly linked, drift apart. And by symmetry the same is true whichever ring you remove — each one is the keystone holding the other two."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You've seen the pattern without knowing its name: it's an ancient symbol of unity (three joined as one), it's the logo of a certain beer, and it's a favourite example in topology because it shows that \"linked\" is a property of the whole, not just of the parts."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "cut_the_mobius_strip",
@@ -875,17 +2452,24 @@ window.QQ_ANSWERS = {
    "date": "19 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/cut_the_mobius_strip",
+   "a": "Just ONE loop — not two. Cutting a Mobius strip down the middle leaves you holding a single band, twice as long as the original and with a full (360-degree) twist in it. Almost everyone bets on two separate rings, the way an ordinary paper ring splits; the Mobius refuses.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't picture the paper — follow the CUT. Trace the scissors down the middle and see where they come back to the start. A half-twist means one edge and one side, so ask yourself what's left for a second loop to be made of."
+      "Why? An ordinary ring has two edges and two sides, so a central cut simply separates them into two rings. A Mobius strip has only ONE edge and ONE side, because of the half-twist — the \"top\" of the strip flows into the \"bottom\" as you go around. So there is no second edge for the cut to peel away."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You can keep playing: cut that new (two-twist) loop down the middle and it splits into two loops — but they're linked together, threaded like chain links. And if you cut a fresh Mobius strip a THIRD of the way from the edge instead of the middle, you get two loops of different sizes, again linked. The half-twist quietly rewires what \"an edge\" and \"a side\" even mean, which is the whole charm of it — a first taste of topology, the maths of shape that doesn't care about stretching, only about how things are connected."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_monkey_and_shakespeare",
@@ -894,17 +2478,38 @@ window.QQ_ANSWERS = {
    "date": "19 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_monkey_and_shakespeare",
+   "a": "Yes — it will, with probability 1. Given truly unlimited time, a monkey typing at random almost surely types out any fixed text you name, whether it's a line of Shakespeare or the whole play. \"Almost surely\" is the mathematician's way of saying the chance it NEVER happens is exactly zero.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Chop the endless output into blocks the length of your target phrase. Each block has a tiny fixed chance of being an exact match, so the chance of missing on ALL of infinitely many blocks multiplies down to zero. The catch is how long the average wait is."
+      "Here's why. Say the target is L characters long and there are k possible keys. Chop the monkey's endless output into back-to-back blocks of L characters each. Each block, on its own, matches the target with a tiny but non-zero chance of 1 / k^L. So each block MISSES with chance 1 - 1/k^L."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Across N independent blocks, the chance of missing every single time is (1 - 1/k^L)^N. That's a number just under 1, raised to a growing power — and it slides to 0 as N grows without bound. Probability of never matching = 0. Probability of matching eventually = 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The twist is the WAIT. You expect to wait about k^L blocks for the first hit. Take a short phrase like \"to be or not to be\" — around 18 characters, roughly 27 possible keys each. That's about 27^18, which is more than 10^25 tries. At one block per second it would still be running long after the Sun burns out; for a whole play the number dwarfs the atoms in the observable universe."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So it's a beautiful split: GUARANTEED to happen (probability 1), yet effectively never in any real span of time. Infinity is patient in a way the universe is not."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_full_infinite_hotel",
@@ -913,17 +2518,38 @@ window.QQ_ANSWERS = {
    "date": "19 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_full_infinite_hotel",
+   "a": "Yes — and it always can, no matter how full it is. The trick is that \"infinitely many rooms\" behaves nothing like a normal, finite hotel.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't look for an empty room — MAKE one. Ask every guest to shift along by one room and watch what opens up at the start. The reason it works is that there's no 'last' room to fall off the end, which is what makes infinity so strange."
+      "Ask every guest to move up exactly one room: the guest in room 1 goes to room 2, room 2 goes to room 3, room n goes to room n+1. Everyone still has a room of their own (nobody is doubled up, because each n goes to a different n+1), and nobody was turned away. But now room 1 is empty — so the new traveller checks in there."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "\"Full\" didn't mean \"no space.\" In a finite hotel, a guest in every room really does mean no room for one more. With infinitely many rooms, you can shift everyone along and always open a gap, because there's no \"last room\" to fall off the end."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It gets stranger. Suppose infinitely many new guests arrive — a whole infinite bus. You can still fit them all: ask the guest in room n to move to room 2n. Now every guest sits in an even-numbered room, and every odd-numbered room — 1, 3, 5, 7, ..., infinitely many of them — is free for the newcomers."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is David Hilbert's \"Grand Hotel,\" and it's the honest picture of what mathematicians mean by countable infinity: a set can be the \"same size\" as a part of itself. The whole numbers and the even numbers can be paired off one-to-one, so in this precise sense there are exactly as many even numbers as whole numbers — which is why the full hotel always has room."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "sure_of_a_pair",
@@ -932,17 +2558,38 @@ window.QQ_ANSWERS = {
    "date": "19 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/sure_of_a_pair",
+   "a": "Fourteen. No matter how the deck is ordered, by the time you have turned over 14 cards, two of them are guaranteed to share a value — and 14 is the smallest number for which that's certain.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Count the 'boxes,' not the cards. How many different VALUES can a card have? Once you have one card in every box, the next card must double up. That's the pigeonhole principle, and suits never matter."
+      "The reason is the pigeonhole principle: if you have more items than boxes to put them in, some box must hold at least two."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here the \"boxes\" are the values a card can have. A deck has exactly 13 of them: ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king. Every card you turn over falls into one of those 13 value-boxes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Turn over 13 cards and you MIGHT still be safe — the unluckiest possible order gives you one of each value, ace through king, all different. But the 14th card has to be some value between ace and king too, and all 13 boxes already have a card in them. So it lands in a box that's already occupied: an instant pair."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That's why 14 is both enough and necessary. With 13 you can dodge (one of each value); with 14 you cannot. Notice suits never entered the argument — only the 13 values matter, which is exactly why the answer is so much smaller than the 27 or 53 people often guess."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "a_perfect_rainbow",
@@ -951,17 +2598,74 @@ window.QQ_ANSWERS = {
    "date": "19 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/a_perfect_rainbow",
+   "a": "About 11% — only a bit better than one deal in ten. A rainbow feels like it should be common, but three deals in four give you a repeated suit instead.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Build the hand one card at a time and force each new card to be a NEW suit: 39/51, then 26/50, then 13/49. Multiply. Watching the winning fraction shrink card by card is the whole story of why a rainbow is rarer than it feels."
+      "Build the four cards one at a time and ask that each new card avoids the suits already down."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "1st card: anything works. It just sets a suit.",
+      "2nd card: 51 cards remain; 39 of them are NOT the first card's suit. Chance"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  it's a new suit = 39/51."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "3rd card: 50 remain; to be a third suit it must avoid the two suits already"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  showing, so 26 of the 50 work: 26/50."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "4th card: 49 remain; it must be the one missing suit, 13 of the 49: 13/49."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Multiply:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    39/51 x 26/50 x 13/49 = 13,182 / 124,950 = 0.1055, about 11%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why so much rarer than it feels? Each new card has to dodge an ever-growing set of 'used' suits, and by the fourth card only a quarter of the deck can finish the rainbow. The intuition that 'four cards, four suits, should line up' ignores how fast the room to succeed shrinks. It's the same trap as expecting everyone at a party to have different birthdays — collisions sneak in far sooner than they feel like they should."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "two_aces_side_by_side",
@@ -970,17 +2674,52 @@ window.QQ_ANSWERS = {
    "date": "18 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/two_aces_side_by_side",
+   "a": "About 22% — a bit better than one shuffle in five. Most people guess 5% or less, which is exactly why it works as a bar bet: two aces touching is far more common than it feels.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't count the touching arrangements. Count the OPPOSITE — arrangements where every ace is kept apart — using the GAPS between the 48 other cards, then subtract from 1. Turning 'at least one' into 'none' is the whole trick."
+      "The clean way is to find the OPPOSITE — the chance NO two aces touch — and subtract from 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Think of the 48 non-ace cards first. Lay them in a row and they create 49 gaps: one before the first, one after the last, and 47 between neighbours. To keep the aces apart, drop the 4 aces into 4 DIFFERENT gaps. The number of ways to choose those gaps is C(49,4)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The total number of ways to place 4 aces among the 52 positions is C(52,4)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the chance no two aces touch is C(49,4) / C(52,4) = (49 x 48 x 47 x 46) / (52 x 51 x 50 x 49) = (48 x 47 x 46) / (52 x 51 x 50) = 103,776 / 132,600 = 0.7826."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Chance at least two touch = 1 - 0.7826 = 0.2174, about 22%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why so high? There are 6 different PAIRS of aces, and each pair is adjacent with chance 2/52 x (1/51 doubled)... more simply, adjacency for one specific pair is 51 touching-slots out of C(52,2) = 1326 pairs of positions, ~3.8%. Six pairs, and the little overlaps, push it past one in five. It's the same reason coincidences in general feel rarer than they are: many chances to match add up fast."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "a_pair_in_your_hand",
@@ -989,17 +2728,45 @@ window.QQ_ANSWERS = {
    "date": "18 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/a_pair_in_your_hand",
+   "a": "About 49% — very nearly a coin flip. Deal five cards and it's almost as likely as not that at least two of them share a value. Most people guess far lower, which is what makes it a good bar-room bet.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't count the matching hands directly. Count the OPPOSITE — hands where all five values differ — and subtract from 1. Pick 5 of the 13 values, then a suit for each, over all C(52,5) hands. The 'at least one' trick turns a mess into one line."
+      "The clean way to get it is to find the OPPOSITE — the chance all five cards have DIFFERENT values — and subtract from 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Count the hands with five different values. Choose which five of the thirteen values appear: C(13,5) ways. Each of those five values can be any of its 4 suits: 4^5 ways. So all-different hands number C(13,5) x 4^5 = 1287 x 1024 = 1,317,888."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Total five-card hands: C(52,5) = 2,598,960."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Chance of all different = 1,317,888 / 2,598,960 = 0.5071. So the chance of at least one match = 1 - 0.5071 = 0.4929, about 49%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why so high? It's the birthday-problem effect in miniature. With five cards there are ten different PAIRS of cards, and each pair matches in value with chance 3/51 ~ 6%. Ten shots at a 1-in-17 event add up fast — near a coin flip, long before your intuition expects it. \"At least one pair\" here means two cards of the same rank, so it also counts two pair, three of a kind, a full house, and four of a kind; only \"high-card\" and straights/flushes with five distinct ranks miss."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "how_many_cards_come_home",
@@ -1008,17 +2775,38 @@ window.QQ_ANSWERS = {
    "date": "18 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/how_many_cards_come_home",
+   "a": "On average, exactly ONE card comes home. And here's the kicker: it doesn't matter whether the deck has 52 cards or 52 million — the expected number that land back in their starting spot is always 1.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't try to track all the cards at once. Look at ONE card, work out its chance of landing back in its own spot, then remember that averages simply add up across all the cards — even when the cards depend on each other."
+      "Why exactly one? Look at a single card, say the ace of spades. After a fair shuffle it is equally likely to be in any of the 52 positions, so the chance it lands back in its own spot is 1/52. That's true for every one of the 52 cards. Add up those 52 chances of 1/52 each, and the average total is 52 x 1/52 = 1. (This works even though the cards aren't independent — averages always add.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So on a typical shuffle you'll usually see one card home, sometimes two, sometimes none."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "How often do NONE come home? A shuffle where not a single card returns to its spot is called a derangement. The fraction of all shuffles that are derangements is almost exactly 1/e (e = 2.718...), which is about 37%. So roughly one shuffle in three leaves every single card in a new place. The probability of exactly one home, or exactly two, is also close to 1/e / (that many) — the counts follow a near-Poisson pattern with an average of 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The surprise is the stubbornness of that 1: pile up more and more cards and the expected number coming home never grows. Each extra card adds one more chance to match, but makes each match rarer by exactly the same factor, and the two cancel forever."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_man_who_solved_the_market",
@@ -1027,17 +2815,38 @@ window.QQ_ANSWERS = {
    "date": "18 Aug 2026",
    "topic": "history",
    "q": null,
-   "a": "Full story + the number (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_man_who_solved_the_market",
+   "a": "The man is Jim Simons (1938-2024), and the company is Renaissance Technologies. The number rival bankers didn't believe: its Medallion Fund reportedly returned around 66% a year BEFORE fees, and about 39% a year after its famously steep fees, over roughly 1988-2018 — widely called the greatest track record in the history of investing. A dollar compounding at ~39% net for thirty years becomes on the order of tens of thousands; at the ~66% gross rate the figure is astronomical. (Figures as reported in Gregory Zuckerman's \"The Man Who Solved the Market,\" 2019; Medallion is closed to outsiders, so exact numbers are not public.)",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: The lesson isn't 'find a magic formula.' It's that thousands of tiny edges, each barely better than a coin flip, compound into something huge when you find them in data and repeat them without emotion. Discipline beats hunches."
+      "The story in full. Simons was a first-rank mathematician: with Shiing-Shen Chern he created Chern-Simons theory, a piece of geometry now woven through modern physics, and he won the Oswald Veblen Prize, geometry's top honour. Between academic posts he broke codes for the Institute for Defense Analyses during the Cold War — until he was let go for publicly opposing the Vietnam War. He then built and chaired the mathematics department at Stony Brook."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In 1978 he left academia to trade, and in 1982 founded Renaissance. His bet was radical for the time: markets are not moved by stories you can reason out, but by faint statistical patterns you can only find in mountains of data. So he hired scientists — physicists, astronomers, statisticians, signal-processing and code-breaking experts — and pointedly avoided people trained in finance. Models, not hunches; thousands of small edges, each barely better than a coin flip, compounded relentlessly by computer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The result reshaped the industry: the \"quants\" went from a curiosity to the center of modern markets. And Simons gave most of his fortune away. The Simons Foundation became one of the largest private funders of basic science and mathematics on Earth; Math for America supports thousands of maths and science teachers. The man who found the hidden order in the market spent the proceeds buying more of the thing he loved first — mathematics — for everyone who comes next."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it's a nice story, and not a cautionary one: unlike funds that blew up chasing the same dream, Renaissance's edge was real, disciplined, and durable, and its founder measured success partly by how much of it he could give back."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "turn_the_wobbly_table",
@@ -1046,17 +2855,45 @@ window.QQ_ANSWERS = {
    "date": "18 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/turn_the_wobbly_table",
+   "a": "Yes — you can always stop the wobble by turning the table, and you never need more than a quarter turn (90 degrees). It works on ANY bumpy ground, as long as the ground is smooth (no sudden cliffs) and the table's four feet form a square.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Think about what a quarter turn does to the two diagonals of feet — it swaps them. If some 'imbalance' between the diagonals is positive now and becomes its own negative a quarter turn later, a smooth quantity has to pass through zero on the way. Zero imbalance is the table sitting flat."
+      "Here is why. Keep the table pivoting on one pair of opposite feet — call that diagonal A — so those two stay on the ground. The other diagonal, B, is the rocking pair: one of its feet touches, the other floats. Measure the imbalance: how much higher the ground is under diagonal B's feet than under diagonal A's. Call that number f, and let it depend on the angle you've turned the table to."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now turn the table a quarter turn. Diagonal A becomes where B was, and B becomes where A was — the two diagonals swap. So f doesn't just change, it flips to exactly minus what it was: f(angle + 90) = -f(angle)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "f changes smoothly as you turn (the ground has no cliffs). If it starts positive and a quarter turn later is the same size but negative, then somewhere in between it must pass through zero. That's the intermediate-value theorem — a continuous quantity can't jump from + to - without hitting 0."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And f = 0 is precisely the table resting level on all four feet at once. No gap, no wobble. Because the sign flip happens within a quarter turn, a stable angle always exists within 90 degrees. You don't fix the ground or the table — you just rotate until the maths lands on zero."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "(Real-world caveats: the feet need to be roughly a square, and very steep ground can tilt the tabletop enough to spill your coffee even where it doesn't wobble — but for an ordinary bumpy terrace, a quarter turn always does it.)"
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "how_far_does_the_ball_bounce",
@@ -1065,17 +2902,52 @@ window.QQ_ANSWERS = {
    "date": "18 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/how_far_does_the_ball_bounce",
+   "a": "Exactly 7 metres. The ball bounces infinitely many times, yet the total distance it covers is a plain, finite number — and it's seven times the height you dropped it from.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't total the bounces one at a time — group each bounce as an up-and-down PAIR, and notice every pair is the same fraction of the one before. A run of numbers that keeps shrinking by a fixed factor adds up to a finite total."
+      "The trick is to add the bounces up, not chase them one by one. The very first move is the drop: 1 metre down. Then every bounce after that is a matching pair — up to some height, then the same distance back down."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The first bounce rises 3/4 of a metre and falls 3/4, so 2 x 3/4. The next rises and falls 3/4 of THAT, so 2 x 9/16. Each pair is 3/4 of the pair before it — a geometric series, shrinking by the same factor every time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A shrinking series like that has a finite total. Adding the endless run of up-and-down pairs:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2 x (3/4 + 9/16 + 27/64 + ...) = 2 x [ (3/4) / (1 - 3/4) ] = 2 x 3 = 6 metres."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add the original 1-metre drop and you get 1 + 6 = 7 metres."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The neat formula: drop height h, bounce fraction r, total distance = h(1 + r)/(1 - r). Here 1 x (1.75)/(0.25) = 7. Infinitely many bounces, a finite 7 metres — because each one is a fixed fraction smaller, the sum closes up instead of running away. It's the same reason 1/2 + 1/4 + 1/8 + ... only ever adds up to 1."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "where_do_the_balls_pile_up",
@@ -1084,17 +2956,31 @@ window.QQ_ANSWERS = {
    "date": "18 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/where_do_the_balls_pile_up",
+   "a": "They pile up in a smooth BELL: tall in the middle, sloping down to almost nothing at the edges. Out of pure randomness — every single bounce a fair coin flip — comes one of the most orderly shapes in all of maths.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Ask how many different bounce-sequences land a ball in each slot. To reach an edge, every bounce must go the same way — one lonely path. To reach the middle, lefts and rights in any order all work — a great many paths. Count the paths."
+      "Why the middle wins. To land in an edge slot, a ball has to bounce the SAME way every time — all lefts, or all rights. There's exactly one path that does that, and it's wildly unlikely: like flipping nine heads in a row. To land in a middle slot, the ball needs about half lefts and half rights, and there are a HUGE number of different orders that achieve that — left-right-left-right, right-right-left... Many roads lead to the middle; only one leads to each edge."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Count those roads and you get the binomial numbers — 1, 9, 36, 84, 126, 126, 84, 36, 9, 1 for nine rows. The middle slots collect 126 paths each; the edges get 1. That ratio, 126 to 1, is the whole bell."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And here's the deep part: this isn't special to pegs. Add up MANY small random things — coin flips, measurement errors, the heights of strangers, noise in a signal — and the total almost always lands in this same bell shape. That's the Central Limit Theorem, the reason the bell curve turns up everywhere in nature and statistics. A board of pins is just the most beautiful way to watch it happen: chaos at every pin, near-perfect order at the bottom, every time."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "one_extra_metre_of_rope",
@@ -1103,17 +2989,45 @@ window.QQ_ANSWERS = {
    "date": "18 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_extra_metre_of_rope",
+   "a": "About 16 centimetres — roughly a hand's width. Enough for a cat to stroll underneath, right the way around the planet. From one measly extra metre.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't think about spreading the extra metre along the rope. A circle's length is a fixed multiple of its radius, so ask how much the RADIUS has to grow to make the rope one metre longer — and notice the starting size never enters that sum."
+      "But here's the part that breaks people's brains: that height does NOT depend on how big the Earth is. Wrap the rope around a basketball instead, add one metre, and it lifts by the exact same 16 centimetres. Around the Sun — same 16 centimetres. The planet's size cancels out completely."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here's why. A circle's length is 2π times its radius. The rope's length is the circle it makes, so if you lengthen the rope by 1 metre, its radius grows by"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 / (2π) = about 0.159 metres = ~16 cm."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That's the whole story: the gap is the extra length divided by 2π, and 2π is just a fixed number — it doesn't care whether the radius was 4,000 miles or 4 centimetres. The big radius sits on both sides of the sum and cancels."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Our intuition fails because we picture \"one metre spread around forty thousand kilometres\" and think it must vanish. But you're not spreading the metre along the rope — you're spreading it into the RADIUS, and the radius only has to grow by that same tiny 1/(2π) no matter how large it started. The size of the Earth was a red herring the entire time."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "one_coin_around_another",
@@ -1122,17 +3036,38 @@ window.QQ_ANSWERS = {
    "date": "18 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_coin_around_another",
+   "a": "Two. Not one — TWO full turns. This is the famous 'coin rotation paradox', and almost everyone's first answer of one is wrong.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't follow the edge — follow the CENTRE of the rolling coin. Ask what size circle its centre traces as it goes around, and compare that circle's length to the coin's own circumference. The edge-length answer misses one whole trip."
+      "Here's the trap. The rolling coin's edge is the same length as the still coin's edge, so it feels obvious that rolling all the way around should be exactly one turn — the coin lays its whole rim along the other coin's rim, and that's one circumference, one turn. That reasoning counts the spin RELATIVE TO the coin it's rolling on. But the turns you actually SEE are relative to the table, and those are different."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Track the centre of the rolling coin instead of its edge. That centre does not travel around a circle the size of one coin — it travels around a bigger circle, one whole coin-radius further out. For two equal coins of radius r, the centre's path is a circle of radius r + r = 2r, so its circumference is TWICE the coin's own. Rolling without slipping, the coin turns once for each of its own circumferences travelled — and it covers two of them, so it turns twice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Another way to see the 'extra' turn: even if the coin merely ORBITED the middle one without rolling — think of the Moon keeping the same face toward Earth — it would still complete one full turn as seen from outside, just from going around. Add the one turn from the rolling itself, and you get 1 + 1 = 2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general rule: a coin of radius r rolling once around a fixed coin of radius R makes (R + r) / r turns. Equal coins give 2. Roll a small coin around one three times its size and it turns four times. The edge-length intuition is off by exactly that orbit — one full turn — every single time."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "take_the_last_coin",
@@ -1141,17 +3076,31 @@ window.QQ_ANSWERS = {
    "date": "18 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/take_the_last_coin",
+   "a": "Yes — and going first, you can win every single time. The whole game turns on one idea: always leave your friend a multiple of FOUR coins.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Think about the number you HAND your friend, not the number you take. Since you can always take 1, 2, or 3, you can always undo their move back to a fixed step size. Find the pile size they can never escape, and steer them onto it."
+      "Start with 21. Take 1, leaving 20 — a multiple of four. Now whatever your friend does, they break that: if they take 1 you take 3, if they take 2 you take 2, if they take 3 you take 1. Every round, you and your friend together remove exactly four coins, so you hand them 16, then 12, then 8, then 4 — always a multiple of four — and finally 0, which means YOU took the last coin."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why four? Because you can take 1, 2, or 3. Whatever number your friend picks from 1 to 3, you can always top it up to 4. So once you've handed them a pile that's a multiple of four, they can never leave you one — and you can always put them back on one. A multiple of four is a trap they can't escape."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general rule: with a take of 1 to n, the losing piles are the multiples of (n+1). Here n is 3, so it's multiples of 4. 21 is not one — 21 = 4 x 5 + 1 — so the first player is winning, and the winning move is to take that spare 1 and leave 20. If the pile had started at 20, or any multiple of four, the second player would have the lock instead. Whoever can first hand over a multiple of four controls the game to the end."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "one_job_no_take_backs",
@@ -1160,17 +3109,31 @@ window.QQ_ANSWERS = {
    "date": "18 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_job_no_take_backs",
+   "a": "Let the first 37% of them go — no matter how good they seem — then hire the very next person who is better than everyone you've seen so far. That simple rule lands the single best applicant about 37% of the time, far more often than luck.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: The first stretch of interviews isn't for hiring — it's for learning what 'good' even looks like, so you can set a bar. Reject that whole first group on purpose, remember the best of them, then take the next person who beats it."
+      "Why give up the first 37% on purpose? Because those early interviews aren't for hiring — they're for calibration. They set your bar. You have no idea what a 'great' applicant looks like until you've seen a sample, so you spend the first chunk just looking, hiring no one, and remember the best of them. After that, the first person who clears that bar is your pick."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The exact cutoff is 1/e of the applicants — that's 0.368, or about 37% — and the chance it delivers the actual best is also 1/e, about 37%. For 100 applicants: look at 37, then grab the next one who beats all 37. Roughly a one-in-three shot at the perfect hire, from a situation that feels hopeless."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things make it feel wrong. First, you deliberately reject people who might be the best — and sometimes the best really was in that first 37%, and you've lost them. That's the price. Second, 37% is not a majority; you commit while more than half the line is still unseen. But sweep every possible cutoff and 37% wins: stop too early and you haven't learned the bar; stop too late and the best has probably already walked out the door."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "two_share_a_birthday",
@@ -1179,17 +3142,45 @@ window.QQ_ANSWERS = {
    "date": "17 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/two_share_a_birthday",
+   "a": "Just 23 people. In a room of 23, it is already more likely than not that two of them share a birthday — a number most people find absurdly small.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: You're not matching yourself against the room — you're counting PAIRS of people, since any two could clash. Work out how many pairs a small crowd already makes, and the answer stops feeling impossible."
+      "The trick is what you're really counting. You're not comparing yourself to everyone else; you're counting PAIRS of people, because any pair could be the match. And pairs pile up fast: 23 people make 23 x 22 / 2 = 253 different pairs, and each pair is a fresh chance for a clash. 253 chances is a lot."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The clean way to compute it is to ask for the opposite — the chance that everyone is DIFFERENT — and subtract from 1. The second person must dodge 1 birthday (364/365), the third must dodge 2 (363/365), and so on:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(all different) = 365/365 x 364/365 x 363/365 x ... x 343/365"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Multiply the first 23 of those and you get about 0.492 — so the chance that at least two MATCH is about 1 - 0.492 = 0.507, just over half. At 23 it tips past even odds; by 50 people it's 97%, and by 70 it's 99.9%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why it feels wrong: your gut compares one person to the rest, which grows one at a time. The real count is pairs, which grows like the square — far faster than intuition expects. Count pairs, not people, and 23 stops being a surprise."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "which_way_will_the_lift_come",
@@ -1198,17 +3189,45 @@ window.QQ_ANSWERS = {
    "date": "17 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/which_way_will_the_lift_come",
+   "a": "Almost always UP. If you're near the top, the first lift to arrive is overwhelmingly heading upward — the opposite of what most people guess, and usually the wrong way for someone who wants to go down.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't picture the arrival — picture where the lift IS when you walk up to wait. Near the top, almost the whole shaft is below you, so it's almost always below your floor. Now ask: a lift below you can only reach you by travelling which way?"
+      "Here's why. The lift bounces between the bottom and the top all day. When you're near the top, nearly the whole shaft is below you, so at any random moment the lift is almost certainly somewhere below your floor. And a lift that is below you can only reach you by coming UP. So the first time it arrives, it's going up."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put a number on it. In a building of N floors, standing on floor k, the chance the first lift arrives going up is exactly"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (k - 1) / (N - 1)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— the fraction of floors below you. On the second floor from the top of a tall building that's near 1; on the second floor from the bottom it's near 0, where the first lift almost always arrives going DOWN instead."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The catch that makes it feel like a paradox: it's the WRONG way for you. Near the top you usually want to go down, but the lift keeps arriving going up, because up is where it has to travel to reach you from below. The building isn't out to get you — you just happen to live where the lift is rarely above you."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "collect_all_six_toys",
@@ -1217,17 +3236,41 @@ window.QQ_ANSWERS = {
    "date": "17 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/collect_all_six_toys",
+   "a": "About fifteen boxes — 14.7 on average, to collect all six toys. More than twice the six you might first guess.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't count the boxes all at once — count how long you wait for EACH new toy on its own. When you already hold some toys, a fresh box only sometimes brings a new one, and the rarer that gets, the longer the wait. Add those separate waits."
+      "The trick is to add up the wait for each new toy separately. The very first box is always a new toy, so that costs 1 box. Now you have 1 of the 6, so each new box is a fresh toy 5 times out of 6 — on average it takes 6/5 boxes to get the second. With 2 in hand, a new one comes 4 times out of 6, so the third takes 6/4 boxes. And so on down to the last toy, which you only get 1 time out of 6, so it takes a punishing 6 boxes on average all by itself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add those waits:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    6/6 + 6/5 + 6/4 + 6/3 + 6/2 + 6/1",
+      "  = 6 x (1 + 1/2 + 1/3 + 1/4 + 1/5 + 1/6)",
+      "  = 6 x 2.45",
+      "  = 14.7 boxes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The pattern is worth keeping: to collect all n coupons takes about n x (natural log of n) draws. The last few are the killers — half of ALL your boxes go to chasing the final one or two toys, which is exactly why the pile of duplicates grows so fast at the end. The set was never going to cost six boxes; the tail is where the money goes."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "three_doors_one_car",
@@ -1236,17 +3279,45 @@ window.QQ_ANSWERS = {
    "date": "17 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/three_doors_one_car",
+   "a": "Switch. Switching wins the car two times out of three; staying wins one time out of three. It is not a coin flip.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Fix your attention on the door you first pointed at, and ask what its chance was BEFORE the host did anything. The host only ever opens an empty door he was free to choose — so opening one cannot change the odds on the door you already locked in."
+      "The trick is to remember where you stood at the very start. When you first pointed, you had a 1-in-3 chance of being right, and a 2-in-3 chance the car was behind one of the other two doors. Opening a door does not reach back and change that first pick."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Your door was 1/3 then, and it is still 1/3 now. So the other 2/3 has to live somewhere — and the host has just cleared away the empty door, funnelling that entire 2/3 onto the single door he left closed. Switching gives you that door."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Another way to see it: the host is not choosing at random. He KNOWS where the car is and always opens an empty door. That is him leaking information — he is steering you away from a dud every single time, and you cash that in by switching."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The cleanest check is just to list it out. Say the car is behind door 1 and you always switch: pick 1, host opens 2 or 3, you switch to the other and LOSE. Pick 2, host must open 3, you switch to 1 and WIN. Pick 3, host must open 2, you switch to 1 and WIN. Two wins in three. Staying flips every one of those — one win in three."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Switch every time, and over many games you win the car twice as often."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "snap_the_stick_make_a_triangle",
@@ -1255,17 +3326,38 @@ window.QQ_ANSWERS = {
    "date": "17 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/snap_the_stick_make_a_triangle",
+   "a": "One in four. Snap a stick at two random spots and the three pieces make a triangle exactly a quarter of the time.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: A triangle needs every piece shorter than the other two combined. With three pieces from one stick, that reduces to a single clean condition on the longest piece — find it, then ask how often two random breaks satisfy it."
+      "The whole thing turns on one fact: three lengths form a triangle only if no single piece is longer than half the stick. If one piece is more than half, the other two together are shorter than it, so they can never reach across to close the gap — which is exactly the failure you saw."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the question becomes: what is the chance that NO piece is longer than a half?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Picture the two break points as two numbers between 0 and 1, dropped at random. Plot them as a dot in a 1-by-1 square; every possible pair of breaks is one dot, spread evenly over the square. Now shade the dots where all three pieces come out shorter than a half. That region is two little triangles in opposite corners, each with area one eighth."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two eighths is one quarter. So a quarter of all breaks work, and the answer is 1/4 — a lot rarer than most people guess, because it only takes ONE piece over a half to spoil it, and a random break oversteps that half surprisingly often."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "the_drunkard_on_the_cliff",
@@ -1274,17 +3366,45 @@ window.QQ_ANSWERS = {
    "date": "17 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_drunkard_on_the_cliff",
+   "a": "He goes over the edge. Not \"probably\" — with certainty. The chance is 1.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: His steps are fair, so on average he drifts nowhere — that is the trap in the question, not the answer to it. Ask instead: on an endless line, can a fair wanderer dodge a single fixed point forever, or is every point one he must eventually revisit?"
+      "That feels wrong, because his steps are fair. Toward the edge and away from it are equally likely, so on average he drifts nowhere — his expected position never moves. Surely a man who, on average, stays put should be safe?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "He is not. On an infinite line, a fair random walk is RECURRENT: it is certain to revisit any point, including the one step that puts him over. Wander inland a hundred steps and you have only delayed it — from any distance the return to the edge still has probability 1. There is no \"far enough\" to escape to."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The clean way to see it: standing k steps from the edge, the chance he reaches the edge before ever getting N steps away is (N - k) / N. Let the safe side run off to infinity — N grows without bound — and that chance climbs to 1 for every starting k. Nowhere is safe."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the twist that makes it beautiful. He is certain to fall, yet the AVERAGE number of steps until he does is INFINITE. Certain to happen, with no finite expected wait — because the rare walks that first roam far inland take enormously long to come back, and they drag the average up without bound."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So: probability of falling, 1. Expected time to fall, infinity. The drunk man always goes over the cliff — you simply can never say when."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "a_trillion_years_or_five_thousand",
@@ -22154,17 +24274,68 @@ window.QQ_ANSWERS = {
    "date": "1 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/no_best_die",
+   "a": "There is NO best die. The three dice beat each other in a circle, like rock-paper-scissors: red beats green, green beats blue, and blue beats red — each one winning 5 times out of 9 (about 56%). So the winning move is to let your opponent choose first, then pick the die that beats theirs.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "TIP: Don't rank the dice — compare them in PAIRS. Line up each die's three values against another's, count the nine matchups, and see who wins more. Do all three pairs and watch whether the winners line up in order... or run in a circle."
+      "Here are the faces (each value is on two of the six faces):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    red    2 4 9      green  1 6 8      blue   3 5 7"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Take red vs green. Compare every one of red's three values against green's three (nine equally likely matchups):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "red 2 beats only green 1 -> 1 win",
+      "red 4 beats only green 1 -> 1 win",
+      "red 9 beats green 1, 6, 8 -> 3 wins"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Red wins 5 of 9. So red beats green."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Green vs blue, the same way: green 1 beats nothing; green 6 beats blue 3 and 5; green 8 beats 3, 5, 7. That's 5 of 9. Green beats blue."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Blue vs red: blue 3 beats red 2; blue 5 beats red 2 and 4; blue 7 beats red 2 and 4. That's 5 of 9. Blue beats red."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The cycle closes: red > green > blue > red. \"Which is best?\" has no answer, because being better than another die isn't a ranking that has to line up in order — the same trap as three friends who each beat the next at a different game. Whoever picks first loses, if the other player knows the cycle."
      ]
     }
    ],
-   "src": "comment"
+   "src": "answer"
   },
   {
    "slug": "snowflake_infinite_edge",
@@ -26037,5 +28208,5 @@ window.QQ_ANSWERS = {
    "src": "answer"
   }
  ],
- "featured": "two_tunnels_through_the_earth"
+ "featured": "solid_or_hollow_down_the_ramp"
 };
