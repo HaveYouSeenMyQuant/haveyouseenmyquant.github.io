@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 472,
+ "count": 473,
  "entries": [
+  {
+   "slug": "two_kilometres_of_falling",
+   "title": "Two kilometres of falling",
+   "ts": "2026-08-22T17:30:25+00:00",
+   "date": "22 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "About 24 kilometres an hour -- and it stopped speeding up after the first NINE METRES. The two kilometres in the question are almost entirely irrelevant.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT PEOPLE EXPECT. With no air, falling 2,000 metres gives"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    v = sqrt(2 g h) = sqrt(2 x 9.81 x 2000) = 198 m/s"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which is 713 km/h. Rain would be lethal. It obviously is not, so something stops the drop accelerating -- and that something is drag."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE IT SETTLES. Drag grows with the SQUARE of speed, so the faster the drop goes the harder the air pushes back, until push balances weight:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    m g  =  (1/2) rho Cd A v^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For a 2 mm drop that gives 6.7 m/s, about 24 km/h. Bigger drops fall faster because weight grows with the CUBE of the radius while the area facing the air grows only with the SQUARE -- a 5 mm drop reaches 38 km/h, a 1 mm one only 17."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART THAT SURPRISES PEOPLE. Integrating the fall step by step, the drop passes 99% of its final speed after 9.1 metres, in 1.8 seconds. Everything after that is at constant speed. So a drop from 2 km and a drop from 20 metres hit you at the same speed, and the height in the question is a red herring you were meant to reach for."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is also why hail hurts and rain does not. Hail is far heavier for its frontal area, so its balance point is much higher up the speed scale -- a 2 cm hailstone lands at something like 70 km/h."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "heat_the_ring_watch_the_hole",
    "title": "Heat the ring, watch the hole",
