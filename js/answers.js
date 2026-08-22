@@ -16,8 +16,56 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 469,
+ "count": 470,
  "entries": [
+  {
+   "slug": "heard_but_not_seen",
+   "title": "Heard but not seen",
+   "ts": "2026-08-22T13:53:54+00:00",
+   "date": "22 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Because a voice is about the SIZE of the corner, and light is about a million times smaller.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Waves bend round an obstacle when their wavelength is comparable to it. That is the whole story, and the two numbers could hardly be further apart."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    a mid voice, 340 Hz    sound travels 343 m/s, so the wavelength is 343/340 = 1.0 m",
+      "    green light, 550 nm    0.00000055 m"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A corridor corner is roughly a metre across. So the voice arrives at an opening about ONE wavelength wide, and a wave that size spreads out through a huge angle once it gets past. Light arrives at the same opening about 1,600,000 wavelengths wide, and a wave that small compared with the gap carries straight on. Its spreading angle works out at about 0.00003 of a degree, which over a corridor is nothing at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE DETAIL THAT MAKES IT REAL. High notes bend less than low ones, because their wavelengths are shorter. At 3 kHz the wavelength is 11 cm, which is a small fraction of the corner, so the treble does NOT make it round. That is why a voice heard from round a corner sounds muffled and bass-heavy rather than just quieter — you are hearing the low frequencies that could bend and missing the high ones that could not. Most people have noticed that effect and never connected it to why they cannot see the speaker."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same rule runs everywhere. Bass carries through walls from a party while the vocals do not. Radio reaches into valleys where line of sight does not. And it is why an optical microscope cannot resolve anything much smaller than the wavelength of light: you cannot see detail finer than the wave you are looking with."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "four_corners_two_totals",
    "title": "Four corners, two totals",
