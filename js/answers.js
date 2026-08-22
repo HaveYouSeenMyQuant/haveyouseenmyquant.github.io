@@ -16,8 +16,91 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 468,
+ "count": 469,
  "entries": [
+  {
+   "slug": "four_corners_two_totals",
+   "title": "Four corners, two totals",
+   "ts": "2026-08-22T11:51:23+00:00",
+   "date": "22 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "NEITHER. The two totals are exactly equal, always — and it does not matter where you stand.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is the British flag theorem. Label the corners A, B, C, D going round, so A and C are opposite and B and D are opposite. Then for any point P,"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    PA^2 + PC^2  =  PB^2 + PD^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY, in one line of algebra. Put the room on axes with A at the origin, so the corners are A = (0,0), B = (w,0), C = (w,h) and D = (0,h). Let P = (x,y). Then"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    PA^2 + PC^2  =  (x^2 + y^2) + ((x-w)^2 + (y-h)^2)",
+      "    PB^2 + PD^2  =  ((x-w)^2 + y^2) + (x^2 + (y-h)^2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both sides expand to exactly the same thing:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2x^2 + 2y^2 - 2wx - 2hy + w^2 + h^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The x and y terms are identical on both sides — they never had a chance to differ. Each side uses the SAME four ingredients, x^2, (x-w)^2, y^2 and (y-h)^2; the two pairings just bundle them up differently."
+     ]
+    },
+    {
+     "h": "THE PARTS THAT SURPRISE PEOPLE.",
+     "t": "p",
+     "lines": [
+      "You do not have to be inside the room. Stand in the garden, a hundred metres away, and it still holds — nothing in that algebra assumed 0 < x < w."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You do not have to be on the floor either. Lift P off the plane to (x, y, z) and every term gains the same z^2 twice on each side, so it cancels. The identity survives in three dimensions, which is why it also works for a point above a rectangular table."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It fails the moment the shape stops being a rectangle. The proof leans on the corners sharing coordinates in pairs, which is exactly what \"rectangle\" buys you."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "fill_it_but_never_paint_it",
    "title": "Fill it but never paint it",
