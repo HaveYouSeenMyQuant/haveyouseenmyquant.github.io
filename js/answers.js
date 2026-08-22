@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 457,
+ "count": 458,
  "entries": [
+  {
+   "slug": "one_suit_in_five_cards",
+   "title": "One suit in five cards",
+   "ts": "2026-08-22T07:07:38+00:00",
+   "date": "22 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/one_suit_in_five_cards",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Do not try to pick a suit first. Deal the first card and notice it cannot fail — whatever it is, its suit becomes the target. Now ask what has to happen for the SECOND card, given what is left in the pack, and keep going. Four fractions multiplied together is the whole job. If you want to check yourself, count whole hands instead and see that you land on the same number."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "closer_to_the_middle",
    "title": "Closer to the middle",
