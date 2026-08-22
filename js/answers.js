@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 453,
+ "count": 454,
  "entries": [
+  {
+   "slug": "the_last_amoeba",
+   "title": "The last amoeba",
+   "ts": "2026-08-22T04:40:33+00:00",
+   "date": "22 Aug 2026",
+   "topic": "random_walk",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_last_amoeba",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: \"Forever\" sounds impossible to handle, so shrink it. Call the chance one amoeba's line dies out p. Now look only at the FIRST minute: for each of the four things that can happen, what has to happen afterwards for the line still to die out? The two-split case is the one worth pausing on — both new lines have to die, and they do not affect each other. Write that down and you get one equation in p."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_bat_and_the_ball",
    "title": "The bat and the ball",
