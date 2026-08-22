@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 448,
+ "count": 449,
  "entries": [
+  {
+   "slug": "the_stall_pays_the_square",
+   "title": "The stall pays the square",
+   "ts": "2026-08-22T01:37:00+00:00",
+   "date": "22 Aug 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_stall_pays_the_square",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Careful with the order you do things in. There are two tempting routes: work out what a typical roll is and then multiply THAT by itself, or work out all six payouts and combine those. They give different numbers, and only one of them is the price of this bet. Ask yourself which one describes a die that could actually exist."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "land_on_the_last_square",
    "title": "Land on the last square",
