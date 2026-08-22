@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 452,
+ "count": 453,
  "entries": [
+  {
+   "slug": "the_bat_and_the_ball",
+   "title": "The bat and the ball",
+   "ts": "2026-08-22T04:03:29+00:00",
+   "date": "22 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_bat_and_the_ball",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Whatever answer arrived first, spend four seconds testing it before you commit. Take your ball price, add a pound to get the bat, and add the two together — do you land back on one pound ten? If not, you have just disproved it yourself. Then try this: take the one pound difference out of the total FIRST, and ask what is left and who it belongs to."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_bag_that_never_settles",
    "title": "The bag that never settles",
