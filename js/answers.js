@@ -16,8 +16,115 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 466,
+ "count": 467,
  "entries": [
+  {
+   "slug": "golf_balls_fill_a_bus",
+   "title": "Golf balls fill a bus",
+   "ts": "2026-08-22T10:56:31+00:00",
+   "date": "22 Aug 2026",
+   "topic": "estimation",
+   "q": null,
+   "a": "ABOUT A MILLION. Somewhere near 900,000, and anything from half a million to a million and a half is a good answer -- which is the whole point of the question.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the estimate, in four steps you can do in your head."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE BUS. Call it 9 m long, 2.2 m wide, and 4 m tall over both decks. That is about"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "   80 cubic metres of box. Seats, stairs, the engine bay and the driver take maybe a",
+      "   quarter of it, so call the usable space 60 cubic metres."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. THE BALL. A golf ball is about 4.3 cm across. A sphere of that diameter is about"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "   40 cubic centimetres, which is 0.00004 cubic metres."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. THE GAPS. Balls do not fill space; they leave gaps. Poured in loosely, spheres take up"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "   about 64% of the space they sit in. (Stacked perfectly, like oranges, it is 74% -- and",
+      "   that difference matters less than you would think, see below.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "4. DIVIDE.  60 x 0.64 / 0.00004  =  about 950,000."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So: roughly a million golf balls."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART THAT MAKES THIS A REAL SKILL. You do not know the packing fraction. You probably do not know the bus to better than 20%. It does not matter:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    packed loosely  (64%)   ->    935,000",
+      "    packed perfectly (74%)  ->  1,081,000",
+      "    ignore the gaps entirely ->  1,460,000"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every one of those is \"about a million\". The answer is stable against being wrong about the very things you are least sure of, because the estimate is a product of numbers and the errors have to conspire in the same direction to move the order of magnitude. Being out by 20% on three separate factors still leaves you inside a factor of two."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is what an interviewer is watching for. Not the number -- the fact that you knew which quantities mattered, made each one explicit, and could say afterwards how wrong you might be."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_trail_of_a_rolling_coin",
    "title": "The trail of a rolling coin",
