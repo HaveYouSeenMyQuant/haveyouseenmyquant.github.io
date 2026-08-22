@@ -407,3 +407,44 @@ The unit counts mislead because the betting/expectation material lives in u6
 deleted. Before adding road questions, grep the bank by PROMPT and by the skill
 being taught, not by unit size — and use `QQ_BANK=<candidate> verify_answers.py`,
 which is what caught this before anything reached the live bank.
+
+### Smoke-testing the P6 exit offer: no regression, and NOT a confirmation
+
+Ran the live JS in Chrome against a local server, unlocked device-locally with
+QQStore.setEmail (no backend write), opened an archive entry, scrolled the
+.ans-end sentinel into view and waited. The offer did not appear.
+
+Then ran the SAME steps against the pre-change commit served on another port,
+with an answers_ui.js containing no offerLibrary at all. The pre-existing ROAD
+offer did not appear either.
+
+So the two readings are:
+
+  CONFIRMED   the change did not break the existing exit offer -- baseline and
+              patched behave identically under identical steps.
+  NOT SHOWN   that the library offer renders for a real reader. The harness
+              never reproduced the trigger, so it tested nothing about the new
+              path.
+
+The second line is the one that matters. A test where the control ALSO fails
+has told you about your harness, not your code, and reporting it as "verified"
+because nothing exploded would be exactly the false all-clear that the caption
+bar and the comment sweep each produced earlier.
+
+What the harness probably misses: the archive renders all 476 entries into one
+86,000px document, roadOfferDone is module-level and may already be set by the
+free door during the initial open, and scrollIntoView on a 1px sentinel inside
+that list may not produce the intersection the observer wants. Driving it the
+way a person does -- open the entry, scroll down through the working -- is the
+version worth building, and it is a real gap: this repo has Python checks for
+every viz and NO way to exercise the archive's JS.
+
+Evidence the code is at least reachable: node --check passes on both files,
+QQApp.showLibraries is present on the live page, window.QQ_DATA.libraries
+returns six sellable sets, and no console error is raised on the path. That is
+necessary and nowhere near sufficient.
+
+WHAT TO WATCH INSTEAD, since the harness cannot settle it: the events. If
+answers_library_offer_shown stays at zero for a day while archive sessions keep
+arriving, the offer is not rendering and the cause is in offerRoad's guards,
+not in the shelf.
