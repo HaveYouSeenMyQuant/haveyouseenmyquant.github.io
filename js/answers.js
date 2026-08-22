@@ -16,8 +16,106 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 463,
+ "count": 464,
  "entries": [
+  {
+   "slug": "four_weights_reach_forty",
+   "title": "Four weights reach forty",
+   "ts": "2026-08-22T09:39:49+00:00",
+   "date": "22 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "ONE, THREE, NINE and TWENTY-SEVEN. The powers of three.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why powers of three, and not the doubling most people reach for. If weights could only go in the pan opposite the load, each weight would be either IN or OUT -- two choices -- and the best four would be 1, 2, 4, 8, reaching only 1 + 2 + 4 + 8 = 15."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But a weight can go in the SAME pan as the load, where it counts against you. So each weight has THREE states, not two:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    in the far pan     +w",
+      "    off the scale       0",
+      "    in the load's pan  -w"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three states, four weights: 3^4 = 81 arrangements. They come in mirror pairs (swap the pans) plus the empty one, so the number of positive totals you can possibly reach is (81 - 1)/2 = 40. Forty is not a coincidence in the question -- it is the ceiling."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And 1, 3, 9, 27 reaches every one of them, with nothing wasted and nothing repeated. To weigh 5 pounds: put the 9 in the far pan, and the 3 and the 1 beside the sack. 9 - 3 - 1 = 5. To weigh 20: 27 in the far pan, 9 beside the sack... 27 - 9 = 18, no -- put 27 and 3 in the far pan and 9 and 1 beside the sack: 27 + 3 - 9 - 1 = 20."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is just writing the number in base three using the digits -1, 0 and +1 instead of 0, 1 and 2 -- \"balanced ternary\". Every whole number has exactly one such form, which is why every load from 1 to 40 works and why none of them works two different ways."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things checked by brute force rather than remembered:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "1, 3, 9, 27 is the ONLY four-weight set that covers 1 to 40. All 91,390 four-element"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    subsets of 1..40 were tested, and exactly one survives."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "It is exactly tight -- the 81 arrangements give exactly 40 distinct positive totals,"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    so there is no spare capacity anywhere."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "With five weights you would add 81 and reach 121. With three you would reach only 13."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "always_aiming_where_they_are",
    "title": "Always aiming where they are",
