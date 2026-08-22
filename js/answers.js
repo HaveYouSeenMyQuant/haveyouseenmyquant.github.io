@@ -1414,7 +1414,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "grid_rectangles",
+    "lesson": "u5l3",
+    "unit": 2,
+    "prompt": "A window is split into a grid four little squares wide and three little squares high. Counting every rectangle you can trace on the grid, how many rectangles are there?"
+   }
   },
   {
    "slug": "the_last_amoeba",
@@ -2145,7 +2151,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "at_least_one_six",
+    "lesson": "u5l2",
+    "unit": 2,
+    "prompt": "Throw four ordinary dice at once. How often will at least one of them show a six?"
+   }
   },
   {
    "slug": "do_the_marbles_match",
@@ -3262,7 +3274,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "mobius_cut",
+    "lesson": "u8l2",
+    "unit": 8,
+    "prompt": "Take a paper strip, give one end a half twist, and glue the two ends together."
+   }
   },
   {
    "slug": "the_monkey_and_shakespeare",
@@ -3820,7 +3838,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "rope_earth",
+    "lesson": "u3l1",
+    "unit": 5,
+    "prompt": "A rope is pulled tight all the way round the Earth's equator. You add just one extra metre of rope and lift it evenly off the ground everywhere. How high does it sit?"
+   }
   },
   {
    "slug": "one_coin_around_another",
@@ -4775,7 +4799,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "benford_ones",
+    "lesson": "u14l2",
+    "unit": 14,
+    "prompt": "Take a big pile of real-world numbers — river lengths, town populations, electricity bills — and look only at the first digit of each. How often is that digit a 1?"
+   }
   },
   {
    "slug": "one_percent_costs_everything",
@@ -5067,7 +5097,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "secretary_skip",
+    "lesson": "u12l1",
+    "unit": 12,
+    "prompt": "A hundred candidates arrive one at a time in random order and each must be hired on the spot or lost for ever — how many should you see and turn down before hiring the next one who beats them all?"
+   }
   },
   {
    "slug": "uniform_sum_exceed_one",
@@ -5326,7 +5362,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "break_the_house",
+    "lesson": "u12l2",
+    "unit": 12,
+    "prompt": "You have £5 and the house has £95, you flip a fair coin for £1 a time, and you play until one of you has nothing — what is your chance of taking the lot?"
+   }
   },
   {
    "slug": "at_least_one_head_in_three_flips",
@@ -5614,7 +5656,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "no_free_lunch",
+    "lesson": "u13l1",
+    "unit": 13,
+    "prompt": "Someone is selling a compression program and will not say how it works."
+   }
   },
   {
    "slug": "how_long_to_double_at_six",
@@ -5784,7 +5832,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "bus_wait",
+    "lesson": "u6l2",
+    "unit": 4,
+    "prompt": "Buses on a route bunch up: half the gaps between them are 5 minutes and half are 15, so the average gap is 10 minutes. You turn up without checking the timetable."
+   }
   },
   {
    "slug": "ninety_five_percent_one_in_a_hundred",
@@ -7956,7 +8010,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "hat_check",
+    "lesson": "u6l2",
+    "unit": 4,
+    "prompt": "Thirty people leave their hats at a party and the hats are handed back completely at random. On average, how many people get their own hat back?"
+   }
   },
   {
    "slug": "one_three_two_over_2_plus_9_times_2",
@@ -9075,7 +9135,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "coin_streak",
+    "lesson": "u1l2",
+    "unit": 1,
+    "prompt": "Flip a fair coin one hundred times."
+   }
   },
   {
    "slug": "fifty_take_5_lots_of_a_bracket",
@@ -18210,7 +18276,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "riffle_seven",
+    "lesson": "u11l2",
+    "unit": 11,
+    "prompt": "How many ordinary riffle shuffles does it take before a deck of 52 cards is properly mixed?"
+   }
   },
   {
    "slug": "always_the_wrong_way",
@@ -19515,7 +19587,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "billion_seconds",
+    "lesson": "u14l1",
+    "unit": 14,
+    "prompt": "A million seconds is about eleven and a half days — so how long is a billion seconds?"
+   }
   },
   {
    "slug": "always_an_even_number",
@@ -20182,7 +20260,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "party_of_six",
+    "lesson": "u9l1",
+    "unit": 9,
+    "prompt": "Every two people in a room are either friends or strangers — how many people must there be before you are guaranteed either three who all know each other or three who are all strangers?"
+   }
   },
   {
    "slug": "half_in_cash_wins",
@@ -21005,7 +21089,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "chessboard_squares",
+    "lesson": "u5l2",
+    "unit": 2,
+    "prompt": "A chessboard is eight squares by eight. Counting the big ones as well as the little ones, how many squares are there on it altogether?"
+   }
   },
   {
    "slug": "two_patterns_one_coin",
@@ -21298,7 +21388,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "doubling_paper",
+    "lesson": "u3l2",
+    "unit": 5,
+    "prompt": "A sheet of paper is a tenth of a millimetre thick. Imagine you could fold it in half 42 times. How thick would it be?"
+   }
   },
   {
    "slug": "five_layers_no_activation",
@@ -21913,7 +22009,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "postman_start",
+    "lesson": "u9l2",
+    "unit": 9,
+    "prompt": "A postman has to walk every street on this map exactly once and finish at the Market — tap the junction he must set off from."
+   }
   },
   {
    "slug": "seven_links_one_cut",
@@ -22507,7 +22609,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "taxi_serials",
+    "lesson": "u14l2",
+    "unit": 14,
+    "prompt": "You are new in a city and the four taxis you have seen were numbered 12, 47, 89 and 104 — how many taxis does the city have?"
+   }
   },
   {
    "slug": "staircase_never_shortens",
@@ -23215,7 +23323,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "comment",
+   "road": {
+    "qid": "rectangle_area",
+    "lesson": "u3l1",
+    "unit": 5,
+    "prompt": "You have 40 metres of fence and want to enclose the largest possible rectangle. Which shape gives the biggest area?"
+   }
   },
   {
    "slug": "pca_direction_of_spread",
@@ -24048,7 +24162,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "comment",
+   "road": {
+    "qid": "hamming_find",
+    "lesson": "u13l2",
+    "unit": 13,
+    "prompt": "Seven lamps are wired so that each of the three rings always holds an even number of lit ones, and exactly one lamp has been flipped by mistake — tap the culprit."
+   }
   },
   {
    "slug": "diamond_or_circle_budget",
@@ -24313,7 +24433,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "comment",
+   "road": {
+    "qid": "twelve_coins",
+    "lesson": "u10l1",
+    "unit": 10,
+    "prompt": "Twelve coins, one of them fake, and you are not even told whether the fake is heavier or lighter — how many weighings on a balance make you certain which coin it is and which way it is off?"
+   }
   },
   {
    "slug": "how_few_colours",
@@ -24353,7 +24479,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "comment",
+   "road": {
+    "qid": "exam_slots",
+    "lesson": "u9l2",
+    "unit": 9,
+    "prompt": "Five exams, and each one clashes with exactly two others because some students sit both — what is the fewest time slots the timetable can use?"
+   }
   },
   {
    "slug": "new_road_slows_everyone",
@@ -24924,7 +25056,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "comment"
+   "src": "comment",
+   "road": {
+    "qid": "meeting_window",
+    "lesson": "u8l2",
+    "unit": 8,
+    "prompt": "Two friends each turn up at a café at a random moment between one and two o'clock and each waits exactly a quarter of an hour before giving up. Out of 100 days, how often do they meet?"
+   }
   },
   {
    "slug": "four_shadows",
@@ -28826,7 +28964,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "drunk_returns",
+    "lesson": "u11l1",
+    "unit": 11,
+    "prompt": "A drunk walks home across an endless grid of streets, one block at a time, each block picking north, south, east or west at random."
+   }
   },
   {
    "slug": "birthday_problem",
@@ -28998,7 +29142,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "double_until_heads_cap",
+    "lesson": "u6l3",
+    "unit": 4,
+    "prompt": "Flip a coin until the first heads. Heads on the first flip pays £1, heads on the second pays £2, heads on the third pays £4, and it keeps doubling. The game stops after ten flips, and no heads pays nothing. What is it worth on average, in pounds?"
+   }
   }
  ],
  "featured": "split_the_milk_in_two"
