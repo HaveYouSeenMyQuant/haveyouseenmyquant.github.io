@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 447,
+ "count": 448,
  "entries": [
+  {
+   "slug": "land_on_the_last_square",
+   "title": "Land on the last square",
+   "ts": "2026-08-22T00:58:50+00:00",
+   "date": "22 Aug 2026",
+   "topic": "expectation_tricks",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/land_on_the_last_square",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Don't try to track every route to the square — there are far too many. Ask instead how much ground ONE roll covers, and what that means for how densely your token's landings are spread along the board in the long run. If your token visits one square out of every so many it travels past, that ratio IS the answer. Then ask yourself why it stops mattering where you started."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "the_hands_land_together",
    "title": "The hands land together",
