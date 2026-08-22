@@ -448,3 +448,39 @@ WHAT TO WATCH INSTEAD, since the harness cannot settle it: the events. If
 answers_library_offer_shown stays at zero for a day while archive sessions keep
 arriving, the offer is not rendering and the cause is in offerRoad's guards,
 not in the shelf.
+
+### CORRECTION: the whole browser harness was invalid — the tab was hidden
+
+Everything above about driving the archive in Chrome should be read with this
+attached. The tab I was automating reported:
+
+    visibilityState: "hidden"    hidden: true    hasFocus: false
+    requestAnimationFrame: never ran
+
+IntersectionObserver callbacks and rAF do not run in a hidden tab. watchForEnd
+is built on an IntersectionObserver, so the read-end trigger COULD NOT fire in
+any run I did, on patched or baseline code. The offer was never going to
+appear, and its absence says nothing whatever about the code.
+
+WHAT THIS RETRACTS. I had just written that answers_read_end_reached not firing
+was "decisive" evidence that the observer never trips in production and that the
+P6 library offer had shipped as a no-op. That conclusion is withdrawn. It was
+drawn from a harness that cannot fire observers at all.
+
+WHAT SURVIVES. Only the production pairing, which was measured server-side and
+does not depend on the browser: answer_unlocked 22 in 7 days against
+answers_road_question_shown 0. That is still unexplained, and the
+instrumentation now live is still the right way to explain it.
+
+THE TELL WAS IN THE CODE, AND I READ PAST IT. offerRoad's own reveal backstop
+carries the comment "rAF does not run in a hidden tab" -- the exact failure
+mode, written down in the function I was testing, in the file I had open.
+
+THE RULE. A browser harness must assert document.visibilityState === 'visible'
+before it believes a negative result. Any check that depends on rAF,
+IntersectionObserver, or animation timing is meaningless in a background tab,
+and MCP-created tabs are frequently in the background. Absence of an event in
+that state is not evidence of anything.
+
+This is the third false all-clear of the day from the same root: a control that
+was never known-good. The caption bar, the comment sweep, and now this.
