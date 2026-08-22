@@ -16,8 +16,179 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 464,
+ "count": 466,
  "entries": [
+  {
+   "slug": "the_trail_of_a_rolling_coin",
+   "title": "The trail of a rolling coin",
+   "ts": "2026-08-22T10:21:00+00:00",
+   "date": "22 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "FIVE pi r squared, where r is the radius of either coin.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The curve itself -- it is a CARDIOID -- encloses 6*pi*r^2. Take away the fixed coin it rolled around, pi*r^2, and the shaded region is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    6*pi*r^2  -  pi*r^2  =  5*pi*r^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the shaded part is five times the area of a coin, and the whole curve is six times."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Getting there. Put the pole at the cusp, the point where the marked rim touched at the start. In polar the cardioid is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    rho  =  2r (1 + cos theta)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and the area of a polar curve is (1/2) * integral of rho^2 d theta over a full turn:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1/2) * integral_0^{2pi} 4r^2 (1 + cos theta)^2 d theta"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Expand (1 + cos)^2 = 1 + 2cos + cos^2. Over a full turn cos integrates to 0 and cos^2 integrates to pi, so the bracket gives 2pi + 0 + pi = 3pi, and the area is 2r^2 * 3pi = 6*pi*r^2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why you can just SUBTRACT the coin, which is the step most people skip. The fixed coin passes through the cusp, so in the same polar coordinates it is rho = 2r cos theta. And 2r(1 + cos theta) is greater than or equal to 2r cos theta for every theta. So the coin lies entirely inside the cardioid, touching only at the cusp -- there is no overlap to work out, and the subtraction is exact."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The bit worth knowing, and the bit that is easy to draw wrongly. Because the two coins are the same size, the rolling coin turns TWICE about its own centre while going once around. That is the coin-rotation paradox, and it is why the tracing point is at"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    ( 2r cos t - r cos 2t ,  2r sin t - r sin 2t )"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "with a 2t and not a t. Animate it with a single rotation and you draw a different curve altogether -- and get a different area."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "two_marks_on_a_metre_stick",
+   "title": "Two marks on a metre stick",
+   "ts": "2026-08-22T10:18:29+00:00",
+   "date": "22 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "ONE THIRD of a metre — about 33 centimetres. Not a half, which is what nearly everyone says first.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The quick way, and it needs no integration. Drop the two marks and call the smaller position L and the larger one R. The gap you want is R - L, so its average is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (average of R)  -  (average of L)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now think about where those two sit. Two random points cut the stick into THREE pieces: from 0 to L, from L to R, and from R to 1. By symmetry no one of those three pieces is favoured over the others, so on average each is a third of the stick. That makes the middle piece — which is exactly the gap — one third."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It also tells you the rest for free: the smaller mark averages 1/3 along the stick and the larger averages 2/3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The integral, if you want it. With X and Y uniform on [0, 1],"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E|X - Y|  =  int_0^1 int_0^1 |x - y| dy dx"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Split at y = x. The inner integral is x^2/2 + (1-x)^2/2, and integrating that over 0 to 1 gives 1/6 + 1/6 = 1/3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY A HALF FEELS RIGHT AND IS WRONG. \"The marks are random, so on average one is at 1/4 and the other at 3/4, so the gap is a half.\" The first part is fine — but 1/4 and 3/4 are the averages of the two marks only if you have already sorted them, and sorting is exactly what changes the answer. The sorted marks average 1/3 and 2/3, not 1/4 and 3/4. People are half-remembering the right idea and using the wrong pair of numbers."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The three-pieces argument is worth keeping: for n random marks on a stick, the pieces average 1/(n+1) each. Two marks, three pieces, a third apiece."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "four_weights_reach_forty",
    "title": "Four weights reach forty",
