@@ -16,8 +16,80 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 475,
+ "count": 476,
  "entries": [
+  {
+   "slug": "add_one_to_a_hundred",
+   "title": "Add every number from 1 to 100",
+   "ts": "2026-08-22T21:40:07+00:00",
+   "date": "22 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "The total is 5,050, and you can get there in about ten seconds.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do not add the numbers in the order they are written. Fold the list back on itself instead, and add from BOTH ENDS at once:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 + 100 = 101",
+      "    2 +  99 = 101",
+      "    3 +  98 = 101",
+      "    ...",
+      "    50 + 51 = 101"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every one of those comes to the same thing, 101, because each step up on the left is matched by exactly one step down on the right. The two changes cancel, so the total cannot move."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You have used up all hundred numbers, two at a time, so there are 50 of these sums. The answer is 50 x 101 = 5,050."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL RULE. For 1 up to any number n, the same fold gives n/2 sums of (n + 1), so the total is n(n + 1)/2. For n = 100 that is 100 x 101 / 2 = 5,050."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WATCH OUT FOR ODD LISTS -- this is where people get it wrong. For 1 to 99 there is no \"99/2 pairs\"; the middle number, 50, has no partner and sits on its own. The formula still works -- 99 x 100 / 2 = 4,950 -- but the picture needs care, which is exactly why the formula is the thing worth remembering rather than the picture."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THIS ONE IS FAMOUS. The story is told about Carl Friedrich Gauss as a schoolboy, and whether or not it happened, it survives because it captures a real habit: before grinding through a calculation, look for structure in it. A hundred additions became one multiplication, not by being cleverer at adding, but by noticing the list is symmetrical."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SAME MOVE ELSEWHERE. It is why the sum of the first n odd numbers is exactly n squared, and it is the reason a trapezium's area uses the AVERAGE of the two parallel sides -- you are folding a run of evenly-spaced quantities in half and multiplying."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_east_three_north",
    "title": "Three east, three north",
