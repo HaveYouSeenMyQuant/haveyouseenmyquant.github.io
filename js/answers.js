@@ -16,8 +16,82 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 474,
+ "count": 475,
  "entries": [
+  {
+   "slug": "three_east_three_north",
+   "title": "Three east, three north",
+   "ts": "2026-08-22T20:14:46+00:00",
+   "date": "22 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "Twenty.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every route is six blocks long, and each block is either an E or an N. So a route is just a string of six letters, three of each:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    EEENNN     ENENEN     NNEEEN     ..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Counting the routes is therefore counting the ways to choose WHICH THREE of the six steps are the easts. The other three are forced."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    choose 3 of 6  =  6 x 5 x 4 / (3 x 2 x 1)  =  20"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole thing. No route-tracing, no diagram."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE REFRAME IS THE ANSWER. Drawn as a map this looks like a search problem, and people start tracing routes and losing count. Written as a string of letters it becomes a choosing problem, and choosing problems have a formula. Recognising that a messy-looking arrangement is really a selection is one of the most reused moves in interview maths."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "CHECK IT ON A SMALL CASE. One block east and one north: the strings are EN and NE, so two routes, and choose-1-of-2 is 2. Two by two gives choose-2-of-4 = 6. Draw those six if you like -- they are quick, and they confirm the method before you trust it on a bigger grid."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL SHAPE. An n by n grid has choose-n-of-2n routes, and it grows fast: 3x3 gives 20, 4x4 gives 70, 5x5 gives 252, and a 10x10 city gives 184,756. That growth is why nobody counts these by drawing them, and why the interviewer asks."
+     ]
+    }
+   ],
+   "src": "answer",
+   "road": {
+    "qid": "grid_paths",
+    "lesson": "u5l2",
+    "unit": 2,
+    "prompt": "You walk across a city grid to the corner three blocks east and three blocks north, never doubling back. How many different routes are there?"
+   }
+  },
   {
    "slug": "sixty_in_the_pub_all_night",
    "title": "Sixty in the pub, all evening",
