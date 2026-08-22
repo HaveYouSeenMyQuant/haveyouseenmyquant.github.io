@@ -388,3 +388,22 @@ offer fires. The line is explained by traffic, not a bug: the window held 7
 arrivals in total, and the offer only appears when a reader LEAVES an answer.
 
 Do not spend time debugging that path on the strength of that message alone.
+
+## u4 is not actually thin (checked 2026-08-22)
+
+`u4 "Bets and machines"` shows 1 lesson / 5 questions against 2 lessons / 9 for
+most units, which looks like an obvious gap to fill. It is not one. A candidate
+lesson of four betting questions was written and checked against the bank before
+merging, and all four were already covered — three of them squarely:
+
+    at least one six, two dice   -> u5l2 at_least_one_six (four dice, same method)
+    rolls until a six            -> u6l2 rolls_until_six (exact duplicate)
+    a die that pays n x n        -> u6l3 divided_by_die (SAME punchline: applying
+                                    the function to the average roll is the trap)
+    pay 5 for a 1-in-3 shot at 12 -> u6l3 sure_or_longshot (adjacent)
+
+The unit counts mislead because the betting/expectation material lives in u6
+("What it's worth"), not u4. Nothing was merged and the candidate checker was
+deleted. Before adding road questions, grep the bank by PROMPT and by the skill
+being taught, not by unit size — and use `QQ_BANK=<candidate> verify_answers.py`,
+which is what caught this before anything reached the live bank.
