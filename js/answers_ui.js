@@ -252,6 +252,97 @@
     try { return QQApp.entryPath(); } catch (e) { return null; }
   }
 
+  /* THE EXIT SLOT IS USUALLY EMPTY, AND THE SHOP WAS UNREACHABLE (P6).
+   *
+   * offerRoad returns without drawing anything in two cases: there is no road
+   * question to offer, or the free door inside this entry already offered the
+   * same lesson. Only about 4% of archive entries carry a road mapping, so for
+   * the other ~96% this slot renders nothing at all.
+   *
+   * Meanwhile the paid libraries lived ONLY on the path screen. Over the 8 days
+   * to 2026-08-22, 113 of 116 arrivals went to the archive, so at most 3% of
+   * visitors could reach the shelf, and checkout_opened had read 0 since
+   * launch. That is not weak demand, it is a shop with no door.
+   *
+   * WHERE THIS IS ALLOWED TO FIRE, and why it is deliberately narrow:
+   *   - only when offerRoad would otherwise draw NOTHING. A road question
+   *     always wins; the free product is the better offer and this must never
+   *     compete with it.
+   *   - only after the reader UNLOCKED an answer and reached the end of it.
+   *     The gate converts 13% of views to an email and is the best number on
+   *     the site. Nothing may be placed where it could cannibalise that, so
+   *     this sits strictly after the email step, never beside it.
+   *   - once per visit, sharing roadOfferDone, so the two exits can never
+   *     both appear.
+   */
+  function offerLibrary(art, entry, trigger, why) {
+    if (roadOfferDone || !art || !art.parentNode) return;
+    if (locked()) return;          /* never to someone still behind the gate */
+    var libs = [];
+    /* window.QQ_DATA, NOT QQData. The first version referenced a global
+     * that does not exist; the try/catch swallowed the ReferenceError,
+     * libs came back empty and the offer silently never rendered -- it
+     * would have looked like a shipped feature nobody clicked. */
+    try { libs = (global.QQ_DATA && global.QQ_DATA.libraries) || []; }
+    catch (e) { libs = []; }
+    var lib = null;
+    for (var i = 0; i < libs.length; i++) {
+      if (libs[i] && libs[i].status !== 'soon') { lib = libs[i]; break; }
+    }
+    if (!lib) return;              /* nothing sellable -- say nothing */
+
+    roadOfferDone = true;
+    var shownAt = Date.now();
+    function props(extra) {
+      var p = { slug: entry ? entry.slug : null, trigger: trigger,
+                reason: why, libraryId: lib.id,
+                entryPath: entryPathNow(), utm: utm() };
+      if (extra) for (var k in extra) {
+        if (Object.prototype.hasOwnProperty.call(extra, k)) p[k] = extra[k];
+      }
+      return p;
+    }
+
+    var box = el('div', 'ans-next');
+    box.appendChild(el('p', 'ans-next-kick', 'If you want more like this'));
+    box.appendChild(el('p', 'ans-next-q', lib.name));
+    var nq = (lib.questions || []).length, nt = (lib.topics || []).length;
+    if (nq && nt) {
+      box.appendChild(el('p', 'ans-next-kick', nq + ' questions · ' + nt + ' topics'));
+    }
+    var goBtn = el('button', 'primary-btn ans-next-go', 'See inside');
+    goBtn.type = 'button';
+    box.appendChild(goBtn);
+    var laterBtn = el('button', 'ghost-btn ans-next-no', 'Not now');
+    laterBtn.type = 'button';
+    box.appendChild(laterBtn);
+
+    goBtn.addEventListener('click', function () {
+      QQA.track('answers_library_offer_clicked',
+                props({ msShown: Date.now() - shownAt }));
+      clearHash();
+      try { QQApp.showLibraries('answers_exit'); } catch (e) {}
+    });
+    laterBtn.addEventListener('click', function () {
+      QQA.track('answers_library_offer_dismissed',
+                props({ msShown: Date.now() - shownAt }));
+      box.classList.remove('on');
+      setTimeout(function () {
+        if (box.parentNode) box.parentNode.removeChild(box);
+      }, 220);
+    });
+
+    art.parentNode.insertBefore(box, art.nextSibling);
+    var reveal = function () { box.classList.add('on'); };
+    if (global.requestAnimationFrame) global.requestAnimationFrame(reveal);
+    setTimeout(reveal, 120);
+    QQA.track('answers_library_offer_shown', props());
+    setTimeout(function () {
+      try { box.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+      catch (e) {}
+    }, 280);
+  }
+
   function offerRoad(art, entry, trigger) {
     if (roadOfferDone || !art || !art.parentNode) return;
     var next = null;
@@ -260,10 +351,20 @@
      * currentLesson() never picks a locked one, so this is a guard, not a
      * branch — if it ever trips, the offer is silently skipped rather than
      * turning into the thing it was built to avoid. */
-    if (!next || next.lock) return;
+    if (!next || next.lock) {
+      /* try/catch: this is a NEW path inside the one that already works.
+       * A throw here must cost the library offer, never the road offer. */
+      try { offerLibrary(art, entry, trigger, 'no_road_question'); }
+      catch (e) {}
+      return;
+    }
     /* Already offered as the free door inside this entry — showing it again on
      * the way out is the nagging the block comment above rules out. */
-    if (entry && genericOfferFor[entry.slug] === next.lessonId) return;
+    if (entry && genericOfferFor[entry.slug] === next.lessonId) {
+      try { offerLibrary(art, entry, trigger, 'road_already_offered'); }
+      catch (e) {}
+      return;
+    }
 
     roadOfferDone = true;
     roadOfferAt = Date.now();
