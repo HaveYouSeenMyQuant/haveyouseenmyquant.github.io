@@ -16,8 +16,91 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 473,
+ "count": 474,
  "entries": [
+  {
+   "slug": "sixty_in_the_pub_all_night",
+   "title": "Sixty in the pub, all evening",
+   "ts": "2026-08-22T18:53:54+00:00",
+   "date": "22 Aug 2026",
+   "topic": "estimation",
+   "q": null,
+   "a": "Eighty. More people pass through the door in an hour than the pub can hold at once, which is the part that catches people out.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ONE LINE. If the pub is never emptier or fuller, then for every person walking in, one walks out. The crowd is a queue that stays the same size, and there is a rule for exactly this:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    how many are in there  =  how fast they arrive  x  how long each one stays"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put the numbers in. Sixty people in there. Each stays three quarters of an hour. So"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    60  =  rate x 0.75      ->      rate  =  60 / 0.75  =  80 an hour"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT FEELS WRONG. Sixty is the number you can see, so it anchors you, and eighty is larger than the thing it is measuring. But the sixty is a snapshot and the eighty is a flow, and the shorter the stay, the further apart those two numbers get. If people only stayed fifteen minutes, the same sixty-person pub would be serving 240 an hour."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    stay 3 hours    ->  20 an hour",
+      "    stay 45 mins    ->  80 an hour",
+      "    stay 15 mins    ->  240 an hour"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same crowd, every time. You cannot tell how busy a place is from how full it looks."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THIS COMES UP. It is Little's law, and it is the same sum whether the queue holds people, orders, support tickets or messages in a buffer. Twenty tickets always open and each takes two days to close means you are closing ten a day — and if you want the backlog smaller, the only levers are arriving slower or finishing faster. Interviewers like it because it takes ten seconds if you see the structure and goes nowhere if you start trying to model arrivals."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A GOOD SANITY CHECK: the answer must be bigger than sixty whenever people stay less than an hour, and smaller than sixty whenever they stay longer. If your number falls the wrong side of that, you have the fraction upside down."
+     ]
+    }
+   ],
+   "src": "answer",
+   "road": {
+    "qid": "little_law",
+    "lesson": "u14l1",
+    "unit": 14,
+    "prompt": "A pub holds 60 people at any moment through the evening and each of them stays about three quarters of an hour — how many people walk through the door in an hour?"
+   }
+  },
   {
    "slug": "two_kilometres_of_falling",
    "title": "Two kilometres of falling",
@@ -29219,5 +29302,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "split_the_milk_in_two"
+ "featured": "two_marks_on_a_metre_stick"
 };
