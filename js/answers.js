@@ -16,8 +16,27 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 446,
+ "count": 447,
  "entries": [
+  {
+   "slug": "the_hands_land_together",
+   "title": "The hands land together",
+   "ts": "2026-08-22T00:21:52+00:00",
+   "date": "22 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "Full answer (free): https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/the_hands_land_together",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TIP: Stop counting occasions and count LAPS. In twelve hours, how many laps does the long hand complete, and how many does the short one complete? The long hand passes the short one exactly once for every whole lap it GAINS. Work that out and the number falls straight out -- and then check whether your answer double-counts the midnight you started on."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "two_heads_touching",
    "title": "Two heads touching",
