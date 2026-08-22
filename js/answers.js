@@ -16,8 +16,73 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 476,
+ "count": 477,
  "entries": [
+  {
+   "slug": "bridge_torch_17_10s",
+   "title": "Four, one torch, seventeen",
+   "ts": "2026-08-22T22:49:02+00:00",
+   "date": "22 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "SEVENTEEN minutes, and the move that makes it work is sending the two SLOWEST over together.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 and 2 cross          2 min   (total 2)",
+      "    1 comes back           1 min   (total 3)",
+      "    5 and 10 cross        10 min   (total 13)",
+      "    2 comes back           2 min   (total 15)",
+      "    1 and 2 cross          2 min   (total 17)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT BEATS THE OBVIOUS WAY. Almost everyone has the fastest person ferry each of the others across and walk back each time:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1&2 over, 1 back, 1&5 over, 1 back, 1&10 over  =  2+1+5+1+10  =  19"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That looks efficient and is not. The reason is that a pair costs the SLOWER one's time, so the 10 is going to cost ten minutes whenever it crosses -- and in the ferry plan the 5 costs five minutes separately. Send 5 and 10 TOGETHER and the five minutes disappears inside the ten. You pay ten once instead of ten and five."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The price is that neither of the slow pair can bring the torch back, which is why the 1 and the 2 have to be waiting on the far side beforehand and one of them has to come back after. Those extra walks cost 2 + 1 + 2 = 5, and 5 + 10 + 2 = 17."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Checked by search, not by memory: running Dijkstra over the states (who is still on the near side, which side the torch is on) with every legal move expanded returns a true minimum of 17, by exactly that route. The greedy ferry plan comes out at 19."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general lesson is worth more than the puzzle: when the cost of a group is set by its slowest member, group the slow ones together so their waste overlaps."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "add_one_to_a_hundred",
    "title": "Add every number from 1 to 100",
