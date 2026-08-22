@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 471,
+ "count": 472,
  "entries": [
+  {
+   "slug": "heat_the_ring_watch_the_hole",
+   "title": "Heat the ring, watch the hole",
+   "ts": "2026-08-22T15:53:51+00:00",
+   "date": "22 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "BIGGER. The hole expands by exactly the same proportion as everything else, precisely as though it were made of metal too.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ARGUMENT THAT SETTLES IT, and it needs no formula. Take a SOLID steel disc and draw a circle on it with a marker. Heat the disc. Everything about it scales up together, so the drawn circle gets bigger along with the rest -- nobody finds that surprising."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now cut along that circle and remove the middle. You have a ring. The metal that is left has no idea the middle is gone; it expands exactly as it did before. So the inner edge ends up in the same enlarged place, which means THE HOLE GREW."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole thing. A hole in a heated object grows because the material around it is moving outwards, and there is nothing in the middle to resist."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE NUMBERS, for steel: every length multiplies by (1 + alpha x temperature rise), with alpha about 12 millionths per kelvin. Heat a ring with a 100 mm hole by 200 degrees and the hole gains"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    100 mm x 12e-6 x 200  =  0.24 mm"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Small, but it is the sign that matters, and engineers rely on it. SHRINK FITTING is exactly this: a steel ring 0.02 mm too small to go over a shaft only needs heating by about 17 degrees to slip on, and it grips as it cools. Railway tyres, bearing races and gear hubs are all fitted that way."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHEN IT DOES NOT HOLD. The hole shrinks only if alpha is NEGATIVE -- which some materials genuinely have, over some temperature ranges. So this is a fact about steel, not a fact about holes."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_metres_looks_like",
    "title": "Two metres of water",
@@ -28940,5 +29001,5 @@ window.QQ_ANSWERS = {
    "src": "answer"
   }
  ],
- "featured": "solid_or_hollow_down_the_ramp"
+ "featured": "split_the_milk_in_two"
 };
