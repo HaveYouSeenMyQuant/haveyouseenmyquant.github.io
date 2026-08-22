@@ -484,3 +484,37 @@ that state is not evidence of anything.
 
 This is the third false all-clear of the day from the same root: a control that
 was never known-good. The caption bar, the comment sweep, and now this.
+
+### I PUT A TEST SESSION INTO PRODUCTION ANALYTICS — EXCLUDE IT (2026-08-22)
+
+    session_id  xyd7yi2w
+    at          2026-08-22 22:32:50-51 UTC
+    events      membership_checked, return_visit, arrived, answers_opened,
+                answer_unlocked, screen_viewed, entry_path_chosen
+    slug        split_the_milk_in_two
+
+That is me, driving the live site in an automated Chrome tab while testing the
+P6 exit offer. I only began intercepting QQA.track LATER, in a second tab; this
+first one reported normally. It is the ONLY session on the site since the
+instrumentation deployed at 22:30.
+
+WHY IT MATTERS MORE THAN ONE STRAY ROW. That session shows answer_unlocked = 1
+and answers_read_end_reached = 0, which is exactly the pattern that would
+otherwise be read as "the read-end observer never fires, so P6 shipped a
+no-op". It is not evidence of that. The tab was HIDDEN
+(visibilityState 'hidden'), IntersectionObserver callbacks do not run in a
+background tab, and watchForEnd is built on one. The trigger could not fire.
+
+So the single strongest-looking data point for the (b) hypothesis is an
+artefact I manufactured. Exclude session xyd7yi2w from any read of the exit-slot
+diagnostics, and do not treat the discriminator as reporting until a session
+that is NOT this one shows an unlock.
+
+WHAT IT DOES LEGITIMATELY SHOW, since it ran the real deployed code: arrived ->
+answers_opened -> answer_unlocked all fired on the live site AFTER the P6 deploy.
+The archive still opens and still unlocks. That is a smoke test the change had
+not otherwise had, and it is the one thing this session is good for.
+
+THE RULE. Automating the live site reports into the same analytics the loop then
+reads. Intercept QQA.track BEFORE touching anything, or use the local server.
+Doing it afterwards is how a test becomes a data point.

@@ -16,8 +16,91 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 477,
+ "count": 478,
  "entries": [
+  {
+   "slug": "deuce_two_points_clear",
+   "title": "Deuce, and two points clear",
+   "ts": "2026-08-22T23:46:26+00:00",
+   "date": "22 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "About 69% — exactly 9 in 13.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You win 60 points in every 100, and that turns into winning about 69 games in every 100 from deuce. The edge grows. That is the whole point of the question, and it is why tennis scoring rewards the better player far more than the raw point difference suggests."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CLEAN WAY TO SEE IT. From deuce only three things can happen over the next two points:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    you take both          0.6 x 0.6 = 0.36     you win the game",
+      "    they take both         0.4 x 0.4 = 0.16     you lose the game",
+      "    one each               the rest  = 0.48     you are back at deuce"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The third case is the trick. Landing back at deuce puts you in exactly the position you started in — same score, same chances, no memory of how you got there. So the game is decided only by which of the first two happens first, and their relative sizes are all that matter:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    0.36 / (0.36 + 0.16)  =  0.36 / 0.52  =  9/13  =  0.692..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You can ignore the 0.48 entirely. Whatever fraction of the time it happens, it just replays the same question."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE EDGE GROWS. Squaring is what does it. Winning two points in a row needs you to be good twice, and 0.6 squared beats 0.4 squared by more than 0.6 beats 0.4 — 0.36 against 0.16 is a ratio of 2.25, where 0.6 against 0.4 is only 1.5. Requiring a margin magnifies whatever edge exists."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same shape runs through best-of-five sets, through a house edge that is tiny per spin and certain over a night, and through any rule that says \"you must be ahead by two\". A small advantage per attempt becomes a large advantage per contest, and the longer the contest, the more lopsided it gets."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A GOOD CHECK: put in 50%. You get 0.25 / (0.25 + 0.25) = a half, as it must be. Put in 70% and you get 49/58, about 84% — a ten-point rise in points won turns into a fifteen-point rise in games won."
+     ]
+    }
+   ],
+   "src": "answer",
+   "road": {
+    "qid": "deuce_odds",
+    "lesson": "u11l2",
+    "unit": 11,
+    "prompt": "A tennis game at deuce goes on until someone is two points clear, and you win any single point 60% of the time — what is your chance of taking the game?"
+   }
+  },
   {
    "slug": "bridge_torch_17_10s",
    "title": "Four, one torch, seventeen",
