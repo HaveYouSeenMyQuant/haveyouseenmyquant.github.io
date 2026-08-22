@@ -16,8 +16,41 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 458,
+ "count": 461,
  "entries": [
+  {
+   "slug": "a_rolling_rectangles_trail",
+   "title": "A rolling rectangle's trail",
+   "ts": "2026-08-22T08:55:56+00:00",
+   "date": "22 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Full answer (free): the four sectors, why one of them has radius zero, and why the leftover wedges make exactly one rectangle and not two -- it is on the site, link in bio.",
+   "why": [],
+   "src": "comment"
+  },
+  {
+   "slug": "split_the_milk_in_two",
+   "title": "Split the milk in two",
+   "ts": "2026-08-22T08:24:00+00:00",
+   "date": "22 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Full answer (free): the seven pours in order, why the small jug is a shuttle and never a destination, and the one wasteful-looking move everybody skips -- it is on the site, link in bio.",
+   "why": [],
+   "src": "comment"
+  },
+  {
+   "slug": "beat_the_coin_flip",
+   "title": "Beat the coin flip",
+   "ts": "2026-08-22T07:46:29+00:00",
+   "date": "22 Aug 2026",
+   "topic": "quant_teaser",
+   "q": null,
+   "a": "Full answer (free): the working, the reason it beats a coin flip, and why the edge can be made tiny but never zero -- it is on the site, link in bio.",
+   "why": [],
+   "src": "comment"
+  },
   {
    "slug": "one_suit_in_five_cards",
    "title": "One suit in five cards",
