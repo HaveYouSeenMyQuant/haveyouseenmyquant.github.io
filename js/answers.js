@@ -16,8 +16,90 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 462,
+ "count": 463,
  "entries": [
+  {
+   "slug": "always_aiming_where_they_are",
+   "title": "Always aiming where they are",
+   "ts": "2026-08-22T09:36:38+00:00",
+   "date": "22 Aug 2026",
+   "topic": "calculus",
+   "q": null,
+   "a": "TWENTY metres. The runner covers twenty, the chaser covers forty, and then it is over.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general result. If the runner keeps to a straight line and the chaser is k times faster, starting a perpendicular distance d away, the runner covers"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    d * k / (k^2 - 1)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "before being caught. Here d = 30 and k = 2, so the runner gets 30 * 2/3 = 20 metres."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Where that comes from, without the differential equation. Track two quantities: the distance s still separating them, and the amount w by which the chaser is \"behind\" along the road. Closing head-on would eat the gap at rate (k - 1)v, but the chaser is approaching at an angle, so the gap shrinks at rate (k - cos A)v while the along-road lag shrinks at rate (k*cos A - 1)v, where A is the angle of the line of sight. Add k times the second to the first and the angle cancels:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    d/dt [ k*s + w ]  =  -(k^2 - 1) v"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "so k*s + w falls at a CONSTANT rate no matter how the chase bends. It starts at k*d + d... and at capture both s and w are zero. Divide, and the time is d*k/(k^2-1)/v, which is the distance the runner covers."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things worth taking away."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The chase is always finite when k > 1. Being pointed at the wrong place costs you, but it never costs enough to save the runner."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And the cost is large. Two thirds of the whole head start is given away by that one restriction -- aim where they ARE rather than where they will be. Aiming ahead, the chaser would intercept in a straight line after about 17.3 metres. Pure pursuit turns that into twenty, and turns a straight line into a curve."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is the \"pure pursuit\" or \"dog curve\" problem, and it is why guided things aim at where the target will be, not where it is."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "fifteen_from_seven_and_eleven",
    "title": "Fifteen from a seven and an eleven",
@@ -25,8 +107,15 @@ window.QQ_ANSWERS = {
    "date": "22 Aug 2026",
    "topic": "puzzles",
    "q": null,
-   "a": "Start them both together. Then:",
+   "a": "TWO FLIPS, both of the seven-minute glass, and you never touch the eleven again.",
    "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Start them both together. Then:"
+     ]
+    },
     {
      "h": null,
      "t": "pre",
