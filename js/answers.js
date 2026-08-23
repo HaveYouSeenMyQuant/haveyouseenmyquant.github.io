@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 509,
+ "count": 510,
  "entries": [
+  {
+   "slug": "optimisers_local_minimum_10s",
+   "title": "Which one finds the bottom",
+   "ts": "2026-08-23T11:17:12+00:00",
+   "date": "23 Aug 2026",
+   "topic": "optimization",
+   "q": null,
+   "a": "The BLUE one, the one carrying speed. The red one gets stuck in the first dip it meets, and that dip is barely a third as deep as the valley it never reaches.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Numbers from the landscape in the video. It has exactly two bottoms:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    the shallow dip   depth -0.29",
+      "    the deep valley   depth -0.96      -- 3.33 times deeper"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both markers start on the left, so both meet the shallow dip FIRST."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE RED ONE only ever takes the downhill step. That rule is perfect until it reaches the bottom of the shallow dip, where every direction is uphill -- so it stops. It has not found the lowest point; it has found A lowest point, the one nearest where it happened to start, and it has no way to tell the difference."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE BLUE ONE carries speed. Arriving at the shallow dip it is still moving, so it climbs the far wall instead of stopping, crests the ridge, and drops into the deep valley."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE POINT, and it is worth more than the picture. Always taking the best immediate step is exactly what traps you. Getting to the real bottom requires going the WRONG way -- uphill, losing ground -- for a while. A rule that never accepts a step backwards cannot leave a dip, and cannot know it is in one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is why momentum exists in the optimisers that train neural networks, and it is why \"greedy\" is a description rather than a compliment. Checked by simulation rather than asserted: with no momentum the marker ends at x = -1.726, in the shallow dip; with momentum 0.9 it ends at x = +1.988, in the deep valley."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_frog_comes_home",
    "title": "The frog comes home",
