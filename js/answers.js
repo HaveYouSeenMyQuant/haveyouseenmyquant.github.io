@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 488,
+ "count": 489,
  "entries": [
+  {
+   "slug": "monk_same_time_twice_10s",
+   "title": "Monk up, monk down",
+   "ts": "2026-08-23T03:28:27+00:00",
+   "date": "23 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Yes, and always — whatever he did on either day.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Stop thinking about two days and think about two monks on ONE day. One starts at the bottom at six in the morning, the other starts at the top at the same moment, and both are walking the same path towards each other's starting point."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "They are on the same path, walking towards each other. They must pass."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Wherever they pass is the spot, and whenever they pass is the time. It does not matter how either of them walks — resting, sprinting, or turning back for an hour — because the argument never mentions speed. It only needs that one of them starts below the other and finishes above, and that neither of them teleports."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Written as heights: on the way up his height starts below Tuesday's height and finishes above it. A quantity that starts negative and ends positive, changing smoothly, has to pass through zero somewhere. That is all this puzzle is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT FEELS HARDER THAN IT IS. The question invites you to picture schedules and paces and start comparing them, and none of that matters. Almost every genuinely hard-looking version of this question is the same trick: find the quantity that has to change sign, and you are done without computing anything."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_shapes_that_tile",
    "title": "Three shapes that tile a floor",
