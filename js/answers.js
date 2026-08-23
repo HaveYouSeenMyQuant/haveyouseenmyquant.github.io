@@ -16,8 +16,86 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 498,
+ "count": 499,
  "entries": [
+  {
+   "slug": "the_faulty_bolt",
+   "title": "The faulty bolt",
+   "ts": "2026-08-23T07:11:01+00:00",
+   "date": "23 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "MACHINE B, at five ninths — about fifty-six percent.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Machine A makes most of the bolts, so A feels like the answer. Take a thousand bolts and count the faulty ones instead of guessing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Machine A    makes 800    1 in 100 faulty     8 faulty bolts",
+      "    Machine B    makes 200    5 in 100 faulty    10 faulty bolts",
+      "                                                 --------------",
+      "                                                 18 faulty bolts"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Of those eighteen, ten came from B. So P(B | faulty) = 10/18 = 5/9, and P(A | faulty) = 8/18 = 4/9. The faulty bolt in your hand is likelier to be B's, even though B made only a fifth of the output."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DECIDES IT. Two ratios pull against each other. A makes four times as many bolts as B. B is faulty five times as often as A. Five beats four, so B wins — and it wins by exactly the margin five-to-four, which is the 5/9 against 4/9."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole question in one line: compare the RATIO OF SHARES against the RATIO OF RATES, and the larger one takes it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE BOUNDARY, WHICH MATTERS MORE THAN THE ANSWER. Do not walk away thinking the small machine always wins. Change one number: if B's rate were 2 in 100 instead of 5, then B contributes 4 faulty bolts to A's 8, and A is the source two times out of three. B needs its rate to beat A's by more than fourfold — the exact factor by which A out-produces it — and 5 clears 4 only just."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At 4 in 100 it would be a dead tie, 8 against 8, and the faulty bolt would tell you nothing about where it came from."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE INTUITION FAILS. \"A makes most of them\" is not wrong, it is incomplete. It is the prior on its own. The faulty bolt is EVIDENCE, and evidence moves the prior by the ratio of how likely each source was to produce it. A starts four times ahead and the evidence is five times friendlier to B, so the lead changes hands. Bayes' rule is nothing more than the bookkeeping for that trade."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THIS SHOWS UP. Any time you trace a defect, an error, an alert or a loss back to a source. The biggest desk generates the most incidents in raw count while being the safest per trade; the smallest system can still be the likeliest culprit behind any particular failure. Volume and rate are different questions, and the one you want is almost never the one you have."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "every_route_to_the_corner",
    "title": "Every route to the corner",
