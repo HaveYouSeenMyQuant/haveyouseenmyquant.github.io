@@ -518,3 +518,31 @@ not otherwise had, and it is the one thing this session is good for.
 THE RULE. Automating the live site reports into the same analytics the loop then
 reads. Intercept QQA.track BEFORE touching anything, or use the local server.
 Doing it afterwards is how a test becomes a data point.
+
+### FIRST REAL DATA ON THE EXIT SLOT — and it is not enough to read (2026-08-23 02:00)
+
+Since the instrumentation deployed at 22:30, excluding my own test session
+xyd7yi2w, there have been 4 real sessions:
+
+    arrived                4
+    answers_opened         4
+    answer_gate_shown      3
+    answer_unlocked        1
+    answers_read_end_reached   0
+
+So the discriminator has finally seen a real unlock, and it did not fire.
+
+WHY THAT IS NOT YET EVIDENCE. read_end fires when someone scrolls to the BOTTOM
+of an answer they unlocked. Exactly one person unlocked one answer. A single
+reader not finishing is the most ordinary thing on the site -- it says nothing
+about whether the observer works.
+
+THE BAR, fixed now rather than after seeing more data: about 10 unlocks. If
+read_end_reached is still 0 at ten, that is the observer failing (hypothesis b)
+and the fault is in watchForEnd -- and P6's library offer, which hangs off
+offerRoad, has never run. If read_end_reached is non-zero and
+answers_road_question_shown is still 0, it is the guards eating the offer
+(hypothesis a) and the fault is in offerRoad.
+
+Writing the threshold down first because the temptation at n=3 or n=4 will be to
+call it, and a zero out of four looks exactly like a zero out of forty.
