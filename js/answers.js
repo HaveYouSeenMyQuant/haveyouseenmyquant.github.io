@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 505,
+ "count": 506,
  "entries": [
+  {
+   "slug": "which_light_do_you_meet",
+   "title": "Which light do you meet",
+   "ts": "2026-08-23T09:28:54+00:00",
+   "date": "23 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "RED — you meet it half the time.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The cycle is 25 + 5 + 30 = 60 seconds. Arriving \"at random\" means every second of that minute is equally likely, so each colour's chance is the share of the minute it occupies:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    red      30 of 60     =  1/2      50%",
+      "    green    25 of 60     =  5/12     41.7%",
+      "    amber     5 of 60     =  1/12      8.3%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRAP is three colours, so one in three. That would be right if you picked a colour out of a hat. You are not picking a colour — you are picking a MOMENT, and the moments are not shared out evenly between the lamps. One in three is wrong for all three of them: too low for red, too low for green, and four times too high for amber."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT \"AT RANDOM\" ACTUALLY MEANS HERE. It means uniform over TIME. Whenever the thing you are sampling is a moment in a repeating cycle, the probability of any state is the fraction of the cycle it lasts. Nothing else about the light matters — not the order of the colours, not where you start counting."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A DETAIL WORTH NOTICING. Red beats green by 5 seconds, which is 1/12 of the cycle — and 1/12 is exactly amber's share. Move amber's five seconds into green and the light would be red and green equally often. The whole result turns on one short lamp."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS NOT A TRICK QUESTION. Real lights are close to this: reds usually run longer than greens on the minor road of a junction, which is why waiting feels more common than sailing through. The feeling is right, and it has a number."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THIS SHOWS UP. Anything sampled by arriving at a random time rather than by choosing an item: which machine state you catch, which phase of a process you observe, how often a monitor sees a system busy. Long states are over-represented in what you see, in exact proportion to how long they last — and if you count states instead of time, you will be wrong every time."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "goat_grazes_half_10s",
    "title": "How long a rope",
