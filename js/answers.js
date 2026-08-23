@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 481,
+ "count": 482,
  "entries": [
+  {
+   "slug": "two_hospitals_more_boys",
+   "title": "Two hospitals, and the days most babies are boys",
+   "ts": "2026-08-23T01:00:44+00:00",
+   "date": "23 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "The SMALL one, and it is not close: roughly 55 days a year against about 6.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Most people say the big hospital, because it delivers more babies and so it must deliver more of everything. Some say it makes no difference, because half is half in both places. Both answers miss the same thing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT \"MORE THAN 60%\" ACTUALLY ASKS FOR. In the small hospital, 15 babies a day, so you need 10 or more boys out of 15. In the big one, 100 a day, so you need 61 or more out of 100. Those sound like similar demands. They are not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Ten out of fifteen is the kind of thing that happens by accident all the time -- it is barely different from getting 10 heads in 15 coin tosses, which is not rare at all. Sixty-one out of a hundred is a different animal. To be 11 ahead out of 100 you need a run of luck that just does not turn up often."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    small hospital   10 or more boys out of 15    happens on about 15% of days",
+      "    big hospital     61 or more boys out of 100   happens on about 1.8% of days"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Over 365 days that is about 55 days against about 6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE IDEA WORTH KEEPING. A big batch is pinned near the average. A small batch wanders. Every extra baby is another chance for the day's mix to be dragged back towards half, so the more babies there are, the harder it becomes for a day to end up lopsided. Size does not make extreme days more common. It makes them rarer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT MATTERS OUTSIDE THE HOSPITAL. This is why the \"best\" and \"worst\" schools, hospitals and regions in any league table are so often the smallest ones -- both ends of the table fill up with small samples, and someone then goes looking for what those places are doing right or wrong. Often the answer is: they are small. The same trap sits under every \"this branch is outperforming\" claim made about a small branch."
+     ]
+    }
+   ],
+   "src": "answer",
+   "road": {
+    "qid": "hospital_boys",
+    "lesson": "u2l1",
+    "unit": 3,
+    "prompt": "Two hospitals. The big one delivers about 100 babies a day, the small one about 15. Over a year, which records more days where more than 60% of the babies born were boys?"
+   }
+  },
   {
    "slug": "no_fraction_fits_the_diagonal",
    "title": "No fraction fits the diagonal",
