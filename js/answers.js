@@ -16,8 +16,84 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 518,
+ "count": 519,
  "entries": [
+  {
+   "slug": "one_dropped_one_fired",
+   "title": "One dropped, one fired",
+   "ts": "2026-08-23T21:08:37+00:00",
+   "date": "23 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "THEY LAND TOGETHER. Exactly together, however hard the second one is fired.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Almost everyone says the dropped one, because the fired one \"has further to travel\". It does travel further — but not DOWNWARD, and only downward motion is racing gravity."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Split the motion into two directions and they do not talk to each other:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    vertically    both start with zero downward speed and both accelerate at g",
+      "    horizontally  one has speed u, the other zero — and gravity does not care"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The vertical equation is the same for both balls:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    h = ½gt²   ->   t = sqrt(2h/g)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is no u in it. From 5 m with g = 10 that is t = 1.00 s for both, whether the second ball is fired at 1 m/s or 100 m/s. Fire it hard enough and it lands a hundred metres away — still after exactly one second."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE IDEA WORTH KEEPING. Perpendicular components of motion are independent. It is why every projectile question on the paper splits into two easy one-dimensional problems instead of one hard two-dimensional one: resolve, solve each direction separately, recombine at the end."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE IT STOPS BEING TRUE. Air resistance couples the two: it acts along the direction of travel, so a fast-moving ball feels a drag with an upward component and does hang very slightly longer. In a vacuum, or at the speeds of a classroom demonstration, the effect is far too small to see — which is why the demonstration works, and why the exam says \"ignore air resistance\" rather than pretending it does not exist."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "MythBusters filmed this with a real gun and a dropped ball. Both hit at the same instant, to within the resolution of a high-speed camera."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_can_that_wastes_least",
    "title": "The can that wastes least",
