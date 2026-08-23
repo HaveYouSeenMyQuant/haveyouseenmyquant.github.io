@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 499,
+ "count": 500,
  "entries": [
+  {
+   "slug": "every_hand_in_the_room",
+   "title": "Every hand in the room",
+   "ts": "2026-08-23T07:28:08+00:00",
+   "date": "23 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "FORTY-FIVE.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trap first, because most people fall in it. Each of the ten people shakes nine hands, and ten times nine is ninety. That counts every handshake TWICE — once from each side. When you and I shake hands, that is one handshake, not two. Halve it: ninety over two is forty-five."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT IT REALLY COUNTS. A handshake is a PAIR of people, and nothing else about it matters — not who offered first, not the order. So the question is how many pairs ten people make. Take the first person: nine handshakes. The second has already shaken the first, so eight new ones. The third adds seven, and so on:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 = 45"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the same 45, arrived at without dividing anything, and it is why the answer is a triangular number."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL SHAPE. With n people it is n(n-1)/2. Ten gives 45; twenty gives 190; a hundred gives 4,950. Double the room and you roughly QUADRUPLE the handshakes, because each new person shakes everyone already there. That quadratic growth is the whole reason large meetings do not scale: the connections grow far faster than the people."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY EVERY EDGE COUNTS ONCE. Draw ten dots and join every pair. What you have is a complete graph, and its edges are exactly the handshakes. Counting edges by walking round the dots gives 10 x 9, and every edge gets walked from both ends — which is the doubling, seen a second way."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THIS SHOWS UP. Pairwise anything: league fixtures where each team plays each other once, cables between machines, comparisons between items in a sort, messages in a group where everyone must tell everyone. The count is never the number of things — it is the number of pairs, and that is the number people get wrong."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_faulty_bolt",
    "title": "The faulty bolt",
