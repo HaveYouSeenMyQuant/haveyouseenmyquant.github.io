@@ -16,8 +16,79 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 508,
+ "count": 509,
  "entries": [
+  {
+   "slug": "the_frog_comes_home",
+   "title": "The frog comes home",
+   "ts": "2026-08-23T10:55:19+00:00",
+   "date": "23 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "SIX SECONDS — the same as the number of pads.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ONE-LINE REASON. Over a long time the frog spends an equal share of its life on every pad, because the ring treats all six alike. So it is on the home pad one second in six. If you visit a place one time in six, the average gap between visits is six. That is the whole argument, and it works on any ring: n pads, n seconds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general statement is that for a random walk like this, the average time to return to a spot is one divided by the long-run share of time spent there."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "BUT SIX IS NOT THE TYPICAL RETURN. This is the part worth keeping. The frog hops away and then hops straight back half of the time:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    right then left    hop back home",
+      "    left then right    hop back home",
+      "    right then right   two pads away",
+      "    left then left     two pads away"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two of those four paths are home in two seconds, so HALF of all returns take exactly two hops. The most common outcome is two, the average is six, and both are correct. The average is dragged up by a long tail of wanderings that go the scenic route round the far side of the ring."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That gap between the typical and the average is the real lesson. Anyone who simulates this a few times and sees \"two, two, four, two\" will confidently answer two or three, and they will have measured the mode while being asked for the mean."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "CONTRAST WITH THE INFINITE LINE. Put the same frog on an endless row of pads instead of a ring. It still returns home with probability one — it is certain to come back. But the average time it takes is INFINITE. Closing the row into a ring of six changes an infinite expected wait into six seconds, because the frog can no longer wander arbitrarily far without coming round the other side."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THIS SHOWS UP. Any recurring state in a system that shuffles between states: how often a machine is idle, how long between visits to a particular configuration, the average gap between repeat customers. The share of time in a state and the average wait between visits are reciprocals of each other, and knowing one always gives you the other."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_times_itself_2024",
    "title": "Three times itself, 2024 times",
