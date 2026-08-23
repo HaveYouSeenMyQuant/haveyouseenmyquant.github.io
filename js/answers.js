@@ -16,8 +16,81 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 510,
+ "count": 511,
  "entries": [
+  {
+   "slug": "how_many_different_pizzas",
+   "title": "How many different pizzas",
+   "ts": "2026-08-23T11:37:53+00:00",
+   "date": "23 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "ONE THOUSAND AND TWENTY-FOUR.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Go topping by topping. For each one there are two choices — on the pizza or not — and those choices are independent of each other. Ten toppings, two ways each:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2  =  2^10  =  1024"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ONE PEOPLE FORGET is the plain pizza: take none of the ten. It is a real order and it is one of the 1024. The same goes for the everything pizza. The count runs from the empty selection to the full one, and both ends are included."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS NOT TEN. Ten is the number of TOPPINGS, not the number of pizzas. It is the answer to \"how many things can I add\", which is a different question and the one the mind reaches for first."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS NOT FIFTY-FIVE either, which is the other common answer: that is what you get counting one-topping pizzas plus two-topping pizzas and so on and stopping early, or from a half-remembered formula. Count every size properly and they add to 1024:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    0 toppings   1        5 toppings  252",
+      "    1 topping   10        6 toppings  210",
+      "    2 toppings  45        7 toppings  120",
+      "    3 toppings 120        8 toppings   45",
+      "    4 toppings 210        9 toppings   10",
+      "                         10 toppings    1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "EVERY EXTRA TOPPING DOUBLES THE MENU. That is the part worth carrying away. Going from ten toppings to eleven does not add a few pizzas, it adds another 1024. Twenty toppings would be over a million. A menu that looks like a modest list is a combinatorial object that outgrows any kitchen."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THIS SHOWS UP. Anything built from independent yes-or-no choices: subsets of a set, on/off configuration flags, which items go in a basket, which of n conditions hold. The count is always 2^n, it always includes the empty case, and it always grows faster than the list that produced it. The moment someone says \"we only have twenty settings\", the number of configurations is already past a million."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "optimisers_local_minimum_10s",
    "title": "Which one finds the bottom",
