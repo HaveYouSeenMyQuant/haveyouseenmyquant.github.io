@@ -16,8 +16,74 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 492,
+ "count": 493,
  "entries": [
+  {
+   "slug": "the_gap_between_two_dice",
+   "title": "The gap between two dice",
+   "ts": "2026-08-23T04:48:03+00:00",
+   "date": "23 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "A gap of ONE, not zero.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There are 36 equally likely rolls. Count how many give each gap:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    gap 0    6 of 36     the six doubles",
+      "    gap 1   10 of 36",
+      "    gap 2    8 of 36",
+      "    gap 3    6 of 36",
+      "    gap 4    4 of 36",
+      "    gap 5    2 of 36"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY ZERO LOSES. A gap of zero needs a double, and there are only six of those: 1-1, 2-2, and so on. A gap of one can be made from five different pairs — 1&2, 2&3, 3&4, 4&5, 5&6 — and each of those can land in either order, first die higher or second. Five pairs times two orders is ten, against six doubles."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That doubling is the whole thing. Every gap except zero gets counted twice, because the two dice are distinguishable even when they look identical. Zero is the only gap that cannot be reordered, and that is what costs it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SHAPE OF IT. After zero, the counts fall away steadily: 10, 8, 6, 4, 2. Each step up in gap removes one available pair. Gap 5 needs 1&6 and nothing else, so it has just two rolls out of 36 — you will see it about once in eighteen."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRAP is thinking \"same is the most likely single outcome\". Any INDIVIDUAL roll like 3-3 is as likely as 3-4. But a gap of one is a bigger bucket: it collects ten of the 36 rolls, where the doubles collect six. The question asks about the bucket, not the roll, and confusing the two is the mistake this question is built to catch."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT MATTERS BEYOND DICE. Grouping outcomes changes their probabilities even though the underlying rolls are unchanged. Every time you summarise data into buckets you are doing this, and the shape you get depends on the buckets rather than on the world."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "snowflake_infinite_edge_10s",
    "title": "An edge with no end",
