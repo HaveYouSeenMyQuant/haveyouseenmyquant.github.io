@@ -16,8 +16,74 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 514,
+ "count": 515,
  "entries": [
+  {
+   "slug": "one_red_already_out",
+   "title": "One red already out",
+   "ts": "2026-08-23T17:13:39+00:00",
+   "date": "23 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "ONE IN THREE, not one in two.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Most people picture what is left as \"one red, one blue\" and say a half. Count again. The bag started with FOUR marbles: red, red, blue, blue. One red is now out, so THREE remain -- one red and two blue. The chance the next is red is one of those three."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    started      R R B B",
+      "    taken out    R",
+      "    still in     R B B      ->  1 in 3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE HALF FEELS RIGHT, which is the interesting part. The instinct is not stupid -- it is a rule that works on big bags misapplied to a tiny one. With fifty red and fifty blue, taking one red out leaves 49 red against 50 blue, and the chance really is 0.495, near enough a half to ignore. Removing one marble barely dents a hundred. It dents four enormously."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2 red 2 blue      1/3    = 0.333",
+      "    3 red 3 blue      2/5    = 0.400",
+      "    5 red 5 blue      4/9    = 0.444",
+      "    50 red 50 blue    49/99  = 0.495"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the intuition is a LIMIT, and the puzzle sets the bag small on purpose to put you far from it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL RULE. Drawing without putting things back changes the pot, and the smaller the pot the more each draw changes it. Card counting is this same observation taken seriously: every card that goes past changes what is left, and in a single deck it changes it a lot."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A DIFFERENT QUESTION, WORTH KEEPING STRAIGHT. The chance that BOTH your first two marbles are red -- asked before you draw anything -- is 1/2 x 1/3 = 1/6. That is a different number because it is a different question: one is asked before any draw, the other after a red has already appeared. Mixing the two up is the commonest error in conditional probability, and it is worth being able to say which one you are answering."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "weigh_yourself_for_your_heart",
    "title": "Bathroom scales, for your heart",
@@ -30367,90 +30433,10 @@ window.QQ_ANSWERS = {
    "ts": "2026-07-30T09:54:51+00:00",
    "date": "30 Jul 2026",
    "topic": "statistics",
-   "q": null,
-   "a": "This curve fits every single measurement exactly. Zero error. It's the worst one on the screen.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Twelve temperature readings taken through one day. Underneath them is one simple smooth arc — cool in the morning, warm in the afternoon — and every reading lands a little off it, because measuring is never exact."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Make a curve flexible enough and you can bend it through all twelve exactly."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Average miss on those twelve readings:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "list",
-     "lines": [
-      "wiggly curve — 0.00°",
-      "gentle curve — 0.85°"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "The wiggly one looks perfect. Then ten fresh readings arrive from the same day, at new times."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Average miss on the ten new readings:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "list",
-     "lines": [
-      "wiggly curve — 2.67°",
-      "gentle curve — 0.86°"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Three times worse. On the very first new reading the wiggly curve predicts 25° and the thermometer says 16° — nine degrees out. The gentle curve is 1.6° out, and it's the closer of the two on 8 of the 10."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "The wiggly curve never learned the pattern. It memorised the wobble. Wobble doesn't repeat, so the moment you ask about a time it hasn't seen, it's lost."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "That's overfitting — and it's why nobody judges a model on the data it was trained on. A perfect score on what you've already seen is not evidence of anything."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "(Seed 58544, both curves fitted, all four numbers computed. The ordering holds in 1,500 of 1,500 independent redraws, not just this one.)"
-     ]
-    }
-   ],
-   "src": "caption",
+   "q": "This curve fits every single measurement exactly. Zero error. It's the worst one on the screen.",
+   "a": "The flexible curve is bent until it passes through every reading, so its miss on the data it was given is zero -- and that is precisely why it fails. When fresh readings arrive it is nowhere near them, while the boring gentle curve lands close. Fitting the points you have perfectly means fitting their noise, and noise does not repeat.",
+   "why": [],
+   "src": "answer",
    "road": {
     "qid": "overfit_degree",
     "lesson": "u4l1",
@@ -30580,46 +30566,10 @@ window.QQ_ANSWERS = {
    "ts": "2026-07-30T07:57:36+00:00",
    "date": "30 Jul 2026",
    "topic": "optimization",
-   "q": null,
-   "a": "Always stepping downhill is exactly what gets you stuck 🔴🔵",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Two markers, released from the same point on the same hill, both hunting for the lowest place on it."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "🔴 only ever takes the downhill step. It walks into the first dip it meets, the ground there is flat, so it stops. As far as it can tell, it is finished. Depth reached: 0.78."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "🔵 carries its speed. It reaches that same dip already moving, rolls up the far side, crests the ridge, and drops into the valley next door. Depth reached: 3.11 — four times deeper. Even at the top of its overshoot up the far wall it is still lower than where 🔴 gave up."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "That is the whole trick: a search that never accepts a worse step can never leave the first place that looks good. Being willing to go the wrong way for a moment is what gets you to the bottom."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "The hill is f(x) = 0.10x² − exp(−((x+1.55)/0.85)²) − 3.6·exp(−((x−2.25)/1.05)²). Its first dip sits at x = −1.444 and the real bottom at x = +2.183. Both paths in the video are the actual iterates of the two searches — nothing is drawn by hand."
-     ]
-    }
-   ],
-   "src": "caption",
+   "q": "Always stepping downhill is exactly what gets you stuck 🔴🔵",
+   "a": "Always taking the best immediate step is exactly what traps you. The greedy searcher walks into the first dip it meets and stops there, apparently finished. The other carries speed, rolls up out of that dip, over the ridge, and reaches a valley about four times deeper. Being willing to go the wrong way for a moment is what gets you to the real bottom.",
+   "why": [],
+   "src": "answer",
    "road": {
     "qid": "gradient_valley",
     "lesson": "u4l1",
