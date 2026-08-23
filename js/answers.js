@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 507,
+ "count": 508,
  "entries": [
+  {
+   "slug": "three_times_itself_2024",
+   "title": "Three times itself, 2024 times",
+   "ts": "2026-08-23T10:35:13+00:00",
+   "date": "23 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "The last digit is 1.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You never need the whole number, and that is the point. When you multiply, the last digit of the answer depends ONLY on the last digits of the things you multiplied. Nothing further up the number can reach down and change it. So throw everything else away and watch the final digit alone."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Start at 3 and keep timesing by three, keeping only the last digit each time:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    3  ->  9  ->  7  ->  1  ->  3  ->  9  ->  7  ->  1  ->  ..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "(3 x 3 = 9. 9 x 3 = 27, keep the 7. 7 x 3 = 21, keep the 1. 1 x 3 = 3, and you are back where you started.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It closes into a loop of four, and it can never escape: once a last digit repeats, everything after it must repeat too, because each step depends on nothing but the step before."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the last digits go round in fours. 2024 divides exactly by 4, so the 2024th step lands on the last place in the loop, which is 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THIS IS AN INTERVIEW QUESTION. The number itself has 966 digits. Written out it would fill this page and more, and no calculator you own will show it. The question looks like it needs enormous computation and needs none at all -- it needs you to notice which information is relevant and throw the rest away. That is the actual skill being tested, and it is the same move as taking a problem modulo something, which is one of the most useful habits in the subject."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A GOOD CHECK: try it with 7 instead of 3. Last digits go 7, 9, 3, 1, then repeat -- also a loop of four. Try 2: 2, 4, 8, 6, then repeat. Also four. Try 5: 5, 5, 5, ... a loop of one. The loop length always divides four, which is not a coincidence, but you do not need to know why to answer the question."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "gold_at_least_once",
    "title": "Gold at least once",
