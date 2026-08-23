@@ -16,8 +16,103 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 490,
+ "count": 491,
  "entries": [
+  {
+   "slug": "spin_again_or_move_on",
+   "title": "Spin again, or move on one slot?",
+   "ts": "2026-08-23T04:05:08+00:00",
+   "date": "23 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Move on to the next slot. It loses 1 time in 4, where spinning again loses 1 time in 3.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Most people say spin, because a fresh spin feels clean and stepping along feels like walking towards the danger. The instinct has it backwards, and the reason is that landing safe TOLD YOU SOMETHING, and spinning again throws that away."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT YOU LEARNED. Number the slots 1 to 6 and let the two losing ones be 1 and 2. You landed safe, so you are on 3, 4, 5 or 6 — four places, all equally likely. Now look at what sits immediately after each one:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    on 3  ->  next is 4    safe",
+      "    on 4  ->  next is 5    safe",
+      "    on 5  ->  next is 6    safe",
+      "    on 6  ->  next is 1    LOSES"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One of the four. So moving on loses 1 time in 4."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Spinning again puts you back to knowing nothing: 2 losing slots out of 6, which is 1 time in 3. And 1 in 4 is better than 1 in 3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART THAT ACTUALLY MATTERS is that the two losing slots are TOUCHING. Because they are adjacent, only one of the four safe slots has danger directly after it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now move them apart — put them opposite each other, at 1 and 4 — and redo exactly the same count. The safe slots are 2, 3, 5 and 6:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    on 2  ->  next is 3    safe",
+      "    on 3  ->  next is 4    LOSES",
+      "    on 5  ->  next is 6    safe",
+      "    on 6  ->  next is 1    LOSES"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two of the four. Moving on now loses 1 time in 2, and spinning still loses 1 time in 3 — so the advice REVERSES and you should spin. The answer to this puzzle is not \"move on\"; it is \"move on WHEN THE DANGER IS CLUMPED\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So this is not really a question about wheels. It is a question about what the thing you just learned is worth on the next go — and the honest answer is that it depends on how the danger is arranged, in a way most people never check. Clumped danger makes the step safe. Spread danger makes it dangerous. Same wheel, same six slots, same two losers, opposite advice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SAME SHAPE, elsewhere: after a quiet stretch, is the next moment more or less likely to be bad? It depends entirely on whether the bad moments arrive in clumps or independently — and most people answer that question with a feeling rather than by asking which of the two it is."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "each_line_describes_the_last",
    "title": "Each line describes the one above",
