@@ -16,8 +16,78 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 491,
+ "count": 492,
  "entries": [
+  {
+   "slug": "snowflake_infinite_edge_10s",
+   "title": "An edge with no end",
+   "ts": "2026-08-23T04:42:23+00:00",
+   "date": "23 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "The area stops. It creeps up and settles at EXACTLY eight fifths of the triangle you started with -- 1.6 times -- while the edge around it runs off to infinity.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE EDGE. Every round replaces each straight side with four sides, each a third as long. So the total length multiplies by 4/3 every single round:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    3  ->  4  ->  16/3  ->  64/9  ->  256/27  ->  ..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and 4/3 to the power of anything grows without bound. After only ten rounds the outline is already about 53 times the original triangle's perimeter, and it never stops."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE AREA. Each round adds a new little triangle on every side. At round n there are 3 x 4^(n-1) of them, and each has 1/9^n of the original area -- they are a third as long on each side, so a ninth of the area. The total added is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    3 x sum over n of 4^(n-1) / 9^n",
+      "      =  (1/3) x sum over k of (4/9)^k",
+      "      =  (1/3) x 1/(1 - 4/9)  =  (1/3) x 9/5  =  3/5"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the final area is 1 + 3/5 = 8/5 of the triangle. A geometric series with ratio 4/9, and 4/9 is less than 1, so it converges. That single comparison is the whole difference: the edge grows by 4/3 each round and runs away; the area grows by 4/9 each round and settles."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT FEELS IMPOSSIBLE. An infinitely long boundary sounds like it needs infinite room, but length and area are not tied together. You can crinkle a coastline as finely as you like inside the same bay -- each crinkle adds length but takes almost no extra space, because the bumps shrink faster than they multiply."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Checked in exact fractions rather than decimals, which matters: at round nine the area is 206571832/129140163 = 1.599594, close enough to 1.6 in floating point to hide a mistake in the series. The fraction never rounds."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "spin_again_or_move_on",
    "title": "Spin again, or move on one slot?",
