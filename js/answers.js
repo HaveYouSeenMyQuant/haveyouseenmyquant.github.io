@@ -16,8 +16,78 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 502,
+ "count": 503,
  "entries": [
+  {
+   "slug": "the_other_side_of_the_card",
+   "title": "The other side of the card",
+   "ts": "2026-08-23T08:40:37+00:00",
+   "date": "23 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "TWO THIRDS, not a half.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ARGUMENT THAT FEELS AIRTIGHT, and is not. A red face rules out the black-black card. So it is either the red-red card or the mixed one, and those are equally likely — one half. Every step of that sounds fine. The mistake is the last one: those two cards are NOT equally likely any more, and the red face you are looking at is what made them unequal."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "COUNT FACES, NOT CARDS. There are six faces in the bag, and drawing a card and laying it down picks one of them to be uppermost, each equally likely:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    red-red card      face 1 (red)      face 2 (red)",
+      "    mixed card        face 3 (red)      face 4 (black)",
+      "    black-black card  face 5 (black)    face 6 (black)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three of the six are red, so seeing red leaves three equally likely situations. In two of them — faces 1 and 2 — the underside is red. Two out of three."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE RED-RED CARD GETS TWO CHANCES. It has two ways to show you a red face; the mixed card has one. So among all the times you end up staring at a red face, the red-red card turns up twice as often. Seeing red is weak evidence FOR the card that has more red on it, and \"weak evidence\" is exactly what shifts a half to two thirds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SAME MISTAKE, GENERALLY. Conditioning on what you SAW, not on what you have. The evidence is \"a red face is showing\", and you must count the ways that evidence could have arisen — not the objects that could have produced it. Every object that could produce the evidence in more ways becomes more likely by exactly that factor. That is Bayes' rule doing its only job."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A QUICK TEST OF WHETHER YOU BELIEVE IT. Play it twenty times. You will land on a red face about ten times, and about seven of those the other side is red too. If the answer were a half it would be five. The gap shows up fast, which is why this question is asked at all: it is settled by an afternoon, not an argument."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THIS SHOWS UP. Any time a source that produces more of a signal is mistaken for one that produces it equally. The desk that trades more shows more losses; the test that flags more shows more positives; the busy machine causes more of the faults you happen to catch. Count the ways the evidence could have reached you."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_letters_of_banana",
    "title": "The letters of banana",
