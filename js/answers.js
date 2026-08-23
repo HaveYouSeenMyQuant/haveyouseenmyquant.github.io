@@ -16,8 +16,94 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 516,
+ "count": 517,
  "entries": [
+  {
+   "slug": "he_never_quite_catches_it",
+   "title": "He never quite catches it",
+   "ts": "2026-08-23T19:07:34+00:00",
+   "date": "23 Aug 2026",
+   "topic": "paradox",
+   "q": null,
+   "a": "HE PASSES IT AFTER 100/9 SECONDS, 1000/9 METRES — about 11.1s and 111.1m.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Zeno's argument is not wrong about the gaps. There really are infinitely many of them, and he really does have to close every one. The mistake is the quiet assumption that infinitely many gaps must take infinitely long."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE DIRECT ANSWER, which takes one line. He gains 9 metres of ground every second, and he needs to make up 100 metres:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    time = 100 / (10 - 1) = 100/9 s = 11.11...",
+      "    distance = 10 x 100/9 = 1000/9 m = 111.11..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SAME ANSWER THE LONG WAY, which is the interesting one, because it is Zeno's own construction taken seriously. Each stage runs to where the tortoise was:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    stage 1    100 m       (10 s)     it has moved 10 m",
+      "    stage 2     10 m       (1 s)      it has moved 1 m",
+      "    stage 3      1 m       (0.1 s)    it has moved 0.1 m",
+      "    stage 4      0.1 m     (0.01 s)   ..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The stage lengths are 100, 10, 1, 0.1, ... — a geometric series with ratio 1/10. Infinitely many terms, and they add to a finite number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    100 x (1 + 1/10 + 1/100 + ...) = 100 x 1/(1 - 1/10) = 100 x 10/9 = 1000/9"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same 111.11... metres. Zeno's infinity of steps and the schoolboy sum are not rivals: they are the same journey counted two ways."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE PARADOX ACTUALLY SHOWS. Not that motion is impossible — that an infinite sequence of events can occupy a finite stretch of time. Every one of the infinitely many stages happens, and all of them are over by 11.11 seconds. Cutting a finite thing into infinitely many pieces does not make it bigger, and the intuition that it must is the thing worth giving up."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT TOOK TWO THOUSAND YEARS. Convergence was not made precise until the 19th century. Before that the honest position was that the answer is obviously 111.1m and nobody could say cleanly why the argument against it failed."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_boat_holds_one",
    "title": "The boat holds one",
