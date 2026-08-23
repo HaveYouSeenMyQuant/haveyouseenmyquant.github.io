@@ -16,8 +16,62 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 496,
+ "count": 497,
  "entries": [
+  {
+   "slug": "three_beetles_one_triangle",
+   "title": "Three beetles, one triangle",
+   "ts": "2026-08-23T06:32:58+00:00",
+   "date": "23 Aug 2026",
+   "topic": "geometry_prob",
+   "q": null,
+   "a": "One in four.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each beetle has two corners it could head for, so the three of them together make 2 x 2 x 2 = 8 equally likely sets of choices. Only two of those eight get everybody through untouched: all three walking round the triangle the same way. All three clockwise, or all three anticlockwise. That is 2 out of 8, which is 1/4."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY EVERY OTHER CASE FAILS. Suppose they are not all going the same way. Then at least one beetle is going against the flow, and it walks straight into the beetle coming the other way along that edge -- a head-on meeting in the middle of an edge."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is a second way to see it that avoids thinking about edges at all. Look only at where the three beetles END UP. If nobody meets, all three must finish on different corners -- three beetles, three corners, one each. On a triangle there are exactly two ways to shuffle everybody onto a corner that is not their own: rotate everyone one step clockwise, or one step anticlockwise. Any other set of choices sends two beetles to the same corner, and they meet there."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Those two arguments are worth having side by side, because they are the two things a viewer pictures when they hear \"meet\" -- a head-on crash on an edge, or two beetles ending up on the same stone. On a triangle they give the SAME answer, which is why the question is fair as asked. That is not automatic. It is a small coincidence of the triangle, and it stops being true as soon as the shape gets bigger, because on a square a beetle can cross the middle of the shape and dodge."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL SHAPE OF IT. With n beetles on an n-corner ring, each choosing a neighbour, there are 2^n choices and still only 2 safe ones -- everybody clockwise or everybody anticlockwise. So the chance is 2/2^n. Three beetles give 1/4. Four give 1/8. Ten give 1/512. The puzzle gets hopeless very fast, and the reason is that safety needs unanimity, while disaster only needs one disagreement."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE COMMON WRONG ANSWER is 1/2 -- from thinking \"either they all go the same way or they do not\", and treating those two as equally likely. They are not. Going the same way is a coincidence that needs all three to agree; going different ways can happen six different ways."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "last_one_standing_circle_10s",
    "title": "Forty-one in a circle",
