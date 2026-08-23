@@ -16,8 +16,78 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 506,
+ "count": 507,
  "entries": [
+  {
+   "slug": "gold_at_least_once",
+   "title": "Gold at least once",
+   "ts": "2026-08-23T10:08:27+00:00",
+   "date": "23 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "SEVEN SIXTEENTHS — about 44%, not a half.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TEMPTING ANSWER is a quarter plus a quarter, which is a half. Adding is almost right and always wrong, and here is the quickest way to see it: if adding worked, five spins would give five quarters, which is more than one. A chance above certainty is not an approximation, it is a broken rule."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ROUTE THAT WORKS. \"At least once\" is awkward to count directly, because gold could come on the first spin, or the second, or both. Its opposite is one clean event: NO gold at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    no gold on one spin        3/4",
+      "    no gold on both spins      3/4 x 3/4  =  9/16",
+      "    so gold at least once      1 - 9/16   =  7/16"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY MULTIPLY. The spins do not affect each other, so of the 3/4 of the time you miss on the first spin, you miss again on 3/4 of THOSE occasions. Three quarters of three quarters is nine sixteenths — a smaller slice of an already smaller slice, which is why probabilities shrink when you multiply and why \"and\" is never \"plus\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SAME COUNT, BY HAND. Cut the spinner into four equal quarters, one gold. Two spins make 4 x 4 = 16 equally likely pairs of quarters. Seven of them contain the gold quarter: the gold one paired with each of the four second results is 4, the three non-gold firsts paired with a gold second is 3, and 4 + 3 = 7. Seven out of sixteen. No formula, and the same answer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "BOTH GOLD IS A DIFFERENT QUESTION, and worth keeping straight: that is 1/4 x 1/4 = 1/16, about 6%. \"At least one\" and \"both\" are the two ends of the same calculation and people mix them constantly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW IT GROWS. With n spins the chance of at least one gold is 1 - (3/4)^n: 7/16 for two, 37/64 for three, and it approaches one without ever reaching it. That is the shape of every \"at least once\" question — a rare event repeated enough becomes likely, but never guaranteed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THIS SHOWS UP. Any repeated exposure: at least one failure in n components, at least one match in n attempts, at least one outage in a year. The working move is always the same — compute the chance of NOTHING happening, and take it off one."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "which_light_do_you_meet",
    "title": "Which light do you meet",
@@ -31634,5 +31704,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "beat_the_coin_flip"
+ "featured": "the_faulty_bolt"
 };
