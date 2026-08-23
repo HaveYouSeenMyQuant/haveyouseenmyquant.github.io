@@ -16,8 +16,72 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 479,
+ "count": 480,
  "entries": [
+  {
+   "slug": "two_ropes_45_10s",
+   "title": "Two ropes, forty-five",
+   "ts": "2026-08-23T00:23:48+00:00",
+   "date": "23 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Light the FIRST rope at both ends at once, and the second rope at one end, all at the same moment.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    the first rope is gone after 30 minutes",
+      "      -- two flames eat it together, so it takes half its hour"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    at that instant, light the SECOND rope's other end",
+      "      -- it has 30 minutes of rope left, and now it burns from both ends,",
+      "         so it finishes 15 minutes later"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    30 + 15 = 45"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY BURNING HALF THE ROPE DOES NOT WORK, which is the trap. The rope does not burn at a steady rate. Half its LENGTH is not half its TIME -- the flame might cover most of the rope in ten minutes and crawl through the last stretch for fifty. You have no way to find the halfway point in time by looking at it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY BOTH ENDS DOES WORK, and this is the part worth keeping. You still cannot say where the flames will meet -- that depends on the lumps, and it is almost never the middle. But you do not need to know where. Between them the two flames consume the whole rope, and between them they get through exactly one rope's worth of burning at twice the rate. So the time is exactly half, whatever the rope is like inside."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the move: stop trying to locate a position you cannot find, and use a quantity that does not depend on it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Checked rather than assumed: simulating five wildly uneven rate profiles flame by flame, every one finishes at 30.00 minutes against a 60-minute rope."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_power_that_ends_at_one",
    "title": "Two to the power of zero",
