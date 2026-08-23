@@ -16,8 +16,34 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 513,
+ "count": 514,
  "entries": [
+  {
+   "slug": "weigh_yourself_for_your_heart",
+   "title": "Bathroom scales, for your heart",
+   "ts": "2026-08-23T13:02:20+00:00",
+   "date": "23 Aug 2026",
+   "topic": "",
+   "q": "You weigh yourself every morning. This is the same habit, pointed at your heart.",
+   "a": "Genuinely asking, not rhetorically: what would you want a daily reading like this to tell you?",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Illness before you feel it? Whether you are training too hard? Sleep? Something I have not thought of? Every answer goes into what actually gets built."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Early access list is the link in my bio."
+     ]
+    }
+   ],
+   "src": "comment"
+  },
   {
    "slug": "five_in_the_queue",
    "title": "Five in the queue",
