@@ -16,8 +16,80 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 512,
+ "count": 513,
  "entries": [
+  {
+   "slug": "five_in_the_queue",
+   "title": "Five in the queue",
+   "ts": "2026-08-23T12:22:07+00:00",
+   "date": "23 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "ONE HUNDRED AND TWENTY.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Build the queue one place at a time. Five people could stand at the front. Once the front is settled, four are left for second place, then three, then two, and the last person has nowhere else to go:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    5 x 4 x 3 x 2 x 1  =  120"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That product has a name -- five factorial, written 5! -- and it is the count of ways to put five distinct things in a row."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS NOT FIVE, AND NOT TWENTY-FIVE. Five is the number of PEOPLE, not the number of queues. Twenty-five would be right if each of the five places could be filled by any of the five people, but a person cannot stand in two places at once, so each choice removes someone from the pool. That shrinking pool is what turns 5x5x5x5x5 into 5x4x3x2x1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW FAST IT CLIMBS. This is the part worth carrying away:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    3 friends            6 queues",
+      "    4 friends           24",
+      "    5 friends          120",
+      "    6 friends          720",
+      "    10 friends   3,628,800"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Adding ONE more friend does not add a few more queues -- it MULTIPLIES the total by the new number of people. Going from five to six multiplies by six. Ten friends would take you past three and a half million, which is more orders than you could photograph in a lifetime of bus journeys."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE THING THAT MAKES IT CLICK. Any time you count arrangements of distinct things where every position matters and nothing repeats, you get this shrinking product. Seating plans, race finishes, the order of songs on a playlist, the sequence in which jobs run. And it explains why \"just try all the orders\" stops being advice almost immediately: at twenty items there are more orderings than there are grains of sand on Earth."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "new_road_slows_everyone_10s",
    "title": "A brand new road",
