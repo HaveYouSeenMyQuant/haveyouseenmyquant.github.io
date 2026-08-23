@@ -16,8 +16,94 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 497,
+ "count": 498,
  "entries": [
+  {
+   "slug": "every_route_to_the_corner",
+   "title": "Every route to the corner",
+   "ts": "2026-08-23T06:47:01+00:00",
+   "date": "23 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "TWENTY.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every route is six steps long: three of them right, three of them up. You never get a choice about HOW MANY of each — the grid decides that. The only thing a route decides is the ORDER."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the question becomes: in how many orders can you take three rights and three ups? Write a route as a word, R R R U U U or R U R U R U. Every arrangement of those six letters is a different route, and every route is one arrangement."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Pick which three of the six steps are the rights, and the ups fill the rest:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    6 x 5 x 4",
+      "    ---------  =  20",
+      "    3 x 2 x 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE OTHER WAY, WHICH NEEDS NO FORMULA. Write at each junction the number of ways to reach it. Every edge junction is 1 — there is only one way along a wall. Any other junction can only be entered from the left or from below, so its number is the sum of those two:"
+     ]
+    },
+    {
+     "h": "1    4   10   20",
+     "t": "pre",
+     "lines": [
+      "        1    3    6   10",
+      "        1    2    3    4",
+      "        1    1    1    1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Read the top right: 20. That is Pascal's triangle lying on its side, and it is the same count arrived at without choosing anything."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS NOT SIX, AND NOT SIXTY-FOUR. Two tempting wrong answers. It is not six steps' worth of freedom: you do not choose at every junction, because once you have used your three rights the rest is forced. And it is not two-to-the-six, 64, which would count sequences like R R R R R R that walk off the grid."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL SHAPE. An m by n grid has (m+n) choose n routes. A 3x3 gives 20; a 4x4 gives 70; a 10x10 gives 184,756. The growth is brutal, which is why counting them one at a time stops working almost at once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THIS SHOWS UP. Any process that is a fixed multiset of steps in a free order: orderings of tasks, sequences of wins and losses that end level, ways a price path returns to where it started. The lattice is a picture of \"same ingredients, different order\", and the count is almost never small."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_beetles_one_triangle",
    "title": "Three beetles, one triangle",
