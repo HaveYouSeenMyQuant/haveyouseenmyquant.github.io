@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 493,
+ "count": 494,
  "entries": [
+  {
+   "slug": "twenty_corners_how_many_lines",
+   "title": "Twenty corners, how many lines",
+   "ts": "2026-08-23T05:18:51+00:00",
+   "date": "23 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "170 cords. Against only 20 sides — the inside of the shape is far busier than its outline, and that gap is the surprising part.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two ways to get there, and they are worth having both."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "COUNT EVERYTHING, THEN SUBTRACT. Every pair of corners gives one line. With 20 corners the number of pairs is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    20 x 19 / 2  =  190"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "(20 choices for the first corner, 19 for the second, then halve it because joining A to B and B to A is the same cord). Of those 190 lines, 20 are the sides of the shape. So the crossing cords number 190 - 20 = 170."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "COUNT FROM ONE CORNER. Stand at any corner. You can reach 19 others, but three of those are no good: the corner itself is not a target, and its two neighbours give you sides, not crossings. So each corner sends out 20 - 3 = 17 cords. Twenty corners, 17 each, is 340 — and every cord has been counted from BOTH of its ends, so halve it: 170."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That gives the general rule for a shape with n corners:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    n(n - 3) / 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The triangle is the case that proves it. n = 3 gives 3 x 0 / 2 = ZERO diagonals, which is right — a triangle has no inside lines at all, and any off-by-one in the formula shows up there immediately. Check the others: a square gives 2, a pentagon 5, a hexagon 9."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT FEELS TOO BIG. The sides grow like n. The cords grow like n squared. Double the corners and you roughly quadruple the crossings — 20 corners give 170, but 40 corners give 740. That is the same reason a group chat gets unmanageable faster than the group grows."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_gap_between_two_dice",
    "title": "The gap between two dice",
