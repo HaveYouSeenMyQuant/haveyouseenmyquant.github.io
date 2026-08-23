@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 482,
+ "count": 483,
  "entries": [
+  {
+   "slug": "the_circle_becomes_a_rectangle",
+   "title": "The circle becomes a rectangle",
+   "ts": "2026-08-23T01:24:35+00:00",
+   "date": "23 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "One side is the radius. The other is half the way round.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Cut the circle into n wedges and interlock them, points alternating up and down. The bumpy top and bottom are made of the arcs, and every arc came from the circle's edge — half of them ended up on top and half underneath. So the length of the row is half the circumference:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    width  = half of 2(pi)r  =  (pi)r"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each wedge is as tall as the circle's radius, so the row is r high:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    height = r"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Multiply, and you have the area of a circle:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    area = (pi)r x r = (pi)r^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS NOT A CHEAT. The shape is not truly a rectangle — the edges are scalloped and the sides lean. But the thinner the wedges, the less they lean and the flatter the scallops get, and the figure closes on a true rectangle. With 8 wedges the row is already 97% of (pi)r wide; with 256 it is 99.997%. Nothing is being fudged: this is a limit, and it is the same limiting argument that underlies every area formula you were given at school."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE PICTURE IS REALLY SAYING is that a circle's area is the radius times half its perimeter — and that is not a fact about circles. Do the same to a regular polygon and you get (apothem x half-perimeter), the identical statement. The circle is the limit of those polygons, so it inherits the formula."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE STEP PEOPLE MISS is why the height is r rather than something smaller. It is the wedge's straight edge, which was a radius before you cut it, and cutting did not change its length. The scalloped edge is where the approximation lives; the straight edge is exact from the start."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_hospitals_more_boys",
    "title": "Two hospitals, and the days most babies are boys",
