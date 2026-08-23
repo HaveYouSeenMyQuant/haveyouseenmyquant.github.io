@@ -1507,11 +1507,50 @@ def warn_near_duplicates(bank, threshold=0.33):
     if not hits:
         return
     hits.sort(reverse=True)
-    print("\n%d possible repeat(s) — SAME IDEA, not a wrong answer. Judge each "
-          "by hand; this is a warning, not a failure:" % len(hits))
-    for jac, aid, au, bid, bu, field in hits[:12]:
-        print("  %.0f%% %s overlap:  %s (%s)  ~  %s (%s)"
-              % (jac * 100, field, aid, au, bid, bu))
+    fresh = [h for h in hits if frozenset((h[1], h[3])) not in JUDGED_PAIRS]
+    known = len(hits) - len(fresh)
+    if fresh:
+        print("\n%d possible repeat(s) — SAME IDEA, not a wrong answer. Judge each "
+              "by hand; this is a warning, not a failure:" % len(fresh))
+        for jac, aid, au, bid, bu, field in fresh[:12]:
+            print("  %.0f%% %s overlap:  %s (%s)  ~  %s (%s)"
+                  % (jac * 100, field, aid, au, bid, bu))
+    if known:
+        print("\n%d further overlap(s) already judged and kept on purpose "
+              "(see JUDGED_PAIRS)." % known)
+    if not fresh:
+        print("no UNJUDGED overlaps.")
+
+
+
+# PAIRS ALREADY JUDGED BY HAND, and why each one stays. The overlap check is a
+# warning, not a gate, which means it only works if the warning is READ. Six
+# known-good pairs printed on every single run trains the reader to skip the
+# block -- and the seventh, real repeat would go with it. So a judged pair is
+# named here with its verdict and drops to a one-line footnote; anything NOT in
+# this list still prints loudly.
+#
+# Adding to this list is a deliberate act. The bar is that the two questions
+# TEACH different things, not merely that they read differently.
+JUDGED_PAIRS = {
+    frozenset(("rolls_until_six", "wait_for_two_sixes")):
+        "6 vs 42 — waiting for a repeat is not waiting twice. The contrast IS "
+        "the lesson.",
+    frozenset(("monty_hall", "clumsy_host")):
+        "2/3 vs 1/2 — whether the host KNEW is the entire difference. Best pair "
+        "in the bank; removing either destroys the point.",
+    frozenset(("two_children", "met_a_girl")):
+        "1/3 vs 1/2 — 'at least one is a girl' against meeting one. Same trap "
+        "as above, different dressing.",
+    frozenset(("break_the_house", "ruin_length")):
+        "5% vs 475 flips — same setup, and deliberately so: one asks whether "
+        "you win, the other how long you last.",
+    frozenset(("coin_streak", "order_likelihood")):
+        "a streak claim against ranking sequences by likelihood; shared "
+        "vocabulary only.",
+    frozenset(("coin_streak", "ruin_length")):
+        "both mention coins and nothing else.",
+}
 
 
 if __name__ == "__main__":

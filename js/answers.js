@@ -16,8 +16,68 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 515,
+ "count": 516,
  "entries": [
+  {
+   "slug": "the_boat_holds_one",
+   "title": "The boat holds one",
+   "ts": "2026-08-23T18:27:32+00:00",
+   "date": "23 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "SEVEN crossings, and the reason is that the goat has to come back.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Almost everyone answers five. That is the count you get if you assume each item crosses once and the farmer rows back between them: over, back, over, back, over. It is exactly the answer to the puzzle WITHOUT the eating rules -- run the same search with the rules removed and it returns 5. The rules cost two extra trips, and both are spent on the same animal."
+     ]
+    },
+    {
+     "h": "THE SEQUENCE",
+     "t": "pre",
+     "lines": [
+      "    1. take the GOAT over          (wolf + cabbage left alone: fine)",
+      "    2. row back empty",
+      "    3. take the WOLF over          (cabbage alone: fine)",
+      "    4. bring the GOAT BACK         <- the move nobody wants to make",
+      "    5. take the CABBAGE over       (goat alone on the near bank: fine)",
+      "    6. row back empty",
+      "    7. take the GOAT over"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY STEP 4 IS THE WHOLE PUZZLE. Every other move is forced once you accept it. The goat is the only item that is dangerous in both directions -- it eats the cabbage and is eaten by the wolf -- so it can never be left with either of the others. That means the goat must cross first, and it means the second animal over cannot simply be dropped and left. Undoing progress is the only way forward, which is why the puzzle is a thousand years old and still works."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STARTING WITH ANYTHING ELSE FAILS IMMEDIATELY. Take the wolf first and the goat eats the cabbage behind you. Take the cabbage first and the wolf eats the goat. There is no recovery from either, so the first move is not a choice at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL SHAPE. This is a shortest path through a graph of states -- who is on which bank, and where the boat is. Ten states are reachable under the rules, and the answer is the distance from one corner to the other. Written that way it stops being a riddle and becomes a search, which is how a computer would do it and how the same trick solves much bigger crossing puzzles."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is usually credited to Alcuin of York, around 800 AD."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_red_already_out",
    "title": "One red already out",
