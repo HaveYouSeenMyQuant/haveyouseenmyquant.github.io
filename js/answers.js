@@ -16,8 +16,95 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 484,
+ "count": 485,
  "entries": [
+  {
+   "slug": "the_water_you_can_actually_drink",
+   "title": "The water you can actually drink",
+   "ts": "2026-08-23T02:14:55+00:00",
+   "date": "23 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "About seven thousandths of one percent. Not seven percent — seven THOUSANDTHS of one percent.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Take it in the order the bars show it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    all the water on Earth",
+      "      96.5%  ocean, plus a little saline groundwater",
+      "       2.5%  fresh"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Of that 2.5% which is fresh:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "      68.7%  locked in ice caps and glaciers",
+      "      30.1%  deep groundwater",
+      "       1.2%  at or near the surface",
+      "       0.3%  lakes and rivers — the part you can walk up to"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the drinkable share of ALL the world's water is 2.5% of 0.3%:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    0.025 x 0.003 = 0.000075 = 0.0075%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Under one hundredth of one percent. If all the water on Earth filled a bath, the lakes and rivers would be about a teaspoon."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY EVERYONE GUESSES HIGH. Two reasons, and both are worth noticing because they are general. First, the thing you can SEE is not the thing that is common — rivers and lakes are the only water most people ever meet, so they feel like a large category. Second, the chain multiplies. Each step sounds mild on its own (\"only a few percent is fresh\", \"most of that is ice\"), but three mild-sounding steps in a row take you down by a factor of ten thousand. People add their way through a chain like that instead of multiplying."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INTERVIEW VERSION of this is any question where a quantity survives several filters — conversion through a funnel, a signal through several noisy stages, defaults through a portfolio. The arithmetic is the same, and so is the mistake."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A CHECK YOU CAN DO: groundwater is thirty percent of freshwater and ice is nearly seventy, so those two alone are more than ninety-eight percent of it. Everything else in the world — every lake, every river, every cloud, all the water in every living thing — shares what is left."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "stop_when_a_boy_arrives",
    "title": "Every family stops at a boy",
