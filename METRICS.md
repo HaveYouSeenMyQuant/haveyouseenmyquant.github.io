@@ -546,3 +546,29 @@ answers_road_question_shown is still 0, it is the guards eating the offer
 
 Writing the threshold down first because the temptation at n=3 or n=4 will be to
 call it, and a zero out of four looks exactly like a zero out of forty.
+
+### P6 GUARDRAIL, first reading — 0 of 5, and that means nothing yet
+
+I said when shipping the P6 exit offer that the email-at-gate rate was the
+number to watch, and that the change comes out if it drops. First reading,
+excluding my own test session:
+
+    BEFORE  7 days to 2026-08-22 22:30   107 gate views, 14 emails   13.1%
+    AFTER   since the deploy               5 gate views,  0 emails    0%
+
+A zero looks alarming and is not. At a 13.1% rate:
+
+    P(0 conversions in  5 gate views) = 0.50
+    P(0 in 10) = 0.25      P(0 in 20) = 0.06      P(0 in 40) = 0.004
+
+0 out of 5 is the SINGLE MOST LIKELY outcome if nothing changed at all. It is
+not weak evidence of harm; it is no evidence either way.
+
+THE BAR, fixed now: about 20-40 gate views. A zero at 20 would be worth
+investigating (p=0.06); a zero at 40 would be near-conclusive (p=0.004). Below
+20 the reading should not be acted on in either direction -- including the
+direction of relief if a conversion happens to land.
+
+This is the same discipline as the exit-slot discriminator: write the threshold
+down before the data arrives, because 0/5 and 0/40 look identical in a report
+and only one of them is a finding.
