@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 511,
+ "count": 512,
  "entries": [
+  {
+   "slug": "new_road_slows_everyone_10s",
+   "title": "A brand new road",
+   "ts": "2026-08-23T11:59:51+00:00",
+   "date": "23 Aug 2026",
+   "topic": "paradox",
+   "q": null,
+   "a": "Everyone's journey gets LONGER. Sixty-five minutes becomes eighty, and nobody can do better by ignoring the new road.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The network. Two roads are wide and fast but crowd-sensitive: their time is the number of drivers on them divided by 100. Two are narrow but fixed: always 45 minutes whoever is on them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    S -> A  crowded, T/100         A -> End  fixed, 45",
+      "    S -> B  fixed, 45              B -> End  crowded, T/100"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "BEFORE. 4000 drivers split evenly, 2000 each way. Both routes take 2000/100 + 45 = 65 minutes. That split is stable: switching makes your own trip worse."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AFTER a free road opens from A to B. Now there is a tempting route: S -> A -> B -> End, which uses BOTH crowded roads and neither slow one. If you are the only one who takes it, it is fast. So everyone takes it -- and everyone taking it means both crowded roads carry all 4000:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    4000/100  +  0  +  4000/100  =  80 minutes"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY NOBODY BACKS OUT, which is the part that makes it a paradox rather than a blunder. If you alone switch back to the old route, you pay 4000/100 + 45 = 85 minutes -- worse than 80. Everyone is individually right and collectively worse off. The bad outcome is stable."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Closing the new road would return everyone to 65. This is Braess's paradox, and it is not theoretical: closing roads in Seoul, Stuttgart and New York has measurably improved traffic. Extra capacity helps only if the choices it creates do not pull everyone onto the same crowded stretch."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_many_different_pizzas",
    "title": "How many different pizzas",
