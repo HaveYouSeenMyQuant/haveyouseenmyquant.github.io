@@ -16,8 +16,87 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 517,
+ "count": 518,
  "entries": [
+  {
+   "slug": "the_can_that_wastes_least",
+   "title": "The can that wastes least",
+   "ts": "2026-08-23T20:28:58+00:00",
+   "date": "23 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "THE HEIGHT EQUALS THE DIAMETER. The can is exactly as tall as it is wide.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Almost nobody guesses this. The instinct is that a tall thin can is efficient, because it looks lean — but a tall can is nearly all curved side, and a squat one is nearly all lid and base. The cheapest shape sits between them, and it is a long way from where most people put it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE WORKING, which is the standard exam method: write the thing you want in ONE variable, then differentiate."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    volume      V = pi r^2 h,  so  h = V / (pi r^2)",
+      "    metal       A = 2 pi r^2  +  2 pi r h        (two ends + the side)",
+      "    substitute  A = 2 pi r^2  +  2V / r",
+      "    minimise    dA/dr = 4 pi r  -  2V / r^2  =  0",
+      "                r^3 = V / (2 pi)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now put that back into the height:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    h = V / (pi r^2) = 2r"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So h = 2r — the height is twice the radius, which is the diameter. The can is as tall as it is wide, whatever the volume. The V cancels, so the SHAPE is always the same; only the size changes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A CONCRETE CASE. With V = 16 pi the best radius is 2 and the height is 4, using about 75.4 units of metal. Move away in either direction and it costs you:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    r = 1.5   ->  81.2      r = 2.0  ->  75.4      r = 2.5  ->  79.5"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY REAL CANS ARE NOT THIS SHAPE. Look in any cupboard and the tins are taller than they are wide. The model assumes metal is the only cost and every part of it costs the same — but the ends are cut from sheet and waste the corners, the seam costs extra, and cans have to fit a hand and a shelf. A good engineer gets the mathematical answer first and THEN asks which assumption reality is breaking. The gap between 75.4 and what a factory actually does is where the engineering is."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "he_never_quite_catches_it",
    "title": "He never quite catches it",
