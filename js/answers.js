@@ -16,8 +16,87 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 478,
+ "count": 479,
  "entries": [
+  {
+   "slug": "the_power_that_ends_at_one",
+   "title": "Two to the power of zero",
+   "ts": "2026-08-22T23:59:41+00:00",
+   "date": "22 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "One. Not zero.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Look at what the list is doing on the way down. Each step removes one factor of two, so each value is the one above divided by two:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2^4 = 16",
+      "    2^3 =  8",
+      "    2^2 =  4",
+      "    2^1 =  2",
+      "    2^0 =  1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sixteen, eight, four, two — the next one is one. That is the picture, and it is persuasive, but on its own it is only a pattern. Here is why it is forced."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE REASON IT CANNOT BE ANYTHING ELSE. The rule for dividing powers is that you subtract the indices:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    a^m / a^n = a^(m-n)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Set m and n equal. The left-hand side is a number divided by itself, which is 1 for any a that is not zero. The right-hand side is a^0. So a^0 = 1, for every base, and there is no choice in the matter — anything else breaks the index law that the rest of algebra is built on."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same conclusion from the other direction: a^0 is the empty product, the result of multiplying no copies of a together. The sensible value for a product of nothing is the number that changes nothing when you multiply by it, and that is 1 — exactly as the sum of no numbers is 0."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ONE REAL EXCEPTION is 0^0, and anyone who tells you it is obviously 1 or obviously 0 is skipping something. Approaching it as 0^x gives 0; approaching it as x^0 gives 1. The two disagree, so in analysis it is left undefined. In combinatorics and in power series it is TAKEN as 1, because there is exactly one way to choose nothing and the series would need special-casing otherwise. Both conventions are correct in their own field, which is the actual answer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS WORTH KNOWING. This is the smallest example of a habit that runs through mathematics: a definition is not a decision about what a symbol should feel like, it is whatever keeps the existing rules working. Zero factorial is 1 for the same reason."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "deuce_two_points_clear",
    "title": "Deuce, and two points clear",
