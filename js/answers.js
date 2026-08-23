@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 494,
+ "count": 495,
  "entries": [
+  {
+   "slug": "one_seat_is_already_taken",
+   "title": "One seat is already taken",
+   "ts": "2026-08-23T05:40:37+00:00",
+   "date": "23 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "126.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Omar is on the committee — that is given, not a choice. So put him in a seat and look at what is actually left to decide: four more seats, and nine people still available."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    committees = ways to choose 4 from 9 = 126"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE MISTAKE almost everyone makes is choosing 4 from TEN. Omar is already seated, so he cannot be picked again; the pool is nine, not ten. That slip gives 210, and it counts committees that contain Omar twice over."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The other common slip is answering 252, which is the number of committees of five from ten with no condition at all — the answer to a question that was not asked."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A CHECK THAT COSTS NOTHING. Every committee of five either contains Omar or does not. The ones that do number 126. The ones that do not are committees of five from the other nine, which is also 126. Together: 252, which is exactly the unconstrained count. The two halves add up, so the answer is consistent."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THEY ARE EQUAL HERE, and not in general. Omar is on exactly half of the committees because five seats are being filled from ten people — his share is five tenths. Choose 3 from 8 instead and any given person is on three eighths of them, not half. The rule is that a given person appears on k/n of all the committees, and the halving here is a coincidence of the numbers."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE HABIT WORTH TAKING. When something is forced, remove it from the problem before you start counting, and count what is genuinely still free. Most counting mistakes are made by counting things that were never in question."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "twenty_corners_how_many_lines",
    "title": "Twenty corners, how many lines",
