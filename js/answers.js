@@ -16,8 +16,85 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 487,
+ "count": 488,
  "entries": [
+  {
+   "slug": "three_shapes_that_tile",
+   "title": "Three shapes that tile a floor",
+   "ts": "2026-08-23T03:06:05+00:00",
+   "date": "23 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Hexagons, and it is not close.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Give every cell the same floor area — say one square unit — and measure the wall each shape needs:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    triangle   4.56",
+      "    square     4.00",
+      "    hexagon    3.72"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The hexagon needs about 7% less wall than the square and about 18% less than the triangle. In a honeycomb every wall is shared between two cells, so halve all three: the ordering does not change."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY MORE SIDES IS BETTER. As you add sides, a regular polygon gets rounder, and roundness is what buys you area per unit of boundary. The extreme case is the circle, which needs only 3.54 — less than any of them:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    circle     3.54   (the true minimum, for ANY shape)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the hexagon lands within 5% of the best any shape could possibly do. That is the actual content of the answer: hexagons are not perfect, they are the closest you can get while still tiling."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY NOT JUST USE CIRCLES. Because circles do not tile. Pack them and you are left with gaps between them, which is wasted comb and wasted wax. Only three regular polygons tile the plane at all — triangles, squares and hexagons — and of those three the hexagon is roundest. Bees are choosing the best available option from a list of three, not solving an unconstrained problem."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THAT IT IS THE BEST OF ALL TILINGS, not merely of the regular ones, is a much harder statement. It is the Honeycomb Conjecture, stated for millennia and only proved by Thomas Hales in 1999: no partition of the plane into equal areas, by any shapes at all, beats the regular hexagon for total boundary. So the bees' answer is right for a reason nobody could prove until recently."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY WAX MATTERS. Bees eat roughly eight units of honey to make one of wax, so wall is the expensive part of a hive and floor space is the product. Any saving on boundary is a direct saving on food."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "which_curve_predicts_better",
    "title": "Which curve predicts better",
