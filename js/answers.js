@@ -16,8 +16,107 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 500,
+ "count": 501,
  "entries": [
+  {
+   "slug": "she_told_them_separately",
+   "title": "She told one the month and the other the day",
+   "ts": "2026-08-23T08:03:47+00:00",
+   "date": "23 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "July 16.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three sentences, three passes. Keep the ten dates in front of you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    May     15  16  19",
+      "    June    17  18",
+      "    July    14  16",
+      "    August  14  15  17"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "PASS ONE — \"I do not know, and I know Bernard does not know either.\""
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Albert holds only the month, so how can he be sure Bernard is stuck? Bernard would know at once if his day appeared only once in the whole list. Look for those: 19 (May only) and 18 (June only). So if the month were May or June, Albert could not rule out Bernard already knowing — he could not have said that sentence."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Albert did say it, so the month is not May and not June. Five dates survive: July 14, July 16, August 14, August 15, August 17."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "PASS TWO — \"I did not know, but now I do.\""
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Bernard holds the day. Among the five survivors, 14 appears twice (July and August), so a 14 would still leave him stuck. He is not stuck, so his day is not 14. Three survive: July 16, August 15, August 17."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "PASS THREE — \"Then I know too.\""
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Albert holds the month. Of the three left, August appears twice — August would still leave him stuck. He is not stuck, so the month is July."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That leaves July 16, and nothing else."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THIS IS AN INTERVIEW QUESTION. Nobody is asked to compute anything. Every step extracts information from a statement about what someone else does NOT know, which is the same move as pricing off what the market has not done, or reading a bid nobody hit. The hard part is trusting that \"I know you don't know\" is data."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE COMMON WRONG TURN is to start eliminating from Bernard's side. You cannot: Albert speaks first, and until his sentence is used the list is untouched. The order of the statements is part of the puzzle, not decoration."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "every_hand_in_the_room",
    "title": "Every hand in the room",
