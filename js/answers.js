@@ -16,8 +16,85 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 486,
+ "count": 487,
  "entries": [
+  {
+   "slug": "which_curve_predicts_better",
+   "title": "Which curve predicts better",
+   "ts": "2026-08-23T02:51:44+00:00",
+   "date": "23 Aug 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "The one that MISSES. The gentle curve, the one that never touches a single reading, is far closer to what comes next -- and it is not close.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "On the twelve readings both curves were shown:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    the wiggly curve   misses by 0.00   -- it goes through every point exactly",
+      "    the gentle curve   misses by 0.85"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "On fresh readings from the same day-shape:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    the wiggly curve   misses by 2.67",
+      "    the gentle curve   misses by 0.86"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The gentle curve is about as wrong on new data as it was on old. The wiggly one got three times worse the moment it met a reading it had not already been shown."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Every reading is the real day-shape plus a bit of measurement noise. A curve flexible enough to hit all twelve exactly has to reproduce the NOISE as well as the shape -- and noise is, by definition, the part that will not repeat. So the wiggly curve has carefully memorised the one thing guaranteed not to happen again, and it thrashes between the points to do it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The gentle curve cannot hit the noise. It has too few degrees of freedom to chase it, so what it captures is mostly the shape -- which is the part that does repeat."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE UNCOMFORTABLE PART. \"Fits the data perfectly\" is not evidence a model is good. It is what a model looks like just before it fails, and the only honest test is data the model has never seen. A perfect score on the training set is not an achievement to report; it is a warning."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Checked properly rather than on one lucky draw: against 500,000 fresh readings the wiggly curve is 2.40x worse, and across 1,500 independent redraws of the whole setup it was the worse of the two in 1,500 of 1,500."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "add_the_digits_and_see",
    "title": "Add the digits and see",
@@ -30229,5 +30306,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "two_marks_on_a_metre_stick"
+ "featured": "beat_the_coin_flip"
 };
