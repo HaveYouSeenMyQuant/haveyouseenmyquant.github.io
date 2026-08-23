@@ -16,8 +16,77 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 503,
+ "count": 504,
  "entries": [
+  {
+   "slug": "a_double_or_a_six",
+   "title": "A double or a six",
+   "ts": "2026-08-23T08:49:10+00:00",
+   "date": "23 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "NEITHER — they are equally likely. One chance in four each.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The set has 28 tiles: every unordered pair of numbers from 0 to 6, each appearing once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    DOUBLES        0-0  1-1  2-2  3-3  4-4  5-5  6-6          7 tiles",
+      "    SHOWS A SIX    6-0  6-1  6-2  6-3  6-4  6-5  6-6          7 tiles"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Seven out of 28 is one quarter, both times."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THEY MATCH, WITHOUT COUNTING. Each list is built the same way: pick a number from 0 to 6 and there is one tile for it. A double is \"the tile where this number meets itself\". A six-tile is \"the tile where this number meets a six\". Both are one tile per number, and there are seven numbers, so both lists have seven entries. The match is not a coincidence; it is the same construction twice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That also tells you the six is not special. Ask for tiles showing a THREE and you get seven again — 3-0 through 3-6. Every number appears on exactly seven tiles, which is why the set has 7 x 7 = 49 halves... but only 28 tiles, because each tile carries two halves and the doubles carry two of the same."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ONE TILE IN BOTH LISTS. 6-6 is a double AND shows a six. So if you ask for the chance of drawing a tile that is EITHER, it is not 7 + 7 = 14 out of 28. It is 13 out of 28, because 6-6 would be counted twice. That is the inclusion- exclusion correction, and forgetting it is the classic slip."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY 28 AND NOT 49. Seven numbers, each pairing with seven others, is 49 ordered pairs — but 3-5 and 5-3 are the same tile. The 42 non-doubles collapse into 21, and the 7 doubles stand alone: 21 + 7 = 28."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THIS SHOWS UP. Two categories that feel different sizes because one has a memorable name. \"Doubles\" sounds rare and special; \"has a six in it\" sounds broad. Both are seven. Whenever you compare two subsets, count the construction rather than trusting how each one sounds."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_other_side_of_the_card",
    "title": "The other side of the card",
