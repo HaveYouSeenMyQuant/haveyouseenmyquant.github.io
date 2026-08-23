@@ -16,8 +16,82 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 483,
+ "count": 484,
  "entries": [
+  {
+   "slug": "stop_when_a_boy_arrives",
+   "title": "Every family stops at a boy",
+   "ts": "2026-08-23T01:38:14+00:00",
+   "date": "23 Aug 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "Fifty. The rule changes nothing at all.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Almost everyone says there will be more girls, and the reasoning feels airtight: families keep going while they get girls and stop the moment they get a boy, so girls must pile up. Every family ends with exactly one boy, and some families have four or five girls. How can it not tilt?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "BECAUSE OF WHAT THE RULE CANNOT DO. It decides WHEN a family stops. It has no effect whatsoever on any individual birth. Every birth in that country is still a coin flip, and no rule about when to stop flipping can change what a flip does."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Line up every birth in the country in the order it happened and look at them one by one. Each is a fresh coin flip, half boys, half girls. Some are the last child of a family and some are not, but nothing about being last makes a birth more likely to be a boy — it is the other way round: the birth being a boy is what MADE it last."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "COUNT IT AND SEE. Each family has exactly one boy, by definition of the rule. How many girls does a family have on average? The chance of no girls is 1/2, one girl 1/4, two girls 1/8, and so on. The average works out to exactly 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    one boy per family     one girl per family     50 in every 100"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The families with four or five girls are real, and they are rare enough to be balanced exactly by all the families that got a boy first and stopped at one child."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THE INTUITION GOES WRONG. It notices that girls can appear many times in a family and boys only once, and concludes girls are more common. But there are far more small families than large ones, and the single-child families are all boys. The lopsided families you picture are the ones you notice, not the ones there are most of."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE LESSON WORTH KEEPING: a stopping rule cannot change the odds of the thing you are stopping on. This is exactly the error behind \"I'll quit while I'm ahead\" systems in betting — deciding when to walk away changes the shape of your session, and does nothing to the house edge on any individual bet."
+     ]
+    }
+   ],
+   "src": "answer",
+   "road": {
+    "qid": "stop_at_a_boy",
+    "lesson": "u7l2",
+    "unit": 7,
+    "prompt": "In one country every family keeps having children until a boy arrives, and then stops. Out of every 100 children in that country, how many are girls?"
+   }
+  },
   {
    "slug": "the_circle_becomes_a_rectangle",
    "title": "The circle becomes a rectangle",
