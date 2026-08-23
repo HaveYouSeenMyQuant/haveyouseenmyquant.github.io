@@ -16,8 +16,101 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 519,
+ "count": 520,
  "entries": [
+  {
+   "slug": "the_angle_light_cannot_leave",
+   "title": "The angle light cannot leave",
+   "ts": "2026-08-23T21:49:09+00:00",
+   "date": "23 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "ABOUT 42 DEGREES. Past that, none of it gets out — it all reflects back in.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The angle is called the CRITICAL ANGLE, and for ordinary glass it is 41.8°, measured from the normal (the line perpendicular to the surface), not from the surface itself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE IT COMES FROM. Snell's law across the boundary, with glass n = 1.5 and air n = 1:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    n sin(inside) = 1 x sin(outside)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "As the inside angle grows, the outside angle grows faster, because it is being multiplied by 1.5. The escaping ray flattens toward the surface, and the critical angle is exactly where it would flatten to 90° — lying along the surface:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1.5 sin C = sin 90 = 1",
+      "    sin C = 1/1.5 = 0.667",
+      "    C = 41.8°"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Steeper than that and the equation asks for sin(outside) > 1, which has no solution. There is no escaping ray to be had, so all of the light reflects back into the glass. That is TOTAL internal reflection — total because none is lost, unlike an ordinary mirror."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "IT DEPENDS ON THE MATERIAL, through sin C = 1/n:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    water    n = 1.33   C = 48.8°",
+      "    glass    n = 1.50   C = 41.8°",
+      "    diamond  n = 2.42   C = 24.4°"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Diamond's tiny critical angle is why it sparkles: light that gets in bounces around many times before finding an angle shallow enough to leave."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT MATTERS TO AN ENGINEER. This is the whole principle of the optical fibre. Light entering a fibre nearly along its axis meets the wall at a very steep angle — far past critical — so it cannot leave, and it bounces the length of the cable losing almost nothing. Every transatlantic message you have ever sent went that way."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "ONE DIRECTION ONLY. It happens going from dense to less dense — glass to air, never air to glass. Coming the other way the ray always bends toward the normal and always gets in."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_dropped_one_fired",
    "title": "One dropped, one fired",
