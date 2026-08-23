@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 501,
+ "count": 502,
  "entries": [
+  {
+   "slug": "the_letters_of_banana",
+   "title": "The letters of banana",
+   "ts": "2026-08-23T08:08:51+00:00",
+   "date": "23 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "SIXTY.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Start with the wrong answer, because it is the one most people give. Six letters in six positions is 6 x 5 x 4 x 3 x 2 x 1 = 720. That would be right if every letter were different. They are not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT GOES WRONG. Label the three A's as A1, A2, A3 for a moment. The 720 counts BA1NA2NA3 and BA2NA1NA3 as two different words. Look at them without the labels and they are both BANANA. The same word, counted twice — and in fact counted once for every way of shuffling the A's among themselves."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There are 3 x 2 x 1 = 6 ways to arrange three A's, and 2 ways to arrange two N's. So every genuinely different word has been counted 6 x 2 = 12 times over."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    720 / 12 = 60"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE RULE. For a word of n letters where a letter repeats a times, another b times and so on, the count is n! divided by a! x b! x ... You divide out exactly the shuffles you cannot see."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A SECOND ROUTE, IF DIVIDING FEELS LIKE A TRICK. Choose positions instead. Of the six slots, pick which three hold the A's: that is 20 ways. Of the three slots left, pick which two hold the N's: 3 ways. The B takes the last slot, 1 way. 20 x 3 x 1 = 60. No division anywhere, and the same answer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT MATTERS. This is the difference between things that are distinct and things that are merely in different places. Every time you count arrangements of anything with repeats — routes with repeated steps, schedules with identical shifts, sequences of wins and losses — the raw factorial overcounts, and by a factor you can name precisely. Getting that factor right is the whole skill."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "she_told_them_separately",
    "title": "She told one the month and the other the day",
