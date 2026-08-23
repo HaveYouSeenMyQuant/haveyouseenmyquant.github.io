@@ -16,8 +16,93 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 480,
+ "count": 481,
  "entries": [
+  {
+   "slug": "no_fraction_fits_the_diagonal",
+   "title": "No fraction fits the diagonal",
+   "ts": "2026-08-23T00:39:27+00:00",
+   "date": "23 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "No fraction works, and it is not that nobody has found one yet — none can exist.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "By Pythagoras the diagonal d satisfies d^2 = 1^2 + 1^2 = 2. So the question is whether any fraction, squared, gives exactly 2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Suppose one did. Write it in LOWEST TERMS as p/q, meaning p and q share no common factor — every fraction can be written that way, so this costs nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    p^2 / q^2 = 2",
+      "    p^2 = 2 q^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The right-hand side is two times a whole number, so p^2 is even. An odd number squared is odd, so p itself must be even. Write p = 2k:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (2k)^2 = 2 q^2",
+      "    4 k^2  = 2 q^2",
+      "    2 k^2  = q^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the same argument runs again on the other side: q^2 is even, so q is even."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But p and q are both even — they share a factor of 2 — and we started by saying they share no common factor. The assumption is the only thing that can be wrong, so no such fraction exists."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE NEAR MISSES ARE MISLEADING. 7/5 squares to 1.96 and 1393/985 squares to about 1.99999949, so you can get as close as you like. Closeness is not the question. There are fractions arbitrarily near the diagonal and not one of them lands on it, which is the first time most people meet the idea that a set can be dense and still miss a point."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT IT COST. The Greeks are said to have found this genuinely disturbing, because it broke the assumption that any two lengths could be measured in common units — take a small enough unit and both become whole numbers of it. The square and its own diagonal cannot. That is what \"incommensurable\" means, and it is why the discovery mattered rather than being a curiosity about fractions."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SAME ARGUMENT does the same job for the square root of 3, of 5, and of any whole number that is not a perfect square. It fails, correctly, for 4 — try it and see where the parity step stops working."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_ropes_45_10s",
    "title": "Two ropes, forty-five",
