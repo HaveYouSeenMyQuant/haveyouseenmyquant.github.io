@@ -94,7 +94,12 @@
     props.msSinceLoad = e.msSinceLoad;
     /* See site_eng/js/analytics.js: both sites share one events table, so each
      * tags its own rows. Absence would have to mean "quant", and that stops
-     * being true the moment a third site appears. */
+     * being true the moment a third site appears.
+     *
+     * The fallback is deliberate and must stay site-specific: analytics.js
+     * loads before questions.js, so the first events of every visit fire before
+     * QQ_DATA exists. A generic 'unknown' fallback loses exactly the arrival
+     * events the funnel is measured from. */
     props.site = (global.QQ_DATA && global.QQ_DATA.site) || 'quant';
     /* The auth user id when there is a session, so a signed-in player's funnel
      * joins to their profile. Guarded: analytics loads before auth and must keep
