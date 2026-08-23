@@ -467,13 +467,56 @@
     /* A beat before the offer, so it is not part of the same visual event as
      * the last line of the working arriving. `body.parentNode` is read at fire
      * time, not now: card() fills the body before putting it in the article. */
+    var endFired = false;
+
     function reached() {
       /* fires before the 700ms beat, so 'the observer never fired' and
        * 'the offer returned early' stop looking the same in the data */
+      endFired = true;
       try { QQA.track('answers_read_end_reached', { slug: entry ? entry.slug : null }); }
       catch (e) {}
       setTimeout(function () { offerRoad(body.parentNode, entry, 'read_end'); }, 700);
     }
+
+    /* WHY THERE IS A PROBE HERE (2026-08-23). answers_read_end_reached fired
+     * ZERO times in 8 days against 37 answer_unlocked events, and the data
+     * could not tell three cases apart: this function never ran, it ran but
+     * the sentinel was never scrolled to, or it ran and the observer stayed
+     * silent while the sentinel sat in view. Two of those were ruled out by
+     * hand (the sentinel is full-width, not zero-area; 13 of 23 unlock
+     * sessions stayed over 30s). The third needs the page to report on
+     * itself, because a browser check needs a visible tab and a hidden one
+     * fails its own control.
+     *
+     * So: say when the watch starts, and once, later, say what the sentinel
+     * looked like if nothing has fired. One extra event per opened answer and
+     * at most one more after it. */
+    try {
+      QQA.track('answers_end_watch_started', {
+        slug: entry ? entry.slug : null,
+        io: !!global.IntersectionObserver
+      });
+    } catch (e) {}
+
+    setTimeout(function () {
+      if (endFired) return;
+      var r;
+      try { r = end.getBoundingClientRect(); } catch (e) { r = null; }
+      var vh = global.innerHeight || 0;
+      try {
+        QQA.track('answers_end_watch_stalled', {
+          slug: entry ? entry.slug : null,
+          connected: !!end.isConnected,
+          w: r ? Math.round(r.width) : null,
+          h: r ? Math.round(r.height) : null,
+          top: r ? Math.round(r.top) : null,
+          vh: vh,
+          /* in view yet the observer said nothing => the observer is the fault */
+          inView: !!(r && r.top < vh && r.bottom > 0),
+          vis: global.document ? global.document.visibilityState : null
+        });
+      } catch (e) {}
+    }, 12000);
 
     if (global.IntersectionObserver) {
       var obs = new global.IntersectionObserver(function (rows) {
@@ -484,7 +527,16 @@
           return;
         }
       }, { threshold: 0.9 });
-      obs.observe(end);
+      /* observe AFTER the node is in the document. card() inserts the body
+       * later, so observing now registers a DETACHED target -- whether that
+       * reports once connected is the open question, and deferring makes the
+       * answer not matter. If the probe above shows the observer was fine,
+       * this costs one frame and nothing else. */
+      if (global.requestAnimationFrame) {
+        global.requestAnimationFrame(function () { obs.observe(end); });
+      } else {
+        setTimeout(function () { obs.observe(end); }, 0);
+      }
       return;
     }
 
