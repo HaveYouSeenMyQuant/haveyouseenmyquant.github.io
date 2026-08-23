@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 504,
+ "count": 505,
  "entries": [
+  {
+   "slug": "goat_grazes_half_10s",
+   "title": "How long a rope",
+   "ts": "2026-08-23T09:17:56+00:00",
+   "date": "23 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "About 1.1587 times the field's radius. A little LONGER than the radius, and nowhere near the diameter.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Most people guess the radius, or half the diameter, and both are badly wrong. A rope exactly as long as the field's radius lets the goat eat only 39.1% of the grass -- not half. You need noticeably more rope than that, and the exact figure is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    r  =  1.1587284730...  x  R"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THERE IS NO TIDY ANSWER. The grazed patch is the overlap of two circles: the field, and the circle the rope sweeps out from a point on the field's edge. That lens has a perfectly good area formula, and setting it equal to half the field gives"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    r^2 * arccos(r/2)  -  ... = pi/2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "an equation mixing r^2 with arccos(r) -- a polynomial tangled up with an inverse trigonometric function. There is no way to unpick that into r = something in elementary functions. The number is genuinely transcendental-flavoured; you find it by squeezing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the honest and interesting part of this problem. It is not that the algebra is hard. It is that a question a five-year-old can state in one sentence has an answer that CANNOT be written down in the usual way, only computed to as many places as you like."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A closed form was finally found in 2020, using contour integration -- and it is worse to look at than the number."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Checked by bisection on the lens formula: at r = 1.1587284730 R the grazed area is 1.570796326795, and half the field is 1.570796326795. Twelve decimal places."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_double_or_a_six",
    "title": "A double or a six",
