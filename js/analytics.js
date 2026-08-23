@@ -92,6 +92,10 @@
     props.anonId = e.anonId;
     props.visitNumber = e.visitNumber;
     props.msSinceLoad = e.msSinceLoad;
+    /* See site_eng/js/analytics.js: both sites share one events table, so each
+     * tags its own rows. Absence would have to mean "quant", and that stops
+     * being true the moment a third site appears. */
+    props.site = (global.QQ_DATA && global.QQ_DATA.site) || 'quant';
     /* The auth user id when there is a session, so a signed-in player's funnel
      * joins to their profile. Guarded: analytics loads before auth and must keep
      * working if that module is ever removed. */
