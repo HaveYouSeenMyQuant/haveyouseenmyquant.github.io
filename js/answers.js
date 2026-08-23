@@ -16,8 +16,73 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 489,
+ "count": 490,
  "entries": [
+  {
+   "slug": "each_line_describes_the_last",
+   "title": "Each line describes the one above",
+   "ts": "2026-08-23T03:46:14+00:00",
+   "date": "23 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "312211.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Read each line ALOUD as a description of the line above it, in runs."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1           \"one 1\"                 ->  11",
+      "    11          \"two 1s\"                ->  21",
+      "    21          \"one 2, one 1\"          ->  1211",
+      "    1211        \"one 1, one 2, two 1s\"  ->  111221",
+      "    111221      \"three 1s, two 2s, one 1\" -> 312211"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole rule: walk along the previous line, and for each run of identical figures write how many there were, then which figure it was. Nothing is being added or multiplied — the sequence is describing itself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS HARD TO SPOT. Every other sequence you have met is arithmetic: you look for a difference, a ratio, a rule involving the VALUES. Here the values are irrelevant. 1211 does not mean one thousand two hundred and eleven; it is four symbols. People who solve this stop treating the lines as numbers."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A PROPERTY WORTH KNOWING. Starting from 1, no figure above 3 ever appears — not in the tenth line, not in the thousandth. A 4 would need a run of four identical figures, and you can check that the rule can never produce one. So the whole infinite sequence is written with just three symbols."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "CONWAY'S BIT. John Conway studied this and proved something odd: the LENGTH of each line grows by a fixed factor in the limit, about 1.303577, now called Conway's constant. It is the root of a degree-71 polynomial. A sequence anyone can define in one sentence turns out to have an irrational growth rate that needs seventy-one degrees to pin down."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS ASKED. It is a filter for whether you can drop an assumption. Every candidate tries differences first; the ones who get it are the ones who notice the assumption \"these are quantities\" was never given to them."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "monk_same_time_twice_10s",
    "title": "Monk up, monk down",
