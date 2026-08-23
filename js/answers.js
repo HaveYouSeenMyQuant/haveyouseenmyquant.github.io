@@ -16,8 +16,98 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 520,
+ "count": 521,
  "entries": [
+  {
+   "slug": "twenty_newtons_lifts_a_car",
+   "title": "Twenty newtons lifts a car",
+   "ts": "2026-08-23T22:28:48+00:00",
+   "date": "23 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "500 NEWTONS. Twenty five times what you put in — which is exactly the area ratio.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. A fluid cannot support a shear, so the pressure it carries is the same everywhere in it. That is Pascal's principle, and it is the whole machine:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    pressure  p = F/A = 20 / 2 = 10 N per cm²"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That same 10 N per cm² presses on every square centimetre of the wide piston, and there are 50 of them:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    F = p x A = 10 x 50 = 500 N"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The force is multiplied by the AREA RATIO, 50/2 = 25. Nothing about the shape of the pipe, the length of it or the amount of oil matters at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "BUT NOTHING IS FREE, and this is the half that gets asked in an interview. The oil is incompressible, so whatever volume leaves the narrow cylinder arrives in the wide one:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    A₁ d₁ = A₂ d₂     ->     d₁/d₂ = A₂/A₁ = 25"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Push the narrow piston 25 cm and the wide one rises 1 cm. Check the work:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    in    20 N x 0.25 m = 5 J",
+      "    out   500 N x 0.01 m = 5 J"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Identical. You have not gained energy — you have traded distance for force, which is what every simple machine does. A lever, a pulley block, a gear train and a hydraulic jack are the same bargain wearing different clothes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE YOU MEET IT. Car brakes: a light push on the pedal becomes a large force at four brake calipers at once, because one master cylinder feeds them all at the same pressure. A garage jack lifts a tonne from a hand pump, at the cost of a great many strokes."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_angle_light_cannot_leave",
    "title": "The angle light cannot leave",
