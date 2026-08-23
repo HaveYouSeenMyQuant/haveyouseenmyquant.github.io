@@ -16,8 +16,85 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 485,
+ "count": 486,
  "entries": [
+  {
+   "slug": "add_the_digits_and_see",
+   "title": "Add the digits and see",
+   "ts": "2026-08-23T02:26:01+00:00",
+   "date": "23 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "Because every power of ten is one more than a multiple of nine.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    10   =  9 + 1",
+      "    100  = 99 + 1",
+      "    1000 = 999 + 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and so on for ever. So when you write a number out in full:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    471,285,936 = 4x100,000,000 + 7x10,000,000 + 1x1,000,000 + ..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "you can replace each power of ten by \"a pile of nines, plus one\". Every pile of nines is divisible by nine and can be set aside. What is left over from each term is the digit itself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the number and the sum of its digits differ by a multiple of nine — which means one divides by nine exactly when the other does. Nothing about the order of the digits matters, and nothing about how long the number is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    4+7+1+2+8+5+9+3+6 = 45,  and 45 = 9 x 5.  So 471,285,936 divides by nine."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY NINE AND NOT SEVEN. This works for nine because we write numbers in base ten, and nine is one less than ten. Try the same trick for seven and it collapses immediately — 10 is not one more than a multiple of seven, so the pile you set aside is not a pile of sevens. It works for THREE as well, for the same reason: three divides nine, so it divides every pile you set aside."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If we counted in base twelve, the digit-sum test would work for eleven instead. The rule is not a fact about nine; it is a fact about \"one less than the base\", which is a much less magical thing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "CASTING OUT NINES is the old use of this. Before calculators, clerks checked a long addition by reducing both sides to their digit sums and comparing. It catches most slips instantly — though not a transposition, since swapping two digits leaves the sum untouched. That blind spot is worth knowing if you ever rely on it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_water_you_can_actually_drink",
    "title": "The water you can actually drink",
