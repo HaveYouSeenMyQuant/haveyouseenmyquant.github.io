@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 495,
+ "count": 496,
  "entries": [
+  {
+   "slug": "last_one_standing_circle_10s",
+   "title": "Forty-one in a circle",
+   "ts": "2026-08-23T05:55:55+00:00",
+   "date": "23 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Position nineteen.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The clean way to see it is in binary, and it is almost absurdly simple. Write the number of people in base two, move the leading 1 to the end, and read it back."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    41 in binary is 101001",
+      "    move the leading 1 to the back: 010011",
+      "    read it back: 19"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole method. It works for any number of people when every second one goes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT WORKS. Powers of two are the easy case. With 32 people, whoever stands first survives — after one full lap exactly half are gone, the count comes back round to position 1, and you are in the same puzzle with 16 people, then 8, then 4, then 2, then 1, standing first every time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So with 41, ignore the first 9 removals. Once nine people are out, 32 remain and the count is about to land on somebody — and that somebody is now \"first\" in a 32-person version of the same puzzle. Nine removals starting from the top means the survivor is at 2 x 9 + 1 = 19."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    survivor  =  2 x (people - biggest power of two below them)  +  1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THIS IS AN INTERVIEW QUESTION. It rewards noticing that a problem contains a smaller copy of itself. Nobody expects you to simulate 41 people under pressure; they expect you to find the case that collapses — here, the power of two — and work back from it. Being asked \"and for a thousand people?\" is the real question, and with the rule above it takes ten seconds: 1024 is too big, 512 fits, so 2 x 488 + 1 = 977."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_seat_is_already_taken",
    "title": "One seat is already taken",
