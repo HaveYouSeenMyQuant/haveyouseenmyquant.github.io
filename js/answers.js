@@ -16,8 +16,85 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 522,
+ "count": 523,
  "entries": [
+  {
+   "slug": "the_second_speaker_makes_it_quieter",
+   "title": "The second speaker makes it quieter",
+   "ts": "2026-08-24T07:25:45+00:00",
+   "date": "24 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "NO. AT SOME PLACES THE SECOND SPEAKER MAKES IT QUIETER, and at some it cancels the note almost completely — two speakers producing silence where one produced sound.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Sound from the two speakers reaches you along two different paths. What matters is not how far you are from either one, but how much FURTHER one path is than the other — the path difference."
+     ]
+    },
+    {
+     "h": "PATH DIFFERENCE A WHOLE NUMBER OF WAVELENGTHS",
+     "t": "pre",
+     "lines": [
+      "    The two waves arrive in step. Crest lands on crest, and you get a LOUD",
+      "    spot — louder than one speaker alone."
+     ]
+    },
+    {
+     "h": "PATH DIFFERENCE AN ODD NUMBER OF HALF-WAVELENGTHS",
+     "t": "pre",
+     "lines": [
+      "    One wave arrives half a cycle behind. Crest lands on trough, they cancel,",
+      "    and you get a QUIET spot — quieter than one speaker alone."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Walk along the line and you pass through these alternately: loud, quiet, loud, quiet. The note does not fade smoothly, it comes and goes in bands."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "PUTTING NUMBERS ON IT. For a 1700 Hz note with sound at 340 m/s:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    wavelength = v/f = 340/1700 = 0.2 m"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the first quiet spot is where one path is longer than the other by half of that — just 10 CENTIMETRES of extra distance. With the speakers 2 m apart and the walking line 6 m away, that happens about 30 cm from the centre line. You can walk from a loud spot into a quiet one in a single step."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THE ENERGY GOES, since it is not destroyed: it is redistributed. The loud spots are more than twice as loud as one speaker would be, and they take exactly what the quiet spots gave up. Add over the whole room and the total is what you would expect from two speakers."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SAME IDEA, ELSEWHERE. Noise-cancelling headphones deliberately generate the half-wavelength-behind wave. The double-slit fringes are this pattern in light. And it is why a hi-fi shop sounds different as you move your head — you are walking through the bands."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "pull_the_bottom_pedal_backwards",
    "title": "Pull the bottom pedal backwards",
