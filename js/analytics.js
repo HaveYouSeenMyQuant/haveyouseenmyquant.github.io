@@ -101,6 +101,25 @@
      * QQ_DATA exists. A generic 'unknown' fallback loses exactly the arrival
      * events the funnel is measured from. */
     props.site = (global.QQ_DATA && global.QQ_DATA.site) || 'quant';
+
+    /* IS THIS THE OWNER TESTING, RATHER THAN A VISITOR?
+     *
+     * Smoke-testing a deploy in a real browser loads the page, which fires
+     * arrived and entry_path_chosen like any other visit. On 2026-08-23 the
+     * engineering site's entire funnel was 7 sessions and at least one of them
+     * was mine, which is enough to move every ratio on a site this young. A
+     * funnel that silently counts its own author is worse than no funnel: it
+     * reads as demand.
+     *
+     * Any visit carrying ?dev=1 is marked, and the mark is remembered for that
+     * browser afterwards, so a smoke test does not have to remember the flag on
+     * every later navigation. The events are still SENT -- dropping them would
+     * hide breakage during exactly the check that is meant to find it -- they
+     * are just labelled, and the metrics exclude labelled rows. */
+    try {
+      if (/[?&]dev=1/.test(global.location.search)) writeRaw('qq.dev', '1');
+      if (readRaw('qq.dev') === '1') props.dev = true;
+    } catch (err) { /* storage refused; leave the event unlabelled */ }
     /* The auth user id when there is a session, so a signed-in player's funnel
      * joins to their profile. Guarded: analytics loads before auth and must keep
      * working if that module is ever removed. */

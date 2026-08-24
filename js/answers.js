@@ -16,8 +16,91 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 521,
+ "count": 522,
  "entries": [
+  {
+   "slug": "pull_the_bottom_pedal_backwards",
+   "title": "Pull the bottom pedal backwards",
+   "ts": "2026-08-24T01:26:23+00:00",
+   "date": "24 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "IT ROLLS BACKWARDS — the same way you pulled. Most people say forwards, reasoning that pulling the pedal back is pedalling backwards, and that a backwards pedal ought to drive the bike forwards. It does not.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CLEANEST ARGUMENT IS BY CONTRADICTION. Suppose the bike rolled FORWARDS. Then the rear wheel turns forwards, and through the chain the cranks turn forwards too. A pedal sitting at the BOTTOM of its circle, with the cranks turning forwards, swings BACKWARDS relative to the frame — but the frame is moving forwards faster than the pedal swings back, so the pedal would end up moving FORWARDS relative to the ground. And your hand is pulling it backwards. A body cannot move opposite to the only horizontal force on it. So the bike cannot roll forwards, and it rolls back."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE PEDAL LOSES THE ARGUMENT. Put numbers on the two competing motions for each metre the bike moves:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    the bike carries the pedal with it              1.00 m",
+      "    the chain swings the pedal the other way        L x (rs/rc) / R"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For an ordinary bike — crank 0.17 m, rear sprocket 0.045 m, chainring 0.11 m, wheel 0.34 m — that second term is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    0.17 x (0.045/0.11) / 0.34  =  0.20 m"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Only a fifth of a metre against a full metre. The pedal is dragged along by the bike far more than the chain can swing it the other way, so the pedal always goes the way the BIKE goes. Pull it backwards and the bike must come backwards with it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL CONDITION. The bike goes the way you pull whenever"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L x rs / (rc x R)  <  1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and for any real bicycle that number is around 0.2 to 0.5 — nowhere near 1. To reverse the behaviour you would need a crank longer than the wheel is big. The answer is not a quirk of one bike; it holds for every bike you will ever meet."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT MAKES IT A GOOD INTERVIEW QUESTION. There is a tempting wrong answer with a story attached, and the right answer needs you to notice that the pedal's motion has TWO parts and to compare their sizes. That is the habit being tested, not the bicycle."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "twenty_newtons_lifts_a_car",
    "title": "Twenty newtons lifts a car",
