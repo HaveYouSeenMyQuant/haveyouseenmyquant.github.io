@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 526,
+ "count": 527,
  "entries": [
+  {
+   "slug": "the_lift_and_the_ball",
+   "title": "The lift and the ball",
+   "ts": "2026-08-24T10:23:18+00:00",
+   "date": "24 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "IT HANGS EXACTLY WHERE YOU LET GO OF IT. Not because gravity has stopped, but because it is pulling on you and on the ball in precisely the same way.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ONE LINE. Everything in the lift is in free fall, so everything accelerates at g:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    acceleration of the ball        = g",
+      "    acceleration of the lift        = g",
+      "    acceleration of the ball AS SEEN FROM THE LIFT = g − g = 0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Relative to you, the ball does not accelerate at all. Let go of it and it stays put, level with your hand, for the whole drop. From a 20 m shaft that is about 2.0 seconds of a ball hanging in mid-air beside you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Note what is missing from that subtraction: any mass. A cannonball and a pea do the same thing, for the same reason a hammer and a feather land together on the Moon."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WEIGHT HAS NOT GONE ANYWHERE. Gravity still pulls the ball down with force mg — its weight is unchanged. What disappears is the NORMAL FORCE: the floor is no longer pushing up on your feet, because the floor is falling away from them just as fast as you are. The sensation we call weight is that push from the floor, not gravity itself, and that is the whole content of the word \"weightless\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHICH IS WHY ASTRONAUTS FLOAT. Not because there is no gravity up there — at the space station's altitude g is still about 8.7 m/s², roughly 89% of its value at the surface. They float because the station and everything in it are in free fall together, endlessly missing the Earth as they go round. It is your lift, on a longer drop."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INTERVIEW MOVE. When something behaves strangely in an accelerating box, do not reason in the room's frame and then patch it. Ask what the acceleration is in the frame you care about, subtract, and see what is left. Here the subtraction leaves nothing at all, which is exactly why it feels so odd."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "which_way_do_you_push_the_bars",
    "title": "Which way do you push the bars",
