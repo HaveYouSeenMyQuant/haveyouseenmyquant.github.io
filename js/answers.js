@@ -16,8 +16,254 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 523,
+ "count": 526,
  "entries": [
+  {
+   "slug": "which_way_do_you_push_the_bars",
+   "title": "Which way do you push the bars",
+   "ts": "2026-08-24T09:36:15+00:00",
+   "date": "24 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "YOU PUSH THE LEFT BAR FORWARD — which steers the front wheel briefly to the RIGHT. To go left, you steer right first. It is called countersteering, every rider above walking pace does it, and almost none of them know they are doing it.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY YOU CANNOT SIMPLY STEER LEFT. Going round a corner needs a force pointing INTO the corner, and the only horizontal force available is friction where the tyres meet the road. That force acts at ground level, well below your centre of mass. Applied to an upright bike it does not turn you — it pushes the wheels out from under you and topples the bike outwards."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So before you can turn left, the bike has to LEAN left, far enough that gravity and the ground reaction line up through the centre of mass. How far is set by the speed and the corner:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    tan(theta) = v² / (r g)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At 8 m/s round a 15 m corner that is tan(theta) = 64/147 = 0.435, a lean of about 23 degrees. Faster or tighter and it grows fast: 12 m/s round the same corner needs 44 degrees."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND HOW DO YOU MAKE IT LEAN? You cannot push against thin air. What you can do is move the wheels OUT from under yourself — and steering briefly right slides the tyre contact patch to the right of your centre of mass, so gravity drops you to the left. Once the lean is established you steer back into the turn and hold it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "THE SEQUENCE, then: push left bar → wheel points right → bike falls left →",
+      "steer left → round the corner. The first move is opposite to the destination."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TRY IT AND SEE. On a straight quiet road at any decent speed, push gently on the left grip. The bike goes left. Push the right grip and it goes right. It feels wrong the first time, and it is the thing every motorcycle course teaches on day one, because in an emergency the instinct to steer TOWARD the danger is what puts riders into it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INTERVIEW MOVE. When a system will not respond to the obvious input, ask what has to be true before that input can work at all — and whether reaching that state needs the opposite input first. Cranes, ships and rockets all have versions of this."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "how_far_can_the_stack_lean",
+   "title": "How far can the stack lean",
+   "ts": "2026-08-24T08:56:23+00:00",
+   "date": "24 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "AS FAR AS YOU LIKE. There is no limit at all — with enough blocks a stack can hang out over a metre, a mile, any distance you name, with nothing holding it down but its own weight.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THE OVERHANG COMES FROM. Work from the top down. The top block can jut half its length past the one beneath it before its centre of mass passes the edge below. That PAIR has its centre of mass a quarter of a block back from the lower block's edge, so the pair can jut a quarter further. The next allows a sixth, then an eighth, and so on. The total for n blocks is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1/2 + 1/4 + 1/6 + 1/8 + ... + 1/2n",
+      "      =  ½ (1 + 1/2 + 1/3 + ... + 1/n)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which is one half of the HARMONIC series."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THAT MEANS NO LIMIT. The harmonic series diverges. It grows without bound, just very slowly — roughly as ln(n). So the overhang has no ceiling, and you can reach any distance you choose if you are patient enough."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE NUMBERS, and they are worth seeing:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 block     0.500 block lengths",
+      "    2 blocks    0.750",
+      "    3 blocks    0.917",
+      "    4 blocks    1.042   ← clear of the table entirely",
+      "    10 blocks   1.465",
+      "    31 blocks   2.014",
+      "    100 blocks  2.594"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FOUR BLOCKS is the striking one. Four is enough for the top block to hang completely clear of the table edge, with nothing underneath it at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND WHY IT IS SLOW. Doubling the overhang takes roughly SQUARING the number of blocks: 31 blocks reach two block lengths, and about 1,200 would be needed for three. Divergence and practicality are different questions, which is exactly the distinction an interviewer is looking for."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE MOVE WORTH LEARNING. When something looks bounded, check whether the thing that accumulates is a series, and whether that series converges. \"It gets smaller every time\" does not mean \"it adds up to something finite\" — that is the whole difference between 1/2^n and 1/n."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "ten_times_taller_and_it_cannot_stand",
+   "title": "Ten times taller and it cannot stand",
+   "ts": "2026-08-24T08:13:16+00:00",
+   "date": "24 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "NO. IT WOULD BE TEN TIMES WORSE OFF THAN YOU ARE, and its legs would fail under nothing but its own weight.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO NUMBERS THAT DISAGREE. Scale every length by 10 and two things grow at different rates:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    STRENGTH follows the CROSS-SECTION of the bone, which is an area — two",
+      "    lengths multiplied — so it grows by 10 x 10 = 100."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    WEIGHT follows VOLUME, which is three lengths multiplied, so it grows by",
+      "    10 x 10 x 10 = 1000."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The giant is 100 times stronger and 1000 times heavier. Strength per unit of weight is therefore 100/1000 = one TENTH of yours. Ten times taller means ten times worse, and in general the ratio goes as 1/k: the penalty is not a quirk of the number 10, it applies at every size."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THIS IS THE SQUARE-CUBE LAW, and it is a geometric fact, not a biological one. Nothing about the material changed — the bone is the same bone. The two exponents, 2 for area and 3 for volume, simply refuse to keep pace."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT IT EXPLAINS, all with the same one line:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    An ant lifts many times its own weight; an elephant cannot. Not stronger",
+      "    muscle — a better ratio, because it is small."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Real large animals are not scaled-up small ones. An elephant's leg bones",
+      "    are disproportionately THICK, precisely to buy back the area they lost."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    A mouse survives a fall that kills a horse: drag follows area, weight",
+      "    follows volume, so terminal velocity goes as the square root of size."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Crushed ice melts faster than a block: surface area per unit volume is",
+      "    6/L, so smaller means relatively more surface."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INTERVIEW MOVE. When you are asked whether something can be scaled up, do not reach for numbers. Ask which quantities follow an area and which follow a volume, and the answer usually falls out before any arithmetic does."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_second_speaker_makes_it_quieter",
    "title": "The second speaker makes it quieter",
