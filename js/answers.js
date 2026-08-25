@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 436,
+ "count": 437,
  "entries": [
+  {
+   "slug": "two_bets_that_cannot_both_be_right",
+   "title": "Two bets that cannot both be right",
+   "ts": "2026-08-25T17:14:22+00:00",
+   "date": "25 Aug 2026",
+   "topic": "paradox",
+   "q": null,
+   "a": "Because yellow is on BOTH sides of the second bet, and it cancels.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Call the number of black balls b. Then yellow is 60 - b, and the two bets are:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    BET ONE     red        30        vs   black          b",
+      "    BET TWO     red+yellow 30+(60-b) vs   black+yellow   b+(60-b) = 60"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Look at bet two again. Whatever yellow turns out to be, it is added to BOTH options — so it changes both by the same amount and cannot change which one is bigger. Strip it out and bet two is asking the identical question as bet one: is b bigger or smaller than 30?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    preferring RED in bet one              says   b < 30",
+      "    preferring BLACK-OR-YELLOW in bet two  says   b > 30"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Those cannot both hold. The popular pair of answers is not a close call or a matter of taste — it is a straight contradiction, and it survives no possible composition of the bag. There are 61 ways the sixty could split between black and yellow, and not one of them makes both choices correct."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY ALMOST EVERYONE DOES IT ANYWAY. In bet one, red is a KNOWN thirty out of ninety and black is a mystery. In bet two, black-or-yellow is a KNOWN sixty out of ninety and red-or-yellow is the mystery. Both times people reach for the option whose odds they have been told. That preference has a name — ambiguity aversion — and Ellsberg's point in 1961 was that it cannot be represented by ANY assignment of probabilities to the balls. It is not a mistake in arithmetic; it is a preference that no probability model can hold."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY A TRADING DESK CARES. A risk you can price and a risk nobody has quantified are different objects, and people systematically pay to avoid the second even when the first is worse. That gap is where a lot of mispricing lives — in illiquid names, in new instruments, in anything where the distribution is a guess. Knowing you have the bias is most of the defence against paying for it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "stand_on_both_sides",
    "title": "Stand on both sides",
