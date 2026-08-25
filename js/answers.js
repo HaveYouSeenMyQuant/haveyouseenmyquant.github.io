@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "worst_shot_goes_first_10s",
    "title": "Three shooters, you are the worst",
-   "ts": "2026-08-25T17:54:42+00:00",
+   "ts": "2026-08-25T17:56:31+00:00",
    "date": "25 Aug 2026",
    "topic": "game_theory",
    "q": null,
