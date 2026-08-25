@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 434,
+ "count": 435,
  "entries": [
+  {
+   "slug": "what_is_a_go_worth",
+   "title": "What is a go worth",
+   "ts": "2026-08-25T16:01:22+00:00",
+   "date": "25 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "£3.33, and not a penny more.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two dice give 36 equally likely rolls. Six of them total seven:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1+6   2+5   3+4   4+3   5+2   6+1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So a seven arrives one time in six. One go therefore returns, on average:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    £20 x 1/6 = £3.33"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Pay less than that and you make money in the long run. Pay more and the stall does. Pay exactly £3.33 and it is a coin flip that goes nowhere — over a thousand goes you end up roughly where you started."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE QUESTION IS PHRASED THIS WAY. \"Is this worth playing\" has a yes or no answer and you can bluff it. \"What is the highest price\" forces the number out of you, and it is the question a trading floor actually asks: not whether something is cheap but where cheap stops. Being able to produce the price is the skill; having an opinion about it is not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRAP is knowing that seven is the most common total and stopping there. It IS the most common — six ways against five for a six or an eight — and that fact alone gets you nowhere near a price. Common relative to the other totals is not the same as often, and the price depends on the second thing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT CHANGES THE ANSWER. If the stall paid on any total of six OR eight instead, that is ten rolls out of 36 and a go would be worth £5.56. If it paid only on double sixes, one roll in 36, a go is worth 56p. The rule you are pricing sets the count, and the count sets everything."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A REAL STALL, of course, charges more than the number you just worked out. The gap between the price and the value is the whole business — the same gap a market maker earns, and the same one an insurer earns."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_step_takes_a_second",
    "title": "Slow the chip until one step takes a second",
