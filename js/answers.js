@@ -16,8 +16,67 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 433,
+ "count": 434,
  "entries": [
+  {
+   "slug": "one_step_takes_a_second",
+   "title": "Slow the chip until one step takes a second",
+   "ts": "2026-08-25T15:24:31+00:00",
+   "date": "25 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "About a year.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One step inside the chip takes roughly a third of a billionth of a second. Slow everything down by that factor -- multiply every time by about three billion -- and the whole memory hierarchy turns into human time:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    one step in the chip     1 second",
+      "    level one cache          3 seconds",
+      "    main memory              about 5 minutes",
+      "    solid state drive        about 6 days",
+      "    one hard disk seek       about 1 year",
+      "    London to New York       about 16 years"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A hard disk seek is around ten milliseconds. Divide by a third of a nanosecond and you get about thirty million -- thirty million steps' worth of waiting, which at one step a second is a bit over a year."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THIS IS WORTH KNOWING. It is not trivia. Every one of those gaps is a factor of hundreds or thousands, so the difference between a program that touches memory and one that touches disk is not \"a bit slower\", it is the difference between waiting five minutes and waiting a year. That is why caching exists, why databases fight so hard to keep the working set in memory, and why an algorithm with worse theoretical complexity can win outright if it stays in cache."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ONE THAT SURPRISES PEOPLE MOST is the last line. A network round trip across the Atlantic is about 150 milliseconds, which scales to roughly sixteen YEARS. Nothing you do in software makes light faster, so that number is a floor, not an engineering problem -- which is exactly why the content you are reading is served from somewhere near you rather than from wherever it was written."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A NOTE ON THE NUMBERS. These are order-of-magnitude figures and they move with hardware: an SSD is far quicker than it was ten years ago, and a modern chip may retire several instructions per cycle. The RATIOS are the point, and the ratios have stayed roughly the same for decades."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_rates_loop_10s",
    "title": "A million round three currencies",
