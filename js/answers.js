@@ -26594,5 +26594,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "optimisers_local_minimum_10s"
+ "featured": "the_faulty_bolt"
 };
