@@ -16,8 +16,56 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 437,
+ "count": 438,
  "entries": [
+  {
+   "slug": "worst_shot_goes_first_10s",
+   "title": "Three shooters, you are the worst",
+   "ts": "2026-08-25T17:54:42+00:00",
+   "date": "25 Aug 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "Fire into the air. Deliberately miss — and it is not close.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Shooting at anyone leaves you worse off, because whoever you hit, you are then alone against someone who shoots before you do."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    hit the marksman   -> the middling shooter faces only you, and hits 2 in 3",
+      "    hit the middling   -> the marksman faces only you, and never misses"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Miss on purpose and neither of those happens. The other two are still standing, and they have a far bigger problem than you: each other. The middling shooter aims at the marksman, because leaving a man who never misses alive is suicide. The marksman aims at the middling shooter for the same reason. Whatever happens, one of them goes down, and you get the first shot in the duel that follows."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You have turned \"three-way fight where I am the worst\" into \"two-way fight where I shoot first\". That is the whole trick, and it is why the answer is not cowardice but the only move on the board that improves your position."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE LESSON, which is the reason it gets asked in interviews: the strongest player is not always your problem, and the move that looks like doing nothing can be the move that changes who your opponent is. Being visibly the weakest is itself protection — nobody wastes a shot on you while a bigger threat is standing."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_bets_that_cannot_both_be_right",
    "title": "Two bets that cannot both be right",
