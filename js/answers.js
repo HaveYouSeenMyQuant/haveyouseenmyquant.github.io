@@ -16,8 +16,91 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 428,
+ "count": 429,
  "entries": [
+  {
+   "slug": "tag_a_hundred_fish",
+   "title": "Tag a hundred fish",
+   "ts": "2026-08-25T11:55:05+00:00",
+   "date": "25 Aug 2026",
+   "topic": "estimation",
+   "q": null,
+   "a": "About 2,500 — and the honest version of this answer comes with a warning attached, which is the part most people leave off.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ESTIMATE. Your hundred tagged fish are mixed back into the lake. When you net a hundred more, the fraction of that catch which is tagged should look like the fraction of the WHOLE LAKE which is tagged."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    4 in your catch of 100   =   100 tagged in the whole lake",
+      "    ---------------------        ----------------------------",
+      "           100                            N"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Cross-multiply: 4N = 100 x 100, so N = 10,000 / 4 = 2,500."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole method. It is called capture-recapture, and it is how populations get counted when counting them directly is impossible — fish, deer, insects, and also the number of bugs left in a program or the size of a crowd."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "NOW THE WARNING, because the number looks far more solid than it is. Everything rests on a count of FOUR. Simulate the whole procedure on a lake that really does hold 2,500 fish and the estimate lands anywhere in this range:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    middle 90% of estimates   about 1,400  to  about 10,000"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Catch three tagged instead of four and your estimate jumps to 3,333. Catch five and it drops to 2,000. The estimate is right on average, and any single run of it is worth about one significant figure."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT AN INTERVIEWER IS LISTENING FOR is exactly that second half. Getting 2,500 is the easy part and takes ten seconds. Saying \"and with only four recaptures I would not trust it past the first digit, so I would tag more fish or net a bigger second sample\" is the answer that separates people, because it is the difference between running a formula and knowing what it is worth."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTIONS, all of which the puzzle quietly makes: the tagged fish mixed evenly back in, none died or was caught twice, no fish entered or left the lake in that week, and being tagged did not change how catchable a fish is. Every one of those is false to some degree in a real lake, and each pushes the estimate a predictable way."
+     ]
+    }
+   ],
+   "src": "answer",
+   "road": {
+    "qid": "tag_the_fish",
+    "lesson": "u14l2",
+    "unit": 14,
+    "prompt": "You net 100 fish in a lake, tag them and put them back. A week later you net another 100 and four of them are tagged — how many fish are in the lake?"
+   }
+  },
   {
    "slug": "rain_follows_rain",
    "title": "Rain follows rain",
@@ -26672,5 +26755,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "optimisers_local_minimum_10s"
+ "featured": "new_road_slows_everyone_10s"
 };
