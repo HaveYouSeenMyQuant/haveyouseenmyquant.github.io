@@ -16,8 +16,82 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 426,
+ "count": 427,
  "entries": [
+  {
+   "slug": "ten_friends_one_round_table",
+   "title": "Ten friends, one round table",
+   "ts": "2026-08-25T10:33:58+00:00",
+   "date": "25 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "362,880 — which is 9!, not 10!. The round table divides the obvious answer by ten.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. If the chairs were numbered — a long table, say — the answer would just be 10! = 3,628,800: ten choices for the first chair, nine for the next, and so on. But at a round table the chairs are not numbered, and rotating everybody one seat round produces a seating nobody would call different."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every arrangement therefore has TEN copies of itself hiding in that count, one for each amount you could rotate it. So divide:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    10! / 10  =  9!  =  362,880"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CLEANER WAY TO SEE IT, and the one to say out loud in an interview. Sit one person down first — anywhere, it does not matter, because there is no special chair. Now the table HAS a reference point: everyone else is placed relative to them. The remaining nine people fill nine distinguishable places in 9! ways. No division needed, and no risk of dividing by the wrong thing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That trick generalises: n people at a round table seat in (n-1)! ways."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOLLOW-UP an interviewer will reach for. What if you only care who is BESIDE whom, so that a seating and its mirror image count as the same? Then each arrangement has one more copy — read the table clockwise or anticlockwise — and the answer halves again:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    9! / 2  =  181,440"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Checked rather than remembered: enumerating all n! orders for n = 3 to 8 and reducing each to a canonical form under rotation gives exactly (n-1)! distinct seatings every time, and quotienting by reflection as well gives exactly (n-1)!/2. The n = 3 case is the tightest — two seatings, or just one if mirrors count as the same."
+     ]
+    }
+   ],
+   "src": "answer",
+   "road": {
+    "qid": "round_table",
+    "lesson": "u5l3",
+    "unit": 2,
+    "prompt": "Six friends sit around a round table. Turning the whole table does not make a new seating order. How many different orders are there?"
+   }
+  },
   {
    "slug": "stopped_clock_or_slow_clock",
    "title": "A stopped clock, or one losing a minute a day",
@@ -26520,5 +26594,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "the_faulty_bolt"
+ "featured": "optimisers_local_minimum_10s"
 };
