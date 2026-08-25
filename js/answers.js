@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 432,
+ "count": 433,
  "entries": [
+  {
+   "slug": "three_rates_loop_10s",
+   "title": "A million round three currencies",
+   "ts": "2026-08-25T14:42:45+00:00",
+   "date": "25 Aug 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "$1,000,960. You come back $960 richer than you started, out of nothing.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A round trip multiplies your money by the product of the three rates, and that is the only thing that matters:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    0.92 x 0.85 x 1.28  =  1.00096"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Not 1. It is 3128/3125, which is 0.096% too big, and 0.096% of a million is $960."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRAP is that the pile SHRANK twice on the way round -- a million dollars becomes 920,000 euros, which becomes 782,000 pounds. Watching that happen, it is very hard to believe you finish ahead. But two legs down and one leg up is not the question. Only the product is, and the last leg more than undoes both."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "IT IS NOT SYMMETRIC. Go round the other way and you do not lose $960, you lose $959.08 -- because the reverse trip multiplies by 1/1.00096, and a gain of x% and a loss of x% are never the same size. That asymmetry is why the direction of an arbitrage loop matters and why one direction is always the profitable one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY ANYONE CARES. This is triangular arbitrage, and the whole of it is: check whether the product of the rates around a loop is 1. If it is not, there is free money in one direction and the market will close the gap in seconds. The reason those gaps do not sit around is that this multiplication is the easiest thing in finance to automate."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INTERVIEW VERSION of the question is not \"what is the answer\" but \"what would you compute first\" -- and the answer is the product, before touching a single amount."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "twelve_divided_by_the_roll",
    "title": "Twelve divided by the roll",
