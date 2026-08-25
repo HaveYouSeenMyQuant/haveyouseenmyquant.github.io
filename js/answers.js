@@ -16,8 +16,86 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 427,
+ "count": 428,
  "entries": [
+  {
+   "slug": "rain_follows_rain",
+   "title": "Rain follows rain",
+   "ts": "2026-08-25T11:13:47+00:00",
+   "date": "25 Aug 2026",
+   "topic": "markov_chains",
+   "q": null,
+   "a": "Exactly one third of days.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The two rules pull in opposite directions and the town settles at the point where they balance. Call the long-run share of rainy days r. On a typical day, the chance tomorrow is wet is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    r x (one half)      the wet days that stay wet",
+      "  + (1 - r) x (one quarter)   the dry days that turn wet"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and in the long run \"tomorrow\" has to look like today, so that whole thing equals r:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    r = r/2 + (1 - r)/4",
+      "    4r = 2r + 1 - r",
+      "    3r = 1",
+      "    r = 1/3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS LOWER THAN IT FEELS. Rain looks sticky -- half of rainy days are followed by more rain -- and stickiness makes people expect a wet town. But there are two ways in and two ways out, and what matters is the RATIO of them. Dry days outnumber wet ones, so even though each dry day only has a one-in-four chance of turning wet, those chances arrive far more often."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART THAT MAKES IT A REAL QUESTION. It does not matter what the weather is doing today. Start the town in a drought or start it in a flood, run it long enough, and it lands on one third either way. The chain forgets where it began -- and that forgetting is the whole reason a long-run share exists at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "CHECK IT THE LAZY WAY. Guess r = 1/3 and put it back in: a third of days stay wet at one half, giving 1/6; two thirds of days turn wet at one quarter, giving 1/6. Add them and you get 1/3, which is what you guessed. A steady state is exactly a guess that reproduces itself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THIS COMES UP: queues that fill and empty, machines that break and get fixed, customers who churn and get replaced, and any system described by \"this fraction stays, this fraction arrives\". The sum is always the same shape."
+     ]
+    }
+   ],
+   "src": "answer",
+   "road": {
+    "qid": "weather_steady",
+    "lesson": "u11l1",
+    "unit": 11,
+    "prompt": "In one town a rainy day is followed by rain half the time, while a dry day is followed by rain a quarter of the time — over a whole year, what share of days are rainy?"
+   }
+  },
   {
    "slug": "ten_friends_one_round_table",
    "title": "Ten friends, one round table",
@@ -26594,5 +26672,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "the_faulty_bolt"
+ "featured": "optimisers_local_minimum_10s"
 };
