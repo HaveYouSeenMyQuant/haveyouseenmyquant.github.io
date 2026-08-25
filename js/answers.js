@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 429,
+ "count": 430,
  "entries": [
+  {
+   "slug": "every_prime_hugs_a_six",
+   "title": "Every prime hugs a multiple of six",
+   "ts": "2026-08-25T12:42:50+00:00",
+   "date": "25 Aug 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "You cannot find one, and here is why there is nothing to find.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Line the whole number line up in columns of six. Every whole number sits in exactly one of six lanes:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    6n     6n+1     6n+2     6n+3     6n+4     6n+5"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now close the lanes that cannot hold a prime."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Lanes 6n, 6n+2 and 6n+4 are all EVEN -- they are 2 x something. The only even prime is 2 itself, so past 2 those three lanes are shut."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Lane 6n+3 is 3 x (2n+1) -- a multiple of three. The only prime multiple of three is 3 itself, so past 3 that lane is shut too."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That leaves exactly two lanes open: 6n+1 and 6n+5. And 6n+5 is the same as 6n-1, sitting one step BELOW the next multiple of six. So every prime past 3 is either one above a multiple of six or one below it. There is no third option, because there are no other lanes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE RULE DOES NOT SAY. This is a one-way street, and the interview follow-up almost always tests whether you noticed. Sitting next to a multiple of six does NOT make a number prime: 25 is one step from 24, and 25 is 5 x 5. So is 35, beside 36. The rule rules candidates OUT; it never rules them in."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY 2 AND 3 ARE EXCLUDED. They are the very numbers doing the excluding. 3 sits ON a multiple of six's neighbour in the closed lane 6n+3, and 2 lives in an even lane. The claim has to start above them for exactly that reason."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THIS IS AN INTERVIEW QUESTION. It is the smallest useful example of a technique you will use constantly: instead of hunting through the numbers one at a time, sort them into remainder classes and throw away whole classes at once. The same move is what makes trial division fast -- once you know primes past 3 are 6n±1, you can test only those two lanes and skip two thirds of the candidates immediately."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "tag_a_hundred_fish",
    "title": "Tag a hundred fish",
@@ -26755,5 +26830,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "new_road_slows_everyone_10s"
+ "featured": null
 };
