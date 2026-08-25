@@ -16,8 +16,87 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 430,
+ "count": 431,
  "entries": [
+  {
+   "slug": "one_cuts_the_other_chooses",
+   "title": "One cuts, the other chooses",
+   "ts": "2026-08-25T13:22:29+00:00",
+   "date": "25 Aug 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "There is one, it takes at most five cuts, and it is far less obvious than the two-person version.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FIRST, WHY THE OBVIOUS EXTENSION FAILS. \"One person cuts three pieces, the others pick in turn, the cutter takes what is left\" sounds fair and is not. The cutter is safe — they made all three equal in their own eyes. The first chooser is safe — they took the piece they liked best. The LAST chooser is not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Concretely. Suppose the two choosers happen to agree with each other and value the pieces at 0.5, 0.3 and 0.2, while the cutter values each at a third:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    chooser A picks the 0.5 piece",
+      "    chooser B is left picking between 0.3 and 0.2, takes the 0.3",
+      "    chooser B now watches A eat a piece B values at 0.5"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "B got a share they value at 0.3 and would rather have A's. That is envy, and no amount of care in the cutting removes it, because the cutter cannot know what the others value."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ACTUALLY WORKS: the Selfridge-Conway procedure."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  1. Person 1 cuts the cake into three pieces they consider equal.",
+      "  2. Person 2 looks. If the largest two pieces are tied for them, they say so and",
+      "     everyone just picks in the order 3, 2, 1 — done.",
+      "     Otherwise person 2 TRIMS the largest piece until it ties with the second",
+      "     largest. The trimming is set aside for now.",
+      "  3. Person 3 chooses first, then person 2, then person 1 — with one rule:",
+      "     if person 3 did not take the trimmed piece, person 2 must.",
+      "  4. Now divide the trimmings. Whoever of persons 2 and 3 did NOT get the",
+      "     trimmed piece cuts them into three; the other picks first, then person 1,",
+      "     then the cutter of the trimmings."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every one of the three ends up believing they did at least as well as either other person. It is fiddly, and that fiddliness is the point: envy-freeness for three needs a genuinely cleverer idea than cut-and-choose, and it was not found until the 1960s."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS AN INTERVIEW QUESTION. Not for the procedure — nobody expects you to reconstruct Selfridge-Conway. It is for the first half: noticing that the obvious extension fails, and being able to produce the counterexample above rather than hand-waving. Finding the case that breaks a plausible rule is most of the job."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "every_prime_hugs_a_six",
    "title": "Every prime hugs a multiple of six",
