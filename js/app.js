@@ -904,7 +904,18 @@
     input.setAttribute('aria-label', 'your answer');
     input.placeholder = q.placeholder || 'your answer';
     input.addEventListener('input', function () {
-      var cleaned = input.value.replace(/[^0-9.]/g, '');
+      /* A minus sign is a legal answer. Fixed on the engineering site on
+       * 2026-08-25 after the owner found fourteen questions there with
+       * negative answers that could not be typed at all. This bank has none
+       * today, so nothing was broken here -- but the same code would break
+       * the first negative answer anyone adds, and a latent version of a bug
+       * that has already bitten once is not worth keeping. */
+      var cleaned = input.value.replace(/[^0-9.\-]/g, '');
+      var negative = cleaned.charAt(0) === '-';
+      cleaned = cleaned.replace(/-/g, '');
+      var _bits = cleaned.split('.');
+      if (_bits.length > 2) cleaned = _bits.shift() + '.' + _bits.join('');
+      if (negative) cleaned = '-' + cleaned;
       if (cleaned !== input.value) input.value = cleaned;
       onChange();
     });
