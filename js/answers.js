@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 431,
+ "count": 432,
  "entries": [
+  {
+   "slug": "twelve_divided_by_the_roll",
+   "title": "Twelve divided by the roll",
+   "ts": "2026-08-25T14:03:39+00:00",
+   "date": "25 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "£4.90 a roll. Not £3.43.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The tempting move is to average the die first — a die averages 3.5, and 12 divided by 3.5 is £3.43. That is the wrong order of operations, and the question is built to catch it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Average the PRIZES, because the prize is what you receive:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    roll 1   £12.00",
+      "    roll 2   £6.00",
+      "    roll 3   £4.00",
+      "    roll 4   £3.00",
+      "    roll 5   £2.40",
+      "    roll 6   £2.00",
+      "             ------",
+      "    total    £29.40   over six equally likely rolls   ->   £4.90"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE SHORTCUT OVERSHOOTS ITS TARGET DOWNWARDS. Dividing is a curved operation: going from a 3 to a 1 gains you £8, while going from a 3 to a 5 only loses you £1.60. The upside is bigger than the downside, so the low rolls pull the average up more than the high rolls pull it down. Averaging the die first throws that asymmetry away and always lands too low."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is Jensen's inequality, and the only thing you need to remember from it is the direction: for a curve that bends upwards like 1/x, the average of the outputs is at least the output of the average, and they are equal only when there is no spread at all. Roll a die that always shows 3 and both methods give £4 — the gap comes entirely from the variation."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE IT BITES IN PRACTICE. Anything you price by dividing: cost per unit, returns per year, price-to-earnings, expected time when you know the average speed. If the denominator varies and you plug in its average, you are answering a different and easier question, and your answer is biased in a predictable direction — which is worse than being merely wrong, because you will not notice it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_cuts_the_other_chooses",
    "title": "One cuts, the other chooses",
