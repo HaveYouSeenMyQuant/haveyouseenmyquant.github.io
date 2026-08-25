@@ -16,8 +16,101 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 435,
+ "count": 436,
  "entries": [
+  {
+   "slug": "stand_on_both_sides",
+   "title": "Stand on both sides",
+   "ts": "2026-08-25T16:38:05+00:00",
+   "date": "25 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "Because a walker takes up far more of the escalator than they save in time.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "How many people an escalator carries per minute is not about how fast anyone moves. It is:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    flow  =  (people per step)  x  (speed)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "summed over the lanes. Take the escalator's own speed as one, and a step as one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    STANDING LANE   one person per step, speed 1        ->  flow 1",
+      "    WALKING LANE    walkers leave room to walk into, so",
+      "                    roughly one per two and a half steps,",
+      "                    at about twice escalator speed       ->  flow 2/2.5 = 0.8"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    stand-and-walk  = 1 + 0.8  = 1.8",
+      "    everybody stands = 1 + 1   = 2.0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the arrangement with NOBODY walking carries about 11% more people. Walkers travel faster and there are far fewer of them, and the second effect is bigger."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONDITION, which matters more than the number. Write s for how many times escalator speed a walker moves, and g for how many steps apart walkers stand. The walking lane's flow is s/g, so:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    everybody stands wins   exactly when   s < g"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Walkers at twice speed with 2.5 steps of room: 2 < 2.5, standing wins. But if people walked at three times escalator speed, or packed to 1.5 steps apart, walking would win instead. It is not a universal law about escalators — it is a statement about how much room a moving person needs, and on a long, busy escalator that room is expensive."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY LONG ESCALATORS ONLY. On a short one almost everyone walks, so the walking lane is not sparse and the trade never arises. The effect was measured at Holborn, where the escalator is long enough that most people decline to walk it — which is exactly when the walking lane is nearly empty and its space is being wasted."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY PEOPLE HATE IT. The gain is collective and the loss is personal: total throughput rises, and the individual who would have walked is now slower. That is an ordinary externality, and it is why the trial needed staff to enforce it rather than a sign."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "what_is_a_go_worth",
    "title": "What is a go worth",
