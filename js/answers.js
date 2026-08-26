@@ -16,7 +16,7 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 438,
+ "count": 435,
  "entries": [
   {
    "slug": "worst_shot_goes_first_10s",
@@ -11438,137 +11438,6 @@ window.QQ_ANSWERS = {
    "src": "answer"
   },
   {
-   "slug": "fair_from_unfair_coin",
-   "title": "A fair decision from an unfair coin",
-   "ts": "2026-08-09T20:06:21+00:00",
-   "date": "9 Aug 2026",
-   "topic": "quant_teaser",
-   "q": null,
-   "a": "Flip it TWICE and read only the mixed results. Heads-then-tails counts as heads; tails-then-heads counts as tails. If both flips match — two heads or two tails — throw the pair away and start again.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "That is exactly fair, for any bias, and you never need to know what the bias is."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Why it works, in one line: if the coin comes up heads with probability p, then"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "  P(heads then tails) = p(1-p)",
-      "  P(tails then heads) = (1-p)p"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Those are the same two numbers multiplied in the other order, so they are equal — whatever p is. Given that you got one of the two mixed pairs, each is equally likely, so you have a genuine half. The bias cancels; it is never estimated."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Notice what the argument does NOT need. It does not need p to be 0.8, or to be known, or even to be stable between pairs — only that it is the same within a pair, and that it is not 0 or 1."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Why the obvious fixes do not work:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Flipping once and taking heads gives p, which is 0.8 here, not a half."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Flipping many times and taking the majority is worse, not better. With a coin that favours heads, the majority is heads more and more reliably the longer you flip — you are converging on \"heads\" with probability approaching 1, which is the opposite of fair."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Trying to estimate p and correct for it gives you a half only as accurately as your estimate, and never exactly. This procedure is exact after the very first accepted pair."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "The cost is patience. A pair is usable only when the two flips differ, which happens with probability 2p(1-p) — for p = 0.8 that is 0.32, so you expect about 6.25 flips per decision. At p = 0.5 it is 4. The more biased the coin, the longer you wait, but the answer is never less fair."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "The idea generalises well beyond coins, and that is why it gets asked. When you need something exact out of a source you do not trust, look for two events the unknown parameter affects IDENTICALLY, and condition on one of them happening. You have then extracted a clean bit from a dirty source without measuring the dirt — which is the whole of randomness extraction, and the same instinct behind pairing and differencing tricks in estimation."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
-  {
-   "slug": "keep_it_or_roll_again",
-   "title": "Keep it, or roll again",
-   "ts": "2026-08-09T18:30:12+00:00",
-   "date": "9 Aug 2026",
-   "topic": "quant_teaser",
-   "q": null,
-   "a": "4.25.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "A fresh die is worth 3.5 on average. So a first roll is worth keeping only if it beats 3.5 — that is a 4, a 5 or a 6 — and worth throwing away otherwise."
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    keep a 4, 5 or 6      happens half the time, and those average 5",
-      "    reroll a 1, 2 or 3     happens half the time, worth 3.5"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    half of 5, plus half of 3.5, is 4.25"
-     ]
-    },
-    {
-     "h": "WHY BOTH OBVIOUS ANSWERS ARE 3.5",
-     "t": "p",
-     "lines": [
-      "Always keeping is a die, so it is 3.5. Always rerolling is also just a die, so it is 3.5 too. Every bit of the difference comes from being allowed to LOOK before you decide. The value of the option is 0.75, and it is the whole point of the question."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
-  {
    "slug": "the_wider_swing_runs_slow",
    "title": "The wider swing runs slow",
    "ts": "2026-08-09T16:35:24+00:00",
@@ -11610,46 +11479,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "At two degrees the same clock loses 6.6 seconds a day. That is the same pendulum, the same rod and the same gravity — so the effect is about how far it swings and nothing else."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
-  {
-   "slug": "ten_metres_is_the_limit",
-   "title": "Ten metres is the limit",
-   "ts": "2026-08-09T15:02:27+00:00",
-   "date": "9 Aug 2026",
-   "topic": "physics",
-   "q": null,
-   "a": "It does not suck. It pulls — and the water at the top is at a pressure below absolute zero.",
-   "why": [
-    {
-     "h": "WHY TEN METRES",
-     "t": "p",
-     "lines": [
-      "A pump does not lift water. The atmosphere pushes it up, and a pump only gets out of the way. The best any pump can do is remove everything above, so the most the atmosphere can support is"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    h = P_atm / (rho g) = 101,325 / (1,000 x 9.81) = 10.33 m"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "That is a hard ceiling. A perfect vacuum, a bigger pump and a wider pipe all give the same 10.3 m. Every well deeper than this has to push from the bottom, not pull from the top."
-     ]
-    },
-    {
-     "h": "WHAT THE TREE IS DOING INSTEAD",
-     "t": "p",
-     "lines": [
-      "Hyperion, a coast redwood, is 115.92 m — 11.2 times that ceiling. The water gets up by being PULLED: evaporation at the leaves puts the whole column under tension, and the column holds because water molecules grip each other hard enough not to come apart. At the top the absolute pressure is about -1.04 MPa — that is -10.2 atmospheres, a genuinely negative pressure, roughly 1.04 MPa of tension in the water itself."
      ]
     }
    ],
@@ -27369,5 +27198,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": null
+ "featured": "stopped_clock_or_slow_clock"
 };
