@@ -909,6 +909,49 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
+      "THE COMMENTS FOUND THE BETTER QUESTION, so here it is (added 2026-08-26)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Everything above counts OCCASIONS: how many separate times each clock is right. Count DURATION instead -- how long each one spends showing the correct time -- and the answer reverses into a tie."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Suppose neither has a second hand, so \"right\" means the displayed minute matches. The stopped clock is right for a whole minute, twice a day. The slow one drifts by only a minute a day, so on the day it catches up it sits inside the correct minute for hours at a stretch. Over a full 1440-day cycle:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    counting instants        stopped 2,880   slow     1     stopped wins",
+      "    counting whole minutes   stopped 2,880   slow 2,880     dead heat"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Simulated minute by minute over 2,073,600 minutes, on a 12-hour face. The two come out exactly level, and the reason is neat: the stopped clock collects its time in 2,880 one-minute slivers, and the slow clock collects the same total in a couple of long stretches when its drift is inside the same minute as the truth."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So \"which is right more often\" and \"which is right for longer\" are different questions with different answers, and the video's question does not say which it means. Anyone who answered \"tie\" was answering the second one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
       "WHY IT FEELS WRONG. \"Broken\" sounds worse than \"slightly off\", so the stopped clock feels like the terrible one. But being exactly right is a knife-edge event, and the question asked about exactly right. The stopped clock is standing still while the correct time walks past it twice a day. The slow clock is walking almost in step with the correct time, which sounds much better and is precisely why it so rarely coincides -- it takes forever to fall a full lap behind."
      ]
     },
