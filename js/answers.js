@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 438,
+ "count": 439,
  "entries": [
+  {
+   "slug": "nine_at_eleven",
+   "title": "Nine at eleven",
+   "ts": "2026-08-27T21:14:39+00:00",
+   "date": "27 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "SELL AT NINE. It earns two pounds a throw on average, and it is the only one of the three that earns anything.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WORK OUT WHAT IT IS WORTH FIRST. One die averages three and a half. Two dice average seven. That is the whole valuation, and everything else follows from comparing seven to the prices you were shown."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    sell at nine   you receive 9 and pay the sum, which averages 7   +2",
+      "    buy at eleven  you pay 11 and receive the sum, which averages 7  -4",
+      "    pass           nothing                                            0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE QUOTE LOOKS FAIRER THAN IT IS. A two-sided price feels even-handed -- there is a buy side and a sell side, and the truth \"must\" be in the middle. But the middle of nine and eleven is ten, and the dice are worth seven. The person quoting chose where to put the spread, and they put all of it above fair value. Nothing about being shown two prices makes them honest ones."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE COMMONEST WRONG ANSWERS. \"Buy at eleven\", because eleven is the bigger number and buying feels like the positive move -- it is the worst of the three and loses four. And \"pass, the spread is fair\", which reads the shape of the quote instead of pricing the thing being quoted. Passing is not neutral here; it is declining two pounds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE QUESTION IS ACTUALLY TESTING. Not arithmetic. Whether you value the instrument before you look at the price, and whether you are willing to take the side that is offered rather than the side that sounds better. A trader who cannot sell something that is too expensive is only half a trader."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A NOTE ON SIZE. The edge is two pounds a throw, but a single throw can pay twelve. Being right about expected value does not stop you losing the first one, which is why the answer to \"how much would you trade?\" is a different question from \"which side?\"."
+     ]
+    }
+   ],
+   "src": "answer",
+   "road": {
+    "qid": "fair_price_stall",
+    "lesson": "u6l1",
+    "unit": 4,
+    "prompt": "A stall lets you roll two dice and pays £20 if they total seven. Tap the highest price at which the game is still worth playing."
+   }
+  },
   {
    "slug": "a_thousand_flips_how_few_bits",
    "title": "A thousand flips, how few bits",
