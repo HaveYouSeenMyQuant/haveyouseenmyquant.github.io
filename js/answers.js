@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_sixth_one_breaks_it",
    "title": "The sixth one breaks it",
-   "ts": "2026-08-27T17:20:41+00:00",
+   "ts": "2026-08-27T17:22:40+00:00",
    "date": "27 Aug 2026",
    "topic": "geometry",
    "q": null,
