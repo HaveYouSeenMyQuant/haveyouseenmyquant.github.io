@@ -16,12 +16,97 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 440,
+ "count": 441,
  "entries": [
+  {
+   "slug": "a_jet_at_twice_the_speed_of_sound",
+   "title": "A jet at twice the speed of sound",
+   "ts": "2026-08-27T22:43:32+00:00",
+   "date": "27 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "ABOUT 17 KILOMETRES PAST YOU — far beyond where you would think to look, and still going.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The shock is a CONE trailing the aircraft, and its half-angle depends only on the Mach number:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    sin θ  =  1 / M  =  1 / 2      so  θ  =  30°"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The cone touches the ground at the point where that 30° line from the aircraft reaches it. With the jet 10 km up:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    distance behind  =  10 / tan 30°  =  17.3 km"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY \"RIGHT OVERHEAD\" IS THE INSTINCT. It is what every other loud thing does. But sound needs about thirty seconds to fall ten kilometres, and a jet at Mach 2 covers roughly twenty kilometres in that time. You are not hearing where it is; you are hearing where it was, and it has moved a very long way since."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY \"WHERE IT BROKE THE BARRIER\" IS THE MISCONCEPTION WORTH KILLING. There is no bang at that moment, and no single place where it happens. The cone exists for as long as the aircraft is supersonic and is dragged along with it, sweeping the ground like the wake behind a boat. Everyone under the flight path hears one bang, at their own moment, as the cone passes over them. A jet that stays supersonic for an hour lays down an hour's worth of boom in a strip across the country."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ANGLE IS THE SPEEDOMETER. Faster means a narrower cone and a longer wait:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Mach 1.2   cone 56°   heard  6.6 km behind",
+      "    Mach 1.5   cone 42°   heard 11.2 km behind",
+      "    Mach 2     cone 30°   heard 17.3 km behind",
+      "    Mach 3     cone 20°   heard 28.3 km behind"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At exactly Mach 1 the angle is 90° — the shock is a flat wall travelling with the aircraft, which is the only sense in which there is a \"barrier\" at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND NOTE WHAT IS MISSING FROM THE SUM. The speed of sound never appears. It cancels, which is why the answer is the same on a freezing day and a hot one, even though the aircraft's actual speed is quite different in each."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_best_and_worst_are_both_tiny",
    "title": "The best and worst are both tiny",
-   "ts": "2026-08-27T22:04:37+00:00",
+   "ts": "2026-08-27T22:06:01+00:00",
    "date": "27 Aug 2026",
    "topic": "statistics",
    "q": null,
@@ -27615,5 +27700,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "the_sixth_one_breaks_it"
+ "featured": "one_triangle_in_four"
 };
