@@ -16,8 +16,92 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 435,
+ "count": 436,
  "entries": [
+  {
+   "slug": "the_sixth_one_breaks_it",
+   "title": "The sixth one breaks it",
+   "ts": "2026-08-27T17:20:41+00:00",
+   "date": "27 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Because the regions were never doubling. They were being counted by a formula that happens to agree with doubling for the first five terms and then walks away from it.",
+   "why": [
+    {
+     "h": "WHAT ACTUALLY COUNTS THE REGIONS",
+     "t": "p",
+     "lines": [
+      "Every region is created by adding a line, and a new line adds one region plus one more for each crossing it makes inside the circle. Add that all up and the total is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    regions = 1 + C(n,2) + C(n,4)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "C(n,2) counts the chords - one new region each. C(n,4) counts the interior crossings, because every crossing is made by exactly two chords, and those two chords are fixed by choosing which FOUR points they connect."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Check it against the doubling everybody expects:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    n:        1   2   3   4   5    6    7    8",
+      "    regions:  1   2   4   8  16   31   57   99",
+      "    2^(n-1):  1   2   4   8  16   32   64  128"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The two agree exactly five times and then part company forever. By n=10 it is 256 against 512."
+     ]
+    },
+    {
+     "h": "WHY THE FIRST FIVE MATCH",
+     "t": "p",
+     "lines": [
+      "Coincidence, in the strict sense - the polynomial 1 + C(n,2) + C(n,4) and the exponential 2^(n-1) happen to take the same values at n = 1 to 5. There is no reason behind it, and that is the whole lesson: five confirmations of a pattern are not a proof, however clean they look."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The seduction is real. Nobody guesses 31. The sequence 1, 2, 4, 8, 16 is one of the most familiar in mathematics and the mind supplies the sixth term without being asked."
+     ]
+    },
+    {
+     "h": "THE FINE PRINT THAT MATTERS",
+     "t": "p",
+     "lines": [
+      "The 31 assumes no three chords meet at a single point. Space the points evenly on the circle with an even n and they DO - the main diagonals all pass through the centre - and you get fewer regions, because crossings that should have been separate are shared. So \"points on a circle\" quietly means \"points in general position\", and for n=6 evenly spaced the answer is 30, not 31."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a sequence looks exponential, find what it is actually COUNTING before extrapolating. Here every region traces back to a choice of 2 or 4 points, which is polynomial, and no amount of matching the first five terms can turn a polynomial into an exponential."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "worst_shot_goes_first_10s",
    "title": "Three shooters, you are the worst",
@@ -874,7 +958,7 @@ window.QQ_ANSWERS = {
    "date": "25 Aug 2026",
    "topic": "real_world",
    "q": null,
-   "a": "The stopped clock, and it is not close.",
+   "a": "The stopped clock -- if you count MOMENTS of being right, and then it is not close. Count how LONG each one spends right and the answer flips to a dead heat. Which question you are asking decides who wins, so it is worth settling that first.",
    "why": [
     {
      "h": null,
@@ -1477,7 +1561,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "faulty_bolt",
+    "lesson": "u2l2",
+    "unit": 3,
+    "prompt": "A factory has two machines. Machine A makes 80 of every 100 bolts, and 1 in 100 of its bolts is faulty. Machine B makes the other 20, and 5 in 100 of its bolts is faulty. You pick up a faulty bolt. How likely is it that machine B made it?"
+   }
   },
   {
    "slug": "three_beetles_one_triangle",
@@ -4800,7 +4890,9 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "The objection worth taking seriously: those places OVERLAP. The place holding coins 5 and 6 shares coin 6 with the place holding coins 6 and 7, so the two places are not independent -- knowing one paid makes the other likelier. Does the shortcut still work? Yes, and this is the whole reason the question is asked. Averages always add, whether or not the things being added are independent. If A is what one place pays and B is what the next pays, the average of A + B is the average of A plus the average of B, full stop. That is not an approximation and it needs no assumption. (What overlap DOES change is how much the total bounces around from game to game -- the spread -- but not the average.)"
+      "The objection worth taking seriously: those places OVERLAP. The place holding coins 5 and 6 shares coin 6 with the place holding coins 6 and 7, so the two places are not independent -- knowing one paid makes the other likelier. Does the shortcut still work? Yes, and this is the whole reason the question is asked.",
+      "Averages always add, whether or not the things being added are independent. If A is what one place pays and B is what the next pays, the average of A + B is the average of A plus the average of B, full stop. That is not an approximation and it needs no assumption.",
+      "(What overlap DOES change is how much the total bounces around from game to game -- the spread -- but not the average.)"
      ]
     },
     {
@@ -4848,7 +4940,9 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "Exactly one of those two things happens. Never both, never neither. Why? Ada throws 11 coins and Ben throws 10. Suppose Ada's heads do NOT beat Ben's heads, so Ada's head-count is at most Ben's head-count. Ada's tails are 11 minus her heads, and Ben's tails are 10 minus his heads. Since Ada started with one more coin and did not win on heads, her tails must beat his tails, and by at least one. Run the same argument the other way: if Ada's heads DO beat Ben's heads (by at least one), then Ada's tails cannot also beat Ben's tails. So the two events split every possible throw between them, cleanly, with no overlap and nothing left over."
+      "Exactly one of those two things happens. Never both, never neither. Why? Ada throws 11 coins and Ben throws 10. Suppose Ada's heads do NOT beat Ben's heads, so Ada's head-count is at most Ben's head-count. Ada's tails are 11 minus her heads, and Ben's tails are 10 minus his heads.",
+      "Since Ada started with one more coin and did not win on heads, her tails must beat his tails, and by at least one. Run the same argument the other way: if Ada's heads DO beat Ben's heads (by at least one), then Ada's tails cannot also beat Ben's tails.",
+      "So the two events split every possible throw between them, cleanly, with no overlap and nothing left over."
      ]
     },
     {
@@ -5767,7 +5861,13 @@ window.QQ_ANSWERS = {
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "ant_room",
+    "lesson": "u8l2",
+    "unit": 8,
+    "prompt": "A hall is 12 metres long, 4 wide and 5 high, and an ant crawls from a bottom corner to the far top corner keeping to the floor, walls and ceiling — how short can the walk be?"
+   }
   },
   {
    "slug": "one_cut_any_shape",
@@ -5815,7 +5915,10 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "Why a pentagon? Trace the strip through the flat knot. It runs straight, then folds and changes direction, runs straight again, folds again — and it turns out to make exactly five straight runs before it closes up on itself, one for each side. Each fold is a crease where the strip reflects off itself, and because the strip has a constant width, the geometry forces every fold to turn the strip through the same angle. A closed, flat path always turns through 360 degrees in total (walk a loop and you spin around once); split that evenly across five equal folds and each turn is 360 / 5 = 72 degrees. A 72-degree turn leaves a 180 - 72 = 108-degree interior angle at every corner — and five equal 108-degree corners with equal sides is the definition of a regular pentagon."
+      "Why a pentagon? Trace the strip through the flat knot. It runs straight, then folds and changes direction, runs straight again, folds again — and it turns out to make exactly five straight runs before it closes up on itself, one for each side.",
+      "Each fold is a crease where the strip reflects off itself, and because the strip has a constant width, the geometry forces every fold to turn the strip through the same angle.",
+      "A closed, flat path always turns through 360 degrees in total (walk a loop and you spin around once); split that evenly across five equal folds and each turn is 360 / 5 = 72 degrees.",
+      "A 72-degree turn leaves a 180 - 72 = 108-degree interior angle at every corner — and five equal 108-degree corners with equal sides is the definition of a regular pentagon."
      ]
     },
     {
@@ -5874,7 +5977,9 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "Why the paradox is so forceful is worth seeing. Imagine the stars spread evenly and slice space into thin shells around you, like the layers of an onion. A shell twice as far away has stars that each look four times fainter (brightness falls as 1/distance^2) — but that shell also has four times as many stars (its area grows as distance^2). The two effects cancel exactly: EVERY shell adds the same amount of light. Stack up infinitely many identical contributions and the total is infinite — the sky should be uniformly, blindingly bright, the surface brightness of a star in every direction. An eternal, infinite starry universe simply cannot have a dark night sky."
+      "Why the paradox is so forceful is worth seeing. Imagine the stars spread evenly and slice space into thin shells around you, like the layers of an onion.",
+      "A shell twice as far away has stars that each look four times fainter (brightness falls as 1/distance^2) — but that shell also has four times as many stars (its area grows as distance^2). The two effects cancel exactly: EVERY shell adds the same amount of light.",
+      "Stack up infinitely many identical contributions and the total is infinite — the sky should be uniformly, blindingly bright, the surface brightness of a star in every direction. An eternal, infinite starry universe simply cannot have a dark night sky."
      ]
     },
     {
@@ -26381,66 +26486,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "The law of truly large numbers, real-world framing, for @have_you_seen_my_quant. Hook = a shock number in the first second: an event with odds of 1 in 1,000,000 happens **8,000 times every day** on Earth."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "All arithmetic below is exact and independently checked:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "list",
-     "lines": [
-      "population N = 8e9 (approx. world population), per-person daily p = 1e-6"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "      expected hits/day  = N*p           = 8,000",
-      "      expected hits/year = N*p*365       = 2,920,000"
-     ]
-    },
-    {
-     "h": null,
-     "t": "list",
-     "lines": [
-      "P(it happens to NOBODY today) = (1 - 1e-6)^(8e9)"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "      = exp(8e9 * ln(1 - 1e-6)) = 4.39e-3475      (log10 = -3474.3576)",
-      "    so we quote ~4 x 10^-3475 on screen and \"ten to the minus three thousand",
-      "    four hundred seventy-five\" in narration."
-     ]
-    },
-    {
-     "h": null,
-     "t": "list",
-     "lines": [
-      "coin-flip crowd size: 1-(1-p)^n = 1/2  =>  n = ln2 / -ln(1-p) = 693,146.8"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    (the familiar ln2/p = 693,147.2 — we show 693,147)"
-     ]
-    },
-    {
-     "h": null,
-     "t": "list",
-     "lines": [
-      "at p = 1e-9 (one in a BILLION): N*p = 8 per day, 2,920 per year."
+      "The standard 45s gate is expected to reject this short clip BY DESIGN; verify with ffprobe (valid mp4, audio+video, 28-38s) plus a still read instead."
      ]
     }
    ],
@@ -26615,13 +26661,6 @@ window.QQ_ANSWERS = {
    "q": "The $800M jackpot: buy 100 tickets?",
    "a": "No. Even at an $800M headline the expected value of a $2 ticket is about −$1.45, because the cash value after tax and splitting is nearer $160M and the odds are 1 in 292,201,338.",
    "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Topical hook: a record jackpot has crossed $800 million and everyone's buying tickets. The relatable-but-wrong instinct is \"100 tickets = a decent shot.\""
-     ]
-    },
     {
      "h": null,
      "t": "p",
@@ -27241,5 +27280,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "stopped_clock_or_slow_clock"
+ "featured": "the_faulty_bolt"
 };
