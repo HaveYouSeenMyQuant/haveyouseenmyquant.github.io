@@ -16,8 +16,72 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 437,
+ "count": 438,
  "entries": [
+  {
+   "slug": "a_bird_on_the_high_voltage_line",
+   "title": "A bird on the high voltage line",
+   "ts": "2026-08-27T20:18:30+00:00",
+   "date": "27 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "ABOUT TWO AND A HALF THOUSANDTHS OF A VOLT. Not four hundred thousand — two and a half millivolts.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    cable between the feet   5 cm of conductor  =  0.0000025 ohms",
+      "    line current             1,000 A",
+      "    p.d. across the bird     1,000 x 0.0000025  =  0.0025 V",
+      "    current through the bird 0.0025 / 10,000    =  0.25 microamps"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You can feel about a milliamp. This is four thousand times below that."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE 400,000 VOLTS DOES NOT MATTER. Because a voltage is always a DIFFERENCE between two points, and the bird only ever touches one thing. Both of its feet are at four hundred thousand volts, and it is the difference BETWEEN them that pushes a current through the bird — which is whatever appears along five centimetres of thick aluminium carrying the line current. That is almost nothing, because the cable is an excellent conductor. It is designed to be."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The bird is not insulated from the line. It is at exactly the line's potential, which is a completely different thing and a far safer one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY \"IT IS SAFE BECAUSE IT IS NOT EARTHED\" IS THE RIGHT ANSWER FOR THE WRONG REASON. It reaches the right verdict by a rule that fails when it matters. A large bird whose wings bridge two conductors of a three-phase set is killed instantly, and never goes anywhere near the ground: those two conductors sit at different potentials, and the difference across the bird is then enormous. This is why raptors are killed on distribution poles far more often than small birds, and why utilities widen the spacing on pylons in raptor country."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rule that survives both cases is the one about difference, not the one about earth."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SAME PHYSICS, DELIBERATELY. A lineman working live is raised to the conductor's potential first, in a bonded suit, and then works on a live 400 kV line with bare hands. Being at a high potential is safe. Being between two different ones is not."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_triangle_in_four",
    "title": "One triangle in four",
