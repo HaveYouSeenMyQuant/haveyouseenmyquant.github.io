@@ -16,8 +16,92 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 439,
+ "count": 440,
  "entries": [
+  {
+   "slug": "the_best_and_worst_are_both_tiny",
+   "title": "The best and worst are both tiny",
+   "ts": "2026-08-27T22:04:37+00:00",
+   "date": "27 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "Because a rate measured on few people swings more, and a ranking sorts on whatever swings most. In this data every town has the SAME true rate — so the table is measuring population size and nothing else.",
+   "why": [
+    {
+     "h": "THE SET-UP THAT PROVES IT",
+     "t": "p",
+     "lines": [
+      "Give 400 towns an identical true rate of 1.2%, vary only how many people live in each, and let chance do the rest. Now rank them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    ten lowest    median population    around 500",
+      "    ten highest   median population    around 500",
+      "    all towns     median population    around 3,000"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both ends are the small towns. Nothing about small towns caused it, because by construction nothing about them differs."
+     ]
+    },
+    {
+     "h": "WHY",
+     "t": "p",
+     "lines": [
+      "The observed rate of a town of n people has spread"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    sqrt( p(1-p) / n )"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At n = 300 that is about 0.63 percentage points on a 1.2% base — half the signal. At n = 30,000 it is 0.06. So the small towns are scattered across a wide band and the large towns sit in a narrow one, and when you sort, the small ones fill both ends."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Plot rate against population and you see it directly: a funnel, wide on the left, tight on the right."
+     ]
+    },
+    {
+     "h": "THE DANGEROUS PART",
+     "t": "p",
+     "lines": [
+      "This is not a curiosity. Rank hospitals, schools, police forces or fund managers by a rate and the same thing happens — the leaderboard fills with the smallest units at both ends. Act on the top of it and you will be funding noise. A famous programme once spent heavily on small schools after noticing the best performers were small, before someone checked the bottom of the table and found them there too."
+     ]
+    },
+    {
+     "h": "THE FIX",
+     "t": "p",
+     "lines": [
+      "Do not rank raw rates. Shrink each estimate toward the overall average by an amount that depends on how much data it rests on, so a town of 300 barely moves off the average and a town of 30,000 keeps its number. Weighting by population makes the effect vanish outright."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever you see a league table, ask what the units' SAMPLE SIZES are before you read the order. If the extremes share a size rather than a cause, the table is a picture of its own denominators."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "nine_at_eleven",
    "title": "Nine at eleven",
@@ -27531,5 +27615,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "the_faulty_bolt"
+ "featured": "the_sixth_one_breaks_it"
 };
