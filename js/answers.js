@@ -16,8 +16,93 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 436,
+ "count": 437,
  "entries": [
+  {
+   "slug": "one_triangle_in_four",
+   "title": "One triangle in four",
+   "ts": "2026-08-27T19:43:18+00:00",
+   "date": "27 Aug 2026",
+   "topic": "geometry_prob",
+   "q": null,
+   "a": "Because the centre is outside exactly when all three points fit inside some half of the circle - and that happens three times in four.",
+   "why": [
+    {
+     "h": "THE CONDITION, IN A FORM YOU CAN COUNT",
+     "t": "p",
+     "lines": [
+      "The centre lies OUTSIDE the triangle precisely when all three points lie within a single semicircle. Draw it once and it is obvious: if every point is on one side of some diameter, the whole triangle is on that side, and the centre is not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the question becomes: how often do three random points share a semicircle?"
+     ]
+    },
+    {
+     "h": "THE COUNTING ARGUMENT",
+     "t": "p",
+     "lines": [
+      "Take the three points. For each one, ask whether the OTHER two both lie in the semicircle that starts at it and runs clockwise. Exactly one point can be the \"first\" of such a semicircle, so these three events cannot both happen - they are mutually exclusive."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each has probability 1/4: the other two points must each land in a particular half, and they are independent, so 1/2 x 1/2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three exclusive events at 1/4 each gives 3/4 that the points share a semicircle, and therefore 1/4 that they do not - which is 1/4 that the triangle contains the centre."
+     ]
+    },
+    {
+     "h": "WHY IT IS EXACTLY A QUARTER",
+     "t": "p",
+     "lines": [
+      "Nothing about the circle's size or the distribution's shape enters. Only two facts are used: each point is equally likely anywhere, and \"the other two are within half a turn of me\" is a coin flip twice over. That is why a problem posed with a circle answers with no pi in it - the geometry cancels and only the counting survives."
+     ]
+    },
+    {
+     "h": "WHAT CHANGES WITH MORE POINTS",
+     "t": "p",
+     "lines": [
+      "For n points the same argument gives n / 2^(n-1) as the chance they share a semicircle, so the chance their hull contains the centre is 1 - n/2^(n-1):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    3 points   1/4",
+      "    4 points   1/2",
+      "    5 points   11/16",
+      "    10 points  1 - 10/512, about 98%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The centre becomes almost certain very quickly, which is the sense in which three points is the interesting case."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a probability looks like it needs an integral, look for a way to make the events EXCLUSIVE and count them instead. Rewriting \"contains the centre\" as \"no semicircle holds them all\" turned a geometry question into three coin flips, and exclusivity is what let the three cases simply add."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_sixth_one_breaks_it",
    "title": "The sixth one breaks it",
