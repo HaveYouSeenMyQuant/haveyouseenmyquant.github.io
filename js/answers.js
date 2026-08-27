@@ -19,64 +19,104 @@ window.QQ_ANSWERS = {
  "count": 438,
  "entries": [
   {
-   "slug": "a_bird_on_the_high_voltage_line",
-   "title": "A bird on the high voltage line",
-   "ts": "2026-08-27T20:23:36+00:00",
+   "slug": "a_thousand_flips_how_few_bits",
+   "title": "A thousand flips, how few bits",
+   "ts": "2026-08-27T20:24:48+00:00",
    "date": "27 Aug 2026",
-   "topic": "real_world",
+   "topic": "information_theory",
    "q": null,
-   "a": "ABOUT TWO AND A HALF THOUSANDTHS OF A VOLT. Not four hundred thousand — two and a half millivolts.",
+   "a": "ABOUT 469 BITS — under half of the thousand.",
    "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each flip carries less than a full bit of news, because you can already guess it. A bit is the cost of a genuine coin toss; a flip you can predict nine times in ten is mostly confirmation, and confirmation is free."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE NUMBER. Shannon's entropy of a coin that lands heads with probability p is"
+     ]
+    },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    cable between the feet   5 cm of conductor  =  0.0000025 ohms",
-      "    line current             1,000 A",
-      "    p.d. across the bird     1,000 x 0.0000025  =  0.0025 V",
-      "    current through the bird 0.0025 / 10,000    =  0.25 microamps"
+      "    H = -p log2(p) - (1-p) log2(1-p)"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "You can feel about a milliamp. This is four thousand times below that."
+      "At p = 0.9 that is 0.469 bits per flip, so a thousand flips need 469 bits. No scheme can beat it and clever schemes get close, which is what makes it an answer rather than an estimate."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "WHY THE 400,000 VOLTS DOES NOT MATTER. Because a voltage is always a DIFFERENCE between two points, and the bird only ever touches one thing. Both of its feet are at four hundred thousand volts, and it is the difference BETWEEN them that pushes a current through the bird — which is whatever appears along five centimetres of thick aluminium carrying the line current. That is almost nothing, because the cable is an excellent conductor. It is designed to be."
+      "WHY IT IS NOT ZERO, AND NOT A THOUSAND. Two ends anchor it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "a FAIR coin has H = 1, so a thousand fair flips need the full thousand bits"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    and cannot be squashed by a single bit. Randomness is incompressible — that",
+      "    is close to the definition of random."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "a coin that ALWAYS lands heads has H = 0. The record says nothing you did"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    not know, so it costs nothing to store."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The bird is not insulated from the line. It is at exactly the line's potential, which is a completely different thing and a far safer one."
+      "Our coin sits between them, and much nearer the free end than people expect."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "WHY \"IT IS SAFE BECAUSE IT IS NOT EARTHED\" IS THE RIGHT ANSWER FOR THE WRONG REASON. It reaches the right verdict by a rule that fails when it matters. A large bird whose wings bridge two conductors of a three-phase set is killed instantly, and never goes anywhere near the ground: those two conductors sit at different potentials, and the difference across the bird is then enormous. This is why raptors are killed on distribution poles far more often than small birds, and why utilities widen the spacing on pylons in raptor country."
+      "A SECOND ROUTE TO THE SAME PLACE, with no logarithms of probabilities. Of the 1000 flips, about 900 will be heads. How many sequences have 900 heads? That is 1000-choose-900, and log2 of it is about 469. So there are roughly 2^469 sequences you are LIKELY to see, out of 2^1000 possible ones — and to name one member of a set of 2^469 things you need 469 bits. Entropy is just the size of the set of outcomes that actually happen."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The rule that survives both cases is the one about difference, not the one about earth."
+      "HOW YOU WOULD DO IT IN PRACTICE. Do not store the flips; store the GAPS between tails. Tails are rare, so the gaps are what carry the news, and there are about a hundred of them. Run-length coding of this kind lands within a few percent of 469 without any theory at all."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "THE SAME PHYSICS, DELIBERATELY. A lineman working live is raised to the conductor's potential first, in a bonded suit, and then works on a live 400 kV line with bare hands. Being at a high potential is safe. Being between two different ones is not."
+      "WHY AN INTERVIEWER ASKS IT. Because the wrong answer is a thousand, and the reason it is wrong is the whole idea: the cost of storing something is set by how surprised you are by it, not by how long it is. That is the same instinct behind pricing a predictable cash flow, sizing a signal against a noisy one, or asking what a data feed is actually telling you that you did not already know."
      ]
     }
    ],
