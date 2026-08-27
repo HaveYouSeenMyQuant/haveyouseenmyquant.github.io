@@ -19,85 +19,79 @@ window.QQ_ANSWERS = {
  "count": 442,
  "entries": [
   {
-   "slug": "a_jet_at_twice_the_speed_of_sound",
-   "title": "A jet at twice the speed of sound",
-   "ts": "2026-08-27T23:21:37+00:00",
+   "slug": "a_thousand_times_the_records",
+   "title": "A thousand times the records",
+   "ts": "2026-08-27T23:24:02+00:00",
    "date": "27 Aug 2026",
-   "topic": "real_world",
+   "topic": "cs_systems",
    "q": null,
-   "a": "ABOUT 17 KILOMETRES PAST YOU — far beyond where you would think to look, and still going.",
+   "a": "ABOUT ELEVEN AND A HALF DAYS.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The shock is a CONE trailing the aircraft, and its half-angle depends only on the Mach number:"
+      "A million records is a THOUSAND times a thousand. Quadratic work means the time goes up by the square of that:"
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    sin θ  =  1 / M  =  1 / 2      so  θ  =  30°"
+      "    1,000 x more records  ->  1,000^2 = 1,000,000 x more time",
+      "    1 second x 1,000,000  =  1,000,000 seconds  =  11.6 days"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The cone touches the ground at the point where that 30° line from the aircraft reaches it. With the jet 10 km up:"
+      "THE TRAP is scaling the time with the input: a thousand times the records, so a thousand times the second — about sixteen minutes. That is wrong by a factor of a thousand, and the gap between sixteen minutes and eleven days is the entire lesson. \"Quadratic\" does not mean \"somewhat slower\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WATCH IT COMPOUND. Each step of ten in the input is a step of a hundred in time:"
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    distance behind  =  10 / tan 30°  =  17.3 km"
+      "    1,000 records          1 second",
+      "    10,000 records         100 seconds        under two minutes",
+      "    100,000 records        10,000 seconds     under three hours",
+      "    1,000,000 records      1,000,000 seconds  11.6 days"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "WHY \"RIGHT OVERHEAD\" IS THE INSTINCT. It is what every other loud thing does. But sound needs about thirty seconds to fall ten kilometres, and a jet at Mach 2 covers roughly twenty kilometres in that time. You are not hearing where it is; you are hearing where it was, and it has moved a very long way since."
+      "Nothing dramatic happens at any single step. That is what makes quadratic code dangerous: it is fine in testing, fine in the first month of real data, and then it is not fine, and nothing changed except the size of the input."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "WHY \"WHERE IT BROKE THE BARRIER\" IS THE MISCONCEPTION WORTH KILLING. There is no bang at that moment, and no single place where it happens. The cone exists for as long as the aircraft is supersonic and is dragged along with it, sweeping the ground like the wake behind a boat. Everyone under the flight path hears one bang, at their own moment, as the cone passes over them. A jet that stays supersonic for an hour lays down an hour's worth of boom in a strip across the country."
+      "WHAT A LINEAR PROGRAM WOULD DO. Sixteen minutes, the number the trap gives. The whole value of turning an n-squared algorithm into an n-log-n one is the difference between eleven days and about twenty seconds — and that is why the question gets asked in interviews at all. It is not about the formula. It is about whether you can feel the size of a number before you build on it."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "THE ANGLE IS THE SPEEDOMETER. Faster means a narrower cone and a longer wait:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    Mach 1.2   cone 56°   heard  6.6 km behind",
-      "    Mach 1.5   cone 42°   heard 11.2 km behind",
-      "    Mach 2     cone 30°   heard 17.3 km behind",
-      "    Mach 3     cone 20°   heard 28.3 km behind"
+      "THE RULE OF THUMB WORTH KEEPING. For quadratic work, ten times the data is a hundred times the wait. If a job takes a minute today and your data is growing ten-fold a year, it takes a hundred minutes next year and a week the year after. The time to notice is now, not then."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "At exactly Mach 1 the angle is 90° — the shock is a flat wall travelling with the aircraft, which is the only sense in which there is a \"barrier\" at all."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "AND NOTE WHAT IS MISSING FROM THE SUM. The speed of sound never appears. It cancels, which is why the answer is the same on a freezing day and a hot one, even though the aircraft's actual speed is quite different in each."
+      "WHERE THIS SHOWS UP BEYOND CODE. Anything with pairwise interactions: every record compared to every other, every party to every counterparty, every position to every other position in a risk matrix. The count of things grows linearly; the count of PAIRS grows like the square, and it is the pairs that cost."
      ]
     }
    ],
