@@ -19,89 +19,72 @@ window.QQ_ANSWERS = {
  "count": 441,
  "entries": [
   {
-   "slug": "a_jet_at_twice_the_speed_of_sound",
-   "title": "A jet at twice the speed of sound",
-   "ts": "2026-08-27T22:43:32+00:00",
+   "slug": "beats_against_seconds",
+   "title": "Beats against seconds",
+   "ts": "2026-08-27T22:44:45+00:00",
    "date": "27 Aug 2026",
-   "topic": "real_world",
+   "topic": "estimation",
    "q": null,
-   "a": "ABOUT 17 KILOMETRES PAST YOU — far beyond where you would think to look, and still going.",
+   "a": "THE HEARTBEATS -- but only just, and that is the whole point.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The shock is a CONE trailing the aircraft, and its half-angle depends only on the Mach number:"
+      "Take eighty years and a resting pulse of seventy."
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    sin θ  =  1 / M  =  1 / 2      so  θ  =  30°"
+      "    seconds     80 x 365.25 x 24 x 3600      = 2,524,608,000",
+      "    heartbeats  80 x 365.25 x 24 x 60 x 70   = 2,945,376,000"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The cone touches the ground at the point where that 30° line from the aircraft reaches it. With the jet 10 km up:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    distance behind  =  10 / tan 30°  =  17.3 km"
+      "About 2.5 billion against about 2.9 billion. The beats lead by roughly a sixth -- close enough that most people, told the two numbers are within twenty percent of each other, do not believe it."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "WHY \"RIGHT OVERHEAD\" IS THE INSTINCT. It is what every other loud thing does. But sound needs about thirty seconds to fall ten kilometres, and a jet at Mach 2 covers roughly twenty kilometres in that time. You are not hearing where it is; you are hearing where it was, and it has moved a very long way since."
+      "WHY THEY ARE SO CLOSE. Because a heart beats a little faster than once a second. That is the entire explanation. At exactly 60 beats a minute the two numbers would be IDENTICAL, whatever age you picked, because you would be counting the same thing twice in different units. Seventy is a bit above sixty, so the beats come out a bit ahead."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "WHY \"WHERE IT BROKE THE BARRIER\" IS THE MISCONCEPTION WORTH KILLING. There is no bang at that moment, and no single place where it happens. The cone exists for as long as the aircraft is supersonic and is dragged along with it, sweeping the ground like the wake behind a boat. Everyone under the flight path hears one bang, at their own moment, as the cone passes over them. A jet that stays supersonic for an hour lays down an hour's worth of boom in a strip across the country."
+      "It also means the answer depends on whose heart you are asking about. At 50 beats a minute -- a fit adult at rest -- the SECONDS win. An athlete and an anxious person genuinely have different answers to this question."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "THE ANGLE IS THE SPEEDOMETER. Faster means a narrower cone and a longer wait:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    Mach 1.2   cone 56°   heard  6.6 km behind",
-      "    Mach 1.5   cone 42°   heard 11.2 km behind",
-      "    Mach 2     cone 30°   heard 17.3 km behind",
-      "    Mach 3     cone 20°   heard 28.3 km behind"
+      "THE COMMONEST WRONG ANSWERS. \"The seconds, obviously\" -- because seconds feel like the smallest unit and therefore the most numerous, which is only true if nothing else is happening more than once a second. And \"they must be miles apart\", which is the instinct that two numbers arrived at so differently could not possibly land within a fifth of each other."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "At exactly Mach 1 the angle is 90° — the shock is a flat wall travelling with the aircraft, which is the only sense in which there is a \"barrier\" at all."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "AND NOTE WHAT IS MISSING FROM THE SUM. The speed of sound never appears. It cancels, which is why the answer is the same on a freezing day and a hot one, even though the aircraft's actual speed is quite different in each."
+      "WHY IT IS WORTH ASKING. There is no trick and no clever step. It is a test of whether you will pick up two numbers you already know -- how long a life is, how fast a heart goes -- and put them next to each other, or whether you will reach for an intuition about which unit sounds smaller."
      ]
     }
    ],
-   "src": "answer"
+   "src": "answer",
+   "road": {
+    "qid": "errors_stack",
+    "lesson": "u14l2",
+    "unit": 14,
+    "prompt": "You multiply three guessed numbers together and each one is typically 10% out either way — how far out is the answer likely to be?"
+   }
   },
   {
    "slug": "the_best_and_worst_are_both_tiny",
