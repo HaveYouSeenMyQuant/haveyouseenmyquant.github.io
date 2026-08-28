@@ -16,8 +16,78 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 454,
+ "count": 455,
  "entries": [
+  {
+   "slug": "three_bits_find_the_liar",
+   "title": "Three bits find the liar",
+   "ts": "2026-08-28T12:03:29+00:00",
+   "date": "28 Aug 2026",
+   "topic": "information_theory",
+   "q": null,
+   "a": "Three extra bits, arranged so that each one checks a different overlapping group of positions. Any single flip fails a unique combination of those three checks, and that combination IS the position - read as a binary number.",
+   "why": [
+    {
+     "h": "THE ARITHMETIC OF WHY THREE",
+     "t": "p",
+     "lines": [
+      "Three yes/no checks have eight possible outcomes. There are seven places an error could be, plus the case of no error at all. Eight cases, eight outcomes. It fits exactly, with nothing to spare - which is why seven is the natural block size for three parity bits."
+     ]
+    },
+    {
+     "h": "HOW THE GROUPS ARE CHOSEN",
+     "t": "p",
+     "lines": [
+      "Number the positions 1 to 7 and put the parity bits at 1, 2 and 4. Each check covers the positions whose number has that bit set:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    check 1  covers  1, 3, 5, 7",
+      "    check 2  covers  2, 3, 6, 7",
+      "    check 4  covers  4, 5, 6, 7"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Position 6 is in checks 2 and 4 and not check 1, so if position 6 flips, exactly those two fail: 2 + 4 = 6. The failing checks add up to the answer. No search, no comparison with the original, and the receiver never needs to know what was sent."
+     ]
+    },
+    {
+     "h": "VERIFIED EXHAUSTIVELY",
+     "t": "p",
+     "lines": [
+      "All sixteen four-bit messages, each with every one of the seven positions flipped in turn - 112 cases, plus the sixteen with no error. Every one recovered correctly, and the syndrome named the flipped position every time."
+     ]
+    },
+    {
+     "h": "THE COST",
+     "t": "p",
+     "lines": [
+      "Four data bits become seven. To get the same correction by brute force you would send everything three times and take a majority vote: twelve bits for the same four. Three extra beats eight extra."
+     ]
+    },
+    {
+     "h": "WHERE IT BREAKS, WHICH MATTERS MORE THAN WHERE IT WORKS",
+     "t": "p",
+     "lines": [
+      "With TWO flipped bits it does not report an error. The two failures combine into a syndrome pointing at some third innocent position, the decoder \"corrects\" that one, and hands you the wrong message with no warning at all. Measured above: flipping positions 1 and 2 makes it report position 3. Every code has a limit like this, and the useful question about any of them is not what it fixes but what it does when it is over its limit."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When you need to identify one case out of N, count how many yes/no questions you can afford before designing the questions. Three gives eight, and any scheme that needs eight distinguishable answers must fit in three - the design follows from the count, not the other way round."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_edges_away_ten_to_get_there",
    "title": "Three edges away, ten to get there",
