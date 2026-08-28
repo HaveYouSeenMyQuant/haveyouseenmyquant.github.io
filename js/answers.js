@@ -16,8 +16,114 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 451,
+ "count": 452,
  "entries": [
+  {
+   "slug": "we_disagree_and_pay_the_same",
+   "title": "We disagree, and pay the same",
+   "ts": "2026-08-28T10:01:50+00:00",
+   "date": "28 Aug 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "Because the option can be BUILT out of shares and cash, and what it costs to build does not ask anyone for an opinion.",
+   "why": [
+    {
+     "h": "THE SETUP",
+     "t": "p",
+     "lines": [
+      "A share at 100. In a year it is either 120 or 80. A call struck at 100 pays 20 in the up state and 0 in the down state. Take interest at zero to keep the arithmetic visible."
+     ]
+    },
+    {
+     "h": "BUILD IT INSTEAD OF PRICING IT",
+     "t": "p",
+     "lines": [
+      "Hold D shares and borrow B. Choose D so the portfolio pays exactly what the option pays, in BOTH states:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    up:    120 D + B  =  20",
+      "    down:   80 D + B  =   0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Subtract: 40 D = 20, so D = 0.5, and then B = -40. Check it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    up state:    0.5 x 120 - 40  =  20   the option pays 20",
+      "    down state:  0.5 x  80 - 40  =   0   the option pays  0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Identical in every state the world can reach. So the option and the portfolio are the same asset, and the option must cost what the portfolio costs:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    price  =  0.5 x 100 - 40  =  10"
+     ]
+    },
+    {
+     "h": "WHERE YOUR OPINION WENT",
+     "t": "p",
+     "lines": [
+      "Nowhere - it was never used. Two lines of algebra and not one of them contains the probability of going up. Watch what that means:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    you think up is 95% likely   ->  you expect the option to pay 19",
+      "    I think up is  5% likely     ->  I expect it to pay 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "We disagree by a factor of nineteen about what it will pay, and we must both quote 10. Anyone quoting differently can be traded against for a guaranteed profit: buy the cheap one, sell the dear one, and the two positions cancel in every state."
+     ]
+    },
+    {
+     "h": "THE RISK-NEUTRAL TRICK",
+     "t": "p",
+     "lines": [
+      "The same number arrives another way. Solve for the probability q that would make the SHARE fairly priced: 100 = 120q + 80(1-q), so q = 0.5. Then price the option with that q: 0.5 x 20 = 10. That q is not anyone's belief and is not a forecast - it is the number that makes the algebra above come out, which is why it is called risk-neutral rather than true."
+     ]
+    },
+    {
+     "h": "THE POINT ABOUT BLACK-SCHOLES",
+     "t": "p",
+     "lines": [
+      "Everything above survives into continuous time, and the reason the Black-Scholes formula has no expected return in it is exactly this: the drift cancels when you hedge. The inputs are the strike, the time, the rate and the VOLATILITY - how far it moves, never which way. That is why practitioners talk about volatility all day and direction almost never."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something looks impossible to value because it depends on an unknown, try to build it out of things that are already priced. If you can replicate the payoff, you have priced it without ever forecasting anything."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "worth_half_as_much_again",
    "title": "Worth half as much again",
