@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "winning_is_the_bad_news",
    "title": "Winning is the bad news",
-   "ts": "2026-08-28T10:39:18+00:00",
+   "ts": "2026-08-28T10:41:50+00:00",
    "date": "28 Aug 2026",
    "topic": "game_theory",
    "q": null,
