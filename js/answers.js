@@ -16,8 +16,64 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 455,
+ "count": 456,
  "entries": [
+  {
+   "slug": "a_charger_that_takes_230_and_gives_12",
+   "title": "A charger that takes 230 and gives 12",
+   "ts": "2026-08-28T15:50:31+00:00",
+   "date": "28 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "ABOUT 9.6 AMPS — nearly twenty times MORE than went in.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    in     230 V x 0.5 A  =  115 W",
+      "    out    115 W / 12 V   =  9.58 A"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    volts came down by 19.2 times",
+      "    amps went UP by 19.2 times"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. A transformer does not conserve current, it conserves POWER. Whatever the wall hands over, the charger hands on, minus a little heat. So if the voltage is divided by nineteen, the current has to be multiplied by nineteen for the product to survive. Step-down in volts is step-UP in amps, always, and that is why the thin cable goes to the wall and the fat one goes to the phone."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY \"0.026 A\" IS THE TRAP. It divides the current by 19.2 as well, because \"step-down\" sounds like a property of the whole device. But if both halves fell by nineteen, the power out would be 115/368 of a watt — the charger would be delivering almost nothing, and your phone would never charge."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY \"HALF AN AMP, THE SAME\" IS THE OTHER GOOD WRONG ANSWER. It treats the transformer as a pipe with current running through it. Nothing runs through: the two coils are not connected to each other at all. What crosses the gap is a changing magnetic field, and the current on the far side is generated afresh. That is also why a transformer does nothing on DC — a steady field induces nothing, which is the whole reason the grid is alternating."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SANITY CHECK WORTH KEEPING. Multiply the volts by the amps on each side. If the two products do not match, you have made an error somewhere, because that product is the thing the device is preserving."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_bits_find_the_liar",
    "title": "Three bits find the liar",
