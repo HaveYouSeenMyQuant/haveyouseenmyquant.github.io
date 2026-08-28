@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "it_never_reached_the_breaking_force",
    "title": "It never reached the breaking force",
-   "ts": "2026-08-28T06:23:33+00:00",
+   "ts": "2026-08-28T06:25:31+00:00",
    "date": "28 Aug 2026",
    "topic": "physics",
    "q": null,
