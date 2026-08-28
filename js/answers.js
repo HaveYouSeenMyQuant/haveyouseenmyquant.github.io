@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_cross_is_not_the_shortest",
    "title": "The cross is not the shortest",
-   "ts": "2026-08-28T21:17:03+00:00",
+   "ts": "2026-08-28T21:19:10+00:00",
    "date": "28 Aug 2026",
    "topic": "geometry",
    "q": null,
