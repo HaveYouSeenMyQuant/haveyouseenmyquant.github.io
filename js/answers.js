@@ -16,8 +16,90 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 454,
+ "count": 455,
  "entries": [
+  {
+   "slug": "the_sand_burns_the_sea_is_freezing",
+   "title": "The sand burns, the sea is freezing",
+   "ts": "2026-08-28T11:39:31+00:00",
+   "date": "28 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "BECAUSE WATER IS ASTONISHINGLY HARD TO HEAT — and then three other things pile on top.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    dry sand   about  800 J to raise a kilogram by one degree",
+      "    water           4,182 J to do the same"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same energy in, and the sand climbs 5.2 times as far. Put 100 kJ into a kilogram of each and the sand rises 125 °C while the water rises 24."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That factor alone would settle it, but the sea has three more advantages and none of them is specific heat:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  IT MIXES. Waves and currents carry warmed surface water down and bring cold",
+      "  water up, so the energy is shared through metres of depth. The sand cannot",
+      "  stir itself, so everything lands in the top centimetre or two — which is",
+      "  exactly the bit your foot touches."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  IT IS TRANSPARENT. Sunlight goes several metres into water before it is",
+      "  absorbed. It stops dead at the surface of sand."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  IT EVAPORATES. Every gram that leaves takes about 2,260 J with it, which is",
+      "  the heat you would need to cool 540 grams of water by a whole degree. The sea",
+      "  is running an enormous evaporative cooler on itself all day."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY \"THE SEA IS DEEPER\" IS THE GOOD WRONG ANSWER. It is true, and it is one of the four. But a shallow tray of water beside a tray of sand behaves the same way, so depth cannot be the whole story."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY \"SAND IS DARKER\" IS THE INTERESTING ONE. Colour does matter — but dry pale sand is LIGHTER than the sea, and the ocean is one of the darkest surfaces on Earth. The sea absorbs MORE of the sunlight landing on it and still ends up colder. That is worth sitting with for a moment."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE ELSE THIS SHOWS UP. It is why coasts have mild winters and mild summers while the middle of a continent bakes and freezes, why a hot water bottle beats a hot brick of the same mass, and why the sea is at its warmest in September rather than in June — it is still catching up with a summer that has already ended."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_edges_away_ten_to_get_there",
    "title": "Three edges away, ten to get there",
