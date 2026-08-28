@@ -16,8 +16,106 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 451,
+ "count": 452,
  "entries": [
+  {
+   "slug": "turn_the_plank_on_its_edge",
+   "title": "Turn the plank on its edge",
+   "ts": "2026-08-28T08:47:04+00:00",
+   "date": "28 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Because bending stiffness grows with the CUBE of a beam's depth and only linearly with its width. Turning the plank swaps those two numbers over.",
+   "why": [
+    {
+     "h": "THE QUANTITY THAT MATTERS",
+     "t": "p",
+     "lines": [
+      "For a rectangle of width b and depth d, resistance to bending is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    I = b x d^3 / 12"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Depth is cubed because fibres far from the centre stretch further, and each one resists in proportion to how far out it sits — one factor of d for how much it stretches, one for the leverage it acts through, and one for how many fibres are out there."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A 50 x 200 plank, both ways round:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    on edge   I = 50 x 200^3 / 12 = 33,300,000 mm^4",
+      "    flat      I = 200 x 50^3 / 12 =  2,080,000 mm^4"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "a ratio of exactly (200/50)^2 = 16."
+     ]
+    },
+    {
+     "h": "WHAT THAT IS IN MILLIMETRES",
+     "t": "p",
+     "lines": [
+      "Over a 4 m span with 100 kg hung in the middle, sag is 62.8 mm lying flat and 3.9 mm on edge. Same timber, same weight of wood, same load. The only thing that changed is which way up it is."
+     ]
+    },
+    {
+     "h": "TWO LAWS, OFTEN CONFUSED",
+     "t": "pre",
+     "lines": [
+      "    double the DEPTH  -> 8x stiffer   (d cubed)",
+      "    double the WIDTH  -> 2x stiffer   (b linear)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which is why you buy a deeper joist rather than a wider one, and why an I-beam throws almost all its steel to the top and bottom and leaves a thin web in the middle. The middle is doing almost nothing."
+     ]
+    },
+    {
+     "h": "STIFFNESS IS NOT STRENGTH",
+     "t": "p",
+     "lines": [
+      "Before it breaks rather than bends, the relevant quantity is the section modulus, bd^2/6 — a SQUARE, not a cube. So the same rotation gives 16x the stiffness but only 4x the strength. Confusing the two is how people over-trust a deep thin beam."
+     ]
+    },
+    {
+     "h": "WHY YOU CANNOT JUST KEEP GOING",
+     "t": "p",
+     "lines": [
+      "A tall thin beam on edge stops failing by bending and starts failing by twisting sideways. That is why joists carry noggings between them: not to help them hold weight, but to stop them falling over."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a quantity depends on a power, spend your budget on the term with the highest exponent. The same reasoning puts the material in the flanges of a beam, the mass at the rim of a flywheel, and the diameter ahead of the wall thickness in any tube."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "worth_half_as_much_again",
    "title": "Worth half as much again",
