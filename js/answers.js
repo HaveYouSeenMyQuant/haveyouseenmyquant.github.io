@@ -16,8 +16,100 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 456,
+ "count": 457,
  "entries": [
+  {
+   "slug": "the_wing_lesson_is_wrong",
+   "title": "The wing lesson is wrong",
+   "ts": "2026-08-28T17:45:44+00:00",
+   "date": "28 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "It is short by a factor of 15. The wing holds the aircraft up by throwing air downwards.",
+   "why": [
+    {
+     "h": "MEASURE THE TWO SURFACES",
+     "t": "p",
+     "lines": [
+      "Take the NACA 2412 section — the one on a Cessna 172 — and integrate each surface from its published definition:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    upper   1.0281 chords",
+      "    lower   1.0135 chords",
+      "    ratio   1.0144"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the top is 1.4% longer. Not 30%, not 10%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If the two parcels really did have to meet up, speed would scale with path length, and Bernoulli would give"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    dp = 0.5 * rho * V^2 * (ratio^2 - 1) = 44.4 Pa"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Over 16.2 m^2 of wing that is 720 N of lift. The aeroplane weighs 10,899 N. The classroom explanation delivers **6.6%** of what is needed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is also false as physics: air over the top arrives at the trailing edge EARLIER than air underneath, not at the same time. Nothing requires two parcels that separated to meet again. Aerofoils fly upside down, and a flat plate at an angle flies perfectly well with two identical surfaces."
+     ]
+    },
+    {
+     "h": "WHAT ACTUALLY HOLDS IT UP",
+     "t": "p",
+     "lines": [
+      "The wing turns a large mass of air downwards every second, and the reaction is lift. Roughly, it works on a cylinder of air its own span across:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    air handled   5,821 kg every second",
+      "    pushed down   1.9 m/s"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole aeroplane, from one line of momentum bookkeeping."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "An explanation that names the right quantities can still be wrong. Put numbers in it. Being made of correct-sounding physics is not the same as coming out to the right size."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ten_tries_beat_three_hundred",
    "title": "Ten tries beat three hundred",
