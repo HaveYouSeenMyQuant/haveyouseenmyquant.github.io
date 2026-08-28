@@ -16,77 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 450,
+ "count": 449,
  "entries": [
-  {
-   "slug": "a_skater_on_a_blade_of_steel",
-   "title": "A skater on a blade of steel",
-   "ts": "2026-08-28T06:41:42+00:00",
-   "date": "28 Aug 2026",
-   "topic": "real_world",
-   "q": null,
-   "a": "ABOUT TWO AND A HALF DEGREES. Which is not enough, and that is the whole point — the textbook explanation for skating is wrong.",
-   "why": [
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    contact area   0.20 m x 0.0001 m  =  20 mm²",
-      "    pressure       70 x 9.81 / 20 mm² =  34 MPa, about 340 atmospheres",
-      "    melting point  shifts by           -2.5 °C"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Three hundred and forty atmospheres is a genuinely enormous pressure. And it buys you two and a half degrees."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "WHY THAT KILLS THE STORY. People skate at -10 °C. They skate in Siberia at -30. At -10 the ice under the blade is still seven degrees below its melting point even with the skater standing on it, and nothing melts at all. To melt ice at -10 by pressure alone you would need about 1,300 atmospheres — four times what a skater can manage, and a heavier skater on a sharper blade does not get you there either."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "SO WHY IS ICE SLIPPERY? Two reasons, neither of them pressure."
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "  THE SURFACE IS ALREADY LIQUID-ISH. Ice carries a disordered, mobile layer a",
-      "  few molecules thick on its outside, and it is there well below freezing,",
-      "  whether or not anything is pressing on it. It is a property of the surface",
-      "  rather than of the load."
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "  AND RUBBING WARMS IT. A moving blade heats the contact by friction and grows",
-      "  that layer. This is why skating is easier once you are moving than when you",
-      "  are standing still — a fact the pressure story cannot explain at all, since",
-      "  standing still is when the pressure is highest."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "WHY \"IT IS NOT HEAVY ENOUGH\" IS THE RIGHT ANSWER FOR THE WRONG REASON. The pressure is not small. What is small is how weakly ice's melting point responds to it: about 0.0074 °C per atmosphere. Water is unusual in melting at a LOWER temperature under pressure at all — almost everything else goes the other way — and even for water the effect is feeble."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "it_never_reached_the_breaking_force",
    "title": "It never reached the breaking force",
