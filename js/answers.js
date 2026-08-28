@@ -16,8 +16,91 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 447,
+ "count": 448,
  "entries": [
+  {
+   "slug": "the_chain_and_the_cable",
+   "title": "The chain and the cable",
+   "ts": "2026-08-28T05:21:01+00:00",
+   "date": "28 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Where the weight sits. Spread along the CURVE you get one shape; spread along the HORIZONTAL you get another. A bare chain carries only itself. A bridge cable carries the road.",
+   "why": [
+    {
+     "h": "THE TWO EQUATIONS",
+     "t": "p",
+     "lines": [
+      "For a hanging cable the slope changes in proportion to the weight it is carrying at that point. If the weight is spread evenly along the horizontal — a deck of uniform road — then"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    y'' = constant        ->        a parabola"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If instead the weight is spread evenly along the CABLE, more of it accumulates where the cable is steep and longer per unit of horizontal distance, so"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    y'' = k sqrt(1 + y'^2)        ->        a catenary, y = a cosh(x/a)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A chain hangs as the second. A loaded suspension bridge hangs as the first. It is the same physics with a different bookkeeping of where the mass is."
+     ]
+    },
+    {
+     "h": "HOW DIFFERENT ARE THEY REALLY",
+     "t": "pre",
+     "lines": [
+      "    sag 70% of span    they differ by 7.5% of the sag",
+      "    sag 10% of span    they differ by 0.32% of the sag"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A real suspension bridge sits near the second line. At that shallowness the two curves are separated by less than the paint, which is exactly why the confusion is so durable — almost nobody has ever seen them apart."
+     ]
+    },
+    {
+     "h": "THE TEST THAT SEPARATES THEM",
+     "t": "p",
+     "lines": [
+      "Each curve satisfies its own equation and fails the other's. That is not a matter of approximation: they are different functions that happen to sit close together over the range anyone looks at."
+     ]
+    },
+    {
+     "h": "GALILEO GOT IT WRONG",
+     "t": "p",
+     "lines": [
+      "He proposed the hanging chain was a parabola. It took about seventy years and Bernoulli, Leibniz and Huygens independently in 1691 to establish it is not."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When two things look the same in the range you normally use, that is not evidence they are the same — it is evidence you have not looked outside the range. Push the parameter to an extreme and see whether they come apart."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "praise_them_and_they_get_worse",
    "title": "Praise them and they get worse",
