@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 446,
+ "count": 447,
  "entries": [
+  {
+   "slug": "praise_them_and_they_get_worse",
+   "title": "Praise them and they get worse",
+   "ts": "2026-08-28T03:31:50+00:00",
+   "date": "28 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "Nothing. The instructor is right about what he saw and wrong about why.",
+   "why": [
+    {
+     "h": "WHAT IS ACTUALLY HAPPENING",
+     "t": "p",
+     "lines": [
+      "Every landing is skill plus luck. An unusually good one is unusually lucky, and luck does not carry over, so the next attempt sits closer to that cadet's own average — whatever was said to him in between."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "How much closer is exactly the share of the variation that skill owns: 50% here, because skill and luck are equally large. A landing +2.23 above average is expected at +1.11 next time. Worse, and nobody did anything."
+     ]
+    },
+    {
+     "h": "THE SIMULATION THAT SETTLES IT",
+     "t": "p",
+     "lines": [
+      "28,881 praised cadets and 28,899 criticised ones, in a model where feedback is NOT INCLUDED — the second landing never sees the first:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    praised     +2.23  ->  +1.10   (-1.12)",
+      "    criticised  -2.23  ->  -1.11   (+1.12)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Praise \"costs\" more than a point and criticism \"buys\" more than a point, in a world where neither exists. Anyone running this as a real experiment and measuring only the change would conclude that shouting works."
+     ]
+    },
+    {
+     "h": "WHY IT MATTERS BEYOND FLYING",
+     "t": "p",
+     "lines": [
+      "The same shape produces the sophomore slump, the Sports Illustrated cover jinx, and every speed camera that appears to work because it was installed where there had just been an unusual cluster of crashes."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something is selected for being extreme, its next measurement will be less extreme. Anything you did in between will look like the cause."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ways_to_make_two_pounds",
    "title": "How many ways to make two pounds",
@@ -21711,7 +21773,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-04T07:30:39+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
-   "q": "This staircase never gets shorter. Answer's in bio - free, takes an email.",
+   "q": "This staircase never gets shorter.",
    "a": "Count the pieces separately instead of looking at the shape.",
    "why": [
     {
@@ -21751,7 +21813,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-04T06:53:04+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
-   "q": "A ladder slips down a wall. Answer's in bio - free, takes an email.",
+   "q": "A ladder slips down a wall.",
    "a": "A quarter circle, centred on the corner, with radius exactly half the ladder.",
    "why": [
     {
@@ -21798,7 +21860,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-04T06:15:34+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
-   "q": "A wheel rolls inside a wheel twice its size. Answer's in bio - free, takes an email.",
+   "q": "A wheel rolls inside a wheel twice its size.",
    "a": "A perfectly straight line - the diameter of the big circle.",
    "why": [
     {
@@ -21845,7 +21907,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-04T05:36:30+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
-   "q": "Same two cube turns, reversed. Why do the endings split? Answer's in bio - free, takes an email.",
+   "q": "Same two cube turns, reversed. Why do the endings split?",
    "a": "They end up in genuinely different orientations. Rotations in three dimensions do not commute.",
    "why": [
     {
@@ -21892,7 +21954,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-04T03:43:28+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
-   "q": "This skinny triangle flips when one dot falls inside a circle. Answer's in bio - takes an email.",
+   "q": "This skinny triangle flips when one dot falls inside a circle.",
    "a": "Keep flipping and you always land on the same mesh - the one that makes the smallest angle in it as large as possible.",
    "why": [
     {
@@ -21939,7 +22001,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-04T03:05:51+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
-   "q": "A cone hides its shortest walking path. Full answer in bio - free, takes an email.",
+   "q": "A cone hides its shortest walking path.",
    "a": "Cut the cone open and the shortest path is a straight line on the flat sector - about 0.840 of the slant height.",
    "why": [
     {
@@ -21986,7 +22048,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-04T02:28:22+00:00",
    "date": "4 Aug 2026",
    "topic": "geometry",
-   "q": "This triangle rolls like a circle. Answer's in bio - costs an email.",
+   "q": "This triangle rolls like a circle.",
    "a": "The shape has to have CONSTANT WIDTH, and roundness has nothing to do with it.",
    "why": [
     {
@@ -22033,7 +22095,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-04T01:39:18+00:00",
    "date": "4 Aug 2026",
    "topic": "puzzles",
-   "q": "Solve this: add one metre around Earth. How big is the gap? Answer's in bio - costs an email.",
+   "q": "Solve this: add one metre around Earth. How big is the gap?",
    "a": "About 16 centimetres - and it is exactly the same for the Earth and the tennis ball.",
    "why": [
     {
@@ -22080,7 +22142,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T23:46:23+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
-   "q": "Three triangle lines should miss. Solve where they meet in bio - it costs an email.",
+   "q": "Three triangle lines should miss.",
    "a": "The three medians always meet, and the meeting point sits two thirds of the way down each one from its vertex.",
    "why": [
     {
@@ -22127,7 +22189,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T23:08:25+00:00",
    "date": "3 Aug 2026",
    "topic": "ml_fundamentals",
-   "q": "A measured point makes uncertainty pinch. Solve the far-away band in bio - answer costs an email.",
+   "q": "A measured point makes uncertainty pinch.",
    "a": "Far from every measurement, the band forgets the data entirely and returns to the prior.",
    "why": [
     {
@@ -22174,7 +22236,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T21:15:07+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
-   "q": "Solve this: four midpoints hide one shape. Answer's in bio - it costs an email.",
+   "q": "Solve this: four midpoints hide one shape.",
    "a": "It is always a parallelogram - for every quadrilateral, however ugly, and even a non-convex one.",
    "why": [
     {
@@ -22221,7 +22283,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T20:37:38+00:00",
    "date": "3 Aug 2026",
    "topic": "ml_fundamentals",
-   "q": "Two dartboards hide the bias-variance trade. Full answer's in bio - free, takes an email.",
+   "q": "Two dartboards hide the bias-variance trade.",
    "a": "It depends entirely on how many throws you get to average, and the crossover is exact.",
    "why": [
     {
@@ -22268,7 +22330,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T18:44:05+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
-   "q": "A wall-touch shortcut hides in a mirror. Solve it in bio - answer takes an email.",
+   "q": "A wall-touch shortcut hides in a mirror.",
    "a": "Reflect one of the points through the wall, and the problem stops being a minimisation.",
    "why": [
     {
@@ -22315,7 +22377,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T17:56:10+00:00",
    "date": "3 Aug 2026",
    "topic": "ml_fundamentals",
-   "q": "This network learns by sending blame backward. Answer's in bio - free, takes an email.",
+   "q": "This network learns by sending blame backward.",
    "a": "Blame flows backward in exactly the same shape it flowed forward.",
    "why": [
     {
@@ -22362,17 +22424,9 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T17:18:17+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
-   "q": "A triangle goes wild but one angle will not move. Solve it in bio - answer takes an email.",
+   "q": "A triangle goes wild but one angle will not move.",
    "a": "TIP: Add the circle centre and draw the two radii to the slider and the diameter ends. That splits the moving triangle into two isosceles triangles, so the two changing base angles can be tracked from the same centre angle.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/angle_in_semicircle"
-     ]
-    }
-   ],
+   "why": [],
    "src": "comment"
   },
   {
@@ -22381,17 +22435,9 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T16:11:10+00:00",
    "date": "3 Aug 2026",
    "topic": "information_theory",
-   "q": "Two coins can be close in heads and far in evidence. Solve it in bio - it costs an email.",
+   "q": "Two coins can be close in heads and far in evidence.",
    "a": "TIP: Do not count heads minus tails. Use a likelihood score. One head adds a small push toward the 90% coin; one tail adds a much bigger push toward the fair coin. Compare each average push with the 100-to-1 gate.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/kl_two_coins_apart"
-     ]
-    }
-   ],
+   "why": [],
    "src": "comment"
   },
   {
@@ -22400,17 +22446,9 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T15:14:22+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
-   "q": "Same fence, wildly different field. Solve it in bio - free, takes an email.",
+   "q": "Same fence, wildly different field.",
    "a": "TIP: Keep the string length fixed and watch the bar for inside-space, not the width of the shape. Uneven shapes waste boundary; making the distances from the middle more even is the useful direction.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/same_perimeter_different_area"
-     ]
-    }
-   ],
+   "why": [],
    "src": "comment",
    "road": {
     "qid": "rectangle_area",
@@ -22425,7 +22463,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T10:57:16+00:00",
    "date": "3 Aug 2026",
    "topic": "ml_fundamentals",
-   "q": "A spinning line turns dots into shadows. Solve the direction in bio - answer costs an email.",
+   "q": "A spinning line turns dots into shadows.",
    "a": "The direction at about 36.87 degrees - the 3-4-5 direction - and it wins because it is the top eigenvector of the covariance.",
    "why": [
     {
@@ -22472,7 +22510,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T09:58:23+00:00",
    "date": "3 Aug 2026",
    "topic": "puzzles",
-   "q": "A coin as wide as the floor gap looks like it should miss. Solve it in bio - answer costs an email.",
+   "q": "A coin as wide as the floor gap looks like it should miss.",
    "a": "Every single time. The probability is exactly 1, not something with a pi in it.",
    "why": [
     {
@@ -22519,17 +22557,9 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T09:14:00+00:00",
    "date": "3 Aug 2026",
    "topic": "statistics",
-   "q": "Seven dots choose one bell curve. Solve where it peaks in bio - it costs an email.",
+   "q": "Seven dots choose one bell curve.",
    "a": "TIP: Do not compare the bell curves by eye. Take logs first: multiplying the heights turns into adding the penalties. Then ask where the penalties on the left and right balance, without forgetting the far-away point.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/max_likelihood_slide"
-     ]
-    }
-   ],
+   "why": [],
    "src": "comment"
   },
   {
@@ -22538,7 +22568,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T08:02:47+00:00",
    "date": "3 Aug 2026",
    "topic": "geometry",
-   "q": "Two off-centre pizza cuts make a hidden winner. Solve it in bio - free to play, answer takes an email.",
+   "q": "Two off-centre pizza cuts make a hidden winner.",
    "a": "The pair containing the centre wins, and the margin is exactly 4ab.",
    "why": [
     {
@@ -22585,17 +22615,9 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T06:28:12+00:00",
    "date": "3 Aug 2026",
    "topic": "graphs",
-   "q": "Can four random rankings always avoid a red pair? Answer's in bio - free, takes an email.",
+   "q": "Can four random rankings always avoid a red pair?",
    "a": "TIP: Watch the receiving side. Once a receiver is holding an offer, they only ever trade up. So if someone has already been rejected by a receiver, that receiver cannot later be part of a red pair with them.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Full worked answer - free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/matching_stable_pairs"
-     ]
-    }
-   ],
+   "why": [],
    "src": "comment"
   },
   {
@@ -22604,7 +22626,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T06:00:14+00:00",
    "date": "3 Aug 2026",
    "topic": "linear_algebra",
-   "q": "This arrow keeps still while the ruler moves. Solve it in bio - answer costs an email.",
+   "q": "This arrow keeps still while the ruler moves.",
    "a": "One third and seven thirds. The arrow never moved; only the ruler did.",
    "why": [
     {
@@ -22651,7 +22673,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T04:27:11+00:00",
    "date": "3 Aug 2026",
    "topic": "number_theory",
-   "q": "The grid says stop after 7. Full answer's in bio - free, takes an email.",
+   "q": "The grid says stop after 7.",
    "a": "Because 7 squared is 49 and the next prime squared, 121, is already past 100.",
    "why": [
     {
@@ -22698,7 +22720,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T03:59:05+00:00",
    "date": "3 Aug 2026",
    "topic": "number_theory",
-   "q": "One rectangle never stops making squares. Full answer's in bio - free, takes an email.",
+   "q": "One rectangle never stops making squares.",
    "a": "The golden ratio - about 1.6180339887 - and it is the only ratio that repeats forever with the same cut every time.",
    "why": [
     {
@@ -22745,7 +22767,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T03:30:08+00:00",
    "date": "3 Aug 2026",
    "topic": "statistics",
-   "q": "A test catches more sick people only by scaring more healthy ones. Solve the curve in bio - free, takes an email.",
+   "q": "A test catches more sick people only by scaring more healthy ones.",
    "a": "The area under the curve is a probability: the chance a randomly chosen sick person scores higher than a randomly chosen healthy one.",
    "why": [
     {
@@ -22785,17 +22807,9 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T02:24:02+00:00",
    "date": "3 Aug 2026",
    "topic": "calculus",
-   "q": "The two points meet, but the line survives. Solve its steepness in bio - free, takes an email.",
+   "q": "The two points meet, but the line survives.",
    "a": "TIP: Do not try to use the two coincident points directly. Keep a tiny gap, compute the average climb across that gap, then ask what number those averages approach as the gap shrinks.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/derivative_secant_collapse"
-     ]
-    }
-   ],
+   "why": [],
    "src": "comment"
   },
   {
@@ -22804,17 +22818,9 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T01:11:12+00:00",
    "date": "3 Aug 2026",
    "topic": "number_theory",
-   "q": "Two slot rings hide a count. Answer's in bio - free, takes an email.",
+   "q": "Two slot rings hide a count.",
    "a": "TIP: Track the tick count k, not the slots. A gold slot is back on top exactly when that ring's slot count divides k, so the machine is asking for one count that passes several divisibility tests at once.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/crt_two_gears"
-     ]
-    }
-   ],
+   "why": [],
    "src": "comment"
   },
   {
@@ -22870,7 +22876,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-03T00:14:35+00:00",
    "date": "3 Aug 2026",
    "topic": "linear_algebra",
-   "q": "A line can look right and still lose. Solve its best angle in bio - free, takes an email.",
+   "q": "A line can look right and still lose.",
    "a": "The slope that minimises the stacked area is 5/7, through the average point (0, 1/2).",
    "why": [
     {
@@ -22964,17 +22970,9 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-02T21:34:26+00:00",
    "date": "2 Aug 2026",
    "topic": "linear_algebra",
-   "q": "A slanted grid changes every area by one secret number. Answer's in bio — free, takes an email.",
+   "q": "A slanted grid changes every area by one secret number.",
    "a": "TIP: Do not follow the whole grid at once. Follow one unit square. Its image has side vectors equal to where the two grid steps land, and every other tile is just that image shifted somewhere else.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/determinant_area_scale"
-     ]
-    }
-   ],
+   "why": [],
    "src": "comment"
   },
   {
@@ -22983,7 +22981,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-02T21:06:28+00:00",
    "date": "2 Aug 2026",
    "topic": "optimization",
-   "q": "The best move in this search is the one that looks wrong. Answer's in bio — free, takes an email.",
+   "q": "The best move in this search is the one that looks wrong.",
    "a": "Useful tip: annealing is not \"random search\". The random part is strongest only when the temperature is high. Once the temperature is low, the same rule becomes almost greedy again.",
    "why": [
     {
@@ -22997,7 +22995,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "Full transition table and the exact checks: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/annealing_escapes_valley"
+      "Full transition table and the exact checks:"
      ]
     }
    ],
@@ -23032,13 +23030,6 @@ window.QQ_ANSWERS = {
      "lines": [
       "Use that to reconstruct the route into T, but stop yourself from counting hops. The road drawn longest on the map is not the same thing as the slowest road."
      ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Full answer and the checked route: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/shortest_path_wavefront"
-     ]
     }
    ],
    "src": "comment"
@@ -23049,7 +23040,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-02T19:30:59+00:00",
    "date": "2 Aug 2026",
    "topic": "calculus",
-   "q": "A staircase can be aiming at a curve. Answer's in bio — free, takes an email.",
+   "q": "A staircase can be aiming at a curve.",
    "a": "They converge on e, which is 2.718281828... and the error halves every time you halve the step.",
    "why": [
     {
@@ -23132,13 +23123,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "Worth knowing before you use one: it never wrongly says no, so you can put it in front of an expensive lookup and only pay for the maybes. That is the entire reason it exists."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Full derivation, the sizing rule and the optimal count — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/maybe_never_no"
      ]
     }
    ],
@@ -23241,13 +23225,6 @@ window.QQ_ANSWERS = {
      "lines": [
       "— It breaks on two flips, and not gracefully. It does not report a problem — it confidently blames a third, innocent position and hands back a wrong message with no complaint. Worth thinking about why before you look that up."
      ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Full worked answer, the construction, and the exhaustive 128-case check — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/seven_bits_one_flip"
-     ]
     }
    ],
    "src": "comment",
@@ -23322,13 +23299,6 @@ window.QQ_ANSWERS = {
      "lines": [
       "— For the circle, the answer is (X'X + m·I)^-1 X'y as m runs from 0 upwards. Write its second component as a fraction in m and find the m that makes it vanish. Then check whether that m is a penalty you could ever actually apply."
      ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Both coefficient paths, the exact threshold, the data, and the proof that the drawn touch point really is the constrained minimum — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/diamond_or_circle_budget"
-     ]
     }
    ],
    "src": "comment"
@@ -23397,13 +23367,6 @@ window.QQ_ANSWERS = {
      "lines": [
       "— It only doubles once you are close. Start where the curve is nearly flat, so the line you follow is nearly horizontal, and it will throw you a long way off. Worth working out where that happens for this curve."
      ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "All 30 decimals, every exact fraction in the chain, and the proof the digit count doubles — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/cube_root_seven_slides"
-     ]
     }
    ],
    "src": "comment"
@@ -23458,13 +23421,6 @@ window.QQ_ANSWERS = {
      "lines": [
       "— With two looks it is trivial (flip one, look, that settles it or eliminates it; flip another, look, done). The entire difficulty is compressing two readings into one, which is why the counting argument above is the right place to start."
      ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Full answer, the case table for all three worlds, and why the reading you end up with really is enough — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/three_switches_one_look"
-     ]
     }
    ],
    "src": "comment"
@@ -23511,13 +23467,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "One more thing worth noticing: after the first weighing you know things about coins you have not weighed, and about the DIRECTION a coin would be wrong in. A coin that was on the heavy side can only be heavy. Carrying that forward is what makes the later weighings cheap."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "The full strategy, all three branches, and the exhaustive check over all 24 cases — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/twelve_coins_three_weighings"
      ]
     }
    ],
@@ -23581,7 +23530,7 @@ window.QQ_ANSWERS = {
    "ts": "2026-08-02T04:13:05+00:00",
    "date": "2 Aug 2026",
    "topic": "paradox",
-   "q": "A town opened a new road, free and instant. Every single journey got longer. Try it yourself",
+   "q": "A town opened a new road, free and instant. Every single journey got longer.",
    "a": "The tip for spotting this one coming: look at what the new road lets people STOP using.",
    "why": [
     {
@@ -23636,13 +23585,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "Cities have run the experiment backwards. Seoul demolished the Cheonggyecheon elevated motorway in 2003 and journey times improved; New York closed 42nd Street for Earth Day 1990 expecting chaos and got smoother traffic."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Play one yourself, free, no signup: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/new_road_slows_everyone"
      ]
     }
    ],
@@ -23722,13 +23664,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "WHERE THIS BITES. Any strategy whose payoff depends on the state it has itself produced — a rule that moves the price it trades on, a policy that shapes the queue it serves, a scheme that generates its own training data. Testing each piece alone can mislead in both directions."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Play one yourself, free, no signup: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/two_losers_one_winner"
      ]
     }
    ],
@@ -23849,13 +23784,6 @@ window.QQ_ANSWERS = {
      "lines": [
       "Every number above was derived and checked three independent ways before this was posted — the cutting procedure, a brute-force search over every possible length, and a cell-by-cell sweep of all 1,398,760 unit cells of the rectangle proving the five squares cover each exactly once."
      ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Full write-up and more like it: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/biggest_square_tiles"
-     ]
     }
    ],
    "src": "comment"
@@ -23902,13 +23830,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "— Going through the inside of the cube is shorter still, but that's a hole, not a walk. Worth checking how much you'd save if you were allowed to tunnel."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Full working, every unfolding checked, and why no other route beats it — free, takes an email: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/cube_unfold_shortcut"
      ]
     }
    ],
@@ -24049,13 +23970,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "The practical version: pay a fixed amount, not \"the minimum\". Any fixed amount."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Play this one instead of reading it — the first unit is free, no signup: https://haveyouseenmyquant.github.io/?utm_source=ig_comment#answers/minimum_payment_never_ends"
      ]
     }
    ],
@@ -24228,13 +24142,6 @@ window.QQ_ANSWERS = {
      "lines": [
       "It's why records dry up in anything nobody is actually getting better at, and why \"best month ever\" quietly gets rarer without a single thing going wrong."
      ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Play the maths instead of reading it → link in bio. No signup."
-     ]
     }
    ],
    "src": "caption"
@@ -24274,13 +24181,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "It's why smoke spreads slowly, why a share price drifts instead of running away, and why a lost drunk is never as lost as you'd think."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Play this instead of reading it → link in bio. No signup."
      ]
     }
    ],
@@ -24425,7 +24325,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "Play the questions instead of reading them. Level 1 is open, no signup — link in bio."
+      "Play the questions instead of reading them."
      ]
     }
    ],
@@ -24466,13 +24366,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "Every column you add multiplies the space by four. Your data does not multiply with it — so the model spends most of its life guessing in boxes it has never seen."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Free interactive version in bio. No account needed."
      ]
     }
    ],
@@ -24527,13 +24420,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "(Same thickness both times, and nothing here about price — just how much pizza there is.)"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Stop reading maths and start playing it — first question free, no signup, no account: link in bio."
      ]
     }
    ],
@@ -26408,7 +26294,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "Would you have guessed plain powers could do that? Follow for one clean math idea a day."
+      "Would you have guessed plain powers could do that?"
      ]
     }
    ],
@@ -26529,7 +26415,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "Which of the three would you have been? Follow for one clean math idea a day."
+      "Which of the three would you have been?"
      ]
     }
    ],
@@ -26784,13 +26670,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "(Simulated with the Intelligent Driver Model plus a real driver reaction delay. The 14 km/h was measured off the simulation, not quoted - and it matches what gets measured on real motorways.)"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Free 5-puzzle sample in bio if you want more of these."
      ]
     }
    ],
@@ -27372,13 +27251,6 @@ window.QQ_ANSWERS = {
      "lines": [
       "🌌 How absurd is that? If all 8 billion people alive shuffled one deck every second since the Big Bang (13.787 billion years ≈ 4.35 × 10^17 seconds), we'd have produced ~3.5 × 10^27 orderings — under 10^-40 of the total. So a properly shuffled deck is almost certainly an order that has never existed and never will again."
      ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "📘 Free 5-puzzle sample + the full pack → link in bio."
-     ]
     }
    ],
    "src": "comment",
@@ -27417,13 +27289,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "✅ Brute force agrees: 48 of the 120 possible counting orders stay ahead (Monte-Carlo: 0.3999)."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "📘 Free 5-puzzle sample + the full pack → link in bio."
      ]
     }
    ],
@@ -27580,13 +27445,6 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "Comment \"13/27\" if you got it 😉"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "📘 Full 38-puzzle pack + free sample → link in bio."
      ]
     }
    ],
