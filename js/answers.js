@@ -16,8 +16,77 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 450,
+ "count": 451,
  "entries": [
+  {
+   "slug": "worth_half_as_much_again",
+   "title": "Worth half as much again",
+   "ts": "2026-08-28T08:43:46+00:00",
+   "date": "28 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "NOTHING. The right bid is zero: there is no price you can name that makes money, and most people are surprised there is no price at all.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE OBVIOUS ANSWERS FAIL. Two get given constantly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "\"Fifty\" -- the average value. \"Seventy-five\" -- the average value, marked up by the half again it is worth to you. Both treat the value as if it were still the average AFTER the deal happens. It is not, and that is the whole question."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ACCEPTANCE TELLS YOU. The owner knows the value and you do not. They accept only when your price is at least what they have. So a deal that goes through is not a random company: it is a company that was worth LESS than you bid. Bid 60 and the only deals you ever get are the ones worth under 60, which average 30."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now finish it. Whatever you bid, the accepted ones average half your bid. Half your bid, worth half as much again, is three quarters of your bid -- and you paid your bid. Every deal you win loses a quarter of what you paid for it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    bid 40  ->  you win it only when it was worth under 40, averaging 20",
+      "                20 is worth 30 to you, and you paid 40"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The arithmetic never turns. Expected profit is minus the bid squared over four hundred: negative for every positive bid, zero only when you bid nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE NAME FOR IT. This is the winner's curse. Winning an auction is itself evidence that you were the one who overvalued the thing, and the more bidders there are the worse the news is. It is why oil companies once systematically overpaid for drilling tracts, and why \"I got it!\" is not a cause for celebration until you know who you outbid and what they knew."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT MAKES IT A GOOD INTERVIEW QUESTION. Nothing about it is hard arithmetic. The whole thing turns on noticing that the acceptance is information, and that you must value the company conditional on the deal happening rather than before it does."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_blades_came_out_bent",
    "title": "The blades came out bent",
