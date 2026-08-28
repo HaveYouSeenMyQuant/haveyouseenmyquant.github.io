@@ -19,85 +19,77 @@ window.QQ_ANSWERS = {
  "count": 444,
  "entries": [
   {
-   "slug": "a_jet_at_twice_the_speed_of_sound",
-   "title": "A jet at twice the speed of sound",
-   "ts": "2026-08-28T00:59:07+00:00",
+   "slug": "three_guesses_multiplied",
+   "title": "Three guesses multiplied",
+   "ts": "2026-08-28T01:00:38+00:00",
    "date": "28 Aug 2026",
-   "topic": "real_world",
+   "topic": "estimation",
    "q": null,
-   "a": "ABOUT 17 KILOMETRES PAST YOU — far beyond where you would think to look, and still going.",
+   "a": "ABOUT SEVENTEEN PERCENT — not thirty.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The shock is a CONE trailing the aircraft, and its half-angle depends only on the Mach number:"
+      "Errors do not add. Independent errors combine in QUADRATURE: square them, add the squares, take the root."
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    sin θ  =  1 / M  =  1 / 2      so  θ  =  30°"
+      "    sqrt(0.10^2 + 0.10^2 + 0.10^2)  =  0.10 x sqrt(3)  =  0.173"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The cone touches the ground at the point where that 30° line from the aircraft reaches it. With the jet 10 km up:"
+      "So three guesses at ten percent each give an estimate about seventeen percent out, not thirty."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY ADDING IS WRONG. Adding assumes every guess is wrong in the SAME direction at the same time. That is the worst case, not the typical one. Most of the time some guesses are high and some are low, and they partly cancel — not always, and not exactly, but on average enough to pull thirty down to seventeen."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE REDUCTIO. Push the adding rule further and it destroys itself. Ten guesses at ten percent each would be a hundred percent error, which would say your estimate could be zero, or double. Ten guesses do not make an estimate worthless. The quadrature rule says sqrt(10) x 10% = 32%, which is bad but usable — and that matches what people who do this for a living find."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS THE POINT OF FERMI ESTIMATION. This is the reason back-of-the-envelope works at all. If errors added, chaining five or six rough guesses would leave you with nothing. Because they combine in quadrature, the error grows like the SQUARE ROOT of the number of steps, so you can chain a surprising number of rough guesses and still land within a factor of two."
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    distance behind  =  10 / tan 30°  =  17.3 km"
+      "    1 guess    10%       4 guesses   20%",
+      "    2 guesses  14%       10 guesses  32%",
+      "    3 guesses  17%      100 guesses  100%"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "WHY \"RIGHT OVERHEAD\" IS THE INSTINCT. It is what every other loud thing does. But sound needs about thirty seconds to fall ten kilometres, and a jet at Mach 2 covers roughly twenty kilometres in that time. You are not hearing where it is; you are hearing where it was, and it has moved a very long way since."
+      "You need a hundred independent ten-percent guesses before the error reaches the level the naive rule claims for ten."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "WHY \"WHERE IT BROKE THE BARRIER\" IS THE MISCONCEPTION WORTH KILLING. There is no bang at that moment, and no single place where it happens. The cone exists for as long as the aircraft is supersonic and is dragged along with it, sweeping the ground like the wake behind a boat. Everyone under the flight path hears one bang, at their own moment, as the cone passes over them. A jet that stays supersonic for an hour lays down an hour's worth of boom in a strip across the country."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "THE ANGLE IS THE SPEEDOMETER. Faster means a narrower cone and a longer wait:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    Mach 1.2   cone 56°   heard  6.6 km behind",
-      "    Mach 1.5   cone 42°   heard 11.2 km behind",
-      "    Mach 2     cone 30°   heard 17.3 km behind",
-      "    Mach 3     cone 20°   heard 28.3 km behind"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "At exactly Mach 1 the angle is 90° — the shock is a flat wall travelling with the aircraft, which is the only sense in which there is a \"barrier\" at all."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "AND NOTE WHAT IS MISSING FROM THE SUM. The speed of sound never appears. It cancels, which is why the answer is the same on a freezing day and a hot one, even though the aircraft's actual speed is quite different in each."
+      "THE CONDITION THAT MATTERS. Independence. If your three guesses share a common mistake — the same wrong population figure, the same optimistic assumption — they move together, the cancellation disappears, and you are back to adding. Correlated errors are the thing that actually ruins estimates, which is why the useful question about any model is not how many inputs it has but how many of them are secretly the same input."
      ]
     }
    ],
@@ -27891,12 +27883,6 @@ window.QQ_ANSWERS = {
     "lesson": "u6l3",
     "unit": 4,
     "prompt": "Flip a coin until the first heads. Heads on the first flip pays £1, heads on the second pays £2, heads on the third pays £4, and it keeps doubling. The game stops after ten flips, and no heads pays nothing. What is it worth on average, in pounds?"
-   }
-  }
- ],
- "featured": "one_triangle_in_four"
-};
-verage, in pounds?"
    }
   }
  ],
