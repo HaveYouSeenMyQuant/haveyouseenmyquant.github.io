@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 451,
+ "count": 452,
  "entries": [
+  {
+   "slug": "the_moon_goes_round_every_month",
+   "title": "The Moon goes round every month",
+   "ts": "2026-08-28T09:28:52+00:00",
+   "date": "28 Aug 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "BECAUSE THE MOON'S ORBIT IS TILTED, and by far more than it sounds.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The tilt is only about 5°, which seems like nothing. But the Moon is 384,400 km away, and a small angle at that range is an enormous distance:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    384,400 x sin(5.1°)  =  about 34,000 km"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "off the Sun-Earth line, at most. The Earth's radius is 6,371 km. So the Moon can sit more than FIVE EARTH RADII above or below the line — the shadow does not graze the edge of the planet, it misses into empty space entirely."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE FLAT PICTURE IS SO CONVINCING. Every diagram you have ever seen, this one included, draws the orbit edge-on and flat, because that is the only way to fit it on a page. Drawn flat, an eclipse every month is not a mistake — it is what the picture actually shows. The error is in the picture, not in the reasoning."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHEN IT DOES LINE UP. The tilted orbit crosses the flat one at two points, the NODES. Only when a new moon happens near a node does the shadow land, and that lines up roughly twice a year — which is why eclipse seasons exist and are spaced about six months apart."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY \"YOU JUST HAVE TO BE IN THE RIGHT PLACE\" IS THE GOOD WRONG ANSWER. It is true of the eclipses that DO happen: totality falls on a track about 100 km wide, so almost everybody misses almost all of them. But on the other months there is nowhere on Earth to stand, because the shadow never touches it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE COINCIDENCE NOBODY ASKED FOR. The Sun is about 400 times wider than the Moon and about 400 times further away, so they appear almost exactly the same size in the sky — 32.0 arcminutes against 31.1. That is why totality is possible at all, and it is pure luck of timing: the Moon is drifting away, and in the far future there will be no total eclipses left."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "worth_half_as_much_again",
    "title": "Worth half as much again",
