@@ -16,8 +16,64 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 457,
+ "count": 458,
  "entries": [
+  {
+   "slug": "the_cross_is_not_the_shortest",
+   "title": "The cross is not the shortest",
+   "ts": "2026-08-28T21:17:03+00:00",
+   "date": "28 Aug 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Because the shortest network is allowed to use places that were not in the question. Add two new junctions and the road gets shorter than any route through the four towns alone.",
+   "why": [
+    {
+     "h": "THE THREE CANDIDATES",
+     "t": "pre",
+     "lines": [
+      "    round three sides        3.0000",
+      "    the two diagonals        2.8284",
+      "    two extra junctions      2.7321"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That last figure is 1 + sqrt(3) = 2.7321. It beats the X by 3.4% — small, but it is the shortest possible and no arrangement of roads between only those four towns can match it."
+     ]
+    },
+    {
+     "h": "WHAT THE JUNCTIONS LOOK LIKE",
+     "t": "p",
+     "lines": [
+      "Two points on the centre line, each joined to the two corners nearest it and to the other junction. At each one, the three roads leave at 120 degrees to one another — and that is not a coincidence. Any junction where three roads meet at anything other than 120 degrees can be nudged to make the total shorter, so an optimal network only ever has 120-degree junctions."
+     ]
+    },
+    {
+     "h": "WHY THE X LOSES",
+     "t": "p",
+     "lines": [
+      "The X is one junction where FOUR roads meet, at 90 degrees. That is never optimal: splitting it into two three-way junctions and pulling them apart always saves a little. The saving here is only 3%, but the principle costs nothing and scales."
+     ]
+    },
+    {
+     "h": "YOU CAN SEE IT IN A KITCHEN",
+     "t": "p",
+     "lines": [
+      "Dip two parallel plates with four pins between them into soapy water. The film that forms pulls itself to the smallest possible area, and it settles into exactly this shape — two junctions, 120 degrees, every time. The soap is not solving anything; it is just falling to the lowest energy, and that happens to be the same answer."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When you are asked to connect a set of things, check whether you are obliged to use only those things. Being allowed to add points you were not given is often where the improvement is — and the constraint you never questioned is usually the one that was costing you."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_last_sticker_costs_fifty",
    "title": "The last sticker costs fifty",
