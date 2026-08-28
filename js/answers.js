@@ -16,62 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 454,
+ "count": 453,
  "entries": [
-  {
-   "slug": "five_tonnes_of_air_to_lift_one",
-   "title": "Five tonnes of air to lift one",
-   "ts": "2026-08-28T10:56:54+00:00",
-   "date": "28 Aug 2026",
-   "topic": "physics",
-   "q": null,
-   "a": "About 19 metres across — a sphere the height of a six-storey building.",
-   "why": [
-    {
-     "h": "WHY SO BIG",
-     "t": "p",
-     "lines": [
-      "Heating air does not make it much lighter. At 20 C air is 1.204 kg per cubic metre; at 100 C it is 0.946. That is a drop of only 21%, so each cubic metre of envelope lifts 258 grams — about the weight of an apple."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "A tonne therefore needs 3,874 cubic metres, which as a sphere is 19.5 m across."
-     ]
-    },
-    {
-     "h": "THE NUMBER THAT MAKES IT MAKE SENSE",
-     "t": "p",
-     "lines": [
-      "That envelope is holding 3,664 kg of hot air in order to lift 1,000 kg of basket. Nearly five tonnes of air to carry one — and the air weighs so much more than the load that the whole thing only works because the air OUTSIDE weighs slightly more still."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Buoyancy is never about the thing being light. It is about the difference between two large numbers, and hot air makes that difference small."
-     ]
-    },
-    {
-     "h": "WHY NOT JUST GET IT HOTTER",
-     "t": "p",
-     "lines": [
-      "Density falls as 1/T in kelvin, so the returns shrink fast. Going from 100 C to 200 C would only get the lift per cubic metre to 458 grams, and nylon envelopes soften long before that. The size is not a design failure; it is what the physics costs."
-     ]
-    },
-    {
-     "h": "THE TRANSFERABLE MOVE",
-     "t": "p",
-     "lines": [
-      "When an effect depends on a difference between two nearly equal quantities, expect to need an enormous amount of the thing to get a useful result."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "winning_is_the_bad_news",
    "title": "Winning is the bad news",
