@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "we_disagree_and_pay_the_same",
    "title": "We disagree, and pay the same",
-   "ts": "2026-08-28T10:01:50+00:00",
+   "ts": "2026-08-28T10:03:37+00:00",
    "date": "28 Aug 2026",
    "topic": "finance",
    "q": null,
