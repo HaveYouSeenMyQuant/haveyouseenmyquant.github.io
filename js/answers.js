@@ -16,8 +16,88 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 453,
+ "count": 454,
  "entries": [
+  {
+   "slug": "three_edges_away_ten_to_get_there",
+   "title": "Three edges away, ten to get there",
+   "ts": "2026-08-28T11:24:52+00:00",
+   "date": "28 Aug 2026",
+   "topic": "markov_chains",
+   "q": null,
+   "a": "Ten. The shortest route is 3 edges and a random walker averages 10 — more than three times as far, but nothing like the astronomical number \"random\" suggests.",
+   "why": [
+    {
+     "h": "WHY IT IS EVEN SOLVABLE",
+     "t": "p",
+     "lines": [
+      "Eight corners looks like eight unknowns. It is four, because the only thing that matters about a corner is how far it is from the start:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    0   where the ant begins",
+      "    1   the 3 corners next to it",
+      "    2   the 3 corners next to the target",
+      "    3   the target"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "From a distance-1 corner, one of the three edges goes back to the start and two go on to distance 2. From distance 2, two edges go back and one arrives. Write that down:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E0 = 1 + E1",
+      "    E1 = 1 + E0/3 + 2 E2/3",
+      "    E2 = 1 + 2 E1/3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which gives E1 = 9, E2 = 7 and E0 = 10."
+     ]
+    },
+    {
+     "h": "THE STEP THAT MATTERS",
+     "t": "p",
+     "lines": [
+      "Collapsing eight states to four is an assumption, not a fact, so the answer also comes from solving all eight equations with no symmetry assumed at all. Same number. If the reduction had been wrong the two would disagree, and quietly using it without checking is how these arguments go wrong."
+     ]
+    },
+    {
+     "h": "WHY NOT ENORMOUS",
+     "t": "p",
+     "lines": [
+      "Because the ant cannot get lost. Every corner is three edges from the target at worst, so it is never far, only slow. Compare a random walk on an infinite line, where the expected time to reach a point ten steps away is not large — it is INFINITE."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The difference is that a cube is finite, and on a finite graph a wandering walker always arrives in a finite average time."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before solving a system state by state, look for a quantity that captures everything the answer depends on. Here it is distance from the start, and it turns eight equations into three. Then check the collapse rather than trusting it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "winning_is_the_bad_news",
    "title": "Winning is the bad news",
