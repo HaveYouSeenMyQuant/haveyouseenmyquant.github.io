@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 444,
+ "count": 445,
  "entries": [
+  {
+   "slug": "a_pound_for_every_twin",
+   "title": "A pound for every twin",
+   "ts": "2026-08-28T01:45:51+00:00",
+   "date": "28 Aug 2026",
+   "topic": "estimation",
+   "q": null,
+   "a": "ABOUT £185,000, and almost everybody guesses far too low.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The whole thing is one division. Sixty-seven and a half million people, three hundred and sixty-five days in a year, and birthdays spread across all of them:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    67,600,000 / 365.25 = 185,079"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So roughly 185,000 people in Britain share your birthday, and the bet is worth about £185,000. If that number feels wrong, that is the point of the question."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT FEELS WRONG. \"How many people share my birthday\" sounds like a question about coincidence, and coincidences feel rare. But the country is enormous and a year is small, so dividing one by the other lands somewhere most people never consider. A city the size of Norwich shares your birthday."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE COMMONEST WRONG ANSWERS. \"Three hundred and sixty-five\" -- that is the number of DAYS, and the question asks about people. And \"a few thousand\", which is the honest guess of someone who has not done the division: it is off by a factor of fifty, and being off by fifty on a question with two given numbers is what an interviewer is watching for."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW EXACT IS IT. Not very, and it should not pretend to be. Using 365 instead of 365.25 changes the answer by 127 people, which does not matter. What does matter is that real birthdays are NOT uniform: September is the heaviest month in the UK and late December the lightest, which moves any individual's figure by a few percent either way. An estimate is allowed to be an estimate. What is not allowed is being wrong by a factor of ten."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT IT IS TESTING. Not arithmetic -- the division is easy. Whether you reach for the two numbers you were given and combine them, instead of reaching for your intuition about how special your birthday is."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_guesses_multiplied",
    "title": "Three guesses multiplied",
@@ -27878,6 +27939,17 @@ window.QQ_ANSWERS = {
     }
    ],
    "src": "answer",
+   "road": {
+    "qid": "double_until_heads_cap",
+    "lesson": "u6l3",
+    "unit": 4,
+    "prompt": "Flip a coin until the first heads. Heads on the first flip pays £1, heads on the second pays £2, heads on the third pays £4, and it keeps doubling. The game stops after ten flips, and no heads pays nothing. What is it worth on average, in pounds?"
+   }
+  }
+ ],
+ "featured": "one_triangle_in_four"
+};
+rc": "answer",
    "road": {
     "qid": "double_until_heads_cap",
     "lesson": "u6l3",
