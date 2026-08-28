@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "nothing_to_push_against",
    "title": "Nothing to push against",
-   "ts": "2026-08-28T14:11:27+00:00",
+   "ts": "2026-08-28T14:16:40+00:00",
    "date": "28 Aug 2026",
    "topic": "physics",
    "q": null,
