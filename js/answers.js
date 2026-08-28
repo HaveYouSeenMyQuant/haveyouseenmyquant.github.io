@@ -19,85 +19,110 @@ window.QQ_ANSWERS = {
  "count": 446,
  "entries": [
   {
-   "slug": "a_jet_at_twice_the_speed_of_sound",
-   "title": "A jet at twice the speed of sound",
-   "ts": "2026-08-28T02:23:51+00:00",
+   "slug": "ways_to_make_two_pounds",
+   "title": "How many ways to make two pounds",
+   "ts": "2026-08-28T02:24:05+00:00",
    "date": "28 Aug 2026",
-   "topic": "real_world",
+   "topic": "puzzles",
    "q": null,
-   "a": "ABOUT 17 KILOMETRES PAST YOU — far beyond where you would think to look, and still going.",
+   "a": "73,682.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The shock is a CONE trailing the aircraft, and its half-angle depends only on the Mach number:"
+      "Eight denominations — 1p, 2p, 5p, 10p, 20p, 50p, £1, £2 — and there are 73,682 distinct ways to make exactly two pounds. Almost everyone guesses in the hundreds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The wrong way to find it is to list combinations. There are far too many to write down, and any attempt to enumerate them by hand loses track of duplicates: 50p + 20p + 20p + 10p is the same handful as 20p + 50p + 10p + 20p, and a careless count treats them as different."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The right way never enumerates anything. Ask a narrower question:"
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    sin θ  =  1 / M  =  1 / 2      so  θ  =  30°"
+      "  ways(amount, using only the first k denominations)"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "The cone touches the ground at the point where that 30° line from the aircraft reaches it. With the jet 10 km up:"
+      "and build a table. With one denomination available — just pennies — there is exactly one way to make every amount. Now allow 2p coins: for each amount, the ways are those that use no 2p at all (already in the table) plus those that use at least one (the ways of making amount-2, which is also already in the table). Add each denomination in turn and the table fills itself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In code it is two loops and one line:"
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    distance behind  =  10 / tan 30°  =  17.3 km"
+      "  ways = [1] + [0] * 200",
+      "  for coin in (1, 2, 5, 10, 20, 50, 100, 200):",
+      "      for a in range(coin, 201):",
+      "          ways[a] += ways[a - coin]"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "WHY \"RIGHT OVERHEAD\" IS THE INSTINCT. It is what every other loud thing does. But sound needs about thirty seconds to fall ten kilometres, and a jet at Mach 2 covers roughly twenty kilometres in that time. You are not hearing where it is; you are hearing where it was, and it has moved a very long way since."
+      "and ways[200] is 73,682."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "WHY \"WHERE IT BROKE THE BARRIER\" IS THE MISCONCEPTION WORTH KILLING. There is no bang at that moment, and no single place where it happens. The cone exists for as long as the aircraft is supersonic and is dragged along with it, sweeping the ground like the wake behind a boat. Everyone under the flight path hears one bang, at their own moment, as the cone passes over them. A jet that stays supersonic for an hour lays down an hour's worth of boom in a strip across the country."
+      "The loop ORDER is the whole thing, and it is where people go wrong. Coins on the outside, amounts on the inside, counts each combination once. Swap them — amounts outside, coins inside — and you count 1p+2p and 2p+1p as different, which answers a different question entirely: the number of ordered sequences, which for 200p is an astronomically larger number. The two versions differ by a single line swap and nothing warns you."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "THE ANGLE IS THE SPEEDOMETER. Faster means a narrower cone and a longer wait:"
+      "A few nearby counts, to show how fast it climbs:"
      ]
     },
     {
      "h": null,
      "t": "pre",
      "lines": [
-      "    Mach 1.2   cone 56°   heard  6.6 km behind",
-      "    Mach 1.5   cone 42°   heard 11.2 km behind",
-      "    Mach 2     cone 30°   heard 17.3 km behind",
-      "    Mach 3     cone 20°   heard 28.3 km behind"
+      "  10p        11 ways",
+      "  20p        41",
+      "  50p        451",
+      "  £1       4,563",
+      "  £2      73,682"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "At exactly Mach 1 the angle is 90° — the shock is a flat wall travelling with the aircraft, which is the only sense in which there is a \"barrier\" at all."
+      "Roughly sixteenfold from £1 to £2, and it is not a coincidence you can shortcut — no closed form for this exists."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "AND NOTE WHAT IS MISSING FROM THE SUM. The speed of sound never appears. It cancels, which is why the answer is the same on a freezing day and a hot one, even though the aircraft's actual speed is quite different in each."
+      "The technique is the point, not the number. This is the standard introduction to dynamic programming: a problem that looks like it needs enumeration, solved by asking a smaller version of itself and remembering the answers. The same pattern counts routes on a grid, fills a knapsack, and aligns two strings — and the same trap sits in all of them, where the order of the loops silently changes the question being answered."
      ]
     }
    ],
