@@ -16,69 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 451,
+ "count": 450,
  "entries": [
-  {
-   "slug": "the_flash_is_instant_the_rumble_is_not",
-   "title": "The flash is instant, the rumble is not",
-   "ts": "2026-08-28T08:06:02+00:00",
-   "date": "28 Aug 2026",
-   "topic": "real_world",
-   "q": null,
-   "a": "BECAUSE THE BOLT IS KILOMETRES LONG, and you are hearing different parts of it arrive one after another.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Every part of the channel explodes at the same moment. But the sound has to travel to you from each part, and those parts are at very different distances. A bolt three kilometres long spreads its own thunder over:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    3,000 m / 343 m/s  =  about 9 seconds"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "That is the rumble, and it comes from the LENGTH of the bolt rather than from anything happening after it. The near end reaches you first as a sharp crack; the far end arrives seconds later as a low roll, softened by having travelled further through the air."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "WHY THE FLASH DOES NOT DO THIS. The light from the far end is behind the light from the near end too — by ten MICROseconds. Nothing in your eye or your brain resolves that, so the flash looks like one instant event. The light and the sound cover the same length of bolt; one of them takes almost a million times longer to do it."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "WHY \"ECHOES\" IS THE RESPECTABLE WRONG ANSWER. Echoes are real. Hills and the underside of the cloud layer do stretch thunder out, and in a valley they dominate. But you hear a long rumble over flat open water with nothing to echo off, and the reason is the bolt's own length."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "WHY \"IT IS JUST FADING\" IS NOT IT EITHER. A single bang fading away gets steadily quieter and keeps its character. Thunder does not — it changes as it rolls, cracking, then booming, then grumbling, because each moment of it is sound from a different piece of the channel arriving in turn."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "THE THING WORTH REMEMBERING. A close strike goes CRACK because the whole channel is at roughly the same distance from you. A distant one goes BOOM and rumbles, because the geometry has spread it out. The character of the thunder is telling you about the SHAPE and the distance of the bolt, not its power."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "the_blades_came_out_bent",
    "title": "The blades came out bent",
