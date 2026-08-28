@@ -16,79 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 451,
+ "count": 450,
  "entries": [
-  {
-   "slug": "heat_the_bar_until_it_is_white",
-   "title": "Heat the bar until it is white",
-   "ts": "2026-08-28T07:25:19+00:00",
-   "date": "28 Aug 2026",
-   "topic": "real_world",
-   "q": null,
-   "a": "IN THE INFRARED, AT ABOUT 1160 NANOMETRES — well past the red end of what any eye can see. A bar hot enough to look WHITE is still sending most of its energy where you cannot follow it.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "THE NUMBER. Wien's displacement law says the brightest wavelength is 2.898 millimetre-kelvin divided by the temperature. For a bar at 2500 K:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    peak = 2.898e-3 / 2500  =  1.16 micrometres  =  1160 nm"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "The eye stops at about 750 nm. The peak is not near the edge of vision — it is half as far again beyond it."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "WHY IT LOOKS WHITE ANYWAY. White is not what you see when the peak is in the middle of the visible band. It is what you see when the visible band is lit FAIRLY EVENLY — and that happens on the long shoulder of the curve running down from a peak that is somewhere else entirely. You are seeing the tail, not the summit, and the tail is flat enough across red, green and blue to read as white."
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    1000 K   dull red        peak 2900 nm     infrared",
-      "    1700 K   yellow          peak 1700 nm     infrared",
-      "    2500 K   white           peak 1160 nm     infrared",
-      "    5772 K   the Sun         peak  502 nm     visible, blue-green"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Every glowing thing you have ever watched cool has had its peak in the infrared the whole time. The Sun is the first one on that list whose peak you can actually see, and even the Sun looks white rather than blue-green — for exactly the same reason the bar does."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "AND WHY NOTHING EVER GLOWS BLUE FIRST. The peak does march towards the blue as things get hotter. It reaches 450 nm at about 6400 K — hotter than the surface of the Sun. But anything that hot is radiating hard across the entire visible band, so it looks white long before it could ever look blue. Blue-hot is not a stage before white-hot; it is white-hot with the balance tipped, which is why a gas flame's blue comes from something else entirely."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "WHAT THIS COSTS IN PRACTICE. An old filament lamp runs near 2800 K, which is why roughly nine tenths of its energy leaves as heat rather than light. Nothing was wrong with the bulb. You were asking a hot object to be a lamp, and a hot object puts its peak in the infrared."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "the_blades_came_out_bent",
    "title": "The blades came out bent",
