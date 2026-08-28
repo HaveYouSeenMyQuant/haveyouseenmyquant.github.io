@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "three_bits_find_the_liar",
    "title": "Three bits find the liar",
-   "ts": "2026-08-28T12:03:29+00:00",
+   "ts": "2026-08-28T12:13:00+00:00",
    "date": "28 Aug 2026",
    "topic": "information_theory",
    "q": null,
