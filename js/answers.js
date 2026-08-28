@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 449,
+ "count": 450,
  "entries": [
+  {
+   "slug": "the_blades_came_out_bent",
+   "title": "The blades came out bent",
+   "ts": "2026-08-28T07:03:49+00:00",
+   "date": "28 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Because the photograph was never taken at a single instant. The sensor reads its rows one after another, from the top of the frame to the bottom, and the propeller keeps turning the whole time.",
+   "why": [
+    {
+     "h": "THE TIMING",
+     "t": "p",
+     "lines": [
+      "A phone sensor takes roughly 1/30 of a second to read out every row. A ceiling fan at 360 rpm turns 6 times a second. During one readout it therefore rotates"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    6 x (1/30) = 0.2 turns = 72 degrees"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The row at the top of the picture and the row at the bottom are images of the blade 72 degrees apart. Each row is individually correct; assembled into one frame they show a shape the propeller never had."
+     ]
+    },
+    {
+     "h": "WHY IT LOOKS LIKE A CURVE AND NOT A SMEAR",
+     "t": "p",
+     "lines": [
+      "Every row is a genuinely sharp exposure — the blade is not blurred, it is DISPLACED. Stack thousands of sharp slices of a rotating object, each a fraction of a degree further round, and the result is a smooth curve. That is why the picture looks crisp and impossible at the same time."
+     ]
+    },
+    {
+     "h": "THE TEST THAT IDENTIFIES THE CAUSE",
+     "t": "p",
+     "lines": [
+      "The distortion depends only on the product (spin rate x readout time). Halve the readout and double the rpm and you get a pixel-identical picture. Neither number alone predicts the shape, which is what tells you the cause is the sampling and not the propeller."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Reverse the spin and the curve bends the other way. Read the sensor bottom-to-top and it flips too."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Push the speed up and it stops being a curve at all. A propeller at 2,400 rpm turns 1.33 times during one readout, so the blades wrap past each other and the photo degenerates into a tangle of shards — the same effect, past the point the eye can read it."
+     ]
+    },
+    {
+     "h": "WHERE ELSE IT SHOWS UP",
+     "t": "p",
+     "lines": [
+      "Car wheels that look like they are melting from a passing train. Guitar strings photographed as wobbling ribbons. A whole aircraft appearing bent when shot from a moving helicopter. Any camera without a global shutter is measuring a slightly different time in every row."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Ask what your instrument assumes is simultaneous. A measurement assembled from parts taken at different moments will show structure that exists only in the assembling — which is also how a slow database snapshot can report a state the system was never in."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "it_never_reached_the_breaking_force",
    "title": "It never reached the breaking force",
