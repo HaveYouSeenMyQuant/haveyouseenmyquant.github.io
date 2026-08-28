@@ -16,8 +16,90 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 455,
+ "count": 456,
  "entries": [
+  {
+   "slug": "ten_tries_beat_three_hundred",
+   "title": "Ten tries beat three hundred",
+   "ts": "2026-08-28T17:31:05+00:00",
+   "date": "28 Aug 2026",
+   "topic": "optimization",
+   "q": null,
+   "a": "By fitting a cheap model to what you have already measured, and testing wherever that model says the result COULD be best - which means going both where it looks good and where you simply do not know yet.",
+   "why": [
+    {
+     "h": "THE SETUP",
+     "t": "p",
+     "lines": [
+      "A function on [0,1] you can only evaluate a few times, because each evaluation is a day of compute or a real experiment. It has several local peaks, so following the slope from a random start lands on the wrong one."
+     ]
+    },
+    {
+     "h": "WHAT RANDOM SEARCH GETS",
+     "t": "p",
+     "lines": [
+      "Ten uniform samples reach a median of 1.429 against a true best of 1.632 - about 88%. Twenty reach 1.576. Even three hundred reach only 1.6318."
+     ]
+    },
+    {
+     "h": "WHAT GUIDED SEARCH GETS",
+     "t": "p",
+     "lines": [
+      "Ten evaluations reach 1.6320. That is better than three hundred random ones, from thirty times fewer tests."
+     ]
+    },
+    {
+     "h": "HOW IT CHOOSES",
+     "t": "p",
+     "lines": [
+      "Fit a Gaussian process to the points so far. It gives two things at every untested x: a predicted value, and how uncertain that prediction is - low near your samples, high in the gaps. Then test where"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    predicted value  +  2 x uncertainty"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "is largest. That single expression is the whole method. The first term says \"go where it looks good\"; the second says \"go where you have no idea\". A point that is merely promising loses to a point that is promising AND unexplored, which is what stops it from getting stuck on the first peak it finds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every new measurement collapses the uncertainty near it, so the same rule automatically moves on and looks elsewhere. Nobody has to schedule the exploration - it falls out of the arithmetic."
+     ]
+    },
+    {
+     "h": "WHERE IT IS ACTUALLY USED",
+     "t": "p",
+     "lines": [
+      "Tuning hyperparameters when a training run costs hours; choosing which experiment to run when each takes a week; picking drug candidates to synthesise. Anywhere the evaluation dominates the cost of thinking about the evaluation."
+     ]
+    },
+    {
+     "h": "WHEN NOT TO USE IT",
+     "t": "p",
+     "lines": [
+      "If evaluations are cheap, all of this machinery is slower than simply testing a lot of points. The method buys sample-efficiency with computation and complexity, and that is only a good trade when samples are the expensive part."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Uncertainty is not merely an error bar to report - it is information about where to look next. Any time you are choosing what to measure, the places you know least about are worth more than their current estimate suggests."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_bits_find_the_liar",
    "title": "Three bits find the liar",
