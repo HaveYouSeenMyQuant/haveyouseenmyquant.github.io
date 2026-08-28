@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "worth_half_as_much_again",
    "title": "Worth half as much again",
-   "ts": "2026-08-28T08:43:46+00:00",
+   "ts": "2026-08-28T08:46:19+00:00",
    "date": "28 Aug 2026",
    "topic": "probability",
    "q": null,
