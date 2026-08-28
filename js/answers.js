@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "ways_to_make_two_pounds",
    "title": "How many ways to make two pounds",
-   "ts": "2026-08-28T02:24:05+00:00",
+   "ts": "2026-08-28T02:25:49+00:00",
    "date": "28 Aug 2026",
    "topic": "puzzles",
    "q": null,
