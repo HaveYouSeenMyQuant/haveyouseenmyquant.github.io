@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_last_sticker_costs_fifty",
    "title": "The last sticker costs fifty",
-   "ts": "2026-08-28T19:47:24+00:00",
+   "ts": "2026-08-28T19:49:23+00:00",
    "date": "28 Aug 2026",
    "topic": "statistics",
    "q": null,
