@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 448,
+ "count": 449,
  "entries": [
+  {
+   "slug": "it_never_reached_the_breaking_force",
+   "title": "It never reached the breaking force",
+   "ts": "2026-08-28T06:23:33+00:00",
+   "date": "28 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Because \"strength\" is not one number the load has to beat.",
+   "why": [
+    {
+     "h": "THE MODEL EVERYONE CARRIES",
+     "t": "p",
+     "lines": [
+      "A material has a breaking stress; if the load stays under it, the part is fine. That is true for one load. It is false for a load applied again."
+     ]
+    },
+    {
+     "h": "WHAT REPETITION ACTUALLY DOES",
+     "t": "p",
+     "lines": [
+      "Every cycle slides planes of atoms over each other and a little of that slip never slides back. The damage is invisible and it adds up: it roughens a surface, the roughness concentrates stress, a crack starts and then grows a fraction of a micron per cycle until what is left cannot hold. No individual cycle is remarkable. The part fails from the history, not from the load."
+     ]
+    },
+    {
+     "h": "HOW STEEPLY IT DEPENDS ON THE LOAD",
+     "t": "p",
+     "lines": [
+      "Cycles to failure go roughly as the 20th power of the stress. Calibrating on the one figure every handbook agrees on -- half the breaking stress survives 1,000,000 cycles -- gives:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    90% of breaking stress               8 cycles",
+      "    70% of breaking stress           1,223 cycles",
+      "    50% of breaking stress       1,000,000 cycles"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Taking a fifth off the force multiplies the life by 150. That is why de-rating a part slightly is such a good trade, and why a design that is \"only just\" over is not slightly wrong but wrong by orders of magnitude."
+     ]
+    },
+    {
+     "h": "THE CLIFF AT THE BOTTOM",
+     "t": "p",
+     "lines": [
+      "For steel the curve does not just get long, it stops. At 51% of breaking stress the wire lasts about 673,884 cycles. Two percent lower and it lasts for ever -- an endurance limit, and the reason a steel spring can run for decades. Aluminium has no such limit, which is why airframes carry a retirement life in cycles rather than a safety factor."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something fails under a load it has already survived, stop asking how big the load was and start counting how many times."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_chain_and_the_cable",
    "title": "The chain and the cable",
