@@ -16,73 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 449,
+ "count": 448,
  "entries": [
-  {
-   "slug": "a_ping_and_its_echo",
-   "title": "A ping and its echo",
-   "ts": "2026-08-28T05:57:41+00:00",
-   "date": "28 Aug 2026",
-   "topic": "real_world",
-   "q": null,
-   "a": "THREE HUNDRED METRES.",
-   "why": [
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    the sound went down AND came back, so it travelled for 0.40 s in total",
-      "    distance travelled = 1500 x 0.40 = 600 m",
-      "    that is DOWN AND BACK, so the depth is half of it = 300 m"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "WHY 600 IS THE COMMONEST ANSWER. It is the distance the sound covered, and the question asks for the depth. Every echo problem ever set has this same trap in it, and it catches people who did the physics correctly and then answered a different question. Read the last line of the question again before you write the number down — that is the whole defence."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "WHY 68 METRES IS THE MORE INTERESTING MISTAKE. It comes from using 340 m/s, the speed of sound in AIR, because that is the number everyone has memorised. Sound in seawater travels at about 1500 m/s — more than FOUR TIMES faster."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "That surprises people, because the instinct is that a denser medium should slow a wave down. It does the opposite. Sound is a wave of squeezing, and it moves at a speed set by how STIFF the medium is against how dense it is. Water is far harder to compress than air — enormously so — and that stiffness wins easily against the extra density."
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    air         340 m/s",
-      "    seawater   1500 m/s",
-      "    steel      5000 m/s"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Steel is denser again, and faster again, for the same reason."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "WHERE IT MATTERS. This is how every depth sounder on every boat works, how ships find each other, and how a sonographer sees a baby — the same arithmetic, with the round trip halved, at frequencies too high to hear."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "the_chain_and_the_cable",
    "title": "The chain and the cable",
