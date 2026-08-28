@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 457,
+ "count": 458,
  "entries": [
+  {
+   "slug": "the_charged_one_is_heavier",
+   "title": "The charged one is heavier",
+   "ts": "2026-08-28T20:19:25+00:00",
+   "date": "28 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "The charged one. Energy has mass, and you put energy into it.",
+   "why": [
+    {
+     "h": "WHAT CHARGING ACTUALLY DOES",
+     "t": "p",
+     "lines": [
+      "It does not add atoms. It moves lithium ions from one electrode to the other and leaves them somewhere higher. Same atoms, same count, more energy."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Energy and mass are not two things that convert into each other. They are the same quantity in different units, and the conversion factor is c^2:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    dm = E / c^2"
+     ]
+    },
+    {
+     "h": "HOW MUCH",
+     "t": "p",
+     "lines": [
+      "A 4,000 mAh cell at 3.85 V holds 55,440 joules, so"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    dm = 55,440 / (299,792,458)^2 = 6.17e-13 kg"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is about 617 picograms — 1.4e-11 of the cell's own mass. The best mass comparators ever built resolve around a tenth of a microgram, so this sits about 162 times below anything anyone can weigh. You would need 1.62e+09 full charges to put on one gram."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A hot cup of tea is the same story: 250 g of water, 80 degrees hotter, is heavier by 932 picograms."
+     ]
+    },
+    {
+     "h": "WHY IT MATTERS ANYWAY",
+     "t": "p",
+     "lines": [
+      "Because it is not a rounding error everywhere. A proton is made of two up quarks and a down quark, and those three weigh 8.99 MeV against the proton's 938.3 — about 1.0% of it. The other 99% is the energy of the field binding them."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Mass is not a count of stuff. Nearly all of yours is energy. The battery result is the same physics with the effect too small to see, which is the only reason it sounds strange."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_last_sticker_costs_fifty",
    "title": "The last sticker costs fifty",
