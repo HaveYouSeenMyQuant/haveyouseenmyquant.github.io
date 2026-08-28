@@ -16,62 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 457,
+ "count": 456,
  "entries": [
-  {
-   "slug": "four_times_the_readings",
-   "title": "Four times the readings",
-   "ts": "2026-08-28T19:10:12+00:00",
-   "date": "28 Aug 2026",
-   "topic": "statistics",
-   "q": null,
-   "a": "Half. Four times the readings buys a factor of two, not a factor of four.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "The spread of an average falls as one over the square root of the count:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    error(n) = error(1) / sqrt(n)"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "So n = 4 gives 1/2, n = 9 gives 1/3, and n = 100 gives 1/10. To cut an error by ten you do a hundred times the work; to cut it by a hundred, ten thousand times."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "WHY IT IS THE SQUARE ROOT. The noise in each reading is independent, so the VARIANCES add rather than the errors. Averaging n of them divides the summed variance by n squared and multiplies it by n, leaving variance/n — and error is the square root of variance, so it falls as one over root n."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "WHAT IT MEANS IN PRACTICE. Repeating a measurement is the most expensive way to buy precision there is, and it gets worse the more you buy. That is why an experimentalist facing an error bar twice too large looks first for a better instrument, a longer lever arm or a nulling method, and only then reaches for more repeats."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "The useful habit: before you agree to take more data, work out the exponent. If the thing you want is a factor of ten, root-n says you have just signed up for a hundred times the work."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "ten_tries_beat_three_hundred",
    "title": "Ten tries beat three hundred",
