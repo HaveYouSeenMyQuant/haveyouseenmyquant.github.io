@@ -16,84 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 456,
+ "count": 455,
  "entries": [
-  {
-   "slug": "nothing_to_push_against",
-   "title": "Nothing to push against",
-   "ts": "2026-08-28T15:08:48+00:00",
-   "date": "28 Aug 2026",
-   "topic": "physics",
-   "q": null,
-   "a": "It never pushes on anything. It changes shape, and a cyclic change of shape turns you.",
-   "why": [
-    {
-     "h": "THE BOOKKEEPING",
-     "t": "p",
-     "lines": [
-      "Angular momentum is conserved, and you are floating with none of it. That does NOT mean you cannot turn. It means the total must stay zero:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    I_body * psi' + I_limb * (psi' + phi' cos b) = 0"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Sweep the limb round a cone and the body must counter-rotate to keep the sum at zero. After one full sweep the limb is back where it started — but the body is not:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    net body turn = -50.9 degrees per sweep, for I_limb/I_body =",
-      "    0.25 and a cone half-angle of 45 degrees"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Repeat it and it accumulates. About 3.5 sweeps gets you through half a turn, and you are facing the other way — having pushed on nothing."
-     ]
-    },
-    {
-     "h": "WHY THIS IS NOT THE ICE SKATER",
-     "t": "p",
-     "lines": [
-      "Pulling your arms in makes you spin FASTER because momentum was already there. Here there is none, and speed is irrelevant: run the same sweep slowly or in a violent jerk and the answer is identical to six decimal places. What determines the turn is the PATH the shape takes, not the timing. A cone that encloses nothing — the limb swung flat through the axis — gives exactly zero however hard it is swung."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "That is the signature of a geometric effect. The rotation is a property of the loop in shape space, the same way the direction a pendulum swings depends on the loop the earth carried it round."
-     ]
-    },
-    {
-     "h": "THIS IS HOW A CAT DOES IT",
-     "t": "p",
-     "lines": [
-      "A cat dropped upside down has no angular momentum either, and lands on its feet anyway. It bends at the waist and turns its front and back halves about slightly different axes, twice per fall. Front first, then back. It is not a tail trick — cats born without one manage perfectly well. Astronauts are taught the same move."
-     ]
-    },
-    {
-     "h": "THE TRANSFERABLE MOVE",
-     "t": "p",
-     "lines": [
-      "\"Conserved\" does not mean \"stuck\". Look for what you can change that the conservation law does not pin down."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "three_bits_find_the_liar",
    "title": "Three bits find the liar",
