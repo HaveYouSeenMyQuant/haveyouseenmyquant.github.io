@@ -16,8 +16,64 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 456,
+ "count": 457,
  "entries": [
+  {
+   "slug": "the_last_sticker_costs_fifty",
+   "title": "The last sticker costs fifty",
+   "ts": "2026-08-28T19:47:24+00:00",
+   "date": "28 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "About 225 packets — and 85% of them are spent on the second half of the album.",
+   "why": [
+    {
+     "h": "WHERE THE COST GOES",
+     "t": "p",
+     "lines": [
+      "Each new sticker costs 50 divided by the number you are still missing. Early on almost every packet is useful; at the end almost none are."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    first 25 stickers      34.2 packets",
+      "    last 25 stickers      190.8 packets",
+      "    the last one alone     50.0 packets"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The final sticker takes 50 packets on average all by itself, because by then only one in 50 is the one you need. It costs more than the first twenty-five put together."
+     ]
+    },
+    {
+     "h": "CONFIRMED BY OPENING PACKETS",
+     "t": "p",
+     "lines": [
+      "Simulating 40,000 complete albums, with no formula involved, gives 224.7 against the exact 225.0. Two unrelated routes to the same number."
+     ]
+    },
+    {
+     "h": "WHY IT FEELS UNFAIR",
+     "t": "p",
+     "lines": [
+      "Because the album looks nearly finished for most of the time you spend on it. At 45 of 50 you are 90% done by count and only about 60% done by cost. The progress bar is measuring the wrong thing."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever completing a set means waiting for the rarest remaining item, the last few dominate. It is why the tail of a bug list, a translation, or a tidy-up always takes longer than the count suggests."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ten_tries_beat_three_hundred",
    "title": "Ten tries beat three hundred",
