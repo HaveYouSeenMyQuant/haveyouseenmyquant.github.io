@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_pound_for_every_twin",
    "title": "A pound for every twin",
-   "ts": "2026-08-28T01:45:51+00:00",
+   "ts": "2026-08-28T01:47:15+00:00",
    "date": "28 Aug 2026",
    "topic": "estimation",
    "q": null,
@@ -27939,17 +27939,6 @@ window.QQ_ANSWERS = {
     }
    ],
    "src": "answer",
-   "road": {
-    "qid": "double_until_heads_cap",
-    "lesson": "u6l3",
-    "unit": 4,
-    "prompt": "Flip a coin until the first heads. Heads on the first flip pays £1, heads on the second pays £2, heads on the third pays £4, and it keeps doubling. The game stops after ten flips, and no heads pays nothing. What is it worth on average, in pounds?"
-   }
-  }
- ],
- "featured": "one_triangle_in_four"
-};
-rc": "answer",
    "road": {
     "qid": "double_until_heads_cap",
     "lesson": "u6l3",
