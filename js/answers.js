@@ -16,8 +16,94 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 452,
+ "count": 453,
  "entries": [
+  {
+   "slug": "winning_is_the_bad_news",
+   "title": "Winning is the bad news",
+   "ts": "2026-08-28T10:39:18+00:00",
+   "date": "28 Aug 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "Because the auction does not pick a random bidder. It picks the one who guessed HIGHEST — and the highest of ten honest guesses is a long way above the truth.",
+   "why": [
+    {
+     "h": "NOBODY IS BIASED",
+     "t": "p",
+     "lines": [
+      "Each bidder estimates the value with independent error. Average all ten and you get essentially the true 100. Not one of them is systematically optimistic, and no individual is doing anything wrong."
+     ]
+    },
+    {
+     "h": "WINNING IS A FILTER",
+     "t": "p",
+     "lines": [
+      "But you do not compete against the average bidder. You compete against the maximum. For n estimates with spread sigma, the expected highest sits about"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E[max of n] x sigma"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "above the truth — roughly 1.54 sigma for n = 10. With sigma = 15 that is 23 above 100. The winner pays 123 for something worth 100."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The bias is created by the act of winning, not by the bidders. Which is why the news \"you won\" is bad news: it tells you that of everyone who looked at this, you were the most optimistic."
+     ]
+    },
+    {
+     "h": "MORE COMPETITION IS WORSE",
+     "t": "pre",
+     "lines": [
+      "    2 bidders    +8",
+      "    5 bidders   +17",
+      "    10 bidders  +23",
+      "    50 bidders  +34",
+      "    100 bidders +38"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every extra bidder raises the expected maximum. A crowded auction is more dangerous than a quiet one, which is the exact opposite of the intuition that competition means you must be getting a fair price."
+     ]
+    },
+    {
+     "h": "THE FIX",
+     "t": "p",
+     "lines": [
+      "Shade. Bid your estimate MINUS roughly E[max of n] x sigma, and bid lower the more rivals there are. You will win less often, and the times you win will stop costing you money."
+     ]
+    },
+    {
+     "h": "WHERE IT BITES IN REAL LIFE",
+     "t": "p",
+     "lines": [
+      "Any time you transact with someone who has an opinion, and you get filled because your price was the most aggressive: takeover bids, oil leases, and every market maker who gets hit on a quote precisely when the other side knows something. Getting filled is information. It is usually not flattering."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever a value reaches you through a selection, ask what the selection filtered ON. The number you are holding is not a sample of the population — it is the extreme of it, and it needs correcting downward before you act."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "we_disagree_and_pay_the_same",
    "title": "We disagree, and pay the same",
