@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 456,
+ "count": 457,
  "entries": [
+  {
+   "slug": "more_salt_stops_helping",
+   "title": "More salt stops helping",
+   "ts": "2026-08-28T18:29:31+00:00",
+   "date": "28 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Nothing. Below about -21 C the road stops responding and more salt is just salt.",
+   "why": [
+    {
+     "h": "WHY MORE USUALLY WORKS",
+     "t": "p",
+     "lines": [
+      "Dissolved salt lowers water's freezing point by 2 x 1.86 x the molality — two, because each unit of salt becomes two ions, and each of them counts. A modest 1 mol/kg brine already freezes at -3.7 C."
+     ]
+    },
+    {
+     "h": "WHY IT STOPS",
+     "t": "p",
+     "lines": [
+      "Water will only hold about 6.1 mol/kg of salt. Past that the brine is saturated and the next shovelful does not dissolve; it sits on the road as salt. So the lowest reachable temperature is set by the solubility, not by how much is spread, and it is a property of the two substances."
+     ]
+    },
+    {
+     "h": "WHERE THE SIMPLE SUM IS WRONG, AND BY HOW MUCH",
+     "t": "p",
+     "lines": [
+      "Run the formula to saturation and it predicts -22.7 C. The measured eutectic is -21.1 C — a gap of 1.6 degrees, about 8%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That gap is not sloppiness, it is the assumption failing. The law treats every ion as independent, and in a saturated brine they are crowded enough to pair up and partly screen each other, so the effective number of particles is a little under two. An ideal law overshooting slightly at high concentration is exactly what you should expect."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When a remedy scales with a dose, find what limits the dose. It is usually not the budget, and the ceiling it sets is often the whole answer."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ten_tries_beat_three_hundred",
    "title": "Ten tries beat three hundred",
