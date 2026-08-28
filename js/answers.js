@@ -16,12 +16,59 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 442,
+ "count": 443,
  "entries": [
+  {
+   "slug": "five_cards_how_many_looks",
+   "title": "Five cards, how many looks",
+   "ts": "2026-08-28T00:09:21+00:00",
+   "date": "28 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "SEVEN, and both halves of that are provable.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY SIX CANNOT BE ENOUGH. Five different cards can be in 120 orders. Every comparison has two outcomes -- this one is bigger, or that one is. So a plan using six comparisons can end in at most 2 x 2 x 2 x 2 x 2 x 2 = 64 different ways, and 64 labels cannot tell 120 things apart. Two orders would end up indistinguishable, and you would not know which you had."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That argument is worth keeping because it never mentions cards. It says: d yes-or-no answers can separate at most 2^d possibilities. Since 2^6 = 64 < 120 and 2^7 = 128 >= 120, seven is the first number that is not immediately ruled out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY SEVEN IS ENOUGH. The counting argument only rules things OUT -- it does not promise that seven works. It does, and you can check it by exhaustive search over every choice of pair at every step: there is a plan of depth seven that separates all 120 orders, and none of depth six. (The method that finds it by hand is called merge insertion: sort two pairs, merge, then insert the last card using the fact that you already know a lot about where it can go.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GAP IS REAL, AND IT IS THE INTERESTING PART. For six cards the count says at least 10, and 10 is achievable. For twelve cards the count says at least 29 -- but the true answer is 30. The bound is not always tight, so a question like this has two separate jobs: prove nothing smaller can work, then exhibit something that does. Answering only the first half is the commonest way to get this wrong in an interview."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY ANYONE CARES. This is the reason no comparison sort can beat n log n. The same counting argument, run on n cards instead of five, says you need about log2(n!) comparisons, and log2(n!) grows like n log n. Every sorting algorithm you have heard of is bumping against this one line of arithmetic."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_thousand_times_the_records",
    "title": "A thousand times the records",
-   "ts": "2026-08-27T23:24:02+00:00",
+   "ts": "2026-08-27T23:25:40+00:00",
    "date": "27 Aug 2026",
    "topic": "cs_systems",
    "q": null,
