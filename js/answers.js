@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "three_edges_away_ten_to_get_there",
    "title": "Three edges away, ten to get there",
-   "ts": "2026-08-28T11:24:52+00:00",
+   "ts": "2026-08-28T11:26:44+00:00",
    "date": "28 Aug 2026",
    "topic": "markov_chains",
    "q": null,
