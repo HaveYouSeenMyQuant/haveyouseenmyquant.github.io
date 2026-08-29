@@ -16,56 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 472,
+ "count": 471,
  "entries": [
-  {
-   "slug": "a_hill_you_cannot_see",
-   "title": "A hill you cannot see",
-   "ts": "2026-08-29T16:15:57+00:00",
-   "date": "29 Aug 2026",
-   "topic": "physics",
-   "q": null,
-   "a": "1.47 times the power — about half as much work again, on a road that looks flat.",
-   "why": [
-    {
-     "h": "WHAT THE NUMBERS ARE",
-     "t": "p",
-     "lines": [
-      "At 30 km/h a rider on the hoods is pushing roughly 148 W: air resistance and tyres. Raising 85 kg at 1% while travelling 8.33 m/s costs another 69 W."
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    flat            148 W",
-      "    1% gradient    218 W    (1.47x)"
-     ]
-    },
-    {
-     "h": "THE SAME THING SEEN THE OTHER WAY",
-     "t": "p",
-     "lines": [
-      "Hold the effort at 148 W instead of holding the speed, and the rider drops from 30 km/h to 24.6. That is a fifth of the speed gone to a slope you would not notice standing on it."
-     ]
-    },
-    {
-     "h": "WHY IT IS SO BRUTAL",
-     "t": "p",
-     "lines": [
-      "Because climbing power is proportional to speed while air resistance goes as the CUBE of speed. At low speeds the hill dominates completely; at 30 km/h it is still adding more than a third of everything else combined. A gradient of 1% is a rise of one metre in a hundred — well under what the eye picks up without a reference line."
-     ]
-    },
-    {
-     "h": "THE TRANSFERABLE MOVE",
-     "t": "p",
-     "lines": [
-      "When something feels harder than it looks, check for a term that scales differently from the one you are watching. Here it is the only term that does not care how fast you are going."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "how_many_bunches_on_one_lane",
    "title": "How many bunches on one lane",
