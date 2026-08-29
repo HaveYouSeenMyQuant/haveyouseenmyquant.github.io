@@ -16,64 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 471,
+ "count": 470,
  "entries": [
-  {
-   "slug": "forwards_but_the_wheels_go_back",
-   "title": "Forwards, but the wheels go back",
-   "ts": "2026-08-29T10:41:28+00:00",
-   "date": "29 Aug 2026",
-   "topic": "cs_systems",
-   "q": null,
-   "a": "Because film does not record motion. It records 24 still pictures a second, and between two of them the wheel has moved 28 degrees — but the spokes are 30 degrees apart and identical, so nothing in the frames can tell you it went forwards 28 rather than backwards 2.",
-   "why": [
-    {
-     "h": "WHAT THE FRAMES ACTUALLY SUPPORT",
-     "t": "pre",
-     "lines": [
-      "    true rotation      28 deg per frame  =  1.87 turns a second, forwards",
-      "    spoke spacing      30 deg",
-      "    smallest reading   -2 deg per frame  =  -0.13 turns a second"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Your eye takes the smallest change that fits, because that is the only sane way to join up a sequence of stills. The film is not reversed and nothing was edited — backwards is a correct reading of the evidence. It is simply not the only one."
-     ]
-    },
-    {
-     "h": "THE WHEEL CAN ALSO STOP DEAD",
-     "t": "p",
-     "lines": [
-      "If the wheel turns an exact whole number of spoke-spacings between frames, every frame is identical and it appears perfectly still while the cart tears along. That happens at 2, 4 and 6 turns a second for this wheel — and at no speed in between."
-     ]
-    },
-    {
-     "h": "WHY THE CART DOES NOT DO IT",
-     "t": "p",
-     "lines": [
-      "The cart's position is not periodic. There is no second interpretation of \"it moved 40 cm\", so it cannot be misread, and it advances honestly in the very frames whose wheels are running backwards. Both readings come from the same pictures and both are right."
-     ]
-    },
-    {
-     "h": "MORE SPOKES IS WORSE",
-     "t": "p",
-     "lines": [
-      "Misreading becomes possible as soon as the spokes pass the lens faster than half the frame rate — 12 spokes at 24 frames a second means anything above 1 turn a second is already ambiguous. A wheel with one chalk mark stays honest 12x longer."
-     ]
-    },
-    {
-     "h": "THE TRANSFERABLE MOVE",
-     "t": "p",
-     "lines": [
-      "Sampling a repeating thing too slowly does not blur it — it produces a confident, sharp, WRONG answer at a completely different frequency. Which is why a monitoring dashboard polling once a minute can miss a fault that cycles every 61 seconds and instead report a slow drift that does not exist."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "it_tells_you_how_close",
    "title": "It tells you how close you are",
