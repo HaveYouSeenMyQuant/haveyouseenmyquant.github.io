@@ -16,8 +16,91 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 471,
+ "count": 472,
  "entries": [
+  {
+   "slug": "it_should_fall_over",
+   "title": "It should fall over",
+   "ts": "2026-08-29T11:26:21+00:00",
+   "date": "29 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "A push sideways moves it sideways. Gravity's push on a spinning top IS sideways.",
+   "why": [
+    {
+     "h": "WHY IT DOES NOT FALL",
+     "t": "p",
+     "lines": [
+      "A torque does not move a spinning object the way it points. It changes the angular momentum in the direction it points — and for a leaning top, gravity's torque points HORIZONTALLY, at right angles to the lean. So the axis moves horizontally: round in a circle, not down."
+     ]
+    },
+    {
+     "h": "THE RATE",
+     "t": "pre",
+     "lines": [
+      "Toppling torque, with a lean of theta:      m g r sin(theta)",
+      "The part of the spin that must swing:       I w sin(theta)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    rate = m g r sin(th) / (I w sin(th)) = m g r / (I w)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things fall out of that and both are strange."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "**The lean cancels.** It does not matter whether the top is barely tilted or half over — it goes round at the same rate. A top about to fall swings round no faster than an upright one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "**Faster spin means SLOWER swing.** The rate has w on the bottom. For a 50 g top with its centre 20 mm up, spinning at 1800 rpm:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    rate = 0.05 x 9.81 x 0.02 / (2e-05 x 188) = 2.60 rad/s"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One slow turn every 2.4 seconds, while the top itself is going round every 33.3 milliseconds — 72 times faster. As friction takes the spin away, the swing speeds up, gets wilder, and that is when it finally goes over."
+     ]
+    },
+    {
+     "h": "WHERE THIS STOPS BEING TRUE",
+     "t": "p",
+     "lines": [
+      "The whole thing assumes the angular momentum points along the axis, which needs the spin to be much faster than the swing. Here it is 72 times faster, so that is fine. Spin it slowly and the top nods up and down as it goes round instead — a real effect, and the reason the tidy formula has a range."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something responds at right angles to what you did to it, stop asking what it is resisting with and start asking what direction the change is pointing."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_many_bunches_on_one_lane",
    "title": "How many bunches on one lane",
