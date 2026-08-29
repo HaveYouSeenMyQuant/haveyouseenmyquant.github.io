@@ -16,64 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 469,
+ "count": 468,
  "entries": [
-  {
-   "slug": "twice_the_bulb_is_not_twice_the_light",
-   "title": "Twice the bulb is not twice the light",
-   "ts": "2026-08-29T08:07:53+00:00",
-   "date": "29 Aug 2026",
-   "topic": "physics",
-   "q": null,
-   "a": "About 26% brighter. Not 100% — twice the bulb is nothing like twice the light.",
-   "why": [
-    {
-     "h": "WHAT THE EYE ACTUALLY DOES",
-     "t": "p",
-     "lines": [
-      "Sensation does not track stimulus in proportion. Brightness goes roughly as the cube root of the light: double the light and you multiply the appearance by 2^0.33, which is 1.26."
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    2x the light   looks 1.26x brighter",
-      "    4x             looks 1.58x",
-      "    8x             looks 1.99x"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "To genuinely double how bright a room looks you need about 8 times the light — sixteen 50 W bulbs where you had two."
-     ]
-    },
-    {
-     "h": "HOW SURE IS THE EXPONENT",
-     "t": "p",
-     "lines": [
-      "Not very, and it does not matter much. Published values run about 0.3 to 0.5 depending on the conditions. At 0.5 — the most generous end — you would still need 4 times the light to double the appearance, and doubling the bulb would still only buy 41%. The conclusion does not depend on pinning the number down."
-     ]
-    },
-    {
-     "h": "WHY IT FEELS WRONG",
-     "t": "p",
-     "lines": [
-      "Because it is the reason a second lamp disappoints, a dimmer feels oversensitive near the bottom, and one candle to two is obvious while twenty to twenty-one is invisible. All of those are the same curve."
-     ]
-    },
-    {
-     "h": "THE TRANSFERABLE MOVE",
-     "t": "p",
-     "lines": [
-      "Before assuming an effect scales with its cause, ask what is being measured at the far end. If it is a person, the scale is almost never linear."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "same_money_more_shares",
    "title": "Same money, more shares",
