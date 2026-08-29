@@ -16,83 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 472,
+ "count": 471,
  "entries": [
-  {
-   "slug": "the_cold_arrives_late",
-   "title": "The cold arrives late",
-   "ts": "2026-08-29T15:29:09+00:00",
-   "date": "29 Aug 2026",
-   "topic": "physics",
-   "q": null,
-   "a": "Because the ground and the sea are still losing more heat than they gain for weeks after the sun has turned. Temperature does not follow sunlight — it follows the RUNNING TOTAL of what is left over.",
-   "why": [
-    {
-     "h": "THE BALANCE",
-     "t": "p",
-     "lines": [
-      "Write it as a heat balance. The surface gains from the sun and loses to space, and its temperature drifts toward whatever the sun currently supports:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    dT/dt = (F(t) - T) / tau"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "with tau the time it takes to respond. On 21 December the sunlight stops falling and starts rising — but F is still far BELOW T, so the surface keeps cooling. It only stops when the two meet, and that happens well after midwinter."
-     ]
-    },
-    {
-     "h": "THE LAG, EXACTLY",
-     "t": "p",
-     "lines": [
-      "Drive that with a yearly sine and the answer comes out in closed form. The response lags the forcing by"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    arctan(w x tau) / w        with w = 2 pi / 365"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "For tau = 30 days that is 28 days. Solstice on 21 December puts the coldest day around 18 January, which is about where it lands."
-     ]
-    },
-    {
-     "h": "THE CEILING",
-     "t": "p",
-     "lines": [
-      "However sluggish you make it, arctan can never exceed pi/2, so the lag can never exceed a QUARTER of a year — 91 days. No amount of thermal inertia will move the coldest day past the equinox. That ceiling is a property of the equation, not of weather."
-     ]
-    },
-    {
-     "h": "TWO EFFECTS, ONE NUMBER",
-     "t": "p",
-     "lines": [
-      "The same tau that delays the extreme also shrinks it, by 1/sqrt(1 + (w tau)^2). Big tau means late and mild; small tau means prompt and harsh. That is exactly the difference between a coastal and a continental climate, and it is why the sea peaks in late summer while the air over a desert peaks almost at once."
-     ]
-    },
-    {
-     "h": "THE TRANSFERABLE MOVE",
-     "t": "p",
-     "lines": [
-      "Any system that integrates its input responds late and small, and the two go together. A moving average lags the price it smooths; a thermostat overshoots; a capacitor charges behind its driving voltage. If a number is a running total of something noisy, its turning point is NOT the turning point of what drives it."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "how_many_bunches_on_one_lane",
    "title": "How many bunches on one lane",
