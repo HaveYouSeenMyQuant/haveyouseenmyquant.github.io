@@ -16,8 +16,776 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 458,
+ "count": 468,
  "entries": [
+  {
+   "slug": "same_money_more_shares",
+   "title": "Same money, more shares",
+   "ts": "2026-08-29T07:48:56+00:00",
+   "date": "29 Aug 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "Because spending a fixed sum makes your average cost the HARMONIC mean of the prices, and buying a fixed number makes it the ARITHMETIC mean — and the harmonic mean is never the larger of the two.",
+   "why": [
+    {
+     "h": "THE TWO AVERAGE COSTS",
+     "t": "p",
+     "lines": [
+      "Buy a fixed number k of shares at each price p1..pn. You spend k x sum(p), you own kn, so"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    average cost = sum(p) / n          the arithmetic mean"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Spend a fixed sum M instead. You get M/p shares each month, so"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    average cost = nM / (M x sum(1/p)) = n / sum(1/p)          the harmonic mean"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The M cancels. Your average cost does not depend on how much you drip in, only on the prices."
+     ]
+    },
+    {
+     "h": "WHY ONE IS ALWAYS BELOW THE OTHER",
+     "t": "p",
+     "lines": [
+      "Harmonic <= arithmetic for any set of positive numbers, with equality only when every number is identical. So the fixed-sum plan wins whenever the price moved at all, and ties if it never did. There is no price path that beats it — this is a theorem about numbers, not a forecast."
+     ]
+    },
+    {
+     "h": "THE WORKED CASE",
+     "t": "p",
+     "lines": [
+      "Prices 12, 8, 6, 10 and 120 a month:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    12 -> 10 shares",
+      "     8 -> 15",
+      "     6 -> 20",
+      "    10 -> 12          480 spent, 57 shares, 8.42 each"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Fixed number of shares, same 480 spent: 53.33 shares at 9.00 each. Same money, 3.67 more shares, because the 20-share month was also the cheap one."
+     ]
+    },
+    {
+     "h": "WHAT THIS DOES NOT SAY",
+     "t": "p",
+     "lines": [
+      "It does NOT say drip-feeding beats investing a lump sum up front. That is a different question with a different answer — historically the lump sum usually wins, because it spends longer in a market that drifts upward. The comparison here is strictly between two ways of drip-feeding the SAME money on the SAME dates."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It also says nothing about returns. A lower average cost is not a profit; if the price ends below your average cost you have simply lost less."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever you average a RATE, ask what is being held fixed underneath it. Fix the money and you weight by 1/price; fix the quantity and you weight by price. The same trap turns up in average speed over a fixed distance, cost per click, and any figure quoted as x per y."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "the_four_at_the_end",
+   "title": "The four at the end",
+   "ts": "2026-08-29T05:40:47+00:00",
+   "date": "29 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "The addition is exact. The two numbers being added are not 0.1 and 0.2, and never were - the error happened when they were typed, before any arithmetic took place.",
+   "why": [
+    {
+     "h": "WHY 0.1 CANNOT BE STORED",
+     "t": "p",
+     "lines": [
+      "A double stores a number in binary: a sum of halves, quarters, eighths and so on. Ask which of those add up to one tenth and the answer is that none of them do, ever. In binary,"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1/10 = 0.0001100110011001100110011... forever"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "with \"1100\" repeating, for precisely the reason 1/3 = 0.3333... never ends in decimal. A fraction terminates in base b only when its denominator's prime factors all divide b. Ten is 2 x 5; binary offers only the 2, and the 5 has nowhere to go."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the machine keeps the closest 53-bit number it has. That number is:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    0.1 -> 0.1000000000000000055511151231257827021181583404541015625",
+      "    0.2 -> 0.200000000000000011102230246251565404236316680908203125"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both slightly too big. Add them exactly and you get slightly more than 0.3 - and the nearest double to 0.3 happens to sit slightly BELOW three tenths:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    0.3 -> 0.299999999999999988897769753748434595763683319091796875"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The sum lands on a different double than the one 0.3 lands on. They are not equal, and the machine is right to say so."
+     ]
+    },
+    {
+     "h": "HOW COMMON IS THIS",
+     "t": "p",
+     "lines": [
+      "Of the hundred values 0.01, 0.02, ... 1.00, exactly four are stored perfectly: 0.25, 0.50, 0.75 and 1.00. Everything else - every price ending in anything but a quarter - is an approximation. That is 96 out of 100."
+     ]
+    },
+    {
+     "h": "WHAT IT IS NOT",
+     "t": "p",
+     "lines": [
+      "It is not \"rounding error accumulating\". A single conversion did it, before any operation ran. It is not imprecision in the addition; IEEE 754 addition is exact-then-rounded and here it is correctly rounded. And it is not a bug in any one language - every language on every machine using binary floating point gives the same answer, because they are all storing the same wrong number."
+     ]
+    },
+    {
+     "h": "WHAT TO DO INSTEAD",
+     "t": "p",
+     "lines": [
+      "Never store money in a float. Use integer minor units - pence, cents, satoshis - or a decimal type that keeps base 10. Never compare floats with ==; compare with a tolerance appropriate to the magnitudes involved. And be aware that summing a long list of floats gives different answers in different orders, which is why reproducible numerics is a whole discipline."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "The bug was in the representation, not in the operation - and it was already present in the input. When a system gives a slightly wrong answer, ask whether the arithmetic is wrong or whether it was handed something that was never the number you meant. That question separates a class of real bugs from a class of imaginary ones."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "the_radio_gets_round_the_hill",
+   "title": "The radio gets round the hill",
+   "ts": "2026-08-29T04:03:12+00:00",
+   "date": "29 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Because a shadow's edge is not sharp — it is blurred over a width that depends on how long the wave is. For radio that blur is tens or hundreds of metres. For light it is a couple of centimetres.",
+   "why": [
+    {
+     "h": "THE WIDTH OF THE BLUR",
+     "t": "p",
+     "lines": [
+      "Stand 1000 m behind the hill. The soft edge of the shadow is about sqrt(wavelength x distance) across:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    long-wave radio       1500 m      blur     1225 m",
+      "    FM radio               3.0 m      blur       55 m",
+      "    visible light      5.5e-07 m      blur      2.3 cm"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You are standing inside the blurred edge for radio, and hundreds of metres outside it for light. Same hill, same spot, same geometry. Only the wave is different."
+     ]
+    },
+    {
+     "h": "WHY THIS IS NOT ABOUT POWER",
+     "t": "p",
+     "lines": [
+      "A brighter torch does not reach further into the shadow — it makes the lit side brighter and the shadow just as dark. The blur width contains no term for how strong the source is, so a searchlight and a candle have shadow edges of exactly the same width. That is the test that rules out the intuitive answer."
+     ]
+    },
+    {
+     "h": "WHY AM RADIO COVERS VALLEYS AND FM DOES NOT",
+     "t": "p",
+     "lines": [
+      "1225 m of blur against 55 m. Long-wave stations were sited to exploit exactly this, which is why an AM signal follows you into a valley and an FM one drops out — and why FM transmitters are put on hills in the first place."
+     ]
+    },
+    {
+     "h": "YOU HEAR IT TOO",
+     "t": "p",
+     "lines": [
+      "Sound at a few hundred hertz has a wavelength around a metre, so it bends round corners easily. You hear a car before you see it, every time, and that is the same effect with a different wave."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whether an obstacle blocks something depends on the obstacle's size compared with the scale of the thing hitting it — never on the obstacle alone. A barrier that is enormous to one wave is invisible to another, and the only question worth asking is \"big compared to what\"."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "both_numbers_are_honest",
+   "title": "Both numbers are honest",
+   "ts": "2026-08-29T03:23:33+00:00",
+   "date": "29 Aug 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "Because the two numbers measure different things, and only one of them cares how much money was actually in the fund.",
+   "why": [
+    {
+     "h": "THE TWO RETURNS",
+     "t": "p",
+     "lines": [
+      "The fund reports a TIME-weighted return: compound the yearly percentages and ignore the cash coming in and out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1 + 1.00) x (1 - 0.50) - 1 = 0%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the right way to judge the manager. It is the return you would have got by putting in one pound at the start and leaving it there, and it deliberately strips out flows the manager does not control."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The investors experienced a MONEY-weighted return, which weights each period by how much was exposed to it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    start of year 1     1 in         ->  worth 2 at the year end",
+      "    new money arrives   +100         ->  102",
+      "    year 2 at -50%                   ->  51"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    put in 101, ended with 51        ->  -49.5%"
+     ]
+    },
+    {
+     "h": "WHERE THE GAP COMES FROM",
+     "t": "p",
+     "lines": [
+      "Almost nobody was in the fund for the good year. Almost everybody was in for the bad one, because money arrives AFTER good performance — that is when the fund appears in the rankings and gets written about."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the +100% applied to one pound and the -50% applied to a hundred and two."
+     ]
+    },
+    {
+     "h": "HOW BAD IT GETS",
+     "t": "pre",
+     "lines": [
+      "    late money      1   ->  investors -25.0%",
+      "    late money     10   ->  -45.5%",
+      "    late money    100   ->  -49.5%",
+      "    late money  1,000   ->  -50.0%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "As the late money grows, the investor return converges on the SECOND year's return alone: -50%. In the limit the good year might as well not have happened, because almost nobody was there for it."
+     ]
+    },
+    {
+     "h": "THE CONTROL",
+     "t": "p",
+     "lines": [
+      "Put all the money in at the start and the two returns are identical, to the penny. The gap is created entirely by WHEN the money moved, not by anything the fund did."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Whenever a rate is reported over a period, ask what was exposed to it. An average that ignores exposure will flatter anything that grew while small and shrank while large — which is the same arithmetic behind a company's headline growth rate, a strategy's backtest against its live capital, and any statistic where the denominator changed while nobody was looking."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "a_tenth_plus_a_fifth",
+   "title": "A tenth plus a fifth",
+   "ts": "2026-08-29T02:41:11+00:00",
+   "date": "29 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "0.30000000000000004. And it is not the addition that is wrong.",
+   "why": [
+    {
+     "h": "WHAT IS ACTUALLY STORED",
+     "t": "p",
+     "lines": [
+      "A binary fraction is a sum of halves, quarters, eighths. One tenth is not one of those and never becomes one — in binary it recurs forever, exactly as a third does in decimal. So the machine keeps the closest value that fits in 53 bits:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    0.1  ->  0.1000000000000000055511151231257827021181583404541015625",
+      "    0.2  ->  0.200000000000000011102230246251565404236316680908203125"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both are already slightly too big. Add them and you get a number slightly too big, 5.551E-17 above three tenths — which prints as 0.30000000000000004."
+     ]
+    },
+    {
+     "h": "THE CONTROL",
+     "t": "p",
+     "lines": [
+      "On the same hardware, in the same instruction, 0.5 + 0.25 is exactly 0.75. Those three are sums of powers of two, so nothing is approximated. That is how you can tell this is about which numbers can be WRITTEN rather than about arithmetic being unreliable."
+     ]
+    },
+    {
+     "h": "WHY IT IS NOT FIXED",
+     "t": "p",
+     "lines": [
+      "It is fixed, where it matters. Money is held in integer pence, or in decimal types that recur in base ten instead. The default is binary because it is what the hardware does, and for almost everything a part in ten thousand million million is beneath noticing."
+     ]
+    },
+    {
+     "h": "WHAT TO DO WITH IT",
+     "t": "p",
+     "lines": [
+      "Never compare two floats with equals. Ask whether the difference is smaller than something you care about — because \"the same number\" is a stronger claim than any measurement of the real world ever supports anyway."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "one_note_and_no_other",
+   "title": "One note and no other",
+   "ts": "2026-08-29T02:03:00+00:00",
+   "date": "29 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "About 1.7 cents wide. A sixtieth of a semitone — and it is the same fact as the glass ringing for seconds.",
+   "why": [
+    {
+     "h": "THE RESPONSE CURVE",
+     "t": "p",
+     "lines": [
+      "Drive any damped oscillator and its steady amplitude per unit force is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    A(w) = (F/m) / sqrt((w0^2 - w^2)^2 + (w0 w / Q)^2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Q says how slowly it loses energy. Two consequences fall out of the same Q:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    at the peak      A is 1,000x the static deflection",
+      "    peak width       0.55 Hz, which is f0 / Q"
+     ]
+    },
+    {
+     "h": "HOW NARROW THAT IS",
+     "t": "p",
+     "lines": [
+      "A semitone at 550 Hz is 32.7 Hz. The peak is 0.55 Hz wide — about 59 times narrower than a semitone, or 0.87 cents either side. A trained ear resolves maybe 5 cents, so you cannot hear how close you are."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sing one semitone off, just as hard, and the glass answers at 0.0082 of what it would have — about 122 times weaker. That is the whole difference between shattering and nothing."
+     ]
+    },
+    {
+     "h": "WHY THE TWO FACTS ARE ONE FACT",
+     "t": "p",
+     "lines": [
+      "The same Q sets how long it rings after you flick it: roughly Q/(pi f0), here 0.58 seconds. Long ring and narrow peak are not two properties of glass. They are the same number read in time and in frequency. Anything that rings for a long time is fussy about pitch, and anything that is fussy about pitch rings for a long time."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Ask what a system throws away. A thing that loses energy slowly must be selective about what it accepts, because those are the same statement."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "a_bet_you_expect_to_lose",
+   "title": "A bet you expect to lose",
+   "ts": "2026-08-29T01:02:34+00:00",
+   "date": "29 Aug 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "Because \"maximise the average outcome\" is the wrong scoring rule when one of the outcomes can wipe you out - and once you score it properly, paying over the odds is not merely acceptable, it is worth up to DOUBLE the fair price.",
+   "why": [
+    {
+     "h": "THE SETUP",
+     "t": "p",
+     "lines": [
+      "Wealth 100,000. A 1% chance of losing 80,000. The fair price of that risk is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    0.01 x 80,000  =  800"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The insurer asks 1,200. Their margin is 400, and on average you lose it: expected wealth is 99,200 if you carry the risk and 98,800 if you insure. By expected money, insuring is strictly worse - and by that rule nobody should ever buy any insurance at all, which should be the clue that the rule is wrong."
+     ]
+    },
+    {
+     "h": "WHAT THE RULE MISSES",
+     "t": "p",
+     "lines": [
+      "Money is not linear in what it does for you. Dropping from 100,000 to 20,000 is not \"80% of a bad day\" - it is a different life. The standard way to write that down is to score outcomes by the LOG of wealth, which says a pound matters more the fewer of them you have. Then:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    carry the risk:   0.99 x ln(100,000) + 0.01 x ln(20,000)  =  11.496831",
+      "    insure:                                ln(98,800)         =  11.500853"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Insuring wins, despite being 400 worse on average."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW MUCH IS IT WORTH?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Solve for the premium x that makes you indifferent - ln(100,000 - x) equal to the number above:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    x  =  100,000 - e^11.496831  =  1,597"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So you should pay up to 1,597 for a risk whose expected cost is 800. Exactly 2.00 times the fair price. Another way to say the same thing: a 1% chance of losing 80,000 feels like a certain loss of 1,597."
+     ]
+    },
+    {
+     "h": "WHY THE INSURER IS ALSO RIGHT",
+     "t": "p",
+     "lines": [
+      "They are not exploiting you. They hold thousands of these policies, so the law of large numbers converts a rare catastrophe into a predictable cost, and for them the average IS the right rule. The trade works because the same risk genuinely costs you more than it costs them. Both sides gain, which is why the industry exists at all."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before optimising an average, check what happens in the worst branch. If one outcome removes your ability to keep playing, the average is not measuring the thing you care about - and this is the same reason a gambler with an edge can still go broke by betting too much of the bankroll at once."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "how_many_picks_to_pass_one",
+   "title": "How many picks to pass one",
+   "ts": "2026-08-28T23:31:14+00:00",
+   "date": "28 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "It is e, about 2.718 — the same constant that runs compound interest and radioactive decay, turning up in a question about picking numbers out of a hat.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the whole argument in one line. The chance you are still going after n picks is the chance that n random numbers all fit under a total of one, and that is 1/n! — the volume of a corner of an n-dimensional cube. Add those chances up over all n and you get 1 + 1 + 1/2 + 1/6 + 1/24 + ... which is the series for e."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The useful habit: the expected value of a count is the sum of the probabilities that it is still going. That one move turns a hard question about averages into an easy question about survival, and it works far beyond this puzzle."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two draws are not enough on average, three are more than enough, and the honest answer sits between them at a number you already knew."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "three_tries_is_the_lock",
+   "title": "Three tries is the lock",
+   "ts": "2026-08-28T22:42:41+00:00",
+   "date": "28 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "The counter. The number itself is worth nothing at all.",
+   "why": [
+    {
+     "h": "THE SECRET IS NOT THE SECURITY",
+     "t": "p",
+     "lines": [
+      "4 digits is 10,000 possibilities. Give anyone 10,000 goes and they get in with probability 1 — not \"probably\", certainly. At a rate any laptop manages, 10,000 guesses takes well under a second. As a secret it is worthless."
+     ]
+    },
+    {
+     "h": "WHAT IS ACTUALLY DOING THE WORK",
+     "t": "p",
+     "lines": [
+      "The machine allows 3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(getting in) = 3 / 10,000 = 0.03%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole of the protection, and it does not care how clever the attacker is. There is no computation that beats a counter."
+     ]
+    },
+    {
+     "h": "PRICING THE COUNTER",
+     "t": "p",
+     "lines": [
+      "Suppose the counter were gone and someone had a copy to attack offline, at a slow-hash rate of 10,000 guesses a second, for a whole year. That is 3.15e+11 guesses. For them still to have only a 0.03% chance, the secret would need"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    3.15e+11 / 0.03% = 1.05e+15 possibilities = about 50 bits"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which is roughly 10 random letters and digits. Your 4-digit PIN, behind a counter, is doing the job of a 10-character password. The counter is worth about 37 bits of secret."
+     ]
+    },
+    {
+     "h": "WHY THIS IS NOT AN ARGUMENT FOR SHORT PASSWORDS",
+     "t": "p",
+     "lines": [
+      "A counter needs somebody to enforce it. The bank controls the card reader, so it can. A website that lets its password file be stolen has no counter any more, and then the length is all there is — which is exactly why the same 4 digits would be hopeless there."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Ask where the protection actually lives before improving the part you can see. Adding digits to a PIN behind a counter buys almost nothing; losing the counter costs everything."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "same_glass_now_white",
+   "title": "Same glass, now white",
+   "ts": "2026-08-28T22:04:13+00:00",
+   "date": "28 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Nothing was added. You only made more surfaces.",
+   "why": [
+    {
+     "h": "ONE SURFACE",
+     "t": "p",
+     "lines": [
+      "Light meeting a flat boundary straight on turns back a fraction that depends only on the two refractive indices:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    R = ((n1 - n2) / (n1 + n2))^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Air to glass is 1.00 to 1.52, so R = 0.0426 — about 4.3%. That is the faint reflection you see of yourself in a window, and it is why 95.7% of the light gets through. A sheet of glass has two of these surfaces and you can still read through it."
+     ]
+    },
+    {
+     "h": "MANY SURFACES",
+     "t": "p",
+     "lines": [
+      "Crushing changes none of that. It changes how many times light meets it. Add the intensities through a stack of n surfaces and the whole stack turns back"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    R(n) = n R / (1 + (n - 1) R)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "       1 surface   4.3%",
+      "       2 surfaces  8.2%",
+      "      10 surfaces  30.8%",
+      "     100 surfaces  81.6%",
+      "    1000 surfaces  97.8%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It takes 203 surfaces to turn back 90%. A centimetre of powder ground to ten microns has about 2,000 of them, and turns back 98.9%."
+     ]
+    },
+    {
+     "h": "WHY WHITE AND NOT SILVER",
+     "t": "p",
+     "lines": [
+      "Every wavelength is turned back by very nearly the same fraction, so what comes out is whatever went in — and daylight in gives white out. The directions are scrambled, so it is white rather than a mirror image."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "A tiny per-step probability is not a tiny effect. Repeat it enough times and the rare outcome becomes the certain one. Snow, clouds, sugar, salt and bone are all transparent material with enough surfaces in the way."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_cross_is_not_the_shortest",
    "title": "The cross is not the shortest",
@@ -28741,5 +29509,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "the_blades_came_out_bent"
+ "featured": "the_cross_is_not_the_shortest"
 };
