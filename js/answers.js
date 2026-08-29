@@ -16,8 +16,48 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 470,
+ "count": 471,
  "entries": [
+  {
+   "slug": "how_many_bunches_on_one_lane",
+   "title": "How many bunches on one lane",
+   "ts": "2026-08-29T10:45:04+00:00",
+   "date": "29 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "About 5.2 — five bunches from a hundred cars, and the count barely moves however many more you add.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A car leads a bunch exactly when it is slower than every car ahead of it, because anything faster ahead has already driven away and anything slower ahead would have caught it. So the question is: how many cars are the slowest so far, counting from the front?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For the k-th car that has probability 1/k — of the first k cars, any one of them is equally likely to be the slowest. Add those up over a hundred cars and you get 1 + 1/2 + 1/3 + ... + 1/100 = 5.187."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The move worth keeping is the first one: expected COUNTS are sums of probabilities, one per thing that might be counted, and they add whether or not the events are independent. These are not independent, and it does not matter."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It also explains why a motorway does not fill with a hundred separate queues. Doubling the traffic to two hundred cars adds about 0.7 of a bunch."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "it_tells_you_how_close",
    "title": "It tells you how close you are",
