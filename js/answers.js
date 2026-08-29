@@ -19,40 +19,56 @@ window.QQ_ANSWERS = {
  "count": 471,
  "entries": [
   {
-   "slug": "how_many_bunches_on_one_lane",
-   "title": "How many bunches on one lane",
-   "ts": "2026-08-29T10:41:16+00:00",
+   "slug": "forwards_but_the_wheels_go_back",
+   "title": "Forwards, but the wheels go back",
+   "ts": "2026-08-29T10:41:28+00:00",
    "date": "29 Aug 2026",
-   "topic": "probability",
+   "topic": "cs_systems",
    "q": null,
-   "a": "About 5.2 — five bunches from a hundred cars, and the count barely moves however many more you add.",
+   "a": "Because film does not record motion. It records 24 still pictures a second, and between two of them the wheel has moved 28 degrees — but the spokes are 30 degrees apart and identical, so nothing in the frames can tell you it went forwards 28 rather than backwards 2.",
    "why": [
     {
-     "h": null,
-     "t": "p",
+     "h": "WHAT THE FRAMES ACTUALLY SUPPORT",
+     "t": "pre",
      "lines": [
-      "A car leads a bunch exactly when it is slower than every car ahead of it, because anything faster ahead has already driven away and anything slower ahead would have caught it. So the question is: how many cars are the slowest so far, counting from the front?"
+      "    true rotation      28 deg per frame  =  1.87 turns a second, forwards",
+      "    spoke spacing      30 deg",
+      "    smallest reading   -2 deg per frame  =  -0.13 turns a second"
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "For the k-th car that has probability 1/k — of the first k cars, any one of them is equally likely to be the slowest. Add those up over a hundred cars and you get 1 + 1/2 + 1/3 + ... + 1/100 = 5.187."
+      "Your eye takes the smallest change that fits, because that is the only sane way to join up a sequence of stills. The film is not reversed and nothing was edited — backwards is a correct reading of the evidence. It is simply not the only one."
      ]
     },
     {
-     "h": null,
+     "h": "THE WHEEL CAN ALSO STOP DEAD",
      "t": "p",
      "lines": [
-      "The move worth keeping is the first one: expected COUNTS are sums of probabilities, one per thing that might be counted, and they add whether or not the events are independent. These are not independent, and it does not matter."
+      "If the wheel turns an exact whole number of spoke-spacings between frames, every frame is identical and it appears perfectly still while the cart tears along. That happens at 2, 4 and 6 turns a second for this wheel — and at no speed in between."
      ]
     },
     {
-     "h": null,
+     "h": "WHY THE CART DOES NOT DO IT",
      "t": "p",
      "lines": [
-      "It also explains why a motorway does not fill with a hundred separate queues. Doubling the traffic to two hundred cars adds about 0.7 of a bunch."
+      "The cart's position is not periodic. There is no second interpretation of \"it moved 40 cm\", so it cannot be misread, and it advances honestly in the very frames whose wheels are running backwards. Both readings come from the same pictures and both are right."
+     ]
+    },
+    {
+     "h": "MORE SPOKES IS WORSE",
+     "t": "p",
+     "lines": [
+      "Misreading becomes possible as soon as the spokes pass the lens faster than half the frame rate — 12 spokes at 24 frames a second means anything above 1 turn a second is already ambiguous. A wheel with one chalk mark stays honest 12x longer."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Sampling a repeating thing too slowly does not blur it — it produces a confident, sharp, WRONG answer at a completely different frequency. Which is why a monitoring dashboard polling once a minute can miss a fault that cycles every 61 seconds and instead report a slow drift that does not exist."
      ]
     }
    ],
