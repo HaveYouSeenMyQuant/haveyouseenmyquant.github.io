@@ -16,8 +16,84 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 471,
+ "count": 472,
  "entries": [
+  {
+   "slug": "a_hundred_times_the_signal",
+   "title": "A hundred times the signal",
+   "ts": "2026-08-29T19:20:54+00:00",
+   "date": "29 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Because speed follows the LOGARITHM of the signal, and bars are already a power scale.",
+   "why": [
+    {
+     "h": "WHAT A CHANNEL CAN CARRY",
+     "t": "pre",
+     "lines": [
+      "    C = B x log2(1 + S/N)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Bandwidth B multiplies. The signal S sits inside a logarithm. That single difference is the whole answer."
+     ]
+    },
+    {
+     "h": "THE NUMBERS",
+     "t": "p",
+     "lines": [
+      "Take a 20 MHz channel and move from 10 dB to 30 dB of signal-to-noise:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    10 dB    S/N =      10      69.2 Mbit/s",
+      "    30 dB    S/N =   1,000     199.3 Mbit/s"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is 100 times the power for 2.88 times the speed."
+     ]
+    },
+    {
+     "h": "EVERY BAR COSTS TEN TIMES AS MUCH",
+     "t": "p",
+     "lines": [
+      "Each 10 dB is ten times the power and buys a FIXED 3.32 bits per second per hertz — the same whether it is your first bar or your fifth. The last bar is not less useful than the first; it just costs ten times more to get."
+     ]
+    },
+    {
+     "h": "WHERE MORE POWER DOES HELP",
+     "t": "p",
+     "lines": [
+      "Down at the bottom, where the signal is comparable to the noise, the logarithm has not kicked in yet and capacity rises almost in proportion to power. Going from -10 dB to 0 dB roughly 7.3x the speed. That is why one bar to two feels transformative and four bars to five does not."
+     ]
+    },
+    {
+     "h": "WHY THE INDUSTRY BUYS SPECTRUM",
+     "t": "p",
+     "lines": [
+      "Double the bandwidth and you exactly double the capacity — it is outside the logarithm. Doubling the power adds 1 bit per hertz and nothing more. Spectrum is expensive because it is the half of the equation that scales."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before optimising a quantity, find out whether the thing you care about depends on it linearly or logarithmically. Those two cases deserve completely different amounts of effort."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_many_bunches_on_one_lane",
    "title": "How many bunches on one lane",
