@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_padlock_with_no_key",
    "title": "A padlock with no key",
-   "ts": "2026-08-29T09:22:14+00:00",
+   "ts": "2026-08-29T09:23:51+00:00",
    "date": "29 Aug 2026",
    "topic": "cs_systems",
    "q": null,
