@@ -16,8 +16,101 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 469,
+ "count": 470,
  "entries": [
+  {
+   "slug": "it_tells_you_how_close",
+   "title": "It tells you how close you are",
+   "ts": "2026-08-29T10:00:38+00:00",
+   "date": "29 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "It never says how close you are. It shows you, by how long it takes to say no.",
+   "why": [
+    {
+     "h": "THE OBVIOUS COMPARISON",
+     "t": "p",
+     "lines": [
+      "Walk both strings and stop at the first difference. Every language does this, and it is correct: it returns exactly the right answer every time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But the ANSWER is not all that leaves the machine. The work done leaves too. A guess sharing no first character stops after one comparison. One sharing three stops after four. A stopwatch outside turns that into a running score of how much you have got right."
+     ]
+    },
+    {
+     "h": "WHAT THAT COSTS",
+     "t": "p",
+     "lines": [
+      "Guess each character in turn and keep whichever takes longest:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    blind, 16 characters from 95   4.4e+31 possibilities",
+      "    with the leak, worst case         1,520 guesses",
+      "    with the leak, on average         760 guesses"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A number with 32 digits in it becomes a number with three. Run against the real thing in this module, the attacker recovers \"correcthorse7\" in 466 guesses using nothing but the count."
+     ]
+    },
+    {
+     "h": "THE FIX",
+     "t": "p",
+     "lines": [
+      "Always look at every position, whatever you find:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    diff = 0",
+      "    for a, b in zip(guess, secret): diff |= a XOR b",
+      "    return diff == 0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same verdict, constant work. Run the identical attacker against it and it recovers \"aaaaaaaaaaaaa\" — nothing. That is why library functions for comparing secrets are named things like compare_digest rather than ==."
+     ]
+    },
+    {
+     "h": "THE LAST CHARACTER IS FREE",
+     "t": "p",
+     "lines": [
+      "One subtlety the attack runs into: at the final position, a right guess and a wrong one both walk the whole string, so the work is identical and the leak says nothing. It does not matter. The check's own verdict settles that one, and the verdict is the thing it exists to give you."
+     ]
+    },
+    {
+     "h": "WHY THIS IS HARD TO SPOT",
+     "t": "p",
+     "lines": [
+      "The code is obviously correct, and testing it will never fail. Nothing about the output is wrong. The bug is in a quantity nobody thought was an output."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Ask what leaves a system besides its answer. Duration, size, order and temperature are all outputs whether you meant them to be or not."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_padlock_with_no_key",
    "title": "A padlock with no key",
