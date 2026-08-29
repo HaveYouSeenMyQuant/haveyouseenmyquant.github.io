@@ -16,8 +16,112 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 468,
+ "count": 469,
  "entries": [
+  {
+   "slug": "a_padlock_with_no_key",
+   "title": "A padlock with no key",
+   "ts": "2026-08-29T09:22:14+00:00",
+   "date": "29 Aug 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Because locking and unlocking do not have to be the same operation. I publish a number that lets anyone lock, and keep a different number that unlocks - and the second cannot be worked out from the first without solving a problem nobody knows how to solve quickly.",
+   "why": [
+    {
+     "h": "THE WHOLE SCHEME, IN FOUR LINES",
+     "t": "p",
+     "lines": [
+      "Take two primes and multiply them:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    p = 1009,  q = 1013,  n = p x q = 1,022,117"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Compute how many numbers below n share no factor with it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    phi = (p-1)(q-1) = 1,020,096"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Pick a public exponent e = 65537, and find d with e x d = 1 (mod phi):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    d = 832,193"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now (n, e) is the padlock and goes on my website. d is the key and never moves. To send me a message m:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    lock:    c = m^e mod n",
+      "    unlock:  m = c^d mod n"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "With m = 42,424 that is 42,424 -> 768,128 -> 42,424. The middle number is what an eavesdropper sees."
+     ]
+    },
+    {
+     "h": "WHY THE PADLOCK DOES NOT GIVE AWAY THE KEY",
+     "t": "p",
+     "lines": [
+      "d was computed from phi, and phi came from p and q. An attacker has n but not p and q. Recovering them means FACTORING n - and while multiplying two 300-digit primes takes microseconds, splitting the product back apart is something no published algorithm does in reasonable time on a classical machine."
+     ]
+    },
+    {
+     "h": "THE PART MOST EXPLANATIONS SKIP",
+     "t": "p",
+     "lines": [
+      "None of this makes the example above secure. n = 1,022,117 falls to trial division in about forty microseconds - I measured it. The mechanism is the same at every size; the SECURITY is entirely a statement about size. A real 2048-bit modulus has about 617 digits, and trial division would face roughly 10^308 candidates, which is more operations than there are atoms in the observable universe."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the honest summary is: the trick is what makes it possible, and the size is what makes it safe. They are two separate claims and only the first one is arithmetic."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Look for problems where doing something and undoing it have wildly different costs. Multiplication and factoring, or evaluating and inverting - the whole of public-key cryptography is built in that gap, and once you are looking for asymmetric cost you start seeing it in places that have nothing to do with secrecy."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "same_money_more_shares",
    "title": "Same money, more shares",
