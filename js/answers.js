@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "stop_at_a_hundred",
    "title": "Stop at a hundred",
-   "ts": "2026-08-30T17:52:39+00:00",
+   "ts": "2026-08-30T18:04:53+00:00",
    "date": "30 Aug 2026",
    "topic": "probability",
    "q": null,
