@@ -16,12 +16,52 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 472,
+ "count": 473,
  "entries": [
+  {
+   "slug": "which_cards_test_the_rule",
+   "title": "Which cards test the rule",
+   "ts": "2026-08-30T16:56:49+00:00",
+   "date": "30 Aug 2026",
+   "topic": "logic",
+   "q": null,
+   "a": "The A and the 7 — and almost nobody says the 7.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rule is \"a vowel on one side means an even number on the other\". There is exactly one way to break it: a vowel sitting opposite an odd number. So the only cards worth turning are the ones that could be that."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The A could have an odd number behind it, so it must be turned. The 7 is an odd number, and could have a vowel behind it, so it must be turned too."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The other two cannot break anything. The K is not a vowel, and the rule says nothing about consonants — whatever is behind it, the rule survives. The 4 is the trap: people turn it because finding a vowel there would confirm the rule, but confirmation is not a test. Even if a consonant is behind the 4, the rule is untouched."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The habit worth keeping: to test a claim, look for the observation that could prove it FALSE. Turning the 4 can only ever agree with you, and an experiment that cannot fail teaches nothing — which is the whole of why a hypothesis has to be falsifiable."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "both_follow_the_same_share",
    "title": "Both follow the same share",
-   "ts": "2026-08-30T10:21:44+00:00",
+   "ts": "2026-08-30T10:23:10+00:00",
    "date": "30 Aug 2026",
    "topic": "statistics",
    "q": null,
