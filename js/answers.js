@@ -16,84 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 472,
+ "count": 471,
  "entries": [
-  {
-   "slug": "every_piece_has_both_ends",
-   "title": "Every piece has both ends",
-   "ts": "2026-08-30T05:00:12+00:00",
-   "date": "30 Aug 2026",
-   "topic": "physics",
-   "q": null,
-   "a": "Because the field never starts anywhere. It has no ends to separate — every line of it closes on itself, so cutting the magnet just exposes more of the same loop.",
-   "why": [
-    {
-     "h": "THE TEST FOR A LONE POLE",
-     "t": "p",
-     "lines": [
-      "Draw any closed surface and add up how much field crosses it, counting outward as positive. If something inside were a genuine source, more would leave than enter and the total would come out positive. That is exactly what happens with an electric charge:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    sphere around a charge      +12.566     (a real source)"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Now the same integral on a magnet:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    sphere around the whole     -0.000",
-      "    sphere around ONE END       +0.000"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Zero, and zero. The second one is the interesting one: you cannot even draw a surface that contains only the north end and catch anything leaking out of it. Every line entering leaves again."
-     ]
-    },
-    {
-     "h": "WHY CUTTING CANNOT HELP",
-     "t": "p",
-     "lines": [
-      "A bar magnet is not a north thing stuck to a south thing. It is a stack of tiny loops of current, all lined up, and the \"poles\" are just where those loops happen to stop. Cut it and each half is still a stack of loops, so each half still has a place where they start and a place where they stop."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Go down to a single atom and it is still a loop — an electron's orbit and spin — with both ends."
-     ]
-    },
-    {
-     "h": "HAS ANYONE LOOKED",
-     "t": "p",
-     "lines": [
-      "Yes, hard. Isolated magnetic poles are predicted by several theories and searched for for a century, in cosmic rays, in accelerators, in lunar rock. The count so far is one disputed event in 1982. If one exists it is very rare and very heavy."
-     ]
-    },
-    {
-     "h": "THE TRANSFERABLE MOVE",
-     "t": "p",
-     "lines": [
-      "Before asking how to separate two things, check whether they are two things. North and south are not components of a magnet — they are the two ends of one thing, and \"cut it in half\" is the wrong question in the same way as asking for a stick with only one end."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "how_many_bunches_on_one_lane",
    "title": "How many bunches on one lane",
