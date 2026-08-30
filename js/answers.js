@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "both_follow_the_same_share",
    "title": "Both follow the same share",
-   "ts": "2026-08-30T10:21:23+00:00",
+   "ts": "2026-08-30T10:21:44+00:00",
    "date": "30 Aug 2026",
    "topic": "statistics",
    "q": null,
