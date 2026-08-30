@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "ten_steps_one_or_two",
    "title": "Ten steps, one or two at a time",
-   "ts": "2026-08-30T19:58:35+00:00",
+   "ts": "2026-08-30T20:00:18+00:00",
    "date": "30 Aug 2026",
    "topic": "combinatorics",
    "q": null,
