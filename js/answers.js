@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 474,
+ "count": 475,
  "entries": [
+  {
+   "slug": "ten_steps_one_or_two",
+   "title": "Ten steps, one or two at a time",
+   "ts": "2026-08-30T19:58:35+00:00",
+   "date": "30 Aug 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "Eighty-nine.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You do not need a formula. Ask how you arrived at the top step. Your last move was either a single step, which means you were on step nine, or a double, which means you were on step eight. There is no third option. So the routes to step ten are exactly the routes to step nine plus the routes to step eight."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That rule is true at every step, so count forwards from the bottom:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    step   1    2    3    4    5    6    7    8    9   10",
+      "    ways   1    2    3    5    8   13   21   34   55   89"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each number is the two before it added together."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THAT ARGUMENT IS THE WHOLE ANSWER. It never asks what a route looks like. It only asks where your last move started, and the answer to that is \"one of two places\" no matter how big the staircase is. Ten lines of arithmetic beats trying to picture eighty-nine routes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART THAT CATCHES PEOPLE OUT. The obvious first move is to count how many doubles you take — none, one, two, up to five — and count the orderings of each. That works, and it gives 1 + 9 + 36 + 56 + 35 + 6 = 143... except it does not, because the orderings have to be counted out of the number of MOVES, not the number of steps. Get that wrong by one and the sum is wrong and looks right. The step-by-step count has no such trap in it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. When something is built up by repeated choices, do not try to describe the finished thing. Ask what the last choice was, and how few places it could have come from. That question turns most counting problems into a short table."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "stop_at_a_hundred",
    "title": "Stop at a hundred",
