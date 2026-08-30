@@ -16,12 +16,77 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 473,
+ "count": 474,
  "entries": [
+  {
+   "slug": "stop_at_a_hundred",
+   "title": "Stop at a hundred",
+   "ts": "2026-08-30T17:52:39+00:00",
+   "date": "30 Aug 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "A hundred exactly. And it is not close — 100 turns up six times as often as 105.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The six possible finishing totals, with their chances:"
+     ]
+    },
+    {
+     "h": "100   6/21   28.6%",
+     "t": "pre",
+     "lines": [
+      "    101   5/21   23.8%",
+      "    102   4/21   19.0%",
+      "    103   3/21   14.3%",
+      "    104   2/21    9.5%",
+      "    105   1/21    4.8%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "(Those fractions are not quite exact, and the gap is worth a line. The counting argument below is exact only if the six totals just under 100 are equally likely. They are not — but by 94 the walk has forgotten where it started so thoroughly that they agree to about one part in a thousand million million. The true answers differ from 6/21 and friends far below the third decimal.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Think about where you were on the roll before you stopped. That total was somewhere in 94 to 99, and by then the walk has been going long enough that all six of those are very nearly equally likely."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now count the ways to land on each finish. You reach 100 from 94, 95, 96, 97, 98 or 99 — six starting points, each needing one particular face. You reach 105 only from 99, and only with a six. Every step up from 100 loses you one of the ways in. Six ways, five, four, three, two, one — which is exactly the 6:5:4:3:2:1 in the table."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART THAT CATCHES PEOPLE OUT. Almost everyone's first instinct is that the six finishes are roughly equally likely, or that the middle ones are favoured the way the sum of two dice favours seven. Both are wrong, and for the same reason: this is not a sum of a fixed number of dice. The number of rolls is decided by the process itself, and the stopping rule bends the answer toward the lowest finish."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. When a process runs until it crosses a line, ask how many states could have been the last one before the crossing. That count, not the arithmetic of the steps, is usually what shapes the answer. It is the same idea as the overshoot in renewal theory, and it is why a bus that comes every ten minutes still leaves you waiting longer than five."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "which_cards_test_the_rule",
    "title": "Which cards test the rule",
-   "ts": "2026-08-30T16:56:49+00:00",
+   "ts": "2026-08-30T17:03:22+00:00",
    "date": "30 Aug 2026",
    "topic": "logic",
    "q": null,
