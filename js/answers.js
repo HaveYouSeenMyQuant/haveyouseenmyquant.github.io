@@ -16,85 +16,8 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 472,
+ "count": 471,
  "entries": [
-  {
-   "slug": "nothing_can_reach_them",
-   "title": "Nothing can reach them",
-   "ts": "2026-08-30T05:45:10+00:00",
-   "date": "30 Aug 2026",
-   "topic": "cs_systems",
-   "q": null,
-   "a": "Because counting references only asks \"is anyone pointing at this?\", and the two objects are pointing at each other. Each keeps the other's count at one, so neither ever reaches zero, and the pair survives forever despite being unreachable from anywhere in the program.",
-   "why": [
-    {
-     "h": "WHAT REFERENCE COUNTING DOES",
-     "t": "p",
-     "lines": [
-      "Every object carries a count of how many references point to it. Assigning a name adds one, dropping a name subtracts one, and at zero the object is freed immediately. It is simple, it is prompt, and for most objects it is completely correct:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    two plain objects, both names deleted  ->  0 alive"
-     ]
-    },
-    {
-     "h": "WHAT BREAKS IT",
-     "t": "pre",
-     "lines": [
-      "    x.ref = y",
-      "    y.ref = x",
-      "    del x, y"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Deleting both names drops each count from two to one - not to zero, because each object is still being pointed at BY THE OTHER ONE. Nothing in the program can reach either of them ever again, and both remain in memory:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "    two objects in a cycle, both names deleted  ->  2 alive"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Repeat that in a loop and it is a real leak. Ten thousand such pairs, created and dropped, leave twenty thousand objects alive. Measured, in this interpreter, with the cycle collector disabled."
-     ]
-    },
-    {
-     "h": "WHY IT CANNOT BE PATCHED",
-     "t": "p",
-     "lines": [
-      "Counting is a LOCAL test - it looks only at the object itself. Reachability is a GLOBAL property, about whether a path exists from any live variable. A local test cannot answer a global question, and the cycle is exactly where the two come apart."
-     ]
-    },
-    {
-     "h": "WHAT LANGUAGES ACTUALLY DO",
-     "t": "p",
-     "lines": [
-      "Nothing that counts references relies on counting alone. Python runs a tracing collector alongside it, which periodically walks everything reachable from the live roots and reclaims what it did not visit - that is what recovers the pair above. Languages with no reference counting at all, like Java or Go, trace from the start and never have this problem. And the ones that leave it to you, like C++ with shared pointers, hand you the same trap: two shared pointers holding each other never release, which is why weak pointers exist."
-     ]
-    },
-    {
-     "h": "THE TRANSFERABLE MOVE",
-     "t": "p",
-     "lines": [
-      "When a cheap local test stands in for an expensive global property, look for the case where the local information is complete and the global answer is still wrong. A cycle is the standard shape of that failure, and it turns up far outside memory management - in deadlock, in dependency resolution, in accounting for who owns what."
-     ]
-    }
-   ],
-   "src": "answer"
-  },
   {
    "slug": "how_many_bunches_on_one_lane",
    "title": "How many bunches on one lane",
