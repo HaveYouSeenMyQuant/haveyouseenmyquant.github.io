@@ -16,8 +16,41 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 471,
+ "count": 472,
  "entries": [
+  {
+   "slug": "both_follow_the_same_share",
+   "title": "Both follow the same share",
+   "ts": "2026-08-30T10:21:23+00:00",
+   "date": "30 Aug 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "They can drop to 0.62, and not one step further.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Picture each share as an arrow from the same point, where correlation is the cosine of the angle between two arrows. A correlation of 0.9 is then a fixed angle, about 25.8 degrees. A sits 25.8 degrees from B. C sits 25.8 degrees from B as well — but nothing says which side. Swing C round to the far side and the gap between A and C opens to 51.7 degrees, and the cosine of that is 0.62."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the honest range is 0.62 up to 1.00. Two answers people give are both wrong: \"they could be unrelated\" ignores the floor entirely, and \"0.9 times 0.9, so 0.81\" is only the middle of the range, not the bottom."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The useful habit: correlations are angles, and angles obey a triangle inequality. Being close to the same thing forces two things to be close to each other — by an amount you can compute rather than guess. A book holding A and C as independent hedges is holding at least 0.62 of the same bet."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_many_bunches_on_one_lane",
    "title": "How many bunches on one lane",
