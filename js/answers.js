@@ -16,8 +16,112 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 471,
+ "count": 472,
  "entries": [
+  {
+   "slug": "the_sand_does_not_care",
+   "title": "The sand does not care",
+   "ts": "2026-08-30T09:16:17+00:00",
+   "date": "30 Aug 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Grains do not press on the hole. The weight above never reaches it.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WATER: THE DEPTH IS EVERYTHING"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A liquid leaves a hole at sqrt(2 g h), where h is the depth above it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    20 cm of water   1.98 m/s",
+      "    1 cm of water    0.44 m/s"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So a straight-sided bucket empties 4.5 times faster at the start than at the end. It cannot keep time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "SAND: THE DEPTH IS ABSENT"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Grains jam against each other and form arches over the opening. Those arches carry the weight sideways into the walls, so the material at the hole feels only the small amount directly above it. What comes out is set by the hole and the grain size:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    flow = C rho sqrt(g) (D - k d)^(5/2) = 12.4 g/s"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is no h in that expression. A full hourglass and a nearly empty one pour at the same rate, which is why an hourglass is two plain cones and needs no calibration beyond the hole."
+     ]
+    },
+    {
+     "h": "THE EXPONENT IS NOT 2",
+     "t": "p",
+     "lines": [
+      "Notice the power: five halves, not two. And it applies to (D - k d), the opening minus a grain-sized border that never flows, not to D itself. So doubling an 8 mm hole multiplies the flow by 6.4 — more than quadrupling, and not the 5.7 you would get if the border were not there. The extra half power comes from the grains needing to accelerate through a region about as wide as the opening."
+     ]
+    },
+    {
+     "h": "WHAT A WATER CLOCK HAS TO DO INSTEAD",
+     "t": "p",
+     "lines": [
+      "To make water fall at a steady rate you must widen the vessel where the water is deep, so that the faster flow drains a bigger cross-section. The condition is A(h) proportional to sqrt(h), which means"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    radius proportional to h^(1/4)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Simulated here, that shape holds the level's fall constant to within 0.00%. Ancient clepsydrae were turned to exactly this profile centuries before anyone could write the equation down."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something is insensitive to a quantity you expected to matter, look for a structure that is carrying the load somewhere else."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_many_bunches_on_one_lane",
    "title": "How many bunches on one lane",
