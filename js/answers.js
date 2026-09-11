@@ -16,8 +16,116 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 475,
+ "count": 477,
  "entries": [
+  {
+   "slug": "the_feature_that_knew_the_answer",
+   "title": "The column that already knew",
+   "ts": "2026-09-11T16:30:40+00:00",
+   "date": "11 Sep 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "The closing fee. A fee is charged when an account is closed, so that box can only be filled in after the thing you are trying to predict has already happened. The model was not predicting anything — it was reading the answer.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW YOU SPOT IT, AND THE FIRST STEP IS THE ONE PEOPLE SKIP. The symptom is the score itself. A messy human problem that suddenly comes out nearly perfect is not good news, it is the single most reliable sign of leakage. Treat a surprisingly high score as a bug report, not a result."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STEP TWO: ask the model which column it leans on. Look at the fitted weights, or at permutation importance, or just retrain with one column removed at a time. Here one column carries a weight several times larger than everything else put together. That is your suspect."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STEP THREE, AND THIS IS THE WHOLE TEST: for the top column, ask \"would I actually have this value at the moment I have to make the prediction?\" Not \"is it in the table\" — every column is in the table. Anything stamped, closed, cancelled, refunded, settled, resolved or dated after the event fails that question. So do most columns whose name contains a date."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STEP FOUR: fix it properly. Drop the offending column and refit. Then stop splitting the rows at random, because a random split lets the model see rows from the same week it is being tested on, and split by TIME instead — train on everything before a cut-off date, test on everything after it. A time split reproduces the real job: predicting forward, with only what was knowable then."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE NUMBERS LOOK LIKE. With the leaked column the model scores nearly perfect offline and drops to a coin toss the moment that column is not available. The honest model — same rows, leaked column deleted — scores about three in four, and it scores the same on fresh customers as it did in testing. Worse offline, and the only one of the two that is worth anything."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION WORTH NAMING. The picture assumes the live customers come from the same population as the training ones, which is why the collapse here is purely leakage and not drift. In a real system both happen at once, and telling them apart is exactly why the time split matters: drift shows up as a score that decays gradually with the test date, while leakage shows up as a cliff the moment the column goes missing."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "the_monkey_and_the_sandbag",
+   "title": "The monkey and the sandbag",
+   "ts": "2026-09-11T16:08:35+00:00",
+   "date": "11 Sep 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "The sandbag rises too — at exactly the same rate as the monkey. They stay level with each other the whole way up, however fast or slowly the monkey climbs.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. The wheel turns freely, so it cannot make the rope pull harder on one side than the other. There is one pull in that rope and both ends feel it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Write down what each end feels. The monkey feels that pull upward and its own weight downward. The sandbag feels the same pull upward and its own weight downward. The weights are equal, so the two ends are being pushed around by identical amounts — and they respond identically. Whatever the monkey does to itself, it does to the sandbag at the same instant."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the monkey can scramble, or inch up, or stop dead. The gap between it and the sandbag never changes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART THAT CATCHES PEOPLE OUT. Almost everyone's instinct is that climbing \"uses up\" the balance somehow — that the monkey pulls itself past the sandbag, or that the sandbag drops as the monkey rises. Both picture the rope as something the monkey can act on without the sandbag noticing. It cannot. Pulling harder to climb is the same act as pulling the sandbag up harder."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Worth noticing what the answer does NOT depend on: how heavy they are, how fast the monkey climbs, or whether it climbs smoothly. Only that the two weights are equal."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. When a single rope, shaft or wire connects two things through something that turns freely, the first question is always \"is it the same pull at both ends?\" If it is, the two ends are not two problems. They are one."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ten_steps_one_or_two",
    "title": "Ten steps, one or two at a time",
@@ -29946,5 +30054,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "the_cross_is_not_the_shortest"
+ "featured": "the_faulty_bolt"
 };
