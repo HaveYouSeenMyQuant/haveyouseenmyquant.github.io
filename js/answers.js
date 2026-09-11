@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 477,
+ "count": 478,
  "entries": [
+  {
+   "slug": "two_models_same_score",
+   "title": "Two lines, the same score, very different money",
+   "ts": "2026-09-11T18:06:10+00:00",
+   "date": "11 Sep 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Put the line where the price of a miss and the price of a false alarm balance out. Not at a half - a half is a setting nobody chose.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WRITE DOWN THE PRICE OF EACH MISTAKE FIRST. A stolen payment that goes through costs 200 pounds. A good payment you stop costs 2 pounds of somebody's time. Those two numbers are the whole decision, and they are the two numbers nobody asks for."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "NOW WORK OUT WHERE THEY BALANCE. Suppose the machine says a payment has chance p of being stolen. Stop it and you expect to pay 2 pounds for nothing whenever it was fine, which is (1 - p) x 2. Let it through and you expect to pay 200 pounds whenever it was stolen, which is p x 200. Stopping is worth it as soon as p x 200 is bigger than (1 - p) x 2, and the two sides are equal at"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    p* = 2 / (2 + 200) = 1/101 = 0.0099"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So stop anything the machine scores above about one percent. That is fifty times lower than a half. On a simulated two hundred thousand payments with honest scores, sweeping the line over every position puts the cheapest line at 0.0099 - the formula and the sweep agree - and leaving it at a half costs about 2.2 times as much money."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE TWO LINES IN THE VIDEO SCORE THE SAME. Accuracy counts a miss and a false alarm as one mistake each, so it is the special case of this sum where both prices are 1 pound. Change the prices and the same two lines stop being equal: on the forty payments drawn, both lines get 32 of 40 right, and one of them loses 1,006 pounds while the other loses 214. Same headline number, nearly five times the money. And the line that scores HIGHEST - 35 of 40 - is the most expensive one on the whole sweep, at 1,000 pounds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE METHOD, WHICH IS THE ANSWER. Write down the cost of each of the two mistakes. Sweep the threshold across every value. Pick the one with the lowest total cost, not the highest accuracy. Then re-check it, because p* moves the moment the prices move, and the SWEPT total moves the moment the base rate moves - a quiet month with half the fraud pushes the cheapest line higher, so the threshold is a number you maintain, not a number you set once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. This assumes the score really is a chance - that among payments scored 0.03, about three in a hundred are stolen. Most models out of the box are not calibrated like that, and then p* is the right rule applied to the wrong numbers.",
+      "Calibrate first (Platt scaling or isotonic regression on held-out data), or skip the formula and simply sweep the raw score for the cheapest cut, which needs no calibration at all.",
+      "It also assumes every miss costs the same, which a bank with a 5 pound fraud and a 5,000 pound fraud would not accept - then you weight each payment by its own amount."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_feature_that_knew_the_answer",
    "title": "The column that already knew",
