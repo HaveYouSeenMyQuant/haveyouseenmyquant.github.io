@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_feature_that_knew_the_answer",
    "title": "The column that already knew",
-   "ts": "2026-09-11T16:30:40+00:00",
+   "ts": "2026-09-11T16:34:42+00:00",
    "date": "11 Sep 2026",
    "topic": "ml_fundamentals",
    "q": null,
