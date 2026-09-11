@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "same_code_different_numbers",
    "title": "Ninety one on the laptop, fifty six live",
-   "ts": "2026-09-11T20:28:36+00:00",
+   "ts": "2026-09-11T21:47:04+00:00",
    "date": "11 Sep 2026",
    "topic": "ml_fundamentals",
    "q": null,
