@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "two_models_same_score",
    "title": "Two lines, the same score, very different money",
-   "ts": "2026-09-11T18:06:10+00:00",
+   "ts": "2026-09-11T18:08:11+00:00",
    "date": "11 Sep 2026",
    "topic": "ml_fundamentals",
    "q": null,
