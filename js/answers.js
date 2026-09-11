@@ -16,8 +16,64 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 478,
+ "count": 479,
  "entries": [
+  {
+   "slug": "same_code_different_numbers",
+   "title": "Ninety one on the laptop, fifty six live",
+   "ts": "2026-09-11T20:28:36+00:00",
+   "date": "11 Sep 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Look at the numbers going in. The guesses are the symptom; the inputs are the fault. This is train/serve skew: one model, one set of weights, and two different pieces of code working out what to feed it.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE USUAL SUSPECTS ARE NOT IT, AND YOU CAN RULE THEM OUT IN MINUTES. It is not overfitting: hand the live model the training features and it scores ninety one again this second. It is not drift: the raw customers arriving are the same population as the training ones, and you can check that directly by comparing the raw columns. And there is no bug in the model, because the weights are byte for byte the ones that scored ninety one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE DIAGNOSIS, AND IT IS ONE STEP. Log the feature vector the live service actually builds — the values it hands the model, after all the preparation, not the raw request. Then compare it against the training features column by column: mean, spread, share missing, share of unseen categories. You are looking for the column whose live distribution has moved when the raw data has not. That column names the bug, and this comparison takes an afternoon to build and pays for itself forever."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE THREE FAULTS IT ALMOST ALWAYS FINDS. One: the scaler. Training scaled using the mean and spread of the whole dataset; the service re-estimates them from whatever rows it has in the moment, so the same customer gets a different scaled value depending on who else arrived that minute. Two: the window.",
+      "Training saw a customer's total spend since the account opened; the service computes spend over the last month, which is the same name for a much smaller number. Three: the categories.",
+      "A region the encoder never saw at training time arrives, no rule covers it, and it silently becomes zero — which the model reads as a perfectly ordinary region rather than as \"unknown\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FIX, AND IT IS STRUCTURAL, NOT A PATCH. Compute features in ONE place that both sides call — the same function, the same library, the same code path for training and for serving. Save the fitted scaler and the fitted encoder alongside the weights and load them at serving time; never refit anything live. Give unseen categories their own explicit bucket. Then add the check that would have caught it: a test that runs the same customer through the training path and the serving path and fails if any feature differs by more than a whisker."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE NUMBERS DO. Same rows, same weights, features computed the training way: ninety one in a hundred. Features computed the live way: fifty six, barely better than guessing, with the coin toss at fifty. Compute them in one place and the score comes back to ninety one exactly, because nothing was ever wrong with the model."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION WORTH NAMING. This picture holds the population fixed on purpose, so the whole gap is skew and none of it is drift. In a real system both happen at once, and the way you tell them apart is the comparison above: drift moves the RAW columns, skew moves only the PREPARED ones. If the raw inputs look the same and the prepared ones do not, the fault is in your own code."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_models_same_score",
    "title": "Two lines, the same score, very different money",
