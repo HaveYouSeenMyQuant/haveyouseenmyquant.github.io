@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "is_that_a_stop_sign_at_night",
    "title": "Reading road signs from a moving car",
-   "ts": "2026-09-12T12:54:22+00:00",
+   "ts": "2026-09-12T13:43:40+00:00",
    "date": "12 Sep 2026",
    "topic": "ml_systems_design",
    "q": null,
