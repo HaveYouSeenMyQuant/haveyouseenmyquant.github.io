@@ -16,8 +16,73 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 479,
+ "count": 480,
  "entries": [
+  {
+   "slug": "it_got_worse_every_month",
+   "title": "It got worse every month",
+   "ts": "2026-09-12T03:35:18+00:00",
+   "date": "12 Sep 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Watch the INPUTS, not the score. The payments moved and the line did not, and the payments were moving for months before the score showed it.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ACTUALLY HAPPENED. The machine drew one line through last year's payments: below it, fine; above it, bad. Then the payments themselves crept upward — prices rose, the customer mix changed, the fraudsters adjusted. Every month a few more ordinary payments crossed a line that was never moved to meet them, and each one became a wrong answer. Ninety two right out of a hundred became eighty. Nothing in the code changed, and nothing needed to."
+     ]
+    },
+    {
+     "h": "TWO DIFFERENT THINGS GO WRONG, AND THEY HAVE DIFFERENT FIXES.",
+     "t": "pre",
+     "lines": [
+      "    1. The payments changed shape. The same kinds of payment as before, just bigger, or from different places. (The textbook name is covariate shift.)",
+      "    2. What counts as bad changed. The exact same payment that was fine last year is fraud this year. (The textbook name is concept drift.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW TO TELL THEM APART, and you can do the first one today with no labels at all. Take this week's live inputs and ask how likely they are under last year's training inputs — compare the averages and the spreads feature by feature, or train a little classifier to tell the two sets apart: if it can, your inputs have moved.",
+      "That catches number one. For number two you need outcomes: take a slice of input values that has NOT moved, and check whether the share of them that turned out bad is the same as it was. Same inputs, different outcome, means the meaning moved and no amount of re-weighting old data will save you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE THREE FIXES, in the order an interviewer wants them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "Monitor the inputs, not just the accuracy. The input shift is visible immediately and needs no labels; accuracy needs outcomes, and in fraud a chargeback can take months to arrive. You see the drift before you see the damage.",
+      "Split your test by TIME, never at random. A random split scatters next December through your training set, so the model is quietly scored on a future it has already seen. Train on the early months, test on the later ones, and the decay shows up before you ship rather than a year after.",
+      "Retrain on a rolling window, on a schedule, and keep the old model running beside the new one long enough to compare them. Retraining on ALL the history reproduces the same stale line — the window is what matters, not the amount of data."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. This assumes the drift is gradual and the recent past predicts the near future. Both can fail: a rule change or a new payment product moves the world overnight, and then a rolling window is chasing a cliff rather than a slope. That is what the side-by-side comparison is for."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. A model is a photograph of a world, and the world does not hold still. When a score falls with no code change, stop looking inside the model and go measure whether its inputs are still the inputs it was built on."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "same_code_different_numbers",
    "title": "Ninety one on the laptop, fifty six live",
@@ -30173,5 +30238,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "the_faulty_bolt"
+ "featured": "two_models_same_score"
 };
