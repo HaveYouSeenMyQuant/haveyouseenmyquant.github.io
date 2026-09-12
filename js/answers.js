@@ -16,8 +16,102 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 480,
+ "count": 481,
  "entries": [
+  {
+   "slug": "real_time_captioning_for_youtube",
+   "title": "Live captions on a stream",
+   "ts": "2026-09-12T08:28:12+00:00",
+   "date": "12 Sep 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "THE BRIEF. Live captions on a stream. The answer has three parts and an interviewer is listening for all three: what data, what architecture, what loss.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DATA. Paired audio and transcript — thousands of hours of it — plus a small corpus where the START AND END TIME of every word is also known. Audio alone teaches nothing about words; transcripts alone teach nothing about sound. The pairing is the data. You also want the pairing to look like what you will serve: the accents, the room noise, the overlapping speakers and the domain words of the streams you actually caption."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ARCHITECTURE, AND THE ONE CONSTRAINT THAT DECIDES IT. A model that attends over the whole recording is not available to you, because on a live stream the rest of the recording has not happened yet. So the encoder must be CAUSAL or CHUNKED: it consumes a block of audio, may look a fixed distance into the future, and must commit.",
+      "That lookahead is not a hyperparameter you can leave for later — IT IS THE LATENCY. Twenty frames of lookahead at twenty milliseconds a frame is four hundred milliseconds of delay before a word can possibly appear, and no amount of engineering downstream removes it.",
+      "Chunked attention buys the accuracy of seeing a little context to the right and pays for it in exactly that much delay. Bidirectional attention buys the whole future and pays with a caption that arrives after the stream ends."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT LOSS, AND WHY IT CANNOT BE A PER-FRAME LOSS. You have the words. You do not have the alignment: nobody wrote down which twenty-millisecond slice of audio each word came from. So there is no per-frame target to compare a per-frame output against, and a plain cross-entropy has nothing to be cross-entropy against."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "CTC is the answer, and what it does is exactly this: it defines a many-to-one map from per-frame symbol paths onto text — squeeze repeats, then delete blanks — and takes as the training objective the TOTAL probability of every path that maps onto the right text. The gradient then pushes up all of them at once, and the model settles on an alignment by itself. RNN-T is the same trick with a prediction network added so the output can depend on what has already been emitted, which is what you want in production; the summing-over-alignments idea is identical."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW BIG IS \"EVERY WAY\"? Take three letters and eight slices of sound. Enumerate every one of the 4^8 paths and keep the ones that read back as the three letters: there are 462 of them, and CTC's forward recursion returns their summed score to fourteen decimal places. One second of sound, at twenty milliseconds a slice, with three letters: 22,957,480 line-ups. The recursion does that in fifty steps; enumeration cannot."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOLLOW-UP. Ten thousand hours of audio with matching transcripts, not time-aligned, and twenty hours that are. How do you use the rest?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FORCED ALIGNMENT, AND WHY IT IS FREE. Train a small model on the twenty aligned hours. It will be a poor recogniser and that does not matter, because you are not going to recognise anything with it — you are going to SCORE audio against text you already have.",
+      "Now run the same CTC lattice on an unaligned pair, and take the MAXIMUM over paths instead of the sum. One Viterbi pass through the same trellis returns the single best path, and reading that path back gives the first and last frame of every word. That is the alignment.",
+      "The insight worth saying out loud in an interview: the loss was already summing over alignments, so the alignment was always in there — you just take the best path instead of the sum. Same lattice, max instead of sum, one extra forward pass."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE LOOP. Align the unaligned hours. Keep only segments whose alignment score is high — a per-segment average log-probability, or the gap between the best path and the next best — and throw the rest away. Retrain on the twenty hours plus everything you kept. The better model aligns more of the remainder, so you keep more, so the model gets better. Two or three rounds is usually where it stops paying."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE LOOP QUIETLY COSTS YOU, which is the closing question. The segments you keep are the ones the current model already scores well, and a model trained on twenty clean hours scores clean speech well. So the hours you add are disproportionately the easy ones: the familiar accents, the quiet rooms, the single speaker.",
+      "The hard cases get low confidence, get dropped, and never enter training — so the model's blind spots are precisely what the loop is selecting against. The same mechanism the channel has already covered as a fault in a recommender, where a model trains on the log it generated itself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The fixes are about the filter, not the model: keep a fixed share of every accent and noise condition rather than a fixed confidence threshold; hold out a hard evaluation set that the loop can never add to; and check after each round whether the error rate on the hardest slice moved the right way. If your headline number improves while the hardest slice does not, the loop is polishing what already worked."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. All of the above assumes the transcript is TRUE and COMPLETE for the audio it is paired with. Real unaligned corpora are neither — they carry paraphrase, omitted filler, speaker labels, timestamps and whole missing sentences. Forced alignment on a pair where the text is wrong does not fail loudly; it produces a confident, wrong alignment. That is why the confidence filter is doing two jobs at once, and why in practice you also run a rough recogniser and throw away pairs whose rough output disagrees with the transcript by too much."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "it_got_worse_every_month",
    "title": "It got worse every month",
