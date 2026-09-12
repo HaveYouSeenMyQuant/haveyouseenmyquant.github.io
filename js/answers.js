@@ -16,8 +16,128 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 483,
+ "count": 484,
  "entries": [
+  {
+   "slug": "answer_from_our_own_documents",
+   "title": "Two hundred thousand documents, one question",
+   "ts": "2026-09-12T14:27:15+00:00",
+   "date": "12 Sep 2026",
+   "topic": "ml_systems_design",
+   "q": null,
+   "a": "THE BRIEF. Two hundred thousand internal documents, a staff question in plain words, and an answer that shows the page it came from. Three things get answered: what data, what architecture, what loss.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DATA, AND WHY CHUNKING IS A REAL DECISION. The data is the documents themselves, cut into chunks — plus something nobody hands you: a few hundred real questions, each paired with the passage that genuinely answers it. That set is your only way of knowing whether the system works, so write it, and write it from questions people actually asked."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The chunk size pulls two ways at once, and both are measurable. A chunk must be SMALL enough to be a precise match: the question's words have to be a large share of the chunk, or the chunk scores no better than any other page that mentions the same equipment.",
+      "And it must be BIG enough to contain a WHOLE answer: an answer split across a chunk boundary comes back as half a sentence.",
+      "Enumerate every place a three-sentence answer can start in a twenty-four-sentence document: with chunks of three sentences only 8 of the 22 offsets leave the answer intact, with chunks of eight most of them do — and the answer's share of the chunk falls as three over the chunk size the whole way.",
+      "Multiply the two and the best size is INTERIOR: four sentences on these numbers, neither the smallest chunk nor the largest.",
+      "An end-to-end simulation agrees — forty documents, one of which holds the answer, scored with the length normalisation every real scorer has: the peak sits at four or five sentences, and by twelve a chunk containing no answer at all is winning, because the answer's points get divided by a bigger square root while a chunk of pure coincidence accumulates more of them.",
+      "That is the shape of the trade, and it is why \"just use big chunks so nothing is cut\" is wrong. The falling half of the curve does depend on the corpus having plausible distractors: if nothing else in your corpus looks like the question, only the precision term punishes a big chunk."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ARCHITECTURE. Retrieve, then generate. Two retrievers, not one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "An embedding index over the chunks matches by MEANING, which is what you need when the question shares no vocabulary with the document — \"what if a hose cracks\" against a page that says \"tube rupture\". A keyword index (BM25) matches EXACT TOKENS, which is what you need for error codes, part numbers, form names and version strings.",
+      "Embeddings smudge those: a rare token gets broken into subwords and lands close to every other rare token that looks like it, so \"ERR-4417\" retrieves pages about errors instead of the page about 4417.",
+      "Measured on a sixty-passage corpus with known ground truth: the embedding retriever gets the paraphrased questions and misses the code questions; BM25 does exactly the reverse; and fusing the two lists beats EITHER retriever alone, because the two failure modes do not overlap. Keep both piles.",
+      "One detail worth knowing, and it was measured rather than assumed: reciprocal rank fusion is usually written with a damping constant of 60, which makes agreement between the lists count for more than either list's top pick.",
+      "With two retrievers that fail on DISJOINT query families that is exactly backwards — a passage sitting third in both lists outscores the one the right retriever put first, and the fusion then scores worse than either retriever alone. Undamped reciprocal rank fixes it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then the generator, with one hard constraint: it may use only what was retrieved, and every claim must carry the span it came from. That is not decoration — beat four is built on it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY NOT FINE-TUNE THE FACTS INTO THE MODEL. Because the documents change every week. A policy edit on Tuesday would mean a training run on Wednesday, and you would still have no way to show which page an answer came from, no way to delete a document from the model's memory, and no way to answer a question about a page written this morning. Retraining a model every time a rule changes is the wrong machine. Swapping a chunk in an index is the right one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT LOSS — THE PART CANDIDATES GET WRONG. You mostly do not train the generator at all. The trainable piece is the RETRIEVER, and its loss is contrastive: for a question and its correct passage, pull those two rows of numbers together and push away the other passages in the same batch.",
+      "It is the same shape as the sampled-negatives loss a feed recommender uses — score the right one against a handful of others and take the softmax — and it is trained on exactly those hand-written question-to-passage pairs. The generator is steered by its prompt and by what it is handed, not by a loss you own.",
+      "If you find yourself designing a loss for the generator, you have usually mistaken this system for a fine-tuning problem."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOLLOW-UP. It answers confidently, with a citation, from a document that does not say that."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FIRST, SEPARATE THE TWO CAUSES, BECAUSE THEY NEED DIFFERENT FIXES. Either RETRIEVAL brought the wrong passage, or retrieval was right and the GENERATOR went beyond it. Two cheap tests separate them: was the gold passage in the retrieved set at all, and is the answer supported by the retrieved text?",
+      "No gold passage means a retrieval fault — better chunking, the keyword index, a reranker, more candidates. Gold passage present but the claim absent from the text means a generation fault — prompt, decoding, or the citation check below.",
+      "Note that the support test ALONE cannot tell them apart: an unsupported answer is unsupported in both cases, so it labels every retrieval fault as a generator fault and sends you to fix the wrong half of the system."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THEN THREE FIXES. One, require a citation PER CLAIM, and verify the claim against the cited span automatically — a small entailment model, or word-level overlap as a floor. An uncheckable claim is dropped or marked. Two, SHOW THE PASSAGE to the user, so a wrong answer fails visibly instead of silently. Three, make abstention a legitimate output."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE THIRD FIX IS THE ONE PEOPLE SKIP, WHICH IS WHY THE MODEL INVENTS. \"The documents do not say\" has to SCORE WELL in your evaluation. Do the arithmetic. Say the retrieved text supports the answer on a share s of questions, the model is right on those with probability a, and a guess from unsupported text is right with probability g.",
+      "Under a scoring rule that gives one point for a right answer and zero for both a wrong answer and an abstention, always-answering beats abstaining by exactly (1 - s) * g — a strictly positive number for any g above zero.",
+      "Inventing is the higher-scoring strategy, and no amount of instruction fixes a system whose score rewards the thing you are asking it not to do. Put a penalty w on a wrong answer and abstaining stops losing once w exceeds g / (1 - g): at a fifteen per cent guess rate, a penalty of about 0.18 flips it. So the fix is in the scoring rule, not the prompt."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INSIGHT. A system that cannot say \"I do not know\" will always invent, because you have left it no other move. Every question demands an answer, an answer scores no worse for being wrong than for being absent, and the model does what it is scored for. Give it the move."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE CLOSING CHOICE. Checking every claim against its span, or paying the model for saying it does not know?",
+      "The check catches what has already gone wrong on the way out of the door and it is a filter you can ship this week; the score change is what stops the behaviour being learnt in the first place, and it is what makes the check's own \"dropped\" state a respectable outcome rather than a failure.",
+      "Ship the check to stop the bleeding, change the score to fix the cause — and if you only ever do one, do the score, because a filter over a model that always guesses is a filter that has to be right every single time."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "is_that_a_stop_sign_at_night",
    "title": "Reading road signs from a moving car",
