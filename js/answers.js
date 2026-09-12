@@ -16,12 +16,171 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 482,
+ "count": 483,
  "entries": [
+  {
+   "slug": "is_that_a_stop_sign_at_night",
+   "title": "Reading road signs from a moving car",
+   "ts": "2026-09-12T12:54:22+00:00",
+   "date": "12 Sep 2026",
+   "topic": "ml_systems_design",
+   "q": null,
+   "a": "THE BRIEF. A car has one forward camera and must read road signs in time to act on them. The answer has three parts and an interviewer is listening for all three: what data, what architecture, what loss. Then the twist, which is the part most candidates fumble.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DATA. Frames from the car's own camera, each with a box round every sign and the class of that sign. Two things about the collection matter more than the volume."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "First, the CLASS DISTRIBUTION is not what you care about. Speed-limit and direction signs are everywhere; a stop sign, a level-crossing sign, a school-crossing sign are rare and are the ones whose miss costs something. So you cannot sample or evaluate by frequency. You want deliberate over-collection of the rare-but-critical classes, and a per-class evaluation from the start."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Second, ONE PHOTOGRAPH OF A SIGN TEACHES YOU ALMOST NOTHING. What you need is the same sign again and again across the axes that actually vary in service: distance (a sign 80 metres away is 12 pixels across, the same sign at 15 metres is 90), viewing angle as you approach and pass it, weather, occlusion by poles and vehicles and foliage, motion blur at speed, and low light. Two thousand signs each shot once is a far worse dataset than two hundred signs shot across every condition, and it is the commoner mistake because it is the easier thing to collect."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ARCHITECTURE, AND WHAT DECIDES IT. A single-shot detector: one pass of a convolutional backbone over the frame, a small head on several feature maps, and a box offset plus a class score predicted at every anchor. Work out the anchor set and it stops being abstract. Take a 768-pixel input and five feature maps at strides 8, 16, 32, 64 and 128. That is 96 by 96 plus 48 by 48 plus 24 by 24 plus 12 by 12 plus 6 by 6, which is 12,276 places. Hang nine boxes at each place — three sizes by three aspect ratios — and you are scoring 110,484 candidate boxes on every frame."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY NOT TWO STAGES. A propose-then-classify design is more accurate per box, and it runs the image through the network once to propose and then again, per region, to classify. On the embedded chip in a car, with a 30 Hz frame budget shared with everything else the vehicle is doing, you do not have one and a half passes. The single-shot design is forced by the clock, and saying so is the answer — not \"single shot is better\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE TRADE THAT IS THE DESIGN. What buys the speed is the input resolution, and a small input is exactly what destroys a distant sign. At 768 pixels a sign 80 metres ahead is a handful of pixels and no anchor on any feature map has enough overlap with it to be assigned as a positive. You cannot have both; you choose. The usual resolution is to keep the input small and add the finest feature map back (a stride-4 level), or to run a second, cropped, high-resolution pass on the narrow band of the image where the road vanishes — which is where distant signs always are."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT LOSS. A SUM OF TWO DIFFERENT THINGS, one per anchor: a regression term on the box (smooth L1, or an IoU-style loss, on the offsets of the assigned anchors only) and a classification term on the class score (every anchor, including the empty ones). Two terms, added, with a weight on the box term because the two live on different scales."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND HERE IS THE PROBLEM THE CLASSIFICATION TERM HAS. Of those 110,484 boxes, on a frame with three signs, 81 clear a half overlap with a sign. That is 0.073% of them — fewer than one in a thousand. The other 110,403 are empty road, and a plain cross-entropy sums over all of them equally."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each empty box is EASY. The network learns in the first few hundred steps that most of a road scene is not a sign, so each of those boxes is already predicted correctly and its individual loss is tiny. But tiny times a hundred and ten thousand is not tiny. The sum is dominated by boxes that have nothing left to teach, and the handful that do are a rounding error in it. At initialisation the empty boxes are 99.93% of the loss, and they stay the majority of it long after they have stopped being informative."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DOWN-WEIGHTING BUYS. Multiply each box's loss by (1 - p_t) to a power — p_t being how much probability the model already put on the right answer — and a box the model is already sure about contributes almost nothing. At gamma = 2, a box at 90% confidence has its loss cut by a factor of a hundred.",
+      "The gradient then comes from the boxes that are still wrong: the genuine signs, and the hard negatives (a round road sign that is actually a wheel, a rectangular reflective plate that is a number plate).",
+      "Measured on an imbalanced set with the same shape — 60,000 empty, 60 positive, same initialisation, same optimiser, same number of steps — the rare class's recall improved on all eight independent draws, by four percentage points on average, while the headline accuracy moved by under a tenth of a percentage point.",
+      "That combination is the thing worth remembering: the fix is invisible in the aggregate and visible only where you care."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The alternative to down-weighting is hard negative MINING — score every negative, keep the worst three per positive, throw the rest away — which is what the earlier detectors did and which works. Down-weighting keeps every box and reweights it instead, which is simpler and does not need a sampling step in the training loop."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOLLOW-UP. Your labels came from daylight driving. Night is about 3% of the data and most of the risk. What do you do?"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "NOT \"COLLECT MORE NIGHT DATA\" FIRST. It is the true answer to a different question, it takes months, and if you do it before the three steps below you will not be able to tell whether it worked."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STEP ONE, MEASURE PER CONDITION, BEFORE ANYTHING ELSE. An aggregate number cannot show you this, arithmetically: if night is 3% of the evaluation set, night can go to zero and the aggregate falls by three points. So you slice the evaluation set by condition — daylight, dusk, night, rain, fog, glare, and by distance band and by class — and you report a number per cell. In the simulation, a model at 94% aggregate recall was at 30% on the night slice. Nothing in the aggregate hinted at it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You need the metadata to do this, which means logging illumination, weather, time of day and distance at collection time. A team that did not do that has to go and annotate its own evaluation set before it can even see the problem, and that is the real reason this step gets skipped."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STEP TWO, REBALANCE THE SAMPLER. Do not change the data; change how often the model sees each part of it. Sample night frames at a rate that makes them a third of every epoch rather than 3% of it. This costs nothing, takes an afternoon, and needs no new footage. Measured: night recall went from 30% to 45% while the aggregate stayed at 94% — because what the aggregate rewards was already learned, and the capacity spent on night was capacity that was doing nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STEP THREE, AUGMENT AT THE ACTUAL FAILURE, not with a brightness knob. Turning the gain down on a daylight photograph does not produce a night photograph, and a model trained on darkened days learns to handle darkened days.",
+      "What a night frame really has is: PHOTON SHOT NOISE — few photons, so per-pixel Poisson noise plus sensor read noise, which is why detail vanishes rather than merely dims; HEADLIGHT AND STREETLIGHT GLARE — local saturation, bloom and lens flare that destroy a sign's edge rather than darken it; MOTION BLUR — a longer exposure at the same road speed, so the smear is worse at night than by day; and RETRO-REFLECTION, which is the one that helps: a sign lit by your own headlights is brighter relative to its surroundings at night than by day. Simulate those, in that physical order, on your daylight frames."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STEP FOUR, SET THE ACCEPTANCE CRITERION PER CONDITION. This is the one that changes behaviour rather than numbers. If the ship gate is \"aggregate recall above 0.95\", every training run you do will optimise the 97% and you will ship a car that cannot see at night. Make it \"recall above X in EVERY condition cell, and above Y for every critical class\", and the worst cell becomes the thing the team works on. The gate is a minimum over cells, not a mean."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INSIGHT UNDERNEATH ALL FOUR. Three percent of the data carrying most of the risk means your average metric is the wrong objective. It is not that the average is inaccurate — it is a perfectly good estimate of average performance. It is that average performance is not what you are buying. Optimising it improves the case you already handle, because that case is where the weight is, and it is therefore the case where an improvement is cheapest. Every hour spent on the aggregate is an hour spent making the easy 97% slightly better."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK, and it is the closing question. All four steps assume you can NAME the conditions. Slicing by night, rain and fog finds the failure in night, rain and fog.",
+      "It says nothing about wet tarmac reflecting a low sun, a sign in the shadow of a bridge at noon, a sticker over a sign, snow on the face of it, or a condition that exists only on one country's roads.",
+      "So the honest version of step one is not a list of conditions someone thought of in a meeting: it is clustering your failures and looking at what comes out, plus a standing process that turns every field disengagement into a new evaluation cell.",
+      "The list of conditions is itself a model of the world, and it is wrong in the same direction as the detector."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "what_to_show_on_the_home_page",
    "title": "A billion things, a hundredth of a second",
-   "ts": "2026-09-12T09:19:54+00:00",
+   "ts": "2026-09-12T09:22:45+00:00",
    "date": "12 Sep 2026",
    "topic": "ml_systems_design",
    "q": null,
