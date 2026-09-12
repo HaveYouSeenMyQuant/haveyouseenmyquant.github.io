@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "answer_from_our_own_documents",
    "title": "Two hundred thousand documents, one question",
-   "ts": "2026-09-12T14:27:15+00:00",
+   "ts": "2026-09-12T14:33:07+00:00",
    "date": "12 Sep 2026",
    "topic": "ml_systems_design",
    "q": null,
