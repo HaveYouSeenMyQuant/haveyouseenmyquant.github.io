@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "label_a_million_things_cheaply",
    "title": "A million things, ten thousand labels",
-   "ts": "2026-09-12T21:03:14+00:00",
+   "ts": "2026-09-12T21:06:30+00:00",
    "date": "12 Sep 2026",
    "topic": "ml_systems_design",
    "q": null,
