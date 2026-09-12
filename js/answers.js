@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "it_got_worse_every_month",
    "title": "It got worse every month",
-   "ts": "2026-09-12T03:35:18+00:00",
+   "ts": "2026-09-12T04:19:17+00:00",
    "date": "12 Sep 2026",
    "topic": "ml_fundamentals",
    "q": null,
