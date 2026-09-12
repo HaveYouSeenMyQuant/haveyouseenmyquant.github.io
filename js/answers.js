@@ -16,8 +16,101 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 481,
+ "count": 482,
  "entries": [
+  {
+   "slug": "what_to_show_on_the_home_page",
+   "title": "A billion things, a hundredth of a second",
+   "ts": "2026-09-12T09:19:54+00:00",
+   "date": "12 Sep 2026",
+   "topic": "ml_systems_design",
+   "q": null,
+   "a": "Build it in two stages, train it against sampled negatives, and treat a brand-new item as a missing-evidence problem rather than a cold-user one.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DATA. Nobody rates anything. Star ratings are rare, self-selected and mostly written by people with a grievance, so a system built on them is trained on a tiny, strange slice of everybody. What you do have is implicit feedback: every watch, every skip, every scroll-past, every dwell time, in the billions. So the label is what people DID. The catch is that this data has only one side to it — you observe choices, never rejections — and every design decision below follows from that."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ARCHITECTURE, AND WHY TWO STAGES. Do the arithmetic before you draw anything. One careful score — a small network over a few hundred features for one item — costs about ten microseconds. A billion of those is ten thousand seconds, which is two hours and forty seven minutes. Your page-load budget is ten milliseconds. You are over by a factor of a MILLION, and that is the point: this is not a tuning problem you can optimise your way out of. Even at one nanosecond an item, which is a single memory touch and no arithmetic at all, a billion items takes one second — still a hundred times over."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So split it. Stage one is retrieval, and it is a two-tower model: one tower turns an item into a short vector, the other turns the user-and-context into a vector in the same space, and relevance is their dot product.",
+      "The item tower never has to run at request time — you run it over the whole catalogue overnight and load the vectors into an approximate-nearest-neighbour index.",
+      "At request time you run the user tower once (about half a millisecond), probe the index (a couple of thousand vector comparisons, well under a tenth of a millisecond) and get a few hundred candidates. Stage two is the ranker, and now it can be as heavy as you like, because five hundred items at ten microseconds is five milliseconds.",
+      "Total: about five and a half milliseconds, a little over half the budget. The two-tower split is what makes that possible, and the price of it is that the two towers can never look at each other — no cross-features between user and item until stage two."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT LOSS. Treat it as \"which item, out of many\" rather than \"did they click, yes or no\": a softmax over items, trained to raise the score of the item that was chosen.",
+      "You cannot normalise over a billion items, so you approximate the denominator with SAMPLED NEGATIVES — the other positives in the same training batch, plus items drawn from a proposal distribution, corrected by subtracting log q so the popular ones are not double-counted.",
+      "Sampled-softmax training recovers essentially the same ranking as a full softmax: on a simulated catalogue it matched it within a percentage point on recall at ten, while the full softmax cost a hundred times the arithmetic per step."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY NOT JUST LABEL EVERYTHING UNCLICKED AS A NEGATIVE. Because \"not clicked\" is not \"not liked\" — the overwhelming majority of items were never shown to that person at all, so there is nothing to learn from.",
+      "Train a binary classifier with every unchosen item as a zero and the headline metric barely moves, which is what makes the mistake so easy to ship.",
+      "The damage shows up in the tail: on the rare half of the simulated catalogue, recall of each user's genuine top ten fell from 0.19 to 0.11, about a 40% drop, concentrated exactly on the items whose absence from the log was ignorance rather than dislike."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOLLOW-UP: A BRAND-NEW ITEM. Its id embedding has never received a gradient, so it is whatever it was initialised to — noise. It is not that the model is confused about it; the model has no evidence about it. There are exactly two ways to get evidence: supply it, or buy it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "SUPPLY IT — CONTENT FEATURES. Build the item tower out of what the item IS, not out of who watched it: text, thumbnail, audio, category, creator, duration, language. Then a new item has a vector on the day it is uploaded.",
+      "In the simulation, item vectors were regressed onto content features; a new item embedded from content alone correlated 0.86 with its true affinity across users and found 68% of its true top fans, while an item with only an untrained id vector correlated 0.07 and found 10% — which is exactly chance.",
+      "Keep a small learned id embedding as well, so an item can eventually outgrow what its content says about it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "BUY IT — AN EXPLORATION BUDGET. Reserve a small share of impressions for items that have not earned them: a fraction of slots filled by sampling instead of maximising, or an upper-confidence bonus that shrinks as evidence arrives.",
+      "This is a deliberate cost, and it is worth pricing out loud, because uncertainty falls like one over the square root of the number of impressions: ten impressions leave about a ten-point error on the item's rate, a hundred about three points, a thousand about one.",
+      "Nine hundred and ninety extra impressions to go from three points to one is why exploration is metered rather than free."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND MEASURE IT AGAINST THE RIGHT THING. The catalogue average is the wrong reference class for a new item. Compare it against its content NEIGHBOURS — the items nearest it in content space — because that is the best guess you have at what it should achieve. In the simulation the new item's true appeal sat five times closer to its ten nearest content neighbours than to the catalogue mean, so a neighbour-relative target detects a good new item long before an average-relative one would."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION WORTH NAMING. This whole answer holds the exploration policy fixed and looks at one round of training. It does not, because it is a separate question, follow what happens when the model's own choices generate next week's training log. Two things change then: you need to log the propensity of every impression at serving time, and exploration stops being only a cold-start tool and becomes the thing that keeps the log from eating itself."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "real_time_captioning_for_youtube",
    "title": "Live captions on a stream",
