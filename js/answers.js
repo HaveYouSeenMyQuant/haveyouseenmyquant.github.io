@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 484,
+ "count": 485,
  "entries": [
+  {
+   "slug": "the_hole_in_the_window",
+   "title": "The hole in the window",
+   "ts": "2026-09-12T14:48:22+00:00",
+   "date": "12 Sep 2026",
+   "topic": "engineering",
+   "q": null,
+   "a": "It decides which pane carries the load - and the answer is the OUTER one.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At cruise the cabin is held at about 8,000 ft while the air outside is at 38,000 ft. From the standard atmosphere that is 75.3 kPa inside against 20.6 kPa outside: a difference of about 55 kPa. On a pane roughly 250 by 350 mm that is 4.8 kN, the weight of about 490 kg pressing outwards on the glass."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Something has to take that. The hole - the bleed hole - lets cabin air into the gap between the outer and middle panes, so the gap sits at cabin pressure. The full 55 kPa therefore falls across the OUTER pane alone, and the middle pane has almost nothing across it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THAT IS THE SAFE ARRANGEMENT. The outer pane is the thickest and is designed for the whole load. The middle pane carries nothing in normal flight, so it is unstressed, undamaged and ready: if the outer pane ever fails, the middle one takes over having spent the flight doing no work at all. Without the hole the load would divide between the two in a way nobody could rely on, and both would be part-worn."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The hole does a second job for free: it lets moisture out of the gap, which is why the window does not fog between the panes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. In any sealed stack, ask where the pressure is allowed to equalise. That single choice, not the strength of the parts, is what decides which part is carrying the load - and a deliberate leak is often the cheapest way to make a spare genuinely spare."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "answer_from_our_own_documents",
    "title": "Two hundred thousand documents, one question",
@@ -386,6 +433,245 @@ window.QQ_ANSWERS = {
      "lines": [
       "THE ASSUMPTION WORTH NAMING. This whole answer holds the exploration policy fixed and looks at one round of training. It does not, because it is a separate question, follow what happens when the model's own choices generate next week's training log. Two things change then: you need to log the propensity of every impression at serving time, and exploration stops being only a cold-start tool and becomes the thing that keeps the log from eating itself."
      ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ENGINEERING SPEC. Everything above is the argument. This is the build, at the level of detail an interviewer means when they say \"and what are the dimensions\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE DATA, WITH SHAPES. The training table is the impression log, one row per item SHOWN to one person: (user id, item id, slot, timestamp, context, watched, dwell seconds, the logged propensity of that impression). At a billion-item catalogue and consumer traffic this is hundreds of billions of rows a day, and you keep a sample: say 2e9 positive events per training day, where a positive is a watch past some threshold. A training batch is B = 8192 POSITIVE PAIRS, and the negatives come out of the batch itself, so there is no negative axis in the data at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Per batch the tensors are: item text token ids (B=8192, L_text=64) into a 32,000-piece vocabulary; a frozen thumbnail embedding (B=8192, 512) and a frozen audio embedding (B=8192, 256), both precomputed by encoders you do not train here; item categorical ids (B=8192, 3) for creator, language and category; item scalars (B=8192, 8) for duration, age, upload hour and so on, log1p-ed and standardised; the viewer's recent history as item ids (B=8192, H=50); context categorical ids (B=8192, 3) for hour-of-day, device and country; and context scalars (B=8192, 12).",
+      "B is the batch axis, L_text the token axis, H the history axis, and every other axis is a feature axis. Note what is NOT here: no star ratings, and no row for an item that was never shown, because \"never shown\" carries no information and inventing a zero for it is the mistake priced out above."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. INPUT AND OUTPUT, AT TRAINING AND AT SERVING. At TRAINING both towers run on the same batch: the query tower maps its slice to U of shape (8192, 64) and the item tower maps its slice to V of shape (8192, 64), and the model's output is the full logit matrix U V^T / tau of shape (8192, 8192). The positives are its DIAGONAL and every off-diagonal entry is a sampled negative. One forward pass therefore produces 8192 positives and 8192 x 8191 = 67 million negative comparisons, which is the entire reason in-batch sampling is affordable."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At SERVING the two towers come apart, and this is the interesting difference. The ITEM tower does not run on the request path at all: it runs offline over the whole catalogue and writes a (1e9, 64) matrix into an approximate-nearest-neighbour index.",
+      "The QUERY tower runs live, batch 1: (1, 116) of assembled features in, (1, 64) out, about half a millisecond. The index takes that (1, 64) query, touches 2,000 candidate vectors, and returns 500 ids and their vectors, (500, 64).",
+      "The ranker then takes (500, 1408) — one row per candidate, built from the query features, the item features and the cross features that the two towers were forbidden to see — and returns (500, 1), one score each. You sort, apply diversity and policy rules, and emit the top slots.",
+      "So: one (8192, 8192) matrix at training, and a (1, 64) times a (500, 1408) at serving. Training scores everything against everything in the batch; serving never computes a full softmax at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. THE ARCHITECTURE, LAYER BY LAYER. Two towers plus a ranker. Written as shape chains, and every concatenation adds up:"
+     ]
+    },
+    {
+     "h": "THE ITEM TOWER",
+     "t": "pre",
+     "lines": [
+      "    (8192, 64)            text token ids",
+      "    (8192, 64, 256)       Embedding(32000 -> 256)",
+      "    (8192, 64, 256)       2 x transformer block, d = 256, 4 heads of width 64,",
+      "                            feed-forward 256 -> 1024 -> 256, pre-LayerNorm, residual",
+      "    (8192, 256)            mean-pool over the 64 token positions",
+      "    (8192, 512)           thumbnail embedding, frozen, passed through",
+      "    (8192, 256)           audio embedding, frozen, passed through",
+      "    (8192, 96)            Embedding(-, 32) x 3 for creator, language, category,",
+      "                            concatenated: 3 x 32 = 96",
+      "    (8192, 8)             item scalars",
+      "    (8192, 32)            Embedding(item id -> 32), and ZERO for any item under",
+      "                            100 lifetime impressions",
+      "    (8192, 1160)          concatenate: 256 + 512 + 256 + 96 + 8 + 32 = 1160",
+      "    (8192, 512)           Linear(1160 -> 512) -> LayerNorm -> ReLU -> dropout 0.1",
+      "    (8192, 256)           Linear(512 -> 256) -> LayerNorm -> ReLU",
+      "    (8192, 64)            Linear(256 -> 64), then L2-normalise each row"
+     ]
+    },
+    {
+     "h": "THE QUERY TOWER",
+     "t": "pre",
+     "lines": [
+      "    (8192, 50)            the viewer's 50 most recent item ids",
+      "    (8192, 50, 64)        look each one up in the ITEM TOWER's own output table,",
+      "                            so history lives in the same 64-dim space as candidates",
+      "    (8192, 50, 64)        2 x transformer block, d = 64, 4 heads of width 16,",
+      "                            feed-forward 64 -> 256 -> 64, plus a learned position",
+      "                            embedding over the 50 slots",
+      "    (8192, 64)            mean-pool over the 50 history positions",
+      "    (8192, 40)            Embedding(24 -> 16) hour, Embedding(8 -> 8) device,",
+      "                            Embedding(250 -> 16) country: 16 + 8 + 16 = 40",
+      "    (8192, 12)            context scalars",
+      "    (8192, 116)           concatenate: 64 + 40 + 12 = 116",
+      "    (8192, 512)           Linear(116 -> 512) -> LayerNorm -> ReLU -> dropout 0.1",
+      "    (8192, 256)           Linear(512 -> 256) -> LayerNorm -> ReLU",
+      "    (8192, 64)            Linear(256 -> 64), then L2-normalise each row"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THERE IS NO USER ID EMBEDDING, and that is a decision, not an omission. A billion users at 32 dimensions is 3.2e10 parameters, and a tower with no user id works for a person on their first session for exactly the reason a content-only item tower works for an item on its first day. The viewer IS their history."
+     ]
+    },
+    {
+     "h": "THE SCORE",
+     "t": "pre",
+     "lines": [
+      "    (8192, 64) x (8192, 64)^T -> (8192, 8192)    dot products, divided by tau = 0.05"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE RANKER — a plain deep network, no towers, because now it is allowed to",
+      "    look at user and item together:",
+      "    (500, 1408)           concatenate query features 116 + item features 1160",
+      "                            + 132 cross features (does the creator appear in the",
+      "                            history, category match counts, the retrieval score",
+      "                            itself, the candidate's rank in the shortlist)",
+      "    (500, 1024)           Linear(1408 -> 1024) -> ReLU",
+      "    (500, 512)            Linear(1024 -> 512) -> ReLU",
+      "    (500, 256)            Linear(512 -> 256) -> ReLU",
+      "    (500, 1)              Linear(256 -> 1), then sigmoid"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Name the arrangement out loud in an interview: TWO TOWERS WITH A SHARED 64-DIMENSIONAL EMBEDDING SPACE FOR RETRIEVAL, then a single wide multi-layer perceptron with cross features for ranking. The towers are separate so the item side can be precomputed; the ranker is not a tower for exactly the opposite reason, that its whole value is the interaction the towers cannot express."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "4. THE LOSS, WRITTEN OUT. Retrieval first. Let f be the query tower, g the item tower, and s(u, v) = <f(u), g(v)> / tau with tau = 0.05. For a batch of pairs (u_1, v_1) ... (u_B, v_B) with B = 8192:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L_retrieval = -(1/B) x SUM over i = 1..B of log [ exp(s(u_i, v_i) - log q(v_i))",
+      "                          / SUM over j = 1..B of exp(s(u_i, v_j) - log q(v_j)) ]"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every term is an entry of that (8192, 8192) matrix: the numerator is the diagonal, the denominator sums one row. What the numerator rewards is the item this person actually chose; what the denominator penalises is every other item in the batch scoring highly for them. This is a softmax over items, so it is answering \"WHICH one\", not \"did they click, yes or no\" — which is why a never-shown item never appears as a zero anywhere in the expression."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The -log q(v) term is the correction for sampling bias and it is the part people leave out.",
+      "In-batch negatives are not uniform samples of the catalogue: item v turns up as a negative in proportion to how often it appears as a positive, so a popular item is presented as a negative thousands of times more often than a uniform draw would present it, and the uncorrected loss learns to suppress popularity.",
+      "Subtracting log q(v), where q(v) is v's empirical frequency in the log (streamed as a count-min sketch, floored to avoid log 0), makes the sampled denominator an unbiased estimator of the FULL-catalogue denominator instead of the popularity-weighted one.",
+      "Set q from the sampling distribution you actually used; if you mix in extra negatives from a uniform proposal, q is the mixture."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The naive loss the reel rejects, for contrast:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L_naive = -(1/B) x SUM over i SUM over all v in catalogue of",
+      "              [ y_iv log sigma(s(u_i, v)) + (1 - y_iv) log(1 - sigma(s(u_i, v))) ]"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "with y_iv = 1 for the chosen item and 0 for the other billion. Every one of those zeros asserts a dislike that was never observed, and the measurement above is what it costs: the same recall at ten on the headline, and the rare half of the catalogue falling from 0.19 to 0.11."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The ranker has its own loss and is trained separately, on IMPRESSED items only:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L_rank = -(1/N) x SUM over impressions of w_i x [ y_i log sigma(z_i)",
+      "             + (1 - y_i) log(1 - sigma(z_i)) ]"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "where z_i is the ranker's logit, y_i is whether the item was watched, and w_i = (1/p_i) x log1p(dwell_i) folds in two corrections at once: 1/p_i is the inverse logged propensity, which undoes the fact that the log was generated by the previous model and by slot position, and log1p(dwell) says a thirty-second watch is worth more than a one-second one without letting a marathon dominate the gradient. Both towers and the ranker are trained on the same log but never jointly: the retrieval loss cares about the whole catalogue, the ranking loss only about the 500 the retriever already chose."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "5. THE NUMBERS THAT DECIDE IT. The three counts that settle the architecture before any layer is chosen:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    ONE STAGE IS IMPOSSIBLE. 1,000,000,000 items x 10 us per careful score = 10,000 s = 2 h 47 m against a 10 ms budget: over by a factor of 1,000,000. At the floor of 1 ns per item it is 1 s, still a hundred times over.",
+      "    TWO STAGES FIT. query tower 0.50 ms + index probe (2,000 candidate vectors x 64 dimensions = 128,000 multiply-adds at 0.5 ns each = 0.064 ms) + 500 careful scores at 10 us = 5.00 ms. Total 5.564 ms, 56% of the budget. The item tower's 20 us per item x 1e9 items = 20,000 s = 5.6 hours, and it is off the request path, so it is a nightly job and not a latency number at all.",
+      "    THE EMBEDDING TABLE IS WHAT ACTUALLY RULES A DESIGN OUT. A learned id embedding for every item is 1e9 x 32 = 3.2e10 parameters, 64 GB in half precision, for a table where most rows have seen fewer than ten impressions and are therefore noise. Restrict the id table to items above 100 lifetime impressions — about 10 million of them — and it is 3.2e8 parameters, 0.64 GB, which fits. THAT constraint and the cold-start answer are the same fact seen twice: an id embedding is a place to put evidence, and most items do not have any."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The rest of the sizing follows. Trainable dense parameters, excluding embedding tables: item tower 2,321,728, query tower 307,648, ranker 2,099,201 — 4,728,577 in total, which is a small model by any modern standard, because the capacity is in the tables and the index, not the arithmetic.",
+      "The ranker at 2,099,201 parameters costs about two operations per parameter per item, 4.2 MFLOP, and 500 of those inside 5.00 ms implies 4.2e11 useful floating-point operations per second — an entirely ordinary accelerator, which is what makes 10 us per item the right constant to have put in the budget.",
+      "The retrieval index is 1e9 x 64 at half precision = 128 GB of raw vectors, which does not sit on one machine, so product-quantise to 16 bytes a vector and it is 16 GB, which does.",
+      "The (8192, 8192) logit matrix is 268 MB in float32, and that, not the model, is what caps the batch size: double B to 16,384 and the matrix alone is 1.07 GB, because it grows as B squared while the useful signal grows as B."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "6. WHAT ELSE MATTERS. Adam for the dense layers at 1e-3 with 10,000 steps of warmup, and a separate sparse optimiser (Adagrad, lr 0.05) for the embedding tables, because an id row that is touched once a week should not have Adam's momentum decayed out from under it.",
+      "Train continuously on a rolling window rather than in epochs — the catalogue changes faster than a full pass takes — and refresh the item vectors and rebuild the index nightly, which means the index is always up to a day stale and any item younger than that is served by the content half of its tower.",
+      "Monitor: recall at 500 of the retrieval stage measured against what the RANKER would have chosen from a much larger sample, because retrieval has no ground truth of its own; the share of impressions going to items under a week old, which is the exploration budget actually being spent rather than nominally allocated; calibration of the ranker's probability against realised watch rate, per slot; and the popularity distribution of what is served, since a sampling-bias bug shows up there long before it shows up in a headline metric.",
+      "The first failure mode to expect is TRAINING-SERVING SKEW IN THE FEATURES, not the model: the history tensor assembled in a batch job and the one assembled in a 10 ms request path are built by different code, and any disagreement silently degrades exactly the tower you cannot inspect.",
+      "The second is the index going stale in a way the metrics cannot see, because a missing candidate is never scored and therefore never appears as a mistake.",
+      "What to try next: hard negatives mined from the index rather than only in-batch ones, a multi-task ranker head predicting watch, completion and skip together so the score stops being a single proxy, and logging propensities properly today so that next quarter's off-policy evaluation is possible at all."
+     ]
     }
    ],
    "src": "answer"
@@ -479,6 +765,183 @@ window.QQ_ANSWERS = {
      "t": "p",
      "lines": [
       "THE ASSUMPTION DOING THE WORK. All of the above assumes the transcript is TRUE and COMPLETE for the audio it is paired with. Real unaligned corpora are neither — they carry paraphrase, omitted filler, speaker labels, timestamps and whole missing sentences. Forced alignment on a pair where the text is wrong does not fail loudly; it produces a confident, wrong alignment. That is why the confidence filter is doing two jobs at once, and why in practice you also run a rough recogniser and throw away pairs whose rough output disagrees with the transcript by too much."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ENGINEERING SPEC. Everything above is the argument. This is the build, at the level of detail an interviewer means when they say \"and what are the dimensions\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE DATA, WITH SHAPES. Audio arrives as 16 kHz mono PCM. The front end computes a log-mel spectrogram with a 25 ms analysis window and a 20 ms HOP, which is 50 frames per second — the frame rate every other number here is derived from. Cut training audio into 20-second utterances, so one utterance is 20 s / 20 ms = 1000 frames.",
+      "With 80 mel bins and a batch of 32 utterances the acoustic tensor is (B=32, T=1000, F=80): B the batch axis, T the time axis in 20 ms frames, F the mel-bin axis. That batch holds 32 x 20 s = 640 seconds, about eleven minutes of audio per optimiser step.",
+      "The target is a ragged integer tensor (B=32, L) of word-piece ids from a 1000-token vocabulary, L about 78 tokens for 20 seconds of ordinary speech at roughly three words a second; it is padded to the longest L in the batch and carried with a length vector (B=32,) so the loss knows where each transcript really ends.",
+      "Ten thousand hours of audio is 3.6e7 seconds, which is 1.8 million such utterances and 1.8e9 frames, so one epoch is 1.8e6 / 32 = 56,250 steps. The small timed corpus is twenty hours, 3,600 utterances, 1.8% of the pile — and for those, and only those, you additionally have per-word start and end times."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. INPUT AND OUTPUT, AT TRAINING AND AT SERVING. At TRAINING the model takes (32, 1000, 80) and returns per-frame log-probabilities of shape (32, 250, 1001) — 250 because the front end subsamples time by 4, and 1001 because the vocabulary of 1000 word pieces gains one BLANK symbol.",
+      "The loss consumes that tensor together with the ragged (32, L) targets and returns one scalar. At SERVING there is no utterance: the stream never ends.",
+      "Batch is 1, the encoder runs frame-synchronously with cached convolution and attention states, and each new encoder frame consumes 4 new input frames — shape (1, 4, 80) in, one step of state update, (1, 1, 1001) out.",
+      "That is the whole difference and it is the interesting part: training sees (B, 1000, 80) with the entire utterance available in both directions, serving sees an 80 ms sliver with a strictly bounded view of the future.",
+      "Any layer that would need the full T axis — global self-attention, a backward recurrence, utterance-level mean-variance normalisation — is available at training and unavailable at serving, which is precisely the trap.",
+      "Use the streaming form at training too, with the same right-context mask, or you ship a model whose training conditions never occur in production."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. THE ARCHITECTURE, LAYER BY LAYER. A convolutional front end, then a stack of 18 Conformer blocks, then one linear head. Written as a shape chain, and every step multiplies out:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (32, 1000, 80)      log-mel input, 20 ms frames, 80 mel bins",
+      "    (32, 1, 1000, 80)   add a channel axis",
+      "    (32, 32, 500, 40)   Conv2d(1 -> 32, kernel 3x3, stride 2x2, padding 1) + ReLU",
+      "                        floor((1000 + 2 - 3)/2) + 1 = 500, and 80 -> 40 the same way",
+      "    (32, 32, 250, 20)   Conv2d(32 -> 32, kernel 3x3, stride 2x2, padding 1) + ReLU",
+      "                        500 -> 250 and 40 -> 20; total time stride is 2 x 2 = 4",
+      "    (32, 250, 640)      transpose time forward and flatten channels x mel = 32 x 20 = 640",
+      "    (32, 250, 512)      Linear(640 -> 512) + dropout 0.1; d_model = 512 from here on",
+      "    (32, 250, 512)      18 x Conformer block, each shape-preserving:",
+      "                          half-step feed-forward, LayerNorm -> Linear(512 -> 2048)",
+      "                            -> Swish -> Linear(2048 -> 512), residual, x 0.5",
+      "                          multi-head self-attention, 8 heads of width 64, relative",
+      "                            positional encoding, masked to a CAUSAL past plus a",
+      "                            RIGHT CONTEXT OF 5 ENCODER FRAMES, residual",
+      "                          convolution module, LayerNorm -> pointwise Conv1d(512 -> 1024)",
+      "                            -> GLU (back to 512) -> depthwise Conv1d(512, kernel 15,",
+      "                            LEFT-PADDED so it never reads the future) -> BatchNorm",
+      "                            -> Swish -> pointwise Conv1d(512 -> 512), residual",
+      "                          second half-step feed-forward, identical to the first",
+      "                          final LayerNorm",
+      "    (32, 250, 1001)     Linear(512 -> 1001), then log-softmax over the last axis"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    One encoder frame therefore covers 4 x 20 ms = 80 ms of audio, and 250 x 80 ms = 20 s, which is the utterance you started with. The right-context mask of 5 encoder frames is 5 x 80 ms = 400 ms — the same four hundred milliseconds the argument above arrives at from twenty input frames, because 20 input frames / stride 4 = 5 encoder frames. THE STRIDE IS WHY THOSE TWO STATEMENTS AGREE, and if you change the stride you change what a frame of lookahead costs."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Two shape facts to check before you train anything. First, CTC cannot emit more symbols than it has frames: it needs T' >= L plus one extra frame for every repeated adjacent token, and 250 >= 78 with room to spare — but subsample by 8 instead of 4 and a fast speaker in a dense vocabulary will start producing infinite losses. Second, the head's 1001 outputs are 1000 word pieces plus blank, and blank is a real column of the tensor, not a flag."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    In production, swap the linear head for RNN-T: keep this encoder unchanged at (32, 250, 512), add a prediction network (a 2-layer LSTM of width 640 over previously emitted tokens, output (32, L+1, 640)) and a joint network that broadcasts the two into (32, 250, L+1, 640) -> Linear(640 -> 1001). That tensor is why RNN-T costs T' x L memory per utterance where CTC costs T', and it is the reason people pack RNN-T batches by total frames rather than by utterance count."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "4. THE LOSS, WRITTEN OUT. Let x be the acoustics, y = (y_1 ... y_L) the transcript, and p_t(k) the model's probability for symbol k at encoder frame t, taken from the (250, 1001) slice for this utterance. Let the alphabet be the 1000 word pieces plus a blank, written -. Define the COLLAPSE map B on a path pi of length T' = 250: first merge runs of identical adjacent symbols, then delete every blank. So B(- a a - b -) = a b, and B(a - a) = a a, which is exactly why a blank between two identical tokens is not optional. Then"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L_CTC(x, y) = -log P(y | x) = -log SUM over pi in B^-1(y) of PRODUCT over t = 1..250 of p_t(pi_t)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The sum runs over every path of length 250 that collapses to y — every way the words could line up with the audio — and it is the only term. There is no alignment variable in that expression and no per-frame target, which is the whole point: the model is free to choose where each token lands, and the gradient raises the probability of ALL valid line-ups simultaneously, weighted by how good each one already is. What the loss penalises is spending probability mass on frames whose symbol makes no valid line-up possible."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You never enumerate B^-1(y). Build the extended label z = (-, y_1, -, y_2, ..., y_L, -) of length 2L + 1 and run the forward recursion alpha_t(s) = p_t(z_s) x (alpha_{t-1}(s) + alpha_{t-1}(s-1) + [z_s != - and z_s != z_{s-2}] alpha_{t-1}(s-2)), with P(y | x) = alpha_250(2L+1) + alpha_250(2L). Cost is O(T' x (2L+1)) — 250 x 157 cells for L = 78, which is 39,250 multiply-adds against a number of paths with hundreds of digits. The third term in that recursion, the one gated on z_s != z_{s-2}, IS the collapse rule: it is what forbids skipping the blank between a doubled token."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two practical additions. Add a per-frame cross-entropy auxiliary head on an intermediate block (say block 12) against pseudo-labels from the aligner below, weighted 0.3, which speeds early convergence when CTC's alignment is still diffuse.",
+      "And if you want to control WHEN tokens are emitted rather than only whether they are right, add a delay penalty: L = L_CTC + lambda x E[emission frame - reference frame], lambda around 0.01, with the reference frame coming from forced alignment.",
+      "Without it CTC happily learns to emit late, because emitting late is free under the objective and costs the viewer real latency."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FOR THE FOLLOW-UP, the objective changes one operator. Forced alignment maximises instead of summing:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    pi* = argmax over pi in B^-1(y) of PRODUCT over t of p_t(pi_t)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same trellis, same (250, 157) cells, max in place of the three-way sum, plus a back-pointer array of the same shape. Reading pi* back gives the first and last encoder frame of every token, and multiplying by 80 ms gives times in seconds. The per-segment confidence you filter on is (1/T_seg) x log of that maximised product, which is a scalar per segment."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "5. THE NUMBERS THAT DECIDE IT. The encoder has 109,756,745 parameters: 337,760 in the front end, 6,050,304 per Conformer block for 108,905,472 across 18 blocks, and 513,513 in the head. That is about 220 megabytes in half precision, which fits on any serving accelerator and is not the constraint.",
+      "Compute is not the constraint either: at roughly two floating-point operations per parameter per frame, one encoder frame costs about 0.22 GFLOP and a second of audio is 12.5 encoder frames, so one stream needs about 2.7 GFLOP per second of audio — an accelerator delivering 10 TFLOP/s of useful throughput carries a few thousand concurrent streams."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONSTRAINT IS THE LOOKAHEAD, AND IT IS NOT A COMPUTE NUMBER AT ALL. 5 encoder frames of right context is 400 ms of delay that no hardware removes, because the audio has not been spoken yet.",
+      "Widen to 20 encoder frames for the accuracy of more context and the floor becomes 1.6 seconds; go bidirectional and it becomes the length of the stream. Narrow to 0 and the model must commit to a token before hearing the rest of the word. That is the whole design space, priced in milliseconds, and it is decided before any layer is chosen.",
+      "Note also that batching for throughput is a latency decision in disguise: process in 640 ms chunks instead of frame-synchronously and you add 0 to 640 ms of buffering on top of the 400, which is why this spec runs the encoder at a 1-frame hop with cached states."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The loss arithmetic decides its own implementation. Three letters over eight frames has 4^8 = 65,536 paths, of which 462 collapse correctly, and the recursion agrees with brute-force enumeration to fourteen decimal places. One second of audio at 50 frames with three letters already has 22,957,480 line-ups; the recursion does that in fifty steps. At the real shape, 250 frames and 78 tokens, the path count has hundreds of digits and 39,250 cells still suffice. Enumeration is not a slow option, it is not an option."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "6. WHAT ELSE MATTERS. AdamW, peak learning rate 2e-3, 25,000 steps of linear warmup then inverse-square-root decay, weight decay 1e-6, gradient clipping at norm 5. CTC loss is unstable in the first few thousand steps because almost every path is invalid, so warm up long and compute the loss in float32 even when the encoder runs in bf16.",
+      "SpecAugment on the (32, 1000, 80) tensor — two frequency masks up to 27 bins and ten time masks up to 5% of T each — is the single highest-value regulariser here, and it is applied to the input tensor, so its shapes are the ones above.",
+      "Monitor in production: word error rate SLICED by accent, noise level and speaker count, not pooled; the blank rate per frame, because a model drifting toward all-blank looks fine on loss and emits nothing; EMISSION DELAY, the gap between a word's true time and when the caption appeared, which is the number the viewer experiences and the one the lookahead argument is about; and the rate of deletions at chunk boundaries.",
+      "The first failure mode to expect is not accuracy, it is emission delay creeping up under load as batching absorbs frames. The second is the confidence filter in the follow-up loop quietly selecting easy speech, which is the closing question of the reel.",
+      "What to try next, in order: RNN-T instead of CTC so the output can condition on what it has already emitted, a shallow-fusion language model on the streaming beam, and a small non-streaming model that rewrites the last few seconds of caption once the audio is in the past — viewers tolerate a caption improving behind them far better than they tolerate one arriving late."
      ]
     }
    ],
