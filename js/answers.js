@@ -16,8 +16,514 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 485,
+ "count": 487,
  "entries": [
+  {
+   "slug": "stop_the_card_fraud_in_100ms",
+   "title": "A tenth of a second to say yes or no",
+   "ts": "2026-09-12T16:11:15+00:00",
+   "date": "12 Sep 2026",
+   "topic": "ml_systems_design",
+   "q": null,
+   "a": "Score the payment against the CARD'S OWN recent history, split the work into a cheap path and a heavy one, weight the loss by what each mistake costs — and then, for the follow-up, stop trying to fix a thirty-day label delay with a faster retraining loop. The lever is signal latency, not cadence.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DATA, AND WHY THE FEATURE STORE IS THE HARD PART. The raw transaction — amount, merchant, country, entry mode, time — is almost never suspicious on its own. Forty pounds at a supermarket on a Tuesday is forty pounds at a supermarket on a Tuesday.",
+      "What makes it suspicious is its relationship to that card's pattern: how many authorisations in the last hour, the last day, the last week; the distance and the time from the previous authorisation (600 miles in 9 minutes is not a shopping trip); whether this merchant, this country, this entry mode is new to this card; the ratio of this amount to the card's usual; how many distinct merchants in the last hour.",
+      "Those are AGGREGATES over a history, not columns of a row, and that is the whole design problem. You need thousands of them, computed identically in training and in serving, updated by the very transaction you are scoring, and returned inside a few milliseconds for whichever card happens to arrive.",
+      "The model is the easy half; the store that can answer \"what has this card done lately\" at thousands of queries a second is the half that decides whether the system exists."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ARCHITECTURE, AND WHY THE UNFASHIONABLE ANSWER IS THE HONEST ONE. Gradient-boosted trees.",
+      "Thousands of tabular features, heavily skewed, full of missing values and monotone thresholds — this is the data type trees are best at, and on simulated tabular data with interactions and noise columns the boosted trees beat a multilayer network of comparable effort outright, not merely by being cheaper.",
+      "And they ARE cheaper by a wide margin: 300 trees of depth 6 is 1,800 comparisons, about 3.6 microseconds, against 2.3 million floating-point operations for a 2000-512-256-1 network, roughly 0.12 milliseconds — a factor of 32.",
+      "Say this out loud in an interview; the answer they are listening for is whether you pick the model the problem wants rather than the model the conference wanted."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CASCADE, AND WHY A MEAN IS NOT A MAXIMUM. Do the arithmetic. A quick path — fixed network and plumbing at 11 ms, one cached feature-store round trip at 3 ms, a small forest at 3.6 microseconds — comes in at 14 ms.",
+      "A careful path that fetches from eight stores, runs a two-hop query over the card graph, calls a third-party enrichment service and runs a sequence model over the card's last 200 transactions comes in at 578 ms, which is 5.8 times the entire budget.",
+      "So you cannot run the careful path on everything, and you do not need to: send the obvious 99% through the quick path and the doubtful 1% through the heavy one, and the average is 0.99 x 14 + 0.01 x 578 = 20 milliseconds, comfortably inside a 100 ms mean.",
+      "Solve for the break-even and you find you need at least 85 in every 100 payments to clear the quick path just to average 100 ms — which tells you exactly how good the cheap model's \"I am not sure\" signal has to be. That number, not a diagram, is what makes the cascade a design rather than a preference."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT LOSS. Weighted, because the two errors are not the same size: letting a theft through costs the average fraud amount, roughly 200 pounds, while declining a good customer costs a support contact and some goodwill, call it 4 pounds. So a theft weighs 50 good customers, and the training loss should say so.",
+      "Then the OPERATING POINT is a separate decision and it falls straight out of the same two prices: decline when the expected cost of approving, p x 200, exceeds the expected cost of declining, (1 - p) x 4, which happens at p = 4 / 204 = 0.0196. Not 0.5.",
+      "The default threshold is 25 times too high here, and 0.5 is only correct when the two mistakes cost the same — which they never do in fraud. (A separate reel on this page works the cost sweep that finds that point; here it is a consequence, not the subject.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOLLOW-UP: WEEKLY ADAPTATION, THIRTY-DAY LABELS. Fraud labels come from chargebacks, and a cardholder disputes a transaction when they read a statement — days to months later, with a long tail. So the freshest fully-labelled day you have describes a world a month gone, while the people you are fighting change their method inside a week. Everyone's first answer is \"retrain more often\". It is wrong, and it is worth measuring rather than arguing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE SIMULATION SAYS. A drifting fraud population — a persistent generic component plus a fresh attack direction roughly every six weeks — 1,600 payments a day, 2% of them theft, and labels that mature 30 days late. The same model fitted at four cadences, each using only labels older than 30 days: nightly, weekly, monthly, quarterly.",
+      "Across six independent worlds they catch 0.094 to 0.119 of each day's thefts at a fixed decline budget. The spread across the whole cadence range is 0.025, which is 7% of the distance to a same-day oracle that catches 0.446.",
+      "You cannot out-retrain the delay: a nightly refit on month-old labels relearns the same month-old world, just more often."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DOES WORK: A FASTER SIGNAL. Feed the model the imperfect labels that arrive immediately — customers ringing to report a card, your own manual review queue's decisions, hard rule hits, issuer decline reason codes, device and account-takeover alerts.",
+      "In the simulation an immediate noisy signal catching 55% of thefts with a 0.4% false-positive rate on good payments reached 0.439, which is 98% of the oracle's distance.",
+      "That is the whole result in one line: the model does not need every label to find the new pattern; it needs to know WHERE the new pattern is, and a rough same-day signal locates it while a perfect month-late one cannot."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE REST OF THE ANSWER. Measure the decay curve against label age first — refit on labels aged 30, 45, 60, 90 days and plot performance against age — because that curve, not a habit, is what sets a cadence, and it also tells you whether you are in a regime where cadence matters at all.",
+      "Keep a small hand-written rules layer: when an attack pattern is describable in one sentence you can ship the rule this afternoon, and no retraining schedule competes with that. Use the mature labels for the slow-moving part of the model and the fast signals for the fast-moving part.",
+      "And evaluate on a rolling FORWARD window — train on days up to t, test on days after t — because a random split lets tomorrow's attack teach the model about itself and every number you produce will be a fiction."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTIONS WORTH NAMING. First, the simulation makes fraud arrive in episodes: a new attack direction appears, and it is retired weeks later. That is what makes cadence almost irrelevant, and it is the honest shape of card fraud, but it is an assumption.",
+      "If the drift were slow and smooth instead, cadence would buy you real ground — in a variant where the fraud centre rotates smoothly rather than jumping, daily refits recovered about 45% of the gap on monthly ones.",
+      "So the general rule is not \"cadence never matters\", it is \"measure the decay against label age, because the shape of the drift decides which lever you have\".",
+      "Second, the interim signal is assumed unbiased about WHERE fraud is even though it is noisy about WHICH cases; a signal that systematically misses one attack type will teach the model to miss it too, which is why the mature labels must stay in the mix as the audit."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ENGINEERING SPEC. Everything above is the argument. This is the build, at the level of detail an interviewer means when they say \"and what are the dimensions\". There is no image and no sequence here — the object is a TABLE — so \"layer by layer\" means the tree ensemble written out with the same precision, and pretending a boosted forest is a neural network would be the wrong answer twice over."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE DATA, WITH SHAPES. One row per authorisation, F = 2,000 columns, so a training matrix is (N, 2000) and one live payment is (1, 2000) — 8 KB in float32. The 2,000 columns are four named groups and they multiply out:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1,600  AGGREGATES: 10 entity keys x 8 statistics x 5 windows x 4 channel slices.",
+      "             keys        the card, card x merchant-category, card x country, the",
+      "                         merchant, the terminal, the device fingerprint, the IP",
+      "                         /24, the account, the issuer BIN, the acquirer",
+      "             statistics  count, sum, mean, standard deviation, max, 90th",
+      "                         percentile, distinct-value count, time since last",
+      "             windows     1 hour, 6 hours, 24 hours, 7 days, 30 days",
+      "             slices      all authorisations, card-present only, card-not-present",
+      "                         only, cross-border only",
+      "      360  REFERENCE-TABLE lookups: historical fraud rate and decline rate by",
+      "           merchant, by merchant category, by BIN, by country, by entry mode, at",
+      "           several smoothing levels — precomputed nightly, joined by key.",
+      "       40  POINT-IN-TIME fields and velocity: amount, currency, merchant category,",
+      "           entry mode (chip, contactless, magstripe, e-commerce), 3-D Secure",
+      "           result, AVS and CVV results, hour of day, day of week, plus the",
+      "           geo-velocity block — distance from the previous authorisation, seconds",
+      "           since it, and the implied speed. 600 miles in 9 minutes is 4,000 mph:",
+      "           no shopping trip, and no airliner either."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    10 x 8 x 5 x 4 = 1,600, and 1,600 + 360 + 40 = 2,000. The shape is not a round number someone chose; it is the product of a key list, a statistic list and a window list, and the way you make the system bigger is by adding a key, which adds 8 x 5 x 4 = 160 columns and one more write path in the store."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Volume, and the arithmetic that decides what you can actually fit. Thirty days of authorisations at 20 million a day is 600 million rows. At (600e6, 2000) in float32 that is 4.8 terabytes, which is not a training set, it is a storage problem.",
+      "So: keep EVERY fraud — 2% of 600 million is 12.0 million rows — and downsample the legitimate side 1 in 40, which is 588 million / 40 = 14.70 million rows, for 26.70 million rows in all.",
+      "Histogram-based boosting bins each feature to 255 values and stores a uint8, so the training matrix is 26.70e6 x 2000 x 1 byte = 53.4 GB — one large machine, no cluster.",
+      "THE DOWNSAMPLE IS ALSO A LOSS CHANGE and this is where people get it wrong: throwing away 39 of every 40 negatives has already multiplied the positive class's effective weight by 40, so to reach the 50-to-1 the two prices ask for you set the positive sample weight to 50 / 40 = 1.25, not to 50.",
+      "Set it to 50 and your effective ratio is 2,000 to 1 and the model declines everything."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The label tensor is (N,) in {0, 1}, and it is the part of the data with a clock on it: a row's label is not known until a chargeback matures, which is 30 days at the median with a tail of months. So the usable training mask is \"authorised before t - 30 days\", and that mask, not the row count, is what the follow-up is about."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two measured datasets sit behind the claims below, and their shapes are stated so the claims can be checked. The trees-against-a-network comparison runs on (9000, 52) — 12 informative columns including one exponentiated skewed count and two two-way interactions, plus 40 pure noise columns — split (6000, 52) train and (3000, 52) test. The label-delay simulation runs a drifting population in 8 dimensions: 330 days x 1,600 payments = 528,000 rows of (·, 8), 2% of them theft (about 10,560), a fresh attack direction every 40 days, and labels that mature 30 days late."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. INPUT AND OUTPUT, AT TRAINING AND AT SERVING, AND THE DIFFERENCE IS THE WHOLE SYSTEM. At TRAINING the input is the matrix (26.70e6, 2000) of uint8 bins with labels (26.70e6,) and weights (26.70e6,), and the output is one fitted ensemble plus one scalar loss per boosting round. Feature values are computed by a BATCH job that can look at the whole history at once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At SERVING the input is (1, 2000) assembled in the 100 ms the payment is waiting, and the output is one number: p, the probability this authorisation is theft, then the binary decision p > 0.0196. Two differences matter more than the batch size."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FIRST, THE AGGREGATES MUST BE COMPUTED THE SAME WAY TWICE, and they cannot be. At training, \"count in the last hour\" is a window function over a sorted table. At serving it is a read from a key-value store whose counters were updated by a stream job, including by THIS authorisation, milliseconds ago.",
+      "Any disagreement between those two definitions — an off-by-one on whether the current transaction is included, a window that is calendar-hour in the batch job and trailing-60-minutes in the stream, a late-arriving event the batch job saw and the stream did not — is training-serving skew, and it degrades the model in a way that is invisible in offline evaluation because offline evaluation uses the batch definition.",
+      "The only real fix is ONE definition, compiled to both paths, which is what a feature store is for and why it is the hard part of this system rather than the plumbing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "SECOND, THE LABEL IS ABSENT AT SERVING AND LATE AT TRAINING. At serving there is no y at all; at training the freshest y is 30 days old. So the training distribution is a month-old world by construction, and no amount of serving freshness fixes it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. THE ARCHITECTURE, PATH BY PATH AND TREE BY TREE. Two paths, a router between them, and no neural network on the hot path."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE QUICK PATH — every payment.",
+      "      input                (1, 2000), one cached feature-store row, 1 round trip",
+      "      model                gradient-boosted decision trees, histogram split",
+      "                           finding, 255 bins per feature",
+      "      trees                300",
+      "      depth                6, so at most 2^6 = 64 leaves and 63 internal split",
+      "                           nodes per tree",
+      "      total leaves         300 x 64 = 19,200; total split nodes 300 x 63 = 18,900",
+      "      learning rate        0.05",
+      "      regularisation       L2 on leaf values 1.0, min 200 weighted samples a leaf",
+      "      how it sums          F(x) = F_0 + 0.05 x SUM over m = 1..300 of T_m(x),",
+      "                           where F_0 = log(pi / (1 - pi)) at the weighted base",
+      "                           rate and each T_m(x) is the leaf value reached by 6",
+      "                           comparisons of the form x[j] <= t. Then",
+      "                           p = sigmoid(F(x)). The ensemble is an ADDITIVE MODEL",
+      "                           IN LOG-ODDS SPACE — 300 small corrections to a prior,",
+      "                           not 300 votes — which is why the output is calibrated",
+      "                           enough for a cost threshold to be meaningful at all.",
+      "      serialised size      18,900 nodes x 16 bytes + 19,200 leaves x 4 bytes,",
+      "                           about 380 KB — it sits in L2 cache, which is why the",
+      "                           evaluation is 3.6 microseconds and not a memory stall",
+      "      output               p, plus the routing decision below"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE ROUTER — one line, and the number in section 5 is its specification.",
+      "      Send the payment to the heavy path when p sits in an uncertain band, when",
+      "      the cheap features are missing or stale, or when the amount alone makes the",
+      "      heavy path's cost worth paying. It must clear at least 84.7% of traffic on",
+      "      the quick path for the MEAN to fit 100 ms, and the design point is 99%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE HEAVY PATH — the doubtful 1%.",
+      "      8 feature-store round trips, 3 ms each, for the aggregates the cache does",
+      "        not hold",
+      "      a 2-hop neighbourhood query over the card-merchant-device graph, 140 ms:",
+      "        how many cards touched this device, how many of them charged back, how",
+      "        many hops to a known mule account",
+      "      one third-party enrichment call, 400 ms: identity, device reputation, a",
+      "        consortium fraud signal",
+      "      a bigger forest, 4,000 trees of depth 12 — at most 2^12 = 4,096 leaves a",
+      "        tree, 48,000 comparisons, 96 microseconds",
+      "      a sequence model over the card's last 200 authorisations, and THIS is the",
+      "        one part that is a network, because the object is a sequence:",
+      "          (1, 200, 64)     200 authorisations, each embedded to 64 dims",
+      "                           (categorical embeddings concatenated with scaled",
+      "                           numerics)",
+      "          (1, 200, 256)    GRU layer 1, hidden width 256",
+      "          (1, 200, 256)    GRU layer 2, hidden width 256",
+      "          (1, 256)         take the last hidden state",
+      "          (1, 1)           Linear(256 -> 1)",
+      "        Cost, counting the recurrent matrix multiplies: 2 layers x 200 steps",
+      "        x 2 x 256^2 = 52.4 MFLOP, which at 2e10 FLOP/s of single-core throughput",
+      "        is 2.6 ms — the cheapest thing on the heavy path by two orders of",
+      "        magnitude, and it is still 700 times the quick forest.",
+      "      a final blend: the heavy score is a second boosted model taking the quick",
+      "        path's p, the graph features, the enrichment fields and the sequence",
+      "        model's logit as inputs — stacking, not averaging, so the heavy path can",
+      "        learn when to overrule the cheap one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    WHY NOT ONE NETWORK OVER EVERYTHING. Measured on the (9000, 52) table above:",
+      "    the boosted trees reach 0.816 AUC against 0.667 for a multilayer perceptron",
+      "    of comparable effort. Trees win here because the signal IS thresholds and",
+      "    interactions on skewed, missing-value-riddled tabular columns — \"more than 4",
+      "    distinct merchants in the last hour AND this country is new to the card\" is",
+      "    two splits, and it is a smooth function of nothing. And a 2000-512-256-1",
+      "    network costs 2 x (2000 x 512 + 512 x 256 + 256 x 1) = 2.31 MFLOP, which is",
+      "    0.116 ms, against 3.6 microseconds of tree comparisons: 32 times the cost",
+      "    for worse accuracy. Both halves of that sentence have to be true for the",
+      "    answer to be \"trees\", and both are measured."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "4. THE LOSS, WRITTEN OUT. Weighted binary cross-entropy on the log-odds the ensemble produces. With w_i the sample weight, y_i the label and F(x_i) the ensemble's score,"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L(F) = -(1 / SUM_i w_i) x SUM_i w_i [ y_i log sigmoid(F(x_i))",
+      "                                          + (1 - y_i) log(1 - sigmoid(F(x_i))) ]"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    w_i = 1.25 when y_i = 1, and 1 when y_i = 0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and 1.25 is 50/40: the 50-to-1 cost ratio the two prices imply, divided by the 40-fold negative downsample already applied to the data. What the weight penalises is a missed theft fifty times as hard as a false decline, ON THE ORIGINAL POPULATION."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Boosting does not minimise that by gradient descent on parameters; it minimises it greedily, one tree at a time, and the weights enter through the derivatives. At round m, with p_i = sigmoid(F_{m-1}(x_i)),"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    g_i = w_i (p_i - y_i)                    the gradient",
+      "    h_i = w_i p_i (1 - p_i)                  the hessian"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "each candidate split is scored by the gain SUM(g_L)^2/(SUM(h_L)+lambda) + SUM(g_R)^2/(SUM(h_R)+lambda) - SUM(g)^2/(SUM(h)+lambda), the leaf value is -SUM(g)/(SUM(h)+lambda), and F_m = F_{m-1} + 0.05 x T_m. So the cost weight does two things at once: it moves the fitted probabilities, and — because it enters the SPLIT GAIN — it makes the trees spend their 18,900 splits on regions where fraud lives rather than where the rows are."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE OPERATING POINT IS A SEPARATE DECISION, DERIVED FROM THE SAME TWO PRICES. Declining costs C_turn = 4 pounds when the customer was good, which happens with probability 1 - p. Approving costs C_miss = 200 pounds when the payment was theft, which happens with probability p. Decline when the expected cost of approving exceeds the expected cost of declining:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    p x C_miss > (1 - p) x C_turn",
+      "    =>  p > C_turn / (C_turn + C_miss) = 4 / 204 = 0.0196 = 1 / (1 + 50)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The threshold is the reciprocal of one plus the cost ratio, and nothing else. Note what that means: the ratio 50 appears in the loss as a weight AND in the decision as a threshold, and they are not redundant. A perfectly calibrated unweighted model plus the 0.0196 threshold is already optimal; the weight is what buys you RESOLUTION near that threshold out of a finite split budget, which is what you actually have."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "5. THE NUMBERS THAT DECIDE IT. The latency arithmetic, from per-component costs stated once, and it is the whole reason the architecture is a cascade."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    QUICK PATH  = 11 ms fixed (network in and out, auth plumbing, logging)",
+      "                + 1 x 3 ms feature-store round trip",
+      "                + 300 x 6 = 1,800 tree comparisons at 2 ns = 3.6 microseconds",
+      "                = 14.0 ms"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    HEAVY PATH  = 11 ms fixed + 8 x 3 = 24 ms of store round trips",
+      "                + 4,000 x 12 = 48,000 comparisons at 2 ns = 0.096 ms",
+      "                + 140 ms graph query + 400 ms external call + 2.6 ms GRU",
+      "                = 578 ms, which is 5.8 times the entire 100 ms budget"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the heavy path cannot be the only path: it is not slightly too slow, it is nearly six times over. The mix is what fits. At 99% on the quick path the MEAN is 0.99 x 14.0 + 0.01 x 578 = 19.6 ms, 20% of budget.",
+      "Solve the mix for equality with the budget and the BREAK-EVEN is (578 - 100) / (578 - 14.0) = 84.7%: at least 84.7 payments in every 100 must clear the quick path for the mean to fit at all. THAT NUMBER IS THE ROUTER'S SPECIFICATION.",
+      "It says the cheap model's \"I am not sure\" signal has to be right about at most 15% of traffic, and it says how much headroom you have bought at 99% — a factor of fifteen on the heavy-path rate before the budget is gone.",
+      "A mean is not a maximum, though, and the 99th-percentile payment takes 578 ms, so the budget has to be written as a mean with a separate tail SLO or the design is a lie."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The cost threshold, brute-forced rather than asserted. Sweep every cut-off from 0.002 to 0.60 over 400,000 simulated payments whose scores are honest probabilities, and price each with the real 200-to-4: the money bottoms out at 0.019, against the analytic 0.0196. Cutting at a half instead costs 1.9 times the best achievable. The default threshold is 25.5 times too high."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The label delay, measured. A drifting population, a fresh attack every 40 days, 1,600 payments a day, 2% theft, labels 30 days late. Refit nightly, weekly, monthly, quarterly, each using only labels older than 30 days: the share of each day's thefts caught at a fixed decline budget is 0.108, 0.100, 0.094 and 0.119.",
+      "The whole cadence range spans 0.025, which is 7% of the 0.339 gap up to a same-day oracle at 0.446. A rough signal available TODAY — reported cards, the manual review queue, hard rule hits, issuer decline codes — catching 55% of thefts at a 0.4% false-positive rate reaches 0.439, closing 98% of that gap.",
+      "Cadence buys 7%; signal latency buys 98%. And the control that keeps the claim honest: make the drift SMOOTH instead of episodic and cadence matters again — nightly 0.486, monthly 0.325, same-day 0.674, so cadence buys 46% of the gap there.",
+      "The rule is not \"cadence never matters\", it is \"measure performance against LABEL AGE, because the shape of the drift decides which lever you have\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "6. WHAT ELSE MATTERS. No optimiser and no schedule: 300 rounds at learning rate 0.05 with early stopping on a forward-in-time validation window, and the only real hyperparameters are depth, learning rate x rounds (they trade off one-for-one) and the leaf minimum.",
+      "Evaluate on a ROLLING FORWARD split — train on days up to t, test on days after t — because a random split lets tomorrow's attack teach the model about itself and every number you produce is then fiction.",
+      "Calibrate explicitly, with isotonic regression on a held-out forward window, because the cost threshold is a statement about probabilities and a miscalibrated 0.0196 is not the cut-off you think it is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Monitor, and in this order. FEATURE STALENESS AND NULL RATES per feature per minute, because the commonest production failure here is not the model, it is one of the 1,600 aggregates silently returning zero when the stream job falls behind — and zero is a legal value, so nothing throws.",
+      "The p distribution's quantiles, hourly, against the previous week. Decline rate per merchant category, per issuer, per country.",
+      "Realised cost in pounds at the live threshold, decomposed into missed-theft pounds and false-decline pounds, because that sum is the objective and a model that improves AUC while shifting the mix is not an improvement. Heavy-path rate against the 15.3% headroom the break-even leaves.",
+      "And latency at p50, p99 and p99.9 separately, since the mean hides the cascade entirely."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The first failure mode to expect is not accuracy drift, it is feature skew: the batch and stream definitions of one window diverge, offline evaluation still looks fine because it uses the batch definition, and live performance quietly degrades by more than any retraining cadence could recover.",
+      "The second is the router — a cheap model whose uncertainty band widens under a new attack pushes the heavy-path rate from 1% to 20%, and the mean latency goes from 19.6 ms to 127 ms, past the budget, during exactly the incident you most need the system for.",
+      "Cap the heavy-path rate and degrade to quick-path-only under load, deliberately, rather than discovering the failure as a timeout storm."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What to try next, in order: the immediate noisy labels as a second output head or a separate fast-moving model blended with the slow one, since that is where the measured 98% is; a one-sentence rules layer you can ship the same afternoon, which no retraining schedule competes with; the decay curve of performance against label age (30, 45, 60, 90 days) so the cadence is chosen from a measurement and not a habit; and a sequence model promoted onto the quick path only if it can be distilled into something that fits 3.6 microseconds, which in practice means a forest fitted to its output rather than the model itself."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "no_spark_plug_anywhere",
+   "title": "No spark plug anywhere",
+   "ts": "2026-09-12T15:55:01+00:00",
+   "date": "12 Sep 2026",
+   "topic": "thermodynamics",
+   "q": null,
+   "a": "The squeezing does. Compressing the air to a twentieth of its volume takes it to roughly 720 C, and diesel lights at about 250 C.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Squeeze a gas quickly and you do work on it. That work has nowhere to go - there is no time for heat to escape through the cylinder walls - so it all ends up as the energy of the molecules, which is what temperature measures. This is an adiabatic compression, and for it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    T2 = T1 x r^(gamma - 1)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "with r the compression ratio and gamma 1.4 for air. At r = 20 that is 20^0.4 = 3.31, so 300 K becomes about 994 K, which is 721 C. Nearly three times what the fuel needs."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS NOT JUST THE PRESSURE. People often say the fuel is lit by the pressure. Pressure alone does not ignite anything - a gas cylinder sits at 200 atmospheres in the corner of a workshop and stays cold. What matters is that the air was heated in the act of being compressed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CHECK WORTH KNOWING. The same number arrives by a different road. The pressure rises by r^gamma = 20^1.4 = 66 times, and the volume falls to 1/20, so T2/T1 = 66/20 = 3.31 - the same factor, from the ideal gas law rather than the adiabatic temperature relation."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. Whenever a gas is compressed fast enough that heat cannot escape, expect the temperature to rise, and expect it to rise as the ratio to the power of about 0.4. It is why a bicycle pump gets hot near the valve, and why diesels need no ignition system at all."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_hole_in_the_window",
    "title": "The hole in the window",
