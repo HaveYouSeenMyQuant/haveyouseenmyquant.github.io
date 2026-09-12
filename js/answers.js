@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "stop_the_card_fraud_in_100ms",
    "title": "A tenth of a second to say yes or no",
-   "ts": "2026-09-12T16:11:15+00:00",
+   "ts": "2026-09-12T16:15:37+00:00",
    "date": "12 Sep 2026",
    "topic": "ml_systems_design",
    "q": null,
