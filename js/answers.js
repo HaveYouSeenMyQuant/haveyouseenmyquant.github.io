@@ -16,8 +16,606 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 487,
+ "count": 490,
  "entries": [
+  {
+   "slug": "how_many_drivers_at_eight_am",
+   "title": "How many drivers, in every patch of the city, an hour from now",
+   "ts": "2026-09-12T19:18:13+00:00",
+   "date": "12 Sep 2026",
+   "topic": "ml_systems_design",
+   "q": null,
+   "a": "Forecast every AREA separately, anchor the whole thing on a seasonal baseline you have to beat, and train it with a QUANTILE loss whose quantile is set by the ratio of two costs — a lost rider against an idle driver. Then, for the follow-up, stop trying to fix a concert with a better model: a one-off is not in any window of your history, so you either buy it as a feature or shorten your horizon until the present tells you enough.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DATA, AND WHY THE CALENDAR MATTERS MORE THAN ANYTHING CLEVER. Completed trips and requests per area per time bucket (15 minutes is a good default), for as many months as you have.",
+      "Then, crucially, the calendar: hour of day, day of week, the interaction of those two (Friday 6pm is not Tuesday 6pm), public holidays, school terms, and the day's position in the month for pay-cycle effects. Then weather, both observed and FORECAST — rain lifts demand and suppresses driver supply at the same time.",
+      "Then lags of the series itself: the same area an hour ago, a day ago, a week ago, and a rolling mean of the last few weeks at this hour. The reason to lead with the calendar rather than with a clever architecture is that this signal is overwhelmingly periodic.",
+      "In a simulated city with a realistic per-area daily profile, a weekly multiplier and Poisson noise, \"same area, same hour, last week\" cuts the error by 56% against predicting each area's own long-run average.",
+      "And the comparison that makes the point sharpest: a boosted model given ONLY the recent level — the last few hours and their mean, with no idea what hour it is — is beaten by 20% by a boosted model given ONLY the calendar and no history whatsoever, and that calendar-only model lands within 5% of the full system.",
+      "A model that gets Tuesday-at-eight right already has most of the job; everything else in this system is the remaining quarter."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ARCHITECTURE, AND WHY THE BASELINE IS NOT A FORMALITY. Start with the seasonal naive forecast — the same area, the same hour, last week — or a slightly better version of it, the median of the last four same-hour-same-weekday values, which is robust to one odd week.",
+      "In forecasting, unlike in classification, the baseline is genuinely competitive: in the simulation the full boosted model with calendar and lag features beats that four-week-median baseline by only about 9%. That number is the point.",
+      "It says (a) report it, because an interviewer wants to know you know how strong it is, and (b) if your model cannot beat it, SHIP THE BASELINE — it needs no training pipeline, no feature store and no monitoring, and a system whose model buys nothing over a one-line rule is a liability rather than an asset.",
+      "Then, on top of it: gradient-boosted trees over calendar columns, lag columns, weather and an area identifier, trained per area or with the area as a categorical feature.",
+      "Trees, not a deep sequence model, for the same reason as always — a few hundred thousand rows of tabular columns with strong threshold structure is what they are best at, and you can retrain the whole thing in minutes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND FORECAST EACH AREA, NOT THE CITY. This is the trap that sounds like a simplification. The city total is a much easier series: the noise across areas averages out, so a total-level forecast looks wonderful and means nothing, because you cannot dispatch a driver to the average.",
+      "Measured: a total-first model that forecasts the city and then splits it by each area's long-run average share actually BEATS the per-area model on total error and is 2.4 times worse per area.",
+      "The error you are paid to reduce is the per-area one — that is where a rider stands on a pavement — so that is the error you fit and the error you report."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT LOSS, AND WHY THIS IS THE BEAT PEOPLE GET WRONG. Squared error is the wrong loss here, and not for a subtle reason. Squared error is symmetric: it says a forecast that is three drivers short is exactly as bad as one that is three drivers over. That is false in this business.",
+      "A rider who gives up is a whole trip lost — the fare, the margin, and some probability that they open a competitor's app tomorrow. A surplus driver is an idle hour: real money, but small money.",
+      "Squared error also targets the conditional MEAN, which sits at or just above the middle of the distribution, so the forecast is short close to half the time.",
+      "Measured against the TRUE mean of every hour (which this simulation knows exactly): the squared-error forecast sits 2.72 riders from it while the quantile forecast sits 7.08 away, and it is short 42% of hours — a Poisson mean is a little above its median, which is why 42 and not 50.",
+      "Either way it is short two and a half times more often than the two prices allow, and being short 42% of the time is a catastrophic operating point when a shortfall costs five times a surplus."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So train a QUANTILE loss — the pinball loss. It is asymmetric on purpose: for a chosen quantile q, it charges q x (actual - predicted) when you are under and (1 - q) x (predicted - actual) when you are over. Minimising it makes the model predict the q-th quantile of demand rather than its mean.",
+      "AND THE QUANTILE IS THE BUSINESS DECISION, not a hyperparameter. Set it from the two costs: the expected cost of sending one more driver is minimised where the chance of being short equals the cost of an idle driver over the total cost, so q* = c_short / (c_short + c_over).",
+      "At 10 pounds for a lost trip and 2 pounds for an idle driver-hour, q* = 10/12 = 0.833 — you deliberately aim at a number you will clear five times out of six.",
+      "Verified by brute force: sweeping the trained quantile from 0.10 to 0.95 and pricing every forecast with the real costs, the cost-minimising forecast is, for all six cost ratios tried, the one whose realised coverage matches the break-even — it CLEARS demand as often as the two prices say it should, to within 7 points, and the cheapest quantile rises monotonically with the break-even.",
+      "(A note on honesty: these fits come out about six points above their nominal label on the low half of the grid, which is regularisation pulling a right-skewed count toward its mean, so the law is stated on the realised rate and not on the training label.) Set the two costs equal and the optimum walks back to the middle — measured at a realised coverage of 0.465, a neighbour of a half, and 2.0% cheaper than the 0.50-trained forecast, which is fitting noise on a right-skewed count — and that is the control proving the asymmetry is what moves the answer.",
+      "In the simulation the squared-error forecast costs 1.34 times the quantile-trained one — a third more money for the same model, the same features and the same data, changing nothing but the loss."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two practical notes. First, quantile forecasts per area let you run the whole fleet on a single dial: raise q and you buy service level with idle cost, and finance can argue about q instead of about the model. Second, train several quantiles (0.1, 0.5, 0.9) and you have a predictive interval for free, which is what the dispatch system actually wants."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOLLOW-UP: A CONCERT, A STRIKE AND HEAVY RAIN, NONE OF THEM IN YOUR HISTORY. Work it honestly, because the instinct — \"retrain on recent data\" — is wrong, and saying why is the whole answer. A model trained on history can only reproduce patterns that history contains. A concert at an arena that has never held one, a first rail strike in a decade, a once-a-year storm: there is no window of the past you can refit on that contains them. The failure is not staleness and it is not drift. It is an input you never wrote down."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FIX ONE, AND IT IS THE MAIN ONE: BUY THE RECORD. Add the events feed (ticketed events, capacity, start and end times, venue location, mapped to areas), the weather FORECAST (not the observation — you are predicting an hour ahead, so you need the forecast at that horizon), transport-disruption feeds, and a holiday and school calendar.",
+      "Now the concert is not a surprise, it is a column: \"6,000 ticketed seats emptying within 400 metres at 22:30\". The model has seen dozens of events at other venues and can generalise across them via capacity and start time even if THIS venue is new.",
+      "Measured: with no event column at all, error on shock hours is about 8 times the model's normal error; adding the seat count as ONE extra column removes three quarters of that blow-up at a venue that never held an event in the training data, landing at about twice normal error."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FIX TWO: DETECT THE DIVERGENCE FAST. For shocks nobody sold tickets to, monitor the residual — actual minus forecast, per area, per bucket — against its own historical spread, and alarm when several consecutive buckets sit outside it. This is a monitoring job, not a modelling one, and its output is a switch."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FIX THREE: WHEN THE SWITCH FLIPS, SHORTEN THE HORIZON. Fall back to a short-horizon reactive model — an exponentially weighted level on the last fifteen to thirty minutes of requests in that area, or simply \"the last two buckets, extrapolated\". It knows nothing about concerts and does not need to: the surge is already in its input.",
+      "It is worse than the seasonal model on an ordinary Tuesday and far better than it during an event.",
+      "Measured, and with the horizon split built into the features — the planning model's freshest completed bucket is two back, because you need lead time to move a driver, while the fallback is asked a nearer question and gets the bucket that has just closed: the fallback closes 83% of the surge gap with no event feature anywhere, at a cost of 2% on ordinary hours because the residual monitor only lets it fire (74% of running-surge buckets, 0.5% of ordinary ones).",
+      "And it is exactly blind to the surge's FIRST bucket — 47.4 riders of error against the planning model's identical 47.4 — because at that moment the present is still normal. Nothing that reads only the present can see a surge that has not started, which is precisely why fix one is the main one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FIX FOUR: KEEP A HUMAN OVERRIDE. Give city operations a multiplier per area per time window, logged and expiring. On the day of a strike a dispatcher knows something your features do not, and the argument against overrides — that people will abuse them — is answered by logging and review, not by removing them. Score the overrides afterwards; the good ones become features."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INSIGHT TO CARRY OUT OF THIS. You cannot forecast what you have no record of. So there are exactly two moves: BUY THE RECORD, by turning the shock into a known covariate, or SHORTEN THE HORIZON, until the present contains enough information to stand in for the missing history. Every good answer to this follow-up is one of those two, or both."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE SIMULATION ASSUMES, STATED HONESTLY. The noise is Poisson, so it is mildly right-skewed: the conditional mean sits just above the conditional median, which is exactly why squared error came out short 42% of hours rather than a clean 50%.",
+      "The direction of that caveat is against the reel's own rhetoric and it is stated here for that reason — squared error is a little better than 'short half the time', and still two and a half times too often.",
+      "The periodic structure is strong, which is what makes the seasonal baseline strong — in a city whose demand is dominated by weather rather than by the clock, the baseline would be weaker and the model's 9% would be larger.",
+      "And the shock is a pure multiplier on a block of area-hours, which is generous to the reactive fallback: a shock that also changes the SHAPE of the hour would be harder for it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ENGINEERING SPEC. Everything above is the argument. This is the build, at the level of detail an interviewer means when they say \"and what are the dimensions\". The model is a boosted tree ensemble, not a network, so \"layer by layer\" means the ensemble written out with the same precision — tree count, leaf budget, how the sum is formed, and what the feature row actually is. Calling a forest a network would be the wrong answer twice over."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE DATA, WITH SHAPES. The series is a PANEL: one count per area per time bucket. Write it as (areas, timesteps) and every decision below is visible in those two axes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In production, with 240 dispatch areas, 15-minute buckets — 4 an hour, 96 a day — and 18 months of history (547 days), the panel is (240, 52,512) counts, which is 240 x 96 x 547 = 12,602,880 observations. That is the target tensor y. Flattened for a tree learner it becomes a design matrix (12,602,880, 38) with the label (12,602,880,), and the 38 columns are:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "     1  AREA IDENTIFIER, categorical, 240 levels — one column, not 240, because",
+      "        the learner splits on the category directly rather than one-hot",
+      "     7  CALENDAR: hour of day, day of week, the hour x day-of-week interaction as",
+      "        its own index (Friday 18:00 is not Tuesday 18:00, and a tree needs the",
+      "        product to be splittable in one cut), public holiday, school term,",
+      "        day-of-month for the pay cycle, minute-of-hour bucket",
+      "    12  LAGS: the 4 most recent CLOSED buckets (t-1 to t-4), a day ago (t-96) and",
+      "        two days ago (t-192), a week ago (t-672) and two weeks ago (t-1344), and",
+      "        four rolling means — over the last 4 buckets, the last 24 hours, the last",
+      "        7 days, and the same hour of the last 4 weeks",
+      "     6  WEATHER: observed temperature and rainfall now, FORECAST temperature,",
+      "        rainfall and wind at the target bucket, and the forecast's own confidence",
+      "     4  EVENTS: ticketed seats within 400 m of the area centroid, minutes to",
+      "        start, minutes to end, and a transport-disruption flag",
+      "     8  NEIGHBOURS: the 4 most recent closed buckets of the two adjacent areas,",
+      "        because demand displaces spatially before it grows"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 + 7 + 12 + 6 + 4 + 8 = 38. The lag structure is the part with a clock on it, and it is a SERVING constraint disguised as a feature list: you are forecasting one hour ahead and a driver takes time to move, so at prediction time the freshest bucket that has actually closed is t-4 for a one-hour horizon, not t-1. Build the training rows with t-1 available and the model will lean on a column that does not exist in production, and the offline numbers will be excellent and the live numbers will not. The reactive fallback in the follow-up is asked a NEARER question and is allowed t-1, and that difference in what each model may read is the horizon split, written into the features rather than into a comment."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The measured city behind every number below is smaller and its shape is stated so the claims can be checked: 24 areas x 140 days x 24 hourly buckets = 80,640 rows, Poisson counts drawn around a mean tensor lam of the same (24, 140, 24) shape, built from a per-area two-peak hour-of-day profile, a day-of-week multiplier running 0.86 to 1.34, a 5% holiday rate at a 22% discount, and a weather term of plus or minus 10%.",
+      "Because lam is known exactly, \"what is the true mean of this hour\" is answerable, which is what makes the squared-error claim in section 5 a measurement rather than a comparison between two fits."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The mask arithmetic matters and is usually skipped. Every lag up to t-168 hours is only real once 7 days have passed, so the usable rows start at day 40: 24 x 100 x 24 = 57,600 rows. Split FORWARD IN TIME, never at random — train on days 40 to 109, which is 24 x 70 x 24 = 40,320 rows, and test on days 110 to 139, which is 24 x 30 x 24 = 17,280. 40,320 + 17,280 = 57,600, and a random split would let next Tuesday teach the model about itself through the week-ago lag."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. INPUT AND OUTPUT, AT TRAINING AND AT SERVING. At TRAINING the input is (40,320, 9) in the measured city — the area id, 4 calendar columns and 4 lag columns — with the label (40,320,) of integer counts, and the output is one fitted ensemble per quantile plus one scalar pinball loss per boosting round.",
+      "At SERVING, every 15 minutes, the input is (240, 38): ONE ROW PER AREA, all of them for the same target bucket, assembled from the feature store and the weather and events feeds.",
+      "The output is (240,) forecast riders if you serve one quantile, or (240, 3) if you serve 0.1, 0.833 and 0.9 together, which is what dispatch actually wants — a number to plan against and an interval to hedge with."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three differences, and the third is the one that bites."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The BATCH AXIS INVERTS. Training rows are (area, time) pairs scattered across 70 days; a serving batch is all 240 areas at ONE instant. So the serving path needs 240 feature rows fetched and assembled inside one bucket, and the feature store's unit of work is \"all areas, latest bucket\" while the training job's is \"all history, one area at a time\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE LABEL IS NEVER AVAILABLE AT SERVING and arrives one bucket later at training, which is what makes the residual monitor in fix two possible at all: 15 minutes after every forecast you know its error, per area, and that is a far faster signal than anything a fraud or a captioning system gets."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE LAGS ARE SELF-REFERENTIAL AT LONGER HORIZONS. One hour ahead, every lag the model reads is an observed count. Four hours ahead, t-4 is itself a forecast, so either you forecast recursively — feeding predictions back in, and compounding their error — or you train a SEPARATE MODEL PER HORIZON on only the lags that are genuinely closed at that horizon. Train one model and serve it at four horizons and you have silently chosen the first option."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. THE ARCHITECTURE, TREE BY TREE. A seasonal baseline, and a gradient-boosted tree ensemble that has to beat it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE BASELINE, which is a real competitor and not a formality:",
+      "      seasonal naive       y_hat(a, t) = y(a, t - 672)        — same area, same",
+      "                           hour, same weekday, last week. One line, no training,",
+      "                           no feature store, no monitoring.",
+      "      robust version       y_hat(a, t) = median of y(a, t - 672k) for k = 1..4 —",
+      "                           the same hour of the last four weeks, which survives",
+      "                           one odd week. THIS is the number to beat."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE MODEL: HistGradientBoostingRegressor with a quantile objective.",
+      "      trees (boosting rounds)   160",
+      "      leaves per tree           at most 31, so at most 30 internal split nodes;",
+      "                                depth is left unbounded and the leaf cap does",
+      "                                the regularising, which is what lets one tree be",
+      "                                deep down the \"Friday evening in area 7\" branch",
+      "                                and shallow elsewhere",
+      "      total leaf budget         160 x 31 = 4,960 leaf values in the whole model",
+      "      learning rate             0.1",
+      "      binning                   each of the 38 columns pre-binned to 255 values,",
+      "                                so split search is a histogram scan and not a",
+      "                                sort — this is why the fit is minutes and not",
+      "                                hours",
+      "      min samples a leaf        20",
+      "      categorical handling      the area id is declared categorical, so a split",
+      "                                is a SUBSET of the 240 areas rather than a",
+      "                                threshold on an arbitrary integer code",
+      "      how the ensemble sums     y_hat(x) = F_0 + 0.1 x SUM over m = 1..160 of",
+      "                                T_m(x), where F_0 is the empirical q-quantile of",
+      "                                the training labels and each T_m is a regression",
+      "                                tree returning one of its at-most-31 leaf values.",
+      "                                It is an ADDITIVE MODEL: 160 small corrections to",
+      "                                a constant, each one a piecewise-constant",
+      "                                function of at most 30 splits. The whole",
+      "                                predictor is therefore piecewise constant — it",
+      "                                cannot extrapolate above the largest count it",
+      "                                ever saw, which is exactly the property that",
+      "                                makes the concert unforecastable and fix one",
+      "                                necessary.",
+      "      serialised size           4,800 nodes x 16 bytes + 4,960 leaves x 4 bytes,",
+      "                                under 100 KB. Inference for all 240 areas is",
+      "                                240 x 160 tree walks of a few comparisons each —",
+      "                                microseconds. NOTHING here is a latency problem,",
+      "                                which is the opposite of the fraud reel, and it",
+      "                                is why the design effort goes into features and",
+      "                                the loss rather than into the model.",
+      "      per area or pooled        ONE pooled model with the area as a categorical",
+      "                                feature, not 240 models. Pooling shares the",
+      "                                calendar shape across areas, which is where most",
+      "                                of the signal is, and lets a new area be served",
+      "                                on day one. Fit per-area models only where an",
+      "                                area has enough history to pay for them and a",
+      "                                genuinely different shape."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    AND FORECAST EACH AREA, NOT THE CITY. The alternative architecture — one",
+      "    model on the (1, 52512) city total, then split by each area's long-run share",
+      "    — is a different SHAPE, and the shape is the mistake: you have replaced a",
+      "    (240, T) problem with a (1, T) problem plus a fixed (240,) vector of shares,",
+      "    and a fixed share cannot express that area 7 peaks at 22:00 and area 19 at",
+      "    08:00. Measured: total-first scores 41.46 on the city total against the",
+      "    per-area model's 48.59 — it wins the metric it was built for — and 12.869 per",
+      "    patch against 5.273, which is 2.4 times worse at the only question anyone",
+      "    asks it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "4. THE LOSS, WRITTEN OUT. The PINBALL (quantile) loss, for a chosen quantile q:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L_q(y, y_hat) =  q x (y - y_hat)        if y > y_hat   (you were SHORT)",
+      "                     (1 - q) x (y_hat - y)  if y <= y_hat  (you were OVER)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "or in one line, L_q(y, y_hat) = max(q (y - y_hat), (q - 1) (y - y_hat)). Both branches are non-negative and linear, and the asymmetry is the entire content: at q = 0.833 a shortfall of one rider costs 0.833 and a surplus of one rider costs 0.167, a ratio of exactly 5 — which is 10 pounds over 2 pounds, the two prices, and nothing else."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY ITS MINIMISER IS THE QUANTILE, which is the derivation to have ready. Treat y_hat as a constant and differentiate the expected loss over the conditional distribution of Y:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E[L_q] = q x INTEGRAL over y > y_hat of (y - y_hat) dF(y)",
+      "           + (1 - q) x INTEGRAL over y <= y_hat of (y_hat - y) dF(y)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    d E[L_q] / d y_hat = -q x P(Y > y_hat) + (1 - q) x P(Y <= y_hat)",
+      "                       = -q x (1 - F(y_hat)) + (1 - q) x F(y_hat)",
+      "                       = F(y_hat) - q"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Set that to zero and F(y_hat) = q: the minimiser is the value demand falls below a fraction q of the time — the q-th quantile. Squared error's derivative is -2 E[Y - y_hat], which vanishes at the MEAN, and that one line is the whole difference between the two losses.",
+      "Note also what the derivative says about the gradient the trees actually see: it is CONSTANT, -q when you are short and (1 - q) when you are over, with no dependence on HOW short you were.",
+      "So the trees learn a sign pattern — which regions are systematically under — and the leaf values are set by a line search on the loss rather than by the gradient's magnitude.",
+      "That is why quantile boosting is more sensitive to the learning rate and the leaf minimum than squared-error boosting, and why it is worth checking the realised coverage rather than trusting the label."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE QUANTILE IS THE BUSINESS DECISION, not a hyperparameter. Sending one more driver costs c_over = 2 pounds if nobody needed them and saves c_short = 10 pounds if someone did, so the marginal driver is worth sending while P(short) x 10 > (1 - P(short)) x 2, and the optimum is where those are equal:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    q* = c_short / (c_short + c_over) = 10 / (10 + 2) = 10/12 = 0.8333"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You deliberately aim at a number you will clear five times in six. Finance argues about q; nobody has to argue about the model."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In the ensemble, the loss enters at every round: g_i = -q if y_i > F_{m-1}(x_i) else (1 - q), the split gain is computed on those gradients, and the leaf value minimises the pinball loss of the rows in that leaf — which for this loss is their weighted quantile, not their mean. Train three models at q = 0.1, 0.833 and 0.9 and you have a predictive interval for the same feature pipeline and three times the fitting cost, which for a 160-tree model on 40,320 rows is still minutes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "5. THE NUMBERS THAT DECIDE IT. Error per patch-hour in riders, on held-out days, every model on the same rows:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    each patch's own long-run average                16.401",
+      "    same patch, same hour, LAST WEEK                  7.156   the one-line rule",
+      "    median of the last 4 same-hour weeks              5.792   THE BASELINE",
+      "    boosted trees, recent levels, NO calendar         6.843",
+      "    boosted trees, CALENDAR ONLY, no history          5.498",
+      "    boosted trees, calendar + lags (the system)       5.273"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Read those in order, because the ordering is the design. The one-line rule cuts the naive average-guess error by 56%. THE FULL SYSTEM THEN BEATS THE BASELINE BY 9.1% — one line of SQL gets you to 5.792 and a feature store, a training pipeline and a monitoring stack buy the last half a rider.",
+      "Report that number; an interviewer wants to know you know how strong the baseline is, and if your model cannot beat it, ship the baseline.",
+      "And the calendar-only model at 5.498 beats the history-only model at 6.843 by 20%, landing within 4% of the full system with no history whatsoever — a model that gets Tuesday-at-eight right already has the job."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The loss, priced. Sweeping the trained quantile from 0.10 to 0.95 and pricing every forecast with the real costs: at 10 against 2 the break-even is 0.833 and the cheapest forecast is the one trained at 0.833, which clears 0.856 of hours and costs 20.162 pounds a patch-hour against 27.763 at the middle.",
+      "At 9 against 1 the break-even is 0.900 and the winner clears 0.912 at 12.059 pounds against 22.537. The law holds on all six cost ratios tried, on realised coverage rather than on the nominal training label, and the cheapest quantile rises monotonically with the break-even.",
+      "The control: set the two prices equal and the winner walks back to a realised coverage of 0.465 — a half — while aiming at 0.833 under equal prices costs 1.57 times the middle. The asymmetry is doing the work."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Squared error, measured against the truth rather than against another fit, because lam is known: the squared-error forecast sits 2.72 riders from the TRUE mean of each hour and the 0.833 forecast sits 7.08 away, which is what it means to say squared error aims at the middle — it hits the middle, accurately, and the middle is the wrong target.",
+      "It is short 42% of hours where the two prices call for 17%, 2.5 times too often (42 rather than 50 because a Poisson mean sits a little above its median), and it costs 26.95 pounds against 20.25 — 1.34 times the quantile forecast, for the same model, the same features and the same data, changing nothing but the loss."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The shock, measured at venues that never held an event in the training days. History only: 5.44 riders of error on a calm hour and 45.07 on a shock hour, 8.3 times its own normal error.",
+      "Add the SEAT COUNT as one extra column and the shock error falls to 10.68, twice normal — 76% of the blow-up gone, at a venue the model has never seen, because it generalises across venues through capacity and start time.",
+      "The reactive fallback, with no event feature at all: once the surge is running, 43.88 for the planning model against 16.52 for the last-bucket model (and 10.74 with the feed), closing 83% of the gap; the residual monitor fires on 74% of running-surge hours and 0.5% of ordinary ones, so gating costs 2% on an ordinary hour.",
+      "AND ON THE SURGE'S FIRST HOUR both models score 47.35, identically — nothing that reads only the present can see a surge that has not started, which is the arithmetic reason fix one is the main one and fix three is the safety net."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "6. WHAT ELSE MATTERS. No optimiser and no schedule — 160 rounds at learning rate 0.1 with early stopping on a forward-in-time validation window, and rounds and learning rate trade off one for one.",
+      "Refit nightly; the fit is minutes, so cadence costs nothing here, which is the exact opposite of the fraud reel and for the exact opposite reason: the labels arrive in 15 minutes, not 30 days.",
+      "Keep the baseline running in production alongside the model, scored on the same rows, and alert when the model's margin over it goes negative — a model that has quietly stopped beating a one-line rule is a liability you are paying to maintain."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Monitor: pinball loss at the served quantile, per area, weekly, against the baseline's; REALISED COVERAGE per area — the share of buckets where demand came in at or below the forecast — because that is the quantity the cost argument is about and the number that drifts first when the demand distribution's shape changes; realised cost in pounds decomposed into lost-trip pounds and idle-driver pounds, since their ratio should sit near the 5-to-1 the aim implies and a drift in that ratio means the served q is no longer the right q; feature freshness on the weather and events feeds, because a stale forecast column is worse than a missing one; and the residual monitor's own firing rate against its 0.5% ordinary-hours baseline."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The first failure mode to expect is the horizon leak: a lag column that is closed in the training table and not yet closed at serving, which makes offline numbers excellent and live numbers ordinary, and which the 38-column list above is arranged to prevent.",
+      "The second is coverage drift — the model keeps its error and loses its coverage, so the pinball loss looks stable while the fleet is short more often than 1 in 6, and only the coverage panel shows it.",
+      "The third is the piecewise-constant ceiling: the model cannot predict a count above the largest it has seen in that region of feature space, so a genuinely unprecedented night is capped, silently, at a plausible number."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What to try next, in order: the events feed, which is the measured 76%; per-horizon models rather than one model served recursively; the neighbour lags promoted to a proper spatial term, since demand displaces before it grows; a global sequence model over all 240 areas at once (a temporal convolution or a small transformer over the panel) which is the first architecture that could learn cross-area structure the tree cannot, and which should be attempted only after it has been shown to beat 5.273; and a logged, expiring per-area human override for the days when a dispatcher knows something the feature list does not."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "the_bars_go_where_it_stretches",
+   "title": "The bars go where it stretches",
+   "ts": "2026-09-12T18:26:55+00:00",
+   "date": "12 Sep 2026",
+   "topic": "materials",
+   "q": null,
+   "a": "The bottom half - the half being stretched. And the beam fails there at under a tenth of the load the material could take.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Bending puts one face in compression and the other in tension, equally hard. For a 300 x 500 mm beam over a 4 m span the peak stress works out as:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    self weight alone      0.57 MPa",
+      "    plus 10 kN/m of floor  2.17 MPa",
+      "    plus 20 kN/m of floor  3.77 MPa"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Concrete takes about 40 MPa in compression but only about 3.5 MPa in tension. So at the third line the underside has already gone while the top is carrying 3.77 of the 40 it could manage - the beam breaks with more than 90 per cent of its strength unused, purely because the stress was the wrong sign."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Steel is about equally strong either way and enormously strong in tension, so it goes in the tension zone: low in the beam, near the face that is being pulled. Put the same bars in the top of a simply supported beam and they do nothing at all - which is why the bars move to the top over the supports of a continuous beam, where the bending reverses and the top is what stretches."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY STEEL AND NOT SOMETHING STRONGER. It is not only strength. Steel and concrete expand at almost the same rate with temperature, so a hot day does not shear the two apart, and concrete's alkalinity keeps the steel from rusting. A stronger fibre that failed either of those would be useless here."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. When something breaks far below its rated strength, check the SIGN of the stress before doubting the number. Most materials have two strengths, and the quoted one is usually the flattering one."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "twice_as_tall_a_quarter_the_load",
+   "title": "Twice as tall, a quarter the load",
+   "ts": "2026-09-12T17:22:22+00:00",
+   "date": "12 Sep 2026",
+   "topic": "materials",
+   "q": null,
+   "a": "A quarter. Double the height and the load it carries before it goes drops to one in four, not one in two.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A slender strut does not fail by being crushed. It fails by bowing sideways, all at once, and the load that starts that bow is Euler's:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P = pi^2 x E x I / L^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "E is the stiffness of the material, I is a number describing the shape of the cross-section, and L is the length. Length is the only one of the three that is squared, which is where the factor of four comes from."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW FAR BELOW CRUSHING THIS IS. Take a steel strip 20 mm x 3 mm, one metre long. It bows at about 89 newtons - roughly the weight of a nine-kilogram bag. To actually crush the same strip you would need about 15,000 newtons. It gives way at well under one per cent of the load that would squash it, so the strength of the steel is almost irrelevant to how much it holds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHICH WAY IT BENDS. The strip bows the easy way, across its thin dimension, because I is proportional to the cube of the thickness in the direction of bending. Turn the strip on edge and it takes far more - which is why a floor joist is deep and narrow rather than square."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. When something fails by bending rather than breaking, look for length in the formula and check its exponent before you check the material. Making the strut out of better steel does almost nothing here. Making it shorter, or bracing it across the middle so it behaves as two short struts, does everything - and that is why scaffolding gets a brace rather than thicker tubes."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "stop_the_card_fraud_in_100ms",
    "title": "A tenth of a second to say yes or no",
