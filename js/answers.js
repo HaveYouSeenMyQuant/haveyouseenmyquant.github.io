@@ -16,12 +16,556 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 490,
+ "count": 493,
  "entries": [
+  {
+   "slug": "label_a_million_things_cheaply",
+   "title": "A million things, ten thousand labels",
+   "ts": "2026-09-12T21:03:14+00:00",
+   "date": "12 Sep 2026",
+   "topic": "ml_systems_design",
+   "q": null,
+   "a": "Spend the budget where the model is least certain, batch it with DIVERSITY rather than by score alone, and cover the unlabelled majority with weak supervision — several unreliable rules combined by modelling their agreement. Then, for the follow-up: a 20% disagreement rate between labellers is not noise to average away. It is a measurement of how much of your task has never been defined, and it caps your accuracy before you train anything.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DATA, AND WHY THE POOL IS THE ASSET. The unlabelled million is not the problem, it is the thing of value. You have a fixed budget, so the only real decision is WHICH items to send to a human, and that choice is worth more than the choice of model.",
+      "Random sampling is unbiased and that is not the objective: at a fixed budget it spends most of the money on items whose labels the model can already predict, and a label you could have predicted teaches nothing.",
+      "Measured on a simulated pool with known truth — a wavy decision boundary, twenty-four clusters of unequal size, a random forest, five independent worlds — buying by uncertainty beats random sampling by 2.0 accuracy points at a budget of 344 labels, in five worlds out of five.",
+      "And note WHERE the advantage comes from: at 64 labels the two are level. Uncertainty sampling needs a model good enough to know what it does not know, so the first slice of the budget should be random, and only then does the loop start paying."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ARCHITECTURE: THE LOOP. Train on what you have. Score the entire pool. Take the items the model is least certain about — for a classifier, the ones whose predicted chance sits nearest the decision boundary, or the ones an ensemble disagrees about. Send those to a human. Retrain. Repeat. WHY uncertainty is the right criterion: the decision boundary is where the information lives. A label near the boundary can move the boundary; a label deep inside a region the model already assigns confidently just confirms what it thought, and you paid the same price for it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CAVEAT, AND SAY IT BEFORE YOU ARE ASKED. Uncertainty sampling ALONE is a trap, and for two reasons.",
+      "First, redundancy: you buy labels in batches, because people label in shifts and you cannot retrain between individual items, so the whole batch is scored by one model — and the top of that list is forty near-duplicates of the same hard case.",
+      "Second, outliers: the items a model is least sure about include the ones nobody can label, the corrupt file, the blurred photo, the genuinely ambiguous edge case, and those are maximally uncertain forever. Both are measured, not hedged.",
+      "With a realistic batch of 40 picked between retrains, uncertainty alone puts 117 near-duplicate pairs inside a single batch against 13 for random sampling, and it LOSES to random sampling outright.",
+      "Cluster the uncertain candidates and take one representative of each, and duplicate pairs fall to 11 and it beats both uncertainty and random in five worlds out of five.",
+      "The general form: score by uncertainty, then select a batch that also covers the pool — clustering, a determinantal or core-set objective, or density-weighted uncertainty so an isolated oddity cannot outrank a typical hard case.",
+      "And they are TWO fixes, not one, which the measurement makes plain: clustering cures the redundancy and makes the outlier problem worse, because a broken item is a cluster of its own and gets a representative's slot — 21 junk labels bought against uncertainty's 7. Weighting uncertainty by local density is what kills that one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT LOSS — AND THERE ARE TWO THINGS HERE. The model's own training loss is ordinary: cross-entropy, and if the classes are skewed, weight it. What is NOT ordinary is that you need a second notion — the VALUE of a label. Formally that is expected error reduction: what would the model's loss on the pool fall by if this item's answer were known? That is expensive to compute exactly, so uncertainty and ensemble disagreement are the cheap proxies for it, and knowing they ARE proxies is what tells you when they fail (see the outliers above)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE OTHER 990,000: WEAK SUPERVISION. You will never buy a million labels, so generate them. Write rules — keyword matches, patterns, an existing heuristic, a smaller model's output, a related dataset's labels. Each rule is individually unreliable, and none of them is the answer.",
+      "The trick is that you do not need truth to find out how reliable they are: for rules whose mistakes are roughly independent given the answer, the rate at which two rules AGREE pins down the product of their accuracies.",
+      "Writing c = 2p - 1, pairwise agreement gives (2a_ij - 1) = c_i c_j, so any three rules determine each one's accuracy on its own — no labels used.",
+      "Measured here: six rules right 55 to 72 times in 100 over 200,000 items, accuracies recovered from agreement alone to within 0.015, and a vote weighted by the recovered log-odds scores 0.766 against the best single rule's 0.721 and plain majority's 0.728.",
+      "Then you train on the SOFT labels this produces — a chance per item, not a verdict — over the whole million, and keep the ten thousand bought labels as the audit set. That is the real shape of the answer: the bought labels measure, the weak labels train."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK, AND WHAT HAPPENS WHEN IT BREAKS. Independence of the rules' MISTAKES is the entire method, and correlated rules break it silently rather than loudly.",
+      "Measured, by breaking it deliberately: the five geometric rules drawn in this video are all straight lines laid across the same curved truth, so they fail in the same places.",
+      "The same estimator inflates their accuracies from a true 0.74-0.80 to 0.83-0.98, and the weighted vote, plain majority and the best single rule then come out at exactly the same 0.796 — the combination buys nothing at all.",
+      "So model the correlations you know about, and audit against real labels — which is the second reason the bought budget exists."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOLLOW-UP: YOUR LABELLERS DISAGREE 20% OF THE TIME. Work it in this order."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FIRST, DISAGREEMENT IS A MEASUREMENT, SO MEASURE IT BEFORE ANYTHING ELSE. Route a sample to two or three labellers and compute agreement — raw agreement, and a chance-corrected figure so a 90%-one-class task cannot look good for free. Do this before touching the model, because if humans cannot agree, the label DEFINITION is the defect and not the labellers, and no model will ever exceed that ceiling."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE CEILING IS DERIVABLE, WHICH IS THE POINT. Take 20% disagreement between two labellers. If their mistakes are independent and each is right with chance p, disagreement is 2p(1 - p) = 0.20, so p = 0.887.",
+      "If instead a fraction f of items is genuinely undefined and labellers coin-flip on those, disagreement is f/2 = 0.20, so f = 0.40 and the best possible accuracy against a single label is 0.80.",
+      "Either way it is not 1.00 — and the bound is general: for any model g scored against one noisy label, P(g = label) = P(g = truth) x p + (1 - P(g = truth)) x (1 - p), which is maximised at P(g = truth) = 1 and equals p. A PERFECT model measures 0.887, not 1.000.",
+      "So a team chasing 95% against single noisy labels is chasing an impossible number, and will get there only by learning the labellers' mistakes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THEN FIX THE DEFINITION, NOT THE PEOPLE. Pull the actual disagreeing items and write the guidelines from THEM, with the hard cases as worked examples — guidelines written in the abstract fail on exactly the cases that caused the disagreement. Iterate: rewrite, re-measure agreement on a fresh sample, and treat the agreement rate as the thing you are optimising."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THEN WEIGHT THE PEOPLE. Multiple labellers on a sample lets you estimate per-labeller reliability the same way the weak rules were estimated — from agreement — and then weight their votes by it, or retrain the ones who drift. Keep a gold sample everybody labels, so drift is visible."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THEN KEEP THE AMBIGUITY. For items that are genuinely between two answers, do not force a hard coin-flip label. Keep the label as a soft target — three of five labellers said yes, so train on 0.6 — and the model learns to be uncertain exactly where the task is uncertain, which is the honest behaviour and also the calibrated one. Forcing hard labels there teaches confident nonsense."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND SET THE TARGET AGAINST THE CEILING. Report accuracy against the human agreement ceiling, not against 100. Better, score the model the way you score a labeller: give it the same sample and ask whether it agrees with people as often as people agree with each other. When it does, the remaining error is the task's, not the model's, and more labels will not buy you anything — a narrower definition might."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ONE-LINE INSIGHT. A 20% disagreement rate is not noise to be averaged away. It is telling you the task is a fifth undefined, and you have exactly two honest options: fix the definition, or accept the ceiling and stop paying for labels that cannot help."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ENGINEERING SPEC. Everything above is the argument. This is the build, at the level of detail an interviewer means when they say \"and what are the dimensions\". Make the task concrete: one binary decision per item — is this support ticket a billing complaint — over a pool of a million tickets with ten thousand labels of budget.",
+      "Two scales appear below and they are kept apart on purpose. The PRODUCTION scale is the thing you would ship. The MEASUREMENT scale is the simulated pool the numbers in this page actually come from, where the truth is known and so the comparison is a measurement rather than an opinion."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE DATA, WITH SHAPES. An item is a ticket; a ticket becomes a vector once, offline, by running a frozen sentence encoder over it. So the pool is a single dense matrix X_pool of shape (N_pool = 1,000,000, d = 768): N_pool the item axis, d the embedding axis.",
+      "In half precision that is 1,000,000 x 768 x 2 = 1,536,000,000 bytes, 1.54 gigabytes, which fits in the memory of one machine — and that single fact is what makes the loop below cheap, because scoring the whole pool is one matrix multiply and not a distributed job.",
+      "At d = 4096 the same pool is 8.19 gigabytes and you are sharding it, which changes the engineering and not the argument."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Alongside the pool you carry three small things. A label vector y of shape (N_pool,) in {-1, 0, 1}, where -1 means never sent to a human; after the whole budget is spent exactly 10,000 of its entries are set, 1.0% of the pool.",
+      "A rule-vote matrix LAMBDA of shape (N_rules = 6, N_items = 1,000,000) with entries in {-1, 0, +1} — minus one for \"says no\", plus one for \"says yes\", zero for \"abstains, this rule does not fire here\".",
+      "As int8 that is 6 x 1,000,000 = 6,000,000 bytes, 6 megabytes: the weak-supervision side of this system is 256 times smaller than the embeddings and it is where the accuracy comes from.",
+      "And a pairwise agreement matrix A of shape (N_rules, N_rules) = (6, 6), whose 6 x 5 / 2 = 15 off-diagonal entries are the only statistics the label model ever sees."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The MEASUREMENT scale, so you can read the numbers in section 5 honestly: the simulated pool is (N_pool = 8000, d = 2) with a held-out test set of (6000, 2), truth a wavy boundary, 24 clusters of unequal size, and 0.8% of the pool — 64 items — deliberately unlabellable. The weak-rule measurement is a vote matrix of (N_rules = 6, N_items = 200,000). Two features instead of 768 is what lets the picture in the reel be drawn at all; the loop's behaviour does not depend on d."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. INPUT AND OUTPUT, AT TRAINING AND AT SERVING. At TRAINING the task model takes a batch of embeddings (B = 256, 768) together with a soft target vector (256,) whose entries live in [0, 1] — not {0, 1}, and that is the interesting part — and a per-item weight vector (256,), and returns logits (256, 1). The loss consumes those three and returns one scalar."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At SERVING the input is (1, 768) and the output is one calibrated probability. Nothing else. No soft target, no weight, no pool."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The difference between them is a THIRD mode that exists only inside the loop and never in production: the POOL SCORING pass. It takes the whole of X_pool, (1,000,000, 768), in 1,000 batches of 1,000, and returns a probability vector (1,000,000,) plus, if you are using an ensemble, a disagreement vector of the same shape.",
+      "That pass is what the acquisition function reads, it runs 225 times over the life of the project, and it does not exist at inference time at all.",
+      "An interviewer who asks what is different between training and serving here is usually asking whether you noticed that the expensive object — the pool — is a training-time asset that you must not ship."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. THE ARCHITECTURE, LAYER BY LAYER. There are TWO models and people forget the second one. A task model over embeddings, and a label model over rule votes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TASK MODEL: a three-layer multilayer perceptron head on the frozen encoder. Written as a shape chain, and every step multiplies out:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (256, 768)   frozen sentence-encoder embeddings, L2-normalised",
+      "    (256, 512)   Linear(768 -> 512) + GELU + dropout 0.1",
+      "    (256, 256)   Linear(512 -> 256) + GELU",
+      "    (256, 1)     Linear(256 -> 1), logit; sigmoid for a probability"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Parameters: 768 x 512 + 512 = 393,728, then 512 x 256 + 256 = 131,328, then 256 x 1 + 1 = 257. Total 525,313. For the ensemble form of the uncertainty signal, train 5 such heads on the same embeddings with different seeds and bootstrap resamples: 5 x 525,313 = 2,626,565 parameters, and the scoring pass returns (5, 1,000,000) probabilities whose standard deviation along the first axis is the disagreement. The measured comparison above used a 60-tree random forest with min_samples_leaf 2 on the (8000, 2) pool instead, because on two features a forest is both the better model and the one whose disagreement is free; the MLP is the production form, the forest is what was measured, and that distinction is worth stating rather than blurring."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE LABEL MODEL: this is not a neural network and its parameter count is the point. It has N_rules = 6 parameters, the accuracies p_1 ... p_6, and it is fitted from the 15 numbers in A. Write c_i = 2 p_i - 1. Then the pipeline is a chain of shapes too:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (6, 1,000,000)   LAMBDA, the rule votes",
+      "    (6, 6)           A, pairwise agreement rates; 15 free entries",
+      "    (6,)             c, then p = (1 + c) / 2, then w = log(p / (1 - p))",
+      "    (1,000,000,)     s = sigmoid(w @ LAMBDA), the soft label per item"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    The matmul is the whole model: a (6,) weight vector against a (6, 1,000,000) vote matrix gives (1,000,000,) scores, so six numbers estimated from agreement alone turn a million abstaining, unreliable votes into a million soft labels. Six parameters against 15 equations means the system is OVER-determined by nine, which is not a nuisance — it is the free diagnostic in section 6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SELECTION STAGE, which is also architecture even though it has no weights. Per round: score the pool, (1,000,000,) uncertainties; take the 10 x batch most uncertain, so (400, 768) candidates for a batch of 40; run KMeans with k = 40 on those (400, 768) vectors; take the candidate nearest each of the 40 centroids, giving (40,) indices to send to a human. Budget 10,000 = 1,000 seed labels drawn at random + 225 rounds x 40, and the seed round is random because of the 64-label measurement above."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "4. THE LOSS, WRITTEN OUT. There are two objectives and they are fitted separately."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TASK LOSS is weighted binary cross-entropy against SOFT targets. With z_i the logit for item i, s_i in [0, 1] its target and w_i its weight:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L_task = -(1 / SUM_i w_i) x SUM_i w_i x [ s_i log sigmoid(z_i) + (1 - s_i) log(1 - sigmoid(z_i)) ]"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things about that expression. First, s_i is a PROBABILITY, not a class: for the 10,000 bought items it happens to be 0 or 1, and for the other 990,000 it is the label model's output, and for a genuinely ambiguous item labelled yes by three of five people it is 0.6.",
+      "Nothing in the formula changes — cross-entropy against a soft target is already the right object, which is why \"keep the ambiguity\" costs no new machinery.",
+      "Second, w_i is how the bought labels and the weak labels coexist: w = 1 on bought items and w = 0.3 on weak ones, or w_i = |2 s_i - 1| so that a weak item the label model is unsure about pulls the model less.",
+      "Set the 0.3 by grid search on the bought holdout, and expect it between 0.1 and 0.5; if the best value is 0 your rules are wrong, and if it is 1 your labellers are."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE LABEL MODEL'S OBJECTIVE has no labels in it, which is the trick. Given observed agreement rates a_ij, fit the six c_i by least squares on the independence identity:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L_agree(c) = SUM over i < j of ( (2 a_ij - 1) - c_i c_j )^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "15 residual terms, 6 unknowns. You do not need an optimiser: any three rules close the system, because (2a_ij - 1)(2a_ik - 1) / (2a_jk - 1) = c_i^2, so c_i = sqrt of that, and the estimate used above is the median over the 10 triples containing rule i. The residual of the 15 equations at the fitted c is the correlation alarm, and section 5 is what it looks like when it fires."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Those soft labels then enter L_task as the s_i above, and the honest pipeline is: fit the label model on rule agreement, produce s over the million, train the task model on the million with w = 0.3, fine-tune on the 10,000 with w = 1, and SCORE only on bought labels that the label model never saw."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "5. THE NUMBERS THAT DECIDE IT. Every figure here is derived by this module's own verify(), on the measurement scale described above."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The budget curve decides whether the loop is worth building at all. At a budget of 64 labels, uncertainty sampling and random sampling are LEVEL — the advantage is not yet there, because the model is not yet good enough to know what it does not know. At 344 labels uncertainty is ahead by 2.0 accuracy points, in 5 worlds out of 5. That is the shape of the whole technique in two numbers: spend the first slice at random, and the curve where the two lines cross is the number that tells you how big the seed round has to be."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Batch size decides whether it works in practice. At a realistic batch of 40 picked between retrains, uncertainty sampling alone puts 117 near-duplicate pairs inside one batch of 40 against random sampling's 13, and LOSES to random outright. Clustering the uncertain candidates brings that to 11 pairs and beats both uncertainty and random in 5 worlds out of 5. And the second fault is not fixed by the first: junk labels bought go 7 under uncertainty to 21 under clustering, because a broken item is a cluster of one and gets a representative's slot. Two faults, two fixes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Weak supervision decides the other 990,000. Six rules right 55 to 72 times in 100, accuracies recovered from agreement alone to within 0.015 of truth with no labels used, and the agreement-weighted vote scores 0.766 against the best single rule's 0.721 and plain majority's 0.728. That is a 4.5-point gain over the best rule you already had, bought with six parameters."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And the assumption's failure is a number too, which is the part worth volunteering. Take five rules that are straight lines across a curved truth, so their mistakes are correlated: the same estimator inflates their accuracies from a true 0.74-0.80 to 0.83-0.98, and the weighted vote, plain majority and the best single rule all land on exactly 0.796. The combination buys NOTHING. The method did not fail loudly; it failed while reporting high confidence, which is why the bought labels stay as an audit set."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The ceiling decides what you are allowed to promise. 20% labeller disagreement gives, under independent mistakes, 2p(1 - p) = 0.20 so p = 0.887; under genuine ambiguity, f/2 = 0.20 so f = 0.40 and the ceiling is 0.80. A perfect model measures 0.887 against one noisy label, not 1.000."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The compute arithmetic decides nothing, and saying so is the point. One pool scoring pass is 2 x 525,313 x 1,000,000 = 1.05 TFLOP, about 0.11 seconds at 10 TFLOP/s of useful throughput, and 225 rounds of it is 236 TFLOP in total — minutes, once.",
+      "Embedding the pool once costs far more than every scoring pass combined, and both are rounding errors against the human: 40 labels a round at twenty seconds each is thirteen minutes of labeller time, and the round trip through a labelling shift is hours or days. THAT is why the batch is 40 and not 1.",
+      "You are not batching to save GPU, you are batching because a person cannot be in the loop per item — and everything in section 3's selection stage exists to repair the damage that batching does."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "6. WHAT ELSE MATTERS. AdamW at learning rate 3e-4 on the head, batch 256, cosine decay, weight decay 0.01, two epochs over the million soft labels then 20 epochs of fine-tuning on the 10,000; the encoder stays frozen, so a round of retraining is under a minute and the loop's latency is entirely human. Re-fit from scratch each round rather than continuing training, or the early rounds' biased sample compounds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Monitor four things. Accuracy on a FIXED audit set of bought labels the loop can never select into, reported against the 0.887 agreement ceiling and not against 100. The junk rate: how many of each round's 40 came back marked unlabellable, which is the outlier failure showing up in the invoice. Batch diversity: mean pairwise distance inside each purchased batch, which is the redundancy failure showing up before the accuracy does. And the label model's residual on its 15 agreement equations, which is the correlation failure showing up before it costs you anything."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The first failure mode to expect is not accuracy, it is the loop quietly spending the budget on items nobody can label — measured above as 7 junk labels becoming 21 once you add clustering. The second is a rule set that drifts into correlation as people add rules by copying the last one.",
+      "What to try next, in order: density-weighted uncertainty, so an isolated oddity cannot outrank a typical hard case; ensemble disagreement instead of margin, which costs 5x the parameters and behaves better where the model is confidently wrong; expected error reduction computed exactly on a 1,000-item subsample, to check the cheap proxies against the thing they are proxies for; and modelling the known correlations in the label model with a dependency graph rather than assuming them away."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "shut_the_tap_and_the_pipes_bang",
+   "title": "Shut the tap and the pipes bang",
+   "ts": "2026-09-12T20:26:46+00:00",
+   "date": "12 Sep 2026",
+   "topic": "fluids",
+   "q": null,
+   "a": "About 19 bar -- over six times mains pressure, from a tap you closed with one finger.",
+   "why": [
+    {
+     "h": "WHY A SMALL FLOW DOES THAT",
+     "t": "p",
+     "lines": [
+      "Water is heavy and it was moving. To stop it you have to take its momentum away, and the only places that momentum can go are squashing the water and stretching the pipe. Both are stiff, so it takes a lot of pressure."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Work it out across the front that travels back up the pipe. In a time dt the front advances c*dt, so a mass rho*A*c*dt goes from v to rest. That change of momentum per unit time is the extra force dp*A, and the area cancels:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    dp = rho * c * v"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Energy gives the same thing: all the kinetic energy 0.5*rho*v^2 per unit volume ends up stored elastically as 0.5*dp^2/K, so dp = v*sqrt(rho*K), which is the same expression because c = sqrt(K/rho)."
+     ]
+    },
+    {
+     "h": "THE NUMBERS",
+     "t": "p",
+     "lines": [
+      "c is not the 1466 m/s of sound in open water. A pipe stretches, so some of the squeeze goes into the wall and the wave is slower: for 15 mm copper, 1259 m/s. Then"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    dp = 1000 * 1259 * 1.5 = 1.89 MPa = 18.9 bar"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "against a mains supply of about 3 bar. That is 6.3 times mains, and it sits ON TOP of it. As a head of water it is 192 m. On the 13.6 mm bore it is 274 N trying to push the tap open -- like hanging 28 kg on it."
+     ]
+    },
+    {
+     "h": "NOTICE WHAT IS NOT IN THE FORMULA",
+     "t": "p",
+     "lines": [
+      "Not the length of the pipe, not its diameter, not how much water it holds. Only the speed of the water and the speed of the message. A long pipe does not bang harder -- but it does decide what \"quickly\" means."
+     ]
+    },
+    {
+     "h": "WHY CLOSING SLOWLY FIXES IT",
+     "t": "p",
+     "lines": [
+      "The far end of the pipe is a tank at ordinary pressure, and it sends relief back. That relief arrives after 2L/c: for a 10 m run, 15.9 milliseconds. Close in less than that and you get the full 19 bar, because nothing has come back yet. Close in longer and the peak falls roughly as 2L/(c*T) -- close over a tenth of a second instead of a hundredth and you divide the spike by about six. That is the whole reason a lever tap bangs and a screw tap does not, and why big valves are geared to close slowly."
+     ]
+    },
+    {
+     "h": "WHAT AN AIR CHAMBER IS ACTUALLY DOING",
+     "t": "p",
+     "lines": [
+      "A surge arrestor is a small sealed pocket of air on a tee near the tap. Air is thousands of times more compressible than water, so the arriving column has something soft to push into instead of a stiff wall: the same momentum is absorbed over a much longer time, and force is momentum divided by time. A surge tank on a big main is the same trick with a free water surface. Neither removes the momentum -- both give it somewhere gentle to go."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE IDEALISATION DOING THE WORK. This is a rigid straight pipe, one fluid, no dissolved air, no friction along the wall, and a valve that shuts in a clean linear ramp. Real domestic pipes have bends, clips that flex, and air in solution, all of which cushion and damp the spike -- the bang you hear decays over a few cycles rather than ringing on. Wall friction also drops the peak a little. So 19 bar is the honest upper bound for these numbers, not a measurement of your kitchen."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. When something moving has to stop, do not ask how strong the stop is -- ask how long it has to take the momentum out. Every airbag, crumple zone, arrestor and surge tank is the same sentence."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "the_river_takes_most_of_the_fuel",
+   "title": "The river takes most of the fuel",
+   "ts": "2026-09-12T19:29:39+00:00",
+   "date": "12 Sep 2026",
+   "topic": "thermodynamics",
+   "q": null,
+   "a": "About two thirds - 66 parts in every hundred - and not one engine ever built can beat it, because the limit is set by two temperatures and nothing else.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DECIDES IT. Every engine takes heat in somewhere hot and must dump heat out somewhere cold. Write both temperatures from absolute zero, in kelvin, and the most you can ever keep as work is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    best share = 1 - (cold temperature / hot temperature)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A modern station makes steam at about 600 C, which is 873 K, and condenses it against river water at about 25 C, which is 298 K. So the best share is 1 - 298/873 = 0.659, about 66 parts in a hundred. A real unit delivers about 40. The 66 is a ceiling, not a prediction: no real machine gets there, and none can go past it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THE NUMBER COMES FROM. A perfect engine is reversible, so it hands out exactly as much entropy at the cold end as it took in at the hot end: Q_hot / T_hot = Q_cold / T_cold. That fixes Q_cold = Q_hot x 298/873 = 0.341 of the heat, whatever the machine is made of. Energy is conserved, so the rest is work. The waste heat is not leaking away - it is the price of admission for taking any heat in at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE STATION IS BUILT ON A RIVER. The two temperatures are not equally useful. Take one kelvin off the cold side and the ceiling rises by 0.115 of a percentage point; put one kelvin ON the hot side and it rises by only 0.039. The cold side is worth nearly three times as much per degree, and it is also the cheaper one to move - the hot side is already at the limit of what the steel of the boiler will take. So you go and find the coldest big thing available and put your condenser next to it. That is a river, the sea, or a cooling tower evaporating water."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW MUCH HEAT THAT IS. A 1,000 megawatt station running at 40 per cent burns 2,500 megawatts of fuel and must get rid of 1,500 megawatts of heat. Warming river water by 10 C carries away 41.8 megajoules per cubic metre, so it needs about 36 cubic metres of water every second - a fair-sized river, running through the plant and out again slightly warm. That flow, not the turbine, is often what decides where a station can be built at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE IDEALISATION DOING THE WORK. The ceiling assumes a reversible engine: infinitely slow, no friction, no turbulence, and heat crossing between the working fluid and the source with no temperature difference at all. A real plant also loses in the boiler, the turbine blades, the generator and its own pumps, which is most of the gap between 66 and 40. Squeeze all of those to nothing and you still stop at 66, which is the point."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. When something wastes energy as heat, ask what its hot and cold temperatures are before you blame the machine. If the two numbers are close, no amount of engineering will help, and the useful question becomes how to get a bigger gap - or how to use the warm water for something, which is what a combined heat and power plant does."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_many_drivers_at_eight_am",
    "title": "How many drivers, in every patch of the city, an hour from now",
-   "ts": "2026-09-12T19:18:13+00:00",
+   "ts": "2026-09-12T19:21:12+00:00",
    "date": "12 Sep 2026",
    "topic": "ml_systems_design",
    "q": null,
