@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "real_time_captioning_for_youtube",
    "title": "Live captions on a stream",
-   "ts": "2026-09-12T08:28:12+00:00",
+   "ts": "2026-09-12T08:31:03+00:00",
    "date": "12 Sep 2026",
    "topic": "ml_fundamentals",
    "q": null,
