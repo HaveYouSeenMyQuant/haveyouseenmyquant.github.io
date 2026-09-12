@@ -181,6 +181,380 @@ window.QQ_ANSWERS = {
       "The check catches what has already gone wrong on the way out of the door and it is a filter you can ship this week; the score change is what stops the behaviour being learnt in the first place, and it is what makes the check's own \"dropped\" state a respectable outcome rather than a failure.",
       "Ship the check to stop the bleeding, change the score to fix the cause — and if you only ever do one, do the score, because a filter over a model that always guesses is a filter that has to be right every single time."
      ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ENGINEERING SPEC. Everything above is the argument. This is the build, at the level of detail an interviewer means when they say \"and what are the dimensions\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE DATA, WITH SHAPES. Three tensors and one sparse index, and the chunk size decides all four."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CHUNKS. 200,000 documents at 24 sentences each is 4,800,000 sentences. Cut at the measured optimum of 4 sentences a chunk and the corpus is 4,800,000 / 4 = 1,200,000 chunks. At roughly 22 word-piece tokens a sentence a chunk is 4 x 22 = 88 tokens, so the passage encoder is run with a maximum length of 128 and almost nothing is truncated. Chunk size is therefore not a formatting choice: it sets the number of rows in the index, the token count the generator has to read, and both ends of the precision-completeness trade in section 5."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE DENSE INDEX. (N_chunks = 1,200,000, d = 768) float32, which is 1,200,000 x 768 x 4 = 3.686 GB — it fits in the RAM of one machine, and that fact is worth checking before choosing an architecture, because it is the difference between a flat exact search and an approximate index with a recall cliff you then have to debug.",
+      "In float16 it is 1.843 GB. Rows are L2-normalised, so inner product is cosine similarity and the search is one matrix multiply.",
+      "Alongside it, an int64 (1,200,000,) row of chunk ids and a side table mapping chunk id to document id, character offsets and document version — THE OFFSETS ARE NOT OPTIONAL, because the citation-per-claim fix in the follow-up needs to point at a span, not at a document."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SPARSE INDEX. BM25 over the same 1,200,000 chunks: a vocabulary of about 200,000 distinct tokens after case folding and light stemming, 1,200,000 x 88 = 105.6 million postings, a document-frequency vector (200,000,) and a length vector (1,200,000,). This is a SEPARATE data structure, not a column of the dense one, and keeping both is the architecture."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE EVALUATION SET, which nobody hands you and which is the actual bottleneck. A few hundred real questions, each paired with the chunk that genuinely answers it: shape (N_eval, 2) of (question text, gold chunk id), plus a per-question label for whether the question is answerable from the corpus AT ALL, because that last group is the only way to measure abstention. Write it from questions people actually asked. Everything below is unmeasurable without it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The measured corpus behind the retrieval claims is small and its shape is stated so the claims can be checked: 60 passages of 8 tokens each (a primary concept's two surface words, a secondary concept's word, a fault code, and 4 filler words), giving a dense index of (60, 25) — 14 concept dimensions, 1 shared code dimension on which every fault code collides, and 10 filler dimensions.",
+      "120 questions: 60 PARAPHRASES of 4 tokens, built from surface words 3 and 4 of the primary concept and word 2 of the secondary, so a paraphrase shares NO token at all with the passage it is asking about, and 60 CODE queries of 5 tokens naming an exact fault code.",
+      "That construction is why the two retrievers' failures are disjoint by design rather than by luck, and the disjointness is the thing being measured."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. INPUT AND OUTPUT, AT TRAINING AND AT SERVING. These are two different systems and the confusion between them is the commonest wrong answer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AT TRAINING you train exactly one component, the RETRIEVER, and it is trained as a pair of towers on question-passage pairs. Input: question token ids (B = 64, L_q = 32) and positive passage token ids (64, L_p = 128), plus one BM25-mined hard negative per question, (64, 128).",
+      "Output: two normalised matrices, Q of shape (64, 768) and P of shape (128, 768) — the 64 positives followed by the 64 hard negatives — and from them a score matrix S = Q P^T of shape (64, 128) whose diagonal is the 64 correct pairs. The loss consumes S and returns one scalar.",
+      "Note what the batch size IS here: it is the number of negatives. B = 64 means 63 in-batch negatives per question, and raising B is the cheapest accuracy lever the retriever has, which is why people go to lengths to make it large."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AT SERVING nothing is trained and the shapes are different in kind. One question in, at batch 1:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1, 32)                query token ids",
+      "    (1, 768)               the question tower's normalised embedding",
+      "    (1, 1200000)           dense scores against the whole index — one matmul,",
+      "                           1,200,000 x 768 multiply-adds, about 1.8 GFLOP, a",
+      "                           few milliseconds",
+      "    top 50                 (50,) chunk ids and (50,) scores",
+      "    top 50                 (50,) chunk ids from BM25 over the same question,",
+      "                           computed independently",
+      "    <= 100 -> 8            undamped reciprocal-rank fusion over the two lists,",
+      "                           then the top 8 chunks",
+      "    (8, 88) tokens         the retrieved text, about 704 tokens",
+      "    (1, ~820)              the generator's prompt: 704 tokens of retrieved text",
+      "                           + about 100 of instruction + the question",
+      "    (1, V) per step        the generator's logits, V = 128,256, decoded to an",
+      "                           answer of a few hundred tokens with a span citation",
+      "                           attached to every claim"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So: training optimises a (64, 128) score matrix; serving computes a (1, 1200000) one and then throws away all but 8 rows of text. The generator's weights are identical in both worlds because they are never touched. THE THREE STAGES AFTER RETRIEVAL — the fusion, the top-8 cut and the citation check — are not differentiable and not trained, and every one of them can lose you a correct answer that retrieval had found. That is where recall quietly goes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE INDEX IS THE THIRD, CHEAPEST TRAINING PATH. A policy edited on Tuesday means re-chunking one document and re-embedding its 6 chunks: milliseconds. Two per cent of 200,000 documents changing in a week is 4,000 documents, 24,000 chunks, a couple of minutes of encoder time. Fine-tuning the facts into the generator instead means a training run for the same edit, with no way to cite, no way to delete and no way to answer about a page written this morning. THAT ASYMMETRY — minutes against a training run — is the architecture argument, in units."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. THE ARCHITECTURE, LAYER BY LAYER. Two towers, a sparse index beside them, a fusion, an optional reranker and a frozen generator."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE QUESTION TOWER (a BERT-base encoder, 12 layers, d = 768):",
+      "      (64, 32)            token ids, 32 the maximum question length",
+      "      (64, 32, 768)       embeddings: word (30,522 x 768) + learned position",
+      "                          (512 x 768) + type (2 x 768), then LayerNorm, dropout 0.1",
+      "      (64, 32, 768)       12 x transformer encoder block, each shape-preserving:",
+      "                            multi-head self-attention, 12 heads of width 64:",
+      "                              Linear(768 -> 768) three times for Q, K, V, scores",
+      "                              (64, 12, 32, 32) = Q K^T / sqrt(64), softmax over",
+      "                              the last axis, times V, concatenate heads,",
+      "                              Linear(768 -> 768), residual, LayerNorm",
+      "                            feed-forward: Linear(768 -> 3072) -> GELU ->",
+      "                              Linear(3072 -> 768), residual, LayerNorm",
+      "      (64, 768)           take the [CLS] position",
+      "      (64, 768)           Linear(768 -> 768), then L2 normalise to the unit sphere"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE PASSAGE TOWER: the identical stack with SEPARATE WEIGHTS and L_p = 128,",
+      "      so (64, 128) -> (64, 128, 768) -> 12 blocks -> (64, 768) -> normalise.",
+      "      Two towers rather than one shared encoder because the two inputs are",
+      "      different objects — a 5-word question and an 88-token passage — and because",
+      "      the passage tower can then be run once, offline, over all 1,200,000 chunks",
+      "      while the question tower runs per request. A single cross-encoder over",
+      "      (question, passage) pairs is more accurate and CANNOT be precomputed: it",
+      "      would need 1,200,000 forward passes per question. That is the whole reason",
+      "      the towers are separate, and it is a shape argument, not a preference."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE SPARSE RETRIEVER, written out rather than named. BM25 scores a chunk d",
+      "      against query q as SUM over terms t in q of idf(t) x f(t,d) (k1 + 1) /",
+      "      (f(t,d) + k1 (1 - b + b |d| / avgdl)), with idf(t) = log(1 + (N - df(t) +",
+      "      0.5) / (df(t) + 0.5)), k1 = 1.5, b = 0.75. No parameters are learned. It",
+      "      cannot match a synonym and it cannot miss an exact code — which is exactly",
+      "      the complement of the tower's failure, and why both exist."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE FUSION. Undamped reciprocal rank: score(d) = SUM over the two lists of",
+      "      1 / (k + rank(d)) with k = 0, take the union of the two top-50s and keep",
+      "      the top 8. THE DAMPING CONSTANT IS THE WHOLE BUG. The textbook k = 60",
+      "      flattens 1/61 against 1/63, so agreement between the lists outweighs either",
+      "      list's top pick — right when both retrievers are competent on the same",
+      "      queries, and exactly wrong here, where on a paraphrase the word search is",
+      "      pure noise. At k = 60 a passage sitting third in both lists outscores the",
+      "      passage the RIGHT retriever put first, and the fusion scores 0.15, WORSE",
+      "      than either retriever alone at 0.53 and 0.52. At k = 0 a rank-1 hit can be",
+      "      tied but never beaten, and the fusion scores 1.00."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE RERANKER, optional and worth it: a 6-layer cross-encoder, d = 384, taking",
+      "      the 50 fused candidates as (50, 128) concatenated question-and-passage",
+      "      token ids -> (50, 128, 384) -> 6 blocks -> [CLS] -> Linear(384 -> 1) ->",
+      "      (50, 1) relevance logits, sorted, top 8. Fifty forward passes of a small",
+      "      model per question is affordable; 1,200,000 is not."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE GENERATOR, frozen: a decoder-only transformer, 32 layers, d = 4096,",
+      "      32 query heads of width 128 with 8 key-value heads (grouped-query",
+      "      attention, so the KV cache is a quarter the size), SwiGLU feed-forward",
+      "      4096 -> 14,336 -> 4096, RMSNorm, rotary position embeddings, vocabulary",
+      "      128,256, context 8,192 — about 8 billion parameters. Input (1, ~820)",
+      "      prompt tokens, output one (1, 128256) logit vector per decoded step. It is",
+      "      steered by its prompt and by what it is handed. YOU DO NOT TRAIN IT, and",
+      "      if you find yourself designing a loss for it you have mistaken this system",
+      "      for a fine-tuning problem."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Note the 8,192-token context against the ~820-token prompt: there is room for",
+      "    roughly 80 chunks, not 8, and the reason you send 8 is not the context window",
+      "    — it is that a generator handed 80 chunks has 79 chances to cite the wrong",
+      "    one, and precision at the top of the list is what the answer's correctness",
+      "    tracks. The window is not the constraint; attention over distractors is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "4. THE LOSS, WRITTEN OUT. The retriever's loss is CONTRASTIVE — a softmax over one positive and every negative in the batch. With q_i the i-th normalised question embedding, p_i+ its positive passage, p_j the batch's other passages, n_i a BM25-mined hard negative, s(a, b) = a . b the inner product of two unit vectors and tau = 0.05 the temperature:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L = -(1 / B) x SUM over i = 1..64 of log",
+      "            [ exp(s(q_i, p_i+) / tau)",
+      "              / ( SUM over j = 1..64 of exp(s(q_i, p_j) / tau)",
+      "                  + SUM over j = 1..64 of exp(s(q_i, n_j) / tau) ) ]"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is exactly cross-entropy over the 128 columns of the score matrix S with the diagonal as the label, which is how it is implemented: one softmax_cross_entropy(S / tau, arange(64)).",
+      "What it penalises is a question whose own passage is not the closest thing to it among the 128 candidates it was shown — it PULLS the pair together and PUSHES the other 127 away, and the gradient on a negative is proportional to the probability mass the model currently gives it, so already-distant negatives contribute nothing and the hard ones dominate. This is the same shape as the sampled-negatives loss a feed recommender uses."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE NEGATIVES ARE THE DESIGN, not a detail.",
+      "In-batch negatives are free — the 64 passages are already encoded — but they are RANDOM passages, and a random passage is trivially far away, so with in-batch negatives alone the loss goes to nearly zero while the retriever is still confusing \"hose cracked\" with \"tube ruptured\" against every other page about tubes.",
+      "Hence one mined hard negative per question: the top-ranked non-gold chunk from BM25, which is a chunk that shares vocabulary with the question and is wrong. Sampling those is what teaches the tower the distinction the evaluation set measures.",
+      "The temperature scales the gradient's concentration: at tau = 0.05 the softmax is sharp and almost all the push lands on the single hardest negative; at tau = 1 it spreads over all 127 and the model learns a coarser geometry."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Cross-batch negative queues, and gradient checkpointing so B can be 512 rather than 64, are the standard next steps, and both are attempts to buy the same thing: more columns in S."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE OTHER SCORING RULE, WHICH IS NOT A LOSS BUT DECIDES THE BEHAVIOUR. The generator has no trainable loss, so the only lever on whether it invents is how you SCORE it. Let s be the share of questions whose retrieved text really supports an answer, a the probability the writer is right when it does, g the probability a guess from unsupported text happens to be right, w the penalty for a wrong answer and z the credit for abstaining. Then"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E[always answer] = s a - s (1 - a) w + (1 - s) g - (1 - s) (1 - g) w",
+      "    E[abstain when unsupported] = s a - s (1 - a) w + (1 - s) z"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Subtract: with w = z = 0, always-answering beats abstaining by exactly (1 - s) g, strictly positive for any g > 0. Inventing is the higher-scoring strategy, always, and no amount of instruction fixes a system whose score rewards what you are asking it not to do. Solve the difference for zero and abstention stops losing once w > g / (1 - g); at g = 0.15 that is w > 0.1765. THE FIX IS IN THE SCORING RULE, NOT THE PROMPT."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "5. THE NUMBERS THAT DECIDE IT. Retrieval, recall at 3 on the 60-passage corpus with known ground truth, 120 questions:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "                        paraphrase   exact code   all",
+      "    dense towers            1.00         0.05     0.53",
+      "    BM25 word search        0.03         1.00     0.52",
+      "    both, fused at k = 0    1.00         1.00     1.00",
+      "    both, fused at k = 60      -            -     0.15"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Read the two middle columns: the failures are DISJOINT, 1.00 against 0.05 and 0.03 against 1.00, and the word search is what rescues the code queries from 0.05 to 1.00. Fusing beats the better of the two alone by 0.47. And the textbook damping constant turns a 1.00 into a 0.15 — worse than either retriever by itself — which is the measurement worth carrying out of this: a default that averages two competent rankers destroys two complementary ones."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Chunking, enumerated rather than argued. A 3-sentence answer in a 24-sentence document can start at any of 24 - 3 + 1 = 22 offsets. At a chunk of 3 sentences only 8 of those 22 offsets leave the answer intact — 0.364 — while the answer fills all of the chunk, precision 1.000.",
+      "At 4 sentences, 12 of 22 survive, 0.545, and the answer is 3/4 = 0.750 of the chunk. The product peaks at 0.545 x 0.750 = 0.409, at FOUR sentences: neither the smallest chunk nor the largest.",
+      "The end-to-end simulation over 40 documents with length-normalised scoring agrees and shows where the peak lives as a function of how distracting the rest of the corpus is: with weak distractors (0.6) it is at 8, at 0.8 it is at 5, at 0.9 it is at 4.",
+      "So the optimum is a property of YOUR corpus, and the honest statement is that the falling half of the curve needs plausible distractors to exist at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The index, in bytes and in time. 1,200,000 x 768 x 4 = 3.686 GB of float32 — one machine, flat exact search, no recall cliff.",
+      "Encoding it once: the encoder stack is 85,054,464 parameters, and at roughly 2 FLOP per parameter per token, 128 tokens a chunk costs 2 x 85,054,464 x 128 = 21.8 GFLOP, so 1,200,000 chunks is 2.6 x 10^16 FLOP — about 261 seconds of a 100 TFLOP/s accelerator's arithmetic, and single-GPU hours once you include the data path.",
+      "Re-embedding a week's 24,000 changed chunks is 5 seconds of arithmetic. Retraining a generator for the same edit is not comparable, and that is the point.",
+      "Each tower is 109,482,240 parameters — 23,837,184 in the embeddings, 85,054,464 across the 12 blocks, 590,592 in the projection — so the retriever is 218,964,480 parameters in total, against 8 billion frozen ones in the generator you are not training."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Abstention, exactly. Across s in {0.3, 0.5, 0.7, 0.9} and g in {0.05, 0.15, 0.30}, inventing beats abstaining by exactly (1 - s) g every time, up to 0.210 on that grid. At g = 0.15 the flip point is g / (1 - g) = 0.1765: penalise a wrong answer by more than that and abstaining stops losing; below it, inventing still wins. Four hundred thousand simulated questions at s = 0.6, a = 0.92, g = 0.15 agree with the arithmetic — inventing 0.6122 against abstaining 0.5516."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And the diagnosis, which is a 2x2 and not a threshold. Two binary tests, \"was the gold chunk in the retrieved 8\" and \"is the answer supported by the retrieved text\", give four cases and separate all of them: (no, no) and (no, yes) are RETRIEVAL faults, (yes, no) is a GENERATION fault, (yes, yes) is fine. The support test ALONE mislabels both retrieval faults — one as a writer fault and one as no fault at all — and sends you to fix the wrong half of the system. Two tests, four cells, and the cheap one on its own is worse than useless."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "6. WHAT ELSE MATTERS. AdamW on the retriever, peak learning rate 2e-5 with 5% linear warmup and linear decay, weight decay 0.01, 3 epochs over a few thousand question-passage pairs, batch 64 (or 512 with gradient checkpointing, which is worth more than any other change you can make to this loss). Initialise both towers from the same pretrained checkpoint and let them diverge. Freeze nothing. Re-encode the WHOLE index whenever the passage tower changes — a half-updated index where some rows came from the old weights is silently broken, and it is a mistake people make once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Monitor, in this order. RECALL AT k OF THE GOLD CHUNK, per query family — paraphrase, exact-identifier, multi-hop, and the unanswerable set — never pooled, because the pooled 0.53 in the table above is the average of a 1.00 and a 0.05 and tells you nothing.",
+      "Then the CITATION SUPPORT RATE: the share of emitted claims whose cited span actually entails them, checked automatically with a small entailment model or word-overlap as a floor. Then the ABSTENTION RATE on the unanswerable set, which should be near 1 and which is the only number that moves when you change the scoring rule.",
+      "Then index freshness — the lag between a document edit and its chunks being live — and the fusion's own behaviour: the share of the final 8 contributed by each retriever, which is how you notice one of them has quietly broken."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The first failure mode to expect is not the generator inventing. It is CHUNK BOUNDARIES: an answer split across two chunks comes back as half a sentence, the generator completes it plausibly, the citation points at a real span, and the answer is wrong with a valid-looking source. That failure passes the support test.",
+      "The mitigations are overlapping chunks (stride 2 sentences at size 4, which doubles the index to 2,400,000 rows and is usually worth it), and retrieving the neighbouring chunk alongside every hit. The second is the embedding index drifting out of step with the tower after a retrain.",
+      "The third is a document whose new version says the opposite of its old one, with both versions in the index."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What to try next, in order: the cross-encoder reranker over the fused 50, which is the largest single accuracy gain available here; overlapping chunks; hard-negative mining from the deployed system's own logged failures rather than from BM25; a learned sparse retriever (SPLADE-style) which gets exact-token matching and learned term weighting in one index instead of two; and the abstention-aware scoring rule applied to the offline evaluation set FIRST, because until \"the documents do not say\" scores well, every other improvement is being measured under an objective that rewards guessing."
+     ]
     }
    ],
    "src": "answer"
@@ -212,7 +586,7 @@ window.QQ_ANSWERS = {
      "h": null,
      "t": "p",
      "lines": [
-      "Second, ONE PHOTOGRAPH OF A SIGN TEACHES YOU ALMOST NOTHING. What you need is the same sign again and again across the axes that actually vary in service: distance (a sign 80 metres away is 12 pixels across, the same sign at 15 metres is 90), viewing angle as you approach and pass it, weather, occlusion by poles and vehicles and foliage, motion blur at speed, and low light. Two thousand signs each shot once is a far worse dataset than two hundred signs shot across every condition, and it is the commoner mistake because it is the easier thing to collect."
+      "Second, ONE PHOTOGRAPH OF A SIGN TEACHES YOU ALMOST NOTHING. What you need is the same sign again and again across the axes that actually vary in service: distance (a sign 80 metres away is 12 pixels across, the same sign at 15 metres is 64), viewing angle as you approach and pass it, weather, occlusion by poles and vehicles and foliage, motion blur at speed, and low light. Two thousand signs each shot once is a far worse dataset than two hundred signs shot across every condition, and it is the commoner mistake because it is the easier thing to collect."
      ]
     },
     {
@@ -339,6 +713,291 @@ window.QQ_ANSWERS = {
       "It says nothing about wet tarmac reflecting a low sun, a sign in the shadow of a bridge at noon, a sticker over a sign, snow on the face of it, or a condition that exists only on one country's roads.",
       "So the honest version of step one is not a list of conditions someone thought of in a meeting: it is clustering your failures and looking at what comes out, plus a standing process that turns every field disengagement into a new evaluation cell.",
       "The list of conditions is itself a model of the world, and it is wrong in the same direction as the detector."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ENGINEERING SPEC. Everything above is the argument. This is the build, at the level of detail an interviewer means when they say \"and what are the dimensions\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE DATA, WITH SHAPES. One forward camera, debayered and resized to a square 768 pixels on a side, so a training batch of 8 frames is (B=8, C=3, H=768, W=768): B the batch axis, C the three colour channels, H and W the pixel axes.",
+      "In float32 that batch is 8 x 3 x 768 x 768 x 4 = 56.6 MB before a single activation is allocated, which is why the batch is 8 and not 64.",
+      "The label for one frame is a ragged pair — a box tensor (n_i, 4) in pixel corners and a class vector (n_i,) of integer ids over 43 sign classes — padded across the batch to (8, n_max, 4) and (8, n_max) with a count vector (8,) so the assigner knows where the real boxes stop. n_i is typically 0 to 6; most frames of real driving contain no sign at all, and that is itself a fact about the data rather than a nuisance."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The backbone produces five feature maps and their STRIDES are the whole geometry: strides 8, 16, 32, 64 and 128 on a 768-pixel input give side lengths 768/8 = 96, 768/16 = 48, 768/32 = 24, 768/64 = 12 and 768/128 = 6. Those are 96 x 96 = 9,216 cells, 48 x 48 = 2,304, 24 x 24 = 576, 12 x 12 = 144 and 6 x 6 = 36 — 12,276 cells in all.",
+      "Nine anchors are hung at every cell (three scales 2^0, 2^(1/3), 2^(2/3) by three aspect ratios 1:2, 1:1, 2:1, on a base side of four strides), so the ANCHOR TENSOR is (110,484, 4) in (x0, y0, x1, y1) pixel corners: 9,216 x 9 = 82,944 rows from the stride-8 level, 20,736 from stride 16, 5,184 from stride 32, 1,296 from stride 64 and 324 from stride 128.",
+      "It is a constant of the input size, computed once at startup, 1.8 MB, and it is the same tensor on every frame. The smallest anchor is 23 pixels across and the largest 1,149 — one pass has to cover all of it, which is the range a single-shot design is buying."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The per-frame target tensors are derived from that anchor tensor by the ASSIGNER, and they are what the loss actually sees: an IoU matrix (110,484, n_i), a class target (110,484,) whose entries are a class id for an anchor whose best IoU clears 0.5, minus-one (\"ignore\") between 0.4 and 0.5, and background below 0.4, and a regression target (110,484, 4) that is only defined on the positive rows."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Collection volume, and why it is not a row count. A useful set is on the order of 10^6 labelled frames, but the axis that matters is CONDITION COVERAGE, not frames: the same physical sign seen at 80 m, 40 m, 20 m and 8 m, at four bearings, in daylight, dusk, night, rain, fog and low sun, occluded and clean. Write that as a coverage table — class x distance band x illumination x weather — and the cells, not the total, are the dataset. Night is 3% of the frames and one of six illumination columns, which is the entire follow-up in one sentence."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. INPUT AND OUTPUT, AT TRAINING AND AT SERVING. At TRAINING the model takes (8, 3, 768, 768) and returns two tensors concatenated across the five levels: class logits (8, 110484, 43) and box offsets (8, 110484, 4). The loss consumes those together with the assigned targets and returns one scalar. Note the size of the class tensor: 8 x 110,484 x 43 x 4 bytes = 152 MB in float32, for one forward pass, which is the other reason the batch is 8."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At SERVING batch is 1, and the difference is not the batch — it is that THREE STAGES ARE ADDED AFTER THE MODEL and they are not differentiable.",
+      "(1, 3, 768, 768) in; (1, 110484, 43) and (1, 110484, 4) out; then (a) threshold the class scores at about 0.05 and keep the top 1,000 per level, which typically leaves a few hundred rows, (b) decode those offsets against their anchor rows into absolute pixel boxes, (c) run class-wise non-maximum suppression at IoU 0.5, leaving an output of shape (k, 6) — x0, y0, x1, y1, score, class — with k usually under 10.",
+      "So training optimises a dense 110,484-row tensor and serving emits a sparse handful, and every hyperparameter in that decode path (the score floor, the top-k, the NMS threshold) is chosen against the per-condition metric and never appears in the loss.",
+      "That is where recall quietly goes: a sign the model scored at 0.04 is not a training failure, it is a threshold you set."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. THE ARCHITECTURE, LAYER BY LAYER. A ResNet-50 trunk, a five-level feature pyramid on top of it, and two small shared heads. Written as a shape chain, and every step multiplies out:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (8, 3, 768, 768)     the frame",
+      "    (8, 64, 384, 384)    Conv2d(3 -> 64, kernel 7x7, stride 2, padding 3) + BatchNorm + ReLU",
+      "    (8, 64, 192, 192)    MaxPool2d(3x3, stride 2, padding 1) — total stride 4",
+      "    (8, 256, 192, 192)   stage C2: 3 bottleneck blocks, width 64, output 256, stride 1",
+      "    (8, 512, 96, 96)     stage C3: 4 bottleneck blocks, width 128, output 512, first block stride 2 — stride 8",
+      "    (8, 1024, 48, 48)    stage C4: 6 bottleneck blocks, width 256, output 1024, first stride 2 — stride 16",
+      "    (8, 2048, 24, 24)    stage C5: 3 bottleneck blocks, width 512, output 2048, first stride 2 — stride 32"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    One bottleneck block is Conv2d(in -> w, 1x1) + BN + ReLU, Conv2d(w -> w, 3x3, the stride) + BN + ReLU, Conv2d(w -> 4w, 1x1) + BN, added to the input (through a 1x1 projection where the shape changes) and then ReLU. Sixteen of them, in the 3-4-6-3 arrangement above."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    The PYRAMID turns those three maps into five, all 256 channels wide, so one head can be shared:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (8, 256, 24, 24)     P5 = Conv2d(2048 -> 256, 1x1) on C5, then Conv2d(256 -> 256, 3x3)",
+      "    (8, 256, 48, 48)     P4 = Conv2d(1024 -> 256, 1x1) on C4 + nearest-neighbour upsample of P5 by 2, then 3x3",
+      "    (8, 256, 96, 96)     P3 = Conv2d(512 -> 256, 1x1) on C3 + upsample of P4 by 2, then 3x3",
+      "    (8, 256, 12, 12)     P6 = Conv2d(2048 -> 256, 3x3, stride 2) on C5 — stride 64",
+      "    (8, 256, 6, 6)       P7 = ReLU then Conv2d(256 -> 256, 3x3, stride 2) on P6 — stride 128"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    The top-down addition is the point of the pyramid: P3 has the RESOLUTION of stride 8 and the SEMANTICS of C5, which is what lets a 24-pixel sign be classified as confidently as a 200-pixel one. Without it the fine level is a shallow feature map and small-object recall collapses."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    TWO HEADS, shared across all five levels (same weights, five calls), each four convolutions deep:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    class head, on each P:   4 x [Conv2d(256 -> 256, 3x3, padding 1) + GroupNorm(32) + ReLU]",
+      "                             Conv2d(256 -> 9 x 43 = 387, 3x3, padding 1)",
+      "                             so P3 gives (8, 387, 96, 96) -> permute and reshape -> (8, 82944, 43)",
+      "    box head, on each P:     4 x [Conv2d(256 -> 256, 3x3, padding 1) + GroupNorm(32) + ReLU]",
+      "                             Conv2d(256 -> 9 x 4 = 36, 3x3, padding 1)",
+      "                             so P3 gives (8, 36, 96, 96) -> permute and reshape -> (8, 82944, 4)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Concatenate the five levels along the anchor axis: 82,944 + 20,736 + 5,184 + 1,296 + 324 = 110,484, giving (8, 110484, 43) and (8, 110484, 4). THAT IS THE SAME 110,484 THE ANCHOR TENSOR HAS, and it has to be, because row i of the prediction is the prediction for anchor row i. If those two numbers ever disagree you have a silent bug that trains to a plausible-looking loss and detects nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Sharing the head across levels is what makes the design honest about scale: the head sees a sign at stride 8 and the same sign at stride 32 as the same pattern at the same pixel size, because the anchor at each level is scaled with the stride. Four convolutions rather than one because a single 3x3 on 256 channels has a receptive field too small to reject a round wheel from a round sign."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    The class head's final bias is initialised to log(0.01 / 0.99) = -4.60, not zero. With 110,403 of 110,484 anchors negative, a zero bias makes the first forward pass predict 0.5 everywhere and the first few hundred steps are spent undoing that; the initial loss is 110,484 x log 2 per frame instead of something a gradient can use. This is a one-line fix and it is the difference between the model converging and diverging."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    The finest level is the lever the resolution argument is about. Add a stride-4 level P2 at (8, 256, 192, 192) and the cell count goes from 12,276 to 12,276 + 192 x 192 = 49,140, so the anchor set becomes 442,260 — 4.0 times the boxes, 4.0 times the head compute, for the distant-sign recall you were missing. That is the trade, priced."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "4. THE LOSS, WRITTEN OUT. Two terms, summed over anchors, with the classification term running over EVERY anchor and the regression term over positives only. Let i index the 110,484 anchors, y_i the assigned class (0 for background), p_i,c the sigmoid class score, t_i the four regression targets and t_hat_i the predicted offsets. Let P be the set of positive anchors, |P| = 81 on the frame above. Then"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L = (1 / |P|) x SUM over i not ignored, over c in 1..43 of FL(p_i,c, [y_i = c])",
+      "      + (lambda / |P|) x SUM over i in P of smooth_L1(t_hat_i - t_i)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "with the focal term itself written out. Writing p_t for the probability the model assigned to the CORRECT label of that anchor-class pair — p_i,c when the target is 1, and 1 - p_i,c when it is 0 —"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    FL(p_t) = -alpha_t x (1 - p_t)^gamma x log p_t,    gamma = 2, alpha = 0.25"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and (1 - p_t)^gamma is the entire fix. An anchor the model already scores correctly at p_t = 0.9 has its loss multiplied by (1 - 0.9)^2 = 0.01: a hundredfold reduction. At p_t = 0.99 it is 10^-4. An anchor still wrong at p_t = 0.3 keeps 0.49 of its loss.",
+      "So the 110,403 empty-road anchors — which after a few hundred steps sit above p_t = 0.99 because most of a road scene is obviously not a sign — stop contributing, and the gradient comes from the 81 real ones plus the hard negatives that are still confusable. alpha = 0.25 is the separate, cruder knob that down-weights the background CLASS as a whole; gamma is what down-weights EASY examples regardless of class, and the two are not substitutes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Note the normaliser. Both terms divide by |P|, the number of positive anchors on that frame, not by the number of anchors. Divide by 110,484 instead and the loss scale swings with how empty the frame is; divide by |P| and a frame with three signs and a frame with one produce comparable gradients. On a frame with NO sign, |P| = 0, so you clamp the divisor at 1 — the alternative is a NaN on perfectly ordinary training data."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The box term is smooth L1 on the standard parameterisation, t_x = (x - x_a) / w_a, t_y = (y - y_a) / h_a, t_w = log(w / w_a), t_h = log(h / h_a), with smooth_L1(d) = 0.5 d^2 / beta for |d| < beta and |d| - 0.5 beta otherwise, beta = 1/9.",
+      "The offsets are divided by the anchor's own size, which is what makes one shared head work across a 50-fold range of anchor sizes; the log on width and height is what stops a 10-pixel error on a 1,000-pixel box costing the same as a 10-pixel error on a 23-pixel one. lambda = 1.0 works with this normalisation, and the way to set it is to log the two terms separately and check neither is more than about five times the other after the first epoch — if the box term is invisible your boxes will be loose in a way the mAP number will hide."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The alternative, for completeness: replace smooth L1 with a GIoU loss on the decoded boxes, which optimises the thing the IoU-0.5 metric measures rather than a proxy on offsets, and matters most exactly where the offsets are least well conditioned — small boxes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "5. THE NUMBERS THAT DECIDE IT. The anchor arithmetic first, because it decides the loss. A 768-pixel frame at strides 8/16/32/64/128 has 9,216 + 2,304 + 576 + 144 + 36 = 12,276 cells; nine anchors a cell is 110,484 candidate boxes.",
+      "Put three signs of realistic on-screen sizes in that frame and measure the overlaps: 81 anchors clear IoU 0.5 and 110,403 do not. That is 0.073% of them, one box in 1,364. Across 40 random frames of one to three signs the median share is 0.050% — under one in a thousand every way it is cut.",
+      "At initialisation, when every anchor's score is the same size, the empty ones are 99.93% of the loss. Every one of those numbers is arithmetic on the strides and the anchor geometry, and that is why the focal factor is not a refinement."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The parameter count, built from the widths the chain names: 23,508,032 in the ResNet-50 trunk, 7,997,440 in the pyramid, 3,254,403 in the class head and 2,445,348 in the box head — 37,205,223 parameters, 74 MB in half precision. Memory is not the constraint."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "COMPUTE IS THE CONSTRAINT, AND IT IS DECIDED BY THE INPUT SIZE. One forward pass at 768 x 768 costs about 96.1 GFLOP in the trunk, 19.9 in the pyramid and 139.8 in the two heads — 255.8 GFLOP per frame.",
+      "At 30 Hz that is 7.7 TFLOP/s sustained, for the detector alone, on a chip also running lane keeping, free-space, traffic lights and planning.",
+      "The heads dominate, and they dominate because they run at every one of the 12,276 cells: halve the input to 384 and the cell count falls to 3,069, so the head cost falls to 34.9 GFLOP, exactly a quarter, and the whole detector to about 64 GFLOP.",
+      "Add the stride-4 level instead and the head cost roughly quadruples to about 559 GFLOP, which at 30 Hz is 16.8 TFLOP/s for a detector. THE CLOCK IS THE DESIGN.",
+      "A two-stage detector at this resolution runs the trunk once and then a per-region head over a few hundred proposals, and with a 33.3 ms frame budget shared across the whole stack there is no room for the second pass — which is the answer to \"why single shot\", stated as arithmetic rather than as a preference."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And the resolution trade, priced in pixels rather than in FLOPs. A 0.75 m sign at 80 m subtends 0.75 / 80 = 9.4 milliradians.",
+      "A 768-pixel frame across a 34.4-degree (0.600 radian) horizontal field of view is 768 / 0.600 = 1,280 pixels per radian, so that sign is 1,280 x 0.009375 = 12 pixels across — and the same optics put it at 64 pixels at 15 m, which is the scale range one anchor set has to span.",
+      "The smallest anchor is 23 pixels across, so the best IoU any anchor achieves against a 12-pixel box is about (12/23)^2 = 0.27 — below the 0.5 assignment threshold, so that sign generates NO positive anchor and contributes nothing to the loss.",
+      "It is not that the model is bad at distant signs; it is that distant signs are not in the training signal at all.",
+      "Lowering the assignment threshold puts them in and blurs every other assignment; the stride-4 level puts them in at 4x the head cost; the cropped high-resolution second pass over the vanishing-point band puts them in at the cost of a second inference on a small tile, which is why it is usually the one that ships."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The follow-up's numbers. Night is 3% of the evaluation set, so night recall can fall to zero and the aggregate drops 0.009 — the average arithmetically cannot see it. Measured on the simulation: 94% aggregate with 30% on the night slice; resampling night to a third of every epoch takes night to 45% with the aggregate still at 94%.",
+      "And on the imbalance itself, at the same 1,000 steps on the same 60,000-negative, 60-positive set, turning the easy negatives down improved rare-class recall on all eight independent draws, by 4 points on average, while the headline accuracy moved by under a tenth of a point."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "6. WHAT ELSE MATTERS. SGD with momentum 0.9, weight decay 1e-4, base learning rate 0.01 for a batch of 16 scaled linearly with batch size, 500 iterations of linear warmup (without it the focal loss's first steps diverge), step decay by 10x at 2/3 and 8/9 of the schedule, gradient clipping at norm 10.",
+      "Freeze the BatchNorm statistics in the trunk — a batch of 8 gives estimates too noisy to be worth updating — and initialise from ImageNet weights, which is worth several points of mAP on a dataset this size.",
+      "Augment with horizontal flips only where the sign classes are mirror-safe (they often are not: a \"turn left\" sign flips into a wrong label), scale jitter 0.5 to 2.0, photometric jitter, and the four physical night effects above — Poisson shot noise plus read noise, glare and bloom, motion blur, retro-reflection — applied in that order rather than a brightness multiplier."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Monitor, and never pool: recall at IoU 0.5 per class x distance band x illumination cell, with the SHIP GATE as a minimum over cells rather than a mean; the score distribution of the positives, because recall lost at the 0.05 decode threshold looks identical to recall the model never had; the number of assigned positives per frame, because an assigner silently producing zero positives on a whole condition is a common and invisible failure; and end-to-end frame latency at the 99th percentile, not the mean, since NMS cost grows with the number of surviving boxes and a foggy frame is a slow frame."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The first failure mode to expect is not accuracy: it is the decode path. A model that trains cleanly will lose distant and small signs at the score threshold and at NMS, and the fix is a per-class threshold set from the per-condition metric rather than one global 0.05.",
+      "The second is the assignment threshold quietly excluding the whole far-distance band, as the 12-pixel arithmetic above shows.",
+      "What to try next, in order: an anchor-free head (FCOS-style centre-ness, which removes the anchor hyperparameters and the assignment threshold along with them, and with it the failure mode just described), a second cropped high-resolution pass on the vanishing-point band, temporal aggregation across three frames so a sign that flickers below threshold on one frame survives, and only then more night footage — collected against the coverage table, so that you can tell whether it worked."
      ]
     }
    ],
