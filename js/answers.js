@@ -33862,5 +33862,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "two_models_same_score"
+ "featured": "it_got_worse_every_month"
 };
