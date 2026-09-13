@@ -19,56 +19,388 @@ window.QQ_ANSWERS = {
  "count": 494,
  "entries": [
   {
-   "slug": "the_same_row_on_both_sides",
-   "title": "The same record on both sides of the split",
-   "ts": "2026-09-13T17:53:19+00:00",
+   "slug": "read_the_scan_before_the_doctor",
+   "title": "Three hundred scans, one doctor, and the order they get read",
+   "ts": "2026-09-13T17:55:06+00:00",
    "date": "13 Sep 2026",
-   "topic": "ml_fundamentals",
+   "topic": "ml_systems_design",
    "q": null,
-   "a": "The data set holds the SAME record more than once, and a random split puts one copy on each side. So part of the test set is an exam the model has already sat.",
+   "a": "Triage is an ORDERING problem, the label lives in free text, the loss has to be weighted AND calibrated — and then, for the follow-up, the reason a new hospital breaks your model is that a random split cannot see a problem that is constant within each site. The validation unit has to be the HOSPITAL, not the scan.",
    "why": [
     {
      "h": null,
      "t": "p",
      "lines": [
-      "HOW IT HAPPENS, AND IT IS ALWAYS BORING. The scraper ran twice. Two systems logged the same transaction. The same photo was saved at two sizes. A patient has one scan under two study numbers. Or — the commonest one of all — the copies were MADE on purpose: rows were augmented, oversampled or SMOTE'd BEFORE the split, so a row and its own altered twin end up on opposite sides. Nothing leaked, nothing drifted, and nobody did anything obviously wrong."
+      "WHAT DATA. Old scans, each one paired with the radiologist's report — and that report is prose, not a label.",
+      "So step one is a text-extraction problem sitting in front of your imaging problem: negation (\"no evidence of pneumothorax\"), uncertainty (\"cannot exclude\"), historical findings (\"unchanged since 2019\"), and findings mentioned only in the comparison to a prior study.",
+      "A rule-based negation pass plus a small trained text classifier, checked against a few hundred hand-labelled reports, is the standard answer, and the error rate of THAT step caps everything downstream. Say that out loud: a 5% label error on a 3%-prevalence positive class is not a small problem."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "THE TELL. The test score sits above the neighbourhood the training score lives in, and it will not reproduce on data collected later. Two cheap checks settle it in ten minutes.",
-      "First, count exact duplicate rows, and then near-duplicates — round the numbers, hash the row, or check nearest-neighbour distances between the training half and the test half and look for distances near zero. Second, count how many test rows have a twin on the other side, then score those rows separately from the rest.",
-      "If the twinned rows score far better than the lonely ones, that is the whole gap, and it is measured rather than argued."
+      "AND THE POINT THAT DECIDES THE REST: THIS IS NOT CLASSIFICATION. Nobody is asking the model to diagnose. It is asked to put the urgent studies at the top of a list a human will work down. So the quantity that matters is the RANK — how many of the night's urgent cases reach the top tenth of the list, how long until the worst case is seen — not accuracy, and not a single threshold. Urgent findings are also rare, so the top of the list is the only part of it anyone experiences."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "THE FIX, IN THREE MOVES. One: deduplicate BEFORE you split, not after. Two: split by the ENTITY, not by the row — all rows belonging to one customer, one patient, one source image, one document go to the same side. That is what grouped splitting is for, and it is one argument in most libraries. Three: augment, oversample and resample only AFTER the split, and only inside the training half."
+      "WHAT ARCHITECTURE. A general-purpose image encoder, pretrained, then fine-tuned. A hospital hands over thousands of scans, not millions, and that is the whole argument: you cannot learn to see from scratch on that.",
+      "Then the resolution trap, which is specific to this domain and is where naive pipelines die: a finding can be a few millimetres across in a 2000-pixel image, and the standard 224-pixel resize throws it away.",
+      "In simulation, shrinking each scan to a quarter of its width took the new hospital's ranking from 0.76-0.82 down to 0.59-0.62 and cut the share of urgent scans reaching the top tenth of the list from 0.30-0.34 to 0.12-0.21 -- between a third and two thirds fewer.",
+      "So: keep the native resolution and tile it, or run a two-stage coarse-then-fine pass, and treat the resize as a design decision rather than a default."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "WHAT IT IS NOT. It is not overfitting, and more data of the same kind makes it worse, because more rows mean more twins. It is not drift either — here both halves come from one pile, and the honest score is the same whether you test on held-out people or on people who never appeared at all."
+      "WHAT LOSS. Weighted, and ranking-aware. A false alarm costs a radiologist a minute of reading; a missed urgent case costs a person. Those are not symmetric, so the loss must not treat them as if they were — class weighting, or a ranking objective that directly rewards getting urgent studies into the top of the list.",
+      "And separately, the output has to be CALIBRATED, not merely discriminative: a worklist is only meaningful if a score of 0.6 means the same thing tonight as it did last week, because that is what lets a ward set a policy on it at all. Those two properties come apart, which is the next paragraph."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "THE NUMBERS. Recording every person twice and splitting the rows at random scored 84 out of a hundred. The same rows split by person scored 70, and on people who were never in the pile in any form, 72 — the honest number, and the one that shipping would have found for you. The gap is carried entirely by the test rows whose twin sat in the training half: those scored 100 out of a hundred against 68 for the rows with no twin."
+      "THE FOLLOW-UP: ONE SCANNER MAKE. Every hospital in your training set used one manufacturer. A new hospital has a different one. The honest fear is not that the images look different — it is that the model may have learned the SCANNER instead of the disease, because scanner and disease were correlated in your data."
      ]
     },
     {
      "h": null,
      "t": "p",
      "lines": [
-      "THE ASSUMPTION DOING THE WORK. This assumes the copies are genuinely the same thing, not two real events that happen to look alike. Two different customers with identical form answers are not duplicates, and deleting one of them throws away real data. So look at WHY the rows repeat before deleting anything — if they repeat because of how the data was collected, deduplicate; if they repeat because the world is like that, keep them and split by whatever the collection actually shares."
+      "FIRST, TEST IT DIRECTLY. Train a model to predict the SITE from the image alone. If it succeeds, site is a feature of your images and anything correlated with site is available to your model as a shortcut. In simulation — two sites differing in gain, brightness, grain, grain coarseness, gamma and a burnt-in corner marker — a site classifier scores a perfect 1.000, every world, every time. That is the real-world result too: published work has recovered the source hospital from chest X-rays with near-perfect accuracy."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "SECOND, MEASURE PER SITE, NOT POOLED. This is the part that produces the fiction. In simulation the two training hospitals send very different shares of urgent cases (2 in 5 against 1 in 20), so site identity alone predicts the label. Trained on the pool and tested on a random pooled split, the model ranks an urgent scan above a healthy one 0.70-0.80 of the time — a respectable number. The SAME model, inside a single hospital, scores 0.52-0.59, and on a genuinely new hospital 0.57-0.60. Barely better than a coin toss. Nothing about the model changed; only the split did."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THIRD, THE FIX. Per-image intensity normalisation, so overall brightness and gain carry no information. Acquisition-level augmentation: jitter gain, brightness, gamma, the amount of grain and the coarseness of the grain, and mask the corners where machines burn in their own signatures.",
+      "That is not generic augmentation — it is augmentation over the specific nuisance you have identified.",
+      "In simulation it takes the new hospital from 0.57-0.60 to 0.73-0.81, closing 57-77% of the distance to the same model's performance on a site it trained on, and it doubles the share of urgent scans reaching the top tenth of the list, from about one in six to about one in three."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FOURTH, VALIDATE ON A HELD-OUT HOSPITAL. And this is the insight worth carrying out of the whole question: a random split CANNOT detect a problem that is constant within each site. Every scan from hospital A carries the same giveaway, so putting some of A's scans in train and some in test gives the shortcut to both sides.",
+      "Hold out the SITE — leave-one-hospital-out, and report the spread across held-out hospitals rather than the mean — and the shortcut has nowhere to hide. The same argument applies to any grouped structure: patient, study, device, scanner, ward. If the confound is constant within the group, the group is the unit you split on."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "ONE MORE THING THE MEASUREMENT SHOWED. Ranking and calibration break apart under the move. A model trained on site A alone still ranks well at the new hospital (0.84-0.88 at home, 0.74-0.82 away) while scans scoring in the same 0.30-0.70 band are urgent 0.50-0.53 of the time at home and 0.17-0.29 at the new hospital. So a triage system that was tuned by rank can survive a site change while every number on the radiologist's screen quietly means something else. Recalibrate per site, on site data, and monitor the score distribution per scanner."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTIONS WORTH NAMING. The simulation makes the site signature a global nuisance — brightness, grain, gamma, a corner marker — and makes prevalence differ by site.",
+      "Both are true of real hospital data and both are why the effect is as big as it is; if the sites had identical prevalence, the pooled number would be honest and only calibration would move.",
+      "The fix also assumes you can ENUMERATE the nuisance: augmentation over gain and grain cannot protect you from a confound you have not thought of, which is exactly why the held-out-hospital test, which needs no such list, is the one you cannot skip.",
+      "And one negative result worth reporting: a fixed label-free feature map did NOT beat learning from pixels at the same number of scans in this simulation (0.77-0.82 against 0.79-0.81).",
+      "What the sweep did show is that labels are the binding constraint — quadrupling the training scans, changing nothing else, moved the new hospital from 0.79-0.81 to 0.82-0.83.",
+      "Transfer learning is defensible here because a hospital has thousands of scans and not millions, which is an argument about sample size, and it is stated that way rather than as a measured win."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ENGINEERING SPEC. Everything above is the argument. This is the build, at the level of detail an interviewer means when they say \"and what are the dimensions\". One thing carries over unchanged and must: the negative result above is a result. Nothing in this spec claims a measured transfer-learning advantage, because the measurement did not find one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE DATA, WITH SHAPES. A study is one chest radiograph, stored as a 12-bit image of 2048 x 2048 pixels. As uint16 that is 2048 x 2048 x 2 = 8,388,608 bytes, 8.4 megabytes a scan, so twenty thousand studies is 168 gigabytes on disk and a batch does not casually live in memory."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The pixel spacing is what the resolution argument is actually about. A chest is about 350 millimetres across, so 2048 pixels is 350 / 2048 = 0.171 millimetres a pixel and a 3-millimetre finding — a small nodule, a thin pneumothorax line — is 3 / 0.171 = 17.6 pixels across.",
+      "Resize the whole scan to the standard 224 and the spacing becomes 350 / 224 = 1.5625 millimetres a pixel, so the same finding is 3 / 1.5625 = 1.9 PIXELS.",
+      "That is the trap in one division: at 224 the thing you are looking for is smaller than two pixels, and no encoder recovers information that the resampling filter has already averaged away. The downsample factor is 2048 / 224 = 9.1, and the finding shrinks by exactly that."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the training tensor is not the whole scan. Tile it: 512 x 512 windows at a stride of 384, which gives 128 pixels — 21.9 millimetres — of overlap and (2048 - 512) / 384 + 1 = 5 positions along each axis, so 5 x 5 = 25 tiles a study.",
+      "A batch of 16 studies is therefore (B = 16, T = 25, C = 1, H = 512, W = 512): B the study axis, T the tile axis, C the single greyscale channel, H and W the spatial axes.",
+      "Flattened for the encoder that is (400, 1, 512, 512), which in float32 is 400 x 512 x 512 x 4 = 419,430,400 bytes, 419 megabytes of activations at the input alone — and that number, not the model, is what sets the batch size."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The label is not in the data. It is in prose: a report per study, so a (N,) array of strings, from which the text stage produces a multi-hot finding matrix (N, K = 14) plus an uncertainty flag per finding, and the triage target is one column of it, (N,) in {0, 1}."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE MEASUREMENT SCALE, because every number in section 5 comes from the simulation and not from a real hospital: three simulated hospitals, 350 scans each from the two training sites and 900 from the new one, at 28 x 28 pixels, with urgent shares 0.40, 0.05 and 0.18, over 3 worlds.",
+      "So the pooled training set is 2 x 350 = 700 scans of which 350 x 0.40 + 350 x 0.05 = 157.5 are urgent in expectation, 22.5% — and the quarter-width condition is 28 / 4 = 7 x 7, the same 4x cut as 2048 to 512 or 224 to 56.",
+      "Twenty-eight pixels is what lets the picture in the reel be drawn; the direction of every effect is measured, the magnitudes are properties of that simulation."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. INPUT AND OUTPUT, AT TRAINING AND AT SERVING. At TRAINING the input is (16, 25, 1, 512, 512) tiles plus a target (16,) in {0, 1} and a per-example weight (16,); the output is a per-study logit (16, 1) obtained by max-pooling 25 per-tile logits, and the loss returns one scalar. The batch is stratified, not random: 4 urgent studies and 12 healthy ones, for reasons that are section 4's."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At SERVING the input is one study, (1, 25, 1, 512, 512), and the output is NOT a probability — it is a position. The score goes into the night's worklist, the worklist is sorted, and what the radiologist experiences is the order. Two things exist at serving that do not exist at training and both come straight from the measurements above.",
+      "First, a PER-SITE CALIBRATION MAP applied after the model: a two-parameter Platt map, score -> sigmoid(a x z + b), with (a, b) fitted on that site's own held-out scans, because the measurement showed the ranking surviving a site change while the meaning of a score did not.",
+      "Second, a per-scanner score-distribution monitor, which is the only thing that tells you the map has gone stale. At training there is no site-specific anything, by construction, because the whole point of section 3's first layer is to stop the model using site."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. THE ARCHITECTURE, LAYER BY LAYER. A pretrained general-purpose image encoder, one channel instead of three, fine-tuned end to end, with a linear head and a max over tiles. Concretely a 50-layer residual network in the standard four-stage bottleneck arrangement. Written as a shape chain, and every spatial step multiplies out:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (400, 1, 512, 512)     tiles, 400 = 16 studies x 25 tiles",
+      "    (400, 1, 512, 512)     PER-IMAGE intensity normalisation: subtract this",
+      "                           image's own mean, divide by its own standard",
+      "                           deviation. Shape-preserving, no parameters, and it",
+      "                           is the first line of defence against the site",
+      "                           confound — after it, gain and offset carry nothing.",
+      "    (400, 64, 256, 256)    Conv2d(1 -> 64, kernel 7x7, stride 2, padding 3),",
+      "                           BatchNorm, ReLU. (512 + 6 - 7)/2 + 1 = 256",
+      "    (400, 64, 128, 128)    MaxPool 3x3, stride 2, padding 1. 256 -> 128",
+      "    (400, 256, 128, 128)   stage 1: 3 bottleneck blocks, stride 1, widths",
+      "                           64 -> 64 -> 256; the first carries a 1x1 projection",
+      "                           on its shortcut because the channel count changes",
+      "    (400, 512, 64, 64)     stage 2: 4 bottleneck blocks, the first with stride",
+      "                           2, widths 128 -> 128 -> 512. 128 -> 64",
+      "    (400, 1024, 32, 32)    stage 3: 6 bottleneck blocks, the first with stride",
+      "                           2, widths 256 -> 256 -> 1024. 64 -> 32",
+      "    (400, 2048, 16, 16)    stage 4: 3 bottleneck blocks, the first with stride",
+      "                           2, widths 512 -> 512 -> 2048. 32 -> 16",
+      "    (400, 2048, 1, 1)      global average pool over the 16 x 16 map",
+      "    (400, 2048)            flatten",
+      "    (400, 1)               Linear(2048 -> 1), one logit a tile",
+      "    (16, 25)               reshape back to study x tile",
+      "    (16, 1)                MAX over the tile axis — one urgent tile makes the",
+      "                           study urgent, and max is the right pool because",
+      "                           the finding is local and the label is not"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    A bottleneck block is 1x1 conv -> BatchNorm -> ReLU -> 3x3 conv -> BatchNorm -> ReLU -> 1x1 conv -> BatchNorm, added to the shortcut, then ReLU; convolutions carry no bias because the BatchNorm that follows has one. 3 + 4 + 6 + 3 = 16 blocks, 48 convolutions, plus the stem and the head: that is where \"50 layers\" comes from."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    WHAT THE SPATIAL CHAIN MEANS FOR THE FINDING, which is the reason to write the chain out at all. Total spatial reduction is 512 / 16 = 32, so one cell of the final feature map sees 32 tile pixels, and a tile pixel is a native pixel, so one cell covers 32 x 0.171 = 5.5 millimetres. The 17.6-pixel finding is therefore a little over half of one final cell — small, but present in the map. Run the SAME network on a whole scan resized to 224 and the finding is 1.9 pixels, which after the same 32x reduction is 0.06 of a cell. It is not that the model fails to learn it; there is nothing left in the tensor to learn from. The tiling is not an optimisation, it is what keeps the signal above the grid."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    PARAMETERS, from those widths. A bottleneck block with in-channels i, middle m, out-channels o costs i x m + 9 m^2 + m x o in convolutions and 2(2m + o) in its BatchNorms, plus i x o + 2o when its shortcut needs a projection. Summing: 3,264 in the stem, 215,808 in stage 1, 1,219,584 in stage 2, 7,098,368 in stage 3, 14,964,736 in stage 4, and 2,049 in the head — 23,503,809 parameters, 94 megabytes in float32. The same arithmetic with a 3-channel stem and a 1000-way classifier gives 25,557,032, which is the canonical published count for this network, so the derivation checks against something outside this page."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    AND HERE IS WHERE THE NEGATIVE RESULT CONSTRAINS THE SPEC. The pretraining in \"pretrained encoder\" is doing sample-size work, not measured work: a hospital hands over thousands of scans and this network has 23.5 million parameters, so the ratio is what the argument rests on. The measurement in this module tried a FIXED label-free feature map against learning from pixels at the same 700 scans and the feature map reached 0.77-0.82 against 0.79-0.81 — it did NOT win. So this spec's encoder is fine-tuned end to end rather than frozen, the pretrained weights are an initialisation and not a claimed advantage, and if you ship this you should run the frozen-versus-fine-tuned comparison on your own data rather than trusting either the folklore or this page. What the sweep DID measure is that labels bind: quadrupling the scans moved the new hospital from 0.79-0.81 to 0.82-0.83 with nothing else changed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE AUGMENTATION IS PART OF THE ARCHITECTURE HERE, because it is specific to the confound. On every training tile, jitter gain, brightness and gamma, resample the grain and its coarseness, and mask the corner regions where scanners burn in their own markers — the same six nuisance dimensions the site classifier in section 5 exploits. Generic flips and crops do not touch this."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "4. THE LOSS, WRITTEN OUT. Two terms, because the job has two requirements that come apart, and then a third stage that is not a loss at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE WEIGHTED TERM. With z_i the study logit and y_i in {0, 1}:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L_bce = -(1/B) x SUM over i of [ w_pos x y_i x log sigmoid(z_i) + w_neg x (1 - y_i) x log(1 - sigmoid(z_i)) ]"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "w_pos / w_neg is a COST ratio and you should set it from the costs, not from the prevalence: a false alarm costs a radiologist a minute of reading, a missed urgent case costs a person, and if you are unwilling to name the ratio out loud you have not specified the system. As a starting point the inverse-prevalence value at 3% positives is (1 - 0.03) / 0.03 = 32.3, and then you move it by what the missed-case review tells you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE RANKING TERM, which is the one that matches what the system is for. Over every (urgent, healthy) pair in the batch:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L_rank = (1 / |P|) x SUM over pairs (i, j) with y_i = 1, y_j = 0 of log(1 + exp(-(z_i - z_j)))"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is a differentiable surrogate for the probability that an urgent scan outranks a healthy one, which is exactly the number section 5 reports. A batch of 4 urgent and 12 healthy gives |P| = 4 x 12 = 48 pairs, and THAT is why the batch is stratified: at a real 3% prevalence a random batch of 16 contains 0.48 urgent scans on average, so most batches would contribute no pairs at all and the term would be noise."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L = L_bce + lambda x L_rank, lambda = 1.0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Set lambda by watching the two metrics move: the weighted term alone gives you a threshold-friendly model that orders the middle of the list badly, and the ranking term alone gives you a beautiful order made of numbers that mean nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT CALIBRATION NEEDS ON TOP, AND WHY IT CANNOT BE IN THE LOSS. L_rank depends only on DIFFERENCES of logits, so it is invariant under z -> z + c and nearly so under any increasing transform: it cannot constrain the absolute value of a score, by construction.",
+      "Calibration is therefore a separate, post-hoc, PER-SITE fit on data the model did not train on — Platt scaling, two parameters (a, b) per site by minimising the negative log-likelihood of sigmoid(a z + b), or isotonic regression if you have a few thousand scans from that site. This is not a nicety.",
+      "The measurement found a model ranking 0.84-0.88 at home and 0.74-0.82 at a new hospital while scans in the SAME 0.30-0.70 score band were urgent 0.50-0.53 of the time at home and 0.17-0.29 away. The ranking survived the move; every number on the screen changed meaning.",
+      "Two properties, two mechanisms, and an interviewer is listening for whether you know they are not the same thing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "5. THE NUMBERS THAT DECIDE IT. Every figure here is derived by this module's own verify(), on the measurement scale described in section 1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SHORTCUT IS REAL, AND IT IS MEASURED FIRST. A classifier trained to name the SITE from the image alone scores AUC 1.000 — perfect, in every world, every time. Site is not a subtle property of these images, it is fully recoverable, so anything correlated with site is available to the model as a free shortcut. Since the two training sites send urgent shares of 2 in 5 against 1 in 20, site identity ALONE predicts the label."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SPLIT IS WHERE THE FICTION COMES FROM. The same model, one set of weights, reads 0.70-0.80 on a random pooled split, 0.52-0.59 inside a single hospital, and 0.57-0.60 at a genuinely new hospital. Nothing changed but the split. A random split cannot detect a confound that is constant within each site, because it hands the same giveaway to both halves."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FIX IS ALSO MEASURED. Per-image normalisation plus acquisition-level augmentation takes the new hospital from 0.57-0.60 to 0.73-0.81, closing 57-77% of the distance to the same model's own-site score, and DOUBLES the share of urgent scans reaching the top tenth of the list, from about one in six to about one in three."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE RESOLUTION COLLAPSE. Shrinking each scan to a quarter of its width takes the new hospital from 0.76-0.82 to 0.59-0.62 and the urgent share in the top tenth from 0.30-0.34 to 0.12-0.21 — between a third and two thirds fewer urgent cases reaching the part of the list a human actually reads. One resize, and the arithmetic of section 1 says why: a 4x cut takes a 17.6-pixel finding to 4.4 pixels, and the standard 9.1x cut to 224 takes it to 1.9."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PARAMETER AND MEMORY BUDGET. 23,503,809 parameters, 94 megabytes in float32, is small; the tiles are not. 25 tiles a study at 512 x 512 means one study is 25 forward passes, so a batch of 16 is 400 of them and 419 megabytes of input activations before a single convolution has run.",
+      "That is the number that caps the batch at 16 and it is also the serving budget: 25 tile passes a study at about 21 GFLOP each — this network's 4.1 GFLOP at 224 x 224, scaled by (512 / 224)^2 = 5.2 — is 535 GFLOP a study, so a night of 300 scans is 161 TFLOP, about sixteen seconds of accelerator time for the whole list.",
+      "Which is why nobody optimises the model here and everybody argues about the resize."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE NEGATIVE RESULT, restated so it cannot be lost between the confident-looking numbers above: the fixed label-free feature map did NOT beat learning from pixels at the same 700 scans, 0.77-0.82 against 0.79-0.81. No transfer-learning advantage is claimed in this page. Labels are the binding constraint: four times the scans, nothing else changed, 0.79-0.81 to 0.82-0.83."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "6. WHAT ELSE MATTERS. AdamW, learning rate 1e-4 on the head and 1e-5 on the pretrained encoder — a discriminative rate, because the encoder already knows what edges are and the head knows nothing — 3 epochs of warmup, cosine decay, weight decay 1e-4, batch 16 studies stratified 4 urgent to 12 healthy.",
+      "Freeze the BatchNorm running statistics of the pretrained stages for the first epoch: with a batch of 16 studies whose tiles are highly correlated, the batch statistics are not what BatchNorm was pretrained to expect, and this is the single most common way a fine-tune of this shape silently underperforms."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Monitor, and monitor PER SITE rather than pooled, which is the whole lesson: AUC and the urgent share in the top tenth of the list, reported as a spread across held-out hospitals and not as a mean; the calibration curve per scanner, because that is the thing that moved while the ranking did not; the score distribution per scanner over time, as the early-warning signal for a stale calibration map; and the text stage's own error rate against a few hundred hand-labelled reports, because a 5% label error on a 3%-prevalence class is not a small problem and it caps everything downstream."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The first failure mode to expect is not the model. It is the worklist: a triage system changes the order radiologists read in, so the labels you collect afterwards are generated by a list your own model sorted, and your next training set is no longer a sample of the world.",
+      "The second is the calibration map going stale after a scanner service visit.",
+      "What to try next, in order: leave-one-hospital-out validation as the default reporting unit rather than an extra experiment; a two-stage coarse-then-fine pass so the 25 tiles become 3 or 4 chosen by a cheap first look; abstention, so the model can decline to reorder a study it is unsure about instead of guessing at its place in the queue; and, before any of that, buying more labels, because that is the only intervention this module actually measured a gain from."
      ]
     }
    ],
