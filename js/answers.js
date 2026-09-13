@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "read_the_scan_before_the_doctor",
    "title": "Three hundred scans, one doctor, and the order they get read",
-   "ts": "2026-09-13T17:55:06+00:00",
+   "ts": "2026-09-13T17:59:41+00:00",
    "date": "13 Sep 2026",
    "topic": "ml_systems_design",
    "q": null,
