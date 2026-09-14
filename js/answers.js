@@ -16,8 +16,313 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 494,
+ "count": 495,
  "entries": [
+  {
+   "slug": "who_is_speaking_right_now",
+   "title": "Who said that?",
+   "ts": "2026-09-14T00:31:34+00:00",
+   "date": "14 Sep 2026",
+   "topic": "ml_systems_design",
+   "q": null,
+   "a": "THE BRIEF. Two hours of meeting audio from one microphone in the middle of the table. Produce a transcript that says WHO said each line. You are not told how many people are in the room, and it is a different set of people in every recording. That last sentence decides almost everything below.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DATA, AND WHY THE LABELLING UNIT IS THE WHOLE QUESTION. You need audio with PER-SPEAKER TIME SEGMENTS: for every speaker, the start and end of every stretch they were talking. A list of who attended the meeting is worthless here, and so is a per-recording speaker count. What the model has to learn is a decision at every moment, so the label has to exist at every moment."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is why this data is expensive. Marking turn boundaries is not a click, it is listening: a careful annotator spends roughly three hours per hour of audio, and overlapped speech is slower still because it has to be marked twice.",
+      "So the realistic corpus is a few hundred hours of genuinely conversational meeting audio, plus a much larger pile of SIMULATED mixtures you build yourself by adding single-speaker recordings together with realistic turn-taking and a chosen overlap rate — which is free, gives you frame-perfect labels including the overlaps, and is the only way most systems ever see enough overlap to learn it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ARCHITECTURE. Three stages, and each one exists for a reason you should be able to state."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STAGE ONE, VOICE ACTIVITY DETECTION. Find the speech at all. Roughly a third to a half of a meeting is nobody talking, and an embedding computed on silence or on a door closing is noise that will land somewhere in your space and pull a cluster with it. Cheap to run, and it removes the largest single source of junk points."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STAGE TWO, A SPEAKER EMBEDDING PER SHORT WINDOW. Take a 1.5-second window every 0.75 seconds and turn it into one fixed-length vector, 192 numbers, whose GEOMETRY means identity: two windows of the same person are close, two windows of different people are far. This is exactly the trick face recognition uses, and it is worth saying why a fixed-length vector is the right object: it lets you compare two pieces of audio of different lengths with one dot product, which is what clustering needs."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STAGE THREE, CLUSTERING. Build the affinity matrix of all those vectors and group them. AND NOW THE QUESTION AN INTERVIEWER IS ACTUALLY ASKING: why cluster rather than classify? Because a classifier needs a fixed label set and there is not one.",
+      "The speakers differ in every recording, you are not given their number, and nobody in this meeting was in your training data. There is nothing to classify INTO.",
+      "Clustering needs no label set — only distances — so you replace \"how many classes\" with a calibrated DISTANCE THRESHOLD, and the number of speakers falls out of the data rather than being supplied."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT LOSS, AND WHY IT IS NOT A SPEAKER CLASSIFIER. The loss is a metric objective: pull same-speaker pairs together, push different-speaker pairs apart. Written out, the simplest honest version is a cosine hinge over pairs,"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L = mean over same-speaker pairs of max(0, (1 - margin) - cos(e_i, e_j))",
+      "      + mean over different-speaker pairs of max(0, cos(e_i, e_j) - margin)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "with margin about 0.35 and every embedding L2-normalised so that cos is the only geometry there is. The triplet form, max(0, cos(anchor, negative) - cos(anchor, positive) + margin), is the same idea with the two terms tied together per anchor. In production you would use AAM-softmax (additive angular margin), which is a classification-shaped surrogate for the same geometric goal; the point below is about what you KEEP, not about which surrogate you optimise."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The instructive wrong answer is: train a softmax classifier over your training speakers and keep it. NOTE WHAT IS WRONG WITH IT, because it is a specific thing. The head's output layer has one column per TRAINING speaker. At inference every speaker is new, so that output is a distribution over people who are not in the room. Its identity accuracy on them is not low, it is ZERO BY CONSTRUCTION — the correct answer is not among its classes. A metric objective never mentions identity at all, only same or different, and a distance transfers to voices that did not exist at training time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Measured, on a deliberately small derivation that runs inside this module. A linear metric embedding and a 40-class softmax speaker classifier are trained on the SAME features and the SAME 40 speakers, then both are asked about 12 speakers held out of training entirely. Telling same-speaker pairs from different-speaker pairs, by AUC over every pair:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    raw features, before either model       0.541",
+      "    the classifier's own OUTPUT             0.916",
+      "    the classifier's TRUNK, head deleted    0.977",
+      "    the metric-learned embedding            0.990"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THAT TABLE CORRECTED THE STORY I WAS GOING TO TELL, which is the reason to run it. \"A classifier's representation is useless on new speakers\" is FALSE: its 40 posteriors carry plenty of speaker information, and its trunk is nearly as good as the metric embedding. What is useless is the ANSWER THE HEAD GIVES. Its output layer has one column per training speaker, so its identity accuracy on those 12 is not low, it is ZERO BY CONSTRUCTION: the correct answer is not among its classes, and no threshold, calibration or extra data changes that."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the precise claim, the one worth saying in an interview, is about WHICH QUESTION YOU ARE ALLOWED TO ASK. You cannot ask \"who is this?\", because the answer set does not exist at inference. You can only ask \"are these two the same?\". Train for the question you can ask and you get 0.990; train for the question you cannot and keep the head, and you get an answer that is wrong every time. That is also exactly why the standard recipe trains a classifier and then THROWS THE HEAD AWAY, keeping the 192-wide layer beneath it — the head is scaffolding for a gradient, not a predictor."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE DATA, WITH SHAPES. Audio is 16 kHz mono. The front end computes 64 log-mel filterbank features with a 25 ms analysis window and a 10 ms HOP, so 100 frames per second — the frame rate every number below derives from. An embedding window is 1.5 s, which is 1.5 x 100 = 150 frames, and the window hop is 0.75 s = 75 frames.",
+      "With a batch of 256 windows the embedder's input tensor is (B=256, T=150, F=64): B the batch axis, T the time axis in 10 ms frames, F the mel-bin axis. Labels for the embedder are a single integer per window, shape (256,), drawn from an inventory of 5994 training speakers.",
+      "For the OVERLAP-AWARE model the unit is different and that difference is the point: a 5-second chunk is 500 frames, the input is (B=64, T=500, F=64), and the target is a per-speaker-per-frame activity table (B=64, T'=50, S=4) of zeros and ones, where T' = 500 / 10 = 50 output frames after a stride-10 subsampling, so one output frame is 100 ms, and S = 4 is the maximum number of simultaneous speakers the output can represent."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. INPUT AND OUTPUT, AT TRAINING AND AT SERVING. At TRAINING the embedder takes (256, 150, 64) and returns (256, 192) embeddings plus (256, 5994) logits from a head that exists only to produce a gradient.",
+      "At SERVING the head is deleted: the model takes (N, 150, 64) for the N windows of one meeting and returns (N, 192), and nothing downstream ever sees a speaker name.",
+      "Then clustering turns (N, 192) into (N,) group ids, and those group ids are numbered per meeting and mean nothing across meetings — which is correct, and is why evaluation has to solve a matching between your groups and the reference speakers before it can score anything.",
+      "For the two-hour brief: 7200 s of audio, of which voice activity detection keeps about 62%, is 4464 s of speech, so N = floor((4464 - 1.5) / 0.75) + 1 = 5951 windows, and the affinity matrix is (5951, 5951) = 35,414,401 cells = 141.7 MB in float32."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. THE ARCHITECTURE, LAYER BY LAYER. The embedder is a TDNN — one-dimensional convolutions over time with dilations, statistics pooling, then a linear bottleneck. Written as a shape chain, and every step multiplies out:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (256, 150, 64)      log-mel input, 10 ms frames, 64 mel bins",
+      "    (256, 64, 150)      transpose so time is the convolution axis",
+      "    (256, 512, 150)     Conv1d(64 -> 512, kernel 5, dilation 1, padding 2) + ReLU + BatchNorm",
+      "    (256, 512, 150)     Conv1d(512 -> 512, kernel 3, dilation 2, padding 2) + ReLU + BatchNorm",
+      "    (256, 512, 150)     Conv1d(512 -> 512, kernel 3, dilation 3, padding 3) + ReLU + BatchNorm",
+      "    (256, 512, 150)     Conv1d(512 -> 512, kernel 3, dilation 4, padding 4) + ReLU + BatchNorm",
+      "    (256, 1536, 150)    Conv1d(512 -> 1536, kernel 1) + ReLU — widen before pooling",
+      "    (256, 3072)         ATTENTIVE STATISTICS POOLING over T: a weighted mean and",
+      "                        a weighted standard deviation, concatenated, so",
+      "                        1536 x 2 = 3072. This is the layer that makes the",
+      "                        output length-independent, and the standard deviation",
+      "                        half is what carries \"how much this voice varies\"",
+      "    (256, 192)          Linear(3072 -> 192) + BatchNorm — THE EMBEDDING, kept",
+      "    (256, 5994)         Linear(192 -> 5994) — THE HEAD, used for the gradient",
+      "                        and DELETED before serving"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Every dilated layer is shape-preserving in T because padding = dilation x (kernel - 1) / 2, which for kernel 3 and dilation d is exactly d. The receptive field is 1 + 4 + 2x2 + 2x3 + 2x4 = 23 frames = 230 ms, comfortably inside the 150-frame window, so the pooling layer is averaging over about six independent views of the voice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    The OVERLAP-AWARE model is a different shape and that is the whole design change:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (64, 500, 64)       log-mel, a 5-second chunk",
+      "    (64, 50, 256)       Conv1d front end with total stride 10 (two stride-5 layers,",
+      "                        64 -> 256), so one output frame is 10 x 10 ms = 100 ms",
+      "    (64, 50, 256)       4 x Transformer encoder block, 4 heads of width 64,",
+      "                        feed-forward 1024, shape-preserving",
+      "    (64, 50, 4)         Linear(256 -> 4), then a SIGMOID per element — not a",
+      "                        softmax, because the rows do not have to sum to one"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    A softmax there would reimpose exactly the constraint the follow-up is about. A sigmoid per speaker per frame is what allows two entries of a row to be 1 at once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "4. THE LOSS, WRITTEN OUT. The embedder's loss, in the form actually used in production, is additive angular margin softmax. With embeddings e normalised to length one and head columns w_k also normalised, cos(theta_k) = w_k . e, and for the true class y"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L_AAM = -log( exp(s x cos(theta_y + m)) / [ exp(s x cos(theta_y + m)) + SUM over k != y of exp(s x cos(theta_k)) ] )"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "with scale s = 30 and margin m = 0.2. It is written as a classification but everything it does is geometric: the margin m pushes the embedding an angular distance away from every wrong speaker's direction, and s controls how hard. The pair form at the top of this page is the same objective stated directly, and it is the one to say out loud when asked what the loss IS."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The overlap-aware model's loss is a per-speaker-per-frame BINARY CROSS-ENTROPY, summed over the S = 4 output channels and the T' = 50 frames, and minimised over the S! = 24 permutations of the output channels against the reference speakers (permutation-invariant training, because channel 2 has no inherent meaning):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L_PIT = min over permutations pi of SUM over t, s of BCE( y[t, pi(s)], sigmoid(z[t, s]) )"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Weight the two speakers' channels equally and do NOT down-weight overlap frames, because they are 8% of the data and 100% of the question. If anything, up-weight them: with an 8% overlap rate a model that predicts \"never two speakers\" already gets 92% of frames right, which is the same trap as any rare-event objective."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "5. THE NUMBERS THAT DECIDE IT. The embedder has 5,060,010 parameters: 2,525,184 in the four dilated convolutions, 787,968 in the Conv1d(512 -> 1536) that widens before pooling, 590,016 in the Linear(3072 -> 192) bottleneck, and 1,156,842 in the head — which is 23% of the model, and it is the part you delete. That is worth noticing: nearly a quarter of the parameters exist only to make a gradient. (Those four figures are the layers in the shape chain; the attentive pooling's own small attention module and the BatchNorms add a few hundred thousand more, which does not change the point.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The clustering is where the arithmetic bites. 5951 windows means a (5951, 5951) affinity matrix: 35.4 million cells, 141.7 MB in float32, and an eigendecomposition of it is O(N^3), about 2.1e11 operations — seconds to a minute, which is fine for a two-hour meeting processed offline and NOT fine for a day-long recording, where N^2 growth makes the matrix 20 GB. That is the number that forces either a sliding-window clustering that only ever holds a few minutes of affinity at once, or an online speaker-tracking formulation. Decide which before you promise anything about recording length."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The overlap floor is the other decisive number, and it is arithmetic rather than engineering. Let p be the fraction of time two people are talking. Per unit of wall-clock time the reference contains (1 - p) x 1 + p x 2 = 1 + p units of SPEAKER time, and the diarisation error rate is scored against that denominator. A system that emits at most one speaker per frame supplies at most 1 unit, so missed speaker time is at least p, and"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    DER >= p / (1 + p)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At p = 0.08 that is 7.407%, and no improvement in the embedder, the clusterer or the amount of data moves it, because it is a property of the OUTPUT FORMAT.",
+      "Simulated over 200,000 frames with an otherwise perfect single-label system, DER comes out at 7.386%, which is p_measured / (1 + p_measured) to within 1e-15, and it is all missed speaker time — zero confusion, zero false alarm. A per-speaker-per-frame activity output with the same accuracy scores 0.000.",
+      "And the same single-label system, scored on non-overlapping speech only — which is what a DER computed with a \"no overlap\" reference does — also scores 0.000, so the standard metric reports the fault as not existing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SECOND RESOLUTION LIMIT, WHICH IS THE WINDOW LENGTH. Derived in this module on a simulated meeting with a real time axis. Four well-separated speakers taking ordinary 4-8 second turns: the pipeline recovers exactly 4 speakers, cluster purity 0.98, and the fourth speaker's time recall is 0.97.",
+      "Now make that speaker's turns 0.8 s — shorter than the 1.5 s window.",
+      "Every window containing them also contains a neighbour, so their largest share of any window is 0.53, NO window is purely theirs, nearly half their speaking time is handed to somebody else (time recall 0.55), and the system reports SIX speakers instead of four, because their mixed windows sit between clusters and form spurious groups of their own.",
+      "So a short window is not merely worse at short turns: it invents people. The window length is a hyperparameter with a hard interpretation — it is the shortest turn you can attribute — and shrinking it to fix short turns makes every embedding noisier, which is the trade-off to name out loud."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "6. WHAT ELSE MATTERS. Train the embedder with SGD, momentum 0.9, a one-cycle schedule to peak learning rate 0.1, weight decay 2e-5, batch 256 windows sampled so each batch holds many speakers rather than many windows of a few — the pair terms are what carry the signal, so batch composition is a loss hyperparameter here.",
+      "Augment aggressively with room impulse responses and additive noise: the nuisance direction you most need to be invariant to is the CHANNEL, not the content, and the most common production failure is an embedding that clusters by microphone position rather than by voice.",
+      "Monitor, in this order: the number of speakers you predict against the number the reference has, split by how brief the briefest speaker is, because overcounting and undercounting have different causes and one metric hides both; DER split into missed, false alarm and confusion, because a rise in confusion means your embeddings, a rise in missed means your voice activity detection or your overlap handling; and DER measured SEPARATELY on overlapped and non-overlapped speech, always, since the pooled number is the one that hides the fault this reel is about.",
+      "The first failure mode to expect is short turns — backchannels, \"yeah\", \"mm\" — which the window length cannot see and which therefore appear as either lost speakers or invented ones.",
+      "What to try next, in order: a jointly trained end-to-end neural diariser with the per-speaker-per-frame output above so overlap is learned rather than patched; an explicit overlap detector used to re-assign the second speaker in frames the clusterer had to guess; and, if the number of speakers must be known reliably, a separate count estimator rather than trusting whatever the clustering threshold happened to produce."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. Everything above assumes a voice is STABLE for the length of the recording and that the channel is the same for all of it. On one table microphone both are roughly true. On a recording where one person joins by phone, or someone moves from the table to a whiteboard, the channel changes more than the voice does, and the clustering will happily return two groups for one person — which is the same failure as the invented speaker above, arriving from the other direction."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "read_the_scan_before_the_doctor",
    "title": "Three hundred scans, one doctor, and the order they get read",
