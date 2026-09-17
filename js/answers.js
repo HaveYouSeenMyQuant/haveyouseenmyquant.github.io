@@ -16,12 +16,23 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 495,
+ "count": 496,
  "entries": [
+  {
+   "slug": "tennis_balls_in_centre_court",
+   "title": "How many tennis balls fit in Centre Court?",
+   "ts": "2026-09-17T18:47:50+00:00",
+   "date": "17 Sep 2026",
+   "topic": "real_world",
+   "q": null,
+   "a": "Full answer (free): the London bus in three steps, the Centre Court number in full, and exactly why the podcast route came out eight times smaller -- it is on the site, link in bio.",
+   "why": [],
+   "src": "comment"
+  },
   {
    "slug": "who_is_speaking_right_now",
    "title": "Who said that?",
-   "ts": "2026-09-14T00:31:34+00:00",
+   "ts": "2026-09-14T00:51:24+00:00",
    "date": "14 Sep 2026",
    "topic": "ml_systems_design",
    "q": null,
@@ -34167,5 +34178,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "it_got_worse_every_month"
+ "featured": null
 };
