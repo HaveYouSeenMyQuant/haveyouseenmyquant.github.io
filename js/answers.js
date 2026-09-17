@@ -25,9 +25,111 @@ window.QQ_ANSWERS = {
    "date": "17 Sep 2026",
    "topic": "real_world",
    "q": null,
-   "a": "Full answer (free): the London bus in three steps, the Centre Court number in full, and exactly why the podcast route came out eight times smaller -- it is on the site, link in bio.",
-   "why": [],
-   "src": "comment"
+   "a": "ABOUT 241,000 TENNIS BALLS IN A LONDON BUS -- so a good range is 121,000 to 483,000.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same three steps as the stadium, and you can do them in your head."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE BUS. About 9 m long, 2.2 m wide and 4 m tall over both decks: 80 cubic metres of"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "   box. Seats, stairs and the engine take a quarter, so 59 cubic metres of room."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. THE BALL. A tennis ball is 6.7 cm across, which is 157 cubic centimetres."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "   Poured in loosely, balls fill about 64% of the space they sit in, so",
+      "   4,064 of them fit in one cubic metre. Call it four thousand."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. MULTIPLY.  59 x 4,064  =  about 241,403."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND CENTRE COURT, IN FULL. The reel's number is 179 million, built like this:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "   the roof opening is 5,200 square metres -- about 72 m across",
+      "   the roof sits 16 m above the grass",
+      "   the grass is 41 m by 22 m, and the stands slope between the two"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That shape holds 44,095 cubic metres of air. Times 4,064 balls per cubic metre is 179,201,698."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE PODCAST ANSWER CAME OUT EIGHT TIMES SMALLER. The method in the clip is a good one: balls per body, times bodies, times how much bigger the stadium is than the crowd. Done with checked inputs it gives exactly the same answer as the geometry:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "   284 balls in a 70-litre body  x  14,979 seats  x  42  =  179,201,698"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The guesses were 150 a body and \"times 10\". The first is out by 1.9x, the second by 4.2x, and errors in a product MULTIPLY: 1.9 x 4.2 = 8."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The lesson is about which guess to distrust. \"What fraction of a stadium is people?\" is a ratio, and nobody has a feel for ratios like that. \"How wide is it, how tall is it?\" are lengths, and everybody has a feel for lengths. When one link in your chain is a ratio you cannot picture, swap it for lengths you can."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And when you give the answer, give a range: 90 to 358 million. In a trading interview the next thing they say is \"make me a market on it\" -- a range wide enough to be right and narrow enough to be useful is the actual skill being tested."
+     ]
+    }
+   ],
+   "src": "answer"
   },
   {
    "slug": "who_is_speaking_right_now",
@@ -32570,46 +32672,9 @@ window.QQ_ANSWERS = {
    "date": "30 Jul 2026",
    "topic": "number_theory",
    "q": "Start on a Monday. What day is it 1,000 days later? No calendar, no calculator — you can do this one in your head.",
-   "a": "Sunday.",
-   "why": [
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "A week is a wheel of seven days, so every 7 days you land back exactly where you started. Split 1,000 into whole weeks plus whatever is left over:"
-     ]
-    },
-    {
-     "h": null,
-     "t": "pre",
-     "lines": [
-      "  7 x 142 = 994        142 whole turns of the wheel — these change nothing",
-      "  1,000 - 994 = 6      six days left over"
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Those 142 turns put you right back on Monday. Now walk the six leftover days: Tue, Wed, Thu, Fri, Sat, SUNDAY."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "Check it against a real calendar: Monday 3 August 2026 plus 1,000 days is Sunday 29 April 2029."
-     ]
-    },
-    {
-     "h": null,
-     "t": "p",
-     "lines": [
-      "The same trick works for any number of days. Divide by 7, throw away the whole weeks, step forward by the remainder. 100 days from a Monday? 100 = 98 + 2, so two steps: Wednesday. 365 days? 365 = 364 + 1, one step — which is exactly why your birthday moves forward one weekday each ordinary year, and two after a leap year."
-     ]
-    }
-   ],
-   "src": "comment"
+   "a": "SUN",
+   "why": [],
+   "src": "answer"
   },
   {
    "slug": "overfitting_perfect_fit",
