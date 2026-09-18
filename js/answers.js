@@ -16,8 +16,94 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 496,
+ "count": 497,
  "entries": [
+  {
+   "slug": "the_professor_who_paid_256",
+   "title": "The professor who paid $256",
+   "ts": "2026-09-18T22:49:34+00:00",
+   "date": "18 Sep 2026",
+   "topic": "paradox",
+   "q": null,
+   "a": "ABOUT $24. Tripling the prizes on a thousand-dollar bank makes the game worth about $24 — only four times the doubling game, not infinitely more.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the doubling game first, because the follow-up is the same sum with one number changed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GAME AS HARRY RAN IT. Toss a coin until it comes up heads. The prize starts at $1 and doubles on every tail, so a head on toss 1 pays $1, on toss 2 pays $2, on toss 3 pays $4, and a head on toss n pays 2^(n-1). Eight tails then a head is toss nine: 2^8 = $256, which is what he paid the student."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE AVERAGE IS INFINITE. The chance the first head is on toss n is 1/2^n, and the prize is 2^(n-1), so each toss contributes exactly (1/2^n) x 2^(n-1) = 1/2. Fifty cents from toss one, fifty cents from toss two, fifty cents from every toss there is, and there is no last toss. The sum has no end. That is the St Petersburg paradox: an average of infinity for a game nobody would pay $50 to play."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE BANK SETS THE PRICE. Nobody can pay infinity. If the payer has B dollars, the doubling only runs while 2^(n-1) is at most B — for k = floor(log2 B) + 1 tosses — and every later outcome pays B. So the average is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    k/2  +  B/2^k"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    bank $1,000          k = 10   ->  5.00 + 0.98  =  $5.98",
+      "    bank $1,000,000      k = 20   -> 10.00 + 0.95  =  $10.95",
+      "    bank $1,000,000,000  k = 30   -> 15.00 + 0.93  =  $15.93"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every thousandfold increase in the bank adds about five dollars (log2 of 1,000 is 9.97, and half of that is 4.98). That is the interview answer: the game is worth about $6 against a friend, $11 against a company, $16 against a country — and infinity against nobody."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOLLOW-UP: TRIPLING. Now the prize is 3^(n-1), and the bank still holds $1,000. The tripling runs while 3^(n-1) is at most 1,000, i.e. for n up to 7 (3^6 = 729; 3^7 = 2,187 is over). The average is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    sum for n = 1..7 of 3^(n-1)/2^n   +   1,000/2^7",
+      "    = 16.09  +  7.81",
+      "    = $23.90"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The terms now GROW (each is 1.5 times the last: 0.50, 0.75, 1.13, 1.69, 2.53, 3.80, 5.70) — but the bank cuts them off after seven, and the whole game is worth about $24. Without the bank the tripling average would be infinite too, and faster. The lesson is the same both ways: an average that runs to infinity is not a price. The price is set by the one number the paradox leaves out — how much the other side can actually pay."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "tennis_balls_in_centre_court",
    "title": "How many tennis balls fit in Centre Court?",
@@ -34243,5 +34329,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": null
+ "featured": "the_faulty_bolt"
 };
