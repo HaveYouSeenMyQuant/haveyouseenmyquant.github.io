@@ -16,8 +16,65 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 505,
+ "count": 506,
  "entries": [
+  {
+   "slug": "at_least_one_is_a_queen",
+   "title": "At least one is a queen",
+   "ts": "2026-09-19T13:15:08+00:00",
+   "date": "19 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "1 IN 17. Naming the card takes you straight back to 1 in 17: of the 51 two-card hands that contain the queen of hearts, 3 are two queens.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE THREE QUESTIONS, side by side. Two cards from a standard deck, kept."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Both queens, no information:              6 / 1,326 = 1/221",
+      "    \"The first card is a queen\":                3 / 51    = 1/17",
+      "    \"At least one is a queen\":                  6 / 198   = 1/33",
+      "    \"One of them is the queen of hearts\":       3 / 51    = 1/17"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY \"AT LEAST ONE\" IS WORSE THAN \"THE FIRST\". Both statements are true of every two-queen hand. But \"at least one is a queen\" is ALSO true of every hand with exactly one queen — and there are 4 x 48 = 192 of those, against 6 two-queen hands. \"The first card is a queen\" is true of only half of the one-queen hands (the 96 where the queen came first), so the two-queen hands are a bigger share of what is left: 6 / (6 + 96) = 1/17 versus 6 / (6 + 192) = 1/33."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY NAMING THE CARD BRINGS 1/17 BACK. \"The queen of hearts is in the hand\" pins down a specific card, exactly as \"the first card\" does. Hands with the queen of hearts: 51 (she is paired with any of the other 51 cards). Of those, two-queen hands: 3 (she is paired with the queen of spades, clubs or diamonds). 3/51 = 1/17. Any statement that singles out ONE card — the first, the one on the left, the one I turned over, the queen of hearts — gives 1/17; a statement that could have been triggered by EITHER card gives 1/33."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CLASSIC. This is the two-aces (or boy-girl) problem in card form, and it is on the list at most trading firms because the wrong answer is so natural. The trap is treating \"at least one is a queen\" as if it told you which card; the fix is to stop reasoning about \"the other card\" and count the hands the statement is true of."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A LAST CHECK, the way the reel does it: all C(52,2) = 1,326 hands, brute force. 198 hold at least one queen; 6 hold two; 51 hold the queen of hearts, of which 3 hold two queens. Every number above falls out of that list."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ten_heads_in_a_row",
    "title": "Ten heads in a row",
@@ -34858,5 +34915,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": null
+ "featured": "tennis_balls_in_centre_court"
 };
