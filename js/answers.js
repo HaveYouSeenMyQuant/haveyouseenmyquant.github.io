@@ -16,8 +16,75 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 509,
+ "count": 510,
  "entries": [
+  {
+   "slug": "a_daughter_born_on_a_tuesday",
+   "title": "A daughter born on a Tuesday",
+   "ts": "2026-09-19T21:09:22+00:00",
+   "date": "19 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "A HALF, almost exactly: 729/1459 = 49.97%. The more specific the clue, the closer to one half.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE LADDER, all by one count. Call the clue \"a girl of kind K\", where the kinds split each sex into n equally likely sorts (n = 1: just \"a girl\"; n = 7: a weekday; n = 365: a birthday). Two children, ordered, 2n kinds each: (2n)^2 equally likely families."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    families with at least one girl-of-kind-K:   2n + 2n - 1  =  4n - 1   (a row, a column, the corner once)",
+      "    of those, both girls:                         n + n - 1    =  2n - 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(both girls | a girl of kind K)  =  (2n - 1) / (4n - 1)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    n = 1    \"a daughter\"                        1/3      = 33.3%",
+      "    n = 7    \"a daughter born on a Tuesday\"      13/27    = 48.1%",
+      "    n = 365  \"a daughter born on Christmas\"      729/1459 = 49.97%",
+      "    n -> big                                     -> 1/2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE REEL'S GRID. Rows are the first child, columns the second, 14 kinds each (girl-Mon ... girl-Sun, boy-Mon ... boy-Sun). \"A girl born on a Tuesday\" is the girl-Tuesday row plus the girl-Tuesday column: 14 + 14 - 1 = 27 cells. The both-girls part of that is the girl half of the row plus the girl half of the column, corner once: 7 + 7 - 1 = 13. So 13/27."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT DRIFTS TO A HALF. \"At least one girl\" is a statement that two-girl families satisfy in TWO ways and one-girl families in one way — but the count above is of families, not ways, so two-girl families get no credit for their second girl, and the answer is pulled down to 1/3.",
+      "A specific clue changes that: a two-girl family is about twice as likely as a one-girl family to contain a Tuesday girl (it has two chances), and that doubling is exactly what a half needs.",
+      "As the clue gets rarer the double-counted corner shrinks and the answer heads to 1/2 — the point where the clue has effectively singled out one child and the other is a coin toss."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CATCH INTERVIEWERS CARE ABOUT. All of this assumes the clue was SAMPLED the way the reel says: pick a random two-child family with a Tuesday girl. If instead a parent picks one child at random and tells you that child's sex and birthday, the answer is 1/2 for every clue, Tuesday or not. The number depends on how the sentence came to be said, not only on what it says — which is the real content of the boy-or-girl paradox."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "he_picks_thh",
    "title": "He picks THH",
