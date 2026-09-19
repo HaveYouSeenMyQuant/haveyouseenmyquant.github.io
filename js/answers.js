@@ -16,8 +16,43 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 510,
+ "count": 511,
  "entries": [
+  {
+   "slug": "divide_the_pot",
+   "title": "Divide the pot",
+   "ts": "2026-09-19T23:02:44+00:00",
+   "date": "19 Sep 2026",
+   "topic": "expectation_tricks",
+   "q": null,
+   "a": "7 TO 1. Stopped at two games to nothing, first to three, the leader takes 7/8 of the pot and the trailer 1/8.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE COUNT. The leader needs one more win, the trailer needs three. At most three more games settle it, so play all three whatever happens: 2 x 2 x 2 = 8 equally likely continuations. The trailer wins the match only by winning all three (TTT), one continuation in eight. Everything else — including the ones where the leader wins the first game and the other two are never played — belongs to the leader. So 7/8 to 1/8: seven to one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE REEL'S CASE, the same way. At 2-1 the leader needs one, the trailer two; two more games at most; four continuations LL, LT, TL, TT; only TT is the trailer's; 3/4 to 1/4, three to one. \"Split by the score\" (2 to 1, i.e. 66.7% to the leader) is the medieval answer (Pacioli, 1494) and it is wrong: the score is the past, the pot belongs to the future."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE RECURSION, for any score. Let P(a, b) be the leader's share when they need a more games and the trailer needs b. Then P(0, b) = 1, P(a, 0) = 0, and P(a, b) = ½ P(a-1, b) + ½ P(a, b-1) — the next game is a coin flip between the two positions it leads to.",
+      "P(1, 2) = ½ (1 + P(1, 1)) = ½ (1 + ½) = ¾; P(1, 3) = ½ (1 + P(1, 2)) = ½ (1 + ¾) = ⅞. Pascal found this triangle-shaped recursion; Fermat found the \"play the remaining games anyway\" count; the 1654 letters agreeing that the two give the same answer are the founding document of probability.",
+      "Interviewers ask it because the WRONG answer is so natural, and because the right method — value a position by the average of the positions it leads to — is exactly how a desk prices anything with a future."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_daughter_born_on_a_tuesday",
    "title": "A daughter born on a Tuesday",
