@@ -16,8 +16,77 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 499,
+ "count": 500,
  "entries": [
+  {
+   "slug": "bet_against_your_own_team",
+   "title": "Bet against your own team?",
+   "ts": "2026-09-19T02:52:41+00:00",
+   "date": "19 Sep 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "$100. When the Eagles are two-to-one favourites, a bet on the other side pays 3 to 1 (you get your stake back times 3), so the hedge is $300 / 3 = $100.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Check it both ways:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    if the Eagles win:  $300 of joy, minus the $100 stake      = 200",
+      "    if they lose:       no joy, plus 2 x $100 of winnings     = 200"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both outcomes are worth 200. You no longer care who wins — which is the whole point of a hedge, and why the desk word for this position is \"flat\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE RULE. Call a win worth J (in money-equivalent joy; a loss worth 0) and let the other side pay decimal odds d (stake returned d times). A bet of B on the other side gives J - B if your team wins and B(d - 1) if it loses. Setting them equal:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    J - B = B(d - 1)    =>    B = J / d"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At even money (d = 2) the hedge is half the joy — the $100 in the reel. The longer the odds against the other side, the SMALLER the hedge: a 3-to-1 shot only needs a quarter of the joy, because each dollar on it pays more when it lands."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE INTERVIEWER IS ACTUALLY ASKING. You hold an exposure — something that pays off if an event happens — and you are asked to size the position that removes the risk. Swap \"joy\" for \"the value of a contract\" and \"the other team\" for \"the offsetting instrument\" and this is hedging a book: exposure divided by the hedge's payout ratio. The trap is the sign of the odds. A 2-to-1 FAVOURITE means the other side pays 3.0 decimal, not 2.0; get that wrong and the hedge is 50% too big."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY NOT BET IT ALL. A bigger bet than J / d makes you HAPPIER if your team loses than if it wins — you have stopped hedging and started rooting for the other side, which is the \"is there a limit to this process?\" Tyler asks next in the clip (his example: nobody hedges their own divorce). Below J / d you keep some of the risk; above it you have flipped it. The indifference point is the one bet that does neither."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_lecturer_opens_door_three",
    "title": "The lecturer opens door three",
@@ -34469,5 +34538,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "the_faulty_bolt"
+ "featured": null
 };
