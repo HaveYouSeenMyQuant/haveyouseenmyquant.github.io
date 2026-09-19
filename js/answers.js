@@ -16,8 +16,72 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 504,
+ "count": 505,
  "entries": [
+  {
+   "slug": "ten_heads_in_a_row",
+   "title": "Ten heads in a row",
+   "ts": "2026-09-19T11:13:26+00:00",
+   "date": "19 Sep 2026",
+   "topic": "bayes_stats",
+   "q": null,
+   "a": "17 HEADS. With one trick coin in a thousand, it takes 17 heads in a row to be 99% sure you are holding it (16 heads gets you to 98.5%, 17 to 99.2%).",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same sum as the reel, run until it clears 99%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SETUP. Before any toss, 1 coin in 1,000 is the trick coin (heads on both sides), 999 are fair. A run of n heads is certain from the trick coin and has chance 1/2^n from a fair one. So, out of a thousand coins, the ones that would show you n heads are the 1 trick coin plus about 999/2^n lucky fair ones:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(trick | n heads) = 1 / (1 + 999 / 2^n)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    n = 10:  1 / (1 + 999/1024)  = 50.6%     \"about even\" — the reel",
+      "    n = 13:  1 / (1 + 999/8192)  = 89.1%",
+      "    n = 16:  1 / (1 + 999/65536) = 98.5%",
+      "    n = 17:  1 / (1 + 999/131072) = 99.2%    -> 99% cleared"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each extra head halves the \"lucky fair coin\" explanation, so every head is worth the same amount of evidence: about 3 decibans, in the old jargon. Ten heads turns a 1-in-1,000 hunch into a coin-flip; seven more turn it into near-certainty."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE NEXT TOSS, in the reel. P(heads) = P(trick) x 1 + P(fair) x 1/2 = 0.506 + 0.494 x 0.5 = 0.753, odds of 3.1 to 1 for heads. The gambler's fallacy (\"tails is due\") is wrong in the strongest possible sense: whatever you believe about how common trick coins are, the run of heads can only push the next-toss probability UP from one half, never down. A fair coin has no memory; your beliefs about the coin do."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE INTERVIEWER IS TESTING. Whether you reach for Bayes when the textbook answer (\"still 50/50\") quietly assumes something — that the coin is fair — which the data are shouting against. On a desk, \"the model says the market can't do this\" after it has just done it ten times is the same mistake. The trader's answer names the assumption, puts a prior on it, and updates."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "paid_the_higher_of_two_dice",
    "title": "Paid the higher of two dice",
