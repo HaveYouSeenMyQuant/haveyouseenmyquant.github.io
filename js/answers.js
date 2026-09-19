@@ -16,8 +16,65 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 501,
+ "count": 502,
  "entries": [
+  {
+   "slug": "two_thirds_of_the_average",
+   "title": "Two thirds of the average",
+   "ts": "2026-09-19T05:27:48+00:00",
+   "date": "19 Sep 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "100. With \"closest to three halves of the average\" the equilibrium is 100: everyone names the biggest number allowed.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Run the same reasoning the other way. If the average is X, the best reply is 1.5X, capped at 100. Nobody can do better than 100, so if you think the others are rational you think the average is 100 — and your best reply is 100 too. The multiplier decides everything: below 1 the ladder slides down to the floor, above 1 it climbs to the ceiling, and at exactly 1 every number is an equilibrium."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO-THIRDS GAME IN FULL. Best reply to an average X: 2X/3. No average exceeds 100, so no rational guess exceeds 67; then none exceeds 44, 30, 20, 13, 9, 6, 4, 3, 2 — and the only guess that is a best reply to itself is 1. That is the Nash equilibrium: everyone names 1, and it is the answer the textbook (and the lecture the clip is from) arrives at."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY 1 LOSES. The equilibrium assumes everyone completes the ladder. In every published contest they do not:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Nagel (1995), lab subjects, first round:      mean 36.7   ->  2/3 of it: 24.5",
+      "    Financial Times (Thaler, 1997), readers:        mean 18.9   ->  winner 13",
+      "    Spektrum der Wissenschaft (1997), readers:      mean 22.2   ->  14.8",
+      "    Expansion (1997), readers:                      mean 25.5   ->  17.0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The pattern is \"level-k\": a level-0 player guesses at random (average 50), a level-1 player best-replies to that (33), a level-2 player best-replies to level-1 (22), level-3 gives 15. Real crowds are mostly level 1 and 2, so the average lands in the twenties or thirties and the winning number in the teens or low twenties. Guess 1 against a real crowd and you lose to everyone who stopped early."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE INTERVIEWER WANTS. Both halves, in order: \"the equilibrium is 1, here is the ladder; but the winning move against real people is about 20, because the crowd stops after a step or two.\" The first half shows you can solve a game; the second shows you know when the solution applies — which, on a trading floor, is the half that makes money. A market is a beauty contest in Keynes's original sense: you are paid not for what a stock is worth but for what other people are about to think it is worth."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_free_dice_game_with_a_reroll",
    "title": "A free dice game, and a re-roll",
