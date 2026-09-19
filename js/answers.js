@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 502,
+ "count": 503,
  "entries": [
+  {
+   "slug": "bid_in_a_second_price_auction",
+   "title": "Bid in a second-price auction",
+   "ts": "2026-09-19T06:47:08+00:00",
+   "date": "19 Sep 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "$40: HALF YOUR VALUE. In a first-price auction with one rival whose value is equally likely to be anything from $0 to $100, you bid half of what the thing is worth to you — $40 on a value of $80.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY HALF. In a first-price auction you pay your own bid, so bidding your value wins you nothing — the profit is value minus bid, and at bid = value that is zero. Shading below your value trades a smaller chance of winning for a real profit when you do. Suppose your rival also bids half their value (we check that this is consistent in a moment). Then a bid of b beats them whenever their value is below 2b, which happens with probability 2b/100. Your expected profit is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (value - b)  x  2b/100"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which is a parabola in b, highest at b = value/2. So if the rival halves, halving is your best reply — and by symmetry halving is their best reply to yours. That mutual consistency is what makes it the equilibrium. With n bidders the same argument gives a bid of (n-1)/n of your value: three bidders, two thirds; ten bidders, nine tenths. More competition, less shading."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SECOND-PRICE AUCTION IN THE CLIP, in full. Your value v, the highest rival bid r; bid b. You win if b > r and pay r, so your profit is v - r when you win and 0 when you lose — and b appears nowhere in that profit, only in WHETHER you win."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    bid above v:  you win in extra cases (v < r < b), each worth v - r < 0.  Never helps, sometimes hurts.",
+      "    bid below v:  you lose in extra cases (b < r < v), each worth v - r > 0.  Never helps, sometimes hurts.",
+      "    bid exactly v: you win precisely the cases worth having."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That holds for every possible r, which is what \"dominant strategy\" means: you do not need a model of the other bidders at all. It is the whole design of the second-price auction (and of eBay's proxy bidding, which is one in disguise)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE INTERVIEWER IS TESTING. The pair. Second price: can you see that your bid only affects whether you win, and reason through both deviations? First price: can you set up an expected profit, take the best reply, and check it is consistent — the same three steps as any Bayes-Nash equilibrium. The trap is carrying \"bid your value\" across to the first-price auction, where it is exactly wrong."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_thirds_of_the_average",
    "title": "Two thirds of the average",
