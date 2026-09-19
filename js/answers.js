@@ -16,8 +16,63 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 506,
+ "count": 507,
  "entries": [
+  {
+   "slug": "no_book_in_its_place",
+   "title": "No book in its place",
+   "ts": "2026-09-19T15:03:03+00:00",
+   "date": "19 Sep 2026",
+   "topic": "combinatorics",
+   "q": null,
+   "a": "ONE. On average exactly one book lands back in its own spot, and that is true for five books, a hundred, or a million.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ONE-LINE ARGUMENT. Each book has a 1-in-n chance of landing in its own slot (every slot is equally likely for it). Add those chances up over the n books: n x 1/n = 1. Linearity of expectation does not care that the books' fates are entangled, and that is the point of the question. Whoever tries to count is testing the wrong tool."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE REEL'S NUMBER. Shuffles of 5 books with NO book home: 5! (1 - 1/1! + 1/2! - 1/3! + 1/4! - 1/5!) = 120 - 120 + 60 - 20 + 5 - 1 = 44, so P(no book home) = 44/120 = 11/30 = 36.7%. That is inclusion-exclusion: all shuffles, minus those with a chosen book home (5 x 4!), plus those with two chosen books home (10 x 3!), and so on."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT SETTLES AT 1/e. The bracket is the start of the series for e^(-1) = 1 - 1 + 1/2 - 1/6 + 1/24 - ..., and the error after n terms is under 1/(n+1)!. So D(n)/n! is within 1/720 of 1/e already at n = 5 — the reel's \"barely moves\" is exact:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    books   P(no book home)",
+      "    1       0",
+      "    2       1/2   = 50.0%",
+      "    3       1/3   = 33.3%",
+      "    4       3/8   = 37.5%",
+      "    5       11/30 = 36.7%",
+      "    6       53/144 = 36.8%",
+      "    ...",
+      "    any     -> 1/e = 36.79%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PAIR OF FACTS TO KEEP. The chance that NOBODY is home tends to 1/e; the EXPECTED number who are home is exactly 1. They look like they should be linked, and they are: the number of fixed points of a random shuffle is, for large n, Poisson with mean 1, and a Poisson(1) is zero with probability e^(-1). The same question is asked as the hat-check problem (n gentlemen take a random hat) and as the secret-santa question (what is the chance nobody draws their own name) — one answer, three costumes."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "at_least_one_is_a_queen",
    "title": "At least one is a queen",
