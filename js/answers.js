@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 503,
+ "count": 504,
  "entries": [
+  {
+   "slug": "paid_the_higher_of_two_dice",
+   "title": "Paid the higher of two dice",
+   "ts": "2026-09-19T09:10:48+00:00",
+   "date": "19 Sep 2026",
+   "topic": "expectation_tricks",
+   "q": null,
+   "a": "$4.96. Paid the highest of three dice is worth 1071/216 = $4.958 a roll — only 0.49 more than the higher of two.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same count, one dimension up. With three dice there are 216 equally likely rolls. The highest die is at most k in k^3 of them (every die at most k), so it is EXACTLY k in k^3 - (k-1)^3 rolls:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    highest = 1 in   1    2 in   7    3 in  19    4 in  37    5 in  61    6 in  91      (total 216)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    value = (1x1 + 2x7 + 3x19 + 4x37 + 5x61 + 6x91) / 216 = 1071 / 216 = $4.958"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO-DICE GAME IN THE REEL, in full. 36 rolls. The higher die is at most k in k^2 of them, so exactly k in k^2 - (k-1)^2 = 2k - 1 rolls: 1, 3, 5, 7, 9, 11. Weighting each value by its count,"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1x1 + 2x3 + 3x5 + 4x7 + 5x9 + 6x11) / 36 = 161 / 36 = $4.472"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A single die averages 3.50; the better of two averages 4.47; the best of three 4.96; the best of four 5.24. Each extra die adds less, because the ceiling is six and most of the gain has already been taken."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THIS IS THE QUESTION THEY ASK. \"Pay you the higher one\" is the expected value of a maximum — an order statistic — and it comes up everywhere on a desk: the best of several quotes, the highest bid, the peak of a path. The counting trick (at most k, minus at most k-1) is the whole method, and it works for any number of dice, coins or bidders. Say the price to the cent, and if they ask you to price it as a market, quote a spread around 4.47: you would buy the game below it and sell it above it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "bid_in_a_second_price_auction",
    "title": "Bid in a second-price auction",
