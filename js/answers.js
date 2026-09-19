@@ -16,8 +16,79 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 498,
+ "count": 499,
  "entries": [
+  {
+   "slug": "the_lecturer_opens_door_three",
+   "title": "The lecturer opens door three",
+   "ts": "2026-09-19T01:27:18+00:00",
+   "date": "19 Sep 2026",
+   "topic": "bayes_stats",
+   "q": null,
+   "a": "99 PERCENT. With a hundred doors, switching wins 99 times in 100; sticking wins once.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same picture as the three-door game, only louder."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "YOUR FIRST PICK. One door in a hundred: right 1% of the time. So 99% of the time the car is behind one of the other ninety-nine."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE HOST. He knows where the car is and opens ninety-eight goat doors on purpose. Opening goats he can always find does not change your 1% — it never could, he could do it whatever you picked. What it does is squeeze the whole 99% onto the single door he leaves shut. Switch to it and you win 99% of the time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE THREE-DOOR VERSION IN THE CLIP, done the interview way (Bayes). You picked door 1; the host opened door 3 and showed a goat."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    if the car is behind door 1:  the host had a free choice of doors 2 and 3, so he opens 3 half the time  -> 1/3 x 1/2 = 1/6",
+      "    if the car is behind door 2:  he MUST open door 3                                                       -> 1/3 x 1   = 1/3",
+      "    if the car is behind door 3:  he cannot open it                                                         -> 0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(car behind door 1 | he opened 3) = (1/6) / (1/6 + 1/3) = 1/3",
+      "    P(car behind door 2 | he opened 3) = (1/3) / (1/6 + 1/3) = 2/3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Switching doubles your chance: 0.667 against 0.333. A 20,000-game simulation in the module lands on 32.9% and 67.1%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ONE SENTENCE FOR THE INTERVIEW. The host's door is not a random door — it is chosen by someone who knows the answer and is forbidden to show you the car. Information that could not have come out any other way is information, and Bayes is just the bookkeeping for it. If the host opened a door at RANDOM and it happened to be a goat, the answer really would be 50/50 — and that is the follow-up an interviewer asks next."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "which_square_gets_landed_on_most",
    "title": "Which square gets landed on most?",
