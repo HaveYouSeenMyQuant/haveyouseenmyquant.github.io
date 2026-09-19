@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 507,
+ "count": 508,
  "entries": [
+  {
+   "slug": "heads_after_a_heads",
+   "title": "Heads after a heads",
+   "ts": "2026-09-19T17:08:02+00:00",
+   "date": "19 Sep 2026",
+   "topic": "bayes_stats",
+   "q": null,
+   "a": "49.5 PERCENT. With a hundred flips the paper is expected to show 49/99 heads (to thirty decimal places) — still under a half. The bias shrinks with the length of the string, as (n/2 - 1)/(n - 1), roughly 1/(2n) below a half, but it never reaches zero.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE THREE-FLIP SUM, as in the reel. Eight strings; a flip is recorded when the flip BEFORE it was heads, so the last flip can never trigger a record:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    TTT  ->  blank            THT  ->  T      0",
+      "    TTH  ->  blank            THH  ->  H      1",
+      "    HTT  ->  T        0       HHT  ->  H T    1/2",
+      "    HTH  ->  T        0       HHH  ->  H H    1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Six papers are written on; their fractions of heads average (0 + 1 + 0 + 0 + 1/2 + 1) / 6 = 5/12 = 41.7%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY A FAIR COIN LOOKS COLD. Every individual recorded flip is a fair flip — the coin has no memory. The bias is in the AVERAGING: you average per paper, and papers are not the same length.",
+      "A heads followed by tails ENDS the alert streak, so a tails tends to land on a short paper, where one entry moves the fraction a lot; a heads followed by heads keeps the streak alive, so heads pile onto long papers, where each one moves the fraction a little. Averaging fractions across papers therefore over-weights tails.",
+      "Weight by entries instead of by papers (pool all the recorded flips) and the number is exactly one half."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE LONGER STRING. By the same enumeration, n = 4 gives 17/42 = 40.5%, n = 5 gives 49/120 = 40.8%, n = 10 gives 44.5%, n = 20 gives 47.4%, n = 50 gives 49.0% and n = 100 gives 49.5%. For a long string the value is (n/2 - 1)/(n - 1) to all practical purposes: 9/19, 24/49, 49/99. (The numbers were computed by a dynamic programme over the string; the small cases were also brute-forced, and they agree.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY INTERVIEWERS LIKE IT. It is the hot-hand fallacy fallacy. Gilovich, Vallone and Tversky (1985) measured each shooter's hit rate after a run of hits and found nothing above his overall rate — and concluded the hot hand was an illusion.",
+      "Miller and Sanjurjo (Econometrica, 2018) showed that this statistic is biased DOWN by exactly the mechanism above, by several percentage points at the sample sizes used, so \"no difference\" was in fact evidence of a hot hand.",
+      "The interview point: a statistic that is unbiased flip by flip can be biased when you average over samples of unequal size — and the way to see it is to write out the small case in full."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "no_book_in_its_place",
    "title": "No book in its place",
