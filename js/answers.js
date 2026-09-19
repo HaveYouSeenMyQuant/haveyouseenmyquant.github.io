@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 500,
+ "count": 501,
  "entries": [
+  {
+   "slug": "the_free_dice_game_with_a_reroll",
+   "title": "A free dice game, and a re-roll",
+   "ts": "2026-09-19T04:04:58+00:00",
+   "date": "19 Sep 2026",
+   "topic": "expectation_tricks",
+   "q": null,
+   "a": "$2.33. With two re-rolls the free dice game is worth $2.33 a go — and, tellingly, the second re-roll adds only $1.08 where the first added $1.75.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Work backwards from the last roll, the way you would price any option."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "NO RE-ROLL: E0 = (6 + 3 + 0 - 4 - 4 - 4) / 6 = -$0.50. A losing game. Do not play."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "ONE RE-ROLL. You see the first roll. Rolling again is worth E0 = -$0.50, so keep any face that pays at least that: the six ($6), the five ($3) and the four ($0 beats -$0.50). Re-roll a one, two or three."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E1 = (6 + 3 + 0 + 3 x E0) / 6 = (9 - 1.5) / 6 = +$1.25"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The option to try again is worth $1.75, and it flips the sign of the game."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TWO RE-ROLLS. Now the continuation — rolling again with one re-roll still in hand — is worth E1 = +$1.25, so the four is no longer worth keeping: keep only a six or a five, re-roll everything else."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E2 = (6 + 3 + 4 x E1) / 6 = (9 + 5) / 6 = +$2.33"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY EACH RE-ROLL IS WORTH LESS THAN THE LAST. A re-roll only helps on the rolls you would otherwise be stuck with, and each extra one raises the bar for what counts as \"stuck\": with none you keep everything, with one you keep three faces, with two you keep two. The gains shrink: 1.75, then 1.08, then 0.72 for a third. Unlimited re-rolls would let you wait for a six every time — worth $6 — and the sequence climbs towards it and never gets there."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE INTERVIEWER IS TESTING. Two things. First, that you price the game by expected value and say \"no\" to a free game — most people hear \"free\" and play. Second, that you value the re-roll by working BACKWARDS: decide what you would do with the last roll, price that, then use the price as the bar for the roll before. That is dynamic programming, it is how every American option is priced, and the stopping rule — keep if the payout beats the continuation value — is the whole of it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "bet_against_your_own_team",
    "title": "Bet against your own team?",
