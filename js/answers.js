@@ -16,8 +16,66 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 508,
+ "count": 509,
  "entries": [
+  {
+   "slug": "he_picks_thh",
+   "title": "He picks THH",
+   "ts": "2026-09-19T19:07:20+00:00",
+   "date": "19 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "HHT, AT 2 TO 1. Against your HTT he plays HHT (flip your middle letter, T -> H; put it in front; drop your last) and wins two games in three.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY HHT BEATS HTT. Both triples start with H, so nothing happens until a heads shows up. Now look at the next toss. If it is heads, you have HH — your HTT is dead until a tails and a fresh start, but his HHT needs only a T, and the first T to come completes it: he wins. If the next toss is tails, you have HT and he has nothing yet; one more toss decides: T and you win, H and you are both back to a lone H. Write P for his chance of winning from \"a lone H\": P = 1/2 x 1 + 1/2 x (1/2 x 0 + 1/2 x P), so P = 2/3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE REEL'S GAME. You HHH, he THH. You win only if the first three tosses are HHH, probability 1/8. Otherwise some T has appeared before your first HH — and the first HH that follows any T completes THH. So he wins 7/8: seven to one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE RULE, AND THE WHOLE TABLE. Against (a, b, c) he plays (not-b, a, b). His last two letters are your first two, so whenever you are two-thirds of the way there, he is too, and he got there first; and his first letter is chosen so that YOUR triple cannot help him lose. Every triple has a beater:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    you   he    his odds        you   he    his odds",
+      "    HHH   THH   7 to 1          THH   TTH   2 to 1",
+      "    HHT   THH   3 to 1          THT   TTH   2 to 1",
+      "    HTH   HHT   2 to 1          TTH   HTT   3 to 1",
+      "    HTT   HHT   2 to 1          TTT   HTT   7 to 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "No triple is best: THH beats HHH, TTH beats THH, HTT beats TTH, HHT beats HTT... a cycle. This is Walter Penney's game (1969), and the reason it startles people is that all eight triples are equally likely in three tosses — but \"which shows up first in a long run\" is a different question, a race between overlapping patterns, and overlap is everything. (The numbers above were computed by solving the first-passage equations for every pair; the arguments in prose are the same equations read out loud.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE INTERVIEWER IS TESTING. Whether you can tell \"probability of a pattern\" from \"probability a pattern wins a race\", and whether you reach for a small state machine (the last two tosses) instead of intuition. On a desk this is the difference between a signal's hit rate and its hit rate CONDITIONAL on what just happened."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "heads_after_a_heads",
    "title": "Heads after a heads",
@@ -35031,5 +35089,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "tennis_balls_in_centre_court"
+ "featured": "which_square_gets_landed_on_most"
 };
