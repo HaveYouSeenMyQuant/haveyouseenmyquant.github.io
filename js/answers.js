@@ -16,8 +16,77 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 497,
+ "count": 498,
  "entries": [
+  {
+   "slug": "which_square_gets_landed_on_most",
+   "title": "Which square gets landed on most?",
+   "ts": "2026-09-19T00:14:40+00:00",
+   "date": "19 Sep 2026",
+   "topic": "markov_chains",
+   "q": null,
+   "a": "THE CHANCE SQUARES. The Chance square just before Go (square 36) is landed on 0.9% of the time, and the one after Jail (square 7) 0.9% -- the least of any square you can actually stop on. Among the PROPERTIES, the least visited is Mediterranean Avenue at 2.1%.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The reason is the same one that makes Jail the most visited: cards. Ten of the sixteen Chance cards move you somewhere else, so most of the time you arrive on a Chance square you do not stay there -- the landing is credited to Go, Illinois Avenue, the nearest railroad, Jail, wherever the card sends you. (The Go To Jail square is landed on 0% of the time for the same reason, taken to the limit: nobody ever stays.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE WHOLE TABLE, from the Markov chain in the module (the standard result, matching Truman Collins's published figures):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Jail                6.21%     (sent there, or rolled onto it visiting)",
+      "    Illinois Avenue     3.18%     the most-landed-on property",
+      "    Go                  3.09%",
+      "    B&O Railroad        3.07%",
+      "    Free Parking        2.99%",
+      "    Tennessee Avenue    2.99%",
+      "    New York Avenue     2.98%",
+      "    Reading Railroad    2.97%",
+      "    St James Place      2.84%",
+      "    ...",
+      "    Park Place          2.19%",
+      "    Boardwalk           2.64%",
+      "    Mediterranean Ave   2.13%",
+      "    Chance (square 7)   0.87%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE SQUARES AFTER JAIL WIN. Every game passes through Jail more than anywhere else: the Go To Jail square, two cards, and any three doubles in a row all send you there. From Jail you roll two dice, and two dice add up to 7 more than any other total (6 ways in 36), then 6 and 8 (5 ways each).",
+      "So the squares 6 to 9 past Jail -- St James Place, Tennessee Avenue, New York Avenue, with the Chest between them -- get more traffic than the board average: the orange group averages 2.94% a square against 2.63% for a typical property.",
+      "The reds a little further on get 2.89%, helped by the Chance card that sends you straight to Illinois Avenue."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THAT IS THE ANSWER TO \"WHICH IS WORTH BUYING\". A square's income is chance of a landing times the rent, and its cost is the price of the set plus the houses. The oranges cost $560 for the set against $680 for the reds, and they are landed on as often. So per dollar spent, the oranges are the best set on the board -- which is what the talk's sampling found, and what the chain proves without rolling a single die."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW THE CHAIN WORKS, for the interview. A state is (square, doubles rolled so far this turn), plus three \"in jail for k turns\" states: 123 states. Every state has a fixed set of transitions with fixed probabilities (36 dice outcomes, then the card draws), so it is a Markov chain, and the long-run share of time in each state is the stationary distribution -- a vector v with v = vT. Multiply any starting vector by T a few thousand times and it converges. That is the whole method, and it is the same one that ranks web pages and prices credit transitions."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_professor_who_paid_256",
    "title": "The professor who paid $256",
