@@ -16,8 +16,62 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 516,
+ "count": 517,
  "entries": [
+  {
+   "slug": "von_neumanns_random_numbers",
+   "title": "Von Neumann's random numbers",
+   "ts": "2026-09-20T10:58:19+00:00",
+   "date": "20 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "1,968 OF THE 10,000 — about one in five. Start the middle-square generator at a four-digit number picked at random and there is a 19.7% chance it eventually reaches 0000 and emits zeros for ever.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE WHOLE MACHINE, counted. The rule is next(x) = the middle four digits of x². Follow every one of the 10,000 four-digit starts until it repeats itself, and the entire generator turns out to contain just 8 loops:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    loop                              length   starts that reach it",
+      "    2100 -> 4100 -> 6100 -> 8100        4        6,291   (62.9%)",
+      "    0000                                1        1,968   (19.7%)",
+      "    1600 -> 3600 -> 5600 -> 9600        4        1,360   (13.6%)",
+      "    2500                                1          130",
+      "    0100                                1          104",
+      "    540 -> 2916 -> 3009 -> 5030         4           86",
+      "    ... and two more, tiny"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "No loop is longer than 4. So whatever you seed it with, this \"random number generator\" ends up cycling among at most four values — and the longest any start survives before that is 107 steps (from 6239)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT FAILS, in one line. Squaring loses information, and the middle digits lose more: many different inputs map to the same output, so the sequence is funnelled into a handful of short cycles. Von Neumann knew — he said the method was \"sure to fail\" in ways one could not predict, and used it because it was fast on the machine he had and the failure was visible when it came. The test he applied is the one the same lecture applies to the audience's coin sheets: count frequencies and see if anything looks wrong. Frequencies looked fine. Cycle length was never checked."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT AN INTERVIEWER IS AFTER. Not the history — the instinct to ask what happens in the LONG run to a deterministic rule on a finite state space. There are only 10,000 states, so every sequence must repeat within 10,000 steps; the only question is how soon, and \"how soon\" is the whole quality of a generator. The modern version of the question is the period of a Mersenne twister (2^19937 - 1) versus a bad linear congruential generator, and the modern version of the mistake is judging a simulation by whether its histogram looks right."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "puppies_and_kittens",
    "title": "Puppies and kittens",
