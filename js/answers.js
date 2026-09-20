@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 523,
+ "count": 524,
  "entries": [
+  {
+   "slug": "is_your_random_number_a_fraction",
+   "title": "Is your random number a fraction?",
+   "ts": "2026-09-20T23:20:02+00:00",
+   "date": "20 Sep 2026",
+   "topic": "measure zero and countability",
+   "q": null,
+   "a": "STILL ZERO. The algebraic numbers — every solution of a polynomial with whole-number coefficients — are a much bigger net than the fractions: they catch root two, the golden ratio, the cube root of seven, and every fraction besides. And the answer does not move at all, because the argument never cared what the numbers WERE. It cared only that they can be put in a list.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ARGUMENT, ONCE, FOR ANY LIST. Suppose a set can be written out as a list, q1, q2, q3, and so on, with everything in the set appearing somewhere. Pick any c > 0. Put an interval of width c/2 around q1, c/4 around q2, c/8 around q3, halving each time. Now:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    every member of the set is inside one of the intervals",
+      "    the widths add to c/2 + c/4 + c/8 + ... = c",
+      "    so the chance of landing in the set is at most c"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That holds for EVERY c > 0. A number that is smaller than every positive number is zero. Done — and nowhere did the argument mention fractions."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE ALGEBRAICS ARE STILL A LIST. For each whole number N there are only finitely many polynomials whose degree and coefficients are all at most N, and each has at most N roots. So list everything with N = 1, then N = 2, then N = 3. Every algebraic number is caught by some N, so it appears. A countable union of finite sets is still a list."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THAT LEAVES. A number drawn at random is transcendental — not algebraic — with probability 1. Almost every number is. And yet proving any PARTICULAR number transcendental is hard enough that it is a named achievement: pi took until 1882. We know almost all of them are, and we can barely point at one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART THAT SHOULD BOTHER YOU. Probability zero is not impossibility. The draw lands on SOME number, and whichever it is, that outcome had probability zero too. Every single outcome here has probability zero, and yet one happens. That is not a paradox, it is the price of an infinite sample space: on a continuum, probability lives on sets, not on points, and a set can be infinite — even infinitely dense, as the fractions are, with one in every interval you can name — and still take up no room."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS ASKED. Because the instinct that says \"the fractions are everywhere, so the chance must be decent\" is exactly the instinct that says \"we have a lot of data points near this level, so the level matters\". Density is not weight. The interview is watching for whether you can hold \"dense\" and \"measure zero\" in your head at the same time — and the covering argument is the shortest honest demonstration that you can."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_ball_moves_bags",
    "title": "One ball moves bags",
