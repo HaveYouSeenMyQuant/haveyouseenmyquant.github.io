@@ -16,8 +16,64 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 518,
+ "count": 519,
  "entries": [
+  {
+   "slug": "every_region_up_total_down",
+   "title": "Every region up, the total down",
+   "ts": "2026-09-20T15:01:03+00:00",
+   "date": "20 Sep 2026",
+   "topic": "bayes_stats",
+   "q": null,
+   "a": "FREEZE THE MIX. Recompute this year's rates against LAST year's search volumes and compare that with last year. On the numbers in the reel it gives $1.93 against $1.84: up 5.2%, which is the honest answer to \"did the ads team do better\".",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE THREE NUMBERS, side by side."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    last year, last year's mix     (100 x 2.00 + 10 x 0.20) / 110   =  $1.84",
+      "    this year, this year's mix     (110 x 2.10 + 60 x 0.25) / 170   =  $1.45   (-21.2%)",
+      "    this year, LAST year's mix     (100 x 2.10 + 10 x 0.25) / 110   =  $1.93   (+5.2%)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The middle line is what the dashboard shows and it is down 21%. The bottom line holds the mix still so that only the rates can move, and it is up 5.2% — the same direction as every individual country, which is what you would expect, because every individual country went up."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THIS IS WHAT AN INDEX IS. Fixing the basket and letting only the prices move is exactly the construction behind a consumer price index, and behind a stock index that does not lurch when a company joins it. The lecture says \"economists have a solution for this, it's called an index, where we freeze the proportions\", and that is the whole of it. The version with last year's weights is a Laspeyres index; with this year's weights, a Paasche."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SHAPE TO RECOGNISE. A blended rate is a weighted average, so it has two ways to move: the rates can change, or the weights can. When a business grows into a cheaper market, the weights move a lot and the blended rate falls while every part of the business improves. The same shape covers a fund whose blended fee falls because assets flowed to the cheap share class, a portfolio whose realised volatility rises because the book grew into a jumpier region, and a hospital whose survival rate drops because it started taking the harder cases."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE QUESTION BEHIND THE QUESTION. \"Who is lying?\" has three possible answers — someone is wrong, someone is lying, or the number is not measuring what you think. Interviewers ask this to see whether the third one is in your list at all. The tell is asking \"did the mix change?\" before asking \"whose fault is it?\""
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_many_people_to_halve_the_error",
    "title": "How many people to halve the error",
