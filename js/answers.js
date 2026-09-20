@@ -16,8 +16,73 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 517,
+ "count": 518,
  "entries": [
+  {
+   "slug": "how_many_people_to_halve_the_error",
+   "title": "How many people to halve the error",
+   "ts": "2026-09-20T12:57:52+00:00",
+   "date": "20 Sep 2026",
+   "topic": "bayes_stats",
+   "q": null,
+   "a": "ABOUT 7,391 PEOPLE. To go from a 12-point error bar to a 1-point one you need roughly 136 times the sample — from 54 people to 7,391.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ONE FORMULA. For a proportion, the 95% interval is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    p  ±  1.96 x sqrt( p(1-p) / n )"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "so the half-width falls as 1 / sqrt(n). Everything follows from that:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    n = 54      ± 11.7 points     (the survey in the clip: 62% to 86%)",
+      "    n = 108     ± 8.3 points      doubling the sample barely helps",
+      "    n = 216     ± 5.8 points      four times the sample halves it, exactly",
+      "    n = 1,848   ± 2.0 points",
+      "    n = 7,391   ± 1.0 point"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "To divide the error by k, multiply the sample by k². That is the whole rule, and it is why the last decimal place is always the expensive one: the 54 people who got you to ±12 are 0.7% of the 7,391 you need for ±1."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT MATTERS AWAY FROM SURVEYS. The same square root governs everything built out of independent draws. A backtest's Sharpe estimate has a standard error of about 1/sqrt(years), so four years of data halves the error on it, not two. A Monte Carlo price converges as 1/sqrt(paths), so a million paths is ten times as accurate as ten thousand, not a hundred. And the measurement you cannot afford is usually the one somebody promised would be twice as good for twice the money."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE OTHER HALF OF THE ANSWER, worth saying out loud in an interview: this formula assumes the 54 were a random sample of the people you care about. If they were not — if they were the 54 who answered the phone, or the 54 whose trades cleared — then more of them narrows the interval around the WRONG number, and the error bar quietly stops being the thing you should worry about. Sample size fixes noise. It does nothing for bias."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "von_neumanns_random_numbers",
    "title": "Von Neumann's random numbers",
