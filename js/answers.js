@@ -16,8 +16,73 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 514,
+ "count": 515,
  "entries": [
+  {
+   "slug": "hire_last_years_best_trader",
+   "title": "Hire last year's best trader",
+   "ts": "2026-09-20T07:17:54+00:00",
+   "date": "20 Sep 2026",
+   "topic": "bayes_stats",
+   "q": null,
+   "a": "A FIFTH. If luck swings twice as far as skill, it has four times the variance, and only 1/5 of the edge you selected on is real; the rest was the random high, and it is dealt again next year.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ONE FORMULA. Write last year's result as skill + luck, independent, both averaging zero across the pool. Then for anyone you pick out on the strength of their result,"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    expected next year  =  observed result  x  var(skill) / (var(skill) + var(luck))"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    luck swings as far as skill    (var equal)    ->  1/2 survives   (the reel)",
+      "    luck swings twice as far       (var 4x)       ->  1/5 survives   (this follow-up)",
+      "    luck swings three times as far (var 9x)       ->  1/10 survives",
+      "    luck negligible                               ->  all of it"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Note the units: \"twice as variable\" is worth pinning down before you answer, because twice the SPREAD is four times the variance, and the two readings give 1/5 and 1/3. The spread is what you actually see in a scatter of returns, so that is the reading here."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That ratio is the only thing that matters. It does not depend on how many people you ranked, or on whether you took the top one, the top decile, or someone who simply had a good number — selection on a noisy measure always shrinks by the same factor. (Ranking a hundred rather than ten does not change the shrinkage; it changes how big an observed edge you find, which is a different thing.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE TOP OF A RANKING IS THE WORST PLACE TO LOOK. The people at the top of a hundred are there because BOTH parts went well: they are selected for skill, which repeats, and for luck, which does not. The bigger the luck term, the more the ranking is a ranking of luck, and the harder the fall.",
+      "This is exactly the Sports Illustrated curse in the clip — the cover takes ability plus a hot streak, and the streak is what ends — and it is the same shape as the UK speed cameras she mentions: install them where last year's accident count spiked, and the count falls whether or not the cameras do anything."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE INTERVIEWER IS TESTING. Whether you discount a track record by its noise before you pay for it. The desk versions: the best backtest out of a thousand parameter sets; last year's top fund in a league table; a new hire's headline P&L; a strategy promoted after a drawdown. In each case the right question is not \"how good was the number\" but \"how much of that number could have been luck\" — and the answer to that is the shrinkage above. `verify()` in this module checks the formula against a simulation that actually ranks a hundred traders and hires the top: it lands on 0.500 and 0.200."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "which_sheet_is_the_fake",
    "title": "Which sheet is the fake",
