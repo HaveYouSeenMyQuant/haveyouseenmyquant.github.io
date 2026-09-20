@@ -16,8 +16,62 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 515,
+ "count": 516,
  "entries": [
+  {
+   "slug": "puppies_and_kittens",
+   "title": "Puppies and kittens",
+   "ts": "2026-09-20T08:57:40+00:00",
+   "date": "20 Sep 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "YOU WIN — take ONE OF EACH, leaving 12 and 20. Fibonacci numbers look golden enough to be a dead position, and they are not: 13 and 21 is a winning position, and one of each is the move.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE DEAD POSITIONS. Call a position dead if the player who has to move from it loses against perfect play. Work up from nothing: (0, 0) is dead. Then a position is dead exactly when no legal move reaches another dead one. That gives"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1, 2)  (3, 5)  (4, 7)  (6, 10)  (8, 13)  (9, 15)  (11, 18)  (12, 20)  (14, 23) ..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and the nth pair is (floor(n x phi), floor(n x phi^2)) with phi = 1.618034, the golden ratio. The two coordinates differ by exactly n, every whole number appears in exactly one pair, and the ratio inside each pair tends to phi. This is Wythoff's game (1907); the golden-ratio description is the reason it is remembered."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE REEL'S MOVE. Seven and ten is not on the list, so it is a winning position, and the job is to reach a dead one. Of the three obvious single moves, only one works: take one kitten to reach (6, 10). Taking one puppy gives (7, 9) and taking one of each gives (6, 9) — both still winning for your opponent. That is the whole trick of the game: it looks symmetric, and the right move is almost never symmetric."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOLLOW-UP, worked. 13 and 21: the dead pairs either side are (12, 20) and (14, 23). Taking one of each lands exactly on (12, 20), so that is the move. (Taking 13 puppies to reach (13, 8) — i.e. (8, 13) — also wins, which is worth spotting: two different winning moves from the same position.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS AN INTERVIEW QUESTION. Nobody expects you to know Wythoff. They expect you to do what the analysis actually requires: start from the end state, work backwards, and find the invariant that the winner keeps handing to the loser. That is the same method as pricing an option backwards from expiry, and the same method as any \"can I always force this outcome\" question. The golden ratio at the end is a bonus — and a reminder that a game with two-line rules can have an answer nobody would guess."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "hire_last_years_best_trader",
    "title": "Hire last year's best trader",
