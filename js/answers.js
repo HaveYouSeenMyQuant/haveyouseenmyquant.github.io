@@ -16,8 +16,57 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 512,
+ "count": 513,
  "entries": [
+  {
+   "slug": "better_every_year_worse_overall",
+   "title": "Better every year, worse overall",
+   "ts": "2026-09-20T03:14:54+00:00",
+   "date": "20 Sep 2026",
+   "topic": "bayes_stats",
+   "q": null,
+   "a": "NO, NEVER. With the same number of at-bats each year for both players, \"ahead in every year\" forces \"ahead overall\".",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. A player's overall average is a weighted average of their yearly averages, the weights being each year's share of their at-bats: overall = w1 x (year-1 average) + w2 x (year-2 average), with w1 + w2 = 1. If both players have the same at-bats each year, they have the SAME weights w1, w2. Then A's overall minus B's overall = w1 x (A1 - B1) + w2 x (A2 - B2), a positive combination of positive numbers. It cannot be negative. The same holds for any number of years, and for any two sets of weights that are equal between the players."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE REEL'S REVERSAL, seen this way. A's weights were (100/110, 10/110) — almost all of A's overall is the .250 year. B's were (10/110, 100/110) — almost all of B's overall is the .450 year. So A's overall lands near .250 and B's near .450, whatever happened in the small years:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "              year 1            year 2            overall",
+      "    A     25/100 = .250      5/10  = .500      30/110 = .273",
+      "    B      2/10  = .200     45/100 = .450      47/110 = .427"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A beats B by .050 in both years; B beats A by .155 overall. This is Simpson's paradox: a comparison that holds within every group and reverses when the groups are pooled, and it needs two things — the groups have different rates, AND the two sides are distributed differently across the groups. Remove either (equal rates across years, or equal weights across players) and it cannot happen."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE IT BITES. Berkeley's 1973 admissions (each department admitted women at equal or higher rates; the university overall admitted men at a higher rate, because women applied to the harder departments); the kidney-stone treatments; and on a desk, two strategies where one beats the other in every regime but loses over the year because it was small when it mattered. The interview question is really: when a rate moves, ask whether the rate moved or the mix did."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "pick_a_die_i_pick_after",
    "title": "Pick a die, I pick after",
