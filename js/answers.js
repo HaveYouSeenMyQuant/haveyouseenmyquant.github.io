@@ -16,8 +16,79 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 522,
+ "count": 523,
  "entries": [
+  {
+   "slug": "one_ball_moves_bags",
+   "title": "One ball moves bags",
+   "ts": "2026-09-20T21:17:03+00:00",
+   "date": "20 Sep 2026",
+   "topic": "total probability and Bayes",
+   "q": null,
+   "a": "TEN NINETEENTHS, about 52.6%. Of the 63ths of probability that the drawn ball is black, 20 came from a white transfer and 2 from a black one, so P(white moved | black drawn) = 20/22 = 10/19.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Written out as Bayes:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(white moved AND black drawn) = 4/7 x 5/9 = 20/63",
+      "    P(black moved AND black drawn) = 3/7 x 6/9 = 2/7",
+      "    P(black drawn)                          = 38/63",
+      "    P(white moved | black drawn)  = (20/63) / (38/63) = 10/19 = 52.6%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "NOTICE WHAT THE EVIDENCE DID. Before you drew anything, the transferred ball was white 4/7 = 57.1% of the time. Drawing a black ball is evidence AGAINST a white transfer — a black transfer would have made black more likely to come out — so the figure falls, to 52.6%. It falls only a little, because 5/9 and 6/9 are not very different: the evidence is weak, so it moves the prior a short way. That ratio, 5/9 to 6/9, is the whole story; the numbers 4/7 and 3/7 just say where you started."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FORWARD ANSWER, 38/63 = 60.3%. Two ways, and the second is the one worth keeping:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. Cases. 4/7 x 5/9 + 3/7 x 6/9 = 20/63 + 2/7 = 38/63."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. No cases at all. Bag two ends with 9 balls. Five of them are black with certainty; the newcomer is black with probability 3/7. The expected number of black balls is therefore 5 + 3/7 = 38/7, and a ball drawn uniformly from nine is black with probability (38/7)/9 = 38/63. This is linearity of expectation: you never have to know WHICH ball moved, only how often it is black, because expectation adds whether or not the parts are independent."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A SANITY CHECK WORTH DOING. Without any transfer the answer would be 5/8 = 62.5%. The transferred ball is black only 3/7 = 42.9% of the time, which is worse than bag two's own 62.5%, so adding it should pull the answer DOWN — and 38/63 = 60.3% is indeed below 62.5%. Any answer above 62.5% is wrong before you check the arithmetic."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS ASKED. It is a two-step process where the first step is unobserved, which is the shape of most real inference: a fill you did not see, a counterparty you cannot identify, a regime that may or may not have switched. The interview is watching for whether you condition on the hidden step and sum — and, if you are quick, whether you notice you can take the expectation instead and skip the sum entirely."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_dice_no_two_the_same",
    "title": "Three dice, no two the same",
