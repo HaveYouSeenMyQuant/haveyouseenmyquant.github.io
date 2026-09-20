@@ -16,8 +16,48 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 520,
+ "count": 521,
  "entries": [
+  {
+   "slug": "bike_or_car",
+   "title": "Bike or car",
+   "ts": "2026-09-20T17:51:54+00:00",
+   "date": "20 Sep 2026",
+   "topic": "bayes_stats",
+   "q": null,
+   "a": "ABOUT 1,818 HOURS — an hour a day for 5 years. At 550 deaths per billion hours, each hour carries a risk of 550/1,000,000,000 = 5.5e-07, so reaching a total of 1 in 1,000 takes 0.001 / 5.5e-07 = 1,818 hours. The same 1 in 1,000 in a car takes 7,692 hours.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THE FIGURES COME FROM. They are the ones stated in the lecture — 130 deaths per billion hours driving, 550 riding — and the slide credits understandinguncertainty.org. This page does not check them; the arithmetic on top of them is what the reel is about."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ACTUAL LESSON: \"PER\" IS A CHOICE. A rate is a fraction and somebody picked its denominator. Per hour, cycling looks about 4 times worse. Per mile it looks worse still, because a bike covers fewer miles in that hour. Per journey it closes, because cycle journeys are shorter. Per year of a person's life it can reverse entirely, once you count what regular cycling does to everything else. Four defensible denominators, four different headlines, one unchanged pair of activities — and a comparison is only as honest as the denominator it was computed on."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE DESK VERSION. \"Our fill rate is better than theirs\" — per order, or per share? \"This strategy loses less\" — per trade, or per unit of risk, or per year? Sharpe ratio is a rate with time underneath it, which is why it changes when you annualise from daily rather than monthly data. Cost per click, drawdown per unit of leverage, loss per exposure-year: in each case the arguing is really about the denominator, and the person who picks it usually wins."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT AN INTERVIEWER IS WATCHING FOR. Whether \"which is riskier?\" gets answered straight away, or whether the first thing out of your mouth is \"per what?\" Both answers can be right. Only one of them is a quant."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_bacon_headline",
    "title": "The bacon headline",
