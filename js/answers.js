@@ -16,8 +16,66 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 521,
+ "count": 522,
  "entries": [
+  {
+   "slug": "three_dice_no_two_the_same",
+   "title": "Three dice, no two the same",
+   "ts": "2026-09-20T19:19:27+00:00",
+   "date": "20 Sep 2026",
+   "topic": "conditional probability",
+   "q": null,
+   "a": "TWO THIRDS. With four dice all showing different faces, the four faces are a random four of the six, and the ace is among them 2 times in 3. Counted the long way: 360 ordered rolls have four different faces and 240 of those contain an ace, so 240/360 = 2/3.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PATTERN. With n dice, all faces different, the answer is simply n/6:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    n = 1        1/6   = 16.7%",
+      "    n = 2        2/6   = 33.3%",
+      "    n = 3        3/6   = 50.0%     (the reel)",
+      "    n = 4        4/6   = 66.7%     (this follow-up)",
+      "    n = 6        6/6   = 100%      every face appears, so the ace certainly does"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Once you know the faces are all different, the only thing left to know is WHICH set of faces you got, and every set of n distinct faces is equally likely. So the question becomes: is the ace in a randomly chosen n of the 6? It is, n times in 6. No dice arithmetic needed at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE LONG WAY, for n = 3. Ordered rolls: 6^3 = 216. All different: 6 x 5 x 4 = 120. All different with no ace: 5 x 4 x 3 = 60. So all different WITH an ace: 120 - 60 = 60, and 60/120 = 1/2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE CONDITION DID. With no information, P(at least one ace in three dice) = 1 - (5/6)^3 = 91/216 = 42.1%. Being told the faces are all different pushes it up to 50%, because repeats crowd out aces: a roll like 4-4-2 uses up two of your three dice on one face, and the rule that forbids it is quietly making room. Conditioning is not a tweak to a probability — it throws away every world that does not match and renormalises what is left, and the answer can move in either direction."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS ASKED. It is the cheapest test of whether \"given that\" means anything to you operationally. The wrong instinct is to adjust the unconditional answer a bit; the right one is to redraw the sample space, count it, and notice — as here — that the redrawn space has a much simpler description than the original."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "bike_or_car",
    "title": "Bike or car",
