@@ -16,8 +16,59 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 513,
+ "count": 514,
  "entries": [
+  {
+   "slug": "which_sheet_is_the_fake",
+   "title": "Which sheet is the fake",
+   "ts": "2026-09-20T05:18:01+00:00",
+   "date": "20 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "ABOUT SEVEN — 7.0 for a hundred fair flips. The rule of thumb is log base 2 of n: a hundred flips, about seven in a row; a thousand, about ten.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW TO GET IT. Let L be the longest run. Then E[L] = sum over k >= 1 of P(L >= k), and each term comes from a tiny chain: walk the sequence carrying the current run length, and P(no run of k) satisfies f(i, r) = 1/2 f(i+1, r+1) + 1/2 f(i+1, 1), with f = 0 once r reaches k and f = 1 at the end. For n = 100:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(a run of 5+)   = 97.2%",
+      "    P(a run of 6+)   = 80.7%",
+      "    P(a run of 7+)   = 54.2%",
+      "    P(a run of 8+)   = 31.5%",
+      "    E[longest run]   = 6.98"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The quick argument for log2(n): a particular run of k starting at a given place has chance 2^-k, there are about n places, so the expected number of such runs is about n/2^k, and that crosses 1 at k = log2(n). At n = 100 that gives 6.6, and the exact answer is 7.0 — the rule of thumb is good to half a flip."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE FAKE IS EASY TO SPOT. Asked to produce randomness, people alternate too much. They write about sixty changes in a hundred flips where a real sequence averages 99/2 = 49.5, and they almost never write more than 4 of the same in a row, because at that point the sequence \"looks like it has a pattern\". Both habits come from the same mistaken idea — that a random sequence should look evenly mixed at every scale — and the longest run is the fastest way to catch it, because you need no arithmetic at all: glance for a block."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY INTERVIEWERS ASK. It is the cheapest possible test of whether you know what a random sequence LOOKS like, as opposed to what its average is. The same instinct is what makes a trader distrust a backtest whose equity curve has no long losing streak, and what makes fabricated data (expense claims, lab results, price marks) detectable: invented numbers are too well behaved. The related tool is Benford's law; the related mistake is the gambler's fallacy, which is this one seen from the other end."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "better_every_year_worse_overall",
    "title": "Better every year, worse overall",
