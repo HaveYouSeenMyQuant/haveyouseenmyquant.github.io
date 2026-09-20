@@ -16,8 +16,71 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 519,
+ "count": 520,
  "entries": [
+  {
+   "slug": "the_bacon_headline",
+   "title": "The bacon headline",
+   "ts": "2026-09-20T16:39:21+00:00",
+   "date": "20 Sep 2026",
+   "topic": "bayes_stats",
+   "q": null,
+   "a": "TRIPLE IT — a 200% increase, not 20%. To move one person in forty you need the lifetime risk to go from 1 in 80 to 1 in 80 + 1 in 40, which is 3 in 80: three times the baseline.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ARITHMETIC, in one line. An absolute change is a relative change times the base rate:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    absolute rise  =  relative rise  x  base rate"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    +20%   x  1/80   =  1/400        one person in four hundred     (the headline)",
+      "    +200%  x  1/80   =  1/40         one person in forty",
+      "    +20%   x  1/2    =  1/10         one person in ten"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The third line is the point: the SAME headline percentage means wildly different things depending on the number it is attached to, and the headline never carries that number. \"Raises your risk by 20%\" is not a risk. It is a ratio between two risks, neither of which is printed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE NUMBERS HERE. The lecture takes the lifetime risk of pancreatic cancer as about 1 in 80 (Cancer Research UK), which is 5 in 400. A fifth more is 6 in 400. So across four hundred people who eat a fry-up every day for a lifetime, the arithmetic moves one of them — and bacon sales fell when the headline ran."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THIS IS AN INTERVIEW QUESTION. It is the base-rate question in its cheapest form, and desks hit it constantly: a signal that \"doubles the probability of a large move\" matters enormously if large moves happen 10% of the time and not at all if they happen 0.01% of the time; a model that \"reduces false positives by 30%\" has to be read against how many there were. The habit being tested is refusing to act on a ratio until you have been told the denominator — and noticing when nobody has offered it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "(Arithmetic, not medical advice. The figures are the ones stated in the lecture.)"
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "every_region_up_total_down",
    "title": "Every region up, the total down",
