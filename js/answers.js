@@ -16,8 +16,65 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 511,
+ "count": 512,
  "entries": [
+  {
+   "slug": "pick_a_die_i_pick_after",
+   "title": "Pick a die, I pick after",
+   "ts": "2026-09-20T01:12:18+00:00",
+   "date": "20 Sep 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "4 IN 9. Holding A against his C you win 4/9 of the time — about 44% — so he is still favoured, 5 to 4.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE COUNT. A shows a 4 on four faces and a 0 on two; C shows a 6 on two faces and a 2 on four. You win only when your 4 meets his 2: (4/6) x (4/6) = 16/36 = 4/9. Your 0 loses to everything and his 6 beats everything. Equivalently, of the 36 face pairs, 16 are yours and 20 are his."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOUR PAIRS OF THE CYCLE, the same way (36 pairs each, no ties possible):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    A beats B   when A shows 4               24/36 = 2/3",
+      "    B beats C   when C shows 2               24/36 = 2/3",
+      "    C beats D   C's 6 beats all (12) + C's 2 beats D's 1 (4 x 3 = 12)   24/36 = 2/3",
+      "    D beats A   D's 5 beats all (18) + D's 1 beats A's 0 (3 x 2 = 6)    24/36 = 2/3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and the two \"diagonals\": A vs C is 4/9 for A (above), B vs D is exactly even (B's 3 beats D's 1 half the time)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE CYCLE. \"X beats Y more often than not\" compares whole distributions, and that relation does not have to be transitive: A's strength is a high floor most of the time, B's is consistency, C's is a rare knockout, D's is a middling but frequent 5. Each is built to exploit the weakness of the next. These are Bradley Efron's dice (1970), popularised by Martin Gardner; Warren Buffett once offered Bill Gates a game with a set of them, first pick to Gates, who declined."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE INTERVIEWER IS TESTING. Whether you count the 36 pairs instead of comparing averages (A averages 2.67, B 3, C 3.33, D 3 — the averages say C is best and B ties D, and neither statement survives the pairings), and whether you notice that the second chooser holds all the value. On a desk: a strategy that beats a benchmark and a strategy that beats that strategy need not beat the benchmark."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "divide_the_pot",
    "title": "Divide the pot",
