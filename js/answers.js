@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 527,
+ "count": 528,
  "entries": [
+  {
+   "slug": "four_and_seven_cent_stamps",
+   "title": "Four and seven cent stamps",
+   "ts": "2026-09-21T06:08:09+00:00",
+   "date": "21 Sep 2026",
+   "topic": "Frobenius number",
+   "q": null,
+   "a": "THERE ISN'T ONE. With 6c and 9c stamps there is no largest impossible total, because infinitely many totals are impossible: 6 and 9 are both multiples of 3, so every combination of them is a multiple of 3, and every total that is not — 1, 2, 4, 5, 7, 8, 10, 11, and on for ever — can never be made. (3 is impossible too, being smaller than either stamp; every other multiple of 3 works.)",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the condition the speaker flags in the clip and does not explain: \"positive integers a and b with no common factor.\" It is not a technicality tidying up an edge case. It is the whole difference between nine gaps and infinitely many."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE QUESTION IN THE REEL, 4c AND 7c. Exactly 9 totals cannot be made: 1, 2, 3, 5, 6, 9, 10, 13, 17. The largest is 17."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT STOPS, WHICH IS THE PART WORTH KEEPING. You do not need to check every total for ever. You need FOUR CONSECUTIVE totals that work, and 18, 19, 20 and 21 all do:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    18 = 4+7+7      19 = 4+4+4+7      20 = 4+4+4+4+4      21 = 7+7+7"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now every total above 21 is one of those four plus some whole number of 4c stamps, because every integer is one of 18, 19, 20 or 21 plus a multiple of 4. Once you have a run as long as your smaller stamp, you have everything above it. That is why the impossible set is finite, and it is the argument, not the arithmetic, that generalises."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO FORMULAS, NEITHER OF WHICH YOU NEED TO MEMORISE. For coprime a and b the largest impossible total is ab - a - b, which here is 28 - 4 - 7 = 17, and the NUMBER of impossible totals is (a-1)(b-1)/2, which is 3 x 6 / 2 = 9. Both drop out of the run argument, and both are worth being able to rebuild rather than recall. Note also the pleasing fact that the impossible totals pair up: n is impossible exactly when 17 - n is makeable, which is why there are exactly half of 17 + 1 of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS ASKED. Two reasons, and the second is the real one. The first is that the answer needs a stopping argument rather than a search — you have to notice that a run of length 4 closes the question, and candidates who start listing totals never finish.",
+      "The second is the follow-up: the interviewer is checking whether a stated condition registered as load-bearing or as throat-clearing. \"Assume they are coprime\", \"assume returns are independent\", \"assume the market is liquid\" — the habit being tested is asking what breaks without it, and here what breaks is not the number but the existence of the number."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "relabel_two_dice",
    "title": "Relabel two dice",
