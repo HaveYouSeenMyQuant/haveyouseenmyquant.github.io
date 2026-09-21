@@ -16,8 +16,95 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 526,
+ "count": 527,
  "entries": [
+  {
+   "slug": "relabel_two_dice",
+   "title": "Relabel two dice",
+   "ts": "2026-09-21T04:43:42+00:00",
+   "date": "21 Sep 2026",
+   "topic": "generating functions",
+   "q": null,
+   "a": "NO — AND IT COMES APART AT ONCE. The sums are perfectly indistinguishable; the differences are not even close.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    ordinary pair   0:6  1:10  2:8  3:6  4:4  5:2",
+      "    Sicherman pair  0:4  1:8  2:8  3:6  4:4  5:3  6:2  7:1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The ordinary dice can never differ by more than 5. The Sicherman pair has an 8 and a 1 on it, so it can differ by 7 — and does, once in thirty-six. One roll showing a difference of 6 or 7 proves you are not holding ordinary dice, and no number of totals ever could."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PAIR ITSELF. Label one die 1, 2, 2, 3, 3, 4 and the other 1, 3, 4, 5, 6, 8. Every total from 2 to 12 then comes up exactly as often as with a normal pair: one way to make 2, six ways to make 7, one way to make 12. These are the Sicherman dice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY GENERATING FUNCTIONS, AND WHY THE ANSWER IS EXACTLY ONE. Write a die as a polynomial whose POWERS are its faces, so an ordinary die is x + x^2 + x^3 + x^4 + x^5 + x^6. Rolling two dice multiplies the polynomials, because collecting like terms is precisely the act of counting the ways to reach each total. Now factor:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    x + x^2 + ... + x^6  =  x (1+x) (1+x+x^2) (1-x+x^2)",
+      "    a pair of them       =  x^2 (1+x)^2 (1+x+x^2)^2 (1-x+x^2)^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Any relabelling is just a way of dealing those eight factors into two hands, and three constraints decide almost everything:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1  EACH DIE HAS SIX FACES. Setting x = 1 counts faces, and at x = 1 the",
+      "       factors are worth 1, 2, 3 and 1. To make 6 each die needs exactly one",
+      "       (1+x) and exactly one (1+x+x^2).",
+      "    2  EVERY LABEL IS POSITIVE. So each die needs a factor of x, and there are",
+      "       exactly two — one each.",
+      "    3  WHAT IS LEFT is the two copies of (1-x+x^2), and nothing constrains them.",
+      "       One each gives the ordinary dice. Both to the same die gives",
+      "       x(1+x)(1+x+x^2) = x + 2x^2 + 2x^3 + x^4 — faces 1,2,2,3,3,4 — and the",
+      "       leftovers make 1,3,4,5,6,8."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole space. There are exactly TWO pairs, one of them the ordinary one, so exactly one other answer — not \"here is a clever example\" but a complete census. The reel's claim is checked the blunt way as well: every pair of six-face dice with positive labels up to 11 was enumerated, and exactly 2 pairs reproduce the distribution."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS ASKED. Two reasons. The first is whether you reach for a representation that turns a search into an algebra problem — brute force over six-face dice is enormous, and the factorisation makes it a question about dealing four factors.",
+      "The second is the follow-up, which is the part that transfers: matching one distribution is not matching the process. Two books with the same P&L distribution can have entirely different drawdown paths, correlations and tail behaviour.",
+      "If someone shows you that their thing matches on the statistic they chose, the useful question is which statistic they did not show you."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "drop_the_slinky",
    "title": "Drop the slinky",
@@ -36082,5 +36169,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "the_free_dice_game_with_a_reroll"
+ "featured": "no_book_in_its_place"
 };
