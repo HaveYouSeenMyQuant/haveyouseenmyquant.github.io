@@ -16,8 +16,80 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 525,
+ "count": 526,
  "entries": [
+  {
+   "slug": "drop_the_slinky",
+   "title": "Drop the slinky",
+   "ts": "2026-09-21T02:53:46+00:00",
+   "date": "21 Sep 2026",
+   "topic": "information transfer and latency",
+   "q": null,
+   "a": "FALLING AT THREE TIMES g, on average — and the 3 is exact. It does not depend on how long the slinky is, how heavy it is, or how stiff it is.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ARGUMENT IS A LEVER, NOT A CALCULATION. Once the top is released nothing holds the slinky up, so its centre of mass is in free fall: it accelerates at exactly g, always, whatever the coils are doing individually. The bottom, meanwhile, is not moving at all. Something has to make up the difference, and the only thing left is the top."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now put a number on it. For an ideal slinky — a spring whose natural length is negligible next to its hanging length — the centre of mass sits ONE THIRD of the way up from the bottom:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    take the mass coordinate s measured from the bottom",
+      "    the tension there is s*g (it holds up everything below it)",
+      "    the stretch is proportional to the tension, so dy/ds = k*s",
+      "    hence y(s) = k*s^2/2, and the full length is L = k*M^2/2",
+      "    centre of mass = (1/M) * INTEGRAL y(s) ds from 0 to M = k*M^2/6 = L/3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The collapse finishes when the centre of mass has come down to where the bottom has been sitting all along — a drop of L/3. In that same time the top has come down the whole length L. Both started from rest, so their average accelerations are in the ratio of the distances they covered: three to one. The centre of mass averages g. The top averages 3g."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FOR A TWO-METRE SLINKY: the collapse takes about 0.37 s, the top covers 2 m in that time, and 29.4 m/s^2 is a little over three times gravity. Run it for a one-metre slinky and the collapse is quicker but the answer is still 3g. The length cancels."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TWO THINGS NOT BEING CLAIMED. The 3g is an AVERAGE over the collapse, not a constant — the instantaneous acceleration of the top varies. And the bottom does not hang there for ever; it stays put only until the compression front physically reaches it, which for a real slinky is a few tenths of a second, which is exactly why you can see it on video."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS ASKED, AND WHY IT IS HERE. The speaker makes the connection himself, moments after the demonstration: the reason firms spend heavily to sit closer to an exchange is that information transfer takes time, and the time is worth money. The slinky is that fact made visible. The bottom is not being stubborn and it is not defying gravity — it simply has not yet received the news, and until it does, the correct local behaviour is to carry on exactly as before."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The transferable part is the aggregate-versus-constituent split, and it runs in both directions. The centre of mass obeys the simple law the instant the support is gone; every individual part of the slinky is doing something that looks impossible. An index can move the moment the news lands while most of its constituents have not repriced — and the fact that the aggregate has already moved tells you nothing about whether any particular name has heard."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_far_past_the_table_edge",
    "title": "How far past the table edge?",
