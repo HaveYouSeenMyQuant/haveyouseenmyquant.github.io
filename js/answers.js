@@ -16,8 +16,81 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 524,
+ "count": 525,
  "entries": [
+  {
+   "slug": "how_far_past_the_table_edge",
+   "title": "How far past the table edge?",
+   "ts": "2026-09-21T01:08:13+00:00",
+   "date": "21 Sep 2026",
+   "topic": "harmonic series overhang",
+   "q": null,
+   "a": "FOUR BOOKS. Three is not enough and four is, by a whisker:",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 book    1/2                              = 0.5000",
+      "    2 books   1/2 + 1/4                        = 0.7500",
+      "    3 books   1/2 + 1/4 + 1/6                  = 0.9167",
+      "    4 books   1/2 + 1/4 + 1/6 + 1/8  = 25/24   = 1.0417"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So four books put the top one 0.0417 of a book length past the far edge of the table — clear of it, with nothing underneath. Most people guess it cannot be done at all, and the honest reason is that a four-book stack looks like it should topple. It does not: at every level the stack above is exactly balanced on the book below."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY HE USES SIX AND THE MATHS SAYS FOUR. In the lecture the demonstration is built with six books, and that is not a mistake in either direction.",
+      "Four is the theoretical minimum, and at the minimum EVERY level is exactly critical — each book's centre of mass sits precisely on the edge below it, with zero margin, on a stack that is also being carried across a stage. Real books have thickness, friction, slightly rounded spines and are not perfectly uniform.",
+      "Two spare books buy the margin. The gap between 4 and 6 is the whole difference between an existence proof and a thing you can hold up in front of an audience."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE 1/(2k) COMES FROM. Work from the top. The top book balances on the second if its centre of mass is over the second's edge, so it can hang out by 1/2. Now treat the top TWO as one object: their combined centre of mass is 1/4 from the second book's edge, so the pair can hang 1/4 over the third. In general the top k books have their combined centre of mass 1/(2k) from the edge of book k+1. Add the shifts and the total overhang past the table is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1 + 1/2 + 1/3 + ... + 1/n) / 2  =  H_n / 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART THAT MATTERS. H_n has no limit. It grows like ln(n), which is desperately slow but never stops, so THE OVERHANG IS UNBOUNDED: name any distance and some number of books reaches it. Ten book lengths needs H_n >= 20, which takes about 272,400,600 books. A hundred book lengths would need more books than there are atoms in your body. Slow divergence is still divergence, and the two are constantly confused — a strategy whose edge decays like 1/k is not a strategy that stops working."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "ONE HONEST QUALIFICATION. This is the best SINGLE-WIDE stack — one book per level. If you may put several books on a level, you can do much better: the maximum overhang grows like the cube root of n rather than like log n (Paterson and Winkler, 2006). So \"the answer is H_n/2\" is the answer to the question as posed and asked, not the last word on stacking books."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS ASKED. It is a clean test of whether you reach for the right decomposition. Stacking from the bottom up gives a horrible constrained-optimisation problem; stacking from the top down and treating the books above as one object turns it into a sum you already know. And then it checks whether \"it grows without bound\" and \"it grows fast\" are separate ideas in your head, because here they could not be further apart."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "is_your_random_number_a_fraction",
    "title": "Is your random number a fraction?",
@@ -35937,5 +36010,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "which_square_gets_landed_on_most"
+ "featured": "the_free_dice_game_with_a_reroll"
 };
