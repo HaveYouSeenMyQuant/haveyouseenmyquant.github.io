@@ -16,8 +16,85 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 530,
+ "count": 531,
  "entries": [
+  {
+   "slug": "how_long_until_three_heads",
+   "title": "How long until three heads",
+   "ts": "2026-09-21T11:39:17+00:00",
+   "date": "21 Sep 2026",
+   "topic": "waiting time and self-overlap",
+   "q": null,
+   "a": "EIGHT FLIPS — not fourteen. Heads-heads-tails is the same length as heads-heads-heads and turns up in any particular three flips exactly as often, one time in eight. And it arrives in little more than half the time.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    HHH   14 flips on average",
+      "    HHT   8 flips on average"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE REASON IS SELF-OVERLAP, and it is worth seeing rather than memorising. Suppose you have just flipped two heads and the next flip is a tail."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    if you are hunting HHH   you have lost everything and start again from zero",
+      "    if you are hunting HHT   you have just FINISHED"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A tail is a disaster for one pattern and the goal for the other, from exactly the same position. Worse for HHH: when it fails it usually fails late, throwing away two flips of progress, and it can fail that way over and over. HHT can never be set back like that, because the only flip that can disappoint it is a head — and a head leaves it still holding two heads, which is where it wanted to be anyway."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL RULE, one line, no chain to solve. For a fair coin the expected wait for a pattern is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E = the sum of 2^k over every k for which the first k letters equal the last k"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HHH matches itself at k = 1, 2 and 3, so E = 2 + 4 + 8 = 14. HHT matches only at k = 3, so E = 8. This is Conway's identity, and it says the whole story is how much a pattern overlaps ITSELF. The shortest case is the one everybody should know: HH takes 6 flips and HT takes 4, for the same reason, and that pair is small enough to check by hand in a minute."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRAP THIS IS BUILT ON. Every length-three pattern has probability 1/8 at any given position, so the expected NUMBER of occurrences in n flips is the same for all of them. Identical frequency, wildly different waiting times — because overlapping patterns arrive in clumps. HHH, once you have it, is one head away from another HHH; a run of five heads contains three of them. The occurrences bunch up, and between the bunches you wait longer. Same mean rate, different clustering."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS ASKED. Because \"it happens one time in eight, so I expect to wait eight\" is the single most natural wrong answer in probability, and it is right for HHT and wrong for HHH. In practice the version that bites is the same: events with identical unconditional frequency can have completely different gap distributions, and anything that clusters — defaults, outages, losing days — will show you long quiet stretches and then several at once. Sizing to the average gap is how you get caught by the clump."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_intransitive_dice",
    "title": "Three intransitive dice",
