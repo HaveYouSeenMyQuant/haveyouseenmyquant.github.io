@@ -16,8 +16,65 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 529,
+ "count": 530,
  "entries": [
+  {
+   "slug": "three_intransitive_dice",
+   "title": "Three intransitive dice",
+   "ts": "2026-09-21T09:38:14+00:00",
+   "date": "21 Sep 2026",
+   "topic": "intransitive dice",
+   "q": null,
+   "a": "NO — AND NEITHER DOES ANYTHING ELSE. Roll each die twice and add, and every arrow in the cycle turns round:",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    one roll each        two rolls each, summed",
+      "    A beats B  5/9       A beats B only 37/81 = 45.7%",
+      "    B beats C  5/9       B beats C only 13/27 = 48.1%",
+      "    C beats A  5/9       C beats A only 13/27 = 48.1%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The cycle does not weaken and it does not vanish. It REVERSES. The die that was better is now worse, all the way round, and if you had learned \"take the die that beats theirs\" you would now be handing your opponent the edge in every matchup."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE DICE, for anyone who wants to check by hand: A is 2 2 4 4 9 9, B is 1 1 6 6 8 8, C is 3 3 5 5 7 7. There are thirty-six face pairs in each contest and no ties anywhere; A beats B in twenty of them, and the same for B against C and C against A. Hence 5/9 every time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY A CYCLE IS POSSIBLE AT ALL. \"Beats more often than not\" feels like it ought to be transitive, because \"bigger than\" is. But it is a vote, not a measurement. Each pairing asks a different question of the same numbers, and A's nine only has to beat B's big faces — it does not have to be large on average. Compare the averages and the mystery dissolves: they are 5, 5 and 5. All three dice have the same mean. The cycle lives entirely in the SHAPE of the distributions, not their centres."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THAT IS WHY SUMMING BREAKS IT. Adding two rolls pulls each die towards its mean by the central limit effect, and the means are equal, so the pairwise winner is decided by what is left — the spread and the shape. Note that A and B have the SAME variance (52/6 each) while C is much tighter (16/6), so it is not spread alone doing the work; it is where each die puts its mass. Doubling the sample did not \"confirm\" the ranking or average out the noise. It answered a different question."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS ASKED. The first half tests whether you will say \"there must be a best one\" — the same instinct that wants a single ranking of strategies. The second half is the one that matters at a desk: A beat B on the daily numbers, so A beats B on the weekly numbers, surely? Not necessarily, and here is a case where the weekly numbers say the exact opposite while nothing about either die has changed. Any comparison that depends on the horizon is a comparison you must quote the horizon with."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "six_people_at_a_party",
    "title": "Six people at a party",
