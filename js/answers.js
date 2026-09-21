@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 528,
+ "count": 529,
  "entries": [
+  {
+   "slug": "six_people_at_a_party",
+   "title": "Six people at a party",
+   "ts": "2026-09-21T07:51:32+00:00",
+   "date": "21 Sep 2026",
+   "topic": "pigeonhole and Ramsey",
+   "q": null,
+   "a": "NO — FIVE IS NOT ENOUGH, and the picture in the reel is the counterexample. Seat five people in a circle. Let each person know their two neighbours and not know the two across from them. The \"knows\" relationships form a pentagon; the \"doesn't know\" relationships form the five-pointed star inside it. Neither shape contains a triangle, so there is no trio of mutual friends and no trio of mutual strangers.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That makes six exactly right: six always works, five sometimes fails. In the standard notation this is the Ramsey number R(3,3) = 6."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "CHECKED THE BLUNT WAY. Every way of labelling the friendships among six people is one of 2^15 = 32,768 possibilities, and a computer can simply look at all of them. Every single one contains three mutual friends or three mutual strangers — zero exceptions. Do the same for five people and 12 of the 1,024 possibilities escape; all 12 are the same pentagon-and-star picture, just relabelled."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PROOF, WHICH IS THE PIGEONHOLE PRINCIPLE TWICE. Pick any one of the six, call her A. Each of the other five either knows A or does not, and five objects cannot be split into two groups of two, so one group has at least three people. Suppose three of them know A. Look at those three:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    if ANY TWO of them know each other   -> those two plus A are three mutual friends",
+      "    if NO TWO of them know each other    -> the three of them are three mutual strangers"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Either branch finishes it. If instead three of them did NOT know A, run the identical argument with the two words swapped. No case analysis beyond that, and no computation at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS ASKED. Because it looks like it needs a search and does not. A candidate who starts enumerating friendship patterns has misread the problem; the work is in choosing one person to pivot on and noticing that 5 = 3 + 2 forces a majority. It is also a clean instance of a pattern worth carrying around: total disorder is impossible. Make a structure big enough and you cannot avoid order in it, no matter how carefully you try — which is the part that surprises people, and the reason Ramsey theory exists."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A WORD ON HOW FAST THIS GETS HARD. R(3,3) = 6 is easy. R(4,4) = 18, proved. R(5,5) is unknown — it is somewhere between 43 and 48, and has been for decades, despite the question being this easy to state. Paul Erdos's line is the one people remember: if aliens demanded R(5,5) or they would destroy Earth, we should marshal every computer on the planet; if they demanded R(6,6), we should attack the aliens."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "four_and_seven_cent_stamps",
    "title": "Four and seven cent stamps",
