@@ -16,8 +16,80 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 531,
+ "count": 532,
  "entries": [
+  {
+   "slug": "ninety_nine_percent_and_useless",
+   "title": "Ninety nine out of a hundred, and useless",
+   "ts": "2026-09-24T21:23:33+00:00",
+   "date": "24 Sep 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Count how many of the STOLEN payments it caught. That number is zero out of one.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Write the machine out as four boxes — the confusion matrix, which is only a count of what was said against what was true:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    said stolen, really stolen     0     <- the ones it caught",
+      "    said fine,   really stolen     1     <- the one it missed",
+      "    said stolen, really fine       0     <- false alarms",
+      "    said fine,   really fine      99     <- correct all-clears"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Ninety nine of a hundred labels correct, and not one stolen payment caught."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE HEADLINE NUMBER LIES. \"How often was it right\" counts every payment, and ninety nine in a hundred of them are fine. So a machine that says fine to all of them is handed ninety nine out of a hundred before it has learned anything at all. Make the fraud one in a thousand and the same do-nothing machine reports nine hundred and ninety nine out of a thousand. The rarer the thing you care about, the better a useless machine looks."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO NUMBERS TO REPORT INSTEAD. Of the payments that really were stolen, what share did it catch? (Zero here — that is recall.) And of the payments it flagged as stolen, what share really were? (Undefined here, because it flagged none — that is precision.) Quote them as a pair, because either one alone is easy to cheat: flag everything and recall is perfect, flag one certain case and precision is perfect."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW TO FIX IT, in the order an interviewer wants to hear it. First, look at the four boxes before any single score — they show this failure in one glance. Second, choose the measure from the cost: if a missed theft costs far more than a blocked good payment, judge on recall at a precision you can live with, and say what that precision is.",
+      "Third, if you need one number, use one the common case does not swamp — balanced accuracy, the F score, or the area under the precision-recall curve (not the ROC curve, which also flatters a rare-event model). Fourth, only then touch the training: class weights, resampling, or moving the decision threshold off the default half."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. All of that assumes a missed theft hurts more than a false alarm. Often it does — but a bank that blocks good cards loses customers, and where the follow-up is expensive or damaging, precision is the number to defend instead. Either way the move is the same: write down what each kind of mistake costs before choosing what to measure."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. Whenever a score is quoted on a rare event, work out what the do-nothing machine would score. If the model is not clearly beating that, the score is measuring how rare the event is, not how good the model is."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_long_until_three_heads",
    "title": "How long until three heads",
@@ -36427,5 +36499,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "no_book_in_its_place"
+ "featured": "relabel_two_dice"
 };
