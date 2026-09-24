@@ -16,8 +16,81 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 532,
+ "count": 533,
  "entries": [
+  {
+   "slug": "the_test_score_beat_the_training_score",
+   "title": "The test score beat the training score",
+   "ts": "2026-09-24T23:35:16+00:00",
+   "date": "24 Sep 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Almost always: nothing is broken. The two numbers were not measured the same way.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Run the tiny network in this module for one epoch and here is what comes back ({p:.2f}, {t:.2f}, {f:.2f} — every figure below is measured off that run, not typed in):"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    practice score, as the log prints it    {p:.2f}",
+      "    test score, at the end of the epoch     {t:.2f}     <- lower, and it looks impossible",
+      "    practice score, measured like-for-like  {f:.2f}     <- the truth: practice IS ahead"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FIRST CAUSE: the practice number comes off a handicapped machine. Dropout, weight noise and data augmentation are switched ON while training and OFF when you validate. In this run, scoring the training set at the very same weights gives {e:.2f} with dropout still on against {f:.2f} with it off — the handicap alone costs {hand:.2f}. You are comparing a model running on half its units with the same model running on all of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SECOND CAUSE: the two numbers are taken at different moments. The training loss is an AVERAGE over the whole epoch, including the clumsy first batches; validation is a single measurement at the END, after every one of those updates has already improved the weights.",
+      "In this run the first half of the epoch averaged {h1:.2f} and the second half {h2:.2f}. How stale is that average?",
+      "Smooth this run's log and it crosses its own average about a third of the way through the epoch — so the number in the log is the loss the model really had back then, and by the time you read it the model is most of an epoch better than its own score.",
+      "On a fast-moving first epoch that lag alone can be larger than any real train/test difference."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE THIRD CAUSE, and the one to check by eye: the validation set may simply be easier, or small enough to be noisy. A few hundred rows gives a loss with real wobble on it, and a split that happens to hold the easy examples will sit below training all the way through."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE DIAGNOSIS, in order. 1. Put the model in eval mode and score the TRAINING set at the end of the epoch — the like-for-like number. 2. Compare that against validation. If training is now the lower of the two, as it is here -- or simply within a hair of it, which is what one epoch usually gives -- you have your answer and there is nothing to fix. 3. Only if the gap survives step 1 is it worth suspecting the split: look for duplicated rows across the two sets, for preprocessing fitted on all the data before splitting, and for a validation set too small to trust."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. This is a one-epoch picture, and the averaging cause is at its strongest there, because that is when the weights move fastest. By epoch fifty the training average and the end-of-epoch value are nearly the same, so a validation loss still sitting below training that late is much more interesting — then regularisation strength and the split itself are the things to look at."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TWO ANSWERS PEOPLE REACH FIRST, and why they come second. \"The split leaked\" is the common one; it is a real bug, and it is the third thing to check, not the first. \"The validation set is too easy\" is the other; also possible, also cheap to check — but neither explains a gap that vanishes the moment you measure both numbers the same way."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ninety_nine_percent_and_useless",
    "title": "Ninety nine out of a hundred, and useless",
