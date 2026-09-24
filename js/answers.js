@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_test_score_beat_the_training_score",
    "title": "The test score beat the training score",
-   "ts": "2026-09-24T23:35:16+00:00",
+   "ts": "2026-09-24T23:37:43+00:00",
    "date": "24 Sep 2026",
    "topic": "ml_fundamentals",
    "q": null,
