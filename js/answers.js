@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "ninety_nine_percent_and_useless",
    "title": "Ninety nine out of a hundred, and useless",
-   "ts": "2026-09-24T21:23:33+00:00",
+   "ts": "2026-09-24T21:42:14+00:00",
    "date": "24 Sep 2026",
    "topic": "ml_fundamentals",
    "q": null,
