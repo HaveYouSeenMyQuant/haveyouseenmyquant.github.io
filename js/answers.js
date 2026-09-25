@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "two_features_one_story",
    "title": "Two columns, one story",
-   "ts": "2026-09-25T05:19:01+00:00",
+   "ts": "2026-09-25T05:20:56+00:00",
    "date": "25 Sep 2026",
    "topic": "ml_fundamentals",
    "q": null,
