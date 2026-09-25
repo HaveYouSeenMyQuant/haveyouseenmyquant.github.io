@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "it_only_shows_what_it_showed",
    "title": "It only shows what it showed",
-   "ts": "2026-09-25T14:42:48+00:00",
+   "ts": "2026-09-25T14:44:33+00:00",
    "date": "25 Sep 2026",
    "topic": "ml_fundamentals",
    "q": null,
