@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "search_video_by_what_is_said",
    "title": "Find the second it was said",
-   "ts": "2026-09-25T18:27:05+00:00",
+   "ts": "2026-09-25T18:29:23+00:00",
    "date": "25 Sep 2026",
    "topic": "ml_systems_design",
    "q": null,
