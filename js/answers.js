@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_secret_shouted_aloud",
    "title": "A secret shouted aloud",
-   "ts": "2026-09-25T20:46:34+00:00",
+   "ts": "2026-09-25T21:42:43+00:00",
    "date": "25 Sep 2026",
    "topic": "cs_systems",
    "q": null,
