@@ -16,8 +16,77 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 550,
+ "count": 551,
  "entries": [
+  {
+   "slug": "twenty_six_and_twenty_seven",
+   "title": "Twenty-six and twenty-seven",
+   "ts": "2026-09-25T22:02:21+00:00",
+   "date": "25 Sep 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "Nobody knows. The rule is four words long, every number anyone has ever tried reaches 1, and there is still no proof that all of them do - it is one of the most famous open problems in mathematics, and the reason it is hard is visible in the two numbers above.",
+   "why": [
+    {
+     "h": "THE RULE",
+     "t": "p",
+     "lines": [
+      "If n is even, halve it. If n is odd, triple it and add one. Repeat."
+     ]
+    },
+    {
+     "h": "TWO NEIGHBOURS",
+     "t": "pre",
+     "lines": [
+      "    26  ->  10 steps, never rising above 40",
+      "    27  -> 111 steps, climbing to 9,232 before it falls"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One apart. Nothing in the rule refers to anything that distinguishes them, and there is no way to look at 27 and see 111 coming."
+     ]
+    },
+    {
+     "h": "WHY IT RESISTS",
+     "t": "p",
+     "lines": [
+      "Halving shrinks a number by a factor of 2. Tripling-and-adding-one grows it by a factor of about 3. In a long run roughly half the steps are odd, so a typical sequence multiplies by about sqrt(3/2 x 1/2) = 0.87 per step - it drifts DOWNWARD on average, which is why everything falls to 1 in practice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "But \"on average\" is not a proof. To prove it you would have to rule out a number whose sequence gets unlucky forever, or a cycle other than 4-2-1 that no one has found. Both are statements about every integer at once, and the rule mixes multiplication with division in a way that gives almost no algebraic purchase - knowing n tells you almost nothing about where n lands after twenty steps."
+     ]
+    },
+    {
+     "h": "WHAT IS ACTUALLY KNOWN",
+     "t": "p",
+     "lines": [
+      "Verified by computer past 2^68. Proven: almost all numbers reach values close to 1. Not proven: that all of them reach 1. The gap between \"almost all\" and \"all\" is where the whole problem lives."
+     ]
+    },
+    {
+     "h": "CHECKED HERE, AND WHAT THAT IS WORTH",
+     "t": "p",
+     "lines": [
+      "Every n up to 100,000 terminates - run above, not quoted. The longest is 77,031 at 350 steps. That is evidence of nothing beyond 100,000. A hundred thousand successes cannot distinguish \"always true\" from \"the first exception is large\", and problems that fail only at enormous numbers do exist."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "A rule can be short, deterministic and completely understood step by step, and still produce behaviour nobody can predict without running it. Simplicity of description and simplicity of behaviour are unrelated properties, and confusing them is why \"it is just a few lines of code\" is never a reason to expect a system to be easy to reason about."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_secret_shouted_aloud",
    "title": "A secret shouted aloud",
