@@ -16,8 +16,92 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 553,
+ "count": 554,
  "entries": [
+  {
+   "slug": "london_to_sydney_and_back",
+   "title": "The click to Sydney has a floor no money can buy through",
+   "ts": "2026-09-25T23:41:35+00:00",
+   "date": "25 Sep 2026",
+   "topic": "everyday",
+   "q": null,
+   "a": "About 167 ms, and no connection you can buy goes below it.",
+   "why": [
+    {
+     "h": "WHERE THE FLOOR COMES FROM",
+     "t": "p",
+     "lines": [
+      "London to Sydney is about 16,990 km across the surface. A click has to go there and come back, so 33,980 km."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Light in glass is not 299,792 km/s. Fibre has a refractive index around 1.47, and light in a medium travels at c/n:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    299,792 / 1.47  =  203,940 km/s"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    33,980 km / 203,940 km/s  =  167 ms"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the best case with the cable laid along the perfect great circle, no routers, no queueing, and nothing at either end taking time to think."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    perfect vacuum, same route   113 ms",
+      "    real fibre, perfect route    167 ms",
+      "    what you actually measure    250-280 ms"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The gap between the last two is real cable routing -- fibre follows coasts and shipping lanes, not great circles -- plus every router along the way. Those you can improve. The 167 ms you cannot."
+     ]
+    },
+    {
+     "h": "BANDWIDTH IS NOT LATENCY",
+     "t": "p",
+     "lines": [
+      "This is the distinction the sales page blurs. Bandwidth is how much you can send at once; latency is how long the first bit takes to arrive. Paying for more bandwidth widens the pipe, and the pipe's length does not change."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A hundred-fold bandwidth increase does nothing at all to 167 ms, because that number is a distance divided by a speed, and you own neither."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something feels slow, ask whether you are short of CAPACITY or short of TIME. They have different cures, and only one of them is for sale."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "it_does_the_opposite",
    "title": "It does the opposite",
