@@ -16,12 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 534,
+ "count": 535,
  "entries": [
+  {
+   "slug": "two_features_one_story",
+   "title": "Two columns, one story",
+   "ts": "2026-09-25T05:19:01+00:00",
+   "date": "25 Sep 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "An importance reading does not say how much a fact matters. It says how much THIS column is uniquely needed, given the other columns you handed over.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Height and weight are two readings of one fact — how big the person is. Either one alone will do, so the model helps itself to whichever it reaches first in each tree, and the credit for that one fact gets cut in half and handed out twice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE EXPERIMENT SHOWS. Build a table where height and weight are both noisy copies of one hidden size, correlated about 0.98, plus a weaker standalone column and two columns of pure noise. Fit the same forest on fifteen separate tables and read the importances:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    the pair's split      swings by about a fifth of their credit, seed to seed",
+      "    the pair's TOTAL      moves by about a thirtieth of itself",
+      "    the weaker column     outranks EACH twin in fourteen of the fifteen fits"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the reading that looks unstable is the split, and the reading that is stable is the group. The weaker column wins on the chart only because it never had to share."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY DROPPING ONE PROVES NOTHING. Drop height and re-fit: the held-out score falls by about two hundredths. Drop weight instead: the same. That looks like confirmation that neither mattered. Drop BOTH and the score falls by more than half. The fact was carrying the model the whole time; the twin left standing was quietly taking the whole load."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE METHOD, in the order an interviewer wants it. First, look at the correlations between your columns BEFORE you read any importance. Second, group columns that carry the same fact and score the GROUP, not the members — add their importances, or hold the group out together.",
+      "Third, if the question is whether the underlying fact matters, remove the whole group and re-fit; that is the only removal that answers it. Fourth, if you need per-column numbers anyway, use a method that is honest about sharing: permute the group jointly, or fit with one of the pair removed and report the pair as one item."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. All of the above assumes the two columns really are two readings of one thing. Two columns can be strongly correlated and still carry different information — height and weight do separate work in a medical model, where the ratio between them is the whole point. So group by what the columns MEAN, and check: if dropping the pair together costs no more than dropping one, they were never really a pair."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. Whenever a number is attributed to one contributor out of several, ask what the others were doing at the time. A share is only meaningful when the thing being shared cannot be done by somebody else."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_blank_was_the_signal",
    "title": "The blank was the signal",
-   "ts": "2026-09-25T03:03:24+00:00",
+   "ts": "2026-09-25T03:05:25+00:00",
    "date": "25 Sep 2026",
    "topic": "ml_fundamentals",
    "q": null,
