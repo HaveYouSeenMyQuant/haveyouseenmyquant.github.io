@@ -16,8 +16,64 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 533,
+ "count": 534,
  "entries": [
+  {
+   "slug": "the_blank_was_the_signal",
+   "title": "The blank was the signal",
+   "ts": "2026-09-25T03:03:24+00:00",
+   "date": "25 Sep 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "One more column: a was-it-blank column. For every row, a one if the income was missing and a zero if it was there. Then fill the gap however you like. The model can now use both the number AND the fact that the number was absent, and the absence was the more predictive of the two.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STEP ONE, AND EVERYONE SKIPS IT: ask WHY the value is missing, because that decides the whole treatment. There are three cases. Missing completely at random — a page of the survey got soaked — and here mean-filling costs you almost nothing.",
+      "Missing at random given what you already have — one branch stopped recording income, and the branch is in your table — so a model can recover it from the other columns.",
+      "And missing for a reason nobody wrote down: the customer refused because they were in trouble, the sensor was offline precisely during the fault, the test was never ordered because the doctor was not worried. That last case is the common one in real data, and it is the one where the blank is a measurement."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STEP TWO: add the was-it-blank column before you impute anything. It costs one line and it is the whole fix. Whatever you put in the hole afterwards, the model can still tell an imputed row from a real one, so it can learn \"these people are different\" instead of being told they were average."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "STEP THREE: only now impute, and impute out of sample statistics computed on the TRAINING rows only. Taking the mean over the whole table before you split leaks the test set into the training set — the same bug as any other leak, just quieter."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE NUMBERS DO. Build a table where a hidden variable drives both the outcome and the refusal to answer. Mean-filling alone scores a shade under two in three. Add the was-it-blank column and nothing else and it goes up by several points, because the model is reading the hidden variable off the blanks. Turn the coupling up and the gap gets wider; turn it off, so the blanks fall completely at random, and the gap disappears — which is the proof that the indicator was carrying information rather than just being an extra column."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT TO SAY IN THE INTERVIEW. Do not say \"I would use the mean\" and do not say \"I would use a fancier imputer\" either. Say: first I would ask what makes a value missing, then I would add a missingness indicator, then I would impute — and I would check the answer by comparing the two on a holdout, because if the blanks really are random the indicator will earn nothing and you have lost a column and learned something."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CAVEAT WORTH NAMING. An indicator per column is cheap when a handful of columns have gaps and expensive when two hundred do; then you group them, or you use a model that handles absence natively — gradient-boosted trees learn a default direction for a missing value and get much of this for free. What never works is quietly overwriting the hole and not telling the model it was there."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_test_score_beat_the_training_score",
    "title": "The test score beat the training score",
@@ -36572,5 +36628,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "relabel_two_dice"
+ "featured": "the_test_score_beat_the_training_score"
 };
