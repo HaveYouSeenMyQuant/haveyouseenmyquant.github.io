@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_billion_with_no_primes",
    "title": "A billion numbers in a row, no primes",
-   "ts": "2026-09-25T19:34:28+00:00",
+   "ts": "2026-09-25T19:36:43+00:00",
    "date": "25 Sep 2026",
    "topic": "number_theory",
    "q": null,
