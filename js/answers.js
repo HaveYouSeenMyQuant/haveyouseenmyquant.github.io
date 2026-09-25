@@ -16,8 +16,536 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 542,
+ "count": 544,
  "entries": [
+  {
+   "slug": "the_offline_score_that_lies",
+   "title": "The records said three in a hundred better",
+   "ts": "2026-09-25T19:20:57+00:00",
+   "date": "25 Sep 2026",
+   "topic": "ml_systems_design",
+   "q": null,
+   "a": "Log the CHANCE of every showing, reweight the replay by it, hold back a randomised slice of traffic so the reweighting is possible at all — and then, for the follow-up, stop asking which number is right. An offline score and a live test are estimates of DIFFERENT QUANTITIES, and before you argue about either you work out whether it could see an effect this size. In the scenario the live test could not: it needed 156,978 visits an arm and it ran 40,000.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DATA, AND THE ONE FIELD EVERYONE FORGETS. The log of last month is not a sample of the world. It is a record of decisions your old ranker made, and the reason it cannot be read like a dataset is that the old ranker chose which rows exist.",
+      "So log four things per slot, not two: WHICH item went in the slot, WHAT happened (click, dwell, purchase), the position, and — the field that gets forgotten and cannot be recovered afterwards — THE CHANCE THAT ITEM WAS PUT THERE, computed at serving time from the ranker's own scores.",
+      "If your policy is deterministic that chance is 1 for the twenty items shown and 0 for the other four hundred and eighty, and that zero is the whole problem. If you sample the slate instead of taking the top twenty, it is a real number between 0 and 1 and everything downstream becomes possible.",
+      "You cannot reconstruct it a week later: the model has been retrained, the candidate set has changed, and the number you would recompute is not the number that generated the row."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE NAIVE OFFLINE METRIC IS MEASURING THE WRONG THING. The usual offline metric replays the log and asks how well the new model would have ranked the items that were shown. Read that sentence again: the items that were SHOWN.",
+      "The new model's whole claim is that it would show something else, and that something else has no logged outcome, so it contributes nothing to the score. The metric is therefore a measure of AGREEMENT WITH LAST MONTH'S SHELF, dressed up as a measure of quality, and a model that copies the old ranker scores best of all.",
+      "Measured, not asserted: across 12 simulated months of 300,000 logged visits each, with a shelf that knows nothing about three of its nine kinds of reader, the agreement-style metric preferred a model that MIMICS the old shelf in 12 worlds out of 12, while the true value preferred the genuinely better new model in 12 worlds out of 12.",
+      "The offline number did not merely mis-measure the gap; it inverted the ranking, every time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The gentler version of the metric — average the logged reward over just the visits where the new model would have shown the same item — is biased for a subtler reason, and it is worth saying out loud because it is the version people actually compute. Matching is not random.",
+      "It happens where the old and the new model agree, which is where the old model was competent, and it never happens for the readers the old shelf never understood. Conditioning on a match therefore throws away exactly the population where the new model helps most.",
+      "In the same 12 worlds that estimate OVERSTATED the new model's value by 17.6%, and it was too high in 12 of 12 — a consistent direction, not noise."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ARCHITECTURE — AND HERE THE ARCHITECTURE IS THE EVALUATION SYSTEM. Three pieces, and the third is the one that makes the other two work."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "ONE, THE LOGGED MONTH WITH ITS CHANCES. 200 million requests, 20 slots each, three fields per slot. That is the raw material."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TWO, THE REPLAY, REWEIGHTED. For each logged slot where the new policy would have chosen the item that was actually shown, take the observed reward and divide it by the chance that showing happened. A showing with one chance in a thousand counts a thousand times, because it stands in for the nine hundred and ninety nine near-identical visits where that item did not get its turn. That is an unbiased estimate of the new policy's value — provided every item the new policy would choose had SOME chance of being shown."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THREE, THE HELD-BACK RANDOMISED SLICE, which is why the word \"provided\" is doing so much work. On a deterministic shelf it does not hold.",
+      "In the same simulation, 3.4 of the 9 reader groups — 38% of them — give the new model's chosen item a logged chance of EXACTLY ZERO, and no weight rescues a zero: you cannot divide by it, and the rows that would have told you about it do not exist.",
+      "The reweighted estimate on that log came in 26.9% BELOW the truth and preferred the mimic in 12 of 12 worlds, so it is not a fix, it is the same failure with more arithmetic on top.",
+      "Add one visit in twenty with the shelf filled at random, and every item has a chance of at least one in a thousand, the estimate lands within 2.0% of the truth, and it ranks the two models correctly in 12 of 12.",
+      "THE SLICE IS NOT A NICE-TO-HAVE, IT IS THE THING THAT MAKES THE ESTIMATOR EXIST, and it has to be running BEFORE the month you want to evaluate, which means you buy it when nobody is asking for it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And the control that keeps the claim honest: under a fully random shelf the NAIVE estimate is unbiased too — its error came out +0.5% with the sign changing across worlds, 6 of 12 high — because with uniform logging, matching is independent of the reward. The bias is created by the logging policy being non-uniform, not by the estimator being a bad idea, which is exactly why the randomised slice is the design."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT LOSS. You are not fitting a model here, you are estimating a number, so the loss is the squared error of an ESTIMATE, and its two terms are the whole design:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E[(V_hat - V)^2] = (E[V_hat] - V)^2 + Var(V_hat)",
+      "                     = bias^2 + variance"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The naive replay has almost no variance and a large bias. The reweighted estimate has no bias and — when a chance of one in a thousand appears in a denominator — enormous variance.",
+      "Measured on the sliced log: 59,257 matched rows collapse to an EFFECTIVE SAMPLE SIZE of 814, because a handful of thousand-fold weights carry the whole estimate. Capping the weights at some M trades one term against the other: it reintroduces bias of at most the mass you truncated and cuts the variance by the square of what you clipped.",
+      "Sweep M, plot the two terms, and pick the point that minimises the sum on the randomised slice, where you can see the truth. That sweep IS the evaluation system's hyperparameter search, and it is the honest answer to \"what loss\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOLLOW-UP: THE RECORDS SAY THREE IN A HUNDRED, THE LIVE TEST SAYS NOTHING. There are four ways those two can disagree, they are four different bugs, and each has its own test. Do not pick a winner; run the tests."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "BUG ONE, THE OFFLINE SET IS BIASED BY THE LOGGING POLICY. The test: recompute the offline number on the randomised slice alone, where the naive estimate is unbiased by construction. If the number moves, the bias was real, and the size of the move is the size of the bias."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "BUG TWO, THE OFFLINE METRIC IS NOT THE QUANTITY THE BUSINESS CARES ABOUT, AND BOTH NUMBERS ARE CORRECT AT ONCE. This one deserves the most care, because it is the case where nobody is wrong. Here is a construction where both are literally true. The offline metric is \"the item the reader wanted is in the top slot\".",
+      "The live metric is clicks per visit. The new model moves the wanted item one place up the list with some small chance, so the top-slot rate rises by 2.9 in a hundred — a real, correctly measured improvement — while clicks per visit change by EXACTLY ZERO, because the reader scrolled one place further and clicked it anyway.",
+      "Run the live test on clicks at the sample size that would detect a three in a hundred change and it rejects 4.6 times in a hundred, which is precisely the false-positive rate it was built to have. The offline instrument is right, the live instrument is right, and they are pointing at different quantities.",
+      "The test: compute BOTH metrics on the A/B's own data. If the offline metric moved live and the business metric did not, you have a metric mismatch rather than a broken estimator, and the decision in front of you is which quantity you are willing to be paid for."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "BUG THREE, THE LIVE TEST CANNOT SEE THREE IN A HUNDRED. Do this arithmetic before anything else, because it is cheap and it decides whether the rest of the argument is even meaningful. One visit in ten ends in a click, so the baseline rate is p = 0.10 and a three in a hundred RELATIVE lift is an ABSOLUTE difference of delta = 0.003. For a two-sided test at the 5 in a hundred level with a four-in-five chance of noticing a real effect, the required size per arm is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    n = (z_0.975 + z_0.80)^2 x 2 x p x (1 - p) / delta^2",
+      "      = (1.959964 + 0.841621)^2 x 2 x 0.10 x 0.90 / 0.003^2",
+      "      = 7.848880 x 0.18 / 0.000009",
+      "      = 156,978 visits per arm, 313,955 in all"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The test in the scenario ran 40,000 per arm. That is short by a factor of 156,978 / 40,000 = 3.92, and the consequence is not \"a slightly weaker test\". Invert the formula at n = 40,000 and the smallest effect it could ever have called significant is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    MDE = (1.959964 + 0.841621) x sqrt(2 x 0.10 x 0.90 / 40,000)",
+      "        = 2.801585 x 0.00212132 = 0.005943, i.e. 5.94 in a hundred relative"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "so a three in a hundred gain was below the instrument's resolution before the experiment started.",
+      "Its actual power against the effect it was looking for is 29.3 in a hundred: a REAL three in a hundred improvement goes unnoticed 70.7 times in a hundred. \"The A/B showed nothing\" is therefore not evidence of no effect, and a test that reports a null it could not have avoided is worse than no test, because it ends the conversation.",
+      "The test: compute the number above.",
+      "If the experiment is underpowered, the only honest readings are \"run it longer\", \"pick a less noisy metric\", or \"reduce the variance\" — and the third is usually the cheapest, since regressing out each user's pre-experiment behaviour typically cuts variance by about 40%, which by the same formula takes 156,978 to 94,187."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "BUG FOUR, THE GAIN WAS REAL AND IT FADED. New arrangements get explored once; a shelf that looks different gets clicked because it looks different. Model a lift that decays with a 4.8-day time constant from 12 in a hundred on day one.",
+      "Over a 21-day window it averages 3.0 in a hundred — precisely the number the offline score claimed — while week one reads 7.0 and week three reads 0.4. Every one of those figures is correct and the pooled one is the most misleading, because it will be quoted as a permanent gain.",
+      "The test: split the experiment by week, and by each user's exposure number. If the effect is monotonically decaying, you have novelty, not an improvement, and the right action is to re-run the comparison after the novelty has worn off rather than to ship on the pooled number."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INSIGHT THAT MAKES THIS ANSWERABLE. \"Who is right\" presumes the two numbers estimate the same thing. They do not, and the question decomposes into two that can actually be answered: WHICH QUANTITY DO YOU CARE ABOUT — ranking quality on a request, or sessions and revenue per user — and CAN EITHER INSTRUMENT SEE AN EFFECT THIS SIZE.",
+      "An offline estimate on a randomised slice of 400,000 matched observations pins a value to about half a point relative; a two-week live test on 40,000 visits an arm cannot resolve six.",
+      "Sometimes the offline estimate is the sharper instrument and the A/B is the one being over-trusted, which is the opposite of what everyone in the room assumes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTIONS DOING THE WORK. First, the reweighted estimate assumes the logged chance is the TRUE chance.",
+      "A stale propensity — logged from a model version that has since been retrained, or recorded after a downstream reranker altered the slate — is silently wrong in the denominator, and the estimate is then confidently biased with no symptom.",
+      "Log the chance from the component that made the final decision, and reconcile: the sum of logged chances over a slate must come out at the slate size. Second, the power calculation assumes independent visits with a fixed click rate.",
+      "Real traffic has heavy users contributing many visits, so the effective variance is larger than p(1-p) and the required n is bigger, often by a factor of two or three; randomise by USER and compute the variance on the per-user metric, or the number above is an underestimate rather than a bound.",
+      "Third, all of it assumes no interference between arms — fine for a feed, not fine for a marketplace where the two arms bid for the same inventory."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ENGINEERING SPEC. Everything above is the argument. This is the build, at the level of detail an interviewer means when they say \"and what are the dimensions\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE DATA, WITH SHAPES. The system being evaluated serves 200 million requests a month. One request retrieves C = 500 candidates, each described by F = 256 features, so the scoring input is (B, 500, 256): B the request axis, 500 the candidate axis, 256 the feature axis. K = 20 of those candidates are shown. The LOG is therefore one ragged-free tensor per month,"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (N, K, 3) = (200e6, 20, 3)      item id, the chance of the showing, the reward"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which in int32 and float32 is 200e6 x 20 x 3 x 4 bytes = 48.0 GB — one machine, and small enough that the temptation to skip the chance field is never a storage argument. The randomised slice is a strict subset of the same tensor, flagged by one boolean column: at one visit in a hundred it is (2e6, 20, 3), at the one-in-twenty rate the simulation uses it is (10e6, 20, 3). The month's reward total, at a per-request click rate of 0.10, is 20.0 million clicks, and every cost below is quoted against that denominator."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The two measured datasets behind the claims have their own shapes, stated so the claims can be rechecked. The logged-bias simulation is 12 worlds x 300,000 visits, over 9 reader groups and 50 items with a support of TOP 3 per group, so the logged policy covers 3/50 = 6.0% of the catalogue for any one reader — which is where the picture's single bright column in sixteen (6.25%) comes from. The power simulation is 4,000 independent two-arm experiments at each of two sizes. The novelty simulation is 21 days x 30,000 visits per arm per day."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. INPUT AND OUTPUT, AT EVALUATION AND AT SERVING. At SERVING the ranker takes (1, 500, 256) and returns (1, 500, 1), which is sorted and cut to the 20 shown; the propensity logger writes (1, 20, 3) alongside.",
+      "At EVALUATION the input is the whole log tensor (200e6, 20, 3) plus the new policy's re-scores, and the output is ONE SCALAR with an error bar.",
+      "That asymmetry is the interesting part: the serving path produces a ranking per request, and the evaluation path collapses 200 million requests into a single number whose standard error you must also produce, because a value without an error bar cannot be compared with an A/B result at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Re-scoring the log is the cost people forget. Every logged request must be re-ranked by the candidate model: 500 candidates x 524,800 FLOP per candidate = 262.4 MFLOP per request, and 200 million requests is 52.5 PFLOP, which at 10 TFLOP/s of useful throughput is 1.46 hours on one accelerator. That is affordable, and it is the reason the replay is a batch job with a checkpoint rather than a notebook cell."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. THE ARCHITECTURE, LAYER BY LAYER. Two things need writing out: the policy under evaluation, and the evaluation pipeline itself. The policy first, because its shapes are what the log has to carry."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (B, 500, 256)     candidate features: 128 dense behavioural, 96 embedded",
+      "                      categorical, 32 request-context features broadcast",
+      "    (B, 500, 512)     Linear(256 -> 512) + ReLU + dropout 0.1",
+      "                      131,584 parameters (256 x 512 weights + 512 biases)",
+      "    (B, 500, 256)     Linear(512 -> 256) + ReLU",
+      "                      131,328 parameters",
+      "    (B, 500, 1)       Linear(256 -> 1), one logit per candidate",
+      "                      257 parameters",
+      "    (B, 500)          squeeze, then sort",
+      "    (B, 20)           take the top 20 — OR, and this is the design decision",
+      "                      that makes evaluation possible, SAMPLE 20 without",
+      "                      replacement from a softmax over the logits with",
+      "                      temperature tau, and write each item's inclusion chance",
+      "                      into the log. Deterministic top-20 logs a chance of 1.0",
+      "                      on 20 items and 0.0 on 480, and a zero in a denominator",
+      "                      is not a number."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    263,169 parameters in all, 1.05 MB in float32. The model is tiny; the",
+      "    evaluation around it is the system."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE EVALUATION PIPELINE, stage by stage, with the shape at each step:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (200e6, 20, 3)    the logged month",
+      "    (200e6, 20)       the new policy's indicator: would it have put THIS item",
+      "                      in THIS slot",
+      "    (200e6, 20)       weights w = reward / chance, zero where there is no match",
+      "    (200e6,)          sum over slots: one estimate contribution per request",
+      "    ()                mean over requests: V_hat, the new policy's value",
+      "    ()                and beside it the standard error, from the same vector",
+      "    (10e6, 20, 3)     the randomised slice, the same pipeline run again",
+      "    ()                the unbiased anchor V_slice, which is what you believe"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "4. THE LOSS, WRITTEN OUT. Let x be a request, a an item, r the reward, pi_0 the logging policy and pi the policy being valued. The quantity everything is trying to estimate is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    V(pi) = E_x [ SUM_a pi(a | x) r(x, a) ]"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The three estimators, written against the same log of n requests:"
+     ]
+    },
+    {
+     "h": "NAIVE MATCHED AVERAGE",
+     "t": "pre",
+     "lines": [
+      "      V_naive = SUM_i 1[a_i = pi(x_i)] r_i / SUM_i 1[a_i = pi(x_i)]",
+      "      It conditions on a match, and a match is likelier where pi_0 and pi",
+      "      agree, so it is an average over a population chosen by the old model."
+     ]
+    },
+    {
+     "h": "INVERSE-CHANCE REWEIGHTING",
+     "t": "pre",
+     "lines": [
+      "      V_ips = (1/n) x SUM_i [ 1[a_i = pi(x_i)] x r_i / pi_0(a_i | x_i) ]",
+      "      Unbiased when pi_0(a | x) > 0 wherever pi(a | x) > 0. Its variance",
+      "      carries a 1/pi_0 inside a square, which is why a chance of 0.001 turns",
+      "      one lucky row into the entire estimate."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    CLIPPED REWEIGHTING, the one you ship",
+      "      w_i = min( 1 / pi_0(a_i | x_i), M )",
+      "      V_clip = (1/n) x SUM_i 1[a_i = pi(x_i)] x r_i x w_i"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and the objective you actually minimise, over the single hyperparameter M:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    MSE(M) = bias(M)^2 + variance(M)",
+      "    bias(M) = E[V_clip] - V   (grows with clipping: you are truncating mass)",
+      "    variance(M) <= (1/n) x M x E[r^2]   (falls linearly in M)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Choose M by sweeping it and reading both terms off the randomised slice, where V is known. Report the EFFECTIVE SAMPLE SIZE ESS = (SUM w)^2 / SUM w^2 beside every offline number, because that is the honest denominator: on the sliced log, 59,257 matched rows have an ESS of 814."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE LIVE TEST'S OWN LOSS FUNCTION IS ITS SAMPLE SIZE. For a two-arm test of a rate p against an absolute difference delta,"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    n per arm = (z_{1 - alpha/2} + z_{1 - beta})^2 x 2 x p x (1 - p) / delta^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and inverted, the smallest detectable effect at a given n is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    delta_min = (z_{1 - alpha/2} + z_{1 - beta}) x sqrt( 2 x p x (1 - p) / n )"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Those two formulas are the same statement twice, and between them they answer every \"is this result real\" question before the experiment runs."
+     ]
+    },
+    {
+     "h": "5. THE NUMBERS THAT DECIDE IT.",
+     "t": "pre",
+     "lines": [
+      "    THE POWER ARITHMETIC, which is the number the whole reel turns on:",
+      "      p = 0.10, relative lift 3%, so delta = 0.003",
+      "      z_0.975 = 1.959964, z_0.80 = 0.841621, sum 2.801585, squared 7.848880",
+      "      2 p (1 - p) = 0.18",
+      "      n = 7.848880 x 0.18 / 9e-6 = 156,978 per arm, 313,955 total",
+      "      at the 40,000 per arm actually run: short by 3.92x",
+      "      MDE at 40,000 = 2.801585 x 0.00212132 = 0.005943 = 5.94% relative",
+      "      power against a real 3% = 29.3%, so it MISSES it 70.7% of the time",
+      "      simulated check, 4,000 experiments each: 79.2% rejection at 156,978 and",
+      "        28.5% at 40,000, against the derived 80% and 29.3%",
+      "      with a 40% variance reduction from pre-experiment covariates: 94,187"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    WHAT THE RANDOMISED SLICE BUYS AND COSTS:",
+      "      at 1 visit in 100: 2.0M requests, and 2.0e6 x 20 / 500 = 80,000 matched",
+      "        observations, a standard error of 1.06% relative on the value",
+      "      at 1 visit in 20: 10.0M requests, 400,000 matched, 0.47% relative",
+      "      the cost, if a random shelf converts at 0.03 against the live 0.10:",
+      "        0.07 x 2.0e6 = 140,000 clicks, which is 0.70% of the month's 20.0M",
+      "        at the 1-in-20 rate it is 700,000 clicks, 3.50% — so production wants",
+      "        the smaller slice and the simulation needs the larger one, because a",
+      "        50-item catalogue has to be covered before anything can be estimated",
+      "      AND NOTE WHAT THIS MEANS: 400,000 matched observations at 0.47% is a",
+      "        SHARPER instrument than a two-week A/B that cannot resolve 5.94%. The",
+      "        offline number is not automatically the weaker evidence."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    THE BIAS, MEASURED ACROSS 12 WORLDS OF 300,000 LOGGED VISITS:",
+      "      true value of the new policy               0.366",
+      "      naive matched average                      0.431   +17.6%, high in 12/12",
+      "      reweighted, greedy log, no slice           0.268   -26.9%, and it prefers",
+      "                                                 the mimic in 12/12",
+      "      reweighted, with 1 visit in 20 at random   0.374   +2.0%, ranks correctly",
+      "      reader groups with a logged chance of",
+      "        EXACTLY ZERO for the new pick            3.42 of 9 = 38%",
+      "      naive under a fully random shelf           +0.5%, sign flips, 6/12 high"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "6. WHAT ELSE MATTERS. Monitor the evaluation system itself, because it fails silently and its failures look like results.",
+      "Watch the propensity reconciliation — the sum of logged chances across a slate against the slate size — daily, per surface; the share of the candidate set with a logged chance below 1e-4, which is where variance is being manufactured; the ESS of every offline number, published next to it, never in a footnote; the randomised slice's actual rate against its configured rate, because someone will turn it off during an incident and nobody will notice for a quarter; and the agreement between the offline estimate and the last ten A/B outcomes, which is the only end-to-end check the system has."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The first failure mode to expect is not a biased estimator, it is a MISSING or STALE propensity: a downstream reranker or a business rule edits the slate after the logger has written its chances, and every number the evaluation produces afterwards is confidently wrong with no symptom at all. The second is the randomised slice quietly disabled. The third is the one this reel is about — an underpowered A/B read as a null, and a real improvement thrown away on the strength of it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "What to try next, in order: sequential or always-valid tests so that looking early does not inflate the false-positive rate the sample size was computed against; variance reduction with pre-experiment covariates, which is the cheapest factor of 1.7 on sample size available anywhere in this problem; a doubly-robust estimator, which fits a reward model and reweights only its residuals, so the variance falls without the bias returning; switchback or user-level randomisation if arms can interfere; and a standing holdout — one in a hundred users who never receive any change — because it is the only measurement that answers \"did a year of shipping actually do anything\", and no sequence of two-week A/B tests can answer that at all."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "he_clears_the_bar_at_two_forty",
+   "title": "He clears the bar at two forty",
+   "ts": "2026-09-25T18:42:17+00:00",
+   "date": "25 Sep 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "About 2.13 m — which is roughly 27 cm BELOW the bar he just went over.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The numbers first. Once his foot leaves the track he is a projectile, and nothing can add to his upward speed. Four and a half metres per second gives a rise of v squared over 2g: 4.5 squared is 20.25, over 19.62 is 1.03 m. Add the 1.10 m his centre of mass started at and it peaks at about 2.13 m. The bar is at 2.40 m."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So how does he get over it? By not taking his centre of mass with him. In the Fosbury flop the back arches so hard that the balance point of the body leaves the body altogether and sits in the air under the small of his back. Head and shoulders cross the bar while the hips are still rising; the hips cross while the legs are still down; the legs flick over last. No single part of him is ever much above the bar, and the average of all of them — the centre of mass — passes underneath it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole invention. Dick Fosbury did not jump higher than the straddle jumpers he beat in 1968; he wasted less of his jump. A straddle jumper has to lift his centre of mass over the bar, which from the same 1.10 m start needs about 5.05 m/s instead of 4.5 — over a fifth more energy for the same result."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is also why you cannot beat this with cleverness beyond a point. The centre of mass follows a parabola fixed at take-off, and the only honest ways to raise it are to leave the ground faster or to start taller."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "search_video_by_what_is_said",
    "title": "Find the second it was said",
