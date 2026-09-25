@@ -16,8 +16,103 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 552,
+ "count": 553,
  "entries": [
+  {
+   "slug": "it_does_the_opposite",
+   "title": "It does the opposite",
+   "ts": "2026-09-25T23:07:18+00:00",
+   "date": "25 Sep 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Because the program you can always write is one that ASKS the predictor about itself and then does the opposite of the answer. Whatever the predictor says about it is wrong, so no predictor can be right about everything.",
+   "why": [
+    {
+     "h": "THE RECIPE",
+     "t": "p",
+     "lines": [
+      "Suppose someone hands you P, which takes a program and answers \"halts\" or \"runs forever\". Write:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    D():",
+      "        if P(D) says \"halts\":  loop forever",
+      "        else:                  stop"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Ask P about D."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    If P says D halts, D loops forever.  P is wrong.",
+      "    If P says D loops, D halts.          P is wrong."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is no third case, and nothing about P was used except that it gives an answer. So it works against every P - not most, every - and that is why the conclusion is not \"we have not found a good enough predictor yet\" but \"there is no such thing\"."
+     ]
+    },
+    {
+     "h": "RUN IT AGAINST REAL PREDICTORS",
+     "t": "p",
+     "lines": [
+      "Four plausible ones, and the program each gets wrong:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    \"no 'while True' means it halts\"   -> defeated",
+      "    \"short programs halt\"              -> defeated",
+      "    \"everything halts\"                 -> defeated",
+      "    \"nothing halts\"                    -> defeated"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The first two are the kind of heuristic a real tool uses. They are not defeated because they are naive; they are defeated because they answer."
+     ]
+    },
+    {
+     "h": "WHAT THIS DEMONSTRATION IS NOT",
+     "t": "p",
+     "lines": [
+      "It shows the MOVE. It is not a proof of the theorem: that needs a formal model of computation and a careful account of what \"a program that takes a program\" means, and it is the formal version that rules out cleverer predictors than these four. Anyone showing you four defeated heuristics and calling it the halting theorem has skipped the hard part."
+     ]
+    },
+    {
+     "h": "WHY IT MATTERS OUTSIDE LOGIC",
+     "t": "p",
+     "lines": [
+      "It is why no compiler warns you about every infinite loop, why no antivirus can decide in general whether code is malicious, and why static analysers are conservative - they must answer \"maybe\". They are not badly written. Perfection is unavailable, and the same diagonal move rules out a general solution for most interesting properties of programs."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When something must answer every question, ask what happens when you feed it a question about itself, built to disagree. Self-reference plus negation is the whole trick, and it is the same shape underneath several famous impossibility results."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "three_harmless_facts",
    "title": "Three harmless facts",
