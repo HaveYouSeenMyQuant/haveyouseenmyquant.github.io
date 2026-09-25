@@ -16,12 +16,150 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 544,
+ "count": 546,
  "entries": [
+  {
+   "slug": "a_billion_with_no_primes",
+   "title": "A billion numbers in a row, no primes",
+   "ts": "2026-09-25T19:34:28+00:00",
+   "date": "25 Sep 2026",
+   "topic": "number_theory",
+   "q": null,
+   "a": "Take N = 1,000,000,001 factorial — every whole number from 1 up to a billion and one, multiplied together. Then look at",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  N+2, N+3, N+4, ..., N+1,000,000,001"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Every single one of them is composite, and that is a run of a billion consecutive numbers with no prime in it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Why each one fails, and it is the same reason every time: N is a multiple of 2, and of 3, and of every number up to a billion and one, because all of them are factors in the factorial. So"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  N+2 is divisible by 2, because N is and 2 is",
+      "  N+3 is divisible by 3, for the same reason",
+      "  N+k is divisible by k, for every k from 2 to 1,000,000,001"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each of those numbers has a genuine factor bigger than 1 and smaller than itself, so none of them is prime. The run is a billion long."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nothing about a billion is special. Want a gap of a trillion? Use (a trillion plus one) factorial. The construction gives you a prime-free run of ANY length you name, which means the gaps between primes are unbounded — there is no ceiling on how far apart consecutive primes can be."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things worth being precise about, because they are where people go wrong."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This does not say the primes run out. There are infinitely many primes — Euclid settled that over two thousand years ago — and this construction does not touch it. Both are true at once: infinitely many primes, and arbitrarily long stretches with none. Infinitely many things can still be spread arbitrarily thinly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And these are not the FIRST such gaps, nor anywhere near the smallest numbers where they occur. The factorial construction is enormously wasteful — it proves a gap exists somewhere without saying where the earliest one is. The largest prime gap below a million is only 114, between 492,113 and 492,227. Constructions that prove existence are usually terrible at locating things, and that gap between \"exists\" and \"found\" is where a lot of number theory lives."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The transferable move is the one to keep: when you need an object with an awkward property, do not search for it — BUILD it. Choose the starting point so that the property is forced. Here N is chosen to be divisible by everything in range, and once it is, the whole run collapses at once."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "press_harder_and_it_goes_sharp",
+   "title": "Press harder and it goes sharp",
+   "ts": "2026-09-25T19:28:30+00:00",
+   "date": "25 Sep 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "About 115.4 Hz — not 121. Roughly 82 cents sharp, which is four fifths of a semitone.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The law is f = (1/2L) times the square root of T over mu. Length and thickness have not changed, so all that matters is the square root of the tension ratio: the root of 1.10 is 1.0488. Multiply 110 by that and you get 115.4 Hz."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The square root is the whole story. Tension goes up a tenth, pitch goes up about a twentieth. Every time you want more pitch you have to pay for it twice over in tension, and that gets expensive fast."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two consequences worth keeping, and they are the answers people usually give:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Doubling the tension does NOT give you an octave. It gives exactly 600 cents — a tritone, the most dissonant interval there is. To go up a full octave you need FOUR times the tension, which is why a guitar neck has to survive around half a tonne of pull across six strings, and why old pianos with iron frames weigh what they do."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And it is why pressing too hard makes you play sharp. Eighty-two cents is not subtle; it is most of the way to the next fret. Classical players are taught to press just past the point where the note speaks cleanly and no further, and this is the reason. On a bass, where the strings are slacker and your finger moves them further, the effect is worse."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same square root, different knob: halving the LENGTH gives you exactly an octave, which is why the twelfth fret sits at the halfway point of the string."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_offline_score_that_lies",
    "title": "The records said three in a hundred better",
-   "ts": "2026-09-25T19:20:57+00:00",
+   "ts": "2026-09-25T19:22:28+00:00",
    "date": "25 Sep 2026",
    "topic": "ml_systems_design",
    "q": null,
