@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "twenty_six_and_twenty_seven",
    "title": "Twenty-six and twenty-seven",
-   "ts": "2026-09-25T22:02:21+00:00",
+   "ts": "2026-09-25T22:04:06+00:00",
    "date": "25 Sep 2026",
    "topic": "number_theory",
    "q": null,
