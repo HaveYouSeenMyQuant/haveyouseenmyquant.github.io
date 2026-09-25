@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "you_only_know_who_you_said_yes_to",
    "title": "You only know who you said yes to",
-   "ts": "2026-09-25T08:55:37+00:00",
+   "ts": "2026-09-25T08:57:29+00:00",
    "date": "25 Sep 2026",
    "topic": "ml_fundamentals",
    "q": null,
