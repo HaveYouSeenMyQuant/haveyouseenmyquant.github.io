@@ -16,8 +16,445 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 539,
+ "count": 542,
  "entries": [
+  {
+   "slug": "search_video_by_what_is_said",
+   "title": "Find the second it was said",
+   "ts": "2026-09-25T18:27:05+00:00",
+   "date": "25 Sep 2026",
+   "topic": "ml_systems_design",
+   "q": null,
+   "a": "Index the MOMENT, not the video: timed, overlapping transcript passages, an inverted index for the exact phrase beside embeddings for the paraphrase, and a contrastive loss whose negatives include the neighbouring minutes OF THE SAME VIDEO. Then, for the follow-up, stop treating a 12% word error rate as a 12% problem — the errors sit on the rare words that carry the query, so measure error on the words people actually search for.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT DATA, AND WHY THE CHUNK BOUNDARY IS THE DESIGN. A speech recogniser already gives you a word and a time for that word (that is the subject of the first reel in this series, and here it is an input).",
+      "The data you actually index is not the transcript and not the video: it is a PASSAGE — thirty to forty words of transcript, stamped with the start time of its first word. The chunk is the unit of retrieval, so the chunk decides what can be retrieved, and that makes the boundary a first-class decision rather than a preprocessing detail.",
+      "A searched phrase that was spoken across a sentence break — \"...we shut the reactor down. Halden was offline for a week\" — falls into two different chunks if you cut on sentences, and neither chunk contains the phrase, so an exact-phrase query for it matches nothing however good the rest of the system is.",
+      "The fix is cheap and it is the reason everybody uses it: overlap. Slide the window so consecutive passages share their last third, and every phrase of up to a third of a window sits whole inside at least one passage. You pay for it in index size, linearly, and the payment is not optional."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ARCHITECTURE, AND WHY THE VIDEO IS THE WRONG GRANULARITY. Two matchers over the same timed passages: an inverted index over the plain words, which is what finds a phrase said exactly — names, model numbers, quoted sentences — and a dense embedding index, which is what finds the same thing said differently.",
+      "(Hybrid retrieval itself is worked in the reel on answering from your own documents; here it is a component, not the subject.) The decision that matters is what a hit RESOLVES TO. Embed the whole video and a match tells you which talk to open.",
+      "In this corpus a talk is 157 passages of 18 seconds, which is 47 minutes; you have narrowed a million hours to 47 minutes and the user asked for a second. Landing at the chunk gives you a timestamp, which is 157 times finer, and it removes about 24 minutes of average listening per query.",
+      "It also SCORES better, because a 47-minute document's term statistics are diluted: the phrase you typed is a rounding error inside it, whereas inside its own 18-second passage it dominates.",
+      "The same argument settles the serving shape: chunk vectors, an ANN index over them, chunk-level postings, and the video id is just a field you carry along for grouping."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT LOSS, AND WHY THE NEGATIVES ARE THE WHOLE QUESTION. Contrastive, over (query, passage) pairs: pull a query and the passage that answers it together, push other passages away. Any answer stops there; the interesting half is WHERE the other passages come from.",
+      "The easy choice is random passages from the corpus, and random passages are nearly always from other videos and other topics, so separating them is easy — and a model only learns what its negatives force it to learn. Trained that way, a model learns TOPIC.",
+      "It will reliably find the right talk and then rank every minute of that talk almost at random, because nothing in training ever asked it to tell one minute of a talk from another.",
+      "The hard negative is therefore the neighbouring minute: sample negatives from WITHIN the same video, preferably adjacent to the true passage, which share every topic word with it and differ only in the details the query is actually about.",
+      "Measured, in a small two-tower retriever over a corpus where one word names each video and locating a moment inside it needs a combination of that video's own words: with random negatives the model finds the right video 100% of the time and then locates the right moment 7% of the time, against a 0.6% floor for guessing inside the right video.",
+      "With same-video negatives, locating the moment goes to 72%. The mechanism shows up in the weights — random negatives put seven times the weight on the word that names the video, because that word alone beat every negative they were ever shown."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE MISTAKE TO AVOID, WHICH THE SAME MEASUREMENT FOUND: do not use ONLY hard negatives. Trained on same-video negatives alone, the model's right-video accuracy collapses from 100% to 69%, because nothing in training ever asks it to separate one video from another — the failure is exactly the mirror image of the one you were fixing.",
+      "Mix them: half random, half neighbouring, which in this simulation keeps the video at 100% and takes locating the moment to 65%. In production the usual recipe is in-batch negatives (cheap, easy, mostly other videos) plus a handful of mined same-video ones per query, and that is the shape for the same reason."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FOLLOW-UP: THE TRANSCRIPT IS MACHINE-MADE AND 12% OF IT IS WRONG. The naive reading is that search gets 12% worse. It is worse than that, for two separate reasons, and both are worth saying because they are different mistakes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FIRST, THE QUERY IS THE UNIT THAT BREAKS, NOT THE WORD. An exact-phrase query dies if ANY of its words was misheard. At a uniform 12% per word, a three-word phrase survives 0.88 cubed of the time, so about a third of queries break before rarity is mentioned at all. That is the control, and it already beats the intuition."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "SECOND, AND THIS IS THE REAL POINT: THE ERRORS ARE NOT RANDOM. Recognisers are excellent at high-frequency function words — \"the\", \"and\", \"we\", \"down\" — and bad at exactly the words a query is made of: proper names, place names, jargon, product codes, numbers.",
+      "Those words are rare, they are frequently out of vocabulary, and the language model inside the recogniser actively pushes them towards common neighbours. So the error mass is concentrated precisely on the words that make a query distinctive, which is to say on the words search depends on.",
+      "With a Zipf vocabulary and an error rate that rises with rarity, calibrated so the token-weighted word error rate is exactly 0.12, the distinctive word of a query is wrong about four times as often as the average word, the error rate restricted to the words people actually search is far above 0.12, and around half of all queries break.",
+      "A 12% average is not a 12% problem, and the aggregate metric hides the entire fault."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT TO DO ABOUT IT, ALL THREE FOLLOWING FROM THE DIAGNOSIS. (1) INDEX THE SOUND, NOT ONLY THE LETTERS. Store a phonetic code (double metaphone, or a learned phoneme string) and character n-grams or subwords for every token, and match on those channels too.",
+      "A name misheard as a sound-alike still matches a query for the real name, and this is the single highest-yield fix because sound-alike substitution is how recognisers fail. In the model above, where a large share of errors are phonetic confusions, a phonetic channel recovers a large share of the lost queries. (2) KEEP THE ALTERNATIVES.",
+      "The recogniser's one-best output throws away information it already computed: index the lattice or the n-best list, so a passage is findable by any word the recogniser seriously considered. The true word is usually in there even when it is not first. (3) WEIGHT BY CONFIDENCE.",
+      "Carry the recogniser's posterior per token into the score, so a match on a word it was unsure about counts for less than a match on one it was certain about, and so ranking degrades gracefully rather than trusting a guess.",
+      "(4) And the measurement change that should come first: build your evaluation set from real queries, and report word error rate ON QUERY TERMS — names, numbers, jargon — as a separate number from the corpus average. Rare-word error rate is the metric that predicts search quality; overall word error rate is the metric that hides it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTIONS WORTH NAMING. The concentration slope is a model: the simulation assumes error probability rises as a power of word rank, calibrated to a 12% average, and real systems vary in how steep that is.",
+      "The direction is not in doubt — every published recogniser evaluation that breaks error down by frequency shows rare and out-of-vocabulary words several times worse than the average, and named entities worst of all — but the exact multiple is a property of your recogniser and your domain, which is precisely why the recommendation is to MEASURE it on your own query terms rather than to trust the number here.",
+      "The phonetic recovery figure additionally assumes that a word which broke by sound is recoverable by a sound index and that the n-best coverage is independent of it; both are optimistic in the same direction, so treat the recovery share as an upper end.",
+      "And one honest limit on the hard negatives: negatives drawn from adjacent passages of the same video are sometimes not negatives at all, because the answer really does span a minute or two, and mining them without a check teaches the model to push away passages that are correct.",
+      "Cap the number of same-video negatives, or filter them with the exact-match signal you already have."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ENGINEERING SPEC. Everything above is the argument. This is the build, at the level of detail an interviewer means when they say \"and what are the dimensions\". The corpus is a million hours of video with machine transcripts; the query is a typed phrase; the answer is a video id and a timestamp."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. THE DATA, WITH SHAPES. The unit is a PASSAGE, and every number below is derived from two constants: a window of 18 seconds, and a speaking rate of about 2 words a second, so one passage is about 36 words of transcript — the thirty-to-forty-word figure above. A passage is a record: (video_id, start_time, text, 36 word-time pairs)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A million hours is 1,000,000 x 3600 = 3,600,000,000 seconds, so at 18 seconds a passage the corpus is 3,600,000,000 / 18 = 200,000,000 non-overlapping passages.",
+      "Overlap is not optional, and it costs exactly its stride: slide the window so consecutive passages share their last third, which is a stride of 12 seconds, and the count becomes 18 / 12 = 1.5 times larger, N_chunks = 300,000,000.",
+      "Note what overlap does NOT change: the granularity factor is video over window, 2826 / 18 = 157, whichever stride you choose. Per video, 157 non-overlapping passages become 235 overlapping ones (157 x 1.5 = 235.5, so 235 whole windows fit)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The dense index is therefore a matrix of shape (N_chunks = 300,000,000, d = 256): N_chunks the passage axis, d the embedding axis. In half precision that is 300,000,000 x 512 bytes = 153,600,000,000 bytes, 153.6 gigabytes, which is the number that decides the whole serving design and is worked in section 5. Alongside it you carry a chunk metadata table of shape (300,000,000, 3) — video id as int32, start time as float32, token count as int16 — which is 300,000,000 x 10 = 3.0 gigabytes, and it is the only thing a hit is actually resolved through."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The sparse side is an inverted index over a vocabulary of 20,000 word types. The corpus holds 3,600,000,000 seconds x 2 words a second = 7,200,000,000 word occurrences before overlap, and the postings are (chunk_id, position, confidence) triples. Two extra channels are built over the same tokens and are the subject of the follow-up: a phonetic code per token, and character 4-grams per token."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Training data is a table of (query, positive passage) pairs, and the negatives are drawn at batch-assembly time rather than stored: (B = 64,) queries, (64,) positive chunk ids, and per query a negative id list of length 16, so (64, 16) negative ids."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE MEASUREMENT SCALE, because the numbers in section 5 come from a simulation and not from a million hours: a small two-tower retriever over a synthetic corpus where one word names each video and locating a moment inside it requires a combination of that video's own words, evaluated over 400,000 queries with a Zipf vocabulary of 20,000 types, exponent 1.07, and a 3-word query. The direction of every effect below is measured; the magnitudes are properties of that model, which is what the assumptions paragraph above is about."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. INPUT AND OUTPUT, AT TRAINING AND AT SERVING. At TRAINING the input is a batch of tokenised queries (64, L_q = 32) and a batch of candidate passages (64, 17, L_p = 64) — one positive and 16 negatives per query — as wordpiece ids from a shared 32,000-token vocabulary. The output is a score matrix (64, 17) and the target is the constant vector 0, because the positive is placed at index 0 of every row. One scalar comes out of the loss."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At SERVING the two towers are used in completely different ways, and that asymmetry IS the answer to the question. The passage tower does not run at serving at all: it was run once, offline, over all 300,000,000 passages, and its output is the index. What runs at serving is the query tower, once, on (1, 32) ids, producing (1, 256).",
+      "That vector goes to the ANN index and comes back as (1000,) chunk ids with (1000,) scores; the inverted index returns its own (1000,) chunk ids for the same query; the two lists are fused, the top 10 are resolved through the metadata table, and the output is 10 rows of (video_id, start_time). The user gets a second, not a talk."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So: training encodes passages and queries together and the expensive object is the batch; serving encodes only the query and the expensive object is the index. Re-training the passage tower means re-encoding 300,000,000 passages, which is priced in section 5 and is the reason a passage tower is frozen far more often than a query tower."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. THE ARCHITECTURE, LAYER BY LAYER. TWO TOWERS over a shared wordpiece vocabulary of V = 32,000, plus two index structures. The towers do not share weights — a query and a passage are different objects — but they share the vocabulary and the output width, because a dot product needs both."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE QUERY TOWER, written as a shape chain:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (64, 32)        wordpiece ids, L_q = 32",
+      "    (64, 32, 384)   token embedding, V = 32,000 -> d_model = 384, plus a learned",
+      "                    positional embedding of shape (32, 384)",
+      "    (64, 32, 384)   6 x pre-LayerNorm transformer block, each shape-preserving:",
+      "                      LayerNorm -> multi-head self-attention, 6 heads of width",
+      "                        64, residual",
+      "                      LayerNorm -> Linear(384 -> 1536) -> GELU",
+      "                        -> Linear(1536 -> 384), residual",
+      "    (64, 384)       take position 0, the CLS token",
+      "    (64, 256)       Linear(384 -> 256), then L2-normalise to the unit sphere"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PASSAGE TOWER is the same block, twice as deep, mean-pooled instead of CLS-pooled, over a longer sequence because a 36-word passage is about 47 wordpieces and 64 leaves room:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (64, 64)        wordpiece ids, L_p = 64",
+      "    (64, 64, 384)   token embedding + positional embedding of shape (64, 384)",
+      "    (64, 64, 384)   12 x the same transformer block",
+      "    (64, 384)       masked mean over the 64-token axis",
+      "    (64, 256)       Linear(384 -> 256), then L2-normalise"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Parameters, from those widths. One block is 4 x (384 x 384 + 384) = 591,360 in attention, plus (384 x 1536 + 1536) + (1536 x 384 + 384) = 1,181,568 in the feed-forward, plus 4 x 384 = 1,536 in two LayerNorms: 1,774,464 per block. The token embedding is 32,000 x 384 = 12,288,000. The projection is 384 x 256 + 256 = 98,560. So the query tower is 12,288,000 + 6 x 1,774,464 + 98,560 + 32 x 384 = 23,045,632, the passage tower is 12,288,000 + 12 x 1,774,464 + 98,560 + 64 x 384 = 33,704,704, and the pair is 56,750,336 parameters. The passage tower is deeper because it is run once offline and the query tower is run on every keystroke."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INDEX STRUCTURES, which are as much architecture as the towers are. Dense side: IVF-PQ.",
+      "Train 16,384 coarse centroids by k-means on a 10,000,000-vector sample, shape (16,384, 256); assign every one of the 300,000,000 vectors to its nearest centroid, giving lists averaging 300,000,000 / 16,384 = 18,311 vectors; then product-quantise the residual by splitting the 256 dimensions into 64 subvectors of 4 dims and learning 256 centroids for each, a codebook of shape (64, 256, 4) = 65,536 floats, so a vector is stored as 64 bytes instead of 512.",
+      "A query probes the nearest 16 lists, which touches 16 x 18,311 = 292,976 vectors."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sparse side: postings keyed by term, and the same passages keyed by phonetic code and by character 4-gram, so a term lookup is three lookups. Scoring is BM25 at the CHUNK level, which is the point of section 2's argument about dilution. Fusion of the two ranked lists is reciprocal rank fusion, which needs no training and no score calibration between two incomparable scales."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "4. THE LOSS, WRITTEN OUT. Contrastive, InfoNCE, over the (64, 17) score matrix. With q_i the unit query vector, p_i^+ the positive passage vector, and the negative set for query i split into a random part R_i and a same-video part S_i:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    L = -(1/64) x SUM over i of log [ exp(q_i . p_i^+ / tau) / ( exp(q_i . p_i^+ / tau) + SUM over j in R_i of exp(q_i . p_j / tau) + SUM over k in S_i of exp(q_i . p_k / tau) ) ]"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "with tau = 0.05 and |R_i| = |S_i| = 8, so 1 + 8 + 8 = 17 columns. Every vector is L2-normalised, so q . p is a cosine in [-1, 1] and tau sets how sharply the softmax discriminates; at tau = 1 the loss barely separates anything and at tau = 0.01 it chases its own hardest negative."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE MIXTURE IS THE ANSWER, AND IT IS A MEASUREMENT, NOT A PREFERENCE. Set |S_i| = 0 and the model learns topic: it finds the right video 100% of the time and then locates the right moment 7.0% of the time, against a 0.6% floor for guessing inside the right video.",
+      "Set |R_i| = 0 — same-video negatives only, the \"obvious\" fix — and locating the moment jumps to 72.2% while RIGHT-VIDEO ACCURACY COLLAPSES FROM 100% TO 69.3%, because nothing in training ever asks the model to separate one video from another any more. Half and half keeps the video at 100% and takes the moment to 65.0%.",
+      "So the objective needs both terms in the denominator, and the seven points of moment accuracy the mixture gives up against pure same-video negatives are the price of not losing thirty-one points of video accuracy. An answer that says \"use hard negatives\" without the mixture is the mirror image of the mistake it is fixing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In production the cheap approximation of R_i is in-batch negatives — every other passage in the batch, which is 63 of them and nearly all from other videos, at no extra encoding cost — plus a handful of mined same-video ones per query. That changes the column count, not the objective."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two optional terms. A distillation term against a cross-encoder's scores on the same 17 candidates, KL-divergence, weight 1.0, which is where most of the remaining accuracy in real systems lives. And a symmetric passage-to-query term, the same expression with the roles swapped, averaged in — it costs nothing because the score matrix is already computed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "5. THE NUMBERS THAT DECIDE IT. Every figure here is derived by this module's own verify()."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "GRANULARITY. Indexing the moment gets the right moment 99.7% of the time and the right video 99.7% of the time. Indexing the video gets the right video 80.2% of the time and the right moment 0.0% of the time, because a video-level index CANNOT EXPRESS a moment — the zero is structural, not a training failure. And the video index is WORSE at its own job, 80.2% against 99.7%, because a 47-minute document's term statistics are diluted. A hit resolves to 18 seconds instead of 47.1 minutes, 157 times finer, and it saves about 24 minutes of average listening per query."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INDEX ARITHMETIC RULES OUT THE OBVIOUS DESIGN.",
+      "300,000,000 vectors at 256 float16 dimensions is 153.6 gigabytes, so an exact flat scan is not merely slow, it does not fit in the memory of the machine you were going to put it on — and a flat scan is 300,000,000 x 256 x 2 = 153.6 GFLOP per query, which at 10 TFLOP/s is 15 milliseconds of pure arithmetic per query with no headroom for concurrency.",
+      "Product quantisation at 64 bytes a vector brings the index to 19.2 gigabytes, an 8x compression, and IVF at nprobe 16 touches 292,976 vectors instead of 300,000,000, which is 0.098% of the corpus and 18.8 megabytes of reads.",
+      "Raise nprobe to 64 for recall and it is 75 megabytes a query, which is where the budget breaks — so nprobe, not the model, is the dial you are actually turning in production."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "ENCODING THE CORPUS IS THE BUILD COST. At roughly 2 floating-point operations per parameter per token, one passage through the passage tower is 2 x 33,704,704 x 64 = 4.31 GFLOP, and 300,000,000 passages is 1.29 EFLOP — about 36 hours on a single accelerator delivering 10 TFLOP/s. That is the number behind \"do not retrain the passage tower casually\": every change to it re-runs that 36 hours, while a change to the query tower costs nothing but a deploy."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE NEGATIVES, again as numbers because they are the load-bearing part: 7.0% / 100% for random only, 72.2% / 69.3% for same-video only, 65.0% / 100% for the mixture, against a 0.6% floor. The mechanism is visible in the weights: random negatives put 2.85 of weight on the word that names the video against 0.40 on the video's own distinguishing words, roughly seven times as much, while same-video negatives invert it to 0.23 against 0.56."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSCRIPT, WHICH IS THE FOLLOW-UP'S ARITHMETIC. Calibrated so the token-weighted word error rate is exactly 0.1200, the commonest word is wrong 0.8% of the time and the rarest 73.5%. A query's distinctive word is then wrong 44.7% of the time against 5.7% for its ordinary words, a factor of 7.9.",
+      "Error restricted to the words people actually search is 18.7%, 1.6 times the corpus average. And the unit that breaks is the query, not the word: 50.8% of three-word queries break, where a uniform 12% per word would break 31.9% — so the query-level effect costs you 31.9 points and rarity costs 19.0 points ON TOP of that.",
+      "A phonetic channel recovers 63% of the lost queries and adding the recogniser's other guesses recovers 89%, which is the ranking of the three fixes above, priced. All of this is checked against a simulation of 400,000 queries and agrees with the closed form to the decimal shown."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "6. WHAT ELSE MATTERS. AdamW, learning rate 2e-5 on the towers with 5% linear warmup and cosine decay, batch 64 queries, 20 epochs, weight decay 0.01, mixed precision with the score matrix in float32. Mine the same-video negatives fresh every two epochs with the current model — mine them once at the start and you are training against the negatives of a model that no longer exists — and filter every mined negative through the exact-match signal first, because an adjacent passage that contains the query phrase is not a negative, it is a second correct answer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Monitor: recall at 10 and mean reciprocal rank BOTH at the video level and at the moment level, separately, because the whole finding of section 5 is that one can move while the other collapses; the share of queries where the exact-phrase channel and the dense channel disagree, which is your hybrid working rather than one side dominating; ANN recall against an exact scan on a 10,000-query sample, which is the only way to see quantisation loss; and word error rate ON QUERY TERMS as a separate number from the corpus average."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The first failure mode to expect is not retrieval quality, it is the index drifting out of sync with the transcripts as videos are re-processed, so a hit resolves to a timestamp that has moved.",
+      "The second is hard-negative mining quietly teaching the model to push away correct answers, which shows up as moment accuracy improving while user satisfaction does not.",
+      "What to try next, in order: a cross-encoder re-ranker over the top 100, which is where the largest remaining gain is and costs 100 passage encodings per query; late interaction over token vectors instead of one vector per passage, which multiplies the index by the token count and is a serious memory decision; indexing the recogniser's lattice rather than its one-best; and learning the chunk boundary instead of fixing it at 18 seconds, which is the assumption this entire spec is built on."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "it_fires_once_every_two_turns",
+   "title": "It fires once every two turns",
+   "ts": "2026-09-25T18:04:49+00:00",
+   "date": "25 Sep 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "About 2954 rpm. It loses roughly one and a half per cent of its speed, and that is the whole reason a flywheel is there.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The numbers. At 3000 rpm the crank is turning at 314 rad/s, so the wheel is holding half times 0.20 times 314 squared, which is 9,870 J. Take 300 J out and 9,570 J is left. Run that back through the same formula and the speed comes to 309 rad/s, or about 2954 rpm."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now the part worth keeping, because it is why the answer is so small. The 300 J is about a thirtieth of what the wheel is holding. But energy goes as speed SQUARED, so a change in energy costs you only about HALF as much fractional change in speed. A thirtieth of the energy, a sixtieth of the speed. That square is doing all the work."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is also why the flywheel has to be heavy. Put a tenth of the inertia on the same engine and the same 300 J takes more than ten times as much speed away — enough that the engine would lurch between firings and stall under load. Mass at the rim buys smoothness, and it buys it as the square of the radius, which is why flywheels are rims with spokes rather than solid discs."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same reason a potter's wheel keeps turning while you shape the pot, and the same reason a single-cylinder engine sounds lumpy while a six sounds smooth: the six is firing three times as often into the same stored energy."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "the_low_gear_is_not_free",
+   "title": "The low gear is not free",
+   "ts": "2026-09-25T17:51:44+00:00",
+   "date": "25 Sep 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "Two and a half metres and a bit — 2.55 m, against 8.4 m in top gear. A third as far, near enough.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The chain only counts teeth. Top gear is 52 on the front over 13 on the back, which is exactly 4 turns of the wheel for one turn of the pedals; 8.4 m over those 4 turns makes the wheel 2.1 m around. Bottom gear is 34 over 28, which is 17/14 — about 1.21 wheel turns per pedal turn. Multiply by the same 2.1 m wheel and you get 2.55 m."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the part worth keeping. The low gear did not give you anything. Your foot goes round exactly the same circle, and you push it with the same force, so you do the SAME work per stroke. What changed is how that work is spent: the force at the back wheel goes up by 3.29, and the distance goes down by 3.29. Multiply them and the work is identical."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is why a low gear feels easier and gets you up the hill, and also why the hill takes so long. Same energy per stroke, three times as many strokes, and the hill is not climbed one metre sooner for it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "If gears really did change the effort without changing the distance, you could gear a bike arbitrarily low, climb Everest on one pedal stroke, and get the potential energy for nothing. Every gearbox, every lever and every pulley obeys the same rule."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "ten_people_one_short_straw",
    "title": "Ten people, one short straw",
