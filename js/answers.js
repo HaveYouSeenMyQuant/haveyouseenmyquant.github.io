@@ -16,12 +16,67 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 536,
+ "count": 537,
  "entries": [
+  {
+   "slug": "you_only_know_who_you_said_yes_to",
+   "title": "You only know who you said yes to",
+   "ts": "2026-09-25T08:55:37+00:00",
+   "date": "25 Sep 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "The table you are training on is not a sample of your applicants. It is the OUTPUT of your last decision. You know how the loan turned out only for the people the old rule said yes to, and no amount of modelling will ever produce an outcome for the ones it turned down.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THAT DOES, MEASURED. Simulate forty thousand applicants. Four honest columns, all of them available at decision time: income, postcode, payment history, and one column of noise.",
+      "Real risk depends a little on how well off somebody is and a lot on how bad their payment history is - and history only hurts below zero, so among people with a clean record it carries no signal at all. The old rule approves you if your income clears a cut AND your history is clean. It lets about a fifth in.",
+      "Among those, roughly eight in a hundred go bad. Among the ones it declined, forty-five in a hundred would have. The labels are missing exactly where the risk lives."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Train on the approved rows only, then score a fresh cohort three ways. On the approved slice - the only fresh test that exists in the bank - the model matches a model that was handed EVERY applicant's outcome.",
+      "On the whole applicant population it keeps barely three fifths of that model's edge over a coin toss, and if it is allowed to pick the same number of people as the old rule did, its picks go bad about twice as often.",
+      "Worse, its scores track the old rule's own number more closely than they track real risk, while the fully-labelled model is the other way round. It has learned to be the rule, not to judge the risk."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TELL, and it generalises far beyond banks. Ask of any training table: what decision produced these rows, and who is missing from it because of that decision? Anything downstream of a filter - a hiring model trained on people you interviewed, a fraud model trained on transactions you reviewed, a churn model trained on customers who stayed long enough to be surveyed - has this shape. If the answer is \"the ones we said no to\", the model cannot be judged on the data you have."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE METHOD, in the order an interviewer wants it. First, keep a small random sample OUTSIDE the rule: approve a few per cent of applicants regardless of what the rule says, and you buy labels for people the rule would have refused.",
+      "In the simulation, letting eight per cent through at random restores nearly all of the fully-labelled model's performance, and it is the only fix that creates information that does not otherwise exist.",
+      "Second, use the declined rows even without outcomes - their FEATURES tell you how different they are from your training set, which bounds how far you are extrapolating, and it is what the reject-inference machinery is for.",
+      "Third, evaluate on the population you will actually FACE, not on the slice you kept: reweight your test set to the applicant mix, and report what happens at the approval rate you intend to run.",
+      "Fourth, price the sample: the random approvals cost real money in bad loans, so size them, budget them, and treat them as the exploration they are."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. All of that assumes you may vary the decision at all. Where you cannot - a medical treatment nobody would withhold, a rule a regulator fixes - you are left with the weaker tools: bounds instead of estimates, sensitivity analysis over what the missing outcomes could have been, and honest reporting that your score is conditional on the old rule. The clean answer is a random sample; the honest answer, when you cannot take one, is to stop quoting a number as if it applied to everybody."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_same_row_on_both_sides",
    "title": "The same record on both sides of the split",
-   "ts": "2026-09-25T06:35:50+00:00",
+   "ts": "2026-09-25T06:37:39+00:00",
    "date": "25 Sep 2026",
    "topic": "ml_fundamentals",
    "q": null,
