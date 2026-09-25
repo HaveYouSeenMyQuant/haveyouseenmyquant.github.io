@@ -16,8 +16,78 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 537,
+ "count": 538,
  "entries": [
+  {
+   "slug": "it_only_shows_what_it_showed",
+   "title": "It only shows what it showed",
+   "ts": "2026-09-25T14:42:48+00:00",
+   "date": "25 Sep 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "Your training data is not a sample of the world. It is a CONSEQUENCE of the decisions your own model made last week. A click needs two things to happen: the item had to be shown, and then it had to be liked. Your log only ever records the second one, so a click rate measures exposure at least as much as it measures preference.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE EXPERIMENT SHOWS. Give 180 items a true click chance between 2% and 30%, which nobody ever observes. Week zero shows everything a few times. Every week after that, train on LAST week's log alone and hand out 1200 impressions in proportion to the estimate, steeply. An item with no impressions has no clicks, so its estimate is zero, so it is never shown again — the ratchet only turns one way. Across twelve catalogues:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    items shown in week 1       about 75 of 180",
+      "    items shown in week 6       4 to 12 of 180 — under one item in twenty",
+      "    measured click rate         median 0.227 rising to 0.272",
+      "    clicks against impressions  correlation above 0.98",
+      "    clicks against true appeal  0.29 at best, and 0.01 at worst"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the dashboard improves by about a sixth while the shop the customer ever sees shrinks by a factor of ten. And the metric is not merely flattered — it is measuring the wrong population: the logged click rate reads about half again as high as the catalogue's real average appeal, in twelve of twelve runs."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ITEMS IT LOST WERE THE GOOD ONES. Take the eighteen genuinely best items. Twelve to sixteen of them are dark by week six, and the ones it dropped have a HIGHER true appeal, about 0.286, than the shelf it settled on, about 0.265. They have no clicks because they have no impressions, which looks exactly like being unpopular.",
+      "Note also what this loop is not: it is not regression to the mean, and it is not a chain converging to a fixed point that forgets where it started. Two identical catalogues land on different shelves, because the shelf is decided by whichever items got lucky in the first week."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE METHOD, in the order an interviewer wants it. First, LOG WHAT WAS SHOWN, not only what was clicked — without an impression table you cannot even ask the question, because an item with no clicks and an item with no impressions look identical.",
+      "Second, HOLD BACK A SLICE OF RANDOM EXPOSURE: send a small share of traffic — 15% here — to items chosen uniformly, so anything can earn evidence.",
+      "In the run above that slice reaches every one of the 180 items and gives each of the eighteen best at least two clean impressions, and its click rate estimates the catalogue's true average with an error under 0.03 that changes SIGN across seeds, while the naive logged rate is too high every single time.",
+      "Third, WEIGHT BY HOW LIKELY EACH ITEM WAS TO BE SHOWN, dividing each observation by that chance, so a rarely-shown item that did well counts for more. Fourth, score offline on the random slice only, and judge a new ranker by how much of the catalogue it surfaces as well as by its click rate."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE ORDER MATTERS, AND THE ASSUMPTION DOING THE WORK. Weighting cannot come first. In the greedy loop about 172 of the 180 items have a probability of being shown that is EXACTLY zero, and no amount of dividing by zero recovers them — the random slice is what makes the weighting legal, not an optional refinement on top of it.",
+      "The idealisation here is that an item's appeal is a fixed number and that showing it does not change it. Real catalogues drift, appeal depends on position on the page and on who is looking, and a click can be a mis-tap; all of those make the honest estimate harder and none of them make the loop go away."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRANSFERABLE MOVE. Whenever a number looks good, ask who chose the data it was computed on. If the answer is \"the thing being measured\", you are reading a report the model wrote about itself."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "you_only_know_who_you_said_yes_to",
    "title": "You only know who you said yes to",
