@@ -16,8 +16,64 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 535,
+ "count": 536,
  "entries": [
+  {
+   "slug": "the_same_row_on_both_sides",
+   "title": "The same record on both sides of the split",
+   "ts": "2026-09-25T06:35:50+00:00",
+   "date": "25 Sep 2026",
+   "topic": "ml_fundamentals",
+   "q": null,
+   "a": "The data set holds the SAME record more than once, and a random split puts one copy on each side. So part of the test set is an exam the model has already sat.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW IT HAPPENS, AND IT IS ALWAYS BORING. The scraper ran twice. Two systems logged the same transaction. The same photo was saved at two sizes. A patient has one scan under two study numbers. Or — the commonest one of all — the copies were MADE on purpose: rows were augmented, oversampled or SMOTE'd BEFORE the split, so a row and its own altered twin end up on opposite sides. Nothing leaked, nothing drifted, and nobody did anything obviously wrong."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TELL. The test score sits above the neighbourhood the training score lives in, and it will not reproduce on data collected later. Two cheap checks settle it in ten minutes.",
+      "First, count exact duplicate rows, and then near-duplicates — round the numbers, hash the row, or check nearest-neighbour distances between the training half and the test half and look for distances near zero. Second, count how many test rows have a twin on the other side, then score those rows separately from the rest.",
+      "If the twinned rows score far better than the lonely ones, that is the whole gap, and it is measured rather than argued."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FIX, IN THREE MOVES. One: deduplicate BEFORE you split, not after. Two: split by the ENTITY, not by the row — all rows belonging to one customer, one patient, one source image, one document go to the same side. That is what grouped splitting is for, and it is one argument in most libraries. Three: augment, oversample and resample only AFTER the split, and only inside the training half."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT IT IS NOT. It is not overfitting, and more data of the same kind makes it worse, because more rows mean more twins. It is not drift either — here both halves come from one pile, and the honest score is the same whether you test on held-out people or on people who never appeared at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE NUMBERS. Recording every person twice and splitting the rows at random scored 84 out of a hundred. The same rows split by person scored 70, and on people who were never in the pile in any form, 72 — the honest number, and the one that shipping would have found for you. The gap is carried entirely by the test rows whose twin sat in the training half: those scored 100 out of a hundred against 68 for the rows with no twin."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. This assumes the copies are genuinely the same thing, not two real events that happen to look alike. Two different customers with identical form answers are not duplicates, and deleting one of them throws away real data. So look at WHY the rows repeat before deleting anything — if they repeat because of how the data was collected, deduplicate; if they repeat because the world is like that, keep them and split by whatever the collection actually shares."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_features_one_story",
    "title": "Two columns, one story",
