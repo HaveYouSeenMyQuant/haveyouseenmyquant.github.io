@@ -16,12 +16,202 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 547,
+ "count": 550,
  "entries": [
+  {
+   "slug": "a_secret_shouted_aloud",
+   "title": "A secret shouted aloud",
+   "ts": "2026-09-25T20:46:34+00:00",
+   "date": "25 Sep 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Because mixing is easy and un-mixing is hard. The listener has both mixtures and the starting colour, and there is no way to pull a mixture apart to recover what went in.",
+   "why": [
+    {
+     "h": "WHAT ACTUALLY HAPPENS",
+     "t": "p",
+     "lines": [
+      "Everyone agrees two public numbers: a prime, 23, and a base, 5."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "She secretly picks 6 and sends 5^6 mod 23 = 8. He secretly picks 15 and sends 5^15 mod 23 = 19. Both numbers are shouted across the room."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now she computes 19^6 mod 23 and he computes 8^15 mod 23. Both get 2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "They agree because both are really computing the same thing:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (5^15)^6 = 5^90 = (5^6)^15   (mod 23)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Exponents multiply, and multiplication does not care about order. That is the whole mechanism - the shared secret is 5^(6 x 15), and each side reaches it from a different direction without ever knowing the other's exponent."
+     ]
+    },
+    {
+     "h": "WHY THE LISTENER IS STUCK",
+     "t": "p",
+     "lines": [
+      "The listener has 5, 23, 8 and 19. To get 2 they need one of the private exponents, which means solving 5^x = 8 (mod 23) for x. That is the DISCRETE LOGARITHM problem."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "With a prime of 23 it is no problem at all - try every x from 1 to 22 and one of them works. That is exactly what makes this a demonstration rather than a system."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The security is entirely about size. Computing 5^x mod p is fast even for gigantic p, because repeated squaring gets there in about log2(x) multiplications. Going backwards has no such shortcut. For the primes actually used - around 2048 bits - forward costs a few thousand operations and backwards is beyond any computer that exists."
+     ]
+    },
+    {
+     "h": "THE ASYMMETRY IS THE POINT",
+     "t": "p",
+     "lines": [
+      "Every public-key system is built on a pair of operations where one direction is cheap and the other is not: multiplying primes versus factoring, exponentiating versus discrete logs. Nothing here is proven impossible - it is believed hard, and if someone found a fast discrete log tomorrow this would collapse. That is a real caveat and it is worth knowing."
+     ]
+    },
+    {
+     "h": "WHAT IS NOT PROTECTED",
+     "t": "p",
+     "lines": [
+      "This gives two strangers a shared secret, and nothing else. It does not tell either of them WHO they are talking to - an attacker who can intercept and replace messages can do this exchange separately with each side and sit in the middle reading everything. That is why real systems bolt identity onto it separately."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "When you need two parties to agree without revealing, look for an operation that COMMUTES - where doing your step and then theirs gives the same result as theirs then yours. Commutativity is what lets them arrive at one place from two directions, and the hard-to-reverse part is what stops anyone following."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "one_turn_of_the_platter",
+   "title": "One turn of the platter",
+   "ts": "2026-09-25T20:44:59+00:00",
+   "date": "25 Sep 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "Twenty-five million. Exactly, as it happens.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "7,200 rpm is 120 turns a second, so one turn takes a hundred and twentieth of a second. The processor does three thousand million ticks a second. Divide one by the other and the sum comes out whole: 25,000,000 clock cycles while the disk goes round once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sit with the size of that. If a clock tick were one second, one turn of the platter would take you about nine months."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is the number underneath every slow computer you have ever used, and it is why an operating system will do almost anything rather than actually go to a spinning disk. Caching in RAM, read-ahead, elevator scheduling of requests, swapping only as a last resort — none of those are cleverness for its own sake. They exist because the alternative costs twenty-five million cycles, and the processor has nothing to do for any of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "An SSD does not fix the gap so much as shrink it. At about 0.1 ms it is roughly eighty times better than one platter turn — genuinely transformative, and still three hundred thousand wasted cycles every time you touch it. Even RAM costs a few hundred. The whole memory hierarchy, from registers down, is one long argument with this arithmetic."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And note what the question did NOT depend on: how much data you asked for. This is pure waiting. Reading one byte and reading a whole track cost nearly the same, which is why disks are read in big blocks and why a file scattered across a platter is so much worse than the same file laid out in order."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "nobody_can_open_that_door",
+   "title": "Nobody can open that door",
+   "ts": "2026-09-25T20:06:18+00:00",
+   "date": "25 Sep 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "About 95 kN — call it ten tonnes sitting on the door.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The sum is the easy part. Pressure difference is 75 kPa inside minus 22 kPa outside, so 53 kPa, which is 53,000 newtons on every square metre. The door is 1.8 m by 1.0 m, so 1.8 square metres. Multiply: about 95,000 N. Divide by g and that is very nearly ten tonnes — the weight of a loaded lorry, pressed evenly over a door you could reach across."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So no, you cannot open it, and no amount of adrenaline changes that. A strong person pulls with perhaps 1,000 N. You would need fifty of them, all pulling cleanly on the same handle, before the door so much as flexed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The design goes further than simply being strong. Cabin doors are PLUG doors: they are slightly bigger than the hole they sit in, and they have to be pulled inward and rotated before they can swing out. That means the pressure is not fighting the latches at all, it is jamming the door into its own frame. The harder the cabin pushes, the tighter it seals. The latches only have to hold the door in place on the ground."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is also why the number falls away as you descend. At the gate there is no difference at all and the same door swings on one hand. Halfway down, around 20,000 feet, it is already light enough that the difference is what stops you rather than the door itself."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One more thing worth noticing: nothing above depended on the door being strong. Force equals pressure times area, so it was decided entirely by how big the door is. Make the door twice as tall and you double the load on the frame, which is why aircraft doors are small, rounded, and there are not many of them."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_fifth_perfect_number",
    "title": "The fifth perfect number",
-   "ts": "2026-09-25T19:59:25+00:00",
+   "ts": "2026-09-25T20:02:18+00:00",
    "date": "25 Sep 2026",
    "topic": "number_theory",
    "q": null,
