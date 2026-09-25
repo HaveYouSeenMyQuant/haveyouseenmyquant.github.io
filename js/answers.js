@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "three_harmless_facts",
    "title": "Three harmless facts",
-   "ts": "2026-09-25T22:37:06+00:00",
+   "ts": "2026-09-25T22:38:59+00:00",
    "date": "25 Sep 2026",
    "topic": "cs_systems",
    "q": null,
