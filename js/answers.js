@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "it_does_the_opposite",
    "title": "It does the opposite",
-   "ts": "2026-09-25T23:07:18+00:00",
+   "ts": "2026-09-25T23:09:36+00:00",
    "date": "25 Sep 2026",
    "topic": "cs_systems",
    "q": null,
