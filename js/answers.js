@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "london_to_sydney_and_back",
    "title": "The click to Sydney has a floor no money can buy through",
-   "ts": "2026-09-25T23:41:35+00:00",
+   "ts": "2026-09-25T23:44:14+00:00",
    "date": "25 Sep 2026",
    "topic": "everyday",
    "q": null,
