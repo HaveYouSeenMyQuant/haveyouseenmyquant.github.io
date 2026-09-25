@@ -16,8 +16,82 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 551,
+ "count": 552,
  "entries": [
+  {
+   "slug": "three_harmless_facts",
+   "title": "Three harmless facts",
+   "ts": "2026-09-25T22:37:06+00:00",
+   "date": "25 Sep 2026",
+   "topic": "cs_systems",
+   "q": null,
+   "a": "One. In almost every case exactly one person in the country matches all three.",
+   "why": [
+    {
+     "h": "THE ARITHMETIC",
+     "t": "p",
+     "lines": [
+      "Singling out one person from 67,000,000 takes 26 bits. The three fields carry:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    full postcode    20.8 bits",
+      "    date of birth    15.2 bits",
+      "    sex               1.0 bits",
+      "    total            36.9 bits"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is 1,963 times more than the job needs. The expected number of people sharing a given combination is 0.0005 — so a dataset holding only these three fields is not anonymous. It is a list of names in a different alphabet."
+     ]
+    },
+    {
+     "h": "WHAT ACTUALLY ANONYMISES",
+     "t": "p",
+     "lines": [
+      "Coarsen them. Postcode DISTRICT instead of full postcode, birth YEAR instead of date:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    district         11.5 bits",
+      "    birth year        6.6 bits",
+      "    sex               1.0 bits",
+      "    total            19.1 bits"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now about 116 people share each combination, and no row picks out a person. The difference between the two tables is the whole of anonymity, and it is four fewer characters of postcode."
+     ]
+    },
+    {
+     "h": "THE PART THAT CATCHES PEOPLE OUT",
+     "t": "p",
+     "lines": [
+      "Bits ADD. Each field looks harmless because each is individually useless, and the intuition that three vague things stay vague is simply wrong — vagueness does not compose, information does."
+     ]
+    },
+    {
+     "h": "THE TRANSFERABLE MOVE",
+     "t": "p",
+     "lines": [
+      "Before calling a dataset anonymous, add up the bits and compare them with the population. If the total exceeds log2 of the number of people, the rows are identities."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "twenty_six_and_twenty_seven",
    "title": "Twenty-six and twenty-seven",
