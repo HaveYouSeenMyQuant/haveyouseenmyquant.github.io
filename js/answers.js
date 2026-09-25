@@ -16,8 +16,48 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 538,
+ "count": 539,
  "entries": [
+  {
+   "slug": "ten_people_one_short_straw",
+   "title": "Ten people, one short straw",
+   "ts": "2026-09-25T17:33:28+00:00",
+   "date": "25 Sep 2026",
+   "topic": "exchangeability",
+   "q": null,
+   "a": "It makes no difference at all. Every place in the queue carries exactly the same chance — one in ten. First, last, sixth: identical.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The sixth person's reasoning is not wrong, it is answering a different question. Yes, if the short straw is still in the fist when their turn comes, their chance is one in five. But that 'if' is doing enormous work: for them to face five straws with the short one still among them, all five people before them had to miss it — and that only happens half the time. Worse odds, but you only face them half as often, and the two cancel exactly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Written out, the second person's chance is nine tenths — the first person missing — times one ninth. The nines cancel and you get one tenth. The third is nine tenths times eight ninths times one eighth. Everything cancels again. It keeps happening, all the way down the queue."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "There is a shorter way to see it, and it is the one worth keeping. Stop thinking about the drawing. The short straw is sitting in one of ten positions in that fist before anyone touches it, and it is equally likely to be in any of them. Position six is one of the ten. So is position one. The order people happen to take them in cannot change where it already is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is exchangeability, and it is why a card dealt to you last is as likely to be the ace as the one dealt first."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "it_only_shows_what_it_showed",
    "title": "It only shows what it showed",
@@ -36880,5 +36920,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "the_test_score_beat_the_training_score"
+ "featured": "you_only_know_who_you_said_yes_to"
 };
