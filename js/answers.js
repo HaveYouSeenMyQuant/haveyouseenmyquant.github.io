@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "right_fifty_five_times_in_a_hundred",
    "title": "Right fifty-five times in a hundred",
-   "ts": "2026-09-26T04:40:18+00:00",
+   "ts": "2026-09-26T04:41:00+00:00",
    "date": "26 Sep 2026",
    "topic": "game theory",
    "q": null,
