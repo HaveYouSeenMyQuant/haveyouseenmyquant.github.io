@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 557,
+ "count": 558,
  "entries": [
+  {
+   "slug": "twenty_ahead_of_you_in_the_queue",
+   "title": "Twenty ahead of you in the queue",
+   "ts": "2026-09-26T06:00:55+00:00",
+   "date": "26 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "Two minutes.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The mistake almost everyone makes is to count only the four being served, which gives five minutes. But ten people leave the queue in front of you every minute, not four. Six of them give up, and a person who gives up has moved out of your way exactly as completely as a person who was served."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Twenty ahead, ten leaving a minute, two minutes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And the ten joining the back? They change nothing at all. They are behind you. Nobody behind you has ever affected how long you wait — which sounds obvious stated plainly, and is the second thing people get wrong when the number is dangled in front of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY A TRADER CARES, because this is not really about ticket windows."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A limit order sits in a queue at a price, and your place in it is decided by exactly this arithmetic. Orders in front of you disappear two ways: they get filled, or they get cancelled. Cancellations advance you just as well as fills do, and in a real book cancellations are the larger number by some distance — most orders are never filled at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So a trader estimating \"will I get filled before the price moves\" who counts only the volume traded is making the five-minute mistake. And orders joining behind are noise: the book can look busy and deep behind you while your own position is unchanged."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general form is worth keeping, because it is short: your wait is the number in front divided by the rate at which the front empties, by ANY route. Notice what it does not depend on — how the departures split between served and abandoned, and anything at all happening behind you."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "you_paid_for_the_hole_you_made",
    "title": "You paid for the hole you made",
