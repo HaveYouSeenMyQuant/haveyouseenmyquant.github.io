@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 554,
+ "count": 555,
  "entries": [
+  {
+   "slug": "one_in_ten_has_seen_the_coin",
+   "title": "One in ten has seen the coin",
+   "ts": "2026-09-26T03:57:50+00:00",
+   "date": "26 Sep 2026",
+   "topic": "game theory",
+   "q": null,
+   "a": "45 at 55. A spread of ten, on a coin, because of one customer in ten.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is the whole sum. Call your half-spread s, so you buy at 50 minus s and sell at 50 plus s."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A guesser takes either side at random. If they buy from you at 50 plus s, you have sold something worth 50 on average for 50 plus s, so you make s. If they sell to you at 50 minus s, you bought for 50 minus s something worth 50, so you make s again. Either way a guesser pays you s."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The one who has looked never does that. They buy from you only when the coin is 100, which costs you 50 minus s. They sell to you only when it is 0, which also costs you 50 minus s. They are never wrong, so they always take that much off you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Break even means nine parts of plus s against one part of minus (50 minus s): 0.9s + 0.1(s - 50) = 0, which gives s = 5. Quote 45 at 55."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL RESULT IS WORTH MORE THAN THE NUMBER. Do the same algebra with a fraction a of informed customers and everything cancels to s = 50a. Your half-spread has to be the informed fraction times the size of what you do not know. Nothing else enters — not how many customers there are, not how often they trade."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which tells you the two extremes immediately. With nobody informed you can quote a zero spread and still break even. With everybody informed you must quote 0 at 100, which is a way of saying you should not be quoting at all. And in between it is a straight line."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is adverse selection, and it is why spreads widen before an earnings announcement, why a market maker pulls his quote when a big order arrives, and why the toxic-flow question is the one that actually decides whether a market-making business makes money. The informed customer is rare and that does not save you: rare and always right beats common and coin-flipping."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "london_to_sydney_and_back",
    "title": "The click to Sydney has a floor no money can buy through",
