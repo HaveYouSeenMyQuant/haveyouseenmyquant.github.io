@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 573,
+ "count": 574,
  "entries": [
+  {
+   "slug": "the_other_pocket_is_not_empty",
+   "title": "The other pocket is not empty",
+   "ts": "2026-09-26T23:15:40+00:00",
+   "date": "26 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "About seven. Not zero, and not close to zero.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E[K] = (2n + 1) x C(2n, n) x 4^-n  -  1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "With n = 50 that is 101 x C(100,50) / 2^100 - 1 = 7.04."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE INTUITION FAILS. \"Almost none\" comes from imagining the two boxes draining together, as if each were losing a match every other time. They are not. The DIFFERENCE between the two boxes is a random walk — up one when he picks left, down one when he picks right — and a random walk does not hover near zero. After 2n steps it is typically of order root n away from it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the gap between the boxes when one runs dry is not a rounding error. It is the accumulated wander of a hundred coin flips, and it scales like"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    leftover  ~  1.13 x root n"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Double the box size and the leftover only goes up by about 40 percent, not double. A hundred matches a box leaves about ten, not fourteen."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL IS THE CLEANEST PART. Make him ALTERNATE pockets instead of choosing at random — left, right, left, right — and both boxes empty on the same reach, every single time, with exactly nothing left over. Same matches, same boxes, same total. The entire leftover is manufactured by the random choosing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT SHOWS UP IN INTERVIEWS. Because the same shape governs anything fed from two random streams: inventory drawn from two warehouses, a load balancer with two queues, a market maker quoting two venues. If you size the pair assuming they deplete evenly, you will be short on one side and sitting on a root-n pile on the other, and the pile grows with scale rather than washing out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The distribution itself, if you want it: P(K = k) = C(2n-k, n) x 2^-(2n-k), which sums to exactly 1 over k from 0 to n. Checking that sum is the standard way to catch the off-by-one this problem is famous for."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "split_it_across_two_bonds",
    "title": "Split it across two bonds",
