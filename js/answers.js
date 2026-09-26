@@ -16,12 +16,127 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 566,
+ "count": 568,
  "entries": [
+  {
+   "slug": "the_middle_of_the_wire_is_idle",
+   "title": "The middle of the wire is idle",
+   "ts": "2026-09-26T17:47:23+00:00",
+   "date": "26 Sep 2026",
+   "topic": "electricity",
+   "q": null,
+   "a": "About sixty five microns. Thinner than a human hair, and roughly three tenths of one percent of the bar.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    depth = sqrt( rho / (pi x f x mu) )"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "with copper's resistivity 1.68e-8 and mu = 4pi x 1e-7. At one megahertz that gives 6.5e-5 m. The other 99.7 percent of the copper carries almost nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT HAPPENS. A changing current makes a changing magnetic field inside the conductor, and that field induces eddy currents which oppose the original current most strongly at the centre. The deeper you go, the more opposition, so the current gives up on the middle and runs along the outside."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SCALING IS THE USEFUL PART. Depth goes as one over the SQUARE ROOT of frequency. Go up a factor of a hundred in frequency and the depth falls by ten. That one relation gets you from the mains figure to almost any other: at fifty hertz copper is about nine millimetres deep, which is why the grid can still use solid conductors a couple of centimetres thick and have them mostly working."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL PEOPLE GET BACKWARDS. Put a WORSE conductor in the formula and the depth gets LARGER. Stainless steel, about forty times copper's resistivity, has a skin depth about six times deeper. That feels wrong until you see what is being resisted: it is the eddy currents that push the flow outwards, and a poor conductor cannot support them well either."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT IT BUYS YOU. It is why radio-frequency conductors are silver-PLATED rather than made of solid silver, why high-frequency coils use litz wire — many thin strands, individually insulated, so the surface area goes up — and why a microwave waveguide can be a hollow tube without losing anything. Above a few megahertz, a thick conductor is mostly structural. You are not paying for copper, you are paying for surface."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "the_missing_seven_hundred_watts",
+   "title": "The missing seven hundred watts",
+   "ts": "2026-09-26T14:47:29+00:00",
+   "date": "26 Sep 2026",
+   "topic": "electricity",
+   "q": null,
+   "a": "Nowhere. That is the answer, and it is not a trick.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "No energy is lost, nothing is being wasted as heat, and the motor is not underperforming. The seven hundred watts were never there to begin with."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY VOLTS TIMES AMPS IS NOT THE POWER. In an AC circuit the current does not have to rise and fall in step with the voltage. A motor is mostly coils of wire, and a coil resists a CHANGE in current, so the current lags behind. Once they are out of step, there are parts of every cycle where the voltage is positive while the current is still negative — and during those moments the motor is pushing energy back INTO the supply rather than taking it out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Average volts times amps over a whole cycle and that giving-back cancels part of the taking. What survives is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P = V x I x cos(phi)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "where phi is how far out of step they are. Here cos(phi) = 1700 / 2400 = 0.708, so the two are about 45 degrees apart."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You can check this without the formula, which is worth doing once: write down v(t) and i(t) as sines 45 degrees apart, multiply them point by point, and average over a few cycles. You get 1,700. The formula and the waveform are genuinely different routes to it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "SO WHY DOES ANYONE CARE? Because the cable does. The wire, the fuse, the switchgear and the transformer all have to carry the full ten amps, and they heat up according to that ten amps. Deliver the same 1,700 W in step and you would only need about seven. Those extra three amps do no work and cost real copper, which is exactly why industrial customers are billed for a poor power factor and why you will find banks of capacitors bolted to the wall of any large workshop, quietly putting the current back in step."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_dice_you_cannot_tell_apart",
    "title": "Two dice you cannot tell apart",
-   "ts": "2026-09-26T14:09:07+00:00",
+   "ts": "2026-09-26T14:10:11+00:00",
    "date": "26 Sep 2026",
    "topic": "probability",
    "q": null,
