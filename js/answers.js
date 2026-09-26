@@ -16,12 +16,52 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 565,
+ "count": 566,
  "entries": [
+  {
+   "slug": "two_dice_you_cannot_tell_apart",
+   "title": "Two dice you cannot tell apart",
+   "ts": "2026-09-26T14:09:07+00:00",
+   "date": "26 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "One in eighteen. The counting does not change, and the reason is the whole lesson.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "LOOKING ALIKE IS NOT BEING IDENTICAL. Two dice made to the same micron still travel separate paths through the air and land in separate places. You could in principle film them and say which was which. Because they are distinguishable IN PRINCIPLE, one-two and two-one really are two different physical events, and the honest list has 36 entries whatever the dice look like. Painting them the same colour changes what you can see, not what happens."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "SO WHY IS THE 21-WAY COUNT TEMPTING? Because it is not wrong in general. It is exactly what nature does for objects that are identical in principle rather than merely in appearance — two photons, two helium-4 atoms. Those have no separate trajectories to tell apart, and the 21 unordered pictures really are the equally likely states. That is Bose-Einstein statistics, and this dice question is the cleanest way into it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TELL IS IN THE DOUBLES. Under the 36-way count, a double six is one outcome in 36. Under the 21-way count it is one in 21 — MORE likely, not less. Merging the pairs takes probability away from the mixed results and hands it to the matching ones. That is \"bosons bunch\", in one line, and it is why laser light and superfluid helium behave as they do."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INTERVIEW POINT. \"Equally likely\" is never given to you by the problem. You choose a list of outcomes and assert they are equally likely, and that assertion is a physical claim that can be wrong. Most probability mistakes are not arithmetic. They are somebody counting the wrong things."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_hob_is_never_half_on",
    "title": "The hob is never half on",
-   "ts": "2026-09-26T13:31:37+00:00",
+   "ts": "2026-09-26T13:34:07+00:00",
    "date": "26 Sep 2026",
    "topic": "electricity",
    "q": null,
