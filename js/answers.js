@@ -16,8 +16,64 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 564,
+ "count": 565,
  "entries": [
+  {
+   "slug": "the_hob_is_never_half_on",
+   "title": "The hob is never half on",
+   "ts": "2026-09-26T13:31:37+00:00",
+   "date": "26 Sep 2026",
+   "topic": "electricity",
+   "q": null,
+   "a": "Twenty-five minutes.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Three short steps, and none of them is hard."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    duty cycle   = 6 / 20 = 0.3",
+      "    mean power   = 2,000 x 0.3 = 600 W",
+      "    time to boil = 900,000 / 600 = 1,500 s = 25 minutes"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART WORTH KEEPING. The ring is switched on for the same SEVEN AND A HALF MINUTES whatever setting you pick. At 900 kJ and 2 kW that is fixed by the physics: 900,000 / 2,000 = 450 seconds of actual heating. The setting does not change the energy and it does not change the on-time. All it changes is how much waiting gets threaded in between, and therefore how long the clock says."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Turn it up and you are not heating harder. You are heating just as hard, with less pause."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY BUILD IT THAT WAY AT ALL? Because a switch is either fully on or fully off, and both states waste almost nothing. A device that throttled to 600 W by resisting the other 1,400 would have to turn them into heat somewhere inconvenient. Switching fast and averaging is how you get a variable output from components that only do \"on\" and \"off\" efficiently — the same trick is in dimmers, motor drives, class-D amplifiers and every PWM servo."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND A FAIR CONTROL. A hob that genuinely throttled to 600 W continuously would boil this pan in exactly the same twenty-five minutes. Switching is not slower. The difference between them is the PEAK, not the average — which is why a switched hob can also give you the full two kilowatts on boost, and a throttled one is stuck with whatever it was designed for."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_person_ahead_of_you",
    "title": "One person ahead of you",
