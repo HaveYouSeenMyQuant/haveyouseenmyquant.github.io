@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 555,
+ "count": 556,
  "entries": [
+  {
+   "slug": "right_fifty_five_times_in_a_hundred",
+   "title": "Right fifty-five times in a hundred",
+   "ts": "2026-09-26T04:40:18+00:00",
+   "date": "26 Sep 2026",
+   "topic": "game theory",
+   "q": null,
+   "a": "Nothing. Not a penny. You are exactly where you started.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The sum. Fifty-five wins at a pound is £55 in. Forty-five losses at a pound is £45 out. So the strategy itself made you £10 across the hundred trades — a real edge, and a better hit rate than most things anyone will ever sell you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then the broker. Ten pence a trade, a hundred trades, £10. Your entire edge, gone, to the penny."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL RESULT IS THE ONE TO REMEMBER, because it turns this from a curiosity into a tool. With a stake of one and a cost of c per trade, you break even when 2p - 1 = c, which is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    break-even win rate = (1 + c) / 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Ten pence on a pound needs 55%. Twenty pence needs 60%. Five pence still needs 52.5%. The cost does not nibble at your edge, it sets a floor you have to clear before you have any edge at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two things follow that are worth more than the arithmetic."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "FIRST, being right more often than wrong means nothing on its own. It is the most quoted statistic in trading and it is not a claim about profit. Anyone showing you a hit rate without showing you the cost per trade has not told you anything yet."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "SECOND, this is why trading frequency is dangerous in a way that feels backwards. The edge and the cost both scale with the number of trades, so trading more does not help you outgrow the fee — and if your edge is thinner than the cost, trading more simply loses money faster and more reliably. The law of large numbers works for the broker as well as against you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is also why execution cost is treated as a first-class problem at serious firms rather than an afterthought. Halving your cost per trade is worth exactly as much as improving your win rate by half the difference, and it is usually a great deal easier."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_in_ten_has_seen_the_coin",
    "title": "One in ten has seen the coin",
