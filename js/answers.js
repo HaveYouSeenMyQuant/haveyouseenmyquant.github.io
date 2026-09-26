@@ -16,8 +16,184 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 558,
+ "count": 561,
  "entries": [
+  {
+   "slug": "one_move_against_the_book",
+   "title": "One move against the book",
+   "ts": "2026-09-26T08:35:33+00:00",
+   "date": "26 Sep 2026",
+   "topic": "game theory",
+   "q": null,
+   "a": "Five pence. Exactly the spread you were earning.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You made 5p a share on a thousand shares, so £50 sits in the morning's takings. You are holding a thousand shares. Every penny the price falls costs you £10 on that position. Five pence, and the £50 is gone."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "NOW THE PART THAT MAKES THIS A RULE RATHER THAN A SUM. It does not depend on how many shares you hold. Earn s per share on N shares and you have N times s. Hold N shares through a move of m and you lose N times m. Set those equal and the N cancels: m = s."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the sentence to remember is short. A move of ONE SPREAD against your inventory erases the profit from making that spread — whether you are holding a hundred shares or a hundred thousand."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Which is why market making is not the free money it looks like from outside. The spread is small and certain; the inventory is large and random. You are collecting pennies in front of something that moves in pennies all day long, and the only thing keeping you alive is that you get OUT of the position fast enough that the number of pennies it moves is smaller than the number you collected."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the whole job, and it is why a market maker's day is spent managing what they are holding rather than choosing what to buy. It is why quotes get skewed — if you are long you lower both sides, to sell more eagerly than you buy. It is why position limits exist and why they are hard limits. And it is why a maker will happily cross the spread and PAY to get flat before a number comes out: paying one spread to remove the risk of many is obviously right."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Notice too what this says about holding on. There is no version of \"wait for it to come back\" that improves the arithmetic. Every extra minute holding is another draw from a distribution that does not know or care what you paid."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "the_salt_cannot_get_out",
+   "title": "The salt cannot get out",
+   "ts": "2026-09-26T08:02:25+00:00",
+   "date": "26 Sep 2026",
+   "topic": "thermodynamics",
+   "q": null,
+   "a": "About fifteen atmospheres. Roughly five car tyres, held back by a membrane a few molecules thick.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The sum is one line — van 't Hoff. Osmotic pressure is Pi = i M R T. Table salt splits into two ions, so i = 2. The concentration is 0.3 mol per litre, which is 300 mol per cubic metre. R is 8.314, and body temperature is 310 K."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Pi = 2 x 300 x 8.314 x 310 = 1,546,000 Pa"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is about 1,550 kPa, or 15.3 atmospheres."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put that next to something. The pressure difference across an aircraft cabin door at cruise is about 53 kPa — this is nearly thirty times larger. A car tyre is about 220 kPa. Your cells are holding back more than five of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE NUMBER ACTUALLY TELLS YOU, which is why this is worth knowing rather than just startling."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is why a cell in pure water bursts, and why cells that must survive fresh water build a wall — plants, fungi and bacteria all have one, animals mostly do not. It is why plants stand up at all: turgor pressure IS this pressure, and a wilting plant is one that has lost it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is why a drip is saline and not water. Push pure water into a vein and you burst red cells directly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And it is why desalination is expensive. To push water the wrong way through a membrane you must beat the osmotic pressure, so seawater — about 27 atmospheres — needs pumps working above that before a single drop crosses. The energy cost of reverse osmosis is set by this line of algebra, not by engineering cleverness."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Notice the one input that surprises people: it does not depend on what the dissolved thing IS. Sugar, salt or protein, only the number of particles counts. That is why the i matters — glucose at the same molarity gives exactly half, because it does not split in two."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "a_hundred_metres_up_in_ten_minutes",
+   "title": "A hundred metres up in ten minutes",
+   "ts": "2026-09-26T07:25:31+00:00",
+   "date": "26 Sep 2026",
+   "topic": "physics",
+   "q": null,
+   "a": "About 123 watts. Two old filament bulbs, held for ten minutes.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The sum is short. Lifting 75 kg through 100 m takes mgh = 75 x 9.81 x 100 = 73,575 joules. Spread that over ten minutes, which is 600 seconds, and you get 73,575 / 600 = 123 watts."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Almost everyone guesses far higher, and the reason is worth naming: the effort FEELS enormous, and a watt sounds like a small unit because we meet it on lightbulbs. Both instincts are right and they still mislead you. A human is simply not a powerful machine. A fit amateur holds 200 to 250 W for an hour; a Tour professional holds about 400 W; a decent kettle is 3,000 W. You could not boil a kettle with twenty cyclists."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The energy side is even more startling. 73,575 joules is about 17.6 kilocalories — the food energy in roughly a quarter of a digestive biscuit. Ten minutes of hard climbing, and gravity took a biscuit off you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two honest caveats, because the question said \"just to lift themselves\". Real riding also fights rolling resistance and air, and the body is only about a quarter efficient at turning food into pedal work. So the rider burns perhaps four times the food energy above, and on a fast descent air resistance would dominate entirely. On a steep slow climb, though, gravity is nearly the whole story, which is exactly why this sum is the one cyclists actually use."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And notice what the answer does not depend on: how steep the hill is. A hundred metres of height in ten minutes is the same power whether it took you one kilometre or five. Steepness changes the gear you need, not the watts."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "twenty_ahead_of_you_in_the_queue",
    "title": "Twenty ahead of you in the queue",
@@ -38918,5 +39094,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "you_only_know_who_you_said_yes_to"
+ "featured": "a_secret_shouted_aloud"
 };
