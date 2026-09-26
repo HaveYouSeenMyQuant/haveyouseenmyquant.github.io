@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 570,
+ "count": 571,
  "entries": [
+  {
+   "slug": "back_half_then_forward_half",
+   "title": "Back half, then forward half",
+   "ts": "2026-09-26T19:58:19+00:00",
+   "date": "26 Sep 2026",
+   "topic": "mechanics",
+   "q": null,
+   "a": "Exactly where it was before you corrected it. Still half a millimetre past the mark. The handwheel moved a full millimetre and the tool moved nothing.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WALK IT THROUGH. Feeding in, the nut's flank is pressed against one side of the thread and all the slack sits behind it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Wind back half a millimetre: the first two tenths are spent shoving the nut across the gap to the other flank, during which the tool does not move at all. Only the remaining three tenths actually retract it. Tool is now two tenths past the mark."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Wind forward half a millimetre: the first two tenths are spent shoving the nut back across the same gap. Only three tenths advance it. Tool is back to five tenths past the mark."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Out and back, two tenths lost each way, three tenths of real motion each way. You are precisely where you started."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL RULE IS STRONGER THAN THE EXAMPLE. Any equal there-and-back returns the tool EXACTLY to where it began, for any amount of slack and any size of move. So you can never trim an overshoot by wiggling — not with a finer touch, not with a better dial, not by going slowly. The error is not in your hands."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT MACHINISTS ACTUALLY DO. Always approach a dimension from ONE direction. If you overshoot, back off by MORE than the slack — well clear, a whole turn if you like — and then come in once, in the original direction. The slack gets taken up during the approach, before you reach anything that matters, and the last movement of the tool is honest."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is the same reason a telescope drive, a CNC machine and a camera lens all specify which way to approach focus, and why CNC controllers carry an explicit backlash compensation number for each axis. The slack cannot be removed, only routed somewhere harmless."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "it_keeps_spiking_forever",
    "title": "It keeps spiking forever",
