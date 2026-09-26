@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 561,
+ "count": 562,
  "entries": [
+  {
+   "slug": "a_quarter_yours_the_rest_borrowed",
+   "title": "A quarter yours, the rest borrowed",
+   "ts": "2026-09-26T09:14:13+00:00",
+   "date": "26 Sep 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "6.25%. A sixteenth. The stock barely has to move.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Here is why it is so small. The debt is £7,500 and it does not change — that is the whole point of a debt. So when the position is worth V, your share of it is V minus 7,500."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The broker wants your share to be at least a fifth of V:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (V - 7,500) / V  >=  1/5"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Multiply out and 0.8V >= 7,500, so V >= £9,375. The position started at £10,000, so it can lose £625 and no more. That is 6.25%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TRAP IS WORTH MORE THAN THE ANSWER. Almost everyone reasons \"a quarter of it is mine, so I have 25% of room\". That number is not wrong, it is the answer to a different question: 25% is where your equity reaches ZERO, and no broker waits for that. The maintenance rule stops you a quarter of the way there."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The general shape is f = 1 - D / (V(1-m)), and the two things it says are both uncomfortable. Borrow more and the room shrinks fast: at £2,000 of your own money the fall you can take is 0%, you are called immediately. And raise the maintenance requirement — which brokers do, without asking, precisely when markets get violent — and the room shrinks again on a position you have not touched."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That second point is the one that ruins people. The margin call does not arrive because you were wrong by very much. It arrives because you were slightly wrong at the moment the rules tightened, and it arrives as a forced sale at the worst available price, which is also the price at which everyone else in your position is being sold out. Leverage does not just amplify losses; it takes the timing of the exit away from you."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_move_against_the_book",
    "title": "One move against the book",
