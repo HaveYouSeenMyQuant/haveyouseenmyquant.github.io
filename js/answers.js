@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 569,
+ "count": 570,
  "entries": [
+  {
+   "slug": "it_keeps_spiking_forever",
+   "title": "It keeps spiking forever",
+   "ts": "2026-09-26T19:13:48+00:00",
+   "date": "26 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "Both. And that is not a dodge — it is the reason the subject has two different words for convergence.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "IN PROBABILITY, it converges to zero. The chance that X_n is anything other than zero is exactly 1/n, and that goes to zero. Pick any tolerance you like and far enough out, X_n is almost certainly inside it. By this definition the sequence settles, cleanly."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "ALMOST SURELY, it does not. Look at a single infinite run rather than at each n separately, and the ones never stop coming. The sum of 1/n diverges, and the X_n are independent, so the second Borel-Cantelli lemma says a one happens infinitely often with probability one. Not \"rarely\". Infinitely often, in every single run."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE NUMBER THAT MAKES IT CONCRETE. The expected number of ones between n and 10n is the harmonic sum across a decade, which is log 10, about 2.3. So you get roughly two or three spikes between a thousand and ten thousand, another two or three between a million and ten million, another two or three between a trillion and ten trillion. For ever. The spikes get rarer per draw and never get rarer per decade."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL IS WHAT PROVES IT. Change the probability from 1/n to 1/n SQUARED. Everything looks the same — still almost always zero, still shrinking. But now the sum converges, the FIRST Borel-Cantelli lemma applies, and after some finite point the ones simply stop. Simulate a million draws and there is not one past n = 1000. Same shape, opposite answer. What matters is not that the probability is small; it is whether the sum of the probabilities is finite."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because \"converges\" sounds like one idea and is two, and almost every mistake with laws of large numbers, Monte Carlo error and backtest convergence comes from using one when you needed the other. A strategy whose drawdown goes to zero in probability can still blow up infinitely often."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "given_that_it_is_a_rational",
    "title": "Given that it is a rational",
