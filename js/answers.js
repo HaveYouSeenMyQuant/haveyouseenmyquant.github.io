@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_middle_of_the_wire_is_idle",
    "title": "The middle of the wire is idle",
-   "ts": "2026-09-26T17:47:23+00:00",
+   "ts": "2026-09-26T17:50:54+00:00",
    "date": "26 Sep 2026",
    "topic": "electricity",
    "q": null,
