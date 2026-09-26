@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 568,
+ "count": 569,
  "entries": [
+  {
+   "slug": "given_that_it_is_a_rational",
+   "title": "Given that it is a rational",
+   "ts": "2026-09-26T18:26:07+00:00",
+   "date": "26 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "There is no answer. Not \"a half\", and not \"we haven't worked it out\" — the question genuinely does not have one, and seeing why is the whole prize.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE IT BREAKS. Conditional probability is defined as"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(A | B) = P(A and B) / P(B)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and that needs P(B) to be greater than zero. The fractions between 0 and 1 are countable — you can list them all, 1/2, 1/3, 2/3, 1/4, ... — and a countable set of points has total length zero. So P(B) = 0, and the definition gives 0/0."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "\"BUT SURELY YOU JUST TAKE A LIMIT.\" That is the right instinct and it is exactly where the trap is. Approach the fractions through a shrinking family of ordinary, positive-probability events, and see what the answer tends to. The problem is that DIFFERENT shrinking families give DIFFERENT limits."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Take all fractions with denominator at most N, equally weighted. That family is symmetric about a half, so it tends to a half — the intuitive answer, recovered honestly. Now weight the same fractions differently, still a perfectly good probability distribution on the same set, still shrinking onto the same points, and you can make it tend to 0.9. Or 0.25. Or anything you like."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two legitimate routes, two different destinations. When that happens there is nothing at the destination."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE NAME. This is the Borel-Kolmogorov paradox, and it is the reason measure theory is so insistent about conditioning only on events of positive probability. It is not pedantry; it is the fence around a real hole."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER MIGHT ASK. Because the seductive move — \"by symmetry, a half\" — is a symmetry argument applied where no probability measure exists to be symmetric. The skill being tested is noticing that a question can be malformed, rather than racing to answer it. In practice that is the more valuable habit: most expensive modelling mistakes are confident answers to questions that were never well posed."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_middle_of_the_wire_is_idle",
    "title": "The middle of the wire is idle",
