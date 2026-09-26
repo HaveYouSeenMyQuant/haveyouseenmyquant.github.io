@@ -16,12 +16,135 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 571,
+ "count": 573,
  "entries": [
+  {
+   "slug": "split_it_across_two_bonds",
+   "title": "Split it across two bonds",
+   "ts": "2026-09-26T21:29:20+00:00",
+   "date": "26 Sep 2026",
+   "topic": "risk",
+   "q": null,
+   "a": "A forty nine pound LOSS. Splitting the position moved the reported risk from a two pound gain to a forty nine pound loss, and nothing about the portfolio got worse.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THE JUMP COMES FROM. With one bond, the chance of default is 4%, and 4% fits inside the 5% you are allowed to ignore. Every bad outcome is hidden, so the worst surviving case is the coupon."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "With two independent bonds, the chance that AT LEAST ONE defaults is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 - 0.96 x 0.96 = 7.84%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "which no longer fits inside 5%. The tail you must look at now contains a single default: you lose 50 on one bond and collect 1 on the other, so 49."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PORTFOLIO IS GENUINELY BETTER. Expected loss is 2.08 either way — that is just linearity, and diversification never changes it. The VARIANCE falls, as you would expect. By every sane measure the split position is safer. Only the reported number got worse."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT MATTERS. This is the failure of SUBADDITIVITY: the risk of a combined position can exceed the sum of the parts. A measure that punishes diversification is not measuring risk, and this is exactly why Value at Risk is called incoherent, and why Basel moved bank capital onto expected shortfall instead."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL PROVES IT IS THE MEASURE, NOT THE BONDS. Expected shortfall is the average loss across the whole ignored tail rather than its edge. Run it on the same two positions: 79.6 for one bond, 50.6 for the split. It falls, which is what a risk measure should do when you diversify. Same bonds, same numbers, opposite verdict."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND IT IS NOT A UNIVERSAL TRICK. Ask for 99% instead of 95% and the paradox vanishes, because a single default no longer hides inside the ignored tail. The failure needs a tail event that is rarer than your threshold — which, unfortunately, is the precise description of the things that actually bankrupt people."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "why_not_just_switch_at_twenty",
+   "title": "Why not just switch at twenty",
+   "ts": "2026-09-26T20:47:22+00:00",
+   "date": "26 Sep 2026",
+   "topic": "control",
+   "q": null,
+   "a": "A hundred and fifty times an hour, against seven and a half with the two degree gap.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    one cycle = up the gap + down the gap",
+      "              = gap / rate + gap / rate"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At half a degree a minute, a two degree gap takes 4 minutes to climb and 4 to fall: an 8 minute cycle, so 7.5 an hour. A tenth of a degree takes 0.2 minutes each way: a 0.4 minute cycle, so 150 an hour."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE LAW IS THE USEFUL PART. Switching rate goes as one OVER the gap. Twenty times narrower, twenty times more often — exactly, not roughly. And that means closing the gap completely does not give you perfect control. It sends the switching rate to infinity."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THAT IS THE WHOLE REASON THE GAP EXISTS. With a single threshold at twenty, the room is never exactly at twenty; it is a hair above or a hair below, and noise in the sensor pushes it across the line constantly. The relay would open and close many times a second. Contacts weld, compressors burn out, and a boiler that needs a minute to light never gets one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the gap is not imprecision in the thermostat. It is the mechanism that makes a switching controller usable at all, and the designer's trade is explicit: a wider gap means sloppier temperature and longer equipment life, a narrower one the reverse."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE ELSE YOU WILL MEET IT. Exactly the same two-threshold trick is a Schmitt trigger, which is how a noisy analogue signal is turned into a clean digital one; it is the deadband in a disk-drive head servo; and it is why a fridge lets itself drift a couple of degrees rather than holding one. Whenever a system must make a discrete decision about a continuous quantity, it needs two thresholds, not one."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "back_half_then_forward_half",
    "title": "Back half, then forward half",
-   "ts": "2026-09-26T19:58:19+00:00",
+   "ts": "2026-09-26T20:04:32+00:00",
    "date": "26 Sep 2026",
    "topic": "mechanics",
    "q": null,
