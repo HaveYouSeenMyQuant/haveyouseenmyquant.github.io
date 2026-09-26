@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "split_it_across_two_bonds",
    "title": "Split it across two bonds",
-   "ts": "2026-09-26T21:29:20+00:00",
+   "ts": "2026-09-26T21:32:08+00:00",
    "date": "26 Sep 2026",
    "topic": "risk",
    "q": null,
