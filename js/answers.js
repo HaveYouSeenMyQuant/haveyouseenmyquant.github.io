@@ -16,12 +16,59 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 563,
+ "count": 564,
  "entries": [
+  {
+   "slug": "one_person_ahead_of_you",
+   "title": "One person ahead of you",
+   "ts": "2026-09-26T12:56:56+00:00",
+   "date": "26 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "About 37 percent. Not the half that \"the average is fifteen minutes\" makes it sound like.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(X >= 15) = e^(-15/15) = e^-1 = 0.368"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS NOT A HALF. An exponential is skewed. Its MEDIAN is 15 x ln2, which is about ten and a half minutes — so the typical service is quite a bit shorter than the average, and it is a handful of very long ones that drag the mean up to fifteen. \"Average\" and \"half the time\" are the same number only for a symmetric distribution, and almost nothing about waiting is symmetric."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL MAKES IT OBVIOUS. Suppose every service took exactly fifteen minutes. Same average. Now your chance of waiting fifteen minutes or more is 100 percent, not 37. Nothing changed but the variability, and the answer moved from 0.37 to 1. The spread is doing all the work here, not the mean."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART WORTH REMEMBERING. Exponential waits are MEMORYLESS. Suppose you have already stood there fifteen minutes. The chance you wait fifteen MORE is e^-1 again — the same 37 percent you started with. The queue has no memory of how long you have suffered, which is why a wait that \"should have finished by now\" genuinely has not become more likely to end."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is the property interviewers are usually testing. If a question gives you an exponential and then tells you some time has already passed, the elapsed time is almost always a red herring, and the answer is whatever it was at the start."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_box_of_hot_bricks",
    "title": "A box of hot bricks",
-   "ts": "2026-09-26T11:56:20+00:00",
+   "ts": "2026-09-26T11:59:19+00:00",
    "date": "26 Sep 2026",
    "topic": "thermodynamics",
    "q": null,
