@@ -16,8 +16,62 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 562,
+ "count": 563,
  "entries": [
+  {
+   "slug": "a_box_of_hot_bricks",
+   "title": "A box of hot bricks",
+   "ts": "2026-09-26T11:56:20+00:00",
+   "date": "26 Sep 2026",
+   "topic": "thermodynamics",
+   "q": null,
+   "a": "About ten hours. A box of bricks heats a room for a working day.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The sum is one line. Energy stored is mass times specific heat capacity times temperature rise: 80 kg, about 900 joules per kilogram per degree for ceramic, and a rise of 580 degrees from room temperature to six hundred."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    Q = 80 x 900 x 580 = 41,760,000 J"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is 41.8 megajoules, or 11.6 kilowatt-hours — a meaningful slice of a small home's daily electricity. Divide by the twelve hundred watts the room is drawing and you get 34,800 seconds, which is nine hours and forty minutes."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT SURPRISES PEOPLE. A brick does not look like a battery. But energy storage does not care what something looks like, only about mass, specific heat and temperature — and a storage heater is deliberately built to maximise all three. That is also why they are so heavy: the mass IS the product."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL IS THE INTERESTING PART. Run the same sum with eighty kilograms of WATER instead of brick and it lasts about four and a half times as long, because water's specific heat is 4,184 against ceramic's 900. Water is one of the best heat stores there is, per kilogram, which is why hot-water tanks exist and why the sea moderates the climate of everywhere near it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So why do storage heaters use brick? Because water at six hundred degrees is not water. Brick can be taken to a temperature water cannot survive, and the dT in that formula more than repays the worse c. Storage is always this trade: how much heat per kilogram per degree, times how many degrees you are allowed to use."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_quarter_yours_the_rest_borrowed",
    "title": "A quarter yours, the rest borrowed",
