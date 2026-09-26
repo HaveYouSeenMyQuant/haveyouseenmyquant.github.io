@@ -16,8 +16,62 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 556,
+ "count": 557,
  "entries": [
+  {
+   "slug": "you_paid_for_the_hole_you_made",
+   "title": "You paid for the hole you made",
+   "ts": "2026-09-26T05:49:22+00:00",
+   "date": "26 Sep 2026",
+   "topic": "game theory",
+   "q": null,
+   "a": "£450. Four and a half pence a share, not nine and not ten.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Count it a thousand at a time. The first thousand cost you nothing extra — they were at the screen price. The second thousand cost a penny more each, so £10. The third cost two pence more, £20. And so on up to the last thousand at nine pence more, £90."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Add those up: 0 + 10 + 20 + ... + 90 = £450 across ten thousand shares, which is 4.5p a share. The price on the screen ended nine pence higher than it started, and you paid just half of that on average, because you got the early levels cheap."
+     ]
+    },
+    {
+     "h": "TWO THINGS FOLLOW, AND THE SECOND IS THE ONE THAT MATTERS.",
+     "t": "p",
+     "lines": [
+      "First, the final price is not what you paid. Traders quote the move — \"I pushed it nine pence\" — and then reason as if the whole order went through at the top. It did not. On a straight book you pay half the move."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Second, and this is the part that decides how large a fund can be: the cost goes as the SQUARE of the size. Double the order to twenty thousand and you climb twenty levels instead of ten, so the bill is not £900, it is £1,900. Double again and it is £7,800. Four times the cost for twice the size, every time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That asymmetry is why a strategy that prints money on a million pounds can be worthless on a hundred million, why funds close to new investors, and why execution is split into slices over hours instead of sent as one order. It is also why \"we only trade liquid names\" is a risk statement and not a boast."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The neat way to hold it: the shape of the cost is a triangle, not a rectangle. Everyone reasons about the rectangle."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "right_fifty_five_times_in_a_hundred",
    "title": "Right fifty-five times in a hundred",
