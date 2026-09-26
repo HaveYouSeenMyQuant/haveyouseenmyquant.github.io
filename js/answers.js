@@ -16,8 +16,95 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 574,
+ "count": 575,
  "entries": [
+  {
+   "slug": "the_same_eighty_nine_both_times",
+   "title": "The same eighty nine both times",
+   "ts": "2026-09-26T23:59:00+00:00",
+   "date": "26 Sep 2026",
+   "topic": "decision",
+   "q": null,
+   "a": "Those two choices cannot both be right — and not \"cannot both be right if you are rational about money\". Cannot both be right for ANY attitude to risk at all, however cautious or reckless.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "LOOK AT WHAT THE TWO PAIRS SHARE. Write each gamble as 100 numbered tickets."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    A:  tickets 1-11 pay £1m   |  tickets 12-100 pay £1m",
+      "    B:  ticket 1 pays nothing,",
+      "        tickets 2-11 pay £5m   |  tickets 12-100 pay £1m"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    C:  tickets 1-11 pay £1m   |  tickets 12-100 pay nothing",
+      "    D:  ticket 1 pays nothing,",
+      "        tickets 2-11 pay £5m   |  tickets 12-100 pay nothing"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The left-hand side is identical between the pairs. The right-hand side — those 89 tickets — is the same WITHIN each pair: £1m either way in the first, nothing either way in the second."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So in both pairs, those 89 tickets pay you exactly the same whichever option you choose. They cannot possibly help you decide. Strike them out and the first choice IS the second choice, written twice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    A over B  =>  0.11 u(£1m)  >  0.10 u(£5m) + 0.01 u(0)",
+      "    C over D  =>  0.11 u(£1m)  >  0.10 u(£5m) + 0.01 u(0)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "One inequality. Preferring A commits you to preferring C."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE MIND BREAKS HERE. In the first pair A is CERTAIN, and certainty gets weighted far beyond its probability — the jump from 99% to 100% feels bigger than 89% to 90%, though both are one ticket. In the second pair nothing is certain, so that pull vanishes and the numbers are allowed to speak. Kahneman and Tversky built prospect theory around exactly this."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT IT COSTS IN PRACTICE. The axiom being broken is INDEPENDENCE: a consequence shared by both options should not affect the choice between them. Drop it and you can be led round a loop of swaps, each one an improvement, that returns you to where you started poorer. Anyone quoting you prices can find that loop."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND IT IS NOT ABOUT EXPECTED VALUE. B beats A on expected value (£1.39m against £1m) and D beats C (£0.50m against £0.11m). Expected value says B and D. The common answer is A and D, which agrees with it in one pair and not the other — which is the tell."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_other_pocket_is_not_empty",
    "title": "The other pocket is not empty",
