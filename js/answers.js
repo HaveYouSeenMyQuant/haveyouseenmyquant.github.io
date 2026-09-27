@@ -16,12 +16,212 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 593,
+ "count": 596,
  "entries": [
+  {
+   "slug": "everyone_got_their_quarter",
+   "title": "Everyone got their quarter",
+   "ts": "2026-09-27T20:16:31+00:00",
+   "date": "27 Sep 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Yes — and it takes one line to show it.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Four people, four slices A, B, C, D. Each row is what that person thinks each slice is worth, as a share of the whole cake."
+     ]
+    },
+    {
+     "h": "A       B       C       D",
+     "t": "pre",
+     "lines": [
+      "    Ama           0.25    0.50    0.125   0.125",
+      "    Ben           0.20    0.40    0.20    0.20",
+      "    Cal           0.20    0.20    0.40    0.20",
+      "    Dee           0.20    0.20    0.20    0.40"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Ama takes A, Ben takes B, Cal takes C, Dee takes D. Every row gives its owner at least a quarter, so nobody was short-changed by their own measure. That is PROPORTIONAL division and it is satisfied here."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND YET Ama values Ben's slice at half the cake, against the quarter she is holding. She got exactly what she was promised and she would still swap in a heartbeat. Getting your fair share and not wanting anyone else's are two different things, and only the second one is called ENVY-FREE."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE IMPLICATION RUNS ONE WAY ONLY. If everybody thinks their own slice is the biggest, then everybody has at least a quarter — four slices adding to one, and yours is the largest, so yours is at least the average. Envy-free forces proportional. Nothing forces it back, and this example is why."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL SAYS WHERE THE GAP COMES FROM. Run the same test with everyone given the SAME opinion of every slice, and the two conditions become identical in every case. The gap is manufactured entirely by disagreement. Where people value things differently, \"everyone got their share\" stops meaning \"everyone is content\" — and it is not a rare corner either: among random four-person instances that are proportional, well under half are envy-free."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because it is the difference between a constraint that is satisfied and a system that is stable. A bonus pool, a capital allocation or a desk split can meet every stated fairness rule and still have someone looking across the table — and the fix is always to say which of the two you meant before you start dividing."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "add_up_to_nine_two_ways",
+   "title": "Add up to nine, two ways",
+   "ts": "2026-09-27T19:08:07+00:00",
+   "date": "27 Sep 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Neither. They are exactly the same length — eight each — and it is not a coincidence about nine.",
+   "why": [
+    {
+     "h": "ODD PARTS            NO REPEATS",
+     "t": "pre",
+     "lines": [
+      "    9                    9",
+      "    7+1+1                8+1",
+      "    5+3+1                7+2",
+      "    5+1+1+1+1            6+3",
+      "    3+3+3                5+4",
+      "    3+3+1+1+1            6+2+1",
+      "    3+1+1+1+1+1+1        5+3+1",
+      "    1x9                  4+3+2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Euler proved the two counts agree for EVERY number, and the proof is a matching you can do by hand."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE MATCHING. Take a no-repeats partition. Write each part as a power of two times an odd number — 12 is 4x3, 6 is 2x3, 5 is 1x5 — and replace it by that many copies of the odd number. So 6+3 becomes 3+3+3. Every no-repeats partition lands on an odd-parts partition of the same total."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND NOTHING IS MISSED OR HIT TWICE, because you can run it backwards: count how many copies of each odd number you have, write that count in binary, and the powers of two in it tell you which distinct parts to rebuild. 3+3+3 has three 3s, and 3 in binary is 2+1, so you get 6+3 back. Binary representation being unique is the entire proof."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL SHOWS HOW TIGHT IT IS. Swap \"odd\" for \"even\" and it collapses instantly — 9 has no partition into even parts at all, and at 12 the counts are 11 against 15. Swap \"no repeats\" for \"no repeats and all odd\" and it breaks too. Neither half of the statement can be moved."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Nor is it just that both are small: 9 has 30 partitions altogether. The two restrictions cut it to eight from opposite directions and land on the same number."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Not for the count. For whether you look for a matching when two sets come out the same size — a bijection is a proof and two equal numbers are an observation, and the whole of combinatorics is the habit of preferring the first."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "a_map_on_a_doughnut",
+   "title": "A map on a doughnut",
+   "ts": "2026-09-27T18:00:41+00:00",
+   "date": "27 Sep 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "SEVEN — and the direction is the surprise. Putting a hole in the surface makes the problem HARDER, not easier.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is also, unlike the flat case, not hard to prove. On a surface of Euler characteristic chi, a map drawn without crossings obeys"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E <= 3V - 3*chi"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "because every region needs at least three sides. A doughnut has chi = 0, so E <= 3V."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "NOW ASK FOR SEVEN COUNTRIES THAT ALL BORDER EACH OTHER. That needs V = 7 and E = 7*6/2 = 21 — and the bound allows exactly 21. It fits, with nothing to spare. Try eight and you need 28 edges against a bound of 24: impossible. So seven mutually bordering countries can be drawn on a doughnut, eight cannot, and seven colours are both necessary and enough."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You can build that seven-country map explicitly and check it: the arrangement has 14 triangular regions, and 7 - 21 + 14 = 0, which is the doughnut's Euler characteristic exactly. Nothing about it is a near miss."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "MORE HOLES, MORE COLOURS. Heawood's formula gives floor((7 + sqrt(1+48g))/2) for a surface with g holes: 7 on a doughnut, 8 on a pretzel, 9 on three holes, 14 on ten. It does not climb every time — seven holes and six holes both need 12."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FLAT PAGE IS THE ODD ONE OUT. Put g = 0 into the same formula and it says four, which is right — but that is luck rather than proof. The easy argument only reaches six on a sphere; five is harder; four took Appel and Haken and a computer in 1976 and was the first major theorem proved that way. For every surface EXCEPT the sphere, the easy bound is already the true answer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Not for the number. For whether you reach for Euler's formula when someone changes the shape of the space — the instinct that a counting identity about the surface constrains everything you can draw on it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_long_is_the_longest_streak",
    "title": "How long is the longest streak",
-   "ts": "2026-09-27T17:02:02+00:00",
+   "ts": "2026-09-27T17:03:52+00:00",
    "date": "27 Sep 2026",
    "topic": "probability",
    "q": null,
