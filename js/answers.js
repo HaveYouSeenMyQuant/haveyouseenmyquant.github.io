@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "the_dividend_lands_in_your_account",
    "title": "The dividend lands in your account",
-   "ts": "2026-09-27T06:23:13+00:00",
+   "ts": "2026-09-27T06:25:00+00:00",
    "date": "27 Sep 2026",
    "topic": "finance",
    "q": null,
