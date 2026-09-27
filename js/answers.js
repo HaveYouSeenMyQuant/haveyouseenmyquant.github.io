@@ -16,8 +16,85 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 586,
+ "count": 587,
  "entries": [
+  {
+   "slug": "fifty_matches_in_each_pocket",
+   "title": "Fifty matches in each pocket",
+   "ts": "2026-09-27T10:26:53+00:00",
+   "date": "27 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "The commonest answer is NONE — and the average is seven. Both at once, which is why the question gets asked.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE SET-UP. Two boxes, N matches in each, every reach a fair coin. He finds a box empty on the (N+1)-th reach into that pocket, by which time he has reached into the other pocket N-k times. So for one named pocket the chance is C(2N-k, N) / 2^(2N-k+1), and either pocket could be the one, which doubles it:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    P(other box holds exactly k) = C(2N-k, N) / 2^(2N-k)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "With fifty in each box that gives:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    k = 0    7.96%          k = 1    7.96%",
+      "    k <= 5   46.2%          k >= 20   2.6%",
+      "    average  7.04"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TIE IS REAL, not a rounding artefact: P(0) and P(1) are the same number exactly. They are jointly the most likely outcome."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS SEVEN AND NOT TWENTY-FIVE. The gap between the two boxes is a random walk on fair coin flips, and after about a hundred reaches a random walk is typically ten steps from where it started, not fifty. The boxes drift apart in proportion to the SQUARE ROOT of what you started with. That is why 2*sqrt(N/pi) - 1 predicts the mean: at N = 50 it gives 6.98 against 7.04."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE MODE AND THE MEAN DISAGREE, and neither is lying. Nearly half the time the other box has five or fewer. But a long thin tail — occasionally he is twenty or thirty matches out of step — drags the average up to seven. Quoting \"on average seven\" as though that is what he should expect to see is the mistake the question is built to catch."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL THAT PROVES IT IS THE RANDOMNESS. Take the same two boxes and the same fifty matches, but make him ALTERNATE pockets strictly instead of choosing at random. Now the other box holds nothing, or one match, every single time, with no spread whatever. Nothing about the boxes changed. The entire distribution is manufactured by the coin."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because it is the shape of every inventory, queue and hedging problem: two things drawn down by a random process, and the question is never the average difference, it is the distribution of the difference at the moment one side runs out. People reach for the mean, and the mean is the one number that describes almost nobody here."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "every_policy_is_a_bad_bet",
    "title": "Every policy is a bad bet",
