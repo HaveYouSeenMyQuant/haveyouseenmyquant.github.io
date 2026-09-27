@@ -16,8 +16,78 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 589,
+ "count": 590,
  "entries": [
+  {
+   "slug": "heads_right_after_a_head",
+   "title": "Heads right after a head",
+   "ts": "2026-09-27T13:59:48+00:00",
+   "date": "27 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "No. It comes out BELOW a half, and the gap is not rounding.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "This is the Miller-Sanjurjo selection bias (Econometrica, 2018). Average the per-row share over every possible sequence and you get:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    four flips a row ...... 17/42 = 40.48%   (the worst it ever gets)",
+      "    ten flips a row ....... 44.54%",
+      "    a hundred a row ....... about 49.5%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is a dead 1/2 only when a row is two flips long. From three flips on it sits below a half, bottoms out at four, and then closes on a half without ever arriving."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE IT COMES FROM. You are not sampling flips, you are sampling ROWS, and every row gets one vote no matter how many kept flips it holds. Rows where heads happen to be followed by tails tend to have FEWER kept flips, so a low share arrives on a small denominator and still counts once — the same as a high share on a big one. Averaging ratios is not the ratio of the totals."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL IS THE PROOF. Pool every kept flip from every row into one big pile and take a single ratio. That is exactly 1/2, at every row length, no exceptions. Identical flips, identical kept positions. The bias lives entirely in the averaging, not in the coin — which is why \"coins have no memory\" is true and beside the point."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "ONE DETAIL DECIDES IT. A row with no kept flips at all (all tails, or all tails then a head) has no share to contribute and must be DROPPED. Score it as zero instead and you get a different, wrong answer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT MATTERS. The famous 1985 paper that declared the hot hand a myth used this exact statistic and took its null value to be 1/2. It is not. A player shooting at their usual rate after a streak is already beating the null, so the result reverses. Wikipedia no longer has an article called \"hot hand fallacy\" — it redirects to \"hot hand\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because conditioning on an event and then measuring what follows it is what backtests, cohort analyses and event studies all do, and the null is almost never the one you would have written down."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "win_the_fifth_and_keep_going",
    "title": "Win the fifth and keep going",
