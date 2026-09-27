@@ -16,8 +16,94 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 588,
+ "count": 589,
  "entries": [
+  {
+   "slug": "win_the_fifth_and_keep_going",
+   "title": "Win the fifth and keep going",
+   "ts": "2026-09-27T13:07:29+00:00",
+   "date": "27 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "5 - 4p, and the reason is better than the formula.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Split on the fifth game, which is the only thing the rule cares about."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  THE FIFTH IS A LOSS (chance 1-p). You stop. Your losses are whatever you",
+      "  lost in games one to four, plus that one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  THE FIFTH IS A WIN (chance p). You carry on, and the continuation runs until",
+      "  it hits a loss and then stops — so it contributes exactly one loss, however",
+      "  long it goes on. Your losses are whatever you lost in games one to four,",
+      "  plus that one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The two branches give the SAME count. So you never need the chance of winning the fifth game at all:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  E[losses] = 4(1-p) + 1 = 5 - 4p"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At p = 1/2 that is 3. At p = 0.9 it is 1.4."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT IT DOES NOT SAY. It does not say the rule is harmless. Play a flat five games with no continuation and you expect 5(1-p) losses — 2.5 at p = 1/2, against 3 with the rule. The rule ADDS losses. What it removes is the answer's dependence on how the fifth game went."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE OTHER COUNTER IS THE CONTRAST. Expected games PLAYED is 5 + p/(1-p): five at p = 0, eight at p = 3/4, fourteen at p = 0.9, and unbounded as p approaches 1. One counter is a straight line in p and the other is a hyperbola. Same rule, same games — which one you were asked for is the whole difficulty of the question."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At p = 1 there is no answer to either: you never lose, so the continuation never ends."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because the tempting move is to set up a sum over how long the continuation runs, and that sum is real but you never need it. Finding the split that makes both branches agree is the skill, and it is the same move behind Wald's identity and most clean answers about stopped processes: count the thing that the stopping rule pins down, not the thing it lets wander."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "draw_a_chord_at_random",
    "title": "Draw a chord at random",
