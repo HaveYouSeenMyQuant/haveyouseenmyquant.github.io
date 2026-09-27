@@ -16,12 +16,78 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 587,
+ "count": 588,
  "entries": [
+  {
+   "slug": "draw_a_chord_at_random",
+   "title": "Draw a chord at random",
+   "ts": "2026-09-27T11:33:28+00:00",
+   "date": "27 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "It has no answer, and that IS the answer. This is Bertrand's paradox.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "\"Uniformly at random\" sounds like an instruction and is not one. It does not say uniform over WHAT, and the circle offers no way to choose. Three natural readings give three different numbers, and every one of them is defensible:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  pick the chord's MIDPOINT uniformly in the disc .......... 1/4",
+      "  pick BOTH END POINTS uniformly on the rim ................ 1/3",
+      "  pick a DISTANCE from the centre uniformly, then the",
+      "    chord square-on to that radius ......................... 1/2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE EVENT IS THE SAME IN ALL THREE. A chord at distance d from the centre has length 2*sqrt(1 - d^2). Set that equal to sqrt(3) and you get d = 1/2 exactly. So every version is working out the chance that d < 1/2. What differs is the distribution each procedure puts on d:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  uniform along a radius  ->  d is flat on [0,1]           -> 1/2",
+      "  uniform midpoint        ->  d has density 2d             -> 1/4",
+      "  uniform end points      ->  d is |cos| of a uniform angle -> 1/3"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The midpoint version pushes d outwards, because there is far more disc area near the rim than near the centre, and outward means shorter."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THIS IS NOT A TRICK. There is no hidden correct reading. Jaynes argued for 1/2 on the grounds that it is the only one invariant under scaling and translation of the circle, which is a real argument — but it is an extra assumption about the problem, not something the problem told you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because \"assume it is random\" is the single most common unstated assumption in a model, and it is not a specification. A price, a delay, a failure time: saying the input is drawn at random does not pin the distribution down, and the answer can move by a factor of two while every step of the working stays valid. The question is a rehearsal for noticing that the sampling rule was never given."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "fifty_matches_in_each_pocket",
    "title": "Fifty matches in each pocket",
-   "ts": "2026-09-27T10:26:53+00:00",
+   "ts": "2026-09-27T10:28:59+00:00",
    "date": "27 Sep 2026",
    "topic": "probability",
    "q": null,
