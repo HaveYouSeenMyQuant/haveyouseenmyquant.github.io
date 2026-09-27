@@ -16,8 +16,84 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 578,
+ "count": 579,
  "entries": [
+  {
+   "slug": "steel_bolts_in_a_copper_plate",
+   "title": "Steel bolts in a copper plate",
+   "ts": "2026-09-27T05:01:39+00:00",
+   "date": "27 Sep 2026",
+   "topic": "materials",
+   "q": null,
+   "a": "The steel BOLTS go, and the factor is about ten thousand.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Steel is the more reactive of the pair, so steel is what corrodes in both builds. That part does not change. What changes is how much steel is being asked to supply the current."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Copper and steel in seawater make a battery. The copper is the cathode and the reaction there is limited by how much copper surface there is, so the total current is set by the COPPER area. All of that current has to come out of the steel, and the damage is that current spread over the steel's area."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    corrosion rate at the anode  ~  area of cathode / area of anode"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put the bolts at one percent of the plate's area and the two builds give"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    steel plate, copper bolts:  0.01 / 1     = 0.01",
+      "    copper plate, steel bolts:  1    / 0.01  = 100"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "a ratio of ten thousand. In general, for bolts at a fraction f of the plate, the ratio is exactly 1 / f squared — so halving the bolt size quadruples the gap."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TWO THINGS COMPOUND HERE. The big copper plate is also a hundred times more cathode than a few copper bolts, so it drives a hundred times more current in the first place. Then that larger current is concentrated into a hundred times less steel. A hundred times a hundred."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE RULE ENGINEERS ACTUALLY USE. Never let the anode be the small part. A small cathode on a large anode is close to harmless — the copper bolts in the steel plate barely mark it. The same two metals, in the same water, with the areas swapped, is a failure."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is also why a sacrificial anode works and why it has to be BIG: a zinc block on a steel hull is deliberately the anode, and it is sized large so the current it must carry is spread thin enough to last a season. Make the zinc small and you have simply built this failure on purpose."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "move_one_person_across",
    "title": "Move one person across",
