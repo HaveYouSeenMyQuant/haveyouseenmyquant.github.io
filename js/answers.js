@@ -16,8 +16,123 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 581,
+ "count": 583,
  "entries": [
+  {
+   "slug": "the_dividend_lands_in_your_account",
+   "title": "The dividend lands in your account",
+   "ts": "2026-09-27T06:23:13+00:00",
+   "date": "27 Sep 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "Not at all. You are exactly as rich as you were on Monday night.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The share does not open at a hundred on Tuesday. It opens at ninety five. You hold £95 of share and £5 of cash, which is £100 — the same £100 you went to bed with."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The company paid out five pounds per share of its own money, so the company is worth five pounds per share less. Nothing was created. The money moved from one pocket of yours to another."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THIS IS NOT A THEORY, IT IS ENFORCED. Suppose the price did NOT drop. Then you could buy the share on Monday evening for £100, collect the £5 on Tuesday morning, sell immediately at £100, and be £5 up for no risk and no capital held overnight. Do it again next quarter. Do it on every dividend-paying share at once. That money pump cannot exist, so the price must fall by the payout."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL: A BUYBACK DOES THE SAME THING BY THE OTHER ROUTE. Say the company has 100 shares at £100, so it is worth £10,000. It can pay £5 a share as a dividend — leaving a £9,500 company and 100 shares at £95 — or it can spend the same £500 buying back 5 of its own shares, leaving a £9,500 company and 95 shares, still £100 each. A holder who does nothing has £100 either way. Same cash leaving, two mechanisms, identical outcome. The result is about money leaving the company, not about dividends."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE IT STOPS BEING A CURIOSITY. Add tax. If dividends are taxed at 30% you receive £3.50, not £5, while the share still drops the full £5. You end the morning on £98.50 — strictly POORER than before a payout you did not ask for and could not decline. That is why the choice between dividends and buybacks is a real decision for a company and not a matter of style, and why \"high dividend yield\" is not, on its own, a reason to prefer a share."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
+  {
+   "slug": "oil_went_nowhere_you_lost_a_third",
+   "title": "Oil went nowhere, you lost a third",
+   "ts": "2026-09-27T05:44:39+00:00",
+   "date": "27 Sep 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "Down about a THIRD. Oil did nothing all year and the fund lost 37.5% of its value.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each month the fund buys a contract at 52 and holds it until it expires, by which point it is worth the spot price of 50. That is 2 lost on 52, or 3.85%, every single month."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    (1 - 0.0385) ^ 12  =  0.6246"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So 62.5% left, 37.5% gone, with the oil price exactly unchanged."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WATCH THE COMPOUNDING, BECAUSE THE OBVIOUS SHORTCUT IS WRONG. Twelve lots of 3.85% is 46%, and the real answer is 37.5%. Adding percentage losses always overstates them, because each month's loss is taken on a smaller pot. Nine points of difference on a number this size is not a rounding error, and getting the direction of that error right is half of what the question is testing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE CONTRACT COSTS MORE. Someone holding real oil for a month pays for the tank, the insurance and the money tied up. The futures price has to cover that, or you could buy oil now, store it, and sell it forward for a riskless profit. So the premium is not a market opinion that oil will rise — it is the cost of carry, and the fund pays it as a toll for not owning a tank."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE MIRROR IMAGE PROVES IT IS THE CURVE. When next month is CHEAPER than this month — which happens when everyone wants oil right now, as in a supply shock — the same fund GAINS more than half over a year with the price flat. Same mechanism, opposite sign. It is not a fee anyone is charging."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND IT IS NOT RESCUED BY THE PRICE GOING UP. Put oil up 20% over the year and the fund is STILL down, because the toll is charged twelve times whatever the spot does."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THIS IS REAL. In 2020 the largest oil fund held front-month crude through exactly this, and its investors were repeatedly surprised that a rising oil price did not rescue their position. Any product that must roll — commodity funds, volatility ETPs, anything holding futures it cannot take delivery of — has a return with a component that has nothing to do with the thing it tracks."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "drill_the_middle_out_of_it",
    "title": "Drill the middle out of it",
