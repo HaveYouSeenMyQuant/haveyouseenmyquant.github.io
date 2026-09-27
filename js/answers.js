@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "drill_the_middle_out_of_it",
    "title": "Drill the middle out of it",
-   "ts": "2026-09-27T05:25:03+00:00",
+   "ts": "2026-09-27T05:27:35+00:00",
    "date": "27 Sep 2026",
    "topic": "materials",
    "q": null,
