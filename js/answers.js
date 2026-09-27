@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 585,
+ "count": 586,
  "entries": [
+  {
+   "slug": "every_policy_is_a_bad_bet",
+   "title": "Every policy is a bad bet",
+   "ts": "2026-09-27T09:27:28+00:00",
+   "date": "27 Sep 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "Because money is not what you are protecting.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The arithmetic is not in dispute. Expected loss £2,000, premium £3,000, so buying costs you £1,000 a year on average. Every policy ever sold is a bet you expect to lose — that is what pays for the insurer's staff, capital and profit, and there is no version of insurance where it is otherwise."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THE ARITHMETIC LEAVES OUT. Losing £200,000 does not hurt you a hundred times as much as losing £2,000. It hurts very much more than that, because it takes most of what you own. The first thousand pounds you lose is an inconvenience; the two-hundred-thousandth is your home. Pounds are not interchangeable once the loss is large relative to you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put a standard risk-averse valuation on it — value the LOGARITHM of your wealth rather than the wealth — and with £250,000 to your name the sums come out with insuring strictly ahead, despite the £1,000 you expect to hand over. You are buying certainty, and certainty is worth a margin."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL IS THE PART WORTH TAKING AWAY. Run the identical calculation on a £400 phone. Same one percent chance, same insurer margin, same person, same formula — and it says DO NOT BUY. Nothing changed except the size of the loss next to what you own."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So \"is insurance worth it\" is not a matter of taste. It is one sum, and it flips at a definite point. For this buyer — £250,000 to their name, a 1% risk and an insurer charging 1.5x fair odds — the line sits at a loss of about £147,000, or roughly 59% of everything they own. Below that, self-insure and keep the margin. Above it, pay."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That number is not a rule of thumb; it moves with your wealth and with the insurer's margin. A fairer insurer pushes the line down."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THAT IS WHY EXTENDED WARRANTIES ARE SOLD SO HARD. They sit on exactly the wrong side of the line: big margins, small losses."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE CHECK THAT PROVES IT IS THE RISK AVERSION DOING IT: a perfectly risk-neutral buyer — someone who genuinely values pounds linearly — refuses BOTH policies, at every loss size. Without the curve, insurance is never worth buying to anyone."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_years_or_thirty_same_one_percent",
    "title": "Two years or thirty, same one percent",
