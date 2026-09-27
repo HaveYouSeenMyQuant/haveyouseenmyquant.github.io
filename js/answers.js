@@ -16,8 +16,68 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 592,
+ "count": 593,
  "entries": [
+  {
+   "slug": "how_long_is_the_longest_streak",
+   "title": "How long is the longest streak",
+   "ts": "2026-09-27T17:02:02+00:00",
+   "date": "27 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "About SEVEN — and a streak of five or more is nearly certain.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Carry the run-length chain forward one flip at a time and you get the whole distribution exactly, no simulation needed. For a hundred fair flips:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    expected longest streak     6.98",
+      "    most likely single value    6",
+      "    chance of 5 or more         97.2%",
+      "    chance of 7 or more         54.2%",
+      "    chance of 4 or fewer         2.8%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "More likely than not, somewhere in those hundred flips there is a run of seven. Fewer than three times in a hundred does the longest streak stop at four."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY FOUR FEELS RIGHT. Because it IS right — for twenty flips. Over twenty the expected longest streak is 4.66 and the most likely value is 4. The instinct is not broken, it is calibrated to a shorter sequence than the one in front of you. Longest run grows like log base two of n, so five times the flips buys you only a couple more: 4.66 at twenty, 6.98 at a hundred, about 10 at a thousand."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL IS WHAT MAKES IT A TEST. Take a sequence the same length, with the same fifty-fifty split of heads and tails, but where each flip differs from the last about 60% of the time — the mild alternation people produce when asked to write something random.",
+      "Its expected longest streak falls from 6.98 to 5.61, and the chance of a run of seven drops from 54% to 21%. Push the alternation to 70% and the expected longest streak is 4.51 and a seven-run is down near 5%. The HEAD COUNT cannot tell any of these apart; the streak statistic separates them immediately.",
+      "That is why counting heads is a weak test of randomness and looking at runs is a strong one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because a run of seven losing days is what a perfectly healthy strategy looks like, and the instinct that says \"something has broken\" is the same instinct that refuses to write HHHHHHH on paper. Being able to say what the null actually predicts — not what it feels like it should predict — is the job."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_calls_one_game_each",
    "title": "Two calls, one game each",
