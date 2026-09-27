@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "two_calls_one_game_each",
    "title": "Two calls, one game each",
-   "ts": "2026-09-27T16:12:22+00:00",
+   "ts": "2026-09-27T16:14:55+00:00",
    "date": "27 Sep 2026",
    "topic": "probability",
    "q": null,
