@@ -16,12 +16,66 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 598,
+ "count": 599,
  "entries": [
+  {
+   "slug": "a_point_on_the_diagonal",
+   "title": "A point on the diagonal",
+   "ts": "2026-09-27T22:33:00+00:00",
+   "date": "27 Sep 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Neither. They have exactly the same area — for every point on the diagonal, and for every rectangle.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PROOF IS ONE SUBTRACTION, no algebra at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The diagonal cuts the whole rectangle into two equal halves. It also cuts each of the two rectangles it passes THROUGH — the one above-left of your point and the one below-right — into two equal halves."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now take the big half below the diagonal. It is made of exactly three things: the lower-left rectangle, plus half of each of the two rectangles the diagonal crosses. The big half above the diagonal is the upper-right rectangle plus the OTHER halves of those same two. Two equal halves, minus two pairs of equal halves, leaves two equal rectangles."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "IN COORDINATES, if you want them. Rectangle w by h, point a fraction t along: both pieces come out as t(1-t)wh. Note that this DEPENDS on t — the two are not equal because they are fixed. They grow and shrink together as the point slides, biggest when the point is at the middle and vanishing at either end."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL IS WHAT PINS IT TO THE DIAGONAL. Move the point off the diagonal by any amount and the two areas come apart at once, and the further off you go the bigger the gap. Search for where the gap is zero and you find the diagonal back, to twelve decimal places, without ever being told it was the diagonal that mattered."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because the tempting move is to write both areas out and multiply — which works, and takes a minute, and teaches you nothing. The subtraction takes one line and tells you exactly why the diagonal is the only line this works for. Spotting that a hard-looking quantity is a difference of two easy ones is most of what makes a problem quick."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_pound_against_ninety_nine",
    "title": "One pound against ninety nine",
-   "ts": "2026-09-27T21:52:14+00:00",
+   "ts": "2026-09-27T21:53:45+00:00",
    "date": "27 Sep 2026",
    "topic": "markov_chains",
    "q": null,
