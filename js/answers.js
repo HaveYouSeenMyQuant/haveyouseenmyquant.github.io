@@ -16,12 +16,89 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 579,
+ "count": 580,
  "entries": [
+  {
+   "slug": "pay_him_more_to_slack",
+   "title": "Pay him more to slack",
+   "ts": "2026-09-27T05:07:57+00:00",
+   "date": "27 Sep 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "Not at all. He slacks exactly as often as before. What changes is the MANAGER, who starts checking far more.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put numbers on it. Say slacking and getting away with it is worth 4, being caught is worth 0, and working is worth 2 whatever happens. Checking costs the manager 1, and a slacker who goes unnoticed costs her 5."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    worker slacks:   20% of the time",
+      "    manager checks:  50% of the time"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now sweeten slacking from 4 to 10 and change nothing else."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    worker slacks:   20% of the time   <- exactly the same",
+      "    manager checks:  80% of the time"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY, AND IT IS THE STRANGEST THING IN GAME THEORY. In a mixed equilibrium you do not pick your frequencies to serve your own payoffs. If you did, you would just take your best action every time. You pick them to leave your OPPONENT with nothing to gain by switching — to make them indifferent — and that calculation uses THEIR numbers, not yours."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the worker's slacking rate is computed entirely from the manager's costs. The manager's checking rate is computed entirely from the worker's temptations. Each side's visible behaviour is a readout of the other side's incentives."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Sweetening the temptation therefore cannot change how often he slacks — his rate was never about his own rewards. It changes how often she checks, until slacking is exactly as attractive as working again."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT IT MEANS IN PRACTICE. If you raise a bonus, a fine, or a fee and the behaviour you aimed at does not move, you have not necessarily failed — you may be looking at the wrong side of the table. The response shows up in whoever is policing the behaviour, not in whoever is being paid."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE SCOPE, because this is not universal. It needs a genuine mixed equilibrium. If one side has a dominant action — if working simply beat slacking even when unseen — there is no mixing, the indifference equations have no solution between 0 and 1, and none of this applies."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "steel_bolts_in_a_copper_plate",
    "title": "Steel bolts in a copper plate",
-   "ts": "2026-09-27T05:01:39+00:00",
+   "ts": "2026-09-27T05:04:11+00:00",
    "date": "27 Sep 2026",
    "topic": "materials",
    "q": null,
