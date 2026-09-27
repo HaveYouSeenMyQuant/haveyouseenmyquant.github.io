@@ -16,8 +16,76 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 575,
+ "count": 576,
  "entries": [
+  {
+   "slug": "a_million_of_them_is_no_better",
+   "title": "A million of them is no better",
+   "ts": "2026-09-27T01:35:42+00:00",
+   "date": "27 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "There isn't one. The average does not settle on any value, and taking more samples does not help at all.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Run the experiment twice with different luck and you get two wildly different numbers — not close, not converging, just different. Run it with a million samples and the same thing happens."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. The ratio of two independent standard normals is a Cauchy distribution, and a Cauchy has no mean. Not an infinite mean — no mean. The integral that would define it diverges at both ends and does not settle on plus or minus infinity either."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The culprit is the divisor. It is a normal, so it sometimes lands very close to zero, and a near-zero divisor makes an enormous ratio. Those giants are rare, but they are not rare ENOUGH: their size grows faster than their rarity shrinks, so they never stop mattering."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART TO REMEMBER, AND IT IS STRONGER THAN \"IT DOES NOT CONVERGE\". The average of a MILLION draws has exactly the same distribution as ONE draw. Not approximately. The same. Averaging a Cauchy is not a weak tool, it is not a tool at all — you have done a million times the work for a number no better than your first guess."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "TWO CONTROLS, so you can see what is and is not broken."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The MEDIAN is completely fine. It is zero, it is stable, and it converges exactly as you would want. The distribution is not pathological in every way; precisely one thing is missing, and it is the mean."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And keep the divisor AWAY from zero — divide your bell-curve number by a uniform on 1 to 2 instead — and the mean behaves perfectly. So it is not division that breaks it, and not heavy tails in general. It is the divisor being able to approach zero."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER CARES. Because the law of large numbers has a condition, and everybody forgets there is one. Ratios turn up constantly in finance — returns, spreads, hedge ratios, anything divided by a price that can get small — and for those, more data is not a defence. Sample means on a Cauchy-like quantity are not noisy estimates of something; they are estimates of nothing."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_same_eighty_nine_both_times",
    "title": "The same eighty nine both times",
