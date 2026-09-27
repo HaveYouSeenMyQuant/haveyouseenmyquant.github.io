@@ -16,12 +16,94 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 580,
+ "count": 581,
  "entries": [
+  {
+   "slug": "drill_the_middle_out_of_it",
+   "title": "Drill the middle out of it",
+   "ts": "2026-09-27T05:25:03+00:00",
+   "date": "27 Sep 2026",
+   "topic": "materials",
+   "q": null,
+   "a": "One sixteenth of it. Six and a quarter percent.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "You threw away a quarter of the metal and kept 93.75% of the strength."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Both the stiffness and the strength of a round shaft in twist go as the POLAR second moment of area, which for a circle is proportional to the diameter to the FOURTH power. The core you drilled out was half the diameter, so it was carrying (1/2)^4 = 1/16 of the duty."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Metal near the axis hardly moves when the shaft twists. Strain grows with distance from the centre, so the outside fibres are doing nearly all the work and the middle is a passenger being carried around."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE GENERAL RULE, which is worth more than the one number. Bore out a fraction k of the diameter and you lose"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    strength:  k^4        weight:  k^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "so strength PER KILO is (1 - k^4)/(1 - k^2), which simplifies beautifully to"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 + k^2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "That is why everything that has to be light and stiff in twist or bend is a tube: bicycle frames, drive shafts, scaffold poles, aircraft spars, your own long bones."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND THE HONEST LIMIT. Look at that formula again: 1 + k^2 rises all the way to 2 and never turns over. It says thinner is always better per kilo, up to a factor of two and no further. So the fourth-power law alone will never tell you to stop thinning the wall — which means the thing that actually stops you is somewhere else entirely."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "It is LOCAL BUCKLING. A wall thin enough stops failing by the metal yielding and starts failing by the tube going oval and folding, like crushing a drinks can. That failure is not in the polar-moment formula at all, and it is why a real tube is designed to a wall thickness rather than to the thinnest wall the stiffness sum permits. Anyone who optimises the formula without knowing which failure mode they are near will design something that collapses at a fraction of its calculated load."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "pay_him_more_to_slack",
    "title": "Pay him more to slack",
-   "ts": "2026-09-27T05:07:57+00:00",
+   "ts": "2026-09-27T05:08:47+00:00",
    "date": "27 Sep 2026",
    "topic": "game_theory",
    "q": null,
@@ -40279,5 +40361,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "a_secret_shouted_aloud"
+ "featured": "a_million_of_them_is_no_better"
 };
