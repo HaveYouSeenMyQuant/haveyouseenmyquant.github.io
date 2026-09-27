@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "win_the_fifth_and_keep_going",
    "title": "Win the fifth and keep going",
-   "ts": "2026-09-27T13:07:29+00:00",
+   "ts": "2026-09-27T13:09:38+00:00",
    "date": "27 Sep 2026",
    "topic": "probability",
    "q": null,
