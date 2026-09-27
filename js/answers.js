@@ -16,12 +16,89 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 591,
+ "count": 592,
  "entries": [
+  {
+   "slug": "two_calls_one_game_each",
+   "title": "Two calls, one game each",
+   "ts": "2026-09-27T16:12:22+00:00",
+   "date": "27 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "One game in five — and the number underneath it is worse.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Each call gets one game, so there are four outcomes:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    better wins, worse loses    0.6 x 0.5 = 30%   the verdict is right",
+      "    worse wins, better loses    0.5 x 0.4 = 20%   the verdict is backwards",
+      "    both win, or both lose                  50%   no verdict at all"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HALF THE TIME ONE GAME SAYS NOTHING, because both coaches got the same result. And when it does separate them, the chance the verdict is right is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    30 / (30 + 20) = 60%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A ten-point edge in the underlying call shows up as a sixty-forty read from a single game. That is the entire evidential content of \"it worked\"."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL IS WHAT PROVES IT IS THE EDGE. Make the two calls identical — both 50%, or both 60%, it does not matter. Now the two decisive outcomes are equal at 25% each and the read is exactly 50-50: one game carries literally no information about which call was better. Every bit of read quality is bought by the gap, and nothing else."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW MANY GAMES WOULD YOU NEED? To have the better call finish with the better record 95% of the time, at this ten-point edge, takes 134 games EACH — counting a tied record as half. An NFL regular season is seventeen."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT IT DOES NOT SAY. It does not say the pass was the right call. It says the interception is not evidence that it was wrong, because a call that fails once looks exactly like a call that was bad — and telling those apart from one result is close to a coin flip. Poker players call judging the decision by the result RESULTING; cognitive scientists call it outcome bias."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because this is every performance review of a trader with one good year, every backtest with one blown-up quarter, and every \"that strategy clearly works\" based on a run you already lived through. The question is never what happened, it is how much what happened could have told you."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_note_you_signed_ten_years_ago",
    "title": "The note you signed ten years ago",
-   "ts": "2026-09-27T15:20:01+00:00",
+   "ts": "2026-09-27T15:22:11+00:00",
    "date": "27 Sep 2026",
    "topic": "probability",
    "q": null,
