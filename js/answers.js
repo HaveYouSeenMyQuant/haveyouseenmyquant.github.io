@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 576,
+ "count": 577,
  "entries": [
+  {
+   "slug": "how_close_to_the_prophet",
+   "title": "How close to the prophet",
+   "ts": "2026-09-27T03:22:23+00:00",
+   "date": "27 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "At least half of whatever she gets. Always, whatever the boxes hold.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And the rule that does it is almost insultingly simple. Work out what SHE expects to win — the average of the largest of ten draws — halve it, and take the first box that beats that number. If none does, you are left with the last one."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    threshold  =  E[maximum] / 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "No updating as boxes go by, no adjusting for how many are left, no conditioning on what you have seen. One number, fixed before you start."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT WORKS, in one line. Either some box clears the bar, in which case you bank at least the bar; or none does, in which case the prophet did not get much either, because the bar was set from her own expectation. The two failure modes cover each other, and half is what falls out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HALF IS ALSO THE MOST ANYONE CAN PROMISE. Take two boxes. The first holds £1 for certain. The second holds £1,000,000 with probability one in a million, and nothing otherwise."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The prophet expects nearly £2 — she takes the million when it is there and the pound when it is not. You, opening blind, can take the £1 and get £1, or skip it and expect £1. There is no third option. Your ratio is 1 in 2, and no strategy escapes it. So the guarantee is TIGHT: half is not the best anyone has managed to prove, it is the truth."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THIS IS AN INTERVIEW QUESTION. Because it is the shape of every irrevocable decision made under uncertainty — a bid you cannot retract, a candidate who takes another offer, a fill you either hit or lose. The useful lesson is not the number but its robustness: a single fixed threshold, chosen before you see anything, captures half of what perfect foresight would. Sophistication buys the other half, and most of the time it is not worth what it costs."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_million_of_them_is_no_better",
    "title": "A million of them is no better",
