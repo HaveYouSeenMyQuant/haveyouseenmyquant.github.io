@@ -16,12 +16,81 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 577,
+ "count": 578,
  "entries": [
+  {
+   "slug": "move_one_person_across",
+   "title": "Move one person across",
+   "ts": "2026-09-27T04:29:05+00:00",
+   "date": "27 Sep 2026",
+   "topic": "statistics",
+   "q": null,
+   "a": "Both of them go UP. Every statistic improves and not one patient is better off.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Take the numbers. Early-stage survival: 30, 20 and 10 years, averaging 20. Late-stage: 3, 2 and 1, averaging 2."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Move the person with 10 years into the late group. Nothing about them changed — only the label."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    early:  30, 20        -> average 25   (was 20)",
+      "    late:   3, 2, 1, 10   -> average 4    (was 2)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The early group lost its weakest member, so its average rose. The late group gained someone stronger than anyone in it, so its average rose too."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONDITION IS EXACT. The person moved must sit BELOW the average of the group they leave and ABOVE the average of the group they join. Any such person lifts both. That band only exists when the group being left has the higher average — which is exactly the situation in every staging system, every league table and every risk bucket."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THE MONEY WENT. Nowhere. Work out the average over EVERYONE, before and after: 11 years both times, to the last decimal. No survival was created. Two averages rose and the total did not move, because the two groups are now weighted differently — the early group has fewer people than it did, so its higher average counts for less."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THIS IS CALLED THE WILL ROGERS PHENOMENON, after his line about Oklahomans moving to California raising the average intelligence of both states. It is not a joke in medicine: better imaging genuinely reclassifies patients, and published survival rates for BOTH stages improve with no change in treatment whatsoever. Comparing today's stage-by-stage survival with a decade ago is therefore close to meaningless unless the staging is held fixed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE INTERVIEW VERSION. Any time a metric is reported per BUCKET and the bucket boundaries can move, the per-bucket numbers can all improve while the whole is unchanged. Default-rate-by-rating, latency-by-tier, win-rate-by-segment — if someone can reclassify, the aggregate is the only number that cannot be gamed this way."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_close_to_the_prophet",
    "title": "How close to the prophet",
-   "ts": "2026-09-27T03:22:23+00:00",
+   "ts": "2026-09-27T03:24:55+00:00",
    "date": "27 Sep 2026",
    "topic": "probability",
    "q": null,
