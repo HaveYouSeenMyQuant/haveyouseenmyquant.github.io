@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 584,
+ "count": 585,
  "entries": [
+  {
+   "slug": "two_years_or_thirty_same_one_percent",
+   "title": "Two years or thirty, same one percent",
+   "ts": "2026-09-27T08:12:04+00:00",
+   "date": "27 Sep 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "The two-year is down about 2%. The thirty-year is down about 25%. Thirteen times the damage from the identical move, on a bond nobody doubts will pay.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A bond is just a promise of money later, and its price is that money discounted back to today."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    two years:    100 / 1.03^2  = 94.26   ->  100 / 1.04^2  = 92.46",
+      "    thirty years: 100 / 1.03^30 = 41.20   ->  100 / 1.04^30 = 30.83"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The long bond's payment sits thirty years away, so it is discounted thirty times over. Nudging the discount rate up barely touches a promise two years out and mauls one thirty years out, because the effect compounds with every year of waiting."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TEXTBOOK SHORTCUT AND WHERE IT BREAKS. The usual first-order rule says the loss is roughly maturity times the rate move, so 30 x 1% = 30%, adjusted to about 29%. The real answer is 25%. The shortcut OVERSTATES the loss by four points, and it always overstates in this direction."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY, AND IT IS THE BETTER HALF OF THE QUESTION. The price-versus-rate relationship is curved, not straight. The same thirty-year bond, if rates FALL one percent instead, gains about 34% — more than the 25% it lost on the rise. That asymmetry is CONVEXITY, and it is in the holder's favour: you make more when you are right than you lose when you are wrong, for the same size of move."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So a long bond is not a leveraged bet on rates in the way it first looks. It is a leveraged bet with a curve that pays you for the volatility."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT MATTERS. This is what made 2022 so brutal for supposedly safe portfolios: long gilts and Treasuries fell by fractions nobody associates with government debt, purely because rates moved and their payments were decades away. Nothing defaulted. Every one of those bonds will pay in full. Duration is a risk entirely separate from credit, and the safest issuer in the world does not reduce it by a penny."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "same_six_years_opposite_order",
    "title": "Same six years, opposite order",
