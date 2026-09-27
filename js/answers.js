@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "every_polygon_with_a_compass",
    "title": "Every polygon with a compass",
-   "ts": "2026-09-27T23:56:02+00:00",
+   "ts": "2026-09-27T23:57:48+00:00",
    "date": "27 Sep 2026",
    "topic": "puzzles",
    "q": null,
