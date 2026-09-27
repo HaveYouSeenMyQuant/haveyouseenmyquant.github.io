@@ -16,12 +16,80 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 590,
+ "count": 591,
  "entries": [
+  {
+   "slug": "the_note_you_signed_ten_years_ago",
+   "title": "The note you signed ten years ago",
+   "ts": "2026-09-27T15:20:01+00:00",
+   "date": "27 Sep 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "One in 777 billion is not a miscalculation. It is the answer to a question nobody asked.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THAT NUMBER ANSWERS: what is the chance that YOU, on ONE visit to a cash machine, draw out the note you signed ten years ago? Two inputs get you there — about a 1 in 1,000 chance the note is still in circulation after a decade, and 777 million tenners to pick from:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1/1000 x 1/777,000,000 = 1 in 777 billion"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT ACTUALLY HAPPENED was different in two ways. It was not him, it was one of his FRIENDS — call it 200 people. And it was not one visit, it was SOME POINT DURING A YEAR — call it 100 withdrawals each. Put both back:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    777 billion / (200 x 100) = about 1 in 39 million"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART WORTH KEEPING. That correction factor is 200 x 100 = 20,000, and neither hard number is in it. How many notes survive a decade, how many are in circulation — both cancel. You can say the headline is out by four orders of magnitude without knowing one Bank of England statistic. The headline did not get the sum wrong; it answered a different question, and spotting which question is being answered costs nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND 1 IN 39 MILLION IS NOT RARE. A UK lottery ticket is about 1 in 45 million, and somebody wins most weeks — because of how many people play. Nobody is surprised that SOMEONE wins; you would only be surprised if it were you. Same here."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "ONE TECHNICAL NOTE. Multiplying by 20,000 is the first-order form of 1 - (1-p)^20000, which is only safe while the total stays tiny. At p = 1 in 777 billion the two agree to better than one part in a million. At a p a thousand times larger the shortcut returns a \"probability\" above 1, which is the tell."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because almost every shocking number in a headline, a backtest or a risk report is the right arithmetic on the wrong reference class, and the fix is never harder arithmetic — it is asking who, how many times, and over how long."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "heads_right_after_a_head",
    "title": "Heads right after a head",
-   "ts": "2026-09-27T13:59:48+00:00",
+   "ts": "2026-09-27T14:01:59+00:00",
    "date": "27 Sep 2026",
    "topic": "probability",
    "q": null,
