@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "every_policy_is_a_bad_bet",
    "title": "Every policy is a bad bet",
-   "ts": "2026-09-27T09:27:28+00:00",
+   "ts": "2026-09-27T09:29:14+00:00",
    "date": "27 Sep 2026",
    "topic": "finance",
    "q": null,
