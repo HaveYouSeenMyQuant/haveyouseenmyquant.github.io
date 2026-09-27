@@ -16,8 +16,70 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 583,
+ "count": 584,
  "entries": [
+  {
+   "slug": "same_six_years_opposite_order",
+   "title": "Same six years, opposite order",
+   "ts": "2026-09-27T07:34:02+00:00",
+   "date": "27 Sep 2026",
+   "topic": "finance",
+   "q": null,
+   "a": "One finishes with about £39,800. The other is out of money in year five, with a year of the sequence still to run.",
+   "why": [
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    good years first:  120 -> 146 -> 180 -> 116 -> 71 -> 39.8  (thousands)",
+      "    bad years first:    60 ->  32 -> 12.4 -> broke"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same hundred thousand. Same six returns. Same ten thousand a year taken out."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY ORDER CAN MATTER AT ALL. Multiplication does not care about order — a 30% gain and a 30% loss multiply to the same 0.91 whichever comes first. With NO withdrawals both retirees finish on exactly £75,360, to the penny, whatever the order. That is worth checking yourself, because it tells you the returns are not the culprit."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE WITHDRAWAL IS WHAT BREAKS THE SYMMETRY. Taking £10,000 out of a pot that has just fallen to £70,000 sells a much larger FRACTION of it than taking £10,000 out of a pot that has just risen to £130,000. Shares sold cheap are gone and cannot participate in the recovery. Early losses become permanent in a way early gains never do."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL, AND IT IS THE PART TO REMEMBER. Flip the sign — someone SAVING ten thousand a year instead of spending it — and the preference reverses completely. Bad years first now WINS, because the contributions buy in cheap and ride the recovery. Same returns, same amounts, opposite sign of cash flow, opposite answer."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So \"what average return do I need\" is the wrong question for anyone withdrawing. Two portfolios with identical average returns, identical volatility and identical withdrawals can end in comfort or in ruin, decided by nothing but which years arrived first."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THIS IS CALLED SEQUENCE-OF-RETURNS RISK. It is why the last few years before retirement and the first few after are treated as a distinct danger zone, and why the standard advice is to de-risk across exactly that window — not because crashes are more likely then, but because a crash then is unrecoverable in a way the same crash twenty years earlier or later is not."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "the_dividend_lands_in_your_account",
    "title": "The dividend lands in your account",
