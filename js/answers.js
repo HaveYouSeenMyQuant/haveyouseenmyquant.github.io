@@ -16,8 +16,66 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 596,
+ "count": 597,
  "entries": [
+  {
+   "slug": "doodle_twice_or_doodle_once",
+   "title": "Doodle twice, or doodle once",
+   "ts": "2026-09-27T21:02:58+00:00",
+   "date": "27 Sep 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "Neither. They are the SAME set — not close, identical — and it holds for every shape, however spiky or scattered.",
+   "why": [
+    {
+     "h": "WHY, IN ONE LINE EACH WAY.",
+     "t": "pre",
+     "lines": [
+      "  A point in the double doodle is within 1 of something that is within 1 of",
+      "  the shape, so by the triangle inequality it is within 2 of the shape."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "  And back: if a point is within 2 of the shape, walk from it towards the",
+      "  nearest point of the shape and stop HALFWAY. That midpoint is within 1 of",
+      "  the shape, and your point is within 1 of the midpoint. So it is in the",
+      "  double doodle too."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The second direction is the one doing the work, and it needs straight lines to exist. On a surface where you cannot walk straight between two points, the statement can fail."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ROUNDNESS OF THE PEN IS THE WHOLE THING. Doodling adds radii because a disc of radius 1 plus a disc of radius 1 is a disc of radius 2. Swap the round pen for an L-shaped one and it collapses immediately: applying the L twice covers 141 cells, while doubling the L covers 21. Same operation, same two steps, and now the two answers are not remotely equal."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS WORTH KNOWING. This is the reason safety margins compose the way they do. Two successive one-metre clearances are exactly a two-metre clearance — you do not gain anything by applying them separately, and you do not lose anything either. Anybody who has argued about stacking tolerances has argued about this, usually without a proof."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because the answer is \"they are equal\" and almost nobody guesses it. The instinct is that doodling round a doodle must bulge out further, because the second doodle follows a wigglier outline than the first — and the wiggliness is exactly what cancels."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "everyone_got_their_quarter",
    "title": "Everyone got their quarter",
