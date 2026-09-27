@@ -16,12 +16,81 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 599,
+ "count": 600,
  "entries": [
+  {
+   "slug": "every_polygon_with_a_compass",
+   "title": "Every polygon with a compass",
+   "ts": "2026-09-27T23:56:02+00:00",
+   "date": "27 Sep 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "No — and which ones fail is the startling part.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Gauss and Wantzel settled it. A regular n-gon is constructible with compass and straightedge exactly when"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    n = (a power of 2) x (distinct FERMAT PRIMES)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "and the only Fermat primes anyone has ever found are 3, 5, 17, 257 and 65537."
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    drawable      3 4 5 6 8 10 12 15 16 17 20 24 30 32 34 40 48 51 60 64 ...",
+      "    impossible    7 9 11 13 14 18 19 21 22 23 25 26 27 28 29 31 33 35 ..."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the SEVENTEEN-sided polygon can be drawn — Gauss worked it out at nineteen and asked for one on his gravestone — while the seven-sided one cannot. Not \"nobody has managed it\": it is impossible, and that was proved."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AN EASIER TEST, if you want to check one yourself: count how many numbers below n share no factor with n. If that count is a power of two, the polygon is drawable. For 7 it is 6, which is not. For 17 it is 16, which is."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL SAYS THE LIMIT IS THE TOOLS, NOT THE NUMBER. Allow yourself one extra move — a single paper fold, which is what origami adds — and the rule changes from Fermat primes to PIERPONT primes. The 7-gon becomes constructible. So do the 9-gon and the 13-gon. The 11-gon still does not. Seven is not a difficult number; a compass is a limited instrument."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Not for the criterion. For the instinct that \"I can do 3, 4, 5 and 6, so presumably 7 is just fiddlier\" is a guess about a pattern that has never been checked — and that proving something CANNOT be done is a different kind of work from failing to do it. Most impossibility results in finance are of exactly this shape: not \"nobody has found the arbitrage\" but \"here is why there is not one\"."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_point_on_the_diagonal",
    "title": "A point on the diagonal",
-   "ts": "2026-09-27T22:33:00+00:00",
+   "ts": "2026-09-27T22:34:23+00:00",
    "date": "27 Sep 2026",
    "topic": "geometry",
    "q": null,
