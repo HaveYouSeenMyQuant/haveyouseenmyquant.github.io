@@ -16,12 +16,94 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 597,
+ "count": 598,
  "entries": [
+  {
+   "slug": "one_pound_against_ninety_nine",
+   "title": "One pound against ninety nine",
+   "ts": "2026-09-27T21:52:14+00:00",
+   "date": "27 Sep 2026",
+   "topic": "markov_chains",
+   "q": null,
+   "a": "Ninety-nine flips against two thousand five hundred. Same hundred pounds, same fair coin, one game twenty-five times longer.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The expected number of flips starting from k, with N on the table, is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E = k * (N - k)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So £1 against £99 gives 1 x 99 = 99, and £50 against £50 gives 50 x 50 = 2,500."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHERE THE FORMULA COMES FROM, in two lines. After one flip you are at k-1 or k+1, equally likely, and one flip has gone:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    E_k = 1 + (E_{k-1} + E_{k+1}) / 2,     E_0 = E_N = 0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Rearranged, the second difference of E is -2 at every k. A function whose second difference is constant and negative is a downward parabola, and the only one pinned to zero at both ends is k(N-k). Nothing else fits."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT FEELS WRONG. Being NEAR A WALL is what ends games. Starting at £1 you are one flip from the end, and half the time that is exactly what happens. Starting at £50 you are fifty flips from either wall, and a fair walk covers distance like the SQUARE ROOT of time — so to travel fifty takes about fifty squared."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE AVERAGE HIDES A LOT. With £1 against £99 you lose the very first toss half the time, so exactly half of all games are one flip long and the MEDIAN game is three flips. The mean of 99 is carried entirely by a thin tail where the pound survives a long run — just under seven games in ten are done inside five flips. \"On average 99\" describes almost none of the games you would actually see."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL IS THE COIN. Tilt it to 55/45 and the whole shape collapses: with a drift, the game ends in roughly the distance to the nearer wall rather than its square, so the £50/£50 game gets several times shorter while £1/£99 barely moves. The quadratic is a fact about FAIRNESS, not about gambling."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because it is the difference between \"how likely\" and \"how long\", and desks care about both. A strategy can have a perfectly good chance of reaching its target and still take a length of time nobody budgeted for — and the time is quadratic in how far you have to go."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "doodle_twice_or_doodle_once",
    "title": "Doodle twice, or doodle once",
-   "ts": "2026-09-27T21:02:58+00:00",
+   "ts": "2026-09-27T21:04:47+00:00",
    "date": "27 Sep 2026",
    "topic": "puzzles",
    "q": null,
