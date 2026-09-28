@@ -16,8 +16,73 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 603,
+ "count": 604,
  "entries": [
+  {
+   "slug": "how_many_kinds_of_wallpaper",
+   "title": "How many kinds of wallpaper",
+   "ts": "2026-09-28T02:23:42+00:00",
+   "date": "28 Sep 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "SEVENTEEN. Not roughly seventeen, and not seventeen so far — exactly seventeen, for ever. There is no eighteenth kind of wallpaper.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Two patterns count as the same KIND when the same collection of moves leaves them looking unchanged: slides, turns about a point, mirror reflections, and glides (a slide and a flip done together). What the pattern is a picture of is irrelevant — daffodils and rock textures can be the same kind."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW YOU GET TO A FINITE NUMBER. Conway's trick is to give every pattern a signature and a COST:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    a turn of order n        costs (n-1)/n",
+      "    a mirror                 costs 1",
+      "    a corner of order n      costs (n-1)/2n",
+      "    a glide (cross-cap)      costs 1",
+      "    a handle                 costs 2"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A signature describes a wallpaper pattern exactly when the costs total 2. Because every ingredient costs at least a quarter, only so many combinations can add to 2 — and if you list them all, there are seventeen. That is the whole proof in outline, and it is why the number is finite."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE PART THAT SOUNDS IMPOSSIBLE, and falls straight out of the same list: the only turns that ever appear are half turns, third turns, quarter turns and sixth turns. FIVE-FOLD SYMMETRY IS IMPOSSIBLE in a repeating pattern. You can draw a five-pointed star, but you cannot tile the plane with one so that five-fold symmetry survives."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A second route to the same fact: a rotation that maps a repeating lattice to itself is a whole-number matrix in the lattice's own coordinates, so its trace — which is 2cos(360/n) — must be a whole number. That happens only for n = 1, 2, 3, 4 and 6. Never 5."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because \"how many kinds are there?\" sounds like an open-ended cataloguing job and is actually a budget problem with a small answer. Turning an apparently unbounded classification into \"these pieces each cost something, and the total is fixed\" is the move, and it is the same move that bounds the number of states in a model or the number of distinct cases in a messy spec."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_low_can_pi_go",
    "title": "How low can pi go",
