@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 601,
+ "count": 602,
  "entries": [
+  {
+   "slug": "however_you_turn_the_balloon",
+   "title": "However you turn the balloon",
+   "ts": "2026-09-28T01:24:14+00:00",
+   "date": "28 Sep 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "FOUR, at the corners of a regular tetrahedron — the shape you get by picking four points on the balloon all equally far from each other.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THREE CAN NEVER WORK, and this is the part worth keeping. Any three points sit in some flat plane. That plane slices the balloon into two caps, and every one of your three dots is on the rim of the slice or on one side of it. Turn the other cap towards your eye and you see nothing at all. It does not matter how cleverly you place three — the blind spot exists for all of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put another way: you need the dots to surround the centre of the balloon, and three points can never surround a centre in three dimensions, only in two."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Four CAN surround it, and the even spacing is what makes the blind spot close up completely."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL, AND IT IS NOT THE TIDY ANSWER. Ask instead that you always see at least TWO dots. The answer is SIX — but NOT the six corners of an octahedron, which is what everybody reaches for. Look straight down an axis of an octahedron and four of the dots sit exactly on the horizon, edge on, so you see ONE. Three opposite pairs never work either, for the same reason. The six that do work are a lopsided arrangement with no symmetry to speak of."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "At least three visible needs EIGHT — and not the eight corners of a cube, which fails too (it is fine for two). So the counts go 4, 6, 8 while the shapes go from the most symmetric thing imaginable to no nice shape at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A WARNING FROM BUILDING THIS. Testing it by trying thousands of random viewing angles gives the WRONG answer — it scores an octahedron as \"always three visible\" and passes three-dot sets. The worst viewing angle is usually a single exact direction, and random sampling has probability zero of landing on it. If your check can only ever find an upper bound, it is not a check."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. For the reframing. \"Can I always see a dot\" is hard to attack directly; \"do the dots surround the centre\" is a question you can answer by counting dimensions, and it takes about a line. Most of the work in a hard estimate is finding the version of the question that is easy."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "shuffle_it_until_it_comes_back",
    "title": "Shuffle it until it comes back",
