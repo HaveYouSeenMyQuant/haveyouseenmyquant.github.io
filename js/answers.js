@@ -16,8 +16,94 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 604,
+ "count": 605,
  "entries": [
+  {
+   "slug": "guards_for_a_crooked_museum",
+   "title": "Guards for a crooked museum",
+   "ts": "2026-09-28T03:37:35+00:00",
+   "date": "28 Sep 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "A MUSEUM WITH n CORNERS NEVER NEEDS MORE THAN n/3 GUARDS, rounded down. A hundred corners: thirty-three guards, whatever the shape.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT WORKS, and the argument is three steps and no calculation."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "1. CUT THE FLOOR INTO TRIANGLES by joining corners across the room. Any floor"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "   plan with n corners cuts into exactly n-2 triangles."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "2. COLOUR THE CORNERS with three colours so that every triangle ends up with"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "   one of each. This is always possible for a floor plan cut this way — the",
+      "   triangles form a chain, and each new triangle shares an edge with one you",
+      "   have already coloured, so its third corner has exactly one colour left."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "3. PUT THE GUARDS ON THE LEAST COMMON COLOUR. Three colours divide n corners"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "   between them, so the smallest group holds at most n/3 of them. Every",
+      "   triangle has a corner of every colour, so every triangle contains a guard —",
+      "   and a triangle is convex, so a guard standing in one sees all of it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND SOMETIMES YOU REALLY DO NEED THAT MANY. Build a comb: a shallow corridor with k narrow spikes standing on it, 3k+2 corners in all. The tip of each spike can only be seen from inside that spike, because a sightline from the corridor to a tip crosses the floor between spikes, which is outside the building. So you need one guard per spike, and k is n/3. The bound is not slack."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE DEPTH MATTERS, and getting it wrong is easy: I built this comb once with a corridor as deep as the spikes were tall, and a sweep found points that see TWO tips at once — the sightline clears the gap when the corridor is deep. Make the corridor shallow and each tip goes back to being private."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because \"how many do I need, in the worst case, for any shape\" sounds like it has no answer, and the move that gives it one is to stop reasoning about the shape and cut it into pieces you already understand. A triangle is the piece here, and the moment the floor is triangles the problem is counting rather than geometry. Most tractable worst-case bounds are built this way."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_many_kinds_of_wallpaper",
    "title": "How many kinds of wallpaper",
