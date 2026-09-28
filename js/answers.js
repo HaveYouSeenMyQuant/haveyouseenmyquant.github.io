@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 605,
+ "count": 606,
  "entries": [
+  {
+   "slug": "how_many_sides_does_the_cut_have",
+   "title": "How many sides does the cut have",
+   "ts": "2026-09-28T03:55:58+00:00",
+   "date": "28 Sep 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "EXACTLY FOUR. Not about four — four, on the nose. And not only averaged over orientations: for EVERY direction you push it through, and for every box however squashed, separately.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY, in one count. Each side of the cut is a place where the sheet is crossing one of the box's twelve edges. So the number of sides at any moment is just the number of edges currently being crossed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The twelve edges come in three groups of four parallel ones. Take a group whose edges point along d, and push along direction u. Each of those four edges is being crossed for a stretch of the journey of length |u.d| — that is its own length as seen along the direction of travel."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the total, added over all twelve, is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    4 ( |u.d1| + |u.d2| + |u.d3| )"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And the length of the WHOLE journey, first touch to last, is exactly"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    |u.d1| + |u.d2| + |u.d3|"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "because that is how thick the box is along u. Divide: the average number of edges being crossed is 4, and every quantity that depended on the shape or the direction has cancelled."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHAT THAT MEANS IN PRACTICE. Squash the box, stretch it, shear it, spin it — the answer does not move. And for many boxes and many directions a four-sided cut is not even the most common one; four is where the threes and the fives and the sixes balance."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Because the natural instinct is to work out how long the cut spends as a triangle, then a quadrilateral, then a pentagon, then a hexagon, and weight them — which is a genuinely horrible calculation that depends on everything. The move is to stop counting SHAPES and start counting EDGE CROSSINGS, because those are independent and identical. Finding the unit in which the messy thing becomes a sum of identical pieces is most of what makes an expectation tractable."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "guards_for_a_crooked_museum",
    "title": "Guards for a crooked museum",
