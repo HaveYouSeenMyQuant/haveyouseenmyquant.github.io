@@ -16,8 +16,62 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 602,
+ "count": 603,
  "entries": [
+  {
+   "slug": "how_low_can_pi_go",
+   "title": "How low can pi go",
+   "ts": "2026-09-28T01:40:19+00:00",
+   "date": "28 Sep 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "IT IS TRAPPED BETWEEN 3 AND 4 — and the surprise is at the bottom, not the top.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CEILING IS 4, and a lot of shapes reach it: any parallelogram. Taxicab distance is one of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE FLOOR IS 3, and it is NOT the circle. The circle gives 3.14159..., which is close to the bottom but is not the bottom. The one shape that gets all the way down is an affine regular hexagon — a regular hexagon, or any squashed or sheared copy of one. Nothing beats it, and nothing else ties it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY A HEXAGON HITS EXACTLY 3, in one line: put the hexagon's corners at the six unit vectors. The step from one corner to the next is itself a unit vector in that distance, so each of the six sides has length exactly 1. Perimeter 6, diameter 2, ratio 3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THIS IS A TRAP AND NOT TRIVIA. Explore it the obvious way — through the p-norms, the family everyone reaches for — and you will conclude the circle is the minimum, because within that family it IS. Those values are symmetric in a way that makes it look settled: p and its conjugate give the same answer (p=1.5 and p=3 both give 3.2598), the value bottoms out exactly at the circle and climbs to 4 at both ends. Every number in the video is one of these, and every one is at or above 3.14."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The p-norms are a one-parameter family. The norms are not. The floor lives outside the family you were searching."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. For the habit of noticing that a clean, symmetric, convincing answer came out of a search space you chose for convenience rather than for being the right one. The p-norm story is not wrong — it is a correct theorem about a subset — and that is exactly what makes it dangerous. Most bad model results look like this: internally consistent, elegant, and optimised over the wrong set."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "however_you_turn_the_balloon",
    "title": "However you turn the balloon",
