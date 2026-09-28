@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 600,
+ "count": 601,
  "entries": [
+  {
+   "slug": "shuffle_it_until_it_comes_back",
+   "title": "Shuffle it until it comes back",
+   "ts": "2026-09-28T00:48:26+00:00",
+   "date": "28 Sep 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "EIGHT. A move that looks like the most thorough scrambling you could do to a deck undoes itself after eight repeats.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Number the positions 0 to 51, top to bottom. Keep the top card on top (the \"out\" shuffle). The card sitting at position i lands at position 2i, and once that runs off the bottom it wraps — so the rule is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    i  ->  2i  with 51 taken off as often as needed"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Do the shuffle k times and the card at i is at 2^k x i, same wrapping. The whole deck is home the moment 2^k leaves a remainder of 1, and"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    2^8 = 256 = 5 x 51 + 1"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "so eight does it, and nothing smaller does."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE CONTROL IS THE INTERESTING PART. Drop the OTHER half on top instead — the \"in\" shuffle, which moves the top card. Now the rule wraps at 53, not 51, and you need 2^k to leave 1 when divided by 53. That takes FIFTY-TWO shuffles."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same deck. Same perfection. One card's difference in where the halves land, and the answer goes 8 -> 52."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND IT IS NOT \"BIGGER DECK, LONGER WAIT\". A thousand cards come home in 36 out shuffles — fewer than fifty-two cards need under the other shuffle. 64 cards take 6. 8 cards take 3."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Not for the number. For two habits. The first is noticing that \"shuffle\" was never actually defined — the question has two different answers depending on a detail the asker did not give you, and saying so is the strong move. The second is that a process which looks like it destroys structure can be a permutation with a tiny cycle, and if you are modelling anything that repeats, the question \"does this ever return, and how soon\" is usually cheaper to answer than the question \"where does this end up\"."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "every_polygon_with_a_compass",
    "title": "Every polygon with a compass",
