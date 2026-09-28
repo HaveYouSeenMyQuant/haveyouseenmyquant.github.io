@@ -16,8 +16,83 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 606,
+ "count": 607,
  "entries": [
+  {
+   "slug": "one_foot_of_slack_on_a_football_field",
+   "title": "One foot of slack on a football field",
+   "ts": "2026-09-28T05:10:45+00:00",
+   "date": "28 Sep 2026",
+   "topic": "puzzles",
+   "q": null,
+   "a": "YOU CAN DRIVE A TRUCK UNDER IT. About 13 feet 5 inches.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Almost nobody believes this, and the arithmetic is one line. Half the field is 180 feet. Half the rope is 180.5 feet. Those two, plus the lift, make a right-angled triangle:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    lift = sqrt(180.5^2 - 180^2) = sqrt(0.5 x 360.5) = 13.43 ft"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY IT IS SO MUCH BIGGER THAN IT FEELS. The lift is roughly"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    sqrt( span x slack / 2 )"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "— a SQUARE ROOT, so it is the geometric mean of something tiny (one foot) and something huge (360 feet). Geometric means of wildly different numbers land far closer to the big one than anyone's gut expects."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same square root has a second consequence worth having: QUADRUPLE the slack and you only DOUBLE the height. Four feet of slack gets you 26 feet, not 54."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "NOW COMPARE IT WITH THE OTHER ROPE PUZZLE, the famous one. Take a rope right round the Earth's equator, add one metre, and lift it EVENLY all the way round. That gap is slack / 2pi — about 16 cm, and it does not depend on the size of the planet at all."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same tiny addition. One version lifts the rope a few inches and does not care how big the circle is; the other lifts it thirteen feet and depends entirely on the span. The difference is where the slack is allowed to go: spread it over the whole loop and it is divided by 2pi, concentrate it at one point and it goes through a square root instead."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. For whether you notice that a small perturbation can have a large first-order effect — and that \"small change, small consequence\" is an assumption, not a fact. It is the same shape as a bond's convexity, or a barrier option near its barrier: the quantity you care about is a square root or a ratio of small differences, and it moves much faster than the input does."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_many_sides_does_the_cut_have",
    "title": "How many sides does the cut have",
