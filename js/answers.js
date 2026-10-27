@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 617,
+ "count": 618,
  "entries": [
+  {
+   "slug": "how_many_croissants_to_bake",
+   "title": "How many croissants to bake",
+   "ts": "2026-10-27T15:12:31+00:00",
+   "date": "27 Oct 2026",
+   "topic": "optimization",
+   "q": null,
+   "a": "BAKE 75. With every crowd from 0 to 100 equally likely, baking 75 makes about £56.06 a day on average. Baking 50 makes £49.75 and baking 100 makes £50.00, so 75 earns about an eighth more than either. The peak is flat: anywhere from 69 to 82 is within 50p of the best.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Think about the croissants one at a time. An extra croissant that sells earns you £1.50 (£2 minus the 50p it cost). One that does not sell loses you 50p. So one sale pays for three binned croissants, and an extra croissant is worth baking as long as it sells at least one day in four. The 75th croissant only sells if 75 or more people come: 26 days in 101, just over one in four. The 76th sells 25 days in 101, just under. So you stop at 75."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"Fifty, the average crowd\" treats a missed sale and a binned croissant as equally bad, but a missed sale costs you three times as much. \"A hundred, never turn anyone away\" bins a pile on most days, and those 50p add up to about as much as the sales it saves. The two wrong answers earn almost exactly the same."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE RULE. The right amount depends on the costs, not just on the crowd. If a croissant cost you £1 to bake, a sale and a bin would cost the same and you would bake 50, the middle. At 20p you would bake 90."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. Every crowd size from 0 to 100 is equally likely, an unsold croissant is worth nothing, and turning someone away costs you only the lost sale (no angry regulars)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. This is the newsvendor problem: how many papers to print, how much stock to hold, how much cash to put in a cash machine. The answer is never the average demand. It is the amount where the chance of selling one more equals cost divided by price, here 50p over £2."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_pound_a_point_at_the_dartboard",
    "title": "A pound a point at the dartboard",
