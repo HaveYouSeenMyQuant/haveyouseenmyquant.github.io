@@ -16,8 +16,62 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 616,
+ "count": 617,
  "entries": [
+  {
+   "slug": "a_pound_a_point_at_the_dartboard",
+   "title": "A pound a point at the dartboard",
+   "ts": "2026-10-27T14:42:37+00:00",
+   "date": "27 Oct 2026",
+   "topic": "expected_value",
+   "q": null,
+   "a": "AIM AT THE BULLSEYE. With a typical miss of 7 cm, a dart aimed at the bull scores about 12.1 points a dart, and one aimed at the treble 20 scores about 10.3 at the 60. The bull earns roughly a fifth more. Over three darts that is about 36 pounds against about 31.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE 60 LOSES. The 60 is a thin strip about 8 millimetres tall, and you hit it about one dart in 90. Everything else is the cost of a miss. The 20 sits between the 1 and the 5, so more than one in four of your darts lands on a 1 or a 5 bed. And the 60 is near the top of the board: nearly one in five of your darts sails off the scoring area altogether and earns nothing. Aimed at the bull, fewer than 1 in 50 do."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE BULL WINS. The bull is surrounded by every number on the board at once. A miss from the middle lands on a random-ish number, worth about 10 on average, and it almost never leaves the board."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE BEST SPOT OF ALL IS NEITHER. Slide your aim about four centimetres left of the bull and a little low, toward the 8, the 16 and the 11, and you score nearly 12.5 a dart. The left side of the board is where the big numbers cluster: 19, 16, 8, 11 and 14 sit next to each other."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"The 60 — it is the biggest number on the board.\" That is right for a good player: with a typical miss of about 2 centimetres the 60 comes out ahead. The two targets are worth the same at a typical miss of about four and a half centimetres, and you are worse than that. \"It makes no difference — you are spraying darts anyway.\" It changes your winnings by a fifth."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. Your miss is round and bell-shaped: half your darts land closer than 7 cm to where you aim, half further, and it is the same in every direction."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Your average score is the board's points, blurred by your own miss. The best place to AIM is the peak of the blurred board, and for a noisy player that is nowhere near the best place to HIT. Traders face the same thing: a strategy that is perfect when executed perfectly can be the wrong one once you allow for how badly you will execute it."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_thousand_homes_and_a_storm",
    "title": "A thousand homes and a storm",
