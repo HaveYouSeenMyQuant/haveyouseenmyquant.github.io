@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_thousand_homes_and_a_storm",
    "title": "A thousand homes and a storm",
-   "ts": "2026-10-27T14:15:57+00:00",
+   "ts": "2026-10-27T14:18:07+00:00",
    "date": "27 Oct 2026",
    "topic": "fluids",
    "q": null,
