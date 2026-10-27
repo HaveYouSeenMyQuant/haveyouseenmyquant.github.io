@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 621,
+ "count": 622,
  "entries": [
+  {
+   "slug": "a_pound_a_roll_for_the_giant_panda",
+   "title": "A pound a roll for the giant panda",
+   "ts": "2026-10-27T17:21:30+00:00",
+   "date": "27 Oct 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "ONE POUND FIFTY. On average a panda winner paid one pound fifty: not three pounds, and not six.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Look at what ENDS a game: a six (you win) or a one, three or five (you are out). That is four faces out of six, so any roll ends the game two times in three, and a game lasts one and a half rolls on average. How it ended tells you nothing about how long it ran: a game that stops on roll three is just as likely to have stopped on a six as on an odd number. So winners and losers alike pay one pound fifty on average."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"Three pounds: of two, four and six, one in three is a six.\" That is a die with only even faces, where nobody is ever sent home. Here every extra roll is another chance to roll odd and be out, so long winning runs almost never survive. Maya's own three-pound game was real, just unusual. \"Six pounds: a six comes once in six rolls.\" That is the game where an odd number lets you roll again."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE STALL'S SUMS. One player in four wins the panda. Everyone pays one pound fifty on average, so each panda brings the stall six pounds."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. A fair die, every roll fresh, and we average only over the people who won. Average over everyone and the answer is the same, which is the whole point."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. It is the classic \"roll until a six; given every roll was even, how many rolls?\" in disguise. Most people answer three. Choosing which games you look at changes which games you see: judge anything only by the ones that made it to the end, and you are looking at the short runs."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "two_umbrellas_and_a_twenty_pound_shirt",
    "title": "Two umbrellas and a twenty-pound shirt",
