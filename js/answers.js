@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_pound_a_roll_for_the_giant_panda",
    "title": "A pound a roll for the giant panda",
-   "ts": "2026-10-27T17:21:30+00:00",
+   "ts": "2026-10-27T17:24:25+00:00",
    "date": "27 Oct 2026",
    "topic": "probability",
    "q": null,
