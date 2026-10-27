@@ -16,12 +16,52 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 623,
+ "count": 624,
  "entries": [
+  {
+   "slug": "twenty_pounds_on_the_packed_restaurant",
+   "title": "Twenty pounds on the packed restaurant",
+   "ts": "2026-10-27T18:27:55+00:00",
+   "date": "27 Oct 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "ONE IN FIVE, 20%. The packed restaurant is the worse one one time in five, so your twenty-pound bet wins four nights in five, not every night, even with a hundred diners each right two times in three.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Watch the gap between the two restaurants. Once one side is two ahead, a newcomer's hunch is one vote against at least two more, so it can never win. They follow the crowd, the gap grows, and from then on nobody's hunch counts. So the whole street is settled by the first few diners. From level, the next two hunches both point at the better place 4 times in 9 (2/3 x 2/3), both point at the worse place 1 time in 9 (1/3 x 1/3), and otherwise they split and it starts again. That is a 4-to-1 race: the crowd ends in the worse restaurant 1 time in 4 + 1, one in five."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"Practically never: a hundred hunches can't all be wrong.\" If all hundred hunches were counted separately, the worse place would win far less than one time in a thousand. But the crowd only ever uses the first few. \"One in three, the same as one hunch.\" Better than that: it takes two hunches in a row to start the rush."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. Each diner sees where people went, not why, and every hunch is right two times in three, independently."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Following the crowd is sensible for each person, and it is exactly what stops the crowd learning. A full room tells you about the first two diners, not the hundredth."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "grans_clock_patience_for_ten_pounds",
    "title": "Gran's clock patience for ten pounds",
-   "ts": "2026-10-27T17:48:23+00:00",
+   "ts": "2026-10-27T17:50:26+00:00",
    "date": "27 Oct 2026",
    "topic": "probability",
    "q": null,
