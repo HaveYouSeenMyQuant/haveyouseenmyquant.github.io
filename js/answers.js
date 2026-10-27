@@ -16,8 +16,107 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 611,
+ "count": 612,
  "entries": [
+  {
+   "slug": "a_tennis_ball_on_a_basketball",
+   "title": "A tennis ball on a basketball",
+   "ts": "2026-10-27T12:38:59+00:00",
+   "date": "27 Oct 2026",
+   "topic": "mechanics",
+   "q": null,
+   "a": "About seven metres. Seven times the height you dropped it from — about as high as the roof of a two-storey house.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "And if the bottom ball were much heavier still, it would be nine times."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Both balls hit the ground at the same speed, call it v. The basketball bounces first, so for an instant it is going UP at v while the tennis ball on top is still coming DOWN at v."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Now look from the basketball's point of view. The tennis ball is coming at it at 2v — its own v plus the basketball's v. A perfectly bouncy collision with something much heavier sends it straight back at that same 2v."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Back in the playground, add on the basketball's own upward v. The tennis ball leaves at 3v."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Height goes with speed SQUARED. Three times the speed is nine times the height: nine metres from a one-metre drop."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WITH REAL BALLS. A basketball (about 600 g) is only about ten times heavier than a tennis ball (58 g), so it does not quite act like a wall. The exact factor is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    ((3M - m) / (M + m))^2  =  (1.742 / 0.658)^2  =  7.0"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "so about seven metres. That is the number, with perfectly bouncy balls."
+     ]
+    },
+    {
+     "h": "THE TWO TEMPTING WRONG ANSWERS.",
+     "t": "pre",
+     "lines": [
+      "  \"One metre at most — bounces cannot make energy.\" The TOTAL energy is the same before and after, exactly. But the basketball gives most of its share away: it only climbs back to about 42 cm. The energy the basketball lost is what flings the tennis ball.",
+      "  \"Two metres — the speeds add.\" The speeds do add (2v in the basketball's frame, 3v in yours), but height goes with speed squared, not speed."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTIONS DOING THE WORK, which an interviewer will want you to name:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "Perfectly bouncy balls. Real ones lose energy at every contact, so a real try in a playground gets a few metres rather than seven. Still far over your head.",
+      "A hair's gap between the balls, so the basketball finishes bouncing off the ground before it meets the tennis ball. Pressed tightly together, the two contacts overlap and you generally get less.",
+      "The balls stay lined up vertically. In practice the tennis ball usually shoots off at an angle, so stand back."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same trick, at planetary scale, is the gravity assist: a probe swinging round Jupiter leaves with up to twice Jupiter's speed added, for exactly the reason the tennis ball does."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "nine_stools_and_the_cup_final",
    "title": "Nine stools and the cup final",
@@ -42342,5 +42441,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "win_the_fifth_and_keep_going"
+ "featured": "last_to_get_the_cake_pays"
 };
