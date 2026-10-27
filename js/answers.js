@@ -16,8 +16,48 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 622,
+ "count": 623,
  "entries": [
+  {
+   "slug": "grans_clock_patience_for_ten_pounds",
+   "title": "Gran's clock patience for ten pounds",
+   "ts": "2026-10-27T17:48:23+00:00",
+   "date": "27 Oct 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "ONE IN THIRTEEN, about 7.7%. Gran's clock comes out one night in thirteen, so her ten-pound bet is a gift: you win it twelve nights in thirteen.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Two facts. First, the game always stops on the fourth king. The middle pile is the only one that can run dry early, because Gran started there without tucking a card under it. Second, every card she turns is a fair pick from the cards she has not seen yet: the shuffle hid them all alike. So the ORDER she turns them in is just a shuffled deck. She wins exactly when the fourth king is the very last card of the fifty-two, and the last card of a shuffled deck is a king 4 in 52 times: one in thirteen."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"One in a million: all fifty-two cards have to fall just right.\" No: thousands of different deals come out, and they are one deal in thirteen. \"About half: it either comes out or it doesn't.\" Two outcomes are not two equal chances."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. A properly shuffled deck. Gran makes no choices, so her skill changes nothing."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. A process that looks like it follows a path through the cards is, card by card, still a fresh draw from a shuffled deck. Spot that, and a messy game becomes one line: where does the last king sit?"
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_pound_a_roll_for_the_giant_panda",
    "title": "A pound a roll for the giant panda",
