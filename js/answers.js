@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_tennis_ball_on_a_basketball",
    "title": "A tennis ball on a basketball",
-   "ts": "2026-10-27T12:38:59+00:00",
+   "ts": "2026-10-27T12:41:40+00:00",
    "date": "27 Oct 2026",
    "topic": "mechanics",
    "q": null,
