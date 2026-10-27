@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 626,
+ "count": 627,
  "entries": [
+  {
+   "slug": "gran_bets_the_numbers_never_touch",
+   "title": "Gran bets the numbers never touch",
+   "ts": "2026-10-27T19:55:27+00:00",
+   "date": "27 Oct 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "ABOUT 43%, close to three in seven (305243 of 715198, 42.68%). Gran's tenner is far from safe: she loses it about three draws in every seven.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Count the draws where NOTHING touches. Line the six balls up from smallest to biggest. If no two are next door, each of the five gaps between them holds at least one unused number. Take one number out of each gap and you are left with any six numbers from 1 to 54, and every such choice puts the gaps back exactly one way. So the no-touch draws are C(54,6) = 25,827,165 out of C(59,6) = 45,057,474. That's 57.3% with no neighbours, so 42.7% have a next-door pair."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "QUICK CHECK. Six balls make 15 pairs, and each pair is next door with chance 2 in 59. That's 0.51 next-door pairs per draw on average, so a pair turning up in about four draws in ten is no surprise."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"Hardly ever: 59 numbers, only six balls.\" Six balls make 15 pairs, and every pair gets its own shot. \"About one in six: a ball has two next-door numbers and five other balls could land there.\" That is the chance for ONE ball; there are six of them. (With the old 49-ball draw it was about 50%.)"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. Every set of six numbers is just as likely."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. \"No two touch\" counts give way to a squeeze: take out the gaps that are forced and it becomes plain choosing. And small chances pile up fast when there are many pairs."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "rock_paper_scissors_for_the_bill",
    "title": "Rock, paper, scissors for the bill",
