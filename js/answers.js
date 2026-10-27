@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 608,
+ "count": 609,
  "entries": [
+  {
+   "slug": "last_to_get_the_cake_pays",
+   "title": "The last to get the cake pays",
+   "ts": "2026-10-27T10:08:30+00:00",
+   "date": "27 Oct 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "NO DIFFERENCE. Every one of the nine seats is equally likely to be the last to get the cake: one in nine each, about 11%. Right next to the birthday girl, across the table, anywhere — one in nine.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Pick any seat and call it yours. Before the cake can reach you, it has to reach one of your two neighbours — and sooner or later it does. From that moment, for you to be last, the cake has to travel all the way round the long way to your OTHER neighbour without once stepping onto you. It is one step from you and eight steps from that other neighbour. A fair back-and-forth walk with one step on one side and eight on the other gets to the far end first one time in nine. That race is the same race whichever seat you picked, so every seat gets the same one in nine."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"Across the table, it is furthest away\" — it does tend to get the cake LATE, but being last needs everyone else to have had it first, and that is a different thing. \"Next to her, half the time you get it on the very first pass\" — true, but the other half of the time the cake heads the other way, and then the seat next to her becomes the hardest seat on the table to reach, needing the long way round."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW LONG IT TAKES. On average the cake makes 45 passes before the last friend gets it (ten times nine, halved)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. The coin is fair. With a coin that says heads 60% of the time, the seats stop being equal: the seat next to her on the heads side pays only about 1% of the time, and the seat next to her on the tails side pays about 34% of the time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Symmetry beats calculation. The tempting route is to simulate distances round the table; the clean route is to notice that every seat faces the same one-against-eight race."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "fifty_pounds_and_a_roulette_wheel",
    "title": "Fifty pounds and a roulette wheel",
