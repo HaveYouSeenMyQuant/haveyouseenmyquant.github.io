@@ -16,12 +16,66 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 610,
+ "count": 611,
  "entries": [
+  {
+   "slug": "nine_stools_and_the_cup_final",
+   "title": "Nine stools and the cup final",
+   "ts": "2026-10-27T11:44:14+00:00",
+   "date": "27 Oct 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "LESS THAN ONE IN FOUR. You get a stool 638 times in 2,835 — about 22.5%. So more than three times in four, you watch the final standing up.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY FIVE IS SO HARD. Five people fit on nine stools in only one way: on stools 1, 3, 5, 7 and 9. If anybody, at any point, sits on stool 2, 4, 6 or 8, they block the stools on both sides and waste room, and then at most four can ever sit down. So the question is the chance that nobody, all evening, picks one of those four stools."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "BUILD IT UP FROM SHORT ROWS. When someone sits down, the stools left over split into two shorter rows that never affect each other again. Three free stools in a row: the only bad pick is the middle one, so it works out 2 times in 3. Five free stools: 7 times in 15. Seven: 34 in 105. Nine: 638 in 2,835. Each answer is built from the shorter rows before it, and every extra pair of stools cuts the chance again."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"Certain — five fit, one on every other stool.\" Five CAN fit, but only if every single person happens to leave exactly one empty stool, and nobody is planning. \"About a half — either there is a stool or there is not.\" Every arrival is another chance for someone to land on the wrong stool, and those chances stack up."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW FULL THE BAR GETS. On average about 4.2 people get a stool. Usually it is four. And one time in 27 only three sit down — on stools 2, 5 and 8 — and even the fourth person stands. On a very long bar, people end up filling about 43% of the stools, not the 50% you get by planning."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. Every allowed stool is equally likely to be picked. Real people like the end stools, and that helps you: someone on an end stool leaves a clean row of seven behind them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. It is the \"unfriendly seating\" problem. The trick is to see that one person sitting down splits the row into two smaller rows that never touch again, so you solve the small rows first and build up."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "your_ex_is_in_the_draw",
    "title": "Your ex is in the draw",
-   "ts": "2026-10-27T10:48:30+00:00",
+   "ts": "2026-10-27T10:50:28+00:00",
    "date": "27 Oct 2026",
    "topic": "probability",
    "q": null,
