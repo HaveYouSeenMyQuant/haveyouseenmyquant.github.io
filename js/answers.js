@@ -16,8 +16,77 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 614,
+ "count": 615,
  "entries": [
+  {
+   "slug": "a_lantern_where_the_lights_cross",
+   "title": "A lantern where the lights cross",
+   "ts": "2026-10-27T13:54:41+00:00",
+   "date": "27 Oct 2026",
+   "topic": "geometry",
+   "q": null,
+   "a": "Two metres. Whatever the gap.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Call the crossing a fraction p of the way across, starting from the tall pole."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The string from the SHORT pole's top runs down to the tall pole's foot. So it starts at 0 at the tall pole and rises steadily to 3 m at the short pole: at the crossing it is 3p high."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The string from the TALL pole's top runs down to the short pole's foot. It starts at 6 m and falls steadily to 0: at the crossing it is 6(1 - p) high."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Same point, same height: 3p = 6 - 6p, so p = 2/3 and the height is 3 x 2/3 = 2 m."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The gap never appeared. Make it one metre or a kilometre: the crossing is always two thirds of the way across and always 2 m up, a third of the tall pole and two thirds of the short one. Stretching the gap stretches both strings by the same factor, and that only slides the crossing sideways."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The tidy rule: 1/h = 1/6 + 1/3. It is exactly the rule for two resistors side by side — a 6 ohm and a 3 ohm in parallel make 2 ohms."
+     ]
+    },
+    {
+     "h": "THE TWO TEMPTING WRONG ANSWERS.",
+     "t": "pre",
+     "lines": [
+      "  \"It cannot be done — you never said how far apart they are.\" The gap is the one number everybody reaches for, and it cancels.",
+      "  \"In the middle, at half the average height: 2.25 m.\" With two equal poles that picture is right. Here it is wrong twice: the crossing is two thirds of the way across, nearer the short pole, and it sits lower than 2.25 m."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTIONS: the strings are pulled dead straight, the poles stand upright on level ground, and both strings hang in the same upright plane (otherwise they pass each other instead of crossing). Real strings of lights sag a little, and a sag on either string only ever pulls the crossing lower."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_kilometre_behind_the_space_station",
    "title": "A kilometre behind the space station",
