@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "nine_stools_and_the_cup_final",
    "title": "Nine stools and the cup final",
-   "ts": "2026-10-27T11:44:14+00:00",
+   "ts": "2026-10-27T11:45:50+00:00",
    "date": "27 Oct 2026",
    "topic": "probability",
    "q": null,
