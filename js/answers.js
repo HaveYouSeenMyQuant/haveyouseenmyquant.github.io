@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_pound_a_point_at_the_dartboard",
    "title": "A pound a point at the dartboard",
-   "ts": "2026-10-27T14:42:37+00:00",
+   "ts": "2026-10-27T14:44:36+00:00",
    "date": "27 Oct 2026",
    "topic": "expected_value",
    "q": null,
