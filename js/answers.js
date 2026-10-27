@@ -16,8 +16,79 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 612,
+ "count": 613,
  "entries": [
+  {
+   "slug": "head_to_toe_in_the_mirror",
+   "title": "Head to toe in the mirror",
+   "ts": "2026-10-27T13:07:57+00:00",
+   "date": "27 Oct 2026",
+   "topic": "optics",
+   "q": null,
+   "a": "The 90 cm one. Exactly half your height, and it works wherever you stand.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Your reflection stands as far behind the glass as you stand in front of it. To see your own feet, you look at your reflection's feet. The glass sits exactly halfway along that line of sight, so the line crosses it halfway between your eye and the floor."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The same goes for the top of your head: the line to your reflection's crown crosses the glass halfway between your eye and your crown."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "So the mirror only has to reach from halfway-down-to-your-feet to halfway-up-to-your-crown: half of (eye to floor) plus half of (crown to eye), which is half your height. For someone 1.8 m tall, 90 cm, hung with its bottom edge 84 cm off the floor (half of an eye height of 1.68 m)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Put the other way round: a mirror shows you twice its own height of yourself."
+     ]
+    },
+    {
+     "h": "THE TWO TEMPTING WRONG ANSWERS.",
+     "t": "pre",
+     "lines": [
+      "  \"The 1.8 m one, as tall as you.\" That pays for twice the glass you need.",
+      "  \"The 30 cm one, if I step far enough back.\" Stepping back makes your reflection look smaller, but the mirror looks smaller by exactly the same amount, so you see exactly the same strip of yourself. Try it with a bathroom mirror: walking backwards does not show you more of your legs. A 60 cm mirror shows 1.2 metres of you, however far back you stand."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Both mistakes forget the same thing: your reflection is as far behind the glass as you are in front, so the glass always sits at the halfway point."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTIONS DOING THE WORK, which an interviewer will want you to name:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "list",
+     "lines": [
+      "The mirror is flat and hangs vertically, and you stand up straight. Tilt it and the sums change, which is why shop mirrors lean.",
+      "It is hung at the right height. A 90 cm mirror hung too low cuts off your head; the size is the smallest that CAN work.",
+      "Your eye is treated as being in the same vertical plane as your toes and the top of your head. Real toes stick out a few centimetres, which makes almost no difference."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_tennis_ball_on_a_basketball",
    "title": "A tennis ball on a basketball",
