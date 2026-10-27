@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_lantern_where_the_lights_cross",
    "title": "A lantern where the lights cross",
-   "ts": "2026-10-27T13:54:41+00:00",
+   "ts": "2026-10-27T13:56:27+00:00",
    "date": "27 Oct 2026",
    "topic": "geometry",
    "q": null,
