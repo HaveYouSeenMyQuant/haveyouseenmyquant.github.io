@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "twenty_pounds_on_the_packed_restaurant",
    "title": "Twenty pounds on the packed restaurant",
-   "ts": "2026-10-27T18:27:55+00:00",
+   "ts": "2026-10-27T18:29:34+00:00",
    "date": "27 Oct 2026",
    "topic": "game_theory",
    "q": null,
