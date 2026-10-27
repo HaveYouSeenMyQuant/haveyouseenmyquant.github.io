@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "where_to_park_the_ice_cream_van",
    "title": "Where to park the ice-cream van",
-   "ts": "2026-10-27T16:13:43+00:00",
+   "ts": "2026-10-27T16:15:40+00:00",
    "date": "27 Oct 2026",
    "topic": "game_theory",
    "q": null,
