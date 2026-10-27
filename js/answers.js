@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 627,
+ "count": 628,
  "entries": [
+  {
+   "slug": "kelly_the_idea_behind",
+   "title": "This is the idea behind the Kelly criterion",
+   "ts": "2026-10-27T20:34:28+00:00",
+   "date": "27 Oct 2026",
+   "topic": "expected_value",
+   "q": null,
+   "a": "BET TWO FIFTHS of your money each flip: f* = 0.7 - 0.3 = 0.4.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE IDEA (the Kelly criterion). Bet a fixed share f of whatever you have. Your money multiplies by (1 + f) on a win and (1 - f) on a loss, so what matters over many flips is the typical growth per flip, g(f) = p ln(1 + f) + q ln(1 - f). It peaks where p/(1 + f) = q/(1 - f), which gives f* = p - q at even money, and f* = p - q/b when a win pays b for every pound bet."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "In the video: heads 60%, even money, so f* = 0.6 - 0.4 = 0.2. Over 300 flips with exactly 180 heads (the median), 10% ends at £9,116 and 20% at £42,017, while all in is wiped out at the first tails. Past 0.39 of your money per flip the growth turns negative: this winning coin makes you poorer over time."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For the question: heads 70%, even money: 0.7 - 0.3 = 0.4. The curve now peaks at 0.4 and only turns negative near 0.7."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. You know the true chance exactly, you can bet any share, and you play many flips. Misjudge the chance and the best share moves; over-betting costs far more than under-betting, which is why many people bet half the Kelly share."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Not financial advice: this is arithmetic about a coin."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "gran_bets_the_numbers_never_touch",
    "title": "Gran bets the numbers never touch",
