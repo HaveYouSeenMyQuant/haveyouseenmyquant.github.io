@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "last_to_get_the_cake_pays",
    "title": "The last to get the cake pays",
-   "ts": "2026-10-27T10:08:30+00:00",
+   "ts": "2026-10-27T10:10:47+00:00",
    "date": "27 Oct 2026",
    "topic": "probability",
    "q": null,
