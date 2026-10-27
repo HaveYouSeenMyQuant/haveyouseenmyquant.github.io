@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 624,
+ "count": 625,
  "entries": [
+  {
+   "slug": "mum_or_dad_first_for_twenty_pounds",
+   "title": "Mum or Dad first for twenty pounds",
+   "ts": "2026-10-27T19:01:21+00:00",
+   "date": "27 Oct 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "MUM FIRST: Mum, Dad, Mum. You win Grandad's twenty pounds 36 times in 125, about 29%. Dad, Mum, Dad pays only 24 in 125, about 19%. Facing the champion twice is half as likely again to win the bet.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Two wins in a row out of three means games one and two, or games two and three. Either way you MUST win game two: it is the only game in both pairs. So picking the order is really picking who you play in game two, and you want the easy one there."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Mum, Dad, Mum: beat Dad in game two (4 in 5), and beat Mum at least once in two tries (1 - 4/5 x 4/5 = 9 in 25). 4/5 x 9/25 = 36/125. Dad, Mum, Dad: beat Mum in game two (1 in 5), and Dad at least once in two tries (24 in 25). 1/5 x 24/25 = 24/125."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"Dad, Mum, Dad: two easy games beat two hard ones.\" The second easy game is only a spare, and the price is putting Mum in the one game you cannot lose. \"It makes no difference: you play the same people.\" The game in the middle counts more than either end."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. Every game is its own toss at those odds: no tiredness, no nerves. Then it holds for ANY two players: as long as one is easier to beat, play the harder one twice."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Count the ways to win, then find the step that every one of them passes through. That step is where your best odds belong."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "twenty_pounds_on_the_packed_restaurant",
    "title": "Twenty pounds on the packed restaurant",
