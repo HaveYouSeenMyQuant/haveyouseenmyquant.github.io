@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 619,
+ "count": 620,
  "entries": [
+  {
+   "slug": "where_to_park_the_ice_cream_van",
+   "title": "Where to park the ice-cream van",
+   "ts": "2026-10-27T16:13:43+00:00",
+   "date": "27 Oct 2026",
+   "topic": "game_theory",
+   "q": null,
+   "a": "RIGHT BESIDE HIM, on the side with more beach. Park a few steps past his van, towards the far end, and everyone from your van to the far end walks to you: 75 cones out of a hundred, 225 pounds, against 150 at his mirror image.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. You only ever win the sunbathers on your side of the halfway point. At 750 metres the halfway point is at 500, so you win half the beach. Every step you drive towards him drags the halfway point towards him too, and hands you more of his customers. Drive all the way up to his van and the halfway point is his van: everything from there to the far end, three quarters of the beach, is yours. On his short side you would get only 25 cones."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"750 metres, his mirror image, half each.\" Fair, but you are giving away 25 cones. \"The middle, 500 metres.\" Better, 62 or 63 cones, but every metre between you and him is still being split."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWIST. He can do the same to you. He hops past you, then you hop past him, and the hopping only stops when both vans are parked side by side in the middle of the beach, fifty each again. Same split as the mirror spots, but now the sunbathers at the ends walk the whole way: the average walk to a van goes from about 125 metres to about 250 metres, twice as far, and nobody sells a single extra cone."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. Everyone buys exactly one cone whatever the walk, and always from the nearer van. If people far away give up and buy nothing, standing beside him stops paying so well."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. It is the simplest \"best reply\" question in game theory (Hotelling's beach), and the reason petrol stations, phone shops and two political parties keep ending up right next to each other."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_tenner_on_your_secret_card",
    "title": "A tenner on your secret card",
