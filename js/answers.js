@@ -16,12 +16,59 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 618,
+ "count": 619,
  "entries": [
+  {
+   "slug": "a_tenner_on_your_secret_card",
+   "title": "A tenner on your secret card",
+   "ts": "2026-10-27T15:43:11+00:00",
+   "date": "27 Oct 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "DO NOT TAKE THE BET. His last card is your secret card about 85 times in 100: more than five times in six. Even counting only the times you started on a different card from him, it is about 84 times in 100.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Your jumps and his are on the SAME line of cards. The moment you both land on the same card, even once, you are stuck to each other for good: from that card on, the card tells you both exactly how far to jump, so you make the same jumps and finish on the same last card. He does not need to know where you started. He only needs to cross your trail once."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "AND CROSSING IS EASY. The average jump is just over five cards (picture cards counting five keep the jumps short), so each of you lands on about ten cards. Every one of his landings is another chance to hit one of yours, and about three times in five your two trails have already met before the halfway point of the line."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"About one in ten, because he cannot know which of the first ten you chose.\" That would be right if your trail and his were drawn on two different shuffles: then he finds your card only about one time in seven. \"About one in 52, it is a random card.\" Your last card is nowhere near random once his trail is on the same line as yours."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. The deck is fairly shuffled and you both count every jump exactly: aces one, picture cards five. One miscount and the trails can split. Make picture cards count ten and the jumps get longer, there are fewer landings to meet on, and he wins only about seven times in ten."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. Two random processes that share the same randomness stop depending on where they started the moment they meet. That one idea (called coupling) is how people prove a card shuffle is thorough enough, and why a long-running random process forgets its starting point. This trick is known as the Kruskal count."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "how_many_croissants_to_bake",
    "title": "How many croissants to bake",
-   "ts": "2026-10-27T15:12:31+00:00",
+   "ts": "2026-10-27T15:15:13+00:00",
    "date": "27 Oct 2026",
    "topic": "optimization",
    "q": null,
