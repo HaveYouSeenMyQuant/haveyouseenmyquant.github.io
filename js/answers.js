@@ -16,8 +16,69 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 607,
+ "count": 608,
  "entries": [
+  {
+   "slug": "fifty_pounds_and_a_roulette_wheel",
+   "title": "Fifty pounds and a roulette wheel",
+   "ts": "2026-10-27T09:37:56+00:00",
+   "date": "27 Oct 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "PLAN TWO, BY A MILE. All fifty on one spin gets you home 48.6% of the time — nearly one in two. A pound at a time gets you home 6.3% of the time — about one in sixteen. The bold plan is nearly eight times as likely to work.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "PLAN TWO is one spin, so its chance is just the chance of red: 18 slots out of 37, which is 48.6%."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "PLAN ONE is a walk. Each spin moves you a pound up (chance 18/37) or a pound down (chance 19/37), and it stops at £0 or £100. The chance of reaching £100 from £50 is"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    1 / (1 + (19/18)^50)  =  6.3%"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY THE SMALL BETS LOSE. On average the casino keeps 1/37 of every pound that crosses the table — about 2.7p a pound. That cut does not care how you split your money; it charges on everything you stake. Plan two stakes £50 once and loses £1.35 on average. Plan one, pound by pound, lasts about 1,618 spins on average, so it pushes about £1,618 across the table and loses £43.72 of your £50 on average. Small bets give the casino's small edge over a thousand chances to work."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"Small bets are safer\" is true if you want to play for a long time — and that is exactly the problem. \"It makes no difference\" is true on a FAIR wheel: with no green slot, every plan gives exactly one half. The single green slot does all of this."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. The game is against you. If it were tilted your way, the order would flip and small bets would be the right call. In between, £10 bets get you home about 43% of the time — the bigger the bet, the better, all the way up to all-in. On an American wheel, with two green slots, plan one falls to about half of one percent."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. When the average is against you and you need a specific outcome, spreading out is not caution — it is how the average gets you. The fewer rounds you play a losing game, the better your chance of walking away a winner."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "one_foot_of_slack_on_a_football_field",
    "title": "One foot of slack on a football field",
@@ -42126,5 +42187,5 @@ window.QQ_ANSWERS = {
    }
   }
  ],
- "featured": "a_million_of_them_is_no_better"
+ "featured": "win_the_fifth_and_keep_going"
 };
