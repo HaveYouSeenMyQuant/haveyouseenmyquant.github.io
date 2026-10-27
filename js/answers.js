@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 625,
+ "count": 626,
  "entries": [
+  {
+   "slug": "rock_paper_scissors_for_the_bill",
+   "title": "Rock, paper, scissors for the bill",
+   "ts": "2026-10-27T19:28:23+00:00",
+   "date": "27 Oct 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "ABOUT ONE IN NINETEEN, roughly 5% (3066 of 59049 throws, 5.19%). Sam's ten-pound bet is a gift: you win it about eighteen times in nineteen.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. A throw only knocks someone out when EXACTLY two shapes show. So count the throws with one shape missing. With no paper at all, each of the ten picks rock or scissors: 2 x 2 x ... = 1024 throws. Take away the 2 where everyone matches: 1022. The missing shape could be any of the three: 3 x 1022 = 3066 decisive throws, out of 3^10 = 59049 equally likely ones."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "The trap is that ten hands almost never leave a shape out: all three shapes show up in about 95% of throws. On average you wait 19.3 throws for the first knockout."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"Nearly certain: ten hands, somebody has to lose.\" Backwards: every extra hand makes it likelier that all three shapes show, and that is a draw. \"Two in three, the same as when two people play.\" True for two players (and three), then it collapses: about 37% for five, 5% for ten."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. Every hand picks its shape at random, on its own."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. When the event you want is messy, count the complement. And check your gut against the size of the group: what helps with two players can wreck you with ten."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "mum_or_dad_first_for_twenty_pounds",
    "title": "Mum or Dad first for twenty pounds",
