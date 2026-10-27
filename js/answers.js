@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_kilometre_behind_the_space_station",
    "title": "A kilometre behind the space station",
-   "ts": "2026-10-27T13:32:38+00:00",
+   "ts": "2026-10-27T13:34:27+00:00",
    "date": "27 Oct 2026",
    "topic": "mechanics",
    "q": null,
