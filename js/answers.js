@@ -16,8 +16,77 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 615,
+ "count": 616,
  "entries": [
+  {
+   "slug": "a_thousand_homes_and_a_storm",
+   "title": "A thousand homes and a storm",
+   "ts": "2026-10-27T14:15:57+00:00",
+   "date": "27 Oct 2026",
+   "topic": "fluids",
+   "q": null,
+   "a": "Eight thousand homes. Eight times as many, not two.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. The turbine's power is the energy the wind brings to its blades every second. Two separate things decide that, and twice the wind doubles them both."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW MUCH AIR ARRIVES. Every second, a slab of air as wide as the blades and as deep as the distance the wind travels in that second passes through them. At 10 m/s that slab is twice as deep as at 5 m/s: twice the air every second."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "HOW MUCH ENERGY EACH KILOGRAM CARRIES. The energy of moving air is half its mass times its speed squared. Twice the speed, four times the energy in every kilogram."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Together: 2 x 4 = 8. A turbine's power goes with the CUBE of the wind speed, so a thousand homes becomes eight thousand."
+     ]
+    },
+    {
+     "h": "THE TWO TEMPTING WRONG ANSWERS.",
+     "t": "pre",
+     "lines": [
+      "  \"2,000 — twice the wind, twice the power.\" That counts the extra air arriving and forgets that each kilogram is carrying more.",
+      "  \"4,000 — energy goes with speed squared.\" That counts the energy per kilogram and forgets that more kilograms arrive."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "They look like opposite answers and they are the same mistake: each one sees only one of the two doublings."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE NUMBERS. Blades 60 m long sweep about 11,300 square metres. An average UK home uses about 2,700 kWh a year, which is about 300 W round the clock, so a thousand homes is about 300 kW. Eight times that is about 2.5 MW."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTIONS: the turbine catches the same share of the wind's energy at both speeds, and 10 m/s is still below the speed where it hits its maximum output — about 11 m/s for a 3.6 MW turbine of this size. Above that, a real turbine turns its blades to spill the extra, and in a gale it shuts down to protect itself. The same cube is why engineers fuss over a few percent of wind: a site with 10% more wind makes about a third more electricity."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "a_lantern_where_the_lights_cross",
    "title": "A lantern where the lights cross",
