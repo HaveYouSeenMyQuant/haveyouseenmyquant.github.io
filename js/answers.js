@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "mum_or_dad_first_for_twenty_pounds",
    "title": "Mum or Dad first for twenty pounds",
-   "ts": "2026-10-27T19:01:21+00:00",
+   "ts": "2026-10-27T19:03:54+00:00",
    "date": "27 Oct 2026",
    "topic": "probability",
    "q": null,
