@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "gran_bets_the_numbers_never_touch",
    "title": "Gran bets the numbers never touch",
-   "ts": "2026-10-27T19:55:27+00:00",
+   "ts": "2026-10-27T19:57:17+00:00",
    "date": "27 Oct 2026",
    "topic": "probability",
    "q": null,
