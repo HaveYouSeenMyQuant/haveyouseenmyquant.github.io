@@ -16,12 +16,84 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 613,
+ "count": 614,
  "entries": [
+  {
+   "slug": "a_kilometre_behind_the_space_station",
+   "title": "A kilometre behind the space station",
+   "ts": "2026-10-27T13:32:38+00:00",
+   "date": "27 Oct 2026",
+   "topic": "mechanics",
+   "q": null,
+   "a": "Slow down. A tiny nudge BACKWARDS — about 6 centimetres a second — and one lap later, about 92 minutes on, the station arrives right beside you.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Speed up by the same amount instead and, one lap later, you are not closer at all. You are two kilometres behind."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Up there, the speed you are going sets the size of the circle you go round. A nudge forward does not move you along your old circle faster: it swings the far side of your path OUT, onto a slightly bigger loop. A bigger loop is longer, and the further out you are the slower you go. So each lap now takes longer than the station's, and you fall back."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A nudge backward does the opposite. The far side of your path drops IN, onto a slightly smaller loop, which is shorter and quicker. You go round underneath the station and gain on it. Pick the nudge so that you gain exactly one kilometre in one lap, and you come back to the point where you braked at the very moment the station gets there."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "For a 1 km gap, 400 km up:"
+     ]
+    },
+    {
+     "h": null,
+     "t": "pre",
+     "lines": [
+      "    lap of the station            92.4 minutes",
+      "    lap after the nudge           shorter by 1000 m / 7,670 m/s = 0.13 s",
+      "    nudge (Kepler + vis-viva)     about 6.0 cm/s backwards",
+      "    the same nudge forwards       2 km behind after one lap"
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "Then one more 6 cm/s nudge forward on arrival puts you back on the station's own circle, beside it."
+     ]
+    },
+    {
+     "h": "THE TWO TEMPTING WRONG ANSWERS.",
+     "t": "pre",
+     "lines": [
+      "  \"Speed up — it is in front of you.\" That is how a road works. In orbit it is backwards, and a real crew found out: in 1965 Gemini 4 tried to fly up to the spent top stage of its own rocket by pointing at it and thrusting, and it kept drifting away until they gave up.",
+      "  \"Speed up, but only gently, and creep up on it.\" The same mistake, made carefully. The gentlest forward nudge still puts you on a bigger, slower loop."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK: the nudge is tiny. With a big shove — ten metres a second — a 1 km trip takes under two minutes, gravity barely has time to bend anything, and you simply fly there like you would on the ground (passing a hundred metres or so above it). The upside-down rule takes over when the trip lasts a good part of a lap, which is how real dockings are flown, because fuel is precious. Real approaches also nudge sideways and up and down, but the forwards/backwards part works exactly like this."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "head_to_toe_in_the_mirror",
    "title": "Head to toe in the mirror",
-   "ts": "2026-10-27T13:07:57+00:00",
+   "ts": "2026-10-27T13:11:28+00:00",
    "date": "27 Oct 2026",
    "topic": "optics",
    "q": null,
