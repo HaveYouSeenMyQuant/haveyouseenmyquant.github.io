@@ -16,8 +16,62 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 609,
+ "count": 610,
  "entries": [
+  {
+   "slug": "your_ex_is_in_the_draw",
+   "title": "Your ex is in the draw",
+   "ts": "2026-10-27T10:48:30+00:00",
+   "date": "27 Oct 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "TAKE THE BET. The chance you and your ex play each other is exactly 1 in 8 — 12.5%. On average the bet wins you £3.75 every time you make it.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY 1 IN 8: COUNT THE MATCHES, NOT THE ROUNDS. Every match sends exactly one player home, and 15 of the 16 players have to go home before there is a champion. So there are always exactly 15 matches, whatever happens. Now count the possible pairs of players: 16 × 15 ÷ 2 = 120. Everyone is equally good and the draw is random, so no pair is more likely than any other to be one of those matches. Your pair gets 15 chances in 120, which is 1 in 8."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE MONEY. One time in eight he pays you £100; seven times in eight you pay him £10. On average that is 12.50 − 8.75 = +£3.75 a bet. The bet breaks even at a chance of 1 in 11, and 1 in 8 beats it."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"1 in 15 — you only meet if the draw puts you together.\" That counts round one and forgets the rest; at 1 in 15 the bet really would lose you £2.67 a time. \"Four rounds, four chances of 1 in 15, so about 1 in 4.\" That forgets that after round one you BOTH have to keep winning, and every win is a coin flip. The truth sits between them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "A STRANGER FACT. Round one on its own (8 chances in 120) is more likely than all three later rounds put together (7 in 120)."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. Everyone is equally good. If you and your ex both beat everyone else every time, you are certain to meet; if you both lose to everyone, it falls back to 1 in 15. It does NOT matter whether the board is fixed at the start or the winners are re-drawn every round: still 1 in 8."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. The round-by-round sum works, but counting matches gets there in one line. In any knockout of equal players with a full draw, the chance two named players meet is 2 divided by the number of players."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "last_to_get_the_cake_pays",
    "title": "The last to get the cake pays",
