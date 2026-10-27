@@ -16,8 +16,55 @@
  *                  verify() is what proves the number
  */
 window.QQ_ANSWERS = {
- "count": 620,
+ "count": 621,
  "entries": [
+  {
+   "slug": "two_umbrellas_and_a_twenty_pound_shirt",
+   "title": "Two umbrellas and a twenty-pound shirt",
+   "ts": "2026-10-27T16:57:38+00:00",
+   "date": "27 Oct 2026",
+   "topic": "probability",
+   "q": null,
+   "a": "ABOUT TEN. Roughly one walk in ten ends with you soaked: ten walks in every hundred, two hundred pounds of shirts. Owning two umbrellas does not mean one is with you.",
+   "why": [
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY. Count the umbrellas where you are standing as you set off: none, one or two. You only move an umbrella when it rains, so a dry walk carries you AWAY from your umbrellas and leaves them behind. Two dry walks in a row and both umbrellas can be sitting at the other end. Follow the rule for long enough and the shares settle: you set off with two there two in five times, with one there two in five times, and with none there one walk in five. Half of those walks it is raining, so one walk in ten soaks you."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE TWO WRONG ANSWERS. \"None, I own two umbrellas.\" Only if they follow you, and they only follow you when it rains. \"Hardly ever, one in a hundred.\" It takes just one dry walk to leave the last umbrella behind; it is not a rare double piece of bad luck."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "MORE UMBRELLAS HELP LESS THAN YOU THINK. With one umbrella it is one in six. A third umbrella gets it to one in fourteen. Ten umbrellas still leave you soaked about one walk in 42, because a long enough dry spell walks you away from all of them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "THE ASSUMPTION DOING THE WORK. Each walk is a fresh coin flip, and you never take an umbrella \"just in case\". Carry one on every walk and you are never soaked; the whole problem is the habit of only moving them when you need them."
+     ]
+    },
+    {
+     "h": null,
+     "t": "p",
+     "lines": [
+      "WHY AN INTERVIEWER ASKS. It is a small chain of states (here, how many umbrellas are where you are) whose long-run shares you can solve by hand. The same picture is how people size stock kept in two places: it drifts to wherever it was last used, not to where it will be needed next."
+     ]
+    }
+   ],
+   "src": "answer"
+  },
   {
    "slug": "where_to_park_the_ice_cream_van",
    "title": "Where to park the ice-cream van",
