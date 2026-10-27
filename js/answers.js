@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "kelly_the_idea_behind",
    "title": "This is the idea behind the Kelly criterion",
-   "ts": "2026-10-27T20:34:28+00:00",
+   "ts": "2026-10-27T20:36:28+00:00",
    "date": "27 Oct 2026",
    "topic": "expected_value",
    "q": null,
