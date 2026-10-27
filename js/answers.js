@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "rock_paper_scissors_for_the_bill",
    "title": "Rock, paper, scissors for the bill",
-   "ts": "2026-10-27T19:28:23+00:00",
+   "ts": "2026-10-27T19:29:59+00:00",
    "date": "27 Oct 2026",
    "topic": "probability",
    "q": null,
