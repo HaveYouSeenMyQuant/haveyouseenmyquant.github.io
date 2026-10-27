@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "two_umbrellas_and_a_twenty_pound_shirt",
    "title": "Two umbrellas and a twenty-pound shirt",
-   "ts": "2026-10-27T16:57:38+00:00",
+   "ts": "2026-10-27T16:59:29+00:00",
    "date": "27 Oct 2026",
    "topic": "probability",
    "q": null,
