@@ -21,7 +21,7 @@ window.QQ_ANSWERS = {
   {
    "slug": "a_tenner_on_your_secret_card",
    "title": "A tenner on your secret card",
-   "ts": "2026-10-27T15:43:11+00:00",
+   "ts": "2026-10-27T15:45:37+00:00",
    "date": "27 Oct 2026",
    "topic": "probability",
    "q": null,
